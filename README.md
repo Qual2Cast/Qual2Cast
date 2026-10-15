@@ -1,6 +1,7 @@
 # Qual2Cast
 
 **Forecasting private-company revenue growth from qualitative signals.**
+*Columbia University IEOR Industry Capstone, in partnership with Rational AI (Fall 2026).*
 
 Qual2Cast estimates the 3-year cumulative revenue growth of private companies by turning qualitative information (news, hiring activity, contracts, credit stress) into quantitative features that a forecasting model can use. Large language models extract the features, and the extraction is evaluated as a measurable system, not trusted as an oracle.
 
