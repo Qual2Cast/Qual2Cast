@@ -17,10 +17,14 @@ Qual2Cast tries to systematically identify which of these signals actually predi
 
 ## Approach
 
-```
-Qualitative sources ──► LLM feature extraction ──► Company profile ──► Growth model ──► 3-yr revenue growth
- (news, alt data,        (structured signals,       (numeric feature    (benchmarked vs.     + uncertainty
-  reviews, filings)       confidence, abstention)    vector)             public comps)
+```mermaid
+flowchart LR
+    A["<b>Qualitative sources</b><br/><i>news · alt data · reviews · filings</i>"]
+    B["<b>LLM feature extraction</b><br/><i>structured signals · confidence · abstention</i>"]
+    C["<b>Company profile</b><br/><i>numeric feature vector</i>"]
+    D["<b>Growth model</b><br/><i>benchmarked vs. public comps</i>"]
+    E["<b>3-yr revenue growth</b><br/><i>point estimate + uncertainty</i>"]
+    A --> B --> C --> D --> E
 ```
 
 1. **Signal collection.** Gather qualitative data on each company from news, alternative data, and consumer-facing sources.
