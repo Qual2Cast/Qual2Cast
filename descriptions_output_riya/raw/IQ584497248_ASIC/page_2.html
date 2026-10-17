@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ategrity - Products</title>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-X0HZZMGEHL"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-X0HZZMGEHL');</script>
+	<style>
+		:root {
+			--primary-color: #ffffff;
+			--secondary-color: #003366;
+			--highlight-color: #ADD8E6;
+			--light-bg: #F7F9FC;
+			--text-color: #333333;
+		}
+
+		body {
+			font-family: 'Arial', sans-serif;
+			margin: 0;
+			padding: 0;
+			color: var(--text-color);
+			background-color: var(--light-bg);
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+			overflow-x: hidden; /* Prevent horizontal scroll */
+		}
+
+		header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			background-color: var(--primary-color);
+			padding: 1rem;
+			position: sticky;
+			top: 0;
+			z-index: 1000;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		}
+
+			header img {
+				height: 50px;
+				cursor: pointer; /* Add cursor pointer for logo */
+			}
+
+		.mobile-menu {
+			display: none;
+			font-size: 1.8rem;
+			cursor: pointer;
+		}
+
+		nav {
+			display: flex;
+			gap: 1rem;
+		}
+
+			nav a {
+				color: var(--secondary-color);
+				text-decoration: none;
+				font-size: 1rem;
+				font-weight: bold;
+				transition: color 0.3s;
+			}
+
+				nav a:hover {
+					color: var(--highlight-color);
+				}
+
+		/* MOBILE MENU */
+		@media (max-width: 768px) {
+			.mobile-menu {
+				display: block;
+			}
+
+			nav {
+				display: none !important; /* Hide nav by default on mobile */
+				flex-direction: column;
+				width: 100%;
+				background: var(--primary-color);
+				position: absolute;
+				top: 68px; /* Set top to 68 */
+				left: 0;
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+				z-index: 999; /* Ensure nav is above other content */
+			}
+
+				nav.show {
+					display: flex !important; /* Show nav when toggled */
+				}
+
+				nav a {
+					padding: 1rem;
+					text-align: center;
+					width: 100%;
+					display: block;
+				}
+
+			footer nav {
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				display:contents !important;
+			}
+                footer nav a {
+
+                    margin: 0 !important; /* Add horizontal margin for spacing */
+                }
+		}
+
+		.text-box {
+			text-align: center;
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+			padding-left: 15px; /* Add left spacing */
+		}
+
+			.text-box h1 {
+				text-align: left;
+				padding-left: 25px;
+				font-size: 2rem;
+				color: var(--secondary-color);
+			}
+
+		.hero {
+			background: url('hero_image.jpg') no-repeat center center;
+			background-size: cover;
+			height: 60vh;
+			display: flex;
+			align-items: flex-end;
+			justify-content: center;
+			text-align: center;
+			color: white;
+			padding: 2rem;
+		}
+
+		.hero-content {
+			background: rgba(0, 0, 0, 0.7);
+			padding: 1.5rem;
+			border-radius: 8px;
+			width: 90%;
+			max-width: 800px;
+		}
+
+			.hero-content h1 {
+				font-size: 1.8rem;
+				text-transform: uppercase;
+			}
+
+			.hero-content p {
+				font-size: 1rem;
+				line-height: 1.5;
+				margin-bottom: 1rem;
+			}
+
+			.hero-content a {
+				display: inline-block;
+				padding: 0.8rem 1.5rem;
+				background: var(--secondary-color);
+				color: white;
+				text-decoration: none;
+				border-radius: 4px;
+				font-weight: bold;
+				transition: background 0.3s, transform 0.2s;
+			}
+
+				.hero-content a:hover {
+					background: var(--highlight-color);
+					color: var(--secondary-color);
+				}
+
+		.cityscape {
+			background: url('dynamic_cityscape.png') no-repeat center center;
+			background-size: cover;
+			height: 400px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+		}
+
+		.headline {
+			background: rgba(0, 0, 0, 0.7);
+			color: white;
+			padding: 1.5rem;
+			border-radius: 8px;
+			text-align: center;
+			max-width: 90%;
+		}
+
+		.product-tiles {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 1rem;
+			margin-top: 2rem;
+			margin-bottom: 2rem; /* Add bottom spacing */
+			padding-left: 10px; /* Add padding to avoid touching sides */
+			padding-right: 10px; /* Add padding to avoid touching sides */
+		}
+
+		.product-tile {
+			background: white;
+			border: 1px solid #DDD;
+			border-radius: 8px;
+			width: 250px;
+			padding-left: 10px; /* Add padding to avoid touching sides */
+			padding-right: 10px; /* Add padding to avoid touching sides */
+			text-align: center;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			transition: transform 0.3s;
+		}
+
+			.product-tile:hover {
+				transform: scale(1.05);
+			}
+
+			.product-tile h3 {
+				font-size: 1.2rem;
+				color: var(--secondary-color);
+			}
+
+			.product-tile p {
+				font-size: 0.9rem;
+				color: #555;
+			}
+
+			.product-tile a {
+				text-decoration: none;
+				color: inherit;
+				display: block;
+			}
+
+		footer {
+			text-align: center;
+			background-color: var(--secondary-color);
+			color: white;
+			padding: 1rem 0.5rem;
+			padding-top: 1.5rem; /* Add spacing above nav menu items */
+			box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+			width: 100%; /* Ensure footer is flush with bottom */
+			margin-top: auto; /* Push footer to the bottom */
+			box-sizing: border-box; /* Include padding in element's total width and height */
+			overflow: hidden; /* Prevent horizontal scroll caused by footer */
+		}
+
+			footer nav {
+				display: flex; /* Change from contents to flex */
+				justify-content: center;
+				gap: 1rem;
+				flex-wrap: wrap;
+			}
+
+				footer nav a {
+					color: white;
+					text-decoration: none;
+					margin: 0 10px; /* Add horizontal margin for spacing */
+				}
+
+					footer nav a:hover {
+						text-decoration: underline;
+					}
+	</style>
+	<script>
+		function toggleMenu() {
+			document.querySelector("nav").classList.toggle("show");
+		}
+
+		function navigateToHome() {
+			window.location.href = 'homepage.html';
+		}
+	</script>
+</head>
+<body>
+	<header>
+		<img src="Ategrity_logo.png" alt="Ategrity Logo" onclick="navigateToHome()"> <!-- Add onclick event to navigate to homepage -->
+		<div class="mobile-menu" onclick="toggleMenu()">☰</div>
+		<nav>
+			<a href="homepage.html">Home</a>
+			<a href="about_us.html">About Us</a>
+			<a href="how_to_access_us.html">How to Access Us</a>
+			<a href="products.html">Products</a>
+			<a href="leadership.html">Leadership</a>
+			<a href="innovation.html">Innovation</a>
+			<a href="news.html">News</a>
+			<a href="https://investors.ategrity.com">Investors</a>
+		</nav>
+	</header>
+	<div class="text-box">
+		<h1>Our Products</h1>
+	</div>
+	<section class="cityscape">
+		<div class="headline">
+			<h2>Consistent Appetite. Intelligent Underwriting. Fast & Reliable Quotes.</h2>
+		</div>
+	</section>
+	<div class="product-tiles">
+		<div class="product-tile">
+			<a>
+				<div class="hover-image" style="background-image: url('general_liability.png');"></div>
+				<div class="product-tile-content">
+					<h3>General Liability</h3>
+					<p>Curated coverage focusing on construction, real estate, hospitality, and retail.</p>
+				</div>
+			</a>
+		</div>
+
+		<div class="product-tile">
+			<a>
+				<div class="hover-image" style="background-image: url('property_insurance.png');"></div>
+				<div class="product-tile-content">
+					<h3>Commercial Property</h3>
+					<p>Protection for building, contents, and business income optimized for non-critical CAT risks.</p>
+				</div>
+			</a>
+		</div>
+		<div class="product-tile">
+			<a>
+				<div class="hover-image" style="background-image: url('management_liability.png');"></div>
+				<div class="product-tile-content">
+					<h3>Management Liability</h3>
+					<p>D&O, EPLI, Fiduciary & Crime coverage for private firms and non-profits.</p>
+				</div>
+			</a>
+		</div>
+		<div class="product-tile">
+			<a>
+				<div class="hover-image" style="background-image: url('professional_liability.png');"></div>
+				<div class="product-tile-content">
+					<h3>Miscellaneous PL</h3>
+					<p>Specialized E&O coverage for professionals across diverse fields and industries.</p>
+				</div>
+			</a>
+		</div>
+		<div class="product-tile">
+			<a>
+				<div class="hover-image" style="background-image: url('allied_healthcare.png');"></div>
+				<div class="product-tile-content">
+					<h3>Allied Healthcare</h3>
+					<p>Specialized coverage for risks faced by traditional and emerging health service providers.</p>
+				</div>
+			</a>
+		</div>
+		<div class="product-tile">
+			<a>
+				<div class="hover-image" style="background-image: url('architects_engineers.png');"></div>
+				<div class="product-tile-content">
+					<h3>Architects & Engineers</h3>
+					<p>E&O protection for technical and design professionals in construction and other industries.</p>
+				</div>
+			</a>
+		</div>
+	</div>
+
+	<footer>
+		<nav>
+			<a href="mailto:contactus@ategrity.com">Contact Us</a>
+			<a href="claims.html">File a Claim</a>
+			<a href="https://ategrity.esinsurancecloud.com/" target="_blank">Partner Login</a>
+			<a href="mailto:lossruns@ategrity.com">Loss Runs</a>
+			<a href="https://www.linkedin.com/company/ategrity-specialty-insurance-company/" target="_blank" class="linkedin-link" aria-label="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24" class="linkedin-icon">
+                    <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 
+                             2.76 2.24 5 5 5h14c2.76 0 5-2.24 
+                             5-5v-14c0-2.76-2.24-5-5-5zm-11 
+                             19h-3v-10h3v10zm-1.5-11.3c-.97 
+                             0-1.75-.79-1.75-1.75s.78-1.75 
+                             1.75-1.75 1.75.79 1.75 
+                             1.75-.78 1.75-1.75 1.75zm13.5 
+                             11.3h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 
+                             0-2.16 1.46-2.16 2.96v5.7h-3v-10h2.88v1.36h.04c.4-.76 
+                             1.38-1.55 2.84-1.55 3.04 
+                             0 3.6 2 3.6 4.59v5.6z"/>
+                </svg></a>
+		</nav>
+		<p>© 2025 Ategrity. All Rights Reserved.</p>
+	</footer>
+</body>
+</html>

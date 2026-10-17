@@ -1,0 +1,66 @@
+# Scraper v2 notes
+
+`p087_task3_descriptions/collect_descriptions_2.py` is a revised version of Yifan's `collect_descriptions.py`. It follows the same rule: each description comes **only from the company's own website**. On the full list of 560 companies, it produced usable descriptions for **489 (87%)**, with a median of about 870 words each.
+
+## What changed and why
+
+**Stronger anonymization.** The original removed only "(NYSE: ABC)"-style tickers, dollar amounts and headcounts; on 23 test sentences it caught 2. Version 2 caught all 23. It also removes:
+- Public-company signals: exchanges, IPOs, S&P 500, SEC filings, bare tickers.
+- Financial and size figures in any form: revenue, growth, market share, and counts of facilities, countries or customers.
+- Deal and ownership history.
+- Headquarters and founding dates.
+- The company's own name, which becomes `[COMPANY]`. A model that recognizes a company draws on what it already knows about it, which a private target won't have. Turn this off with `--keep-names`.
+
+**Text extraction fixes.** Each of these lost real business text:
+- Some pages came back completely empty because of a class-name matching bug.
+- Headlines and page-builder text were skipped.
+- Product sentences were mistaken for addresses ("4 Wheel Drive").
+- Industry sentences were filtered out ("careers" for staffing, "investors" for finance).
+- Pages without a declared encoding came out garbled.
+
+**Fallbacks.**
+- A headless browser (Playwright) retries sites that return little text, an error, or a bot check. It rescued 38 companies.
+- If a site won't connect, the script tries `www.` and `http://` versions.
+- Bot-check pages are detected and never saved as descriptions.
+- Interrupted runs resume where they stopped.
+
+**Audit trail.**
+- `dropped_sentences.csv` logs every removed sentence and the rule that removed it.
+- `leak_flags` lists possible leftover identifiers for review.
+- `dropped_share` records how much text each company lost.
+- Raw HTML is kept locally, not committed.
+
+**Result on Yifan's 38 companies:** 34 now scrape automatically, compared with his 26. 8 of his 12 hand-written ones are now automatic.
+
+## Limitations
+
+- **The filters are keyword rules, so they make mistakes both ways.**
+  - Too much removed: the "revenue" rule hits product language in software ("capture more revenue"). Utilities, transportation and education lose the most text, about 25–30% versus 17% on average.
+  - Too little removed: former names ("formerly known as…"), some name forms ("American Coastal"), and brand names, which are never masked.
+- **`leak_flags` is noisy.** About two-thirds of companies are flagged, mostly for harmless years. Legal names ("… Inc.") and "formerly" are the flags worth checking.
+- **Some "ok" descriptions include noise:** cookie banners, store messages, or a weak choice of extra page.
+
+## Missing descriptions (71) and plan
+
+| Reason | Count | Companies |
+|---|---|---|
+| Too little text | 35 | AAMI, APEI, BKH, CSL, CPRT, DHX, DHIL, DGII, LPG, EACO, FERG, HNRG, HRI, ITGR, IPI, KINS, LNN, MPX, NATH, OGS, OTCM, PXED, AIOT, PRG, KWR, RRR, RHLD, SLGN, SSD, SITC, TDS, INTG, MCS, TRN, TXNM |
+| Blocked by robots.txt | 27 | APTL, APG, BLBD, CARS, FIX, DORM, EMN, ECVT, EPAM, FTNT, RAIL, GETY, LOPE, HQY, HEI, KAI, LFVN, MIR, TAP, NPKI, PINS, PLNT, RVTY, BWIN, THR, TRU, WMK |
+| Refused / not found | 5 | BBWI, ETSY, GDRX, TRIP, FWON.K |
+| Connection error | 3 | CXDO, MVST, SDHC (website listed as "0" in the company list) |
+| Bot check | 1 | MSM |
+
+**Plan:**
+1. **Write these descriptions by hand** from each company's website, marked `method = manual` with source URLs. Follow the same rules: no financials, ownership or HQ details, and `[COMPANY]` in place of the name. Match the scraped descriptions in content (products, customers, markets), since short hand-written summaries cluster together by style in similarity tests.
+2. **Fix SDHC's website** in the company list and rerun the script for it.
+3. **Review flagged leaks by hand.** RHLD's site names the company it manages; that has to be removed.
+4. **Later, make general code fixes:** narrower revenue and donation rules, better name variants, a "formerly" rule, ranked leak flags, and better choice of extra pages.
+
+## How to run
+
+```
+pip install requests beautifulsoup4 pandas playwright && playwright install chromium
+python collect_descriptions_2.py            # all companies
+python collect_descriptions_2.py --pilot    # Yifan's 38 only
+```
+The company list (`company_list_for_interns.csv`) must be in the folder you run from. It isn't committed.

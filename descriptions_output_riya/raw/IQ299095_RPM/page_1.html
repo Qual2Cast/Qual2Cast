@@ -1,0 +1,2092 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+        <!-- OneTrust Cookies Consent Notice start for rpminc.com -->
+        <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="bea14832-be68-49bf-a99b-4a14a96c98db"></script>
+        <script type="text/javascript">
+            function OptanonWrapper() {
+                OnetrustCookieScriptDelete();
+
+
+                if (OnetrustActiveGroups && OnetrustActiveGroups.indexOf('C0002') > -1) {
+                    // C0002 is commonly 'Performance Cookies'
+                    loadRpmGA();
+                }
+
+                // manually delete
+                if (OnetrustActiveGroups && !OnetrustActiveGroups.includes('C0002')) {
+                    rejectOtCookie();
+                }
+
+            }
+        </script>
+        <!-- OneTrust Cookies Consent Notice end for rpminc.com -->
+    <script type="text/plain" class="optanon-category-C0002">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "n7s0nwdnkp");
+    </script>
+    <style>
+        #onetrust-pc-btn-handler {
+            color: white !important;
+        }
+
+        .ot-floating-button__front, .custom-persistent-icon {
+            display: none !important;
+        }
+
+        #onetrust-banner-sdk #onetrust-close-btn-container button {
+            z-index: 245566415662 !important;
+        }
+    </style>
+
+    <!-- Google Tag Manager -->
+    <script type="text/plain" class="optanon-category-C0002">
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MF8TNBZ');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>About RPM | RPM International Inc.</title>
+    <meta name="description" content="RPM International Inc. is a $7.4 billion company with subsidiaries that are world leaders in specialty coatings, sealants, building materials and related services.">
+    <meta name="keywords" content="System.String[]">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script type="module" src="/scripts/ai.chat.fb.components.es.js"></script>
+
+
+    <script type="text/javascript" src="/scripts/jquery-3.5.1.min.js"></script>
+    <script src="/scripts/bootstrap.bundle.js" async defer></script>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/css/slick.css" rel="stylesheet">
+    <link href="/css/font-awesome.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="/css/rpmStyles.css" rel="stylesheet">
+
+    <script>
+        $(document).ready(function () {
+            function acceptCookies() {
+                window.clarity('consent', true);
+            }
+            function refuseCookies() {
+                window.clarity('consent', false);
+
+                (function () {
+                    var cookies = document.cookie.split("; ");
+                    for (var c = 0; c < cookies.length; c++) {
+                        if (cookies[c].includes("_ga") || cookies[c].includes("_gat_gtag") || cookies[c].includes("_gid") || cookies[c].includes("_clck") || cookies[c].includes("clsk")) {
+                            var d = window.location.hostname.split(".");
+                            while (d.length > 0) {
+                                var cookieBase = encodeURIComponent(cookies[c].split(";")[0].split("=")[0]) + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=' + d.join('.') + ' ;path=';
+                                var p = location.pathname.split('/');
+                                document.cookie = cookieBase + '/';
+                                while (p.length > 0) {
+                                    document.cookie = cookieBase + p.join('/');
+                                    p.pop();
+                                };
+                                d.shift();
+                            }
+                        }
+                    }
+                })();
+            }
+            var customCallBack = () => {
+
+            }
+            var waitForEl = function (selector, callback, maxTimes = false) {
+                if (jQuery(selector).length) {
+                    callback();
+                    document.getElementById('onetrust-accept-btn-handler').addEventListener('click', acceptCookies);
+                    document.getElementById('accept-recommended-btn-handler').addEventListener('click', acceptCookies);
+                    var refuse = document.getElementsByClassName('ot-pc-refuse-all-handler');
+                    var preference = document.getElementsByClassName('save-preference-btn-handler');
+                    for (var i = 0; i < refuse.length; i++) {
+                        refuse[i].addEventListener('click', refuseCookies);
+                    }
+                    for (var i = 0; i < preference.length; i++) {
+                        preference[i].addEventListener('click', refuseCookies);
+                    }
+                } else {
+                    if (maxTimes === false || maxTimes > 0) {
+                        (maxTimes != false) && maxTimes--;
+                        setTimeout(function () {
+                            waitForEl(selector, callback, maxTimes);
+                        }, 1000);
+                    }
+                }
+            };
+            waitForEl('#onetrust-accept-btn-handler', customCallBack, 1000);
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            function searchClick() {
+                $(".searchBox").fadeIn().css({ "display": "block" });
+                $(".wrap").addClass("blurIt");
+            }
+            function searchClose() {
+                $(".searchBox").fadeOut();
+                $(".wrap").removeClass("blurIt");
+            }
+            $(function () {
+
+                $(".searchBox").fadeOut();
+                $(".ohCap").click(searchClick);
+                $(".searcicle").click(searchClose);
+
+                $(".searchSubButton").click(function (e) {
+                    window.location.href = '/search-results/?ap-q=' + $(".typeSearch").val();
+                    Search($(".typeSearch").val());
+                });
+                $(".typeSearch").keyup(function (e) {
+                    if (e.keyCode == 13) {
+                        window.location.href = '/search-results/?ap-q=' + $(".typeSearch").val();
+                        Search($(this).val());
+                    }
+                });
+
+                $(".typeSearch").attr("placeholder", "Search")
+
+                $(".policySearchSubButton").click(function (e) {
+                    window.location.href = 'https://policies.rpminc.com/search-results/?ap-q=' + $(".policyTypeSearch").val();
+                    Search($(".policyTypeSearch").val());
+                });
+                $(".policyTypeSearch").keyup(function (e) {
+                    if (e.keyCode == 13) {
+                        window.location.href = 'https://policies.rpminc.com/search-results/?ap-q=' + $(".policyTypeSearch").val();
+                        Search($(this).val());
+                    }
+                });
+
+                $(".policyTypeSearch").attr("placeholder", "Search")
+            });
+        });
+    </script>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+    <style>
+        .typeSearch {
+            background-color: #fff !important;
+            width: 50% !important;
+            margin: 0 auto !important;
+            display: block !important;
+            font-size: 30px !important;
+            padding: 10px !important;
+            margin-top: 20% !important;
+        }
+        ul li p, ol li p {
+            margin: 0;
+            padding: 0;
+            display: inline; /* Forces the block to behave like plain text layout-wise */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MF8TNBZ"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+        <div class="searchBox seeMe"></div>
+        <div class="searchBox" style="background-color:transparent;">
+            <input class="typeSearch" type="search">
+            <div class="circle searcicle">
+                <div class="material-icons dp48">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                    </svg>
+                </div>
+            </div>
+            <input type="submit" class="searchSubButton" value="Search">
+        </div>
+
+    <!--menu-->
+    <div class="wrap" style="overflow: hidden;">
+
+        <div class="navbar-fixed-top">
+            <div class="bluebar"></div>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand" href="#">
+                        <div class="reveal">
+                            <a href="/">
+                                        <img src="/media/r2tpnblt/logorpm.svg" alt="Logorpm" class="logo">
+                            </a>
+                        </div>
+                        <div class="noshow">
+                            <div class=".col-xs-6 .col-sm-4">
+                                <a href="/" class="mobilelogo">
+                                            <img src="/media/wfbo5nlo/rpm_logomobile.svg" alt="rpm logo mobile" class="logo2" data-uw-rm-alt-original="rpm logo mobile" role="img" data-uw-rm-alt="ALT">
+                                </a>
+                            </div>
+
+                        </div>
+                    </a>
+                    <div class=".col-xs-6 .col-sm-4">
+                        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav right" style="background-color: white;">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="/contact-rpm/" style="padding-right: 3rem;">Contact</a>
+                                            </li>
+                                        <li class="nav-item noshow" style="border: 1px solid rgba(0, 0, 0, 0.15); padding-left: .5em;">
+                                            <a class="nav-link" style="width: 80%;" href="/about-rpm/">About RPM</a><a class="nav-link dropdown-toggle" style="border-left: 1px solid rgba(0, 0, 0, 0.15); float: right; padding-left: 1em; padding-right: 1em;" data-toggle="dropdown"></a>
+                                            <ul class="dropdown-menu" style="border-left: none;">
+                                                            <li>
+                                                                <a class="dropdown-item" href="/about-rpm/overview/">Overview</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/about-rpm/our-history/">Our History</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/about-rpm/strategy/">Strategy</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/about-rpm/code-of-conduct/">Code of Conduct</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/about-rpm/acquisitions/">Acquisitions</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/about-rpm/board-of-directors/">Board of Directors</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                        <li><a class="dropdown-item" href="/about-rpm/board-of-directors/julie-a-beck/">Julie A. Beck</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/board-of-directors/jenniffer-d-deckard/">Jenniffer D. Deckard</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/board-of-directors/salvatore-d-fazzolari/">Salvatore D. Fazzolari</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/board-of-directors/thomas-c-gentile-iii/">Thomas C. Gentile, III</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/board-of-directors/robert-a-livingston/">Robert A. Livingston</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/board-of-directors/christopher-l-mapes/">Christopher L. Mapes</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/board-of-directors/craig-s-morford/">Craig S. Morford</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/board-of-directors/frederick-r-nance/">Frederick R. Nance</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/board-of-directors/ellen-m-pawlikowski/">Ellen M. Pawlikowski</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/board-of-directors/jeffrey-d-rowe/">Jeffrey D. Rowe</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/board-of-directors/frank-c-sullivan/">Frank C. Sullivan</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/board-of-directors/elizabeth-f-whited/">Elizabeth F. Whited</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/about-rpm/governance-documents/">Governance Documents</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/about-rpm/officers/">Officers</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                        <li><a class="dropdown-item" href="/about-rpm/officers/frank-c-sullivan/">Frank C. Sullivan</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/officers/david-c-dennsteadt/">David C. Dennsteadt</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/officers/tracy-d-crandall/">Tracy D. Crandall</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/officers/russell-l-gordon/">Russell L. Gordon</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/officers/janeen-b-kastner/">Janeen B. Kastner</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/officers/lee-a-bowers/">Lee A. Bowers</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/officers/paul-r-darwin/">Paul R. Darwin</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/officers/bryan-r-gillette/">Bryan R. Gillette</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/officers/john-f-kramer/">John F. Kramer</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/officers/michael-j-laroche/">Michael J. Laroche</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/officers/randell-mcshepard/">Randell McShepard</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/officers/anthony-r-nicholson/">Anthony R. Nicholson</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/officers/andrew-g-polanco/">Andrew G. Polanco</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/officers/mark-t-rankin/">Mark T. Rankin</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/officers/matthew-t-ratajczak/">Matthew T. Ratajczak</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/officers/matthew-e-schlarb/">Matthew E. Schlarb</a></li>
+                                                                        <li><a class="dropdown-item" href="/about-rpm/officers/thomas-c-sullivan-jr/">Thomas C. Sullivan, Jr.</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/about-rpm/policies-reports/">Policies &amp; Reports</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                                    <li><a class="dropdown-item" href="https://hcwx.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_8/jobs?mode=location" target="_blank">Jobs at RPM</a></li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/about-rpm/transparency-in-healthcare/">Transparency in Healthcare</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item noshow" style="border: 1px solid rgba(0, 0, 0, 0.15); padding-left: .5em;">
+                                            <a class="nav-link" style="width: 80%;" href="/leading-brands/">Leading Brands</a><a class="nav-link dropdown-toggle" style="border-left: 1px solid rgba(0, 0, 0, 0.15); float: right; padding-left: 1em; padding-right: 1em;" data-toggle="dropdown"></a>
+                                            <ul class="dropdown-menu" style="border-left: none;">
+                                                            <li>
+                                                                <a class="dropdown-item" href="/leading-brands/construction-brands/">Construction Brands</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                        <li><a class="dropdown-item" href="/leading-brands/construction-brands/dri-eaz/">Dri-Eaz</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/construction-brands/dryvit/">Dryvit</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/construction-brands/euclid-chemical/">Euclid Chemical</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/construction-brands/flowcrete/">Flowcrete</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/construction-brands/kalzip/">Kalzip</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/construction-brands/key-resin/">Key Resin</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/construction-brands/legend-brands/">Legend Brands</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/construction-brands/nudura/">Nudura</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/construction-brands/nullifire/">Nullifire</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/construction-brands/prochem/">Prochem</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/construction-brands/structurecare/">StructureCare</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/construction-brands/tremco-illbruck/">Tremco illbruck</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/construction-brands/tremco-roofing/">Tremco Roofing</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/construction-brands/tremco-sealants/">Tremco Sealants</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/construction-brands/vandex/">Vandex</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/construction-brands/volteco/">Volteco</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/leading-brands/performance-coatings-brands/">Performance Coatings Brands</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/ad-fire-protection/">AD Fire Protection</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/agpro-nz/">AGPRO NZ</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/api-spa/">API S.p.A.</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/applied-polymerics/">Applied Polymerics</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/arnette-polymers/">Arnette Polymers</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/bison/">Bison</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/carboline/">Carboline</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/dudick-inc/">Dudick Inc.</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/fibergrate/">Fibergrate</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/fibregrid/">Fibregrid</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/finishworks/">FinishWorks</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/fpt-infrastructure/">FPT Infrastructure</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/holton-food-products/">Holton Food Products</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/hummervoll/">Hummervoll</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/ignifugaciones-argos/">Ignifugaciones Argos</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/kemtile/">Kemtile</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/kop-coat/">Kop-Coat</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/logiball/">Logiball</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/mantrose-haeuser/">Mantrose-Haeuser</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/mohawk/">Mohawk</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/morrells/">Morrells</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/natureseal/">NatureSeal</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/pava/">PAVA</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/perlindustria/">Perlindustria</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/perlita-y-vermiculita/">Perlita y Vermiculita</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/pettit/">Pettit</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/plasite/">Plasite</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/prime-resins/">Prime Resins</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/profile-food/">Profile Food</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/ramuc/">Ramuc</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/spc/">SPC</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/stonhard/">Stonhard</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/strathmore/">Strathmore</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/tci-powder-coatings/">TCI Powder Coatings</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/thrubeam/">ThruBeam</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/tuff-coat/">Tuff Coat</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/valvtect/">ValvTect</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/performance-coatings-brands/viapol/">Viapol</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/leading-brands/consumer-brands/">Consumer Brands</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/alex-plus/">ALEX PLUS</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/dap/">DAP</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/dap-foam/">DAP Foam</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/dayglo/">DayGlo</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/epoxyshield/">EpoxyShield</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/gator-finishing-products/">Gator Finishing Products</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/kirker/">Kirker</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/krud-kutter/">Krud Kutter</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/kwik-seal/">Kwik Seal</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/mathys/">Mathys</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/mean-green/">Mean Green</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/miracle-sealants/">Miracle Sealants</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/modern-masters/">Modern Masters</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/okon/">Okon</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/plastic-wood/">Plastic Wood</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/prochemko/">Prochemko</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/radiant-color/">Radiant Color</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/ready-seal/">Ready Seal</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/rocksolid/">RockSolid</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/roto-rooter/">Roto-Rooter</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/rust-oleum/">Rust-Oleum</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/seal-krete/">SEAL-KRETE</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/spraymate/">SPRAYMATE</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/sps-group/">SPS Group</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/stops-rust/">Stops Rust</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/testors/">Testors</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/the-pink-stuff/">The Pink Stuff</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/tor-coatings/">Tor Coatings</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/touch-n-foam/">Touch &#x27;n Foam</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/touch-n-seal/">Touch &#x27;n Seal</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/universal/">Universal</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/varathane/">Varathane</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/watco/">Watco</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/watco-uk/">Watco UK</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/whink/">Whink</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/wolman/">Wolman</a></li>
+                                                                        <li><a class="dropdown-item" href="/leading-brands/consumer-brands/zinsser/">Zinsser</a></li>
+                                                                </ul>
+                                                            </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item noshow" style="border: 1px solid rgba(0, 0, 0, 0.15); padding-left: .5em;">
+                                            <a class="nav-link" style="width: 80%;" href="/sustainability/">Sustainability</a><a class="nav-link dropdown-toggle" style="border-left: 1px solid rgba(0, 0, 0, 0.15); float: right; padding-left: 1em; padding-right: 1em;" data-toggle="dropdown"></a>
+                                            <ul class="dropdown-menu" style="border-left: none;">
+                                                            <li>
+                                                                <a class="dropdown-item" href="/sustainability/our-sustainability-strategy/">Our Sustainability Strategy</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                        <li><a class="dropdown-item" href="/sustainability/our-sustainability-strategy/our-sustainability-goals/">Our Sustainability Goals</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/our-sustainability-strategy/ceo-message/">CEO Message</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/sustainability/our-products/">Our Products</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                        <li><a class="dropdown-item" href="/sustainability/our-products/research-development-innovation/">Research, Development &amp; Innovation</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/our-products/products-advancing-sustainability/">Products Advancing Sustainability</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/our-products/recycling-reuse/">Recycling &amp; Reuse</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/sustainability/our-people/">Our People</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                        <li><a class="dropdown-item" href="/sustainability/our-people/talent-attraction-development-retention/">Talent Attraction, Development &amp; Retention</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/our-people/diversity-inclusion/">Diversity &amp; Inclusion</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/our-people/associate-wellbeing-health-safety/">Associate Wellbeing, Health &amp; Safety</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/our-people/community-engagement-philanthropy/">Community Engagement &amp; Philanthropy</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/sustainability/our-processes/">Our Processes</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                        <li><a class="dropdown-item" href="/sustainability/our-processes/environmental-management/">Environmental Management</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/our-processes/climate-change/">Climate Change</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/our-processes/efficient-operations/">Efficient Operations</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/our-processes/waste-management-reduction-recycling/">Waste Management, Reduction &amp; Recycling</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/our-processes/natural-resources/">Natural Resources</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/sustainability/our-governance/">Our Governance</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                        <li><a class="dropdown-item" href="/sustainability/our-governance/effective-governance-at-rpm/">Effective Governance at RPM</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/our-governance/ethics-compliance/">Ethics &amp; Compliance</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/our-governance/supply-chain-responsible-procurement/">Supply Chain &amp; Responsible Procurement</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/our-governance/information-security-data-privacy/">Information Security &amp; Data Privacy</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/sustainability/reports-downloads/">Reports &amp; Downloads</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/sustainability/sustainability-news/">Sustainability News</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                        <li><a class="dropdown-item" href="/sustainability/sustainability-news/stoncor-africa-solar-panel-installation/">StonCor Africa Solar Panel Installation</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/sustainability-news/flowcrete-introduces-low-emission-resinous-flooring-in-the-uk/">Flowcrete Introduces Low-Emission Resinous Flooring in the UK</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/sustainability-news/rising-stars-teams-up-with-nyc-parks-for-a-special-earth-day-event/">Rising Stars Teams Up with NYC Parks for a Special Earth Day Event</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/sustainability-news/rpm-joins-the-sustainable-packaging-coalition/">RPM Joins the Sustainable Packaging Coalition</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/sustainability-news/tremco-drives-sustainability-through-water-efficiency/">Tremco Drives Sustainability Through Water Efficiency</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/sustainability-news/the-value-of-168-awards-spotlight-excellence-at-rpm/">The Value of 168 Awards Spotlight Excellence at RPM</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/sustainability-news/tremco-leads-with-bio-based-energy-efficient-building-solutions/">Tremco Leads with Bio-Based &amp; Energy Efficient Building Solutions</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/sustainability-news/nudura-icf-products-win-industry-awards-for-energy-efficient-construction/">Nudura ICF Products Win Industry Awards for Energy-Efficient Construction</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/sustainability-news/carboline-hosts-inaugural-leadership-academy/">Carboline Hosts Inaugural Leadership Academy</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/sustainability-news/rpm-s-support-for-urban-farming-partnership/">RPM&#x2019;s Support for Urban Farming Partnership</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/sustainability-news/tci-powder-coatings-earns-ecovadis-badge/">TCI Powder Coatings Earns EcoVadis Badge</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/sustainability-news/rpm-corporate-s-remarkable-united-way-campaign-success-in-2024/">RPM Corporate&#x2019;s Remarkable United Way Campaign Success in 2024</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/sustainability-news/women-rust-oleum-raises-over-35k-for-lili-s-lift/">Women@Rust-Oleum Raises over $35K for Lili&#x2019;s Lift</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/sustainability-news/krud-kutter-helps-beekeepers-buzz-through-sticky-challenges/">Krud Kutter Helps Beekeepers Buzz Through Sticky Challenges</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/sustainability-news/180-000-in-donations-how-rust-oleum-is-turning-surplus-into-community-support/">$180,000 in Donations: How Rust-Oleum is Turning Surplus into Community Support</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/sustainability-news/new-malaysian-plant-incorporates-sustainability-into-its-design/">New Malaysian Plant Incorporates Sustainability into Its Design</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/sustainability-news/tremco-cpg-wigan-achieves-cost-savings-and-waste-reduction-with-sustainable-manufacturing/">Tremco CPG Wigan Achieves Cost Savings And Waste Reduction With Sustainable Manufacturing</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/sustainability-news/tremco-cpg-europe-earns-ecovadis-silver-medal-for-sustainability-excellence/">Tremco CPG Europe Earns EcoVadis Silver Medal for Sustainability Excellence</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/sustainability-news/the-2025-living-the-values-award-winners/">The 2025 Living the Values Award Winners</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/sustainability-news/jessica-johnson-named-volunteer-of-the-year-2025-by-surry-county-schools/">Jessica Johnson Named Volunteer of the Year 2025 by Surry County Schools</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/sustainability-news/carboline-polyclad-767-extends-structural-longevity-for-etiwanda-pipeline/">Carboline Polyclad 767 Extends Structural Longevity for Etiwanda Pipeline</a></li>
+                                                                        <li><a class="dropdown-item" href="/sustainability/sustainability-news/rpm-products-create-energy-efficient-data-centers/">RPM Products Create Energy-Efficient Data Centers</a></li>
+                                                                </ul>
+                                                            </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item noshow" style="border: 1px solid rgba(0, 0, 0, 0.15); padding-left: .5em;">
+                                            <a class="nav-link" style="width: 80%;" href="/investors/">Investors</a><a class="nav-link dropdown-toggle" style="border-left: 1px solid rgba(0, 0, 0, 0.15); float: right; padding-left: 1em; padding-right: 1em;" data-toggle="dropdown"></a>
+                                            <ul class="dropdown-menu" style="border-left: none;">
+                                                            <li>
+                                                                <a class="dropdown-item" href="/investors/investor-overview/">Investor Overview</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/investors/why-invest/">Why Invest?</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/investors/shareholder-services/">Shareholder Services</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/investors/frequently-asked-questions/">Frequently Asked Questions</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/investors/annual-meeting/">Annual Meeting</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/investors/presentations-webcasts/">Presentations &amp; Webcasts</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/investors/email-alerts/">Email Alerts</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/investors/analyst-coverage/">Analyst Coverage</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                            </ul>
+                                        </li>
+                                    <li class="nav-item noshow" style="border: 1px solid rgba(0, 0, 0, 0.15); padding-left: .5em;">
+                                        <a class="nav-link" href="/news/">News</a>
+                                    </li>
+                                        <li class="nav-item noshow" style="border: 1px solid rgba(0, 0, 0, 0.15); padding-left: .5em;">
+                                            <a class="nav-link" style="width: 80%;" href="/stock/">Stock</a><a class="nav-link dropdown-toggle" style="border-left: 1px solid rgba(0, 0, 0, 0.15); float: right; padding-left: 1em; padding-right: 1em;" data-toggle="dropdown"></a>
+                                            <ul class="dropdown-menu" style="border-left: none;">
+                                                            <li>
+                                                                <a class="dropdown-item" href="/stock/stock-information/">Stock Information</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/stock/total-return/">Total Return</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/stock/historical-stock-price/">Historical Stock Price</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/stock/investment-calculator/">Investment Calculator</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/stock/direct-stock-purchase/">Direct Stock Purchase</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/stock/stock-chart/">Stock Chart</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item noshow" style="border: 1px solid rgba(0, 0, 0, 0.15); padding-left: .5em;">
+                                            <a class="nav-link" style="width: 80%;" href="/dividend/">Dividend</a><a class="nav-link dropdown-toggle" style="border-left: 1px solid rgba(0, 0, 0, 0.15); float: right; padding-left: 1em; padding-right: 1em;" data-toggle="dropdown"></a>
+                                            <ul class="dropdown-menu" style="border-left: none;">
+                                                            <li>
+                                                                <a class="dropdown-item" href="/dividend/current-dividend/">Current Dividend</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/dividend/dividend-reinvestment-plan/">Dividend Reinvestment Plan</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/dividend/historical-dividends-splits/">Historical Dividends &amp; Splits</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item noshow" style="border: 1px solid rgba(0, 0, 0, 0.15); padding-left: .5em;">
+                                            <a class="nav-link" style="width: 80%;" href="/reports-financials/">Reports / Financials</a><a class="nav-link dropdown-toggle" style="border-left: 1px solid rgba(0, 0, 0, 0.15); float: right; padding-left: 1em; padding-right: 1em;" data-toggle="dropdown"></a>
+                                            <ul class="dropdown-menu" style="border-left: none;">
+                                                            <li>
+                                                                <a class="dropdown-item" href="/reports-financials/quarterly-results/">Quarterly Results</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/reports-financials/sec-filings/">SEC Filings</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/reports-financials/financials-snapshot/">Financials Snapshot</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/reports-financials/annual-reports-proxy-statements/">Annual Reports &amp; Proxy Statements</a>
+                                                                <ul class="submenu dropdown-menu">
+                                                                </ul>
+                                                            </li>
+                                            </ul>
+                                        </li>
+
+                            <div class="row">
+                                <div class="reveal">
+                                                        <a target="_blank" class="nav-link2" rel="noopener" href="https://www.youtube.com/channel/UCJGIFbw-2ogO89nsCT_35ug">
+                                                            <img src="/media/vmelh5ni/yt.svg" class="menuicon" alt="Yt">
+                                                        </a>
+                                                        <a target="_blank" class="nav-link2" rel="noopener" href="https://www.linkedin.com/company/rpm-international-inc./">
+                                                            <img src="/media/igudbpcf/link.svg" class="menuicon" alt="Link">
+                                                        </a>
+
+
+
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container" style="margin-bottom: 5px;">
+                <div class="row">
+                    <div class="col-12 col-md-12">
+                    </div>
+                </div>
+            </div>
+
+                <div class="norb noshow">
+                    <div class="container">
+                        <div class="col-12 col-md-12">
+                            <div class="around">
+                                <div class="search">
+                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-search searchie ohCap" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                                        <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                                    </svg>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            <div class="norb reveal">
+                <div class="container">
+                    <ul class="largerTopMenu">
+                                <li>
+                                    <a class="nav-link3" href="/about-rpm/">About RPM</a>
+                                        <ul>
+                                                        <li><a href="/about-rpm/overview/">Overview</a></li>
+                                                        <li><a href="/about-rpm/our-history/">Our History</a></li>
+                                                        <li><a href="/about-rpm/strategy/">Strategy</a></li>
+                                                        <li><a href="/about-rpm/code-of-conduct/">Code of Conduct</a></li>
+                                                        <li><a href="/about-rpm/acquisitions/">Acquisitions</a></li>
+                                                        <li><a href="/about-rpm/board-of-directors/">Board of Directors</a></li>
+                                                        <li><a href="/about-rpm/governance-documents/">Governance Documents</a></li>
+                                                        <li><a href="/about-rpm/officers/">Officers</a></li>
+                                                        <li><a href="/about-rpm/policies-reports/">Policies &amp; Reports</a></li>
+                                                                <li><a href="https://hcwx.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_8/jobs?mode=location" target="_blank">Jobs at RPM</a></li>
+                                                        <li><a href="/about-rpm/transparency-in-healthcare/">Transparency in Healthcare</a></li>
+                                        </ul>
+                                </li>
+                        <li class="linkie" id="brandMegaNavTrigger">
+                            <a class="nav-link3" href="/leading-brands/">Leading Brands</a>
+                            <div class="megaNav">
+                                <div class="container" style="background-color:white;">
+                                    <div class="row">
+                                        <div class="col-12 col-md-4 col-lg-3 greyColor">
+                                            <ul>
+                                                            <li data-image="/media/yvinu504/constructionbrands.jpg" class="productsGroup" id="ConstructionBrands"><a href="/leading-brands/construction-brands/">Construction Brands</a></li>
+                                                            <li data-image="/media/mosjey5j/performance-1.jpg" class="productsGroup" id="PerformanceCoatingsBrands"><a href="/leading-brands/performance-coatings-brands/">Performance Coatings Brands</a></li>
+                                                            <li data-image="/media/papdl5cr/consumerbrand.jpg" class="productsGroup" id="ConsumerBrands"><a href="/leading-brands/consumer-brands/">Consumer Brands</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-6">
+                                            <br clear="all" /><br>
+                                            <div class="row brandsMenu" style="display: block;">
+                                                        <div class="col-lg-4 float-left brands ConstructionBrands">
+                                                            <ul>
+                                                                    <li><a href="/leading-brands/construction-brands/dri-eaz/">Dri-Eaz</a></li>
+                                                                    <li><a href="/leading-brands/construction-brands/dryvit/">Dryvit</a></li>
+                                                                    <li><a href="/leading-brands/construction-brands/euclid-chemical/">Euclid Chemical</a></li>
+                                                                    <li><a href="/leading-brands/construction-brands/flowcrete/">Flowcrete</a></li>
+                                                                    <li><a href="/leading-brands/construction-brands/kalzip/">Kalzip</a></li>
+                                                                    <li><a href="/leading-brands/construction-brands/key-resin/">Key Resin</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-lg-4 float-left brands ConstructionBrands">
+                                                            <ul>
+                                                                    <li><a href="/leading-brands/construction-brands/legend-brands/">Legend Brands</a></li>
+                                                                    <li><a href="/leading-brands/construction-brands/nudura/">Nudura</a></li>
+                                                                    <li><a href="/leading-brands/construction-brands/nullifire/">Nullifire</a></li>
+                                                                    <li><a href="/leading-brands/construction-brands/prochem/">Prochem</a></li>
+                                                                    <li><a href="/leading-brands/construction-brands/structurecare/">StructureCare</a></li>
+                                                                    <li><a href="/leading-brands/construction-brands/tremco-illbruck/">Tremco illbruck</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-lg-4 float-left brands ConstructionBrands">
+                                                            <ul>
+                                                                    <li><a href="/leading-brands/construction-brands/tremco-roofing/">Tremco Roofing</a></li>
+                                                                    <li><a href="/leading-brands/construction-brands/tremco-sealants/">Tremco Sealants</a></li>
+                                                                    <li><a href="/leading-brands/construction-brands/vandex/">Vandex</a></li>
+                                                                    <li><a href="/leading-brands/construction-brands/volteco/">Volteco</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-lg-4 float-left brands PerformanceCoatingsBrands">
+                                                            <ul>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/ad-fire-protection/">AD Fire Protection</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/agpro-nz/">AGPRO NZ</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/api-spa/">API S.p.A.</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/applied-polymerics/">Applied Polymerics</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/arnette-polymers/">Arnette Polymers</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/bison/">Bison</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/carboline/">Carboline</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/dudick-inc/">Dudick Inc.</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/fibergrate/">Fibergrate</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/fibregrid/">Fibregrid</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/finishworks/">FinishWorks</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/fpt-infrastructure/">FPT Infrastructure</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/holton-food-products/">Holton Food Products</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-lg-4 float-left brands PerformanceCoatingsBrands">
+                                                            <ul>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/hummervoll/">Hummervoll</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/ignifugaciones-argos/">Ignifugaciones Argos</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/kemtile/">Kemtile</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/kop-coat/">Kop-Coat</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/logiball/">Logiball</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/mantrose-haeuser/">Mantrose-Haeuser</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/mohawk/">Mohawk</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/morrells/">Morrells</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/natureseal/">NatureSeal</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/pava/">PAVA</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/perlindustria/">Perlindustria</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/perlita-y-vermiculita/">Perlita y Vermiculita</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/pettit/">Pettit</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-lg-4 float-left brands PerformanceCoatingsBrands">
+                                                            <ul>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/plasite/">Plasite</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/prime-resins/">Prime Resins</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/profile-food/">Profile Food</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/ramuc/">Ramuc</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/spc/">SPC</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/stonhard/">Stonhard</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/strathmore/">Strathmore</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/tci-powder-coatings/">TCI Powder Coatings</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/thrubeam/">ThruBeam</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/tuff-coat/">Tuff Coat</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/valvtect/">ValvTect</a></li>
+                                                                    <li><a href="/leading-brands/performance-coatings-brands/viapol/">Viapol</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-lg-4 float-left brands ConsumerBrands">
+                                                            <ul>
+                                                                    <li><a href="/leading-brands/consumer-brands/alex-plus/">ALEX PLUS</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/dap/">DAP</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/dap-foam/">DAP Foam</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/dayglo/">DayGlo</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/epoxyshield/">EpoxyShield</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/gator-finishing-products/">Gator Finishing Products</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/kirker/">Kirker</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/krud-kutter/">Krud Kutter</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/kwik-seal/">Kwik Seal</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/mathys/">Mathys</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/mean-green/">Mean Green</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/miracle-sealants/">Miracle Sealants</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/modern-masters/">Modern Masters</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-lg-4 float-left brands ConsumerBrands">
+                                                            <ul>
+                                                                    <li><a href="/leading-brands/consumer-brands/okon/">Okon</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/plastic-wood/">Plastic Wood</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/prochemko/">Prochemko</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/radiant-color/">Radiant Color</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/ready-seal/">Ready Seal</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/rocksolid/">RockSolid</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/roto-rooter/">Roto-Rooter</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/rust-oleum/">Rust-Oleum</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/seal-krete/">SEAL-KRETE</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/spraymate/">SPRAYMATE</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/sps-group/">SPS Group</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/stops-rust/">Stops Rust</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/testors/">Testors</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-lg-4 float-left brands ConsumerBrands">
+                                                            <ul>
+                                                                    <li><a href="/leading-brands/consumer-brands/the-pink-stuff/">The Pink Stuff</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/tor-coatings/">Tor Coatings</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/touch-n-foam/">Touch &#x27;n Foam</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/touch-n-seal/">Touch &#x27;n Seal</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/universal/">Universal</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/varathane/">Varathane</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/watco/">Watco</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/watco-uk/">Watco UK</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/whink/">Whink</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/wolman/">Wolman</a></li>
+                                                                    <li><a href="/leading-brands/consumer-brands/zinsser/">Zinsser</a></li>
+                                                            </ul>
+                                                        </div>
+                                            </div>
+                                        </div>
+                                                    <div id="navImage" class="col-12 col-md-4 col-lg-3" style="background-image: url(/media/yvinu504/constructionbrands.jpg);"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            </li>
+                        <li class="linkie" id="sustainabilityMegaNavTrigger">
+                            <a class="nav-link3" href="/sustainability/">Sustainability</a>
+                            <div class="megaNav">
+                                <div class="container" style="background-color:white;">
+                                    <div class="row">
+                                        <div class="col-12 col-md-4 col-lg-3 greyColor">
+                                            <ul>
+                                                                <li data-image="/media/zecntflm/our-approach-menu-picture.jpg" class="productsGroup" id="OurSustainabilityStrategy"><a href="/sustainability/our-sustainability-strategy/">Our Sustainability Strategy</a></li>
+                                                                <li data-image="/media/vpxh4hbe/our-products-teaser-2.jpg" class="productsGroup" id="OurProducts"><a href="/sustainability/our-products/">Our Products</a></li>
+                                                                <li data-image="/media/dcmgzjwh/our-people-teaser.jpg" class="productsGroup" id="OurPeople"><a href="/sustainability/our-people/">Our People</a></li>
+                                                                <li data-image="/media/ihaahcj4/our-processes-teaser.jpg" class="productsGroup" id="OurProcesses"><a href="/sustainability/our-processes/">Our Processes</a></li>
+                                                                <li data-image="/media/jmfm5jer/our-governance-teaser-3.jpg" class="productsGroup" id="OurGovernance"><a href="/sustainability/our-governance/">Our Governance</a></li>
+                                                                <li data-image="/media/5capnza4/reports-downloads-nav.jpg" class="productsGroup" id="Reports&amp;Downloads"><a href="/sustainability/reports-downloads/">Reports &amp; Downloads</a></li>
+                                                                <li data-image="/media/xa1d32m0/sustainability-news-nav.jpg" class="productsGroup" id="SustainabilityNews"><a href="/sustainability/sustainability-news/">Sustainability News</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-5" id="megaNavRightSection">
+                                            <br clear="all" /><br>
+                                            <div class="row brandsMenu2" style="display: block;">
+                                                            <div class="col-lg-12 float-left brands menuleftspace OurSustainabilityStrategy">
+                                                                <ul style="white-space: nowrap;">
+                                                                        <li><a href="/sustainability/our-sustainability-strategy/our-sustainability-goals/">Our Sustainability Goals</a></li>
+                                                                        <li><a href="/sustainability/our-sustainability-strategy/ceo-message/">CEO Message</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-lg-12 float-left brands menuleftspace OurProducts">
+                                                                <ul style="white-space: nowrap;">
+                                                                        <li><a href="/sustainability/our-products/research-development-innovation/">Research, Development &amp; Innovation</a></li>
+                                                                        <li><a href="/sustainability/our-products/products-advancing-sustainability/">Products Advancing Sustainability</a></li>
+                                                                        <li><a href="/sustainability/our-products/recycling-reuse/">Recycling &amp; Reuse</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-lg-12 float-left brands menuleftspace OurPeople">
+                                                                <ul style="white-space: nowrap;">
+                                                                        <li><a href="/sustainability/our-people/talent-attraction-development-retention/">Talent Attraction, Development &amp; Retention</a></li>
+                                                                        <li><a href="/sustainability/our-people/diversity-inclusion/">Diversity &amp; Inclusion</a></li>
+                                                                        <li><a href="/sustainability/our-people/associate-wellbeing-health-safety/">Associate Wellbeing, Health &amp; Safety</a></li>
+                                                                        <li><a href="/sustainability/our-people/community-engagement-philanthropy/">Community Engagement &amp; Philanthropy</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-lg-12 float-left brands menuleftspace OurProcesses">
+                                                                <ul style="white-space: nowrap;">
+                                                                        <li><a href="/sustainability/our-processes/environmental-management/">Environmental Management</a></li>
+                                                                        <li><a href="/sustainability/our-processes/climate-change/">Climate Change</a></li>
+                                                                        <li><a href="/sustainability/our-processes/efficient-operations/">Efficient Operations</a></li>
+                                                                        <li><a href="/sustainability/our-processes/waste-management-reduction-recycling/">Waste Management, Reduction &amp; Recycling</a></li>
+                                                                        <li><a href="/sustainability/our-processes/natural-resources/">Natural Resources</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-lg-12 float-left brands menuleftspace OurGovernance">
+                                                                <ul style="white-space: nowrap;">
+                                                                        <li><a href="/sustainability/our-governance/effective-governance-at-rpm/">Effective Governance at RPM</a></li>
+                                                                        <li><a href="/sustainability/our-governance/ethics-compliance/">Ethics &amp; Compliance</a></li>
+                                                                        <li><a href="/sustainability/our-governance/supply-chain-responsible-procurement/">Supply Chain &amp; Responsible Procurement</a></li>
+                                                                        <li><a href="/sustainability/our-governance/information-security-data-privacy/">Information Security &amp; Data Privacy</a></li>
+                                                                </ul>
+                                                            </div>
+                                            </div>
+                                        </div>
+                                                        <div id="navImage2" class="col-12 col-md-4 col-lg-4" style="background-position: center; background-size: cover;  background-image: url(/media/vpxh4hbe/our-products-teaser-2.jpg) no-repeat center center fixed;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            </li>
+                                <li>
+                                    <a class="nav-link3" href="/investors/">Investors</a>
+                                        <ul>
+                                                        <li><a href="/investors/investor-overview/">Investor Overview</a></li>
+                                                        <li><a href="/investors/why-invest/">Why Invest?</a></li>
+                                                        <li><a href="/investors/shareholder-services/">Shareholder Services</a></li>
+                                                        <li><a href="/investors/frequently-asked-questions/">Frequently Asked Questions</a></li>
+                                                        <li><a href="/investors/annual-meeting/">Annual Meeting</a></li>
+                                                        <li><a href="/investors/presentations-webcasts/">Presentations &amp; Webcasts</a></li>
+                                                        <li><a href="/investors/email-alerts/">Email Alerts</a></li>
+                                                        <li><a href="/investors/analyst-coverage/">Analyst Coverage</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a class="nav-link3" href="/news/">News</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link3" href="/stock/">Stock</a>
+                                        <ul>
+                                                        <li><a href="/stock/stock-information/">Stock Information</a></li>
+                                                        <li><a href="/stock/total-return/">Total Return</a></li>
+                                                        <li><a href="/stock/historical-stock-price/">Historical Stock Price</a></li>
+                                                        <li><a href="/stock/investment-calculator/">Investment Calculator</a></li>
+                                                        <li><a href="/stock/direct-stock-purchase/">Direct Stock Purchase</a></li>
+                                                        <li><a href="/stock/stock-chart/">Stock Chart</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a class="nav-link3" href="/dividend/">Dividend</a>
+                                        <ul>
+                                                        <li><a href="/dividend/current-dividend/">Current Dividend</a></li>
+                                                        <li><a href="/dividend/dividend-reinvestment-plan/">Dividend Reinvestment Plan</a></li>
+                                                        <li><a href="/dividend/historical-dividends-splits/">Historical Dividends &amp; Splits</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a class="nav-link3" href="/reports-financials/">Reports / Financials</a>
+                                        <ul>
+                                                        <li><a href="/reports-financials/quarterly-results/">Quarterly Results</a></li>
+                                                        <li><a href="/reports-financials/sec-filings/">SEC Filings</a></li>
+                                                        <li><a href="/reports-financials/financials-snapshot/">Financials Snapshot</a></li>
+                                                        <li><a href="/reports-financials/annual-reports-proxy-statements/">Annual Reports &amp; Proxy Statements</a></li>
+                                        </ul>
+                                </li>
+                    </ul>
+                        <div class="searchHolder reveal2">
+
+                            <div class="search">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search searchie ohCap" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                                    <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                                </svg>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <!--page content STARTS-->
+        <div class="homemove"></div>
+
+            <!--BreadCrumbs-->
+
+<div class="container reveal">
+    <div class="row">
+	    <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                            <a href="/">
+Home</a>
+                    </li>
+                <li class="breadcrumb-item active" aria-current="page">About RPM</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+        <div class="pageContent">
+            
+
+<div class="photobackabout" style="background-image: linear-gradient(90deg, #00488C 0%, rgba(0, 212, 255, 0) 100%), url('/media/2erlpkqc/about_banner-copy.jpg');">
+	<div class="container">
+		<div class="row">
+    		<div class="col-12 col-md-12">
+				<div class="maintitle1">About RPM</div>
+				<div class="statement">A $7.9 BILLION MULTINATIONAL COMPANY</div>
+				<!--Banner Logo-->
+				<!--End Banner Logo-->
+			</div>
+		</div>	
+	</div>
+</div>
+
+
+<!--Info Tabs--->	
+<div class="spacer2"></div> 
+	
+<div class="container">
+    <div class="row">
+            <div class="col-md-12 col-lg-8 mb-1 mt-1">
+                <div class="row">
+                            <div class="col-sm-12 col-lg-6 mb-3">
+                                <div class="card-2">
+                                                <a href="/about-rpm/overview/" style="text-decoration:none; color:white;">
+                                                                <img class="card-img-top lazyload" data-src="/media/15ubyand/view.jpg" alt="View">
+                                                    <div class="card-body lightbluebar">
+                                                        <div class="tabtitle">Overview</div>
+                                                    </div>
+                                                </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-6 mb-3">
+                                <div class="card-2">
+                                                <a href="/about-rpm/code-of-conduct/" style="text-decoration:none; color:white;">
+                                                                <img class="card-img-top lazyload" data-src="/media/szbl1w2h/valueof1682.jpg" alt="Valueof1682">
+                                                    <div class="card-body lightbluebar">
+                                                        <div class="tabtitle">Code of Conduct, the Values and Expectations of 168</div>
+                                                    </div>
+                                                </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-6 mb-3">
+                                <div class="card-2">
+                                                <a href="/about-rpm/acquisitions/" style="text-decoration:none; color:white;">
+                                                                <img class="card-img-top lazyload" data-src="/media/fqrl00b4/acquisitons.jpg" alt="Acquisitons">
+                                                    <div class="card-body lightbluebar">
+                                                        <div class="tabtitle">Acquisitions</div>
+                                                    </div>
+                                                </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-6 mb-3">
+                                <div class="card-2">
+                                                <a href="/about-rpm/board-of-directors/" style="text-decoration:none; color:white;">
+                                                                <img class="card-img-top lazyload" data-src="/media/hchejaee/boardofdirectorsandofficers.jpg" alt="Boardofdirectorsandofficers">
+                                                    <div class="card-body lightbluebar">
+                                                        <div class="tabtitle">Board of Directors</div>
+                                                    </div>
+                                                </a>
+                                </div>
+                            </div>
+                </div>
+            </div>
+
+	  <!--Child Pages-->
+        <div class="col-md-12 col-lg-4">
+			<h5 class="subtitle">About Categories</h5>
+			<hr class="style2">
+    			    <div class="box">
+        			        <a href="/about-rpm/overview/" class="black" style="width:100%;">Overview</a>
+        			        <img data-src="/images/textarrowblu.svg" style="float:right; width:15px;" class="lazyload"/>
+    			    </div>
+    			    <div class="line"></div>
+    			    <div class="box">
+        			        <a href="/about-rpm/our-history/" class="black" style="width:100%;">Our History</a>
+        			        <img data-src="/images/textarrowblu.svg" style="float:right; width:15px;" class="lazyload"/>
+    			    </div>
+    			    <div class="line"></div>
+    			    <div class="box">
+        			        <a href="/about-rpm/strategy/" class="black" style="width:100%;">Strategy</a>
+        			        <img data-src="/images/textarrowblu.svg" style="float:right; width:15px;" class="lazyload"/>
+    			    </div>
+    			    <div class="line"></div>
+    			    <div class="box">
+        			        <a href="/about-rpm/code-of-conduct/" class="black" style="width:100%;">Code of Conduct</a>
+        			        <img data-src="/images/textarrowblu.svg" style="float:right; width:15px;" class="lazyload"/>
+    			    </div>
+    			    <div class="line"></div>
+    			    <div class="box">
+        			        <a href="/about-rpm/acquisitions/" class="black" style="width:100%;">Acquisitions</a>
+        			        <img data-src="/images/textarrowblu.svg" style="float:right; width:15px;" class="lazyload"/>
+    			    </div>
+    			    <div class="line"></div>
+    			    <div class="box">
+        			        <a href="/about-rpm/board-of-directors/" class="black" style="width:100%;">Board of Directors</a>
+        			        <img data-src="/images/textarrowblu.svg" style="float:right; width:15px;" class="lazyload"/>
+    			    </div>
+    			    <div class="line"></div>
+    			    <div class="box">
+        			        <a href="/about-rpm/governance-documents/" class="black" style="width:100%;">Governance Documents</a>
+        			        <img data-src="/images/textarrowblu.svg" style="float:right; width:15px;" class="lazyload"/>
+    			    </div>
+    			    <div class="line"></div>
+    			    <div class="box">
+        			        <a href="/about-rpm/officers/" class="black" style="width:100%;">Officers</a>
+        			        <img data-src="/images/textarrowblu.svg" style="float:right; width:15px;" class="lazyload"/>
+    			    </div>
+    			    <div class="line"></div>
+    			    <div class="box">
+        			        <a href="/about-rpm/policies-reports/" class="black" style="width:100%;">Policies &amp; Reports</a>
+        			        <img data-src="/images/textarrowblu.svg" style="float:right; width:15px;" class="lazyload"/>
+    			    </div>
+    			    <div class="line"></div>
+    			    <div class="box">
+                                <a href="https://hcwx.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_8/jobs?mode=location" target="_blank" class="black" style="width:100%;">Jobs at RPM</a>
+                                <img data-src="/images/textarrowblu.svg" style="float:right; width:15px;" class="lazyload"/>
+    			    </div>
+    			    <div class="line"></div>
+    			    <div class="box">
+        			        <a href="/about-rpm/transparency-in-healthcare/" class="black" style="width:100%;">Transparency in Healthcare</a>
+        			        <img data-src="/images/textarrowblu.svg" style="float:right; width:15px;" class="lazyload"/>
+    			    </div>
+    			    <div class="line"></div>
+        </div>
+    </div>
+    <br clear="all" />
+    
+</div>
+
+
+        </div>
+
+
+            <div class="spacer"></div>
+        
+
+
+
+
+
+        <div class="gradientback align-items-center">
+            <div class="container">
+                <div class="row">
+                        <div class="col-md-12 col-lg-4">
+                            <div class="card text-left" style="width: inherit;">
+                                <div class="contactcards">
+                                        <div class="boldblue">World Headquarters:</div>
+                                    <div class="infotext">
+2628 Pearl Road                                            <br>
+Medina, OH 44256                                            <br>
+                                    </div>
+                                    <div class="line"></div>
+                                    <div class="infotext">
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-telephone-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M2.267.98a1.636 1.636 0 0 1 2.448.152l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.47 17.47 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969z"/>
+                                            </svg> Phone<span>:</span> (330) 273-5090                                            <br>
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-printer-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2H5z"/>
+                                            <path fill-rule="evenodd" d="M11 9H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1z"/>
+                                            <path fill-rule="evenodd" d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2V7zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+                                            </svg> Fax<span>:</span> (330) 225-8743                                            <br>
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
+                                            </svg> Email<span>:</span> <a href="mailto:info@rpminc.com">info@rpminc.com</a>
+                                            <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-4">
+                            <div class="card text-left" style="width: inherit;">
+                                <div class="contactcards">
+                                        <div class="boldblue">Retail Investing:</div>
+                                    <div class="infotext">
+RPM Reception                                            <br>
+                                    </div>
+                                    <div class="line"></div>
+                                    <div class="infotext">
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-telephone-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M2.267.98a1.636 1.636 0 0 1 2.448.152l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.47 17.47 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969z"/>
+                                            </svg> Phone<span>:</span> (330) 273-5090                                            <br>
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
+                                            </svg> Email<span>:</span> <a href="mailto:info@rpminc.com">info@rpminc.com</a>
+                                            <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-4">
+                            <div class="card text-left" style="width: inherit;">
+                                <div class="contactcards">
+                                        <div class="boldblue">Investor Contact:</div>
+                                    <div class="infotext">
+Matt Schlarb                                            <br>
+Vice President - Investor Relations &amp; Sustainability                                            <br>
+                                    </div>
+                                    <div class="line"></div>
+                                    <div class="infotext">
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-telephone-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M2.267.98a1.636 1.636 0 0 1 2.448.152l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.47 17.47 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969z"/>
+                                            </svg> Phone<span>:</span> (330) 220-6064                                            <br>
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
+                                            </svg> Email<span>:</span> <a href="mailto:info@rpminc.com">info@rpminc.com</a>
+                                            <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <!--FOOTER START-->
+        <!--TWO PODS-->
+                <div class="blueback">
+            <div class="container">
+                <div class="row">
+                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                                <a rel="noopener" href="/reports-financials/annual-reports-proxy-statements/" class="card-text link2pod"><div class="pods-bodyfoot"><img data-src="/media/qihddfhd/footer-banners-26ar.jpg" class="img-fluid lazyload" alt="footer-banners-26AR"/></div></a>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                                <a rel="noopener" href="/leading-brands/" class="card-text link2pod"><div class="pods-bodyfoot"><img data-src="/media/q3scjrac/footer-banners-8.jpg" class="img-fluid lazyload" alt="Footer Banners 8"/></div></a>
+                                </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--BOTTOM FOOTER-->
+        <div class="container">
+            <div class="reveal">
+                <div class="row" style="margin-top:20px; margin-bottom:20px;">
+                    <div class="col-9">
+                        <div class="row">
+                                        <div class="col-3">
+                                            <div class="footheader">Leading Brands</div>
+                                                    <a href="/leading-brands/construction-brands/" class="footlinks">Construction Brands</a>
+                                                    <a href="/leading-brands/performance-coatings-brands/" class="footlinks">Performance Coatings Brands</a>
+                                                    <a href="/leading-brands/consumer-brands/" class="footlinks">Consumer Brands</a>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="footheader">Investors</div>
+                                                    <a href="/investors/investor-overview/" class="footlinks">Investor Overview</a>
+                                                    <a href="/investors/why-invest/" class="footlinks">Why Invest?</a>
+                                                    <a href="/investors/shareholder-services/" class="footlinks">Shareholder Services</a>
+                                                    <a href="/investors/frequently-asked-questions/" class="footlinks">Frequently Asked Questions</a>
+                                                    <a href="/investors/annual-meeting/" class="footlinks">Annual Meeting</a>
+                                                    <a href="/investors/presentations-webcasts/" class="footlinks">Presentations &amp; Webcasts</a>
+                                                    <a href="/investors/email-alerts/" class="footlinks">Email Alerts</a>
+                                                    <a href="/investors/analyst-coverage/" class="footlinks">Analyst Coverage</a>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="footheader">Dividend</div>
+                                                    <a href="/dividend/current-dividend/" class="footlinks">Current Dividend</a>
+                                                    <a href="/dividend/dividend-reinvestment-plan/" class="footlinks">Dividend Reinvestment Plan</a>
+                                                    <a href="/dividend/historical-dividends-splits/" class="footlinks">Historical Dividends &amp; Splits</a>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="footheader">Reports / Financials</div>
+                                                    <a href="/reports-financials/quarterly-results/" class="footlinks">Quarterly Results</a>
+                                                    <a href="/reports-financials/sec-filings/" class="footlinks">SEC Filings</a>
+                                                    <a href="/reports-financials/financials-snapshot/" class="footlinks">Financials Snapshot</a>
+                                                    <a href="/reports-financials/annual-reports-proxy-statements/" class="footlinks">Annual Reports &amp; Proxy Statements</a>
+                                                    <a href="/reports-financials/section-172-statements/" class="footlinks">Section 172 Statements</a>
+                                        </div>
+                        </div>
+                    </div>
+
+                    <iframe class="davidBlaine" title="email alerts subscription" src="https://rpm2020tf.q4web.com/subscribe/default.aspx"></iframe>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="noshow">
+        <div class="rpmbluefoot">
+            <div class="container">
+                <!--Accordion wrapper-->
+                <div class="accordion" id="accordionExample">
+                                    <div class="card z-depth-0 bordered" style="border-top: 0px;" data-toggle="collapse" data-target="#footerCollapse1" aria-expanded="false" aria-controls="footerCollapse1">
+                                        <div class="card-header" id="heading1">
+                                            <div class="footaccodianheader">Leading Brands</div><i class="fa thePlus"></i>
+                                        </div>
+                                        <div class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample" id="footerCollapse1">
+                                            <div class="card-body">
+                                                    <a href="/leading-brands/construction-brands/" class="footlinks">Construction Brands</a>
+                                                    <a href="/leading-brands/performance-coatings-brands/" class="footlinks">Performance Coatings Brands</a>
+                                                    <a href="/leading-brands/consumer-brands/" class="footlinks">Consumer Brands</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card z-depth-0 bordered" data-toggle="collapse" data-target="#footerCollapse2" aria-expanded="false" aria-controls="footerCollapse2">
+                                        <div class="card-header" id="heading2">
+                                            <div class="footaccodianheader">Investors</div><i class="fa thePlus"></i>
+                                        </div>
+                                        <div class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample" id="footerCollapse2">
+                                            <div class="card-body">
+                                                    <a href="/investors/investor-overview/" class="footlinks">Investor Overview</a>
+                                                    <a href="/investors/why-invest/" class="footlinks">Why Invest?</a>
+                                                    <a href="/investors/shareholder-services/" class="footlinks">Shareholder Services</a>
+                                                    <a href="/investors/frequently-asked-questions/" class="footlinks">Frequently Asked Questions</a>
+                                                    <a href="/investors/annual-meeting/" class="footlinks">Annual Meeting</a>
+                                                    <a href="/investors/presentations-webcasts/" class="footlinks">Presentations &amp; Webcasts</a>
+                                                    <a href="/investors/email-alerts/" class="footlinks">Email Alerts</a>
+                                                    <a href="/investors/analyst-coverage/" class="footlinks">Analyst Coverage</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card z-depth-0 bordered" data-toggle="collapse" data-target="#footerCollapse3" aria-expanded="false" aria-controls="footerCollapse3">
+                                        <div class="card-header" id="heading3">
+                                            <div class="footaccodianheader">Dividend</div><i class="fa thePlus"></i>
+                                        </div>
+                                        <div class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample" id="footerCollapse3">
+                                            <div class="card-body">
+                                                    <a href="/dividend/current-dividend/" class="footlinks">Current Dividend</a>
+                                                    <a href="/dividend/dividend-reinvestment-plan/" class="footlinks">Dividend Reinvestment Plan</a>
+                                                    <a href="/dividend/historical-dividends-splits/" class="footlinks">Historical Dividends &amp; Splits</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card z-depth-0 bordered" style="border-bottom:0px ;margin-bottom: 15px;" data-toggle="collapse" data-target="#footerCollapse4" aria-expanded="false" aria-controls="footerCollapse4">
+                                        <div class="card-header" id="heading4">
+                                            <div class="footaccodianheader">Reports / Financials</div><i class="fa thePlus"></i>
+                                        </div>
+                                        <div class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample" id="footerCollapse4">
+                                            <div class="card-body">
+                                                    <a href="/reports-financials/quarterly-results/" class="footlinks">Quarterly Results</a>
+                                                    <a href="/reports-financials/sec-filings/" class="footlinks">SEC Filings</a>
+                                                    <a href="/reports-financials/financials-snapshot/" class="footlinks">Financials Snapshot</a>
+                                                    <a href="/reports-financials/annual-reports-proxy-statements/" class="footlinks">Annual Reports &amp; Proxy Statements</a>
+                                                    <a href="/reports-financials/section-172-statements/" class="footlinks">Section 172 Statements</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container noshow">
+        <br>
+        <div class="row">
+            <iframe class="mobileDavidBlaine" title="email alerts subscription mobile" src="https://rpm2020tf.q4web.com/subscribe/default.aspx"></iframe>
+        </div><br>
+    </div>
+
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-4">
+                <div class="revealnew2" style="padding-top: 25px;padding-bottom: 45px;">
+                            <img class="lazyload" data-src="/media/r2tpnblt/logorpm.svg" alt="Logorpm" style="width: 230px;">
+                </div>
+
+
+                <div class="logo3 revealnew">
+                                                            <img class="lazyload" data-src="/media/r2tpnblt/logorpm.svg" alt="Logorpm">
+
+                </div>
+
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-8">
+                <div class="footlocation">
+
+                    2628 Pearl Road, Medina, OH 44256 | 330-273-5090 | <a href="mailto:info@rpminc.com">info@rpminc.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12"></div>
+        </div>
+    </div>
+
+    <div class="noshow">
+        <div class="container">
+            <div class=".col-xs-12 .col-sm-12 center">
+                                    <a target="_blank" rel="noopener" class="nav-link2" href="https://www.youtube.com/channel/UCJGIFbw-2ogO89nsCT_35ug">
+                                        <img class="lazyload" data-src="/media/vmelh5ni/yt.svg" class="menuicon" alt="Yt">
+                                    </a>
+                                    <a target="_blank" rel="noopener" class="nav-link2" href="https://www.linkedin.com/company/rpm-international-inc./">
+                                        <img class="lazyload" data-src="/media/igudbpcf/link.svg" class="menuicon" alt="Link">
+                                    </a>
+            </div>
+            <div class="spacer2"></div>
+        </div>
+    </div>
+
+    <div class="rpmblueback reveal">
+        <div class="container">
+            <br>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6" style="font-size:15px;">
+
+                            <a href="/terms-of-use/" class="footerbluelinks">Terms of Use</a>
+                            <a href="/privacy-policy/" class="footerbluelinks">Privacy Policy</a>
+                            <a href="/cookie-policy/" class="footerbluelinks">Cookie Policy</a>
+                    <a class="ot-floating-button__open footerbluelinks" aria-label="Open Preferences" aria-hidden="false" href="#">Cookies Settings</a>
+
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <div style="color: white;float: right;">
+                        &copy;
+                        <span id="copyright">
+                            <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+                        </span>
+                        RPM International Inc.
+                    </div>
+                </div>
+            </div>
+            <div class="spacer2"></div>
+        </div>
+    </div>
+
+
+
+    <div class="rpmblueback noshow">
+        <div class="container">
+            <br>
+            <div class="row">
+                <div class="col-sm-12" style="text-align: center;">
+                                <div class="row">
+                                    <div class="col-sm-12" style="text-align: center;">
+                                        <a href="/terms-of-use/" class="footerbluelinks">Terms of Use</a>
+                                    </div>
+                                </div>
+                                <div class="line2"></div>
+                                <a href="/privacy-policy/" class="footerbluelinks">Privacy Policy</a>
+                                <a href="/cookie-policy/" class="footerbluelinks">Cookie Policy</a>
+
+                    <a class="ot-floating-button__open footerbluelinks" aria-label="Open Preferences" aria-hidden="false" href="#">Cookies Settings</a>
+
+
+                </div>
+            </div>
+
+            <div class="spacer2"></div>
+            <div class="row">
+                <div class="col-sm-12" style="text-align: center;">
+                    <div style="color: white;">
+                        &copy;
+                        <span id="copyright2">
+                            <script>document.getElementById('copyright2').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+                        </span>
+                        RPM International Inc.
+                    </div>
+                </div>
+            </div><br>
+
+        </div>
+
+    </div>
+
+    </div>
+
+        <div class="askSearchBox" style="background-color:transparent;">
+        </div>
+
+
+
+    <!--END-->
+    <!-- Bootstrap core JavaScript
+        ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script>
+        $(document).ready(function () {
+
+            $(".linkie").hover(openMegaNav, closeMegaNav);
+
+
+            $(".megaNav .greyColor li").hover(megaHover);
+
+            $(".brands").hide();
+
+            $(".productsGroup").each(function () {
+
+                var id = this.id;
+                //var el = document.getElementById(id);
+                var els = document.getElementsByClassName(id);
+
+                $(this).mouseenter(function () {
+                    if (id == "Resources&Downloads" || id == "SustainabilityNews") {
+                        $('#megaNavRightSection').hide()
+                        $("#navImage2").removeClass(["col-md-4", "col-lg-4"]);
+                        $("#navImage2").addClass(["col-md-12", "col-lg-9"]);
+                    }
+                    else {
+                        $("#navImage2").removeClass(["col-md-12", "col-lg-9"]);
+                        $("#navImage2").addClass(["col-md-4", "col-lg-4"]);
+                        $('#megaNavRightSection').show()
+                    }
+                    $(".brands").hide();
+                    $(els).show();
+                });
+
+            });
+
+            $(".linkie").mouseenter(function () {
+                var first = $(this).find(".productsGroup").first();
+                //var first = $(".productsGroup").first();
+                var id = first.attr("id");
+                var els = document.getElementsByClassName(id);
+                $(els).show();
+            });
+
+            $(".linkie").mouseleave(function () {
+                $(".brands").hide();
+                $("#navImage2").removeClass(["col-md-12", "col-lg-9"]);
+                $("#navImage2").addClass(["col-md-4", "col-lg-4"]);
+                $("#megaNavRightSection").show();
+            });
+
+            $(".productsGroup").hover(function () {
+                var img = $(this).data("image");
+                $("#navImage").css("background-image", "url(" + img + ")");
+                $("#navImage2").css("background-image", "url(" + img + ")");
+            });
+
+
+            $(window).resize(function () {
+                widthOfContainer = $(".container.reveal").width();
+                if (typeof widthOfContainer === 'undefined') {
+                    widthOfContainer = $(".container.slidetxt").width();
+                }
+
+                $(".megaNav").css("width", widthOfContainer);
+                $('#navImage').css("background-size", "cover");
+                $("#navImage").css("background-position: center");
+                $('#navImage2').css("background-size", "cover");
+                $("#navImage2").css("background-position: center");
+            });
+
+            function megaHover(e) {
+                $(".brandsMenu").css({ "display": "block" });
+            }
+
+            function openMegaNav(e) {
+                if (e.currentTarget.getAttribute("id") == "brandMegaNavTrigger") {
+                    var widthOfContainer = $(".container.reveal").width();
+                    if (typeof widthOfContainer === 'undefined') {
+                        widthOfContainer = $(".container.slidetxt").width();
+                    }
+
+                    var first = $(this).find(".productsGroup").first();
+                    var img = first.data("image");
+                    $("#navImage").css("background-image", "url(" + img + ")");
+                    $(e.currentTarget.children[1]).css({ "width": widthOfContainer, "display": "block" });
+                }
+                else if (e.currentTarget.getAttribute("id") == "sustainabilityMegaNavTrigger") {
+                    var w = $('.linkie').first().width();
+                    var widthOfContainer = $(".container.reveal").width();
+                    if (typeof widthOfContainer === 'undefined') {
+                        widthOfContainer = $(".container.slidetxt").width();
+                    }
+
+                    var first = $(this).find(".productsGroup").first();
+                    var img = first.data("image");
+                    $("#navImage2").css("background-image", "url(" + img + ")");
+                    $(e.currentTarget.children[1]).css({ "width": widthOfContainer - w, "display": "block" });
+                }
+            }
+
+            function closeMegaNav(e) {
+                $(e.currentTarget.children[1]).css({ "display": "none" });
+            }
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            // Add minus icon for collapse element which is open by default
+            $(".collapse.show").each(function () {
+                $(this).prev(".card-header").find(".fa").addClass("theMinus").removeClass("thePlus");
+            });
+
+            // Toggle plus minus icon on show hide of collapse element
+            $(".collapse").on('show.bs.collapse', function () {
+                $(this).prev(".card-header").find(".fa").removeClass("thePlus").addClass("theMinus");
+            }).on('hide.bs.collapse', function () {
+                $(this).prev(".card-header").find(".fa").removeClass("theMinus").addClass("thePlus");
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            // Add minus icon for collapse element which is open by default
+            $(".collapse.show").each(function () {
+                $(this).prev(".card-header2").find(".fa").addClass("theMinus2").removeClass("thePlus2");
+            });
+
+            // Toggle plus minus icon on show hide of collapse element
+            $(".collapse").on('show.bs.collapse', function () {
+                $(this).prev(".card-header2").find(".fa").removeClass("thePlus2").addClass("theMinus2");
+            }).on('hide.bs.collapse', function () {
+                $(this).prev(".card-header2").find(".fa").removeClass("theMinus2").addClass("thePlus2");
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            // Add minus icon for collapse element which is open by default
+            $(".collapse.show").each(function () {
+                $(this).prev(".footaccodianheader2").find(".fa").addClass("theMinus2").removeClass("thePlus2");
+            });
+
+            // Toggle plus minus icon on show hide of collapse element
+            $(".collapse").on('show.bs.collapse', function () {
+                $(this).prev(".footaccodianheader2").find(".fa").removeClass("thePlus2").addClass("theMinus2");
+            }).on('hide.bs.collapse', function () {
+                $(this).prev(".footaccodianheader2").find(".fa").removeClass("theMinus2").addClass("thePlus2");
+            });
+
+
+            //ask Kathie Click
+            $(".questionClick").click(function () {
+
+                var browHeight = window.innerHeight;
+
+                $(".askBox").fadeIn().css({ "display": "block" });
+                //$(".wrap").addClass("blurIt");
+
+            }); //end click
+
+            $(".kathieClose").click(function () {
+                $(".askBox").fadeOut();
+            });//end click
+
+        //add styles to chatbot
+                document
+                    .querySelector("fb-chat")
+                    .shadowRoot
+                    .append(
+                        Object.assign(
+                            document
+                            .createElement("STYLE") ,
+                            {
+                               innerText : `main.opacity-0 {
+                                              display: none !important;
+                                            }
+                                            :host {
+                                              top: auto !important;
+                                            }`
+                            }
+                        )
+                    )
+
+
+            });
+    </script>
+
+
+
+    <script src="/scripts/slick.min.js"></script>
+    <script>
+        /*$('.carousel.carousel-slider').carousel({
+        fullWidth: true,
+        indicators: false
+        });*/
+        $(document).ready(function () {
+
+            $('.your-class').slick({
+                prevArrow: $('.arrowLeft'),
+                nextArrow: $('.arrowRight'),
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            infinite: true,
+                            dots: false
+                        }
+                    },
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    },
+
+
+                    // You can unslick at a given breakpoint now by adding:
+                    // settings: "unslick"
+                    // instead of a settings object
+                ]
+
+            });
+
+            //$('.slick-next').slick('slickNext');
+        });
+    </script>
+
+    <script>
+        /*$('.carousel.carousel-slider').carousel({
+        fullWidth: true,
+        indicators: false
+        });*/
+        $(document).ready(function () {
+
+            $('.sustainabilitySlideshow-1').slick({
+                prevArrow: $('.arrowLeft-1'),
+                nextArrow: $('.arrowRight-1'),
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: false,
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            infinite: true,
+                            dots: false
+                        }
+                    },
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            dots: false
+                        }
+                    },
+                    // You can unslick at a given breakpoint now by adding:
+                    // settings: "unslick"
+                    // instead of a settings object
+                ]
+            });
+            $('.sustainabilitySlideshow-2').slick({
+                prevArrow: $('.arrowLeft-2'),
+                nextArrow: $('.arrowRight-2'),
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: false,
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            infinite: true,
+                            dots: false
+                        }
+                    },
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            dots: false
+                        }
+                    },
+                    // You can unslick at a given breakpoint now by adding:
+                    // settings: "unslick"
+                    // instead of a settings object
+                ]
+            });
+            $('.sustainabilitySlideshow-3').slick({
+                prevArrow: $('.arrowLeft-3'),
+                nextArrow: $('.arrowRight-3'),
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: false,
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            infinite: true,
+                            dots: false
+                        }
+                    },
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            dots: false
+                        }
+                    },
+                    // You can unslick at a given breakpoint now by adding:
+                    // settings: "unslick"
+                    // instead of a settings object
+                ]
+            });
+            $('.sustainabilitySlideshow-4').slick({
+                prevArrow: $('.arrowLeft-4'),
+                nextArrow: $('.arrowRight-4'),
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: false,
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            infinite: true,
+                            dots: false
+                        }
+                    },
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            dots: false
+                        }
+                    },
+                    // You can unslick at a given breakpoint now by adding:
+                    // settings: "unslick"
+                    // instead of a settings object
+                ]
+            });
+            $('.sustainabilitySlideshow-5').slick({
+                prevArrow: $('.arrowLeft-5'),
+                nextArrow: $('.arrowRight-5'),
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: false,
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            infinite: true,
+                            dots: false
+                        }
+                    },
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            dots: false
+                        }
+                    },
+                    // You can unslick at a given breakpoint now by adding:
+                    // settings: "unslick"
+                    // instead of a settings object
+                ]
+            });
+            //$('.slick-next').slick('slickNext');
+        });
+    </script>
+
+
+    <script>(function (d) { var s = d.createElement("script"); s.setAttribute("data-account", "4ErzXD1AUf"); s.setAttribute("src", "https://cdn.userway.org/widget.js"); (d.body || d.head).appendChild(s); })(document)</script>
+    <noscript>Please ensure Javascript is enabled for purposes of <a href="https://userway.org">website accessibility</a></noscript>
+
+    <script src="/scripts/lazysizes.min.js" async defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <style>
+
+        a.footerbluelinks {
+            padding-right: 0.4rem !important;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+
+            $('body :not(script,sup)').contents().filter(function () {
+                return this.nodeType === 3;
+            }).replaceWith(function () {
+                return this.nodeValue.replace(/[®]/g, '<sup>$&</sup>');
+            });            
+        });
+    </script>
+        <fb-chat></fb-chat>
+        <!-- <fb-middleware-chat style="z-index:9999999999; position: fixed; right: 0"></fb-middleware-chat>
+        <template id="fb-chatbot-styling">
+            <style>
+                @import "/css/style.css";
+
+                #conversation {
+                    background: white !important;
+                }
+
+                .chatbot-input-container {
+                    background: white !important;
+                }
+            </style>
+        </template> -->
+    <!-- One Trust Script -->
+    <script>
+
+        function loadRpmGA(){
+            //console.log('performance cookie');
+
+
+            // Defered GA loading example
+            // UA
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=UA-50750324-1';
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'UA-50750324-1');
+
+
+
+            // Defered GA loading example
+            // GA
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-W94634ZZJ1';
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-W94634ZZJ1');
+
+        }
+
+        function OnetrustCookieScriptDelete() {
+            // Get initial OnetrustActiveGroups ids
+            if (typeof OptanonWrapperCount == "undefined") {
+                otGetInitialGrps();
+            }
+
+            //Delete cookies
+            otDeleteCookie(otIniGrps);
+
+            // Assign OnetrustActiveGroups to custom variable
+            function otGetInitialGrps() {
+                OptanonWrapperCount = '';
+                otIniGrps = OnetrustActiveGroups;
+                //console.log("otGetInitialGrps", otIniGrps)
+            }
+
+            function otDeleteCookie(iniOptGrpId) {
+                //console.log("otDeleteCookie");
+                var otDomainGrps = JSON.parse(JSON.stringify(Optanon.GetDomainData().Groups));
+                var otDeletedGrpIds = otGetInactiveId(iniOptGrpId, OnetrustActiveGroups);
+
+                var refreshIfCookieErased = false;
+
+                if (otDeletedGrpIds.length != 0 && otDomainGrps.length != 0) {
+                    for (var i = 0; i < otDomainGrps.length; i++) {
+                        //Check if CustomGroupId matches
+                        if (otDomainGrps[i]['CustomGroupId'] != '' && otDeletedGrpIds.includes(otDomainGrps[i]['CustomGroupId'])) {
+                            for (var j = 0; j < otDomainGrps[i]['Cookies'].length; j++) {
+                                // console.log("otDeleteCookie",otDomainGrps[i]['Cookies'][j]['Name'])
+                                //Delete cookie
+                                eraseCookie(otDomainGrps[i]['Cookies'][j]['Name']);
+                                refreshIfCookieErased = true;
+                            }
+                        }
+
+                        //Check if Hostid matches
+                        if (otDomainGrps[i]['Hosts'].length != 0) {
+                            for (var j = 0; j < otDomainGrps[i]['Hosts'].length; j++) {
+                                //Check if HostId presents in the deleted list and cookie array is not blank
+                                if (otDeletedGrpIds.includes(otDomainGrps[i]['Hosts'][j]['HostId']) && otDomainGrps[i]['Hosts'][j]['Cookies'].length != 0) {
+                                    for (var k = 0; k < otDomainGrps[i]['Hosts'][j]['Cookies'].length; k++) {
+                                        //Delete cookie
+                                        eraseCookie(otDomainGrps[i]['Hosts'][j]['Cookies'][k]['Name']);
+                                        refreshIfCookieErased = true;
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+
+
+                    if (OnetrustActiveGroups && !OnetrustActiveGroups.includes('C0002')) {
+                        rejectOtCookie();
+                    }
+
+                }
+                otGetInitialGrps(); //Reassign new group ids
+
+
+
+                if(refreshIfCookieErased){
+                    setTimeout(function () {
+                       location.reload();
+                    }, 500);
+                }
+
+            }
+
+            //Get inactive ids
+            function otGetInactiveId(customIniId, otActiveGrp) {
+                //Initial OnetrustActiveGroups
+                //console.log("otGetInactiveId",customIniId)
+                customIniId = customIniId.split(",");
+                customIniId = customIniId.filter(Boolean);
+
+                //After action OnetrustActiveGroups
+                otActiveGrp = otActiveGrp.split(",");
+                otActiveGrp = otActiveGrp.filter(Boolean);
+
+                var result = [];
+                for (var i = 0; i < customIniId.length; i++) {
+                    if (otActiveGrp.indexOf(customIniId[i]) <= -1) {
+                        result.push(customIniId[i]);
+                    }
+                }
+                return result;
+            }
+
+            //Delete cookie
+            function eraseCookie(name) {
+                //console.log("eraseCookie", name);
+                //Delete root path cookies
+                domainName = window.location.hostname;
+                document.cookie = name + '=; Max-Age=-99999999; Path=/;Domain=' + domainName;
+                document.cookie = name + '=; Max-Age=-99999999; Path=/;';
+
+                //Delete LSO incase LSO being used, cna be commented out.
+                localStorage.removeItem(name);
+
+                //Check for the current path of the page
+                pathArray = window.location.pathname.split('/');
+                //Loop through path hierarchy and delete potential cookies at each path.
+                for (var i = 0; i < pathArray.length; i++) {
+                    if (pathArray[i]) {
+                        //Build the path string from the Path Array e.g /site/login
+                        var currentPath = pathArray.slice(0, i + 1).join('/');
+                        document.cookie = name + '=; Max-Age=-99999999; Path=' + currentPath + ';Domain=' + domainName;
+                        document.cookie = name + '=; Max-Age=-99999999; Path=' + currentPath + ';';
+                        //Maybe path has a trailing slash!
+                        document.cookie = name + '=; Max-Age=-99999999; Path=' + currentPath + '/;Domain=' + domainName;
+                        document.cookie = name + '=; Max-Age=-99999999; Path=' + currentPath + '/;';
+
+
+                    }
+                }
+
+            }
+
+
+        }
+
+        // manually delete ga tag
+        function rejectOtCookie() {
+
+            //console.log('reject cookie manually');
+            // Delete tracking cookies manually
+
+            (function () {
+                var cookies = document.cookie.split("; ");
+                for (var c = 0; c < cookies.length; c++) {
+                    if (cookies[c].includes("_ga") || cookies[c].includes("_gat_gtag") || cookies[c].includes("_gid") ||
+                        cookies[c].includes("_gat") || cookies[c].includes("_gat_gtag_UA")) {
+                        var d = window.location.hostname.split(".");
+                        while (d.length > 0) {
+                            var cookieBase = encodeURIComponent(cookies[c].split(";")[0].split("=")[0]) + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=' + d.join('.') + ' ;path=';
+                            var p = location.pathname.split('/');
+                            document.cookie = cookieBase + '/';
+                            while (p.length > 0) {
+                                document.cookie = cookieBase + p.join('/');
+                                p.pop();
+                            };
+                            d.shift();
+                        }
+                    }
+                }
+            })()
+        }
+    </script>
+</body>
+</html>

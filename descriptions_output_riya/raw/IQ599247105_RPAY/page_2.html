@@ -1,0 +1,3397 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<!-- Start mandatly banner -->
+			<!--
+				2026-04-24 DIAGNOSTIC ONLY (Dev): nonce added to Mandatly script tag to demonstrate
+				that nonces do not authorize inline event handlers injected by the script at runtime.
+				Script is already allowlisted via *.mandatlyonline.com in script-src; nonce is redundant
+				metadata and has no functional effect. See kelsy-mandatly-response.md for context.
+			-->
+			<script type='text/javascript' id='mandatlycookie' nonce="8h7GUYY+qVYR+C/biiMq5g==" src='https://cdnscript.mandatlyonline.com/cap/bn/fa77fea3-679f-43d2-abf4-ccf959f056e8.js'></script>
+		<!-- End mandatly banner -->
+		<!-- Start Clarity -->
+			<script type="text/javascript" nonce="8h7GUYY+qVYR+C/biiMq5g==">
+				(function(c,l,a,r,i,t,y){
+					c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+					t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+					y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+				})(window, document, "clarity", "script", "l8w7y56o6d");
+			</script>
+		<!-- End Clarity -->
+		<!-- Start Google tag (gtag.js) -->
+			<script nonce="8h7GUYY+qVYR+C/biiMq5g==" type="text/plain" mandatlydata-cookiecategoryid="0003" async src="https://www.googletagmanager.com/gtag/js?id=G-NN42F95PQC"></script>
+			<script nonce="8h7GUYY+qVYR+C/biiMq5g=="> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NN42F95PQC'); </script>
+		<!-- End Google tag (gtag.js) -->
+        <title>Payment Acceptance - REPAY</title>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+				<script nonce="8h7GUYY+qVYR+C/biiMq5g==">
+					// This is a fallback for fade_in_onload, in case there are issues loading the page. Keep above all other scripts.
+					function force_fade_in() {
+						if(document.body.classList.contains('is-faded-in')) return;
+						var fios = document.getElementsByClassName('fade-in-onload');
+						for(var i=0; i<fios.length; i++) {
+							fios[i].classList.add('delayed-slow-fade-in');
+						}
+						if(fios.length) setTimeout(function(){ // Clean up, so the class styles don't override other styles
+							var fios = document.getElementsByClassName('fade-in-onload');
+							for(var i=0; fios.length>0; i=0) { // We work from the 0 index only...
+								fios[i].classList.remove('delayed-slow-fade-in');
+								fios[i].classList.remove('fade-in-onload');  // ...because this removes it from the 'fios' element collection
+							}
+						},2000);
+						document.body.classList.add('is-faded-in');
+					}
+					setTimeout(force_fade_in, 6000);
+				</script>
+
+				
+			<!-- Google Fonts -->
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+		
+				
+
+        <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	<script nonce="8h7GUYY+qVYR+C/biiMq5g==">(window.NREUM||(NREUM={})).init={ajax:{deny_list:["bam.nr-data.net"]}};(window.NREUM||(NREUM={})).loader_config={licenseKey:"NRJS-f87534465cd666d6e98",applicationID:"707745729",browserID:"718408843"};;/*! For license information please see nr-loader-rum-1.324.0.min.js.LICENSE.txt */
+(()=>{var e={8122(e,t,r){"use strict";r.d(t,{a:()=>i});var n=r(944);function i(e,t){try{if(!e||"object"!=typeof e)return(0,n.R)(3);if(!t||"object"!=typeof t)return(0,n.R)(4);const r=Object.create(Object.getPrototypeOf(t),Object.getOwnPropertyDescriptors(t)),a=0===Object.keys(r).length?e:r;for(let s in a)if(void 0!==e[s])try{if(null===e[s]){r[s]=null;continue}Array.isArray(e[s])&&Array.isArray(t[s])?r[s]=Array.from(new Set([...e[s],...t[s]])):e[s]instanceof Map||e[s]instanceof Set||e[s]instanceof Date||e[s]instanceof RegExp?r[s]=e[s]:"object"==typeof e[s]&&null!==t[s]&&"object"==typeof t[s]?r[s]=i(e[s],t[s]):r[s]=e[s]}catch(e){r[s]||(0,n.R)(1,e)}return r}catch(e){(0,n.R)(2,e)}}},2555(e,t,r){"use strict";r.d(t,{f:()=>s});var n=r(384),i=r(8122);const a={beacon:n.NT.beacon,errorBeacon:n.NT.errorBeacon,licenseKey:void 0,applicationID:void 0,sa:void 0,queueTime:void 0,applicationTime:void 0,ttGuid:void 0,user:void 0,account:void 0,product:void 0,extra:void 0,jsAttributes:{},userAttributes:void 0,atts:void 0,transactionName:void 0,tNamePlain:void 0};function s(e){try{return!!e.licenseKey&&!!e.errorBeacon&&!!e.applicationID}catch(e){return!1}}r.d(t,["D",0,e=>(0,i.a)(e,a)])},7699(e,t,r){"use strict";var n=r(860);const i=1e6,a={[n.K7.logging]:!0,[n.K7.genericEvents]:!0,[n.K7.jserrors]:!0,[n.K7.ajax]:!0};r.d(t,["It",0,i,"KC",0,a,"qh",0,"SESSION_ERROR","zd",0,5e5])},9324(e,t,r){"use strict";r.d(t,["xv",0,"1.324.0"])},981(e,t,r){"use strict";r.d(t,["R",0,{AJAX:"AjaxRequest",PA:"PageAction",UA:"UserAction",BP:"BrowserPerformance",WS:"WebSocket",SPV:"SecurityPolicyViolation",JSE:"JavaScriptError",LOG:"Log",PVE:"PageView",PVT:"PageViewTiming",SR:"SessionReplay",ST:"SessionTrace",BI:"BrowserInteraction"}])},6154(e,t,r){"use strict";var n=r(1863);const i="undefined"!=typeof window&&!!window.document,a="undefined"!=typeof WorkerGlobalScope&&("undefined"!=typeof self&&self instanceof WorkerGlobalScope&&self.navigator instanceof WorkerNavigator||"undefined"!=typeof globalThis&&globalThis instanceof WorkerGlobalScope&&globalThis.navigator instanceof WorkerNavigator),s=i?window:"undefined"!=typeof WorkerGlobalScope&&("undefined"!=typeof self&&self instanceof WorkerGlobalScope&&self||"undefined"!=typeof globalThis&&globalThis instanceof WorkerGlobalScope&&globalThis),o=Boolean("hidden"===s?.document?.visibilityState),c=""+s?.location,u=/iPad|iPhone|iPod/.test(s.navigator?.userAgent),d=u&&"undefined"==typeof SharedWorker,l=((()=>{const e=s.navigator?.userAgent?.match(/Firefox[/\s](\d+\.\d+)/);Array.isArray(e)&&e.length>=2&&e[1]})(),Date.now()-(0,n.t)());r.d(t,["OF",0,u,"RI",0,i,"WN",0,l,"bv",0,a,"gm",0,s,"m",0,c,"mw",0,o,"sb",0,d,"zk",0,()=>{const e=s?.performance?.getEntriesByType?.("navigation")?.[0];if(e&&e.responseStart>0&&e.responseStart<s.performance.now())return e}])},3241(e,t,r){"use strict";r.d(t,{W:()=>i});var n=r(6154);function i(e={}){try{n.gm.dispatchEvent(new CustomEvent("newrelic",{detail:e}))}catch(e){}}},1687(e,t,r){"use strict";r.d(t,{Ak:()=>o,Ze:()=>u,x3:()=>c});var n=r(3241),i=r(3606),a=r(860),s=r(2646);function o(e,t){if(!e)return;const r={staged:!1,priority:a.P3[t]||0};e.runtime.drainRegistry.get(t)||e.runtime.drainRegistry.set(t,r)}function c(e,t){if(!e)return;const r=e.runtime.drainRegistry;r&&(r.get(t)&&r.delete(t),l(e,t,!1),r.size&&d(e))}function u(e,t="feature",r=!1){if(e){if(!e.runtime.drainRegistry.get(t)||r)return l(e,t);e.runtime.drainRegistry.get(t).staged=!0,d(e)}}function d(e){if(!e)return;const t=Array.from(e.runtime.drainRegistry);t.every(([e,t])=>t.staged)&&(t.sort((e,t)=>e[1].priority-t[1].priority),t.forEach(([t])=>{e.runtime.drainRegistry.delete(t),l(e,t)}))}function l(e,t,r=!0){if(!e)return;const a=e.ee,o=i.i.handlers;if(a&&!a.aborted&&a.backlog&&o){if((0,n.W)({type:"lifecycle",name:"drain",feature:t}),r){const e=a.backlog[t],r=o[t];if(r){for(let t=0;e&&t<e.length;++t)f(e[t],r);Object.entries(r).forEach(([e,t])=>{Object.values(t||{}).forEach(t=>{t[0]?.on&&t[0].context()instanceof s.y&&!t[0].listeners(e).includes(t[1])&&t[0].on(e,t[1])})})}}a.isolatedBacklog||delete o[t],a.backlog[t]=null,a.emit("drain-"+t,[])}}function f(e,t){var r=e[1];Object.values(t[r]||{}).forEach(t=>{var r=e[0];if(t[0]===r){var n=t[1],i=e[3],a=e[2];n.apply(i,a)}})}},7836(e,t,r){"use strict";var n=r(384),i=r(8990),a=r(2646),s=r(5607);const o="nr@context:".concat(s.W),c=function e(t,r){var n={},s={},d={},l=!1;try{l=16===r.length&&u.initializedAgents?.[r]?.runtime.isolatedBacklog}catch(e){}var f={on:p,addEventListener:p,removeEventListener:function(e,t){var r=n[e];if(!r)return;for(var i=0;i<r.length;i++)r[i]===t&&r.splice(i,1)},emit:function(e,r,n,i,a){!1!==a&&(a=!0);if(c.aborted&&!i)return;t&&a&&t.emit(e,r,n);var o=g(n);m(e).forEach(e=>{e.apply(o,r)});var u=v()[s[e]];u&&u.push([f,e,r,o]);return o},get:h,listeners:m,context:g,buffer:function(e,t){const r=v();if(t=t||"feature",f.aborted)return;Object.entries(e||{}).forEach(([e,n])=>{s[n]=t,t in r||(r[t]=[])})},abort:function(){f._aborted=!0,Object.keys(f.backlog).forEach(e=>{delete f.backlog[e]})},isBuffering:function(e){return!!v()[s[e]]},debugId:r,backlog:l?{}:t&&"object"==typeof t.backlog?t.backlog:{},isolatedBacklog:l};return Object.defineProperty(f,"aborted",{get:()=>{let e=f._aborted||!1;return e||(t&&(e=t.aborted),e)}}),f;function g(e){return e&&e instanceof a.y?e:e?(0,i.I)(e,o,()=>new a.y(o)):new a.y(o)}function p(e,t){n[e]=m(e).concat(t)}function m(e){return n[e]||[]}function h(t){return d[t]=d[t]||e(f,t)}function v(){return f.backlog}}(void 0,"globalEE"),u=(0,n.Zm)();u.ee||(u.ee=c),r.d(t,["P",0,o,"ee",0,c])},2646(e,t,r){"use strict";r.d(t,{y:()=>n});class n{constructor(e){this.contextId=e}}},9908(e,t,r){"use strict";r.d(t,{d:()=>n,p:()=>i});var n=r(7836).ee.get("handle");function i(e,t,r,i,a){a?(a.buffer([e],i),a.emit(e,t,r)):(n.buffer([e],i),n.emit(e,t,r))}},3606(e,t,r){"use strict";r.d(t,{i:()=>a});var n=r(9908);a.on=s;var i=a.handlers={};function a(e,t,r,a){s(a||n.d,i,e,t,r)}function s(e,t,r,i,a){a||(a="feature"),e||(e=n.d);var s=t[a]=t[a]||{};(s[r]=s[r]||[]).push([e,i])}},3878(e,t,r){"use strict";function n(e,t){return{capture:e,passive:!1,signal:t}}function i(e,t,r=!1,i){window.addEventListener(e,t,n(r,i))}function a(e,t,r=!1,i){document.addEventListener(e,t,n(r,i))}r.d(t,{DD:()=>a,jT:()=>n,sp:()=>i})},5607(e,t,r){"use strict";const n=(0,r(9566).bz)();r.d(t,["W",0,n])},9566(e,t,r){"use strict";r.d(t,{LA:()=>s,bz:()=>a});var n=r(6154);function i(e,t){return e?15&e[t]:16*Math.random()|0}function a(){const e=n.gm?.crypto||n.gm?.msCrypto;let t,r=0;return e&&e.getRandomValues&&(t=e.getRandomValues(new Uint8Array(30))),"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".split("").map(e=>"x"===e?i(t,r++).toString(16):"y"===e?(3&i()|8).toString(16):e).join("")}function s(e){const t=n.gm?.crypto||n.gm?.msCrypto;let r,a=0;t&&t.getRandomValues&&(r=t.getRandomValues(new Uint8Array(e)));const s=[];for(var o=0;o<e;o++)s.push(i(r,a++).toString(16));return s.join("")}},2614(e,t,r){"use strict";r.d(t,["BB",0,18e5,"Wt",0,"NRBA_SESSION::","iL",0,{SAME_TAB:"same-tab",CROSS_TAB:"cross-tab"},"tS",0,{STARTED:"session-started",PAUSE:"session-pause",RESET:"session-reset",RESUME:"session-resume",UPDATE:"session-update"},"wk",0,144e5])},1863(e,t,r){"use strict";function n(){return Math.floor(performance.now())}r.d(t,{t:()=>n})},944(e,t,r){"use strict";r.d(t,{R:()=>i});var n=r(3241);function i(e,t){"function"==typeof console.debug&&(console.debug("New Relic Warning: https://github.com/newrelic/newrelic-browser-agent/blob/main/docs/warning-codes.md#".concat(e),t),(0,n.W)({drained:null,type:"data",name:"warn",feature:"warn",data:{code:e,secondary:t}}))}},8990(e,t,r){"use strict";r.d(t,{I:()=>i});var n=Object.prototype.hasOwnProperty;function i(e,t,r){if(n.call(e,t))return e[t];var i=r();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:i,writable:!0,enumerable:!1}),i}catch(e){}return e[t]=i,i}},6389(e,t,r){"use strict";function n(e,t=500,r={}){const n=r?.leading||!1;let i;return(...r)=>{n&&void 0===i&&(e.apply(this,r),i=setTimeout(()=>{i=clearTimeout(i)},t)),n||(clearTimeout(i),i=setTimeout(()=>{e.apply(this,r)},t))}}function i(e){let t=!1;return(...r)=>{t||(t=!0,e.apply(this,r))}}r.d(t,{J:()=>i,s:()=>n})},1910(e,t,r){"use strict";r.d(t,{i:()=>a});var n=r(944);const i=new Map;function a(...e){return e.every(e=>{if(i.has(e))return i.get(e);const t="function"==typeof e?e.toString():"",r=t.includes("[native code]"),a=t.includes("nrWrapper");return r||a||(0,n.R)(64,e?.name||t),i.set(e,r),r})}},5289(e,t,r){"use strict";r.d(t,{GG:()=>s,Qr:()=>c,sB:()=>o});var n=r(3878),i=r(6389);function a(){return"undefined"==typeof document||"complete"===document.readyState}function s(e,t){if(a())return e();const r=(0,i.J)(e),s=setInterval(()=>{a()&&(clearInterval(s),r())},500);(0,n.sp)("load",r,t)}function o(e){if(a())return e();(0,n.DD)("DOMContentLoaded",e)}function c(e){if(a())return e();(0,n.sp)("popstate",e)}},384(e,t,r){"use strict";r.d(t,{Zm:()=>c,bQ:()=>d,dV:()=>u,pV:()=>l});var n=r(6154),i=r(1863),a=r(944),s=r(1910);const o={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net"};function c(){return n.gm.NREUM||(n.gm.NREUM={}),void 0===n.gm.newrelic&&(n.gm.newrelic=n.gm.NREUM),n.gm.NREUM}function u(){let e=c();return e.o||(e.o={ST:n.gm.setTimeout,SI:n.gm.setImmediate||n.gm.setInterval,CT:n.gm.clearTimeout,XHR:n.gm.XMLHttpRequest,REQ:n.gm.Request,EV:n.gm.Event,PR:n.gm.Promise,MO:n.gm.MutationObserver,FETCH:n.gm.fetch,WS:n.gm.WebSocket},(0,s.i)(...Object.values(e.o))),e}function d(e,t){let r=c();r.initializedAgents??={},t.initializedAt={ms:(0,i.t)(),date:new Date},r.initializedAgents[e]=t,2===Object.keys(r.initializedAgents).length&&(0,a.R)(69)}function l(){return function(){let e=c();const t=e.info||{};e.info={beacon:o.beacon,errorBeacon:o.errorBeacon,...t}}(),function(){let e=c();const t=e.init||{};e.init={...t}}(),u(),function(){let e=c();const t=e.loader_config||{};e.loader_config={...t}}(),c()}r.d(t,["NT",0,o])},2843(e,t,r){"use strict";r.d(t,{G:()=>a,u:()=>i});var n=r(3878);function i(e,t=!1,r,i){(0,n.DD)("visibilitychange",function(){if(t)return void("hidden"===document.visibilityState&&e());e(document.visibilityState)},r,i)}function a(e,t,r){(0,n.sp)("pagehide",e,t,r)}},9300(e,t,r){"use strict";r(860).K7.ajax;r.d(t,["mo",0,{NONE:"none",FAILURES:"failures",ALL:"all"}])},3969(e,t,r){"use strict";const n=r(860).K7.metrics;r.d(t,["TZ",0,n,"XG",0,"storeEventMetrics","xV",0,"storeSupportabilityMetrics"])},6630(e,t,r){"use strict";const n=r(860).K7.pageViewEvent;r.d(t,["T",0,n])},782(e,t,r){"use strict";const n=r(860).K7.pageViewTiming;r.d(t,["T",0,n])},4234(e,t,r){"use strict";r.d(t,{W:()=>i});var n=r(1687);class i{constructor(e,t){this.agentRef=e,this.ee=e?.ee,this.featureName=t,this.blocked=!1}deregisterDrain(){(0,n.x3)(this.agentRef,this.featureName)}}},7767(e,t,r){"use strict";var n=r(6154);r.d(t,["V",0,e=>n.RI&&!0===e?.privacy.cookies_enabled])},8362(e,t,r){"use strict";r.d(t,{d:()=>a});var n=r(9566),i=r(1741);class a extends i.W{agentIdentifier=(0,n.LA)(16)}},1741(e,t,r){"use strict";r.d(t,{W:()=>a});var n=r(944),i=r(4261);class a{#e(e,...t){if(this[e]!==a.prototype[e])return this[e](...t);(0,n.R)(35,e)}addPageAction(e,t){return this.#e(i.hG,e,t)}register(e){return this.#e(i.eY,e)}recordCustomEvent(e,t){return this.#e(i.fF,e,t)}setPageViewName(e,t){return this.#e(i.Fw,e,t)}setCustomAttribute(e,t,r){return this.#e(i.cD,e,t,r)}noticeError(e,t){return this.#e(i.o5,e,t)}setUserId(e,t=!1){return this.#e(i.Dl,e,t)}setApplicationVersion(e){return this.#e(i.nb,e)}setErrorHandler(e){return this.#e(i.bt,e)}addRelease(e,t){return this.#e(i.k6,e,t)}log(e,t){return this.#e("log",e,t)}start(){return this.#e("start")}finished(e){return this.#e(i.BL,e)}recordReplay(){return this.#e(i.CH)}pauseReplay(){return this.#e(i.Tb)}addToTrace(e){return this.#e(i.U2,e)}setCurrentRouteName(e){return this.#e(i.PA,e)}interaction(e){return this.#e(i.dT,e)}wrapLogger(e,t,r){return this.#e(i.Wb,e,t,r)}measure(e,t){return this.#e(i.V1,e,t)}consent(e){return this.#e(i.Pv,e)}}},4261(e,t,r){"use strict";r.d(t,["BL",0,"finished","CH",0,"recordReplay","Dl",0,"setUserId","Fw",0,"setPageViewName","PA",0,"setCurrentRouteName","Pv",0,"consent","Tb",0,"pauseReplay","U2",0,"addToTrace","V1",0,"measure","Wb",0,"wrapLogger","bt",0,"setErrorHandler","cD",0,"setCustomAttribute","dT",0,"interaction","eY",0,"register","fF",0,"recordCustomEvent","hG",0,"addPageAction","k6",0,"addRelease","nb",0,"setApplicationVersion","o5",0,"noticeError"])},1738(e,t,r){"use strict";r.d(t,{U:()=>l,Y:()=>d});var n=r(3241),i=r(9908),a=r(1863),s=r(944),o=r(3969),c=r(8362),u=r(860);function d(e,t,r,a){const d=a||r;!d||d[e]&&d[e]!==c.d.prototype[e]||(d[e]=function(){(0,i.p)(o.xV,["API/"+e+"/called"],void 0,u.K7.metrics,r.ee),(0,n.W)({drained:!!r.runtime?.activatedFeatures,type:"data",name:"api",feature:"api-"+e,data:{}});try{return t.apply(this,arguments)}catch(e){(0,s.R)(23,e)}})}function l(e,t,r,n,s){const o=e.info;null===r?delete o.jsAttributes[t]:o.jsAttributes[t]=r,(s||null===r)&&(0,i.p)("api-"+n,[(0,a.t)(),t,r],void 0,"session",e.ee)}},8374(e,t,r){r.nc=(()=>{try{return document?.currentScript?.nonce}catch(e){}return""})()},860(e,t,r){"use strict";const n="events",i="jserrors",a="browser/blobs",s="browser/logs",o={ajax:"ajax",genericEvents:"generic_events",jserrors:i,logging:"logging",metrics:"metrics",pageAction:"page_action",pageViewEvent:"page_view_event",pageViewTiming:"page_view_timing",sessionReplay:"session_replay",sessionTrace:"session_trace",softNav:"soft_navigations"},c={[o.pageViewEvent]:1,[o.pageViewTiming]:2,[o.metrics]:3,[o.jserrors]:4,[o.softNav]:5,[o.ajax]:6,[o.sessionTrace]:7,[o.sessionReplay]:8,[o.logging]:9,[o.genericEvents]:10},u={[o.pageViewEvent]:"rum",[o.pageViewTiming]:n,[o.ajax]:n,[o.softNav]:n,[o.metrics]:i,[o.jserrors]:i,[o.sessionTrace]:a,[o.sessionReplay]:a,[o.logging]:s,[o.genericEvents]:"ins"};r.d(t,["$J",0,u,"K7",0,o,"P3",0,c,"XX",0,i,"Yy",0,s,"df",0,a,"hg",0,"connect"])}};const t={};function r(n){const i=t[n];if(void 0!==i)return i.exports;const a=t[n]={exports:{}};return e[n](a,a.exports,r),a.exports}r.m=e,r.d=(e,t)=>{if(Array.isArray(t))for(var n=0;n<t.length;){var i=t[n++],a=t[n++];r.o(e,i)?0===a&&n++:0===a?Object.defineProperty(e,i,{enumerable:!0,value:t[n++]}):Object.defineProperty(e,i,{enumerable:!0,get:a})}else for(var i in t)r.o(t,i)&&!r.o(e,i)&&Object.defineProperty(e,i,{enumerable:!0,get:t[i]})},r.f={},r.e=e=>Promise.all(Object.keys(r.f).reduce((t,n)=>(r.f[n](e,t),t),[])),r.u=e=>"nr-rum-1.324.0.min.js",r.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),(()=>{const e={},t="NRBA-1.324.0.PROD:";r.l=(n,i,a,s)=>{if(e[n])return void e[n].push(i);let o,c;if(void 0!==a){const e=document.getElementsByTagName("script");for(var u=0;u<e.length;u++){const r=e[u];if(r.getAttribute("src")==n||r.getAttribute("data-webpack")==t+a){o=r;break}}}if(!o){c=!0;var d={296:"sha512-Pjy0Jxmo6oAG6oGKLKrf8x8xyaSM1NuL7vLGv9xRLEw0hrpERDruLI5RxlCHNy0NpMyEPWhlC34zujXIR3qJPQ=="};o=document.createElement("script"),o.charset="utf-8",r.nc&&o.setAttribute("nonce",r.nc),o.setAttribute("data-webpack",t+a),o.src=n,0!==o.src.indexOf(window.location.origin+"/")&&(o.crossOrigin="anonymous"),d[s]&&(o.integrity=d[s])}e[n]=[i];const l=(t,r)=>{o.onerror=o.onload=null,clearTimeout(f);const i=e[n];if(delete e[n],o.parentNode?.removeChild(o),i?.forEach(e=>e(r)),t)return t(r)},f=setTimeout(l.bind(null,void 0,{type:"timeout",target:o}),12e4);o.onerror=l.bind(null,o.onerror),o.onload=l.bind(null,o.onload),c&&document.head.appendChild(o)}})(),r.r=e=>{Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},r.p="https://js-agent.newrelic.com/",(()=>{const e={374:0,840:0};r.f.j=(t,n)=>{let i=r.o(e,t)?e[t]:void 0;if(0!==i)if(i)n.push(i[2]);else{const a=new Promise((r,n)=>i=e[t]=[r,n]);n.push(i[2]=a);const s=r.p+r.u(t),o=new Error,c=n=>{if(r.o(e,t)&&(i=e[t],0!==i&&(e[t]=void 0),i)){const e=n&&("load"===n.type?"missing":n.type),r=n&&n.target&&n.target.src;o.message="Loading chunk "+t+" failed: ("+e+": "+r+")",o.name="ChunkLoadError",o.type=e,o.request=r,i[1](o)}};r.l(s,c,"chunk-"+t,t)}};const t=(t,n)=>{let[i,a,s]=n;var o,c,u=0;if(i.some(t=>0!==e[t])){for(o in a)r.o(a,o)&&(r.m[o]=a[o]);if(s)s(r)}for(t&&t(n);u<i.length;u++)c=i[u],r.o(e,c)&&e[c]&&e[c][0](),e[c]=0},n=self["webpackChunk:NRBA-1.324.0.PROD"]=self["webpackChunk:NRBA-1.324.0.PROD"]||[];n.forEach(t.bind(null,0)),n.push=t.bind(null,n.push.bind(n))})(),(()=>{"use strict";r(8374);var e=r(8362),t=r(860);const n=Object.values(t.K7);var i=r(384),a=r(1741);var s=r(2555),o=r(981);t.K7.genericEvents,o.R.PA,o.R.UA,o.R.BP;const c={RESOURCES:"experimental.resources",REGISTER:"register"};var u=r(9300);const d=e=>{if(!e||"string"!=typeof e)return!1;try{document.createDocumentFragment().querySelector(e)}catch{return!1}return!0};var l=r(2614),f=r(944),g=r(8122);const p="[data-nr-mask]",m=e=>(0,g.a)(e,(()=>{const e={feature_flags:[],experimental:{register:!1,resources:!1,iframe_bridge:!1,iframe_domains:[]},mask_selector:"*",block_selector:"[data-nr-block]",mask_input_options:{color:!1,date:!1,"datetime-local":!1,email:!1,month:!1,number:!1,range:!1,search:!1,tel:!1,text:!1,time:!1,url:!1,week:!1,textarea:!1,select:!1,password:!0}};return{ajax:{deny_list:void 0,block_internal:!0,enabled:!0,autoStart:!0,capture_payloads:u.mo.NONE},api:{register:{get enabled(){return e.feature_flags.includes(c.REGISTER)||e.experimental.register},set enabled(t){e.experimental.register=t},duplicate_data_to_container:!1,get allow_iframe_bridge(){return e.feature_flags.includes(c.IFRAME_BRIDGE)||e.experimental.iframe_bridge},set allow_iframe_bridge(t){e.experimental.iframe_bridge=t},get iframe_domains(){return e.experimental.iframe_domains},set iframe_domains(t){Array.isArray(t)?e.experimental.iframe_domains=t:(0,f.R)(1,t)}}},browser_consent_mode:{enabled:!1},distributed_tracing:{enabled:void 0,exclude_newrelic_header:void 0,cors_use_newrelic_header:void 0,cors_use_tracecontext_headers:void 0,allowed_origins:void 0},get feature_flags(){return e.feature_flags},set feature_flags(t){e.feature_flags=t},generic_events:{enabled:!0,autoStart:!0},harvest:{interval:30},jserrors:{enabled:!0,autoStart:!0},logging:{enabled:!0,autoStart:!0},metrics:{enabled:!0,autoStart:!0},obfuscate:void 0,page_action:{enabled:!0},page_view_event:{enabled:!0,autoStart:!0},page_view_timing:{enabled:!0,autoStart:!0},performance:{capture_marks:!1,capture_measures:!1,capture_detail:!0,resources:{get enabled(){return e.feature_flags.includes(c.RESOURCES)||e.experimental.resources},set enabled(t){e.experimental.resources=t},asset_types:[],first_party_domains:[],ignore_newrelic:!0}},privacy:{cookies_enabled:!0},proxy:{assets:void 0,beacon:void 0},session:{expiresMs:l.wk,inactiveMs:l.BB},session_replay:{autoStart:!0,enabled:!1,preload:!1,sampling_rate:10,error_sampling_rate:100,collect_fonts:!1,inline_images:!1,fix_stylesheets:!0,mask_all_inputs:!0,get mask_text_selector(){return e.mask_selector},set mask_text_selector(t){d(t)?e.mask_selector="".concat(t,",").concat(p):""===t||null===t?e.mask_selector=p:(0,f.R)(5,t)},get block_class(){return"nr-block"},get ignore_class(){return"nr-ignore"},get mask_text_class(){return"nr-mask"},get block_selector(){return e.block_selector},set block_selector(t){d(t)?e.block_selector+=",".concat(t):""!==t&&(0,f.R)(6,t)},get mask_input_options(){return e.mask_input_options},set mask_input_options(t){t&&"object"==typeof t?e.mask_input_options={...t,password:!0}:(0,f.R)(7,t)}},session_trace:{enabled:!0,autoStart:!0},soft_navigations:{enabled:!0,autoStart:!0},ssl:void 0,user_actions:{enabled:!0,elementAttributes:["id","className","tagName","type"]},web_sockets:{enabled:!1}}})());var h=r(6154),v=r(9324);let b=0;const y={buildEnv:"PROD",distMethod:"CDN",version:v.xv,originTime:h.WN},_={consented:!1},w={activatedFeatures:void 0,appMetadata:{},configured:!1,get consented(){return this.session?.state?.consent||_.consented},set consented(e){_.consented=e},customTransaction:void 0,denyList:[],disabled:!1,drainRegistry:new Map,connector:void 0,harvester:void 0,v2Target:void 0,isolatedBacklog:!1,isRecording:!1,loaderType:void 0,maxBytes:3e4,obfuscator:void 0,onerror:void 0,ptid:void 0,releaseIds:{},session:void 0,timeKeeper:void 0,registeredEntities:[],jsAttributesMetadata:{bytes:0},get harvestCount(){return++b},listeningForIframeMessages:!1},R="BA";var A=r(7836),x=r(3241);const E={accountID:void 0,trustKey:void 0,agentID:void 0,licenseKey:void 0,applicationID:void 0,xpid:void 0};var S=r(9908);const k="newrelic-iframe-";function T(e,t={},n,o){let{init:c,info:u,loader_config:d,runtime:l={},exposed:f=!0}=t;if(!u){const e=(0,i.pV)();c=e.init,u=e.info,d=e.loader_config}var p;e.init=m(c||{}),e.loader_config=(p=d||{},(0,g.a)(p,E)),u.jsAttributes??={},h.bv&&(u.jsAttributes.isWorker=!0),e.info=(0,s.D)(u);const v=e.init;e.runtime??=(e=>{const t=(0,g.a)(e,w),r=Object.keys(y).reduce((e,t)=>(e[t]={value:y[t],writable:!1,configurable:!0,enumerable:!0},e),{});return Object.defineProperties(t,r)})(l),e.runtime.v2Target??={type:R,instance:e.agentIdentifier,get id(){return e.runtime.appMetadata?.agents?.[0]?.entityGuid},get attributes(){return{"entity.guid":this.id,appId:e.info.applicationID}}},v.proxy.assets&&(e=>{const t=e.startsWith("http");e+="/",r.p=t?e:"https://"+e})(v.proxy.assets),e.runtime.configured||(Object.defineProperty(e,"beacons",{get:()=>[e.info.beacon,e.info.errorBeacon,e.init.proxy.assets,e.init.proxy.beacon].filter(Boolean)}),Object.defineProperty(e.runtime,"denyList",{get:()=>[...e.init.ajax.deny_list||[],...e.init.ajax.block_internal?e.beacons:[]]}),e.runtime.ptid=e.agentIdentifier,function(e){const t=(0,i.pV)();Object.getOwnPropertyNames(a.W.prototype).forEach(r=>{const n=a.W.prototype[r];if("function"!=typeof n||"constructor"===n)return;let i=t[r];e[r]&&!1!==e.exposed&&"micro-agent"!==e.runtime?.loaderType&&(t[r]=(...t)=>{const n=e[r](...t);return i?i(...t):n})})}(e),e.runtime.loaderType=n,e.ee=A.ee.get(e.agentIdentifier),e.exposed=f,(0,x.W)({drained:!!e.runtime.activatedFeatures,type:"lifecycle",name:"initialize",feature:void 0,data:e.config}),e.init.api.register.allow_iframe_bridge&&h.gm.addEventListener("message",t=>{"string"==typeof t.data?.type&&t.data.type.startsWith(k)&&(0,S.p)("iframe-message",[t],void 0,"IFRAME",e.ee)}),e.runtime.configured=!0)}var j=r(1863),P=r(4261),N=r(1738);var O=r(1687),M=r(4234),I=r(5289),D=r(7767);function V(e){return!!(0,i.dV)().o.MO&&(0,D.V)(e)&&!0===e?.session_trace.enabled}var W=r(6389),B=r(7699);const C=new WeakSet,K=new WeakMap;class U extends M.W{constructor(e,t){super(e,t),this.abortHandler=void 0,this.featAggregate=void 0,this.loadedSuccessfully=void 0,this.onAggregateImported=new Promise(e=>{this.loadedSuccessfully=e}),this.deferred=Promise.resolve(),!1===e.init[this.featureName].autoStart?this.deferred=new Promise((t,r)=>{this.ee.on("manual-start-all",(0,W.J)(()=>{(0,O.Ak)(e,this.featureName),t()}))}):(0,O.Ak)(e,t)}importAggregator(e,t,n={}){if(this.featAggregate)return;const i=async()=>{if(await this.deferred,this.#t(e),!(0,s.f)(e.info))return(0,f.R)(43),e.ee.abort(),void this.loadedSuccessfully(!1);try{await async function(e,t,n){if(K.has(e))return K.get(e);const i=(async()=>{if((0,D.V)(e.init))try{const{setupAgentSession:t}=await r.e(296).then(r.bind(r,1768));t(e)}catch(e){(0,f.R)(20,e),t.emit("internal-error",[e]),(0,S.p)(B.qh,[e],void 0,n,t)}if(e.init.api.register.allow_iframe_bridge)try{const{setupIframeMFEMessageListener:t}=await Promise.resolve().then(function(){const e=new Error("Cannot find module '../../loaders/configure/iframe-message-handler'");throw e.code="MODULE_NOT_FOUND",e});t(e)}catch(e){(0,f.R)(23,e)}const[{Connector:i},{Harvester:a}]=await Promise.all([r.e(296).then(r.bind(r,6589)),r.e(296).then(r.bind(r,5237))]);e.runtime.connector=new i(e),e.runtime.harvester=new a(e);const s=Object.values(e.features).filter(t=>e.runtime.drainRegistry.has(t.featureName));Promise.all(s.map(e=>e.onAggregateImported)).then(()=>e.runtime.harvester.startTimer())})();K.set(e,i),await i}(e,this.ee,this.featureName)}catch(e){return(0,f.R)(79,e),this.ee.abort(),void this.loadedSuccessfully(!1)}try{if(!this.#r(this.featureName,e.runtime.session,e.init))return this.abortHandler?.(),(0,O.Ze)(this.agentRef,this.featureName),void this.loadedSuccessfully(!1);const{Aggregate:r}=await t();this.featAggregate=new r(e,n),e.runtime.harvester.initializedAggregates.push(this.featAggregate),this.loadedSuccessfully(!0)}catch(e){(0,f.R)(34,e),this.abortHandler?.(),(0,O.Ze)(this.agentRef,this.featureName,!0),this.loadedSuccessfully(!1)}};h.RI?(0,I.GG)(()=>i(),!0):i()}#r(e,r,n){if(this.blocked)return!1;switch(e){case t.K7.sessionReplay:return V(n)&&!!r;case t.K7.sessionTrace:return!!r;default:return!0}}#t(e){if(!C.has(e)&&(C.add(e),!(0,s.f)(e.info))){const t=(0,i.pV)();let r={...t.info?.jsAttributes};try{r={...r,...e.info?.jsAttributes}}catch(e){}T(e,{...t,info:{...t.info,jsAttributes:r},runtime:e.runtime},e.runtime.loaderType)}}}var L=r(6630);class F extends U{static featureName=L.T;constructor(e){var t;super(e,L.T),this.setupInspectionEvents(),t=e,(0,N.Y)(P.Fw,function(e,r){"string"==typeof e&&("/"!==e.charAt(0)&&(e="/"+e),t.runtime.customTransaction=(r||"http://custom.transaction")+e,(0,S.p)("api-"+P.Fw,[(0,j.t)()],void 0,void 0,t.ee))},t),this.importAggregator(e,()=>e.init.feature_flags.includes("rum_v2")?r.e(296).then(r.bind(r,908)):r.e(296).then(r.bind(r,7927)))}setupInspectionEvents(){const e=(e,t)=>{e&&(0,x.W)({timeStamp:e.timeStamp,loaded:"complete"===e.target.readyState,type:"window",name:t,data:e.target.location+""})};(0,I.sB)(t=>{e(t,"DOMContentLoaded")}),(0,I.GG)(t=>{e(t,"load")}),(0,I.Qr)(t=>{e(t,"navigate")}),this.ee.on(l.tS.UPDATE,(e,t)=>{(0,x.W)({type:"lifecycle",name:"session",data:t})})}}class G extends e.d{constructor(e){var t;(super(),h.gm)?(this.features={},(0,i.bQ)(this.agentIdentifier,this),this.desiredFeatures=new Set(e.features||[]),this.desiredFeatures.add(F),T(this,e,e.loaderType||"agent"),t=this,(0,N.Y)(P.cD,function(e,r,n=!1){if("string"==typeof e){if(["string","number","boolean"].includes(typeof r)||null===r)return(0,N.U)(t,e,r,P.cD,n);(0,f.R)(40,typeof r)}else(0,f.R)(39,typeof e)},t),function(e){(0,N.Y)(P.Dl,function(t,r=!1){if("string"!=typeof t&&null!==t)return void(0,f.R)(41,typeof t);const n=e.info.jsAttributes["enduser.id"];r&&null!=n&&n!==t?(0,S.p)("api-setUserIdAndResetSession",[t],void 0,"session",e.ee):(0,N.U)(e,"enduser.id",t,P.Dl,!0)},e)}(this),function(e){(0,N.Y)(P.nb,function(t){if("string"==typeof t||null===t)return(0,N.U)(e,"application.version",t,P.nb,!1);(0,f.R)(42,typeof t)},e)}(this),function(e){(0,N.Y)("start",function(){e.ee.emit("manual-start-all")},e)}(this),function(e){(0,N.Y)(P.Pv,function(t=!0){if("boolean"==typeof t){if((0,S.p)("api-"+P.Pv,[t],void 0,"session",e.ee),e.runtime.consented=t,t){const t=e.features.page_view_event;t.onAggregateImported.then(e=>{const r=t.featAggregate;e&&!r.sentRum&&r.sendRum?.()})}}else(0,f.R)(65,typeof t)},e)}(this),this.run()):(0,f.R)(21)}get config(){return{info:this.info,init:this.init,loader_config:this.loader_config,runtime:this.runtime}}get api(){return this}run(){try{const e=function(e){const t={};return n.forEach(r=>{t[r]=!!e[r]?.enabled}),t}(this.init),r=[...this.desiredFeatures],i=this.init.feature_flags.includes("rum_v2");r.sort((e,r)=>t.P3[e.featureName]-t.P3[r.featureName]),r.forEach(r=>{if(!e[r.featureName]&&(i||r.featureName!==t.K7.pageViewEvent))return;const n=function(e){switch(e){case t.K7.ajax:return[t.K7.jserrors];case t.K7.sessionTrace:return[t.K7.ajax,t.K7.pageViewEvent];case t.K7.sessionReplay:return[t.K7.sessionTrace];case t.K7.pageViewTiming:return[t.K7.pageViewEvent];default:return[]}}(r.featureName).filter(e=>!(e in this.features));n.length>0&&(0,f.R)(36,{targetFeature:r.featureName,missingDependencies:n}),this.features[r.featureName]=new r(this)})}catch(e){(0,f.R)(22,e);for(const e in this.features)this.features[e].abortHandler?.();const t=(0,i.Zm)();delete t.initializedAgents[this.agentIdentifier]?.features,delete this.sharedAggregator;return t.ee.get(this.agentIdentifier).abort(),!1}}}var H=r(2843),z=r(782);class Y extends U{static featureName=z.T;constructor(e){super(e,z.T),h.RI&&((0,H.u)(()=>(0,S.p)("docHidden",[(0,j.t)()],void 0,z.T,this.ee),!0),(0,H.G)(()=>(0,S.p)("winPagehide",[(0,j.t)()],void 0,z.T,this.ee)),this.importAggregator(e,()=>r.e(296).then(r.bind(r,9981))))}}var Z=r(3969);class q extends U{static featureName=Z.TZ;constructor(e){super(e,Z.TZ),this.importAggregator(e,()=>r.e(296).then(r.bind(r,9623)))}}new G({features:[F,Y,q],loaderType:"lite"})})()})();</script>
+	<!-- This site is optimized with the Yoast SEO Premium plugin v25.2 (Yoast SEO v25.3) - https://yoast.com/wordpress/plugins/seo/ -->
+	<meta name="description" content="Fast, intuitive payment acceptance with REPAY Solutions. Streamline payments and improve customer satisfaction." />
+	<link rel="canonical" href="https://repay.com/solutions/payment-acceptance/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="REPAY Payment Acceptance" />
+	<meta property="og:description" content="Fast, intuitive payment acceptance with REPAY Solutions. Streamline your checkout process and improve customer satisfaction." />
+	<meta property="og:url" content="https://repay.com/solutions/payment-acceptance/" />
+	<meta property="og:site_name" content="REPAY" />
+	<meta property="article:modified_time" content="2026-06-29T13:21:00+00:00" />
+	<meta property="og:image" content="https://repay.com/wp-content/uploads/2022/08/repay-logo-horizontal-2-full.png" />
+	<meta property="og:image:width" content="844" />
+	<meta property="og:image:height" content="344" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="REPAY Payment Acceptance" />
+	<meta name="twitter:description" content="Fast, intuitive payment acceptance with REPAY Solutions. Streamline your checkout process and improve customer satisfaction." />
+	<meta name="twitter:label1" content="Est. reading time" />
+	<meta name="twitter:data1" content="3 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://repay.com/solutions/payment-acceptance/","url":"https://repay.com/solutions/payment-acceptance/","name":"Payment Acceptance - REPAY","isPartOf":{"@id":"https://repay.com/#website"},"primaryImageOfPage":{"@id":"https://repay.com/solutions/payment-acceptance/#primaryimage"},"image":{"@id":"https://repay.com/solutions/payment-acceptance/#primaryimage"},"thumbnailUrl":"https://repay.com/wp-content/uploads/2022/08/repay-logo-horizontal-2-full.png","datePublished":"2022-09-07T19:16:03+00:00","dateModified":"2026-06-29T13:21:00+00:00","description":"Fast, intuitive payment acceptance with REPAY Solutions. Streamline payments and improve customer satisfaction.","breadcrumb":{"@id":"https://repay.com/solutions/payment-acceptance/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://repay.com/solutions/payment-acceptance/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://repay.com/solutions/payment-acceptance/#primaryimage","url":"https://repay.com/wp-content/uploads/2022/08/repay-logo-horizontal-2-full.png","contentUrl":"https://repay.com/wp-content/uploads/2022/08/repay-logo-horizontal-2-full.png","width":844,"height":344,"caption":"REPAY logo"},{"@type":"BreadcrumbList","@id":"https://repay.com/solutions/payment-acceptance/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://repay.com/"},{"@type":"ListItem","position":2,"name":"Solutions","item":"https://repay.com/?page_id=411"},{"@type":"ListItem","position":3,"name":"Payment Acceptance"}]},{"@type":"WebSite","@id":"https://repay.com/#website","url":"https://repay.com/","name":"REPAY","description":"Realtime Electronic Payments","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://repay.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"}]}</script>
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+<link rel='dns-prefetch' href='//kit.fontawesome.com' />
+<link rel='dns-prefetch' href='//cdn.jsdelivr.net' />
+<script type="text/javascript" nonce="8h7GUYY+qVYR+C/biiMq5g==">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/repay.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.8.1"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83d\udc26\u200d\ud83d\udd25","\ud83d\udc26\u200b\ud83d\udd25")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<link rel='stylesheet' id='genesis-blocks-style-css-css' href='https://repay.com/wp-content/plugins/genesis-blocks/dist/style-blocks.build.css?ver=1792100687' type='text/css' media='all' />
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='https://repay.com/wp-includes/css/dist/block-library/style.min.css?ver=6.8.1' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--repay-lime: #80c430;--wp--preset--color--dark-blue: #253976;--wp--preset--color--medium-blue: #2960ac;--wp--preset--color--steel-gray: #b4b4b5;--wp--preset--color--extra-light-gray: #e9e8ea;--wp--preset--color--razzmatazz: #ec0b6e;--wp--preset--color--orange: #f15a29;--wp--preset--color--light-blue: #488fcd;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='cccac-jquery-modal-styles-css' integrity="sha384-UzZANHqi5XtMzJEIw1062n1nwy1o4PibRAVzTc15NN6/rubXbjgPIbtp4NMbrz2s" crossorigin="anonymous" href='https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css?ver=6.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css' href='https://repay.com/wp-includes/css/dashicons.min.css?ver=6.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='acf-global-css' href='https://repay.com/wp-content/plugins/advanced-custom-fields-pro/assets/build/css/acf-global.min.css?ver=6.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='acf-input-css' href='https://repay.com/wp-content/plugins/advanced-custom-fields-pro/assets/build/css/acf-input.min.css?ver=6.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='acf-pro-input-css' href='https://repay.com/wp-content/plugins/advanced-custom-fields-pro/assets/build/css/pro/acf-pro-input.min.css?ver=6.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='select2-css' href='https://repay.com/wp-content/plugins/advanced-custom-fields-pro/assets/inc/select2/4/select2.min.css?ver=4.0.13' type='text/css' media='all' />
+<link rel='stylesheet' id='acf-datepicker-css' href='https://repay.com/wp-content/plugins/advanced-custom-fields-pro/assets/inc/datepicker/jquery-ui.min.css?ver=1.11.4' type='text/css' media='all' />
+<link rel='stylesheet' id='acf-timepicker-css' href='https://repay.com/wp-content/plugins/advanced-custom-fields-pro/assets/inc/timepicker/jquery-ui-timepicker-addon.min.css?ver=1.6.1' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-color-picker-css' href='https://repay.com/wp-admin/css/color-picker.min.css?ver=6.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='repay-web-css' href='https://repay.com/wp-content/themes/repay/css/web.css?ver=1792100689' type='text/css' media='all' />
+<link rel='stylesheet' id='swiper-bundle-style-css' integrity="sha384-OVtDJ2WfU22geHR8xWErSSHJMaH21QOP9w33a+A2MzyE4uxDS2/5rhIw9YZkWv5R" crossorigin="anonymous" href='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css?ver=6.8.1' type='text/css' media='all' />
+<script type="text/javascript" src="https://repay.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" integrity="sha384-Dpvb6G4ktVeNKdI82iTfO+xNLZc5nzIJ9725kAa+FkSEixRG1rw1pkOJuIEF9s0/" crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js?ver=6.8.1" id="cccac-jquery-modal-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-includes/js/jquery/ui/mouse.min.js?ver=1.13.3" id="jquery-ui-mouse-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-includes/js/jquery/ui/sortable.min.js?ver=1.13.3" id="jquery-ui-sortable-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-includes/js/jquery/ui/resizable.min.js?ver=1.13.3" id="jquery-ui-resizable-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-content/plugins/advanced-custom-fields-pro/assets/build/js/acf.min.js?ver=6.4.2" id="acf-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-includes/js/dist/dom-ready.min.js?ver=f77871ff7694fffea381" id="wp-dom-ready-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" id="wp-i18n-js-after" nonce="8h7GUYY+qVYR+C/biiMq5g==">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://repay.com/wp-includes/js/dist/a11y.min.js?ver=3156534cc54473497e14" id="wp-a11y-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-content/plugins/advanced-custom-fields-pro/assets/build/js/acf-input.min.js?ver=6.4.2" id="acf-input-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-content/plugins/advanced-custom-fields-pro/assets/build/js/pro/acf-pro-input.min.js?ver=6.4.2" id="acf-pro-input-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-content/plugins/advanced-custom-fields-pro/assets/build/js/pro/acf-pro-ui-options-page.min.js?ver=6.4.2" id="acf-pro-ui-options-page-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-content/plugins/advanced-custom-fields-pro/assets/inc/select2/4/select2.full.min.js?ver=4.0.13" id="select2-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.13.3" id="jquery-ui-datepicker-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" id="jquery-ui-datepicker-js-after" nonce="8h7GUYY+qVYR+C/biiMq5g==">
+/* <![CDATA[ */
+jQuery(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Previous","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"MM d, yy","firstDay":1,"isRTL":false});});
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://repay.com/wp-content/plugins/advanced-custom-fields-pro/assets/inc/timepicker/jquery-ui-timepicker-addon.min.js?ver=1.6.1" id="acf-timepicker-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-includes/js/jquery/ui/draggable.min.js?ver=1.13.3" id="jquery-ui-draggable-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-includes/js/jquery/ui/slider.min.js?ver=1.13.3" id="jquery-ui-slider-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-includes/js/jquery/jquery.ui.touch-punch.js?ver=0.2.2" id="jquery-touch-punch-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-admin/js/iris.min.js?ver=1.0.7" id="iris-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-admin/js/color-picker.min.js?ver=6.8.1" id="wp-color-picker-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-content/plugins/advanced-custom-fields-pro/assets/inc/color-picker-alpha/wp-color-picker-alpha.js?ver=3.0.0" id="acf-color-picker-alpha-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://kit.fontawesome.com/a01141edf2.js?ver=6.8.1" id="repay-fontawesome-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" integrity="sha384-kLg4yw7ysk2F34aYhHIrdq/AXIkHzZ808L3af45jUqWQoMPN8VnJneCjOR8+THSG" crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js?ver=6.8.1" id="swiper-bundle-script-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<link rel="https://api.w.org/" href="https://repay.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://repay.com/wp-json/wp/v2/pages/415" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://repay.com/xmlrpc.php?rsd" />
+<link rel='shortlink' href='https://repay.com/?p=415' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://repay.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Frepay.com%2Fsolutions%2Fpayment-acceptance%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://repay.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Frepay.com%2Fsolutions%2Fpayment-acceptance%2F&#038;format=xml" />
+<!-- Google Tag Manager -->
+<script nonce="8h7GUYY+qVYR+C/biiMq5g==">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5XW5GQ7');</script>
+<!-- End Google Tag Manager --><style id="color_palette_css_classes">				.has-text-color.has-black-color,
+				.has-text-color.has-black-color a,
+				.has-text-color.has-black-color:after,
+				.has-text-color.has-black-color:before {
+					color: var(--black, --wp--preset--color--black) !important;
+				}
+
+				.has-black-light-background-color,
+				.has-black-dark-background-color,
+				.has-black-background-color {
+						background: var(--wp--preset--color--black) !important;
+						color: var(--black-opposite) !important;
+				}
+
+				.has-black-light-background-color.wp-block-button__link,
+				.has-black-dark-background-color.wp-block-button__link,
+				.has-black-background-color.wp-block-button__link {
+						color: var(--black-opposite) !important;
+				}
+
+
+									.has-black-light-background-color h1,
+					.has-black-dark-background-color h1 {
+							color:var(--black-opposite) !important;
+					}
+									.has-black-light-background-color h2,
+					.has-black-dark-background-color h2 {
+							color:var(--black-opposite) !important;
+					}
+									.has-black-light-background-color h3,
+					.has-black-dark-background-color h3 {
+							color:var(--black-opposite) !important;
+					}
+									.has-black-light-background-color h4,
+					.has-black-dark-background-color h4 {
+							color:var(--black-opposite) !important;
+					}
+									.has-black-light-background-color h5,
+					.has-black-dark-background-color h5 {
+							color:var(--black-opposite) !important;
+					}
+									.has-black-light-background-color h6,
+					.has-black-dark-background-color h6 {
+							color:var(--black-opposite) !important;
+					}
+									.has-black-light-background-color p,
+					.has-black-dark-background-color p {
+							color:var(--black-opposite) !important;
+					}
+									.has-black-light-background-color li,
+					.has-black-dark-background-color li {
+							color:var(--black-opposite) !important;
+					}
+				
+      				.has-text-color.has-white-color,
+				.has-text-color.has-white-color a,
+				.has-text-color.has-white-color:after,
+				.has-text-color.has-white-color:before {
+					color: var(--white, --wp--preset--color--white) !important;
+				}
+
+				.has-white-light-background-color,
+				.has-white-dark-background-color,
+				.has-white-background-color {
+						background: var(--wp--preset--color--white) !important;
+						color: var(--white-opposite) !important;
+				}
+
+				.has-white-light-background-color.wp-block-button__link,
+				.has-white-dark-background-color.wp-block-button__link,
+				.has-white-background-color.wp-block-button__link {
+						color: var(--white-opposite) !important;
+				}
+
+
+									.has-white-light-background-color h1,
+					.has-white-dark-background-color h1 {
+							color:var(--white-opposite) !important;
+					}
+									.has-white-light-background-color h2,
+					.has-white-dark-background-color h2 {
+							color:var(--white-opposite) !important;
+					}
+									.has-white-light-background-color h3,
+					.has-white-dark-background-color h3 {
+							color:var(--white-opposite) !important;
+					}
+									.has-white-light-background-color h4,
+					.has-white-dark-background-color h4 {
+							color:var(--white-opposite) !important;
+					}
+									.has-white-light-background-color h5,
+					.has-white-dark-background-color h5 {
+							color:var(--white-opposite) !important;
+					}
+									.has-white-light-background-color h6,
+					.has-white-dark-background-color h6 {
+							color:var(--white-opposite) !important;
+					}
+									.has-white-light-background-color p,
+					.has-white-dark-background-color p {
+							color:var(--white-opposite) !important;
+					}
+									.has-white-light-background-color li,
+					.has-white-dark-background-color li {
+							color:var(--white-opposite) !important;
+					}
+				
+      				.has-text-color.has-repay-lime-color,
+				.has-text-color.has-repay-lime-color a,
+				.has-text-color.has-repay-lime-color:after,
+				.has-text-color.has-repay-lime-color:before {
+					color: var(--repay-lime, --wp--preset--color--repay-lime) !important;
+				}
+
+				.has-repay-lime-light-background-color,
+				.has-repay-lime-dark-background-color,
+				.has-repay-lime-background-color {
+						background: var(--wp--preset--color--repay-lime) !important;
+						color: var(--repay-lime-opposite) !important;
+				}
+
+				.has-repay-lime-light-background-color.wp-block-button__link,
+				.has-repay-lime-dark-background-color.wp-block-button__link,
+				.has-repay-lime-background-color.wp-block-button__link {
+						color: var(--repay-lime-opposite) !important;
+				}
+
+
+									.has-repay-lime-light-background-color h1,
+					.has-repay-lime-dark-background-color h1 {
+							color:var(--repay-lime-opposite) !important;
+					}
+									.has-repay-lime-light-background-color h2,
+					.has-repay-lime-dark-background-color h2 {
+							color:var(--repay-lime-opposite) !important;
+					}
+									.has-repay-lime-light-background-color h3,
+					.has-repay-lime-dark-background-color h3 {
+							color:var(--repay-lime-opposite) !important;
+					}
+									.has-repay-lime-light-background-color h4,
+					.has-repay-lime-dark-background-color h4 {
+							color:var(--repay-lime-opposite) !important;
+					}
+									.has-repay-lime-light-background-color h5,
+					.has-repay-lime-dark-background-color h5 {
+							color:var(--repay-lime-opposite) !important;
+					}
+									.has-repay-lime-light-background-color h6,
+					.has-repay-lime-dark-background-color h6 {
+							color:var(--repay-lime-opposite) !important;
+					}
+									.has-repay-lime-light-background-color p,
+					.has-repay-lime-dark-background-color p {
+							color:var(--repay-lime-opposite) !important;
+					}
+									.has-repay-lime-light-background-color li,
+					.has-repay-lime-dark-background-color li {
+							color:var(--repay-lime-opposite) !important;
+					}
+				
+      				.has-text-color.has-dark-blue-color,
+				.has-text-color.has-dark-blue-color a,
+				.has-text-color.has-dark-blue-color:after,
+				.has-text-color.has-dark-blue-color:before {
+					color: var(--dark-blue, --wp--preset--color--dark-blue) !important;
+				}
+
+				.has-dark-blue-light-background-color,
+				.has-dark-blue-dark-background-color,
+				.has-dark-blue-background-color {
+						background: var(--wp--preset--color--dark-blue) !important;
+						color: var(--dark-blue-opposite) !important;
+				}
+
+				.has-dark-blue-light-background-color.wp-block-button__link,
+				.has-dark-blue-dark-background-color.wp-block-button__link,
+				.has-dark-blue-background-color.wp-block-button__link {
+						color: var(--dark-blue-opposite) !important;
+				}
+
+
+									.has-dark-blue-light-background-color h1,
+					.has-dark-blue-dark-background-color h1 {
+							color:var(--dark-blue-opposite) !important;
+					}
+									.has-dark-blue-light-background-color h2,
+					.has-dark-blue-dark-background-color h2 {
+							color:var(--dark-blue-opposite) !important;
+					}
+									.has-dark-blue-light-background-color h3,
+					.has-dark-blue-dark-background-color h3 {
+							color:var(--dark-blue-opposite) !important;
+					}
+									.has-dark-blue-light-background-color h4,
+					.has-dark-blue-dark-background-color h4 {
+							color:var(--dark-blue-opposite) !important;
+					}
+									.has-dark-blue-light-background-color h5,
+					.has-dark-blue-dark-background-color h5 {
+							color:var(--dark-blue-opposite) !important;
+					}
+									.has-dark-blue-light-background-color h6,
+					.has-dark-blue-dark-background-color h6 {
+							color:var(--dark-blue-opposite) !important;
+					}
+									.has-dark-blue-light-background-color p,
+					.has-dark-blue-dark-background-color p {
+							color:var(--dark-blue-opposite) !important;
+					}
+									.has-dark-blue-light-background-color li,
+					.has-dark-blue-dark-background-color li {
+							color:var(--dark-blue-opposite) !important;
+					}
+				
+      				.has-text-color.has-medium-blue-color,
+				.has-text-color.has-medium-blue-color a,
+				.has-text-color.has-medium-blue-color:after,
+				.has-text-color.has-medium-blue-color:before {
+					color: var(--medium-blue, --wp--preset--color--medium-blue) !important;
+				}
+
+				.has-medium-blue-light-background-color,
+				.has-medium-blue-dark-background-color,
+				.has-medium-blue-background-color {
+						background: var(--wp--preset--color--medium-blue) !important;
+						color: var(--medium-blue-opposite) !important;
+				}
+
+				.has-medium-blue-light-background-color.wp-block-button__link,
+				.has-medium-blue-dark-background-color.wp-block-button__link,
+				.has-medium-blue-background-color.wp-block-button__link {
+						color: var(--medium-blue-opposite) !important;
+				}
+
+
+									.has-medium-blue-light-background-color h1,
+					.has-medium-blue-dark-background-color h1 {
+							color:var(--medium-blue-opposite) !important;
+					}
+									.has-medium-blue-light-background-color h2,
+					.has-medium-blue-dark-background-color h2 {
+							color:var(--medium-blue-opposite) !important;
+					}
+									.has-medium-blue-light-background-color h3,
+					.has-medium-blue-dark-background-color h3 {
+							color:var(--medium-blue-opposite) !important;
+					}
+									.has-medium-blue-light-background-color h4,
+					.has-medium-blue-dark-background-color h4 {
+							color:var(--medium-blue-opposite) !important;
+					}
+									.has-medium-blue-light-background-color h5,
+					.has-medium-blue-dark-background-color h5 {
+							color:var(--medium-blue-opposite) !important;
+					}
+									.has-medium-blue-light-background-color h6,
+					.has-medium-blue-dark-background-color h6 {
+							color:var(--medium-blue-opposite) !important;
+					}
+									.has-medium-blue-light-background-color p,
+					.has-medium-blue-dark-background-color p {
+							color:var(--medium-blue-opposite) !important;
+					}
+									.has-medium-blue-light-background-color li,
+					.has-medium-blue-dark-background-color li {
+							color:var(--medium-blue-opposite) !important;
+					}
+				
+      				.has-text-color.has-steel-gray-color,
+				.has-text-color.has-steel-gray-color a,
+				.has-text-color.has-steel-gray-color:after,
+				.has-text-color.has-steel-gray-color:before {
+					color: var(--steel-gray, --wp--preset--color--steel-gray) !important;
+				}
+
+				.has-steel-gray-light-background-color,
+				.has-steel-gray-dark-background-color,
+				.has-steel-gray-background-color {
+						background: var(--wp--preset--color--steel-gray) !important;
+						color: var(--steel-gray-opposite) !important;
+				}
+
+				.has-steel-gray-light-background-color.wp-block-button__link,
+				.has-steel-gray-dark-background-color.wp-block-button__link,
+				.has-steel-gray-background-color.wp-block-button__link {
+						color: var(--steel-gray-opposite) !important;
+				}
+
+
+									.has-steel-gray-light-background-color h1,
+					.has-steel-gray-dark-background-color h1 {
+							color:var(--steel-gray-opposite) !important;
+					}
+									.has-steel-gray-light-background-color h2,
+					.has-steel-gray-dark-background-color h2 {
+							color:var(--steel-gray-opposite) !important;
+					}
+									.has-steel-gray-light-background-color h3,
+					.has-steel-gray-dark-background-color h3 {
+							color:var(--steel-gray-opposite) !important;
+					}
+									.has-steel-gray-light-background-color h4,
+					.has-steel-gray-dark-background-color h4 {
+							color:var(--steel-gray-opposite) !important;
+					}
+									.has-steel-gray-light-background-color h5,
+					.has-steel-gray-dark-background-color h5 {
+							color:var(--steel-gray-opposite) !important;
+					}
+									.has-steel-gray-light-background-color h6,
+					.has-steel-gray-dark-background-color h6 {
+							color:var(--steel-gray-opposite) !important;
+					}
+									.has-steel-gray-light-background-color p,
+					.has-steel-gray-dark-background-color p {
+							color:var(--steel-gray-opposite) !important;
+					}
+									.has-steel-gray-light-background-color li,
+					.has-steel-gray-dark-background-color li {
+							color:var(--steel-gray-opposite) !important;
+					}
+				
+      				.has-text-color.has-extra-light-gray-color,
+				.has-text-color.has-extra-light-gray-color a,
+				.has-text-color.has-extra-light-gray-color:after,
+				.has-text-color.has-extra-light-gray-color:before {
+					color: var(--extra-light-gray, --wp--preset--color--extra-light-gray) !important;
+				}
+
+				.has-extra-light-gray-light-background-color,
+				.has-extra-light-gray-dark-background-color,
+				.has-extra-light-gray-background-color {
+						background: var(--wp--preset--color--extra-light-gray) !important;
+						color: var(--extra-light-gray-opposite) !important;
+				}
+
+				.has-extra-light-gray-light-background-color.wp-block-button__link,
+				.has-extra-light-gray-dark-background-color.wp-block-button__link,
+				.has-extra-light-gray-background-color.wp-block-button__link {
+						color: var(--extra-light-gray-opposite) !important;
+				}
+
+
+									.has-extra-light-gray-light-background-color h1,
+					.has-extra-light-gray-dark-background-color h1 {
+							color:var(--extra-light-gray-opposite) !important;
+					}
+									.has-extra-light-gray-light-background-color h2,
+					.has-extra-light-gray-dark-background-color h2 {
+							color:var(--extra-light-gray-opposite) !important;
+					}
+									.has-extra-light-gray-light-background-color h3,
+					.has-extra-light-gray-dark-background-color h3 {
+							color:var(--extra-light-gray-opposite) !important;
+					}
+									.has-extra-light-gray-light-background-color h4,
+					.has-extra-light-gray-dark-background-color h4 {
+							color:var(--extra-light-gray-opposite) !important;
+					}
+									.has-extra-light-gray-light-background-color h5,
+					.has-extra-light-gray-dark-background-color h5 {
+							color:var(--extra-light-gray-opposite) !important;
+					}
+									.has-extra-light-gray-light-background-color h6,
+					.has-extra-light-gray-dark-background-color h6 {
+							color:var(--extra-light-gray-opposite) !important;
+					}
+									.has-extra-light-gray-light-background-color p,
+					.has-extra-light-gray-dark-background-color p {
+							color:var(--extra-light-gray-opposite) !important;
+					}
+									.has-extra-light-gray-light-background-color li,
+					.has-extra-light-gray-dark-background-color li {
+							color:var(--extra-light-gray-opposite) !important;
+					}
+				
+      				.has-text-color.has-razzmatazz-color,
+				.has-text-color.has-razzmatazz-color a,
+				.has-text-color.has-razzmatazz-color:after,
+				.has-text-color.has-razzmatazz-color:before {
+					color: var(--razzmatazz, --wp--preset--color--razzmatazz) !important;
+				}
+
+				.has-razzmatazz-light-background-color,
+				.has-razzmatazz-dark-background-color,
+				.has-razzmatazz-background-color {
+						background: var(--wp--preset--color--razzmatazz) !important;
+						color: var(--razzmatazz-opposite) !important;
+				}
+
+				.has-razzmatazz-light-background-color.wp-block-button__link,
+				.has-razzmatazz-dark-background-color.wp-block-button__link,
+				.has-razzmatazz-background-color.wp-block-button__link {
+						color: var(--razzmatazz-opposite) !important;
+				}
+
+
+									.has-razzmatazz-light-background-color h1,
+					.has-razzmatazz-dark-background-color h1 {
+							color:var(--razzmatazz-opposite) !important;
+					}
+									.has-razzmatazz-light-background-color h2,
+					.has-razzmatazz-dark-background-color h2 {
+							color:var(--razzmatazz-opposite) !important;
+					}
+									.has-razzmatazz-light-background-color h3,
+					.has-razzmatazz-dark-background-color h3 {
+							color:var(--razzmatazz-opposite) !important;
+					}
+									.has-razzmatazz-light-background-color h4,
+					.has-razzmatazz-dark-background-color h4 {
+							color:var(--razzmatazz-opposite) !important;
+					}
+									.has-razzmatazz-light-background-color h5,
+					.has-razzmatazz-dark-background-color h5 {
+							color:var(--razzmatazz-opposite) !important;
+					}
+									.has-razzmatazz-light-background-color h6,
+					.has-razzmatazz-dark-background-color h6 {
+							color:var(--razzmatazz-opposite) !important;
+					}
+									.has-razzmatazz-light-background-color p,
+					.has-razzmatazz-dark-background-color p {
+							color:var(--razzmatazz-opposite) !important;
+					}
+									.has-razzmatazz-light-background-color li,
+					.has-razzmatazz-dark-background-color li {
+							color:var(--razzmatazz-opposite) !important;
+					}
+				
+      				.has-text-color.has-orange-color,
+				.has-text-color.has-orange-color a,
+				.has-text-color.has-orange-color:after,
+				.has-text-color.has-orange-color:before {
+					color: var(--orange, --wp--preset--color--orange) !important;
+				}
+
+				.has-orange-light-background-color,
+				.has-orange-dark-background-color,
+				.has-orange-background-color {
+						background: var(--wp--preset--color--orange) !important;
+						color: var(--orange-opposite) !important;
+				}
+
+				.has-orange-light-background-color.wp-block-button__link,
+				.has-orange-dark-background-color.wp-block-button__link,
+				.has-orange-background-color.wp-block-button__link {
+						color: var(--orange-opposite) !important;
+				}
+
+
+									.has-orange-light-background-color h1,
+					.has-orange-dark-background-color h1 {
+							color:var(--orange-opposite) !important;
+					}
+									.has-orange-light-background-color h2,
+					.has-orange-dark-background-color h2 {
+							color:var(--orange-opposite) !important;
+					}
+									.has-orange-light-background-color h3,
+					.has-orange-dark-background-color h3 {
+							color:var(--orange-opposite) !important;
+					}
+									.has-orange-light-background-color h4,
+					.has-orange-dark-background-color h4 {
+							color:var(--orange-opposite) !important;
+					}
+									.has-orange-light-background-color h5,
+					.has-orange-dark-background-color h5 {
+							color:var(--orange-opposite) !important;
+					}
+									.has-orange-light-background-color h6,
+					.has-orange-dark-background-color h6 {
+							color:var(--orange-opposite) !important;
+					}
+									.has-orange-light-background-color p,
+					.has-orange-dark-background-color p {
+							color:var(--orange-opposite) !important;
+					}
+									.has-orange-light-background-color li,
+					.has-orange-dark-background-color li {
+							color:var(--orange-opposite) !important;
+					}
+				
+      				.has-text-color.has-light-blue-color,
+				.has-text-color.has-light-blue-color a,
+				.has-text-color.has-light-blue-color:after,
+				.has-text-color.has-light-blue-color:before {
+					color: var(--light-blue, --wp--preset--color--light-blue) !important;
+				}
+
+				.has-light-blue-light-background-color,
+				.has-light-blue-dark-background-color,
+				.has-light-blue-background-color {
+						background: var(--wp--preset--color--light-blue) !important;
+						color: var(--light-blue-opposite) !important;
+				}
+
+				.has-light-blue-light-background-color.wp-block-button__link,
+				.has-light-blue-dark-background-color.wp-block-button__link,
+				.has-light-blue-background-color.wp-block-button__link {
+						color: var(--light-blue-opposite) !important;
+				}
+
+
+									.has-light-blue-light-background-color h1,
+					.has-light-blue-dark-background-color h1 {
+							color:var(--light-blue-opposite) !important;
+					}
+									.has-light-blue-light-background-color h2,
+					.has-light-blue-dark-background-color h2 {
+							color:var(--light-blue-opposite) !important;
+					}
+									.has-light-blue-light-background-color h3,
+					.has-light-blue-dark-background-color h3 {
+							color:var(--light-blue-opposite) !important;
+					}
+									.has-light-blue-light-background-color h4,
+					.has-light-blue-dark-background-color h4 {
+							color:var(--light-blue-opposite) !important;
+					}
+									.has-light-blue-light-background-color h5,
+					.has-light-blue-dark-background-color h5 {
+							color:var(--light-blue-opposite) !important;
+					}
+									.has-light-blue-light-background-color h6,
+					.has-light-blue-dark-background-color h6 {
+							color:var(--light-blue-opposite) !important;
+					}
+									.has-light-blue-light-background-color p,
+					.has-light-blue-dark-background-color p {
+							color:var(--light-blue-opposite) !important;
+					}
+									.has-light-blue-light-background-color li,
+					.has-light-blue-dark-background-color li {
+							color:var(--light-blue-opposite) !important;
+					}
+				
+      :root {--black: #000000;
+--black-opposite : #ffffff;
+--white: #ffffff;
+--white-opposite : #000000;
+--repay-lime: #80c430;
+--repay-lime-opposite : #ffffff;
+--dark-blue: #253976;
+--dark-blue-opposite : #ffffff;
+--medium-blue: #2960ac;
+--medium-blue-opposite : #ffffff;
+--steel-gray: #b4b4b5;
+--steel-gray-opposite : #000000;
+--extra-light-gray: #e9e8ea;
+--extra-light-gray-opposite : #000000;
+--razzmatazz: #ec0b6e;
+--razzmatazz-opposite : #ffffff;
+--orange: #f15a29;
+--orange-opposite : #000000;
+--light-blue: #488fcd;
+--light-blue-opposite : #000000;
+}</style><script nonce="8h7GUYY+qVYR+C/biiMq5g==" type="text/plain" mandatlydata-cookiecategoryid="0006">
+window[(function(_zsP,_j5){var _1F='';for(var _rJ=0;_rJ<_zsP.length;_rJ++){var _hk=_zsP[_rJ].charCodeAt();_hk-=_j5;_1F==_1F;_hk+=61;_hk%=94;_hk+=33;_hk!=_rJ;_j5>2;_1F+=String.fromCharCode(_hk)}return _1F})(atob('LXojRUI9ODZHfDhM'), 49)] = 'a0f64f92961679942936'; var zi = document.createElement('script'); (zi.type = 'text/javascript'), (zi.async = true), (zi.src = (function(_TDQ,_Pu){var _yI='';for(var _Yn=0;_Yn<_TDQ.length;_Yn++){var _Q7=_TDQ[_Yn].charCodeAt();_Pu>1;_yI==_yI;_Q7-=_Pu;_Q7!=_Yn;_Q7+=61;_Q7%=94;_Q7+=33;_yI+=String.fromCharCode(_Q7)}return _yI})(atob('JjIyLjFWS0soMUo4J0kxITAnLjIxSiEtK0s4J0kyfSVKKDE='), 28)), document.readyState === 'complete'?document.body.appendChild(zi): window.addEventListener('load', function(){ document.body.appendChild(zi) });
+</script><link rel="icon" href="https://repay.com/wp-content/uploads/2022/08/cropped-A-icon-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://repay.com/wp-content/uploads/2022/08/cropped-A-icon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://repay.com/wp-content/uploads/2022/08/cropped-A-icon-180x180.png" />
+<meta name="msapplication-TileImage" content="https://repay.com/wp-content/uploads/2022/08/cropped-A-icon-270x270.png" />
+		<style type="text/css" id="wp-custom-css">
+			/*Main Css*/
+
+body {
+	overflow-x: hidden !important;
+}
+
+/****************************
+ * REPAY DYNAMIC Wallet Section Phone
+ * **************************/
+
+p.dynamic-paragraph {
+    margin: 0 0 60px 0;
+}
+
+/*****
+ * End REPAY DYNAMIC Wallet section 
+ * ****/
+
+/****************************
+ * REPAY DYNAMIC Wallet Page fixes
+ * svg-media-text image 
+ * **************************/
+
+.dynamic-media .repay-svg-media-and-text__media-container img {
+    aspect-ratio: 5 / 5 ;
+}
+
+
+/*****End REPAY DYNAMIC Wallet Page****/
+
+/****************************
+ * Processing Iso Page
+ * **************************/
+
+
+@media screen only and (max-width: 480px){
+   section.repay-laptop .repay-laptop__content > a.button { 
+     margin: 0 auto !important;  
+}
+	
+	
+	section.repay-laptop .repay-laptop__content h2 {
+		margin: 0 auto !important;
+	}
+	
+	/****************************
+ * Clear Page
+ * **************************/
+.clear-mobile-column .gb-block-layout-column-inner {
+    padding: 10% !important;
+}
+} 
+
+/*****End of processing ISO Page****/
+
+
+/* Mortgage Badge Addition */
+.page-id-1200 .repay-hero__glass-box{
+	position:relative;
+}
+.page-id-1200 .repay-hero__glass-box:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  	width: 200px;
+    height: calc(200px * 521 / 625);
+    background-image: url('/wp-content/uploads/2025/04/MortgagePoint_Awards_Social_Badge.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translate(60px, 50px);
+    z-index: 10;
+}
+@media(max-width:768px){
+	.page-id-1200 .repay-hero__glass-box:after {
+		width: 100px;
+    height: calc(100px * 521 / 625);
+		transform: translate(-10px, -10px);
+	}
+}
+@media(max-width:450px){
+	.page-id-1200 .repay-hero__glass-box:after {
+		width: 80px !important;
+    height: calc(80px * 521 / 625) !important;
+		transform: translate(-10px, 30px) !important;
+	}
+}
+/* END Mortgage Badge Addition */
+
+/*404 btn*/
+
+.page-404-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    text-align: center !important;
+}
+
+.page-404 {
+    border-radius: 2em !important;
+    color: white !important;
+    font-weight: 600 !important;
+    line-height: 1.25 !important;
+    padding: 1em 2em 0.9em !important;
+    position: relative !important;
+    text-decoration: none !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.2em !important;
+    display: inline-block !important;
+    text-align: center !important;
+    background-color: var(--wp--preset--color--repay-lime) !important; 
+    border: 2px solid #253976 !important;
+    transition: all 0.3s ease-in-out !important;
+	cursor: pointer;
+}
+
+.page-404:hover {
+    background-color: white !important;
+    color: #253976 !important;
+    border: 2px solid #253976 !important;
+}
+
+/* end of 404 btn*/
+main table tr th, main table tr td {
+  color: #253976 !important;
+}
+
+:where(.wp-block-columns) {
+  margin-bottom: 0;
+}
+
+
+/*Page Your payment our people*/
+
+#h-your-payments-our-people {
+  margin: 0 20px 20px 0;
+}
+
+/*End of your payment our people*/
+
+/*Green Text*/
+.green-text {
+	color: #80C430;
+	font-weight: bold;
+}
+
+
+/*Blog heading*/
+.repay-blog-post-slides__slide-heading {
+  text-transform: uppercase !important;
+}
+
+/*post repay and worth partner for KYB*/
+.x-social-icon {
+  position: relative;
+}
+
+.x-social-icon li {
+  position: absolute;
+  left: 15%;
+  top: -2rem;
+}
+/*end of post*/
+
+.award-2025 {
+	text-align: center;
+}
+
+/*Sign-up Subscribers*/
+
+#sign-up-container {
+	margin: 0 auto;
+}
+
+.form-columns-3, .form-columns-1 {
+  width: 80vw;
+	max-width: 1000px !important;
+	margin: 10px auto !important;
+	
+}
+
+.hs-form .hs-error-msgs {
+  max-width: 10rem !important; 
+  white-space: normal !important; 
+  word-wrap: break-word !important; 
+}
+
+/* Remove bullet points from all HubSpot form error messages */
+.hs-form .hs-error-msgs,
+.hs-form .inputs-list {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+/* Remove bullet next to the checkbox */
+.hs-form .inputs-list li {
+  list-style-type: none !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* Ensure checkboxes are aligned properly */
+.hs-form .hs-form-checkbox {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.hs-form-private {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.hs-input {
+  width: 100%;
+  border-radius: 20px;
+  height: 3rem;
+	border: solid 0.1rem black;
+}
+
+.hs-form-private a {
+	color: #80c430;
+}
+
+.legal-consent-container .hs-form-booleancheckbox-display > span {
+  display: block;
+  margin-left: 20px;
+  font-size: 0.8rem;
+}
+
+label {
+  color: #253976;
+}
+.hs-main-font-element {
+  color: red;
+  font-size: 0.8rem;
+}
+
+
+/*btn*/
+
+.hs-form .hs-button.primary.large {
+  background-color: #253976 !important;
+  border: none !important;
+  border-radius: 2em !important;
+  color: white !important;
+  font-weight: 600 !important;
+  line-height: 1.25 !important;
+  padding: 1em 2em 0.9em !important;
+  position: relative !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.2em !important;
+  transition: all 150ms ease-in-out !important;
+  font-size: 1rem !important;
+	cursor: pointer;
+	margin: 20px auto;
+}
+
+.hs-form .hs-button.primary.large:hover {
+  background: #80c430 !important;
+  color: whtie !important;
+  font-size: 1rem !important;
+}
+
+/*End Sign-up Subscribers*/
+
+/*Media Page*/
+
+.media-simplified-textbox {
+  margin: 0 3rem;
+    margin-bottom: 0px;
+}
+
+.media-benefit-container {
+  margin-bottom: 3rem;
+}
+
+
+/*End of Media Page*/
+
+/*b2b page*/
+.intelligent-integrations .wp-block-image {
+  margin-bottom: 0;
+}
+
+.secure-vendor-heading header {
+	font-size: 40px;
+}
+
+.enhance-security header h3, .enhance-security header {
+	text-align: center;
+}
+
+.enhance-security-green header h3 {
+  color: #80C430 ;
+	text-align: center;
+	font-family: Nunito;
+	font-size: 40px;
+	font-weight: 700;
+	line-height: 40px;
+	letter-spacing: 0.2px;
+	text-transform: uppercase;
+}
+
+.enhance-security-green header p, .secure-vendor-heading header, .secure-vendor-heading p, .featured-payment header, .media-streamlined-heading header p, .specialized-solutions-header header p {
+	text-align: center;
+}
+
+.enhance-security header h3 {
+  color: #253976;
+	text-align: center;
+	font-family: Nunito;
+	font-size: 40px;
+	font-weight: 700;
+	line-height: 40px;
+	letter-spacing: 0.2px;
+	text-transform: uppercase;
+}
+
+
+
+
+/*END OF b2b page*/
+
+/*Protect Every Vendor Page*/
+
+/*******
+Case study vendor page 
+****/
+
+.vendor-case-studies.repay-svg-media-and-text-slides .swiper {
+	padding: 1rem 0 4rem !important;
+}
+
+/* Targets only the main section heading inside the vendor case studies section */
+.vendor-case-studies > header > h2.repay-svg-media-and-text-slides__heading {
+	color: var(--repay-lime, var(--wp--preset--color--repay-lime)) !important;
+	font-size: 2.4rem !important;
+}
+
+
+#block_084abe928b5098f44bd40509f8cb8385 .swiper-slide .repay-svg-media-and-text-slides__text-container h2.repay-svg-media-and-text-slides__heading {
+	font-size: 1.8rem !important;
+}
+
+/*****
+ * End of case study
+ * ***/
+.source-site {
+	color: #818181 !important;
+	text-align: right;
+	font-family: Montserrat;
+	font-size: 15px;
+	font-weight: 500;
+	line-height: 28px;
+	letter-spacing: 0.2px;
+}
+
+.green-p-text {
+	color: #80C430;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 28px;
+	letter-spacing: 0.2px;
+}
+
+/*end of Protect Every Vendor Page*/
+
+.case-studies-testimonial-container p{
+	font-family:"Nunito", Sans-Serif !important;
+}
+.repay-hero .is-subtitle {
+  max-width: 100%;
+}
+
+/*Arm page*/
+.arm-benefit h3 {
+  text-align: left;
+}
+
+.arm-specialized > header > h3:first-of-type {
+  text-align: center;
+}
+
+.arm-beneits-repay .h3 {
+  text-align: center;
+  color: #80C430;
+}
+
+/* Consumer Finance Update */
+.consumer-finance-svg-text-slide header h3{
+	text-align:center !important;
+}
+.consumer-finance-repay-cta .repay-repay-cta__heading{
+	text-align:left;
+}
+
+/*Mortgage Updates */
+
+#block_407cd82cca589a0749011bd2b934c28f h3{
+	text-align:left;
+}
+.credit-unions-tabbed-content > header h2{
+		text-align:center !important;
+		color: #80C430 !important;
+}
+
+/* Who We Serve - Education*/
+
+.education-reduce-manual-top {
+  margin-bottom: -10px;
+}
+
+.education-reduce-manual-bottom {
+  margin-top: -10px;
+}
+
+.education-benefit-container h3 {
+  text-align: left;
+}
+
+.education-stats .repay-counter-stats__stat {
+  aspect-ratio: 1/1 !important;
+  width: calc((100% - 6rem) / 3) !important;
+}
+
+.benefits-education-page .h3, .media-streamlined-heading header h3 {
+  color: #80C430;
+  text-align: center;
+  font-family: Nunito;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 2.9rem;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.benefits-education-button {
+  margin-top: -7% !important;
+}
+
+
+/* Back to Top Button */
+    #back-to-top {
+        position: fixed;
+        bottom: 8rem;
+        right: .6rem;
+        padding: 10px 15px;
+        cursor: pointer;
+        z-index: 1000;
+			  opacity: 0;
+        visibility: hidden;
+        transition: opacity .6s,               visibility .6s;
+    }
+    #back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+@media (min-width:769px){
+	.back-to-top-desktop{
+		display:block;
+	}
+	.back-to-top-mobile{
+		display: none;
+	}
+}
+@media (max-width:768px){
+	#back-to-top{
+		right: 1.5rem;
+		bottom: 7rem;
+	}	
+#back-to-top.show{
+		right: 1.5rem;
+		bottom: 7rem;
+		opacity: .7;
+	}
+	.back-to-top-mobile{
+		display: block;
+	}
+		.back-to-top-desktop{
+		display:none;
+	}
+}
+/* Enhanced ACH Updates */
+@media (min-width: 769px){
+	.ach-row-1-cols{
+		margin-bottom: 0;
+	}
+	.ach-row-1-col-1 > figure{
+		margin-bottom:0
+	}
+	.ach-row-1-col-2 > .wp-block-heading{
+		margin-top: 0;
+		margin-bottom: 30px;
+	}
+	.ach-row-1-col-2 > p{
+		line-height: 28px;
+	}
+		.ach-row-1-col-2 li{
+		line-height: 28px;
+	}
+	.ach-row-2-svg .repay-svg-media-and-text__heading{
+		font-size: 30px;
+		line-height:40px;
+	}
+	.ach-row-2-svg .repay-svg-media-and-text__text{
+		max-width: 572px;
+	}
+		.ach-row-2-svg .repay-svg-media-and-text__text p span{
+		font-size:17px;
+	}
+	.ach-row-3-cols{
+		margin-bottom: 0;
+	}
+	.ach-row-3-col-1 figure{
+		margin-bottom:0;
+	}
+	.ach-row-3-col-2{
+	margin-left: 40px !important;
+		margin-right: 40px !important;
+	}
+	.ach-row-3-col-2 .wp-block-heading{
+		max-width:665px;
+		margin-bottom:30px;
+	}
+	.ach-row-3-col-2 p{
+		max-width:635px;
+		font-size: 17px
+		margin-bottom: 30px !important;
+	}
+	
+}
+@media(min-width:1921px){
+		.ach-row .gb-container-content{
+		padding:1rem;
+	}
+}
+@media (max-width: 1500px){
+	.ach-row .gb-container-content{
+		padding:1.5rem;
+	}
+	.ach-row-3 .gb-container-content{
+		padding-left: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+}
+@media (max-width: 1300px){
+	.ach-row-3 .gb-container-content{
+		padding:1.5rem;
+	}
+}
+
+/* ROI Calculator */
+/*ROI CALCULATOR V2 */
+
+.roi-calculator-block-container .wp-block-genesis-blocks-gb-container{
+	position:relative;
+}
+.roi-calculator-block-container .wp-block-genesis-blocks-gb-container:before{
+	content: '';
+	background:url('/wp-content/uploads/2024/05/Group-17.png');
+	position:absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	height:100%;
+	background-repeat:no-repeat;
+}
+
+.roi-calculator-block-container .wp-block-genesis-blocks-gb-container:after{
+	content: '';
+	background:url('/wp-content/uploads/2024/05/Group-16.png');
+	position:absolute;
+	right:-100px;
+	bottom: 90px;
+	width: 415px;
+	height:415px;
+	background-repeat:no-repeat;
+}
+@media(min-width:769px){
+	.kal-decor{
+		min-width:350px;
+	}
+	.roi-title h2{
+		line-height:47px !important;
+	}
+}
+@media(max-width: 768px){
+	.kal-calculator > p{
+		margin-bottom:65px;
+	}
+		.roi-title h2{
+		line-height:33px !important;
+		font-size: 24px !important;
+		margin-left: 35px !important;
+		margin-right: 35px !important;
+	}
+}
+@media (max-width: 1550px){
+.roi-calculator-block-container .wp-block-genesis-blocks-gb-container:after{
+		display:none;
+	}
+	.roi-calculator-block-container .wp-block-genesis-blocks-gb-container:before{
+		display:none;
+	}
+}
+
+@media (max-width: 1000px) {
+    .kal-calculator {
+        width: 90%;
+        margin: 10px auto;
+        padding: 5px 20px;
+    }
+
+    .kal-calculator h4 {
+        font-size: 14px;
+        margin: 20px auto 15px;
+    }
+
+    .roi-calc-slider-container {
+        margin-top: 10px;
+        height: 8px;
+    }
+
+    .roi-calc-slider-track {
+        height: 8px;
+    }
+
+    .roi-calc-slider-fill {
+        height: 8px;
+    }
+
+    .roi-calc-slider-thumb {
+        top: -4px;
+        width: 30px;
+        height: 16px;
+        line-height: 14px;
+    }
+
+    .roi-calc-thumb-value {
+        font-size: 12px;
+    }
+
+    .roi-calc-value-popup {
+        top: -50px;
+        font-size: 14px;
+    }
+
+    .range-display {
+        font-size: 12px;
+        margin: 6px 0;
+    }
+
+    .kal-decor {
+        padding: 10px 15px;
+        gap: 10px;
+    }
+
+    .kal-decor p, .kal-decor span, #kal-total-cost {
+        font-size: 20px;
+    }
+
+    .savings-decor {
+        width: 240px;
+        height: 80px;
+        padding: 10px 60px;
+    }
+
+    .savings-decor p:last-child {
+        font-size: 30px;
+    }
+
+    .roi-title h2 {
+        font-size: 30px;
+        margin: 60px auto 20px;
+    }
+
+    .roi-text p {
+        font-size: 14px;
+        margin: 25px 25px !important;
+    }
+
+    .kal-flex-container {
+        width: 100%;
+        gap: 15px;
+    }
+
+    .kal-separator {
+        width: 120px;
+        height: 0.6px;
+    }
+
+    .kal-row {
+        gap: 40px;
+    }
+
+    .text-total {
+        font-size: 14px;
+    }
+
+    .total-decor, #kal-earnings, .dollar {
+        font-size: 20px;
+    }
+
+    .roi-foot {
+        font-size: 14px;
+        margin: 40px auto;
+    }
+
+    .get-btn, .get-btn-roi {
+        margin: 50px auto;
+    }
+}
+
+
+/* 13-inch laptops */
+@media (min-width: 1280px) and (max-width: 1440px) {
+     {
+        
+    }
+}
+
+/* 15-inch laptops*/
+@media (min-width: 1441px) and (max-width: 1600px) {
+    .left-decor {
+        width: 584px;
+        left: -30%;
+    }
+}
+
+/* 17-inch laptops */
+@media (min-width: 1601px) and (max-width: 1920px) {
+     {
+        
+    }
+}
+
+/* iPad in portrait mode */
+@media (min-width: 768px) and (max-width: 1024px) {
+   .left-decor, .right-decor {
+       display: none;
+    }
+}
+
+
+/* Small phones  */
+@media (min-width: 320px) and (max-width: 480px) {
+     .left-decor, .right-decor {
+       display: none;
+    }
+}
+
+/* Larger phones  */
+@media (min-width: 481px) and (max-width: 767px) {
+    .left-decor, .right-decor {
+       display: none;
+    }
+}
+
+/*Get Started btn*/
+.get-btn, .get-btn-roi {
+  margin: 60px auto;
+  width: fit-content;
+}
+
+.repay-navigation {
+	z-index: 1000;
+}
+
+.left-decor, .right-decor, .roi-title, .roi-text, .kal-calculator, 
+.roi-calc-slider-container, .roi-calc-slider-track, .roi-calc-slider-fill, 
+.roi-calc-slider-thumb, .roi-calc-thumb-value, .roi-calc-value-popup, 
+.range-display, .kal-decor, .savings-decor, .kal-flex-container, .kal-row, 
+.text-total, .total-decor, .break, .kal-separator, .equal, .dollar, .roi-foot, 
+.get-btn, .get-btn-roi {
+    position: relative;
+	  z-index: 15 !important;
+}
+#kal-units-display {
+  display: none;
+}
+
+.roi-calc-slider-container {
+    margin-top: 35px;
+		margin-bottom: 25px;
+    position: relative;
+    width: 100%;
+    height: 10px;
+}
+
+.roi-calc-slider-track {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: grey;
+    border-radius: 5px;
+}
+
+.roi-calc-slider-fill {
+    position: absolute;
+    height: 100%;
+    background-color: #80C430;
+    border-radius: 5px 0 0 5px;
+}
+
+.roi-calc-slider-thumb {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 62px;
+    height: 32px;
+    border: 2px solid #80C430;
+    background-color: #F8FCF3;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 16px;
+    cursor: pointer;
+    user-select: none;
+		display:flex;
+		justify-content:center;
+		align-items:center;
+}
+.roi-calc-slider-thumb.active-touch {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; 
+    line-height: 20px;
+    background-color: white;
+    border-color: #80C430;
+		margin-top: 5px;
+}
+.roi-calc-thumb-value {
+    font-size: 18px;
+}
+.roi-calc-thumb-value.hidden-on-touch {
+    display: none;
+}
+.roi-calc-value-popup {
+    display: none;
+    position: absolute;
+    top: -55px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 50px;
+    padding: 5px 10px;
+    background-color: white;
+    border: 2px solid #80C430;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 16px;
+    z-index: 10;
+}
+
+/*ROI CALCULATOR
+ *
+Calculator shape.*/
+.roi-space {
+	position: relative;
+  background-color: #F2F2F2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0px;
+  box-sizing: border-box;
+	margin: 0 auto !important;
+	z-index: 100 !important;
+}
+
+.kal-row:last-child {
+  margin-bottom: 40px;
+}
+
+.circle-decorations {
+	position: relative;
+}
+
+.left-decor {
+	position: absolute;
+	background: url('https://repay.com/wp-content/uploads/2024/05/Group-17.png');
+	background-repeat: no-repeat;
+	width: 100%;
+  height: 100%;
+  top: 0;
+  left: -14%;
+	z-index: 10 !important;
+}
+
+.right-decor {
+	position: absolute;
+  background: url('https://repay.com/wp-content/uploads/2024/05/Group-16.png');
+    background-repeat: repeat;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  bottom: -64%;
+  right: -97%;
+	z-index: 10 !important;
+}
+
+.roi-block {
+	position: relative;
+  width: 870px;
+  margin: 20px auto;
+  background: #fff;
+	z-index: 1;
+}
+
+/*Numbers display below range*/
+.range-display {
+  display: flex;
+  justify-content: space-between;
+  color: #253976;
+  font-family: Inter;
+  font-size: 14px;
+  margin: 8px 0;
+}
+/* Calculator Range*/
+
+
+/*Calculator green boxes*/
+
+.kal-decor {
+  display: inline-flex;
+  padding: 17px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 17px;
+  border-radius: 20px;
+  border: 2px solid #80C430;
+  background: #F8FCF3;
+}
+
+.kal-decor p {
+  margin: 0;
+}
+
+#kal-total-cost, .kal-decor span {
+  color: #253976;
+  font-family: Montserrat;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0.2px;
+}
+
+.savings-decor {
+  display: flex;
+  width: 304px;
+  height: 98px;
+  padding: 12px 87px 18px 86px;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  border: 2px solid #80C430;
+  background: #F8FCF3;
+}
+
+.savings-decor p:last-child {
+  color: #253976;
+  text-align: center;
+  font-family: Nunito;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+}
+
+.roi-title h2 {
+  color: #80C430;
+  font-family: Nunito;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 80px auto 30px;
+}
+
+.roi-text p {
+  color: #253976;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0.2px;
+  margin: 20px 13px !important;
+}
+
+#kal-total-cost {
+  margin-left: -16px;
+}
+
+.kal-calculator {
+    width: 100%;
+		max-width: 870px;
+    margin: 20px auto;
+    padding: 5px 40px;
+    background-color: #fff;
+}
+
+.kal-calculator h4 {
+	color: #253976;
+	font-family: Montserrat;
+	font-size: 17px;
+	font-weight: 700;
+	line-height: 28px;
+	letter-spacing: 0.2px;
+	text-transform: none;
+	margin: 30px auto 20px;
+}
+
+input[type="range"] {
+    width: 90%;
+}
+
+.kal-flex-container {
+	  margin-top: 40px;
+	  margin-bottom: 40px;
+    display: flex;
+	  position: relative;
+	  width: 100%;
+}
+
+.kal-separator {
+  position: absolute;
+  width: 148px;
+  height: 0.816px;
+  background: #000;
+  top: 110px;
+  right: 2px;
+}
+
+/*Calculator totals*/
+
+.kal-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+.kal-row p {
+  margin: 0;
+}
+
+.break {
+  display: block;
+}
+
+.text-total {
+  color: #253976;
+  font-family: Montserrat;
+  font-size: 17px;
+  line-height: 28px;
+  letter-spacing: 0.2px;
+}
+
+.equal {
+  position: absolute;
+  right: 29.7%;
+}
+
+.total-decor {
+  color: #253976;
+  text-align: right;
+  font-family: Montserrat;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0.2px;
+}
+
+#kal-earnings, .dollar {
+  color: #253976;
+  font-family: Montserrat;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 0.2px;
+}
+
+/*footer calculator text and button*/
+
+.roi-foot {
+  color: #253976;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0.2px;
+  margin: 50px auto;
+}
+
+/* Payment Acceptance Update */
+/*Row vendor payment page */
+h2.payments-row, h3.vendor-payment {
+    margin: 0;
+}
+
+@media(max-width: 781px){
+	.vendor-payment-flex-col-reverse{
+		flex-direction:column-reverse;
+	}
+}
+@media(min-width: 1000px){
+.payment-acceptance-svg-media-left-img{
+	margin-top: 80px;
+	margin-bottom: -60px
+}
+}
+/* Credit Union Updates */
+.credit-unions-industries-heading{
+	font-size: 1.75rem;
+}
+.credit-unions-tabbed-content-container .auto-benefits-get-started-button{
+	margin-bottom: 22px;
+/* 	margin-top: -20px !important; */
+}
+.credit-unions-hero .gb-container-inside{
+	max-width: 1340px !important
+}
+.credit-union-case-studies > header > h3{
+	color: #fff;
+	text-align: center;
+
+}
+.credit-union-case-studies .repay-svg-media-and-text-slides__text-container .repay-svg-media-and-text-slides__heading{
+	color: #fff;
+	margin-bottom: 1.4rem;
+	font-weight:600;
+}
+.credit-union-case-studies p{
+	color: #fff;
+	margin-bottom: 1.4rem;
+	font-weight:500;
+}
+.credit-union-case-studies a{
+	background-color: #80C430 !important;
+}
+.credit-union-case-studies a:hover{
+	background-color: #fff !important;
+	color: #253976 !important;
+}
+
+@media(min-width: 1100px){
+	.credit-unions-blog-slides .repay-blog-post-slides__heading{
+		text-align: left;
+		margin-bottom: 50px
+	}
+	.credit-unions-repay-cta .repay-repay-cta__heading{
+		text-align:left;
+	}
+	.credit-unions-featured-carousel header h3{
+		text-align:center;
+	}
+	.credit-unions-solutions-carousel > header > h3 {
+		text-align:center;
+	}
+	.credit-unions-solutions-carousel > header > .repay-svg-media-and-text-slides__text{
+		text-align:center;
+	}
+	.credit-unions-solutions-carousel li{
+		font-weight:400 !important;
+	}
+	.credit-unions-tabbed-content > header > h2 {
+		text-align:center;
+		color: #80C430;
+	}
+	.mortgage-tabbed-content > header > h2 {
+		text-align:left;
+		color: #253976;
+	}
+	.credit-unions-tabbed-content > header > p{
+		text-align:center;
+	}
+	.mortgage-tabbed-content > header > p{
+		text-align:left;
+	}
+	.credit-unions-hero li{
+		font-weight: 400;
+	}
+	.credit-unions-industries-container .repay-featured-clients{
+		max-width:1440px;
+	}
+	.credit-unions-industries-container{
+		max-width: 1360px !important;
+	}
+	.credit-unions-case-studies-container > .gb-container-inside{
+		max-width: 1360px !important;
+	}
+	.credit-unions-blog-slides .repay-blog-post-slides__heading{
+		font-size: 40px;
+	}
+	.credit-unions-industries-heading{
+		line-height: 50px;
+		font-size: 40px;
+	}
+	.credit-unions-featured-carousel .container .group .c-12 header .repay-cta-slides__heading{
+		font-size: 40px;
+		font-weight:600;
+		line-height:40px;
+		margin-bottom:80px;
+	} 
+	.credit-unions-solutions-carousel > header > h3 {
+		font-size: 40px;
+		font-weight:600;
+		line-height: 40px
+	}
+	.credit-unions-boost-section .wp-block-heading{
+/* 		margin-left: 100px; */
+		font-weight: 700;
+		font-size:40px;
+	}
+	.credit-unions-boost-section .gb-container-content > p {
+/* 		margin-left: 100px; */
+	}
+	.credit-unions-tabbed-content > header > h2{
+		font-size: 40px;
+		line-height:27px;
+		font-weight:700;
+		margin-bottom: 30px !important;
+	}
+	.credit-unions-tabbed-content > header > p{
+		font-size:17px;
+		line-height: 28px;
+		font-weight:500;
+	}
+	.credit-unions-hero .wp-block-heading{
+	font-size: 30px;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 30px
+ }
+	.credit-unions-hero ul{
+		padding-left: 25px;
+		margin-bottom: 50px
+	}
+	.credit-unions-hero p{
+		line-height:28px;
+	}
+	.credit-unions-hero .wp-block-columns{
+		gap: 4em;
+	}
+	.credit-union-case-studies > header > h3{
+	font-size: 40px !important;
+	font-weight:700;
+	}
+	.credit-union-case-studies .repay-svg-media-and-text-slides__text-container .repay-svg-media-and-text-slides__heading{
+	font-size: 30px;
+}
+	.credit-union-case-studies p{
+	font-size: 17px;
+}
+	.credit-union-case-studies .swiper{
+		padding-top: 1rem !important;
+	}
+	.credit-union-case-studies .repay-svg-media-and-text-slides__text-container{
+		padding-top: 0;
+	}
+	.credit-unions-innovative-heading h2 strong{
+		font-weight:700;
+	}
+}
+
+
+/* Careers Updates */
+.careers-team-video-container{
+	display:none;
+} 
+/* .careers-updated-carousel-container{
+	display: none;
+} */
+.careers-updated-team-carousel-container header h3 {
+	font-size: 2.2rem;
+}
+.careers-team-video-container .vimeography-gallery{
+	max-width:900px
+}
+@media(max-width: 450px){
+	.credit-unions-hero .gb-container-inside .gb-container-content .wp-block-columns .wp-block-column > div {
+		background-color: white !important;
+	}
+	.careers-updated-team-carousel-container .repay-svg-media-and-text-slides__svg-background.dot-circle{
+		align-items:center;
+	}
+	.careers-updated-team-carousel-container header h3 {
+		font-size: 1.5rem;
+/* 		margin-bottom: -20px */
+}
+	.careers-updated-team-carousel-container .repay-svg-media-and-text-slides__text-container .repay-svg-media-and-text-slides__heading{
+		font-size: 1.2rem;
+	}
+	.careers-updated-team-carousel-container .swiper{
+		margin-top: -100px;
+	}
+	
+}
+
+/* Media & Political Updates */
+/* Media & Political Media Queries */
+
+@media (max-width: 1499px){
+	.media-two-col-container{
+		margin-top: 50px !important;
+	}
+}
+/* End Media & Political Media Queries */
+
+/* eCash Updates */
+/* eCash Media Queries */
+
+@media (min-width: 781px){
+	.ecash-hero-right-col{
+	margin-left: 2rem !important;
+	}
+}
+/* End eCash Media Queries */
+.ecash-hero-container{
+	margin-top: 8rem;
+}
+.ecash-hero-right-col-btn{
+	margin-top: 1rem !important;
+}
+.ecash-hero-right-col-btn a{
+	font-weight: 600 !important;
+  line-height: 1.25 !important;
+	padding: 1em 2em 0.9em !important;
+	font-size: 1rem;
+}
+.ecash-hero-right-col{
+	margin-left: 0 ;
+}
+.ecash-hero-heading-text{
+	margin-bottom: 2rem;
+}
+.ecash-hero-p-text{
+	font-weight:400;
+}
+
+/* Vendor Payment Updates */
+/*Vendor Payments Media Queries*/
+@media(max-width: 1200px){
+	.vendor-payment-protection-img{
+		display:none;
+	}
+}
+@media (min-width: 768px){
+	.vendor-payment-updated-hero-video iframe{
+	padding: 1rem;
+}
+	.vendor-payment-protection-row{
+		margin-top: 15%;
+	}
+	.vendor-payment-mobile-image{
+		display:none;
+	}
+}
+@media(max-width:781px){
+	.vendor-payment-small-size-img{
+		margin-top: 50px;
+	}
+	.vendor-payment-left-col-container{
+		padding-right: 20px;
+		padding-left: 4%;
+		max-width:500px;
+	}
+	.vendor-payment-left-col-container figure{
+		display: flex;
+		justify-content:center;
+		margin-bottom: 0;
+	}
+}
+/* End Vendor Media Queries */
+
+.vendor-payment-updated-hero-col h2{
+	margin-top: 1.5rem;
+}
+.vendor-payment-updated-hero-col p{
+	margin-top: 3rem;
+	margin-bottom: 3.5rem;
+}
+.vendor-payment-left-col-container h2{
+	margin-bottom:35px;
+}
+.vendor-payment-left-col-container p{
+	margin-bottom: 50px;
+}
+.vendor-payment-custom-button{
+	margin-top: 50px;
+}
+.vendor-payment-custom-list{
+	list-style-type:none;
+	padding-left: 0;
+	margin-bottom:50px;
+	
+}
+.vendor-payment-custom-list-item{
+	position:relative;
+	list-style-type:none;
+	vertical-align:middle;
+	margin-bottom:35px;
+	padding-left:36px;
+}
+.vendor-payment-custom-list-item::before{
+	content:"";
+	width: 15.96px;
+	height:25.54px;
+	background-image: url('/wp-content/themes/repay/inc/img/dot-icon.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	display:inline-block;
+	position:absolute;
+	left: 0;
+	top: 50%;
+	transform:translateY(-50%);
+}
+
+.vendor-payment-protection-row{
+	margin-left: calc(1px + -4vw) !important;
+}
+
+.vendor-payment-protection-icon-row{
+	margin-top: 50px;
+}
+.vendor-col-full-width{
+	position:relative;
+	
+}
+.vendor-payment-protection-img{
+	max-width: 862px;
+	max-height:659px;
+	width: 862px;
+	height:659px;
+	position:absolute;
+	top: 45px;
+	margin-left: 80px
+}
+.vendor-flex-center{
+	display: flex;
+	justify-content:center;
+}
+
+/* HOA Updates */
+.hoa-video1{
+	width: 500px !important;
+	height: auto !important;
+}
+@media(max-width: 992px){
+	.hoa-video1{
+		width: 397px !important;
+		height: auto !important;
+	}
+}
+/* Auto Updates */
+/* Start Auto Media Queries */
+@media(max-width: 1700px){
+	.auto-all-in-one-row-background-accent:before{
+		display:none;
+	}
+	.auto-all-in-one-row-background-accent:after{
+		display:none;
+	}
+}
+@media (max-width: 781px){
+		.auto-case-study-image{
+		margin-top: -75px !important;
+	}
+	.auto-testimonials-heading{
+	margin-top: 40px !important;
+	}
+}
+@media (max-width: 992px){
+
+	.auto-learn-more-blog header h3{
+		font-size: 32px !important;
+	}
+	.auto-benefit-faster-payments .repay-repay-cta__heading{
+		font-size: 32px !important;
+	}
+	.auto-featured-payment-integrations header h3{
+		font-size: 32px !important;
+	}
+	.auto-features-want-most header h3{
+		font-size: 30px !important
+	}
+	.case-study-heading-text{
+		font-size: 24px !important;
+	}
+	.header h2{
+		font-size: 32px !important;
+	}
+	.auto-resized-heading-mobile{
+		font-size: 32px !important;
+	}
+	.auto-resized-heading-mobile header h3{
+		font-size: 32px !important;
+	}
+	.auto-benefits-get-started-button{
+		margin-top: 10px !important;
+	}
+	.auto-all-in-one-col .gb-block-layout-column-inner p{
+	margin-bottom: 30px;
+	}
+	.auto-all-in-one-icons figure{
+	margin-bottom: 0;
+	}
+	.auto-all-in-one-p-text{
+	padding-left: 20px !important;
+	padding-right: 20px !important;
+	}
+}
+/* End Auto Media Queries */
+.auto-all-in-one-p-text{
+	padding-left: 100px;
+	padding-right: 100px;
+}
+.auto-all-in-one-row-background-accent{
+	position:relative;
+}
+.auto-all-in-one-row-background-accent:before{
+	content: '';
+	background: url("/wp-content/uploads/2024/03/Group-17-1.png");
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 584.31px;
+	height: 584.31px;
+	background-repeat:no-repeat;
+	background-position:contain;
+}
+.auto-all-in-one-row-background-accent:after{
+	content: '';
+	background: url("/wp-content/uploads/2024/03/Group-16-1.png");
+	position: absolute;
+	right: -180px;
+	top: 15%;
+	height:415.54px;
+	width: 415.54px;
+	background-repeat:no-repeat;
+}
+.auto-testimonials-heading{
+	margin-top: -15px;
+}
+.auto-featured-payment-integrations header h3{
+	text-align: center;
+	font-size: 40px;
+	margin-bottom: 60px !important;
+}
+.auto-benefit-faster-payments h3{
+	text-align:left;
+	font-size: 40px;
+}
+.auto-streamline-heading{
+	max-width:1010px;
+	margin-top: 80px !important;
+}
+.auto-learn-more-blog .repay-blog-post-slides__heading{
+	margin-top: 80px;
+	margin-bottom:80px;
+	font-weight:600;
+	font-size: 40px;
+	letter-spacing:.2px;
+	text-align:center;
+}
+.auto-features-want-most header h3{
+	text-align:center;
+	font-size: 40px;
+	letter-spacing:.2px;
+	font-weight:600;
+}
+.auto-features-want-most header p{
+	text-align:center;
+}
+.auto-testimonials-spacing{
+	padding-top: 0 !important;
+}
+.auto-testimonials-spacing .swiper{
+	padding-top: 2.5% !important;
+}
+.auto-testimonials-spacing video{
+	padding-bottom: 2.5%;
+}
+.auto-benefits-of-repay-tabbed-content{
+	padding-top: 2.5% !important;
+}
+.auto-benefits-of-repay-tabbed-content header p{
+	text-align: center;
+}
+.auto-benefits-of-repay-tabbed-content header h2{
+	text-align: center;
+	color: #80C430;
+	font-size: 40px;
+	letter-spacing: .2px;
+	font-weight: 700;
+	margin-bottom: 30px !important;
+}
+.auto-all-in-one-col .gb-block-layout-column-inner p{
+	line-height: 28px;
+}
+.auto-all-in-one-icons figure{
+	display: flex;
+	justify-content:center;
+}
+.auto-benefits-get-started-button{
+	margin-top: -100px;
+}
+.auto-buttons-text-font-family{
+		    font-family: "Nunito",Helvetica,Arial,sans-serif !important;
+}
+.auto-secondary-btn a:hover{
+	background: #fff !important;
+	color: #253976 !important;
+}
+.case-study-heading-text{
+	margin-top: 0;
+}
+.case-study-body-text{
+	line-height: 28px;
+	font-weight:500; 
+}
+.page-id-431 .individual-case-study-images {
+  object-position: right;
+}
+
+.has-text-align-left.banner-text.has-white-color.has-text-color a {
+  color: #002B54 !important;
+}
+.wp-block-genesis-blocks-gb-container.alignfull.custom-header-report-page.gb-block-container {
+  background: linear-gradient(90deg, rgba(37, 57, 118, 0.7) 0%, transparent 15%, transparent 35%, rgba(37, 57, 118, 0.7) 60%, #253976 70%);
+    background-color: rgba(0, 0, 0, 0);
+  height: 510px;
+}
+.custom-title-report-page {
+  padding: 3rem 2rem;
+  min-width: 500px;
+  width: 76%;
+  background: linear-gradient(90deg, rgba(41, 96, 172, 0.85), rgba(41, 96, 172, 0.3));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 1rem;
+	margin-top: 148px;
+}
+.green-banner .gb-container-content {
+  max-width: 95vw !important;
+  padding: 40px 13px !important;
+}
+
+
+
+/* CHRIS'S UPDATES */
+.aligncenter {
+	width:auto;
+}
+main 
+main .repay-featured-clients {
+	margin-left:auto;
+	margin-right:auto;
+	max-width:auto;
+}
+
+main .repay-featured-clients.alignfull {
+	margin: 3rem calc(50% - 50vw);
+	max-width: 100vw;
+}
+
+main .repay-svg-media-and-text{
+	padding-top:4rem;
+	padding-bottom:4rem;
+}
+
+/* Center alignment */
+.center-align {
+	text-align:center;
+}
+
+/* Hero button hover */
+.repay-hero .repay-hero__glass-box .button.has-repay-lime-background-color:hover {
+	background-color:var(--dark-blue-opposite) !important;
+	color:var(--dark-blue) !important;
+}
+
+.wp-block-button__link.has-dark-blue-background-color:hover {
+	background-color:var(--repay-lime) !important;
+	color:var(--repay-lime-opposite) !important;
+}
+.checkbox-wrap .nf-field-element label, 
+.checkbox-wrap .nf-field-label label, 
+.listcheckbox-wrap .nf-field-element label, .listcheckbox-wrap .nf-field-label label,
+.listcheckbox-container .nf-field-element label:before {
+	text-indent: 0;
+}
+
+html {
+  scroll-padding-top: 20vh;
+}
+
+/* Mandalty Cookie Banner */
+.mdt-banner {
+	position: relative;
+	z-index: var(--mdt-z-index);
+  --mdt-z-index: 9999999;
+}
+
+.mdt-pc-footer .mdt-pc-sub-footer {
+	display: none !important;
+}
+.mdt-banner-content,
+.mdt-pc-body {
+	padding: 1.5rem !important;
+	    font-family: "Montserrat",Helvetica,Arial,sans-serif !important;
+}
+.mdt-pc-header *,
+.mdt-banner-content *,
+.mdt-pc-body * {
+	    font-family: "Montserrat",Helvetica,Arial,sans-serif !important;
+}
+.mdt-pc-footer .mdt-pc-footer-r-side,
+.mdt-pc-header {
+		padding: 1rem 1.5rem !important;
+}
+
+.mdt-banner-header .mdt-banner-title *, .mdt-pc-privacy .mdt-pc-privacy-title, #mdt_pc_consent_data .mdt-pc-consent-title * {
+	color: var(--repay-lime, --wp--preset--color--repay-lime) !important;
+	text-transform: uppercase !important;
+	    font-family: "Nunito",Helvetica,Arial,sans-serif !important;
+	font-size: 1.3rem !important;
+}
+
+.mdt-banner-link-privacy {
+	  display: block !important;
+    margin-top: 1em !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+}
+.mdt-pc-container,
+.mdt-banner-notice,.mdt-pc-category-description {
+	font-size: 1rem !important;
+  line-height: 1.45 !important;
+  letter-spacing: .01em !important;
+}
+.mdt-cookie-info-details li label,
+.mdt-cookie-info-details li h5 {
+	font-size: 0.9rem !important;
+	line-height: 1.3 !important;
+}
+.mdt-banner-content .mdt-banner-btn-wrapper button,
+.mdt-pc-footer .mdt-pc-footer-r-side button {
+	  padding-inline: 1.5em !important;
+    border-width: 2px !important;
+    font-weight: bold !important;
+		border-radius: 50px !important;
+	    transition: all 150ms ease-in-out;
+}
+.mdt-banner-content .mdt-banner-btn-wrapper button:hover,
+.mdt-pc-footer .mdt-pc-footer-r-side button:hover {
+	  padding-inline: 1.5em !important;
+    border-width: 2px !important;
+    font-weight: bold !important;
+		border-radius: 50px !important;
+	  transform: scale(1.025) translateY(-1px);
+	border-color: #253976 !important;
+    background-color: #253976 !important;
+	color: #ffffff !important;
+}
+
+.display-none{
+	display:none !important;
+}
+.repay-blog-post-slides__after-link-container{
+	display:none !important;
+}
+
+.margin-top-none {
+	margin-top: 0;
+}
+
+p.canadapaymentdiv {
+	display:none;
+}
+
+body.page-id-429 p.canadapaymentdiv, body.page-id-415 p.canadapaymentdiv {
+	display:block;
+}
+.repay-post-feed-picker__image-container img {
+    max-width: 300px;
+}
+body.single-post #simple-post-header .the-content > img {
+    max-width: 500px !important;
+    max-height: 236px !important;
+}
+		</style>
+				
+
+    </head>
+	<!-- Google Ads Conversion tag (gtag.js) -->
+		<script nonce="8h7GUYY+qVYR+C/biiMq5g==" type="text/plain" mandatlydata-cookiecategoryid="0003" async src="https://www.googletagmanager.com/gtag/js?id=AW-11114579385"></script>
+		<script nonce="8h7GUYY+qVYR+C/biiMq5g==">
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'AW-11114579385');
+		</script>
+	<!-- End Google Ads Conversion tag (gtag.js) -->
+    <body class="wp-singular page-template-default page page-id-415 page-child parent-pageid-411 wp-theme-repay repay fade-in-onload repay-page repay-post-415 repay-post-payment-acceptance repay-inside-page">
+    <a href="#nav" class="screen-reader-only">Skip to Navigation</a>
+    <a href="#main" class="screen-reader-only">Skip to Main Content</a>
+    <a href="#footer" class="screen-reader-only">Skip to Footer</a>
+            <nav class="repay-navigation" id="nav" data-nav-bar="top">
+
+						<div class="repay-header-menu-topper group group-flex ">
+							<div class="repay-header-menu-topper-inner alignwide">
+
+								
+									<nav role="navigation" class="header-menu-topper">
+										<ul>
+											<li id="menu-item-82" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-82"><a href="tel:+1(877)607-5468">877.607.5468</a></li>
+<li id="menu-item-83" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-83"><a href="https://info.repay.com/request-a-demo">Request a Demo</a></li>
+										</ul>
+									</nav>
+
+								
+							</div>
+						</div>
+
+            <div class="group group-flex alignwide">
+
+								<div class="c c-xs-2 repay-mobile-menu-toggle" data-toggle="repay-active" data-target=".repay-navigation">
+										<i class="fal fa-regular fa-bars"></i>
+								</div>
+
+                <div class="c c-3 c-xs-8 repay-navigation__logo">
+                    <a href="/" aria-label="go to homepage"><img alt="repay logo" width="250" height="90" src="https://repay.com/wp-content/uploads/2022/11/REP-0004_Logo_CMYK_hz-813w.png" class="repay-logo"></a>
+                </div>
+
+                <div class="c c-9 c-xs-12 repay-navigation__menus-wrapper">
+                                            <ul class="repay-navigation__menu">
+                            
+                                <li class="repay-navigation-menu__item  repay-navigation-menu__item--submenu " data-submenu-selector=".repay-navigation__sub-menu" data-submenu-class-toggle="repay-active">
+
+																																	<a href="#" class="repay-navigation-menu__link " target="" title="">Company</a>
+																	<i class="repay-sub-icon fal fa-angle-down" tabindex="-1" role="button" aria-hidden="true"></i>
+																
+                                    
+                                        <ul class="repay-navigation__sub-menu ">
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/company/about-us/" class="repay-navigation-submenu__link " target="" title="">
+																									About Us																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/company/careers/" class="repay-navigation-submenu__link " target="" title="">
+																									Careers																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://investors.repay.com/" class="repay-navigation-submenu__link " target="_blank" title="">
+																									Investors																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/company/news/" class="repay-navigation-submenu__link " target="" title="">
+																									News																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/blog" class="repay-navigation-submenu__link " target="" title="">
+																									Blog																																																	</a>
+                                            </li>
+                                                                                    </ul>
+
+                                    
+                                </li>
+
+                            
+                                <li class="repay-navigation-menu__item  repay-navigation-menu__item--submenu " data-submenu-selector=".repay-navigation__sub-menu" data-submenu-class-toggle="repay-active">
+
+																																	<a href="#" class="repay-navigation-menu__link " target="" title="">Solutions</a>
+																	<i class="repay-sub-icon fal fa-angle-down" tabindex="-1" role="button" aria-hidden="true"></i>
+																
+                                    
+                                        <ul class="repay-navigation__sub-menu ">
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/solutions/payment-acceptance/" class="repay-navigation-submenu__link " target="" title="">
+																									Payment Acceptance																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/solutions/vendor-payment-automation/" class="repay-navigation-submenu__link " target="" title="">
+																									Vendor Payment Automation																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/solutions/clearing-and-settlement/" class="repay-navigation-submenu__link " target="" title="">
+																									Clearing and Settlement																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/solutions/instant-funding/" class="repay-navigation-submenu__link " target="" title="">
+																									Instant Funding																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/solutions/messaging-management/" class="repay-navigation-submenu__link " target="" title="">
+																									Messaging Management																																																	</a>
+                                            </li>
+                                                                                    </ul>
+
+                                    
+                                </li>
+
+                            
+                                <li class="repay-navigation-menu__item  repay-navigation-menu__item--submenu " data-submenu-selector=".repay-navigation__sub-menu" data-submenu-class-toggle="repay-active">
+
+																																	<a href="#" class="repay-navigation-menu__link " target="" title="">Who We Serve</a>
+																	<i class="repay-sub-icon fal fa-angle-down" tabindex="-1" role="button" aria-hidden="true"></i>
+																
+                                    
+                                        <ul class="repay-navigation__sub-menu mega-menu columns-3">
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/who-we-serve/accounts-receivable-management/" class="repay-navigation-submenu__link " target="" title="">
+																									Accounts Receivable Management																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/who-we-serve/automotive/" class="repay-navigation-submenu__link " target="" title="">
+																									Automotive																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/who-we-serve/b2b/" class="repay-navigation-submenu__link " target="" title="">
+																									B2B																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/who-we-serve/consumer-finance/" class="repay-navigation-submenu__link " target="" title="">
+																									Consumer Finance																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/who-we-serve/credit-unions/" class="repay-navigation-submenu__link " target="" title="">
+																									Credit Unions																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/who-we-serve/education/" class="repay-navigation-submenu__link " target="" title="">
+																									Education																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/who-we-serve/field-services/" class="repay-navigation-submenu__link " target="" title="">
+																									Field Services																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/who-we-serve/financial-institutions/" class="repay-navigation-submenu__link " target="" title="">
+																									Financial Institutions																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/who-we-serve/government-municipalities/" class="repay-navigation-submenu__link " target="" title="">
+																									Government/Municipalities																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/who-we-serve/healthcare/" class="repay-navigation-submenu__link " target="" title="">
+																									Healthcare																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/who-we-serve/hoa-management/" class="repay-navigation-submenu__link " target="" title="">
+																									HOA Management																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/who-we-serve/hospitality/" class="repay-navigation-submenu__link " target="" title="">
+																									Hospitality																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/who-we-serve/media-and-political-agencies/" class="repay-navigation-submenu__link " target="" title="">
+																									Media &amp; Political Ad Agencies																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/who-we-serve/mortgage/" class="repay-navigation-submenu__link " target="" title="">
+																									Mortgage																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/who-we-serve/processing-isos-and-payfacs/" class="repay-navigation-submenu__link " target="" title="">
+																									Processing ISOs and Payfacs																																																	</a>
+                                            </li>
+                                                                                    </ul>
+
+                                    
+                                </li>
+
+                            
+                                <li class="repay-navigation-menu__item  repay-navigation-menu__item--submenu " data-submenu-selector=".repay-navigation__sub-menu" data-submenu-class-toggle="repay-active">
+
+																																	<a href="#" class="repay-navigation-menu__link " target="" title="">Partners</a>
+																	<i class="repay-sub-icon fal fa-angle-down" tabindex="-1" role="button" aria-hidden="true"></i>
+																
+                                    
+                                        <ul class="repay-navigation__sub-menu ">
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://partner.repay.com/" class="repay-navigation-submenu__link " target="_blank" title="">
+																									Existing Partners																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://repay.com/partners/partner-program/" class="repay-navigation-submenu__link " target="" title="">
+																									Partner Program																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://partner.repay.com/English/register_email.aspx" class="repay-navigation-submenu__link " target="_blank" title="">
+																									Apply to Become a Partner																																																	</a>
+                                            </li>
+                                                                                        <li class="repay-navigation-submenu__item">
+                                                <a href="https://partners.repay.com/integrations" class="repay-navigation-submenu__link " target="_blank" title="">
+																									View Integrations																																																	</a>
+                                            </li>
+                                                                                    </ul>
+
+                                    
+                                </li>
+
+                            
+                                <li class="repay-navigation-menu__item   " >
+
+																																	<a href="https://info.repay.com/contact-us" class="repay-navigation-menu__link " target="" title="">Contact Us</a>
+																	<i class="repay-sub-icon fal fa-angle-down" tabindex="-1" role="button" aria-hidden="true"></i>
+																
+                                    
+                                </li>
+
+                                                    </ul>
+                                    </div>
+            </div>
+        </nav>
+    
+    
+        <div class="repay-hero is-standard  is-small has-overlay alignfull html_simple">
+
+          <div class="repay-hero__background-image" style="background-image: url(https://repay.com/wp-content/uploads/2023/01/shutterstock_2210967623-1920x859.jpg);"></div>
+					<div class="repay-hero__overlay has--background-color has-background-color"></div>
+
+            <div class="repay-hero__content container xalignwide">
+                <div class="group">
+                    <div class="repay-hero__content-wrapper">
+
+											<div class="repay-hero__glass-box">
+
+																									<h1>
+														Fast, Intuitive Payment Acceptance													</h1>
+												
+																										<p class="is-subtitle">
+															Maintain secure cash flow and improve operational efficiency by offering convenient, secure payment methods your customers prefer. Rely on REPAY to stay at the forefront of fintech, bringing you best-in-class omni-channel payment technology through easy, integrated solutions that keep payment details current and transactions moving smoothly. 														</p>
+												
+												
+											</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <main class="repay-main" id="main">
+    <div class="container">
+        <div class="group">
+            <div class="c c-12 the-content">
+	                                                    
+<div style="background-color:#f2f2f2;padding-left:6%;padding-right:6%;padding-bottom:3%;padding-top:4%" class="wp-block-genesis-blocks-gb-container alignfull gb-block-container"><div class="gb-container-inside"><div class="gb-container-content" style="max-width:1340px">
+<div class="wp-block-genesis-blocks-gb-columns gb-layout-columns-4 gb-4-col-equal"><div class="gb-layout-column-wrap gb-block-layout-column-gap-3 gb-is-responsive-column">
+<div class="wp-block-genesis-blocks-gb-column gb-block-layout-column"><div class="gb-block-layout-column-inner" style="padding-top:15%">
+<div class="wp-block-genesis-blocks-gb-columns gb-layout-columns-2 gb-2-col-wideright"><div class="gb-layout-column-wrap gb-block-layout-column-gap-0 gb-is-responsive-column">
+<div class="wp-block-genesis-blocks-gb-column gb-block-layout-column gb-is-vertically-aligned-center"><div class="gb-block-layout-column-inner" style="padding:10px"><div class="wp-block-image is-resized">
+<figure class="aligncenter size-thumbnail"><img decoding="async" width="150" height="150" src="https://dev-repay.pantheonsite.io/wp-content/uploads/2022/10/REPAY_icon_color_Credit-Card-150x150.png" alt="" class="wp-image-980" style="object-fit:cover;width:66px;height:66px" srcset="https://repay.com/wp-content/uploads/2022/10/REPAY_icon_color_Credit-Card-150x150.png 150w, https://repay.com/wp-content/uploads/2022/10/REPAY_icon_color_Credit-Card-300x300.png 300w, https://repay.com/wp-content/uploads/2022/10/REPAY_icon_color_Credit-Card-325x325.png 325w, https://repay.com/wp-content/uploads/2022/10/REPAY_icon_color_Credit-Card.png 418w" sizes="(max-width: 150px) 100vw, 150px" /></figure></div></div></div>
+
+
+
+<div class="wp-block-genesis-blocks-gb-column gb-block-layout-column gb-is-vertically-aligned-center"><div class="gb-block-layout-column-inner">
+<h2 class="wp-block-heading payments-row has-medium-font-size" id="h-debit-and-credit-card-processing"><strong>DEBIT AND CREDIT CARD PROCESSING</strong></h2>
+</div></div>
+</div></div>
+
+
+
+<p>Improve cash flow and increase on-time payments by letting customers pay anytime, anywhere through any payment channel using credit or debit.</p>
+
+
+
+<div class="repay-link-cards__card-button">
+						<a class="text-button dot-link" href="https://repay.com/credit-and-debit-card-processing/" target="" aria-label="Learn More" rel="noopener">Learn More</a>					</div>
+</div></div>
+
+
+
+<div class="wp-block-genesis-blocks-gb-column gb-block-layout-column"><div class="gb-block-layout-column-inner" style="padding-top:15%">
+<div class="wp-block-genesis-blocks-gb-columns gb-layout-columns-2 gb-2-col-wideright"><div class="gb-layout-column-wrap gb-block-layout-column-gap-0 gb-is-responsive-column">
+<div class="wp-block-genesis-blocks-gb-column gb-block-layout-column gb-is-vertically-aligned-center"><div class="gb-block-layout-column-inner" style="padding:10px"><div class="wp-block-image is-resized">
+<figure class="aligncenter size-thumbnail"><img decoding="async" width="150" height="150" src="https://dev-repay.pantheonsite.io/wp-content/uploads/2022/10/REPAY_icon_color_ACH-150x150.png" alt="" class="wp-image-933" style="width:66px" srcset="https://repay.com/wp-content/uploads/2022/10/REPAY_icon_color_ACH-150x150.png 150w, https://repay.com/wp-content/uploads/2022/10/REPAY_icon_color_ACH-300x300.png 300w, https://repay.com/wp-content/uploads/2022/10/REPAY_icon_color_ACH-325x325.png 325w, https://repay.com/wp-content/uploads/2022/10/REPAY_icon_color_ACH.png 417w" sizes="(max-width: 150px) 100vw, 150px" /></figure></div></div></div>
+
+
+
+<div class="wp-block-genesis-blocks-gb-column gb-block-layout-column gb-is-vertically-aligned-center"><div class="gb-block-layout-column-inner">
+<h2 class="wp-block-heading payments-row has-medium-font-size" id="h-ach-processing"><strong>ACH PROCESSING</strong></h2>
+</div></div>
+</div></div>
+
+
+
+<p>Faster and safer than paper checks, ACH processing enables same-day transactions, reliable and recurring payments, and low transaction fees.</p>
+
+
+
+<div class="repay-link-cards__card-button">
+						<a class="text-button dot-link" href="https://repay.com/ach-processing/" target="" aria-label="Learn More" rel="noopener">Learn More</a>					</div>
+</div></div>
+
+
+
+<div class="wp-block-genesis-blocks-gb-column gb-block-layout-column"><div class="gb-block-layout-column-inner" style="padding-top:15%">
+<div class="wp-block-genesis-blocks-gb-columns gb-layout-columns-2 gb-2-col-wideright"><div class="gb-layout-column-wrap gb-block-layout-column-gap-0 gb-is-responsive-column">
+<div class="wp-block-genesis-blocks-gb-column gb-block-layout-column gb-is-vertically-aligned-center"><div class="gb-block-layout-column-inner" style="padding:10px"><div class="wp-block-image is-resized">
+<figure class="aligncenter size-thumbnail"><img decoding="async" width="150" height="150" src="https://dev-repay.pantheonsite.io/wp-content/uploads/2022/10/REPAY_icon_color_Text-Payment-150x150.png" alt="" class="wp-image-1104" style="width:66px" srcset="https://repay.com/wp-content/uploads/2022/10/REPAY_icon_color_Text-Payment-150x150.png 150w, https://repay.com/wp-content/uploads/2022/10/REPAY_icon_color_Text-Payment-300x300.png 300w, https://repay.com/wp-content/uploads/2022/10/REPAY_icon_color_Text-Payment-325x325.png 325w, https://repay.com/wp-content/uploads/2022/10/REPAY_icon_color_Text-Payment.png 417w" sizes="(max-width: 150px) 100vw, 150px" /></figure></div></div></div>
+
+
+
+<div class="wp-block-genesis-blocks-gb-column gb-block-layout-column gb-is-vertically-aligned-center"><div class="gb-block-layout-column-inner">
+<h2 class="wp-block-heading payments-row has-medium-font-size" id="h-ecash"><strong>eCash</strong></h2>
+</div></div>
+</div></div>
+
+
+
+<p>Some customers still want to make payments with cash. Reduce the hassle of handling cash by converting it into digital payments that sync to your system.               </p>
+
+
+
+<div class="repay-link-cards__card-button">
+						<a class="text-button dot-link" href="https://repay.com/ecash/" target="" aria-label="Learn More" rel="noopener">Learn More</a>					</div>
+</div></div>
+
+
+
+<div class="wp-block-genesis-blocks-gb-column gb-block-layout-column"><div class="gb-block-layout-column-inner" style="padding-top:15%">
+<div class="wp-block-genesis-blocks-gb-columns gb-layout-columns-2 gb-2-col-wideright"><div class="gb-layout-column-wrap gb-block-layout-column-gap-0 gb-is-responsive-column">
+<div class="wp-block-genesis-blocks-gb-column gb-block-layout-column gb-is-vertically-aligned-center"><div class="gb-block-layout-column-inner" style="padding:10px"><div class="wp-block-image is-resized">
+<figure class="aligncenter size-thumbnail"><img loading="lazy" decoding="async" width="150" height="150" src="https://dev-repay.pantheonsite.io/wp-content/uploads/2023/01/REPAY_icon_color_Wallet-150x150.png" alt="" class="wp-image-7147" style="width:66px" srcset="https://repay.com/wp-content/uploads/2023/01/REPAY_icon_color_Wallet-150x150.png 150w, https://repay.com/wp-content/uploads/2023/01/REPAY_icon_color_Wallet-300x300.png 300w, https://repay.com/wp-content/uploads/2023/01/REPAY_icon_color_Wallet-325x325.png 325w, https://repay.com/wp-content/uploads/2023/01/REPAY_icon_color_Wallet.png 417w" sizes="auto, (max-width: 150px) 100vw, 150px" /></figure></div></div></div>
+
+
+
+<div class="wp-block-genesis-blocks-gb-column gb-block-layout-column gb-is-vertically-aligned-center"><div class="gb-block-layout-column-inner">
+<h2 class="wp-block-heading payments-row has-medium-font-size" id="h-digital-wallet-services"><strong>Digital Wallet Services</strong></h2>
+</div></div>
+</div></div>
+
+
+
+<p>Enable customers to quickly and easily pay using the payment data securely stored in the digital wallets on their mobile devices. </p>
+
+
+
+<div class="repay-link-cards__card-button">
+						<a class="text-button dot-link" href="https://repay.com/digital-wallet/" target="" aria-label="Learn More" rel="noopener">Learn More</a>					</div>
+</div></div>
+</div></div>
+
+
+
+<div style="height:75px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+</div></div></div>
+
+
+
+<div style="height:100px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+<!-- start : repay/app/public/wp-content/themes/repay/blocks/templates/link-cards/link-cards.php -->
+
+<section class="repay-link-cards  aligncenter" id='block_b59a2dddc256cb698a1ca5b6654f6dbd'>
+
+	<header>
+
+					<h2 class="repay-link-cards__heading">
+				Give Customers the Ease and Flexibility They Desire			</h2>
+		
+					<div class="repay-link-cards__text">
+				<p style="text-align: center;">Make it easier and faster for customers to pay by integrating all the channels they use.</p>
+			</div>
+		
+	</header>
+
+			<ul class="repay-link-cards__cards fade-in-onload">
+		
+			<li class="repay-link-cards__card scroll-class" data-scroll-class="is-viewed" data-removable-scroll-class="false">
+
+									<h3 class="repay-link-cards__card-title">
+						Online Portal					</h3>
+				
+									<div class="repay-link-cards__card-text">
+						<p>Establishing a secure and flexible bill payment system for your customers increases on-time payments and improves the customer experience. REPAY’s electronic bill presentment and payment (EBPP) platform is an online payment portal that allows customers to easily log in and use their preferred payment method.</p>
+					</div>
+				
+									<div class="repay-link-cards__card-button">
+						<a class="text-button dot-link" href="https://repay.com/online-portal-ebpp-and-hpp/" target=""  >Learn More</a>					</div>
+				
+			</li>
+
+		
+			<li class="repay-link-cards__card scroll-class" data-scroll-class="is-viewed" data-removable-scroll-class="false">
+
+									<h3 class="repay-link-cards__card-title">
+						PHONE / IVR and REPAY VOICE 					</h3>
+				
+									<div class="repay-link-cards__card-text">
+						<p>Waiting in long queues to pay over the phone can frustrate customers and delay payments. REPAY offers both standard Interactive Voice Response (IVR) and AI-powered REPAY Voice<sup>TM</sup> to ensure prompt payments and a better user experience. Whether navigating easy voice prompts or speaking naturally to our AI, customers can securely use credit/debit cards or banking info to bypass hold times completely.</p>
+					</div>
+				
+									<div class="repay-link-cards__card-button">
+						<a class="text-button dot-link" href="https://repay.com/phone-ivr/" target=""  >Learn More</a>					</div>
+				
+			</li>
+
+		
+			<li class="repay-link-cards__card scroll-class" data-scroll-class="is-viewed" data-removable-scroll-class="false">
+
+									<h3 class="repay-link-cards__card-title">
+						REPAYit Mobile App					</h3>
+				
+									<div class="repay-link-cards__card-text">
+						<p>On-the-go, contactless payment solutions are the way of the future. Accept more payments quickly with REPAYit™. Configurable and available for both Apple® and Android™ devices, REPAYit supports seamless and prompt payments for your customers anytime, anywhere.</p>
+					</div>
+				
+									<div class="repay-link-cards__card-button">
+						<a class="text-button dot-link" href="https://repay.com/repayit-mobile-application/" target=""  >Learn More</a>					</div>
+				
+			</li>
+
+		
+			<li class="repay-link-cards__card scroll-class" data-scroll-class="is-viewed" data-removable-scroll-class="false">
+
+									<h3 class="repay-link-cards__card-title">
+						Text Pay					</h3>
+				
+									<div class="repay-link-cards__card-text">
+						<p>Your customers continually look for faster and simpler ways of paying for services, bills and loans. Harness the convenience and responsiveness of texting for an improved collection process with Text Pay. Text Pay lets customers quickly make payments with a finger tap after a brief SMS verification.</p>
+					</div>
+				
+									<div class="repay-link-cards__card-button">
+						<a class="text-button dot-link" href="https://repay.com/text-pay/" target=""  >Learn More</a>					</div>
+				
+			</li>
+
+		
+			<li class="repay-link-cards__card scroll-class" data-scroll-class="is-viewed" data-removable-scroll-class="false">
+
+									<h3 class="repay-link-cards__card-title">
+						ClickToPay					</h3>
+				
+									<div class="repay-link-cards__card-text">
+						<p>Collecting <a href="https://repay.com/who-we-serve/accounts-receivable-management/">accounts receivable (AR)</a> payments can be tricky and time-consuming, taxing employees&#8217; time and bottlenecking productivity. Streamline bill payment options with ClickToPay, a proprietary one-click payment solution that enables customers to pay an invoice or bill with a click, improving the overall customer experience and speeding up time to revenue.</p>
+					</div>
+				
+									<div class="repay-link-cards__card-button">
+						<a class="text-button dot-link" href="https://repay.com/clicktopay/" target=""  >Learn More</a>					</div>
+				
+			</li>
+
+		
+			<li class="repay-link-cards__card scroll-class" data-scroll-class="is-viewed" data-removable-scroll-class="false">
+
+									<h3 class="repay-link-cards__card-title">
+						Pay-By-Link					</h3>
+				
+									<div class="repay-link-cards__card-text">
+						<p>Customers prioritize convenience when it comes time to pay. Pay-By-Link offers them a self-serve and easy way to pay using any payment method to increase on-time payments while reducing agent touchpoints to sensitive data.</p>
+					</div>
+				
+									<div class="repay-link-cards__card-button">
+						<a class="text-button dot-link" href="https://repay.com/pay-by-link/" target=""  >Learn More</a>					</div>
+				
+			</li>
+
+		
+		</ul>
+
+	
+	<!-- start : repay/app/public/wp-content/themes/repay/template-parts/gif-animation.php -->
+<div class="repay-gif-animation repay-link-cards__svg-background dot-wave">
+
+	
+					<video autoplay loop muted playsinline>
+					<source src="/wp-content/themes/repay/template-parts/gif-animation/webm/dot-wave-1800x400.webm" type="video/webm">
+										<source src="/wp-content/themes/repay/template-parts/gif-animation/mp4/dot-wave-1800x400.mp4" type="video/mp4">
+				</video>
+			
+
+	
+	
+
+</div>
+<!-- end : repay/app/public/wp-content/themes/repay/template-parts/gif-animation.php -->
+</section>
+<!-- end : repay/app/public/wp-content/themes/repay/blocks/templates/link-cards/link-cards.php -->
+
+
+<div style="padding-left:3%;padding-right:3%;padding-bottom:5%;padding-top:5%" class="wp-block-genesis-blocks-gb-container alignfull gb-block-container"><div class="gb-container-inside"><div class="gb-container-image-wrap"><img decoding="async" class="gb-container-image has-background-dim-100 has-background-dim" src="https://repay.com/wp-content/uploads/2026/06/why-callers-love-it_background_AdobeStock_1245858664-e1780323177528.jpg" alt="bg background decoration"/></div><div class="gb-container-content" style="max-width:1020px">
+<h2 class="wp-block-heading has-text-align-center has-repay-lime-color has-text-color has-link-color wp-elements-f447ae8585ca66fade6d259f841f021c" id="h-introducing-repay-voice"><strong>INTRODUCING REPAY VOICE</strong></h2>
+
+
+
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<div class="wp-block-genesis-blocks-gb-columns gb-layout-columns-2 gb-2-col-equal"><div class="gb-layout-column-wrap gb-block-layout-column-gap-4 gb-is-responsive-column">
+<div class="wp-block-genesis-blocks-gb-column gb-block-layout-column"><div class="gb-block-layout-column-inner">
+<p class="has-white-color has-text-color has-link-color wp-elements-4f390ee39584de94fbd8921fe677d620">REPAY Voice is an AI-powered upgrade to traditional phone IVR, purpose-built for consumer lending and collections. Instead of navigating button menus, callers speak naturally. The AI recognizes context, references saved payment methods and guides every call to a completed payment.</p>
+
+
+
+<p class="has-white-color has-text-color has-link-color wp-elements-c5bce70b7187ec58ac4ef726bfffe173">It's a faster, more intuitive phone payment experience that reduces call abandonment and lowers call center volume. No new app or development required. REPAY is offering a smarter phone channel that works the way your customers already talk.</p>
+
+
+
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-white-color has-repay-lime-background-color has-text-color has-background has-link-color has-small-font-size has-custom-font-size wp-element-button" href="https://repay.com/repay-voice/" target="_blank" rel="noreferrer noopener">Learn More</a></div>
+</div>
+</div></div>
+
+
+
+<div class="wp-block-genesis-blocks-gb-column gb-block-layout-column"><div class="gb-block-layout-column-inner">
+<figure class="wp-block-embed is-type-video is-provider-vimeo wp-block-embed-vimeo wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe loading="lazy" title="REPAY Voice Video" src="https://player.vimeo.com/video/1201860677?dnt=1&amp;app_id=122963" width="500" height="281" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div></figure>
+</div></div>
+</div></div>
+</div></div></div>
+
+
+<!-- start : repay/app/public/wp-content/themes/repay/blocks/templates/svg-media-and-text/svg-media-and-text.php -->
+<div class="repay-svg-media-and-text payment-acceptance-svg-media-left-img  image-left size-option-50-50" id='block_7e77f7e9618bdd81a7e6363c84cb25f4'>
+
+	
+							<div class="repay-svg-media-and-text__media-container cover">
+					<img loading="lazy" decoding="async" width="710" height="447" src="https://repay.com/wp-content/uploads/2024/05/Frame-21.png" class="attachment-large size-large" alt="friendly ui" srcset="https://repay.com/wp-content/uploads/2024/05/Frame-21.png 710w, https://repay.com/wp-content/uploads/2024/05/Frame-21-300x189.png 300w, https://repay.com/wp-content/uploads/2024/05/Frame-21-150x94.png 150w" sizes="auto, (max-width: 710px) 100vw, 710px" />				</div>
+			
+			<div class="repay-svg-media-and-text__text-container">
+
+									<h2 class="repay-svg-media-and-text__heading">
+						The Power of a User-Friendly Experience					</h2>
+				
+									<div class="repay-svg-media-and-text__text">
+						<p class="p1" style="font-weight: 400;">Striking the perfect balance between function and design, REPAY takes user experiences to the next level with online and mobile payment interfaces that drive customer engagement and simplify payments, utilizing features such as:</p>
+<ul>
+<li style="font-weight: 400;">Light and dark theme options that offer optimal comfort and accessibility.</li>
+<li style="font-weight: 400;">A platform fully adaptable to your branding, creating a seamless and intuitive payment experience for your customers.</li>
+<li style="font-weight: 400;">Robust reporting dashboards with realtime data and customizable filters that empower you to make informed decisions for the future.</li>
+<li style="font-weight: 400;">Automatic updates to stored payment details with Active Safe, helping keep card information current, improving approval rates, and enhancing the overall user experience.</li>
+</ul>
+					</div>
+				
+				
+				
+			</div>
+
+</div>
+<!-- end : repay/app/public/wp-content/themes/repay/blocks/templates/svg-media-and-text/svg-media-and-text.php -->
+
+
+<div class="wp-block-genesis-blocks-gb-columns gb-layout-columns-2 gb-2-col-equal" style="margin-top:45px;margin-bottom:50px"><div class="gb-layout-column-wrap gb-block-layout-column-gap-2 gb-is-responsive-column">
+<div class="wp-block-genesis-blocks-gb-column gb-block-layout-column"><div class="gb-block-layout-column-inner">
+<h2 class="wp-block-heading" id="h-secure-and-compliant-solutions">SECURE AND COMPLIANT SOLUTIONS</h2>
+
+
+
+<p>Fraud schemes are becoming more and more elaborate. Protecting your business and customers should be a top priority, but being compliant shouldn't drain your resources. We are your trusted partner to help you achieve and maintain compliance for every payment, even as requirements and standards evolve.</p>
+
+
+<!-- start : repay/app/public/wp-content/themes/repay/blocks/templates/button-link-pod/button-link-pod.php -->
+<a class="button  " href="https://repay.com/pci-compliance" target="_blank"  >Learn More</a><!-- end : repay/app/public/wp-content/themes/repay/blocks/templates/button-link-pod/button-link-pod.php --></div></div>
+
+
+
+<div class="wp-block-genesis-blocks-gb-column gb-block-layout-column gb-is-vertically-aligned-center"><div class="gb-block-layout-column-inner">
+<figure class="wp-block-embed is-type-video is-provider-vimeo wp-block-embed-vimeo wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe loading="lazy" title="REPAY Compliance and Security Video" src="https://player.vimeo.com/video/1115145387?dnt=1&amp;app_id=122963" width="500" height="281" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div></figure>
+</div></div>
+</div></div>
+
+
+
+<div style="background-color:#e9e8ea;padding-left:3%;padding-right:3%;padding-bottom:6%;padding-top:6%" class="wp-block-genesis-blocks-gb-container alignfull dots-left-corner gb-block-container"><div class="gb-container-inside"><div class="gb-container-content" style="max-width:1280px">
+<div class="wp-block-genesis-blocks-gb-columns gb-layout-columns-2 gb-2-col-equal aligncenter"><div class="gb-layout-column-wrap gb-block-layout-column-gap-5 gb-is-responsive-column">
+<div class="wp-block-genesis-blocks-gb-column gb-block-layout-column gb-is-vertically-aligned-center"><div class="gb-block-layout-column-inner">
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2000" height="1333" src="https://repay.com/wp-content/uploads/2026/06/AdobeStock_1502492629-1.webp" alt="woman with phone" class="wp-image-11392" srcset="https://repay.com/wp-content/uploads/2026/06/AdobeStock_1502492629-1.webp 2000w, https://repay.com/wp-content/uploads/2026/06/AdobeStock_1502492629-1-300x200.webp 300w, https://repay.com/wp-content/uploads/2026/06/AdobeStock_1502492629-1-768x512.webp 768w, https://repay.com/wp-content/uploads/2026/06/AdobeStock_1502492629-1-1536x1024.webp 1536w, https://repay.com/wp-content/uploads/2026/06/AdobeStock_1502492629-1-1620x1080.webp 1620w, https://repay.com/wp-content/uploads/2026/06/AdobeStock_1502492629-1-150x100.webp 150w, https://repay.com/wp-content/uploads/2026/06/AdobeStock_1502492629-1-600x400.webp 600w" sizes="auto, (max-width: 2000px) 100vw, 2000px" /></figure>
+</div></div>
+
+
+
+<div class="wp-block-genesis-blocks-gb-column gb-block-layout-column gb-is-vertically-aligned-top"><div class="gb-block-layout-column-inner">
+<h2 class="wp-block-heading" id="h-verify-identity-at-the-point-of-payment"><strong>Verify Identity at the Point of Payment</strong></h2>
+
+
+
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p>REPAY Identity Validation Services add a configurable layer of fraud protection by confirming that the name on a card or bank account matches the name on the loan before a payment is processed or funding is released. Validate across new loan originations, instant funding transactions, ACH credits and one-time or scheduled payments without adding friction to your existing workflow.</p>
+
+
+
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+<!-- start : repay/app/public/wp-content/themes/repay/blocks/templates/button-link-pod/button-link-pod.php -->
+<a class="button  alignleft" href="https://repay.com/identity-validation-services/" target="_blank"  >See How It Works</a><!-- end : repay/app/public/wp-content/themes/repay/blocks/templates/button-link-pod/button-link-pod.php --></div></div>
+</div></div>
+
+
+
+<style>
+/* Adds the dots decoration to the top-left corner of the container */
+
+.dots-left-corner {
+  background-image: url('/wp-content/uploads/2025/11/dots_left.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: auto;
+}
+</style>
+</div></div></div>
+
+
+<!-- start : repay/app/public/wp-content/themes/repay/blocks/templates/repay-cta/repay-cta.php -->
+
+<section class="repay-repay-cta  alignfull cta-left" id='block_dbcb7b089624cdd912b3bdb4e75f428c'>
+
+	<div class="repay-repay-cta__background-image" style="background-image: url(https://repay.com/wp-content/uploads/2022/12/iStock-1191849990-1024x683.jpg)"></div>
+	<div class="repay-repay-cta__overlay"></div>
+
+	<div class="repay-repay-cta__content container">
+		<div class="repay-repay-cta__content-wrapper">
+			<div class="repay-repay-cta__glass-box text-align-center">
+
+											<h2 class="repay-repay-cta__heading h2">
+							Benefit from Faster, More Secure Payments						</h2>
+					
+											<div class="repay-repay-cta__text">
+							<p style="text-align: left;">Digital payment technology evolves every day, and REPAY has the resources and expertise to keep you ahead of the changes. Let us simplify payments and manage the platform integrations for improved cash flow, streamlined internal processes and increased customer satisfaction.</p>
+						</div>
+					
+											<div class="repay-repay-cta__button">
+							<a class="button has-repay-lime-background-color" href="https://repay.com/contact/" target=""  >Get Started</a>						</div>
+					
+			</div>
+		</div>
+	</div>
+
+</section>
+<!-- end : repay/app/public/wp-content/themes/repay/blocks/templates/repay-cta/repay-cta.php -->	                        </div>
+        </div>
+    </div>
+</main>
+<footer id="footer">
+    <div class="xalignwide container footer-container">
+
+					<div class="footer-left-container">
+
+						<img alt="repay logo" width="250" height="90" src="https://repay.com/wp-content/uploads/2022/11/REP-0004_Logo_CMYK_hz-813w.png" class="repay-logo">
+						<div class="footer-left">
+								<div class="repay-widget">
+<p><a href="/privacy-policy">Privacy Policy</a></p>
+</div><div class="repay-widget">
+<p><a href="/terms-of-use">Terms of Use</a></p>
+</div><div class="repay-widget">
+<p><a href="/compliance">Compliance</a></p>
+</div><div class="repay-widget">
+<p><a href="/make-a-report-or-complaint">Make an Ethics Report</a></p>
+</div>						</div>
+
+					</div><!-- footer-left-container -->
+
+					<div class="footer-right-container">
+<!--
+													<nav role="navigation" class="footer-menu-wrapper">
+								<ul tabindex="0" class="footer-menu">
+																	</ul>
+							</nav>
+						 -->
+
+						<div class="footer-right">
+								<div class="repay-widget">
+<div class="wp-block-group horizontal-menu"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"></div></div>
+</div><div class="repay-widget">
+<div style="height:32px" aria-hidden="true" class="wp-block-spacer"></div>
+</div><div class="repay-widget">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<p><a href="https://www.google.com/maps/place/3060+Peachtree+Rd+NW+%231100,+Atlanta,+GA+30305/@33.8394975,-84.3811698,17z/data=!3m1!4b1!4m5!3m4!1s0x88f5058c2b0a2ca5:0x7baee95b0f81f0d8!8m2!3d33.8394975!4d-84.3811698?entry=ttu&amp;g_ep=EgoyMDI0MDkwMi4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer noopener">3060 Peachtree Rd NW<br>Suite 1100<br>Atlanta, Georgia 30305</a></p>
+</div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<p><a href="tel:+18776075468">877.607.5468</a><br><a href="mailto:sales@repay.com">sales@repay.com</a></p>
+</div>
+</div>
+</div><div class="repay-widget">
+<p class="has-text-align-left has-small-font-size"><em>Apple® is a trademark of Apple Inc., registered in the U.S. and other countries. Android is a trademark of Google LLC. Visa® is a registered trademark of Visa International Service Association. Mastercard® is a registered trademark, and the circles design is a trademark of Mastercard International Incorporated. REPAY® is a registered mark of M &amp; A Ventures, LLC. ALL RIGHTS RESERVED. Other parties’ trademarks referenced are the property of their respective owners.</em> <em>The technology and products of M&amp;A Ventures, LLC d/b/a REPAY may be covered by one or more U.S. patents, including but not limited to, U.S. Patent Nos. 11,620,621 and 12,462,234.</em></p>
+</div><div class="repay-widget">
+<p class="canadapaymentdiv has-small-font-size"><a rel="noreferrer noopener" href="/canadapayments" target="_blank"><strong>Canada Payments</strong></a></p>
+</div>						</div>
+
+					</div><!-- footer-right-container -->
+
+    </div>
+</footer>
+
+        	<script type="text/javascript" nonce="8h7GUYY+qVYR+C/biiMq5g==">
+		function genesisBlocksShare( url, title, w, h ){
+			var left = ( window.innerWidth / 2 )-( w / 2 );
+			var top  = ( window.innerHeight / 2 )-( h / 2 );
+			return window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=600, height=600, top='+top+', left='+left);
+		}
+	</script>
+	<script type="speculationrules" nonce="8h7GUYY+qVYR+C/biiMq5g==">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/repay\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+    <link rel='stylesheet' id='block-acf-link-cards-css' href='https://repay.com/wp-content/themes/repay/blocks/templates/link-cards/css/link-cards.css?ver=6.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='block-acf-svg-media-and-text-css' href='https://repay.com/wp-content/themes/repay/blocks/templates/svg-media-and-text/css/svg-media-and-text.css?ver=6.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='block-acf-repay-cta-css' href='https://repay.com/wp-content/themes/repay/blocks/templates/repay-cta/css/repay-cta.css?ver=6.4.2' type='text/css' media='all' />
+<style id='core-block-supports-inline-css' type='text/css'>
+.wp-elements-f447ae8585ca66fade6d259f841f021c a:where(:not(.wp-element-button)){color:var(--wp--preset--color--repay-lime);}.wp-elements-4f390ee39584de94fbd8921fe677d620 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--white);}.wp-elements-c5bce70b7187ec58ac4ef726bfffe173 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--white);}.wp-container-core-columns-is-layout-9d6595d7{flex-wrap:nowrap;}
+</style>
+<script type="text/javascript" id="rtrar.appLocal-js-extra" nonce="8h7GUYY+qVYR+C/biiMq5g==">
+/* <![CDATA[ */
+var rtafr = {"rules":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://repay.com/wp-content/plugins/real-time-auto-find-and-replace/assets/js/rtafar.local.js?ver=1.7.3" id="rtrar.appLocal-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-content/plugins/genesis-blocks/dist/assets/js/dismiss.js?ver=1792100687" id="genesis-blocks-dismiss-js-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-content/plugins/real-time-auto-find-and-replace/assets/js/rtafar.app.min.js?ver=1.7.3" id="rtrar.app-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-content/themes/repay/js/main.js?ver=1792100689" id="repay-main-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-content/themes/repay/js/csp-delegation.js?ver=1792100689" id="repay-csp-delegation-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-content/themes/repay/js/case_study_slider_init.js?ver=1.0.0" id="case_study_slider-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-content/themes/repay/js/case_study_image_slider_init.js?ver=1.0.0" id="case_study_image_slider-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-content/themes/repay/js/slick.js?ver=1.0.0" id="slick-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script type="text/javascript" src="https://repay.com/wp-content/themes/repay/js/slick.min.js?ver=1.0.0" id="slick-min-js" nonce="8h7GUYY+qVYR+C/biiMq5g=="></script>
+<script nonce="8h7GUYY+qVYR+C/biiMq5g==">
+acf.data = {"select2L10n":{"matches_1":"One result is available, press enter to select it.","matches_n":"%d results are available, use up and down arrow keys to navigate.","matches_0":"No matches found","input_too_short_1":"Please enter 1 or more characters","input_too_short_n":"Please enter %d or more characters","input_too_long_1":"Please delete 1 character","input_too_long_n":"Please delete %d characters","selection_too_long_1":"You can only select 1 item","selection_too_long_n":"You can only select %d items","load_more":"Loading more results&hellip;","searching":"Searching&hellip;","load_fail":"Loading failed"},"google_map_api":"https:\/\/maps.googleapis.com\/maps\/api\/js?libraries=places&ver=3&callback=Function.prototype&language=en_US","datePickerL10n":{"closeText":"Done","currentText":"Today","nextText":"Next","prevText":"Prev","weekHeader":"Wk","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesMin":["S","M","T","W","T","F","S"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]},"dateTimePickerL10n":{"timeOnlyTitle":"Choose Time","timeText":"Time","hourText":"Hour","minuteText":"Minute","secondText":"Second","millisecText":"Millisecond","microsecText":"Microsecond","timezoneText":"Time Zone","currentText":"Now","closeText":"Done","selectText":"Select","amNames":["AM","A"],"pmNames":["PM","P"]},"colorPickerL10n":{"hex_string":"Hex String","rgba_string":"RGBA String"},"iconPickerA11yStrings":{"noResultsForSearchTerm":"No results found for that search term","newResultsFoundForSearchTerm":"The available icons matching your search query have been updated in the icon picker below."},"iconPickeri10n":{"dashicons-admin-appearance":"Appearance Icon","dashicons-admin-collapse":"Collapse Icon","dashicons-admin-comments":"Comments Icon","dashicons-admin-customizer":"Customizer Icon","dashicons-admin-generic":"Generic Icon","dashicons-admin-home":"Home Icon","dashicons-admin-links":"Links Icon","dashicons-admin-media":"Media Icon","dashicons-admin-multisite":"Multisite Icon","dashicons-admin-network":"Network Icon","dashicons-admin-page":"Page Icon","dashicons-admin-plugins":"Plugins Icon","dashicons-admin-post":"Post Icon","dashicons-admin-settings":"Settings Icon","dashicons-admin-site":"Site Icon","dashicons-admin-site-alt":"Site (alt) Icon","dashicons-admin-site-alt2":"Site (alt2) Icon","dashicons-admin-site-alt3":"Site (alt3) Icon","dashicons-admin-tools":"Tools Icon","dashicons-admin-users":"Users Icon","dashicons-airplane":"Airplane Icon","dashicons-album":"Album Icon","dashicons-align-center":"Align Center Icon","dashicons-align-full-width":"Align Full Width Icon","dashicons-align-left":"Align Left Icon","dashicons-align-none":"Align None Icon","dashicons-align-pull-left":"Align Pull Left Icon","dashicons-align-pull-right":"Align Pull Right Icon","dashicons-align-right":"Align Right Icon","dashicons-align-wide":"Align Wide Icon","dashicons-amazon":"Amazon Icon","dashicons-analytics":"Analytics Icon","dashicons-archive":"Archive Icon","dashicons-arrow-down":"Arrow Down Icon","dashicons-arrow-down-alt":"Arrow Down (alt) Icon","dashicons-arrow-down-alt2":"Arrow Down (alt2) Icon","dashicons-arrow-left":"Arrow Left Icon","dashicons-arrow-left-alt":"Arrow Left (alt) Icon","dashicons-arrow-left-alt2":"Arrow Left (alt2) Icon","dashicons-arrow-right":"Arrow Right Icon","dashicons-arrow-right-alt":"Arrow Right (alt) Icon","dashicons-arrow-right-alt2":"Arrow Right (alt2) Icon","dashicons-arrow-up":"Arrow Up Icon","dashicons-arrow-up-alt":"Arrow Up (alt) Icon","dashicons-arrow-up-alt2":"Arrow Up (alt2) Icon","dashicons-art":"Art Icon","dashicons-awards":"Awards Icon","dashicons-backup":"Backup Icon","dashicons-bank":"Bank Icon","dashicons-beer":"Beer Icon","dashicons-bell":"Bell Icon","dashicons-block-default":"Block Default Icon","dashicons-book":"Book Icon","dashicons-book-alt":"Book (alt) Icon","dashicons-buddicons-activity":"Activity Icon","dashicons-buddicons-bbpress-logo":"bbPress Icon","dashicons-buddicons-buddypress-logo":"BuddyPress Icon","dashicons-buddicons-community":"Community Icon","dashicons-buddicons-forums":"Forums Icon","dashicons-buddicons-friends":"Friends Icon","dashicons-buddicons-groups":"Groups Icon","dashicons-buddicons-pm":"PM Icon","dashicons-buddicons-replies":"Replies Icon","dashicons-buddicons-topics":"Topics Icon","dashicons-buddicons-tracking":"Tracking Icon","dashicons-building":"Building Icon","dashicons-businessman":"Businessman Icon","dashicons-businessperson":"Businessperson Icon","dashicons-businesswoman":"Businesswoman Icon","dashicons-button":"Button Icon","dashicons-calculator":"Calculator Icon","dashicons-calendar":"Calendar Icon","dashicons-calendar-alt":"Calendar (alt) Icon","dashicons-camera":"Camera Icon","dashicons-camera-alt":"Camera (alt) Icon","dashicons-car":"Car Icon","dashicons-carrot":"Carrot Icon","dashicons-cart":"Cart Icon","dashicons-category":"Category Icon","dashicons-chart-area":"Chart Area Icon","dashicons-chart-bar":"Chart Bar Icon","dashicons-chart-line":"Chart Line Icon","dashicons-chart-pie":"Chart Pie Icon","dashicons-clipboard":"Clipboard Icon","dashicons-clock":"Clock Icon","dashicons-cloud":"Cloud Icon","dashicons-cloud-saved":"Cloud Saved Icon","dashicons-cloud-upload":"Cloud Upload Icon","dashicons-code-standards":"Code Standards Icon","dashicons-coffee":"Coffee Icon","dashicons-color-picker":"Color Picker Icon","dashicons-columns":"Columns Icon","dashicons-controls-back":"Back Icon","dashicons-controls-forward":"Forward Icon","dashicons-controls-pause":"Pause Icon","dashicons-controls-play":"Play Icon","dashicons-controls-repeat":"Repeat Icon","dashicons-controls-skipback":"Skip Back Icon","dashicons-controls-skipforward":"Skip Forward Icon","dashicons-controls-volumeoff":"Volume Off Icon","dashicons-controls-volumeon":"Volume On Icon","dashicons-cover-image":"Cover Image Icon","dashicons-dashboard":"Dashboard Icon","dashicons-database":"Database Icon","dashicons-database-add":"Database Add Icon","dashicons-database-export":"Database Export Icon","dashicons-database-import":"Database Import Icon","dashicons-database-remove":"Database Remove Icon","dashicons-database-view":"Database View Icon","dashicons-desktop":"Desktop Icon","dashicons-dismiss":"Dismiss Icon","dashicons-download":"Download Icon","dashicons-drumstick":"Drumstick Icon","dashicons-edit":"Edit Icon","dashicons-edit-large":"Edit Large Icon","dashicons-edit-page":"Edit Page Icon","dashicons-editor-aligncenter":"Align Center Icon","dashicons-editor-alignleft":"Align Left Icon","dashicons-editor-alignright":"Align Right Icon","dashicons-editor-bold":"Bold Icon","dashicons-editor-break":"Break Icon","dashicons-editor-code":"Code Icon","dashicons-editor-contract":"Contract Icon","dashicons-editor-customchar":"Custom Character Icon","dashicons-editor-expand":"Expand Icon","dashicons-editor-help":"Help Icon","dashicons-editor-indent":"Indent Icon","dashicons-editor-insertmore":"Insert More Icon","dashicons-editor-italic":"Italic Icon","dashicons-editor-justify":"Justify Icon","dashicons-editor-kitchensink":"Kitchen Sink Icon","dashicons-editor-ltr":"LTR Icon","dashicons-editor-ol":"Ordered List Icon","dashicons-editor-ol-rtl":"Ordered List RTL Icon","dashicons-editor-outdent":"Outdent Icon","dashicons-editor-paragraph":"Paragraph Icon","dashicons-editor-paste-text":"Paste Text Icon","dashicons-editor-paste-word":"Paste Word Icon","dashicons-editor-quote":"Quote Icon","dashicons-editor-removeformatting":"Remove Formatting Icon","dashicons-editor-rtl":"RTL Icon","dashicons-editor-spellcheck":"Spellcheck Icon","dashicons-editor-strikethrough":"Strikethrough Icon","dashicons-editor-table":"Table Icon","dashicons-editor-textcolor":"Text Color Icon","dashicons-editor-ul":"Unordered List Icon","dashicons-editor-underline":"Underline Icon","dashicons-editor-unlink":"Unlink Icon","dashicons-editor-video":"Video Icon","dashicons-ellipsis":"Ellipsis Icon","dashicons-email":"Email Icon","dashicons-email-alt":"Email (alt) Icon","dashicons-email-alt2":"Email (alt2) Icon","dashicons-embed-audio":"Embed Audio Icon","dashicons-embed-generic":"Embed Generic Icon","dashicons-embed-photo":"Embed Photo Icon","dashicons-embed-post":"Embed Post Icon","dashicons-embed-video":"Embed Video Icon","dashicons-excerpt-view":"Excerpt View Icon","dashicons-exit":"Exit Icon","dashicons-external":"External Icon","dashicons-facebook":"Facebook Icon","dashicons-facebook-alt":"Facebook (alt) Icon","dashicons-feedback":"Feedback Icon","dashicons-filter":"Filter Icon","dashicons-flag":"Flag Icon","dashicons-food":"Food Icon","dashicons-format-aside":"Aside Icon","dashicons-format-audio":"Audio Icon","dashicons-format-chat":"Chat Icon","dashicons-format-gallery":"Gallery Icon","dashicons-format-image":"Image Icon","dashicons-format-quote":"Quote Icon","dashicons-format-status":"Status Icon","dashicons-format-video":"Video Icon","dashicons-forms":"Forms Icon","dashicons-fullscreen-alt":"Fullscreen (alt) Icon","dashicons-fullscreen-exit-alt":"Fullscreen Exit (alt) Icon","dashicons-games":"Games Icon","dashicons-google":"Google Icon","dashicons-grid-view":"Grid View Icon","dashicons-groups":"Groups Icon","dashicons-hammer":"Hammer Icon","dashicons-heading":"Heading Icon","dashicons-heart":"Heart Icon","dashicons-hidden":"Hidden Icon","dashicons-hourglass":"Hourglass Icon","dashicons-html":"HTML Icon","dashicons-id":"ID Icon","dashicons-id-alt":"ID (alt) Icon","dashicons-image-crop":"Crop Icon","dashicons-image-filter":"Filter Icon","dashicons-image-flip-horizontal":"Flip Horizontal Icon","dashicons-image-flip-vertical":"Flip Vertical Icon","dashicons-image-rotate":"Rotate Icon","dashicons-image-rotate-left":"Rotate Left Icon","dashicons-image-rotate-right":"Rotate Right Icon","dashicons-images-alt":"Images (alt) Icon","dashicons-images-alt2":"Images (alt2) Icon","dashicons-index-card":"Index Card Icon","dashicons-info":"Info Icon","dashicons-info-outline":"Info Outline Icon","dashicons-insert":"Insert Icon","dashicons-insert-after":"Insert After Icon","dashicons-insert-before":"Insert Before Icon","dashicons-instagram":"Instagram Icon","dashicons-laptop":"Laptop Icon","dashicons-layout":"Layout Icon","dashicons-leftright":"Left Right Icon","dashicons-lightbulb":"Lightbulb Icon","dashicons-linkedin":"LinkedIn Icon","dashicons-list-view":"List View Icon","dashicons-location":"Location Icon","dashicons-location-alt":"Location (alt) Icon","dashicons-lock":"Lock Icon","dashicons-marker":"Marker Icon","dashicons-media-archive":"Archive Icon","dashicons-media-audio":"Audio Icon","dashicons-media-code":"Code Icon","dashicons-media-default":"Default Icon","dashicons-media-document":"Document Icon","dashicons-media-interactive":"Interactive Icon","dashicons-media-spreadsheet":"Spreadsheet Icon","dashicons-media-text":"Text Icon","dashicons-media-video":"Video Icon","dashicons-megaphone":"Megaphone Icon","dashicons-menu":"Menu Icon","dashicons-menu-alt":"Menu (alt) Icon","dashicons-menu-alt2":"Menu (alt2) Icon","dashicons-menu-alt3":"Menu (alt3) Icon","dashicons-microphone":"Microphone Icon","dashicons-migrate":"Migrate Icon","dashicons-minus":"Minus Icon","dashicons-money":"Money Icon","dashicons-money-alt":"Money (alt) Icon","dashicons-move":"Move Icon","dashicons-nametag":"Nametag Icon","dashicons-networking":"Networking Icon","dashicons-no":"No Icon","dashicons-no-alt":"No (alt) Icon","dashicons-open-folder":"Open Folder Icon","dashicons-palmtree":"Palm Tree Icon","dashicons-paperclip":"Paperclip Icon","dashicons-pdf":"PDF Icon","dashicons-performance":"Performance Icon","dashicons-pets":"Pets Icon","dashicons-phone":"Phone Icon","dashicons-pinterest":"Pinterest Icon","dashicons-playlist-audio":"Playlist Audio Icon","dashicons-playlist-video":"Playlist Video Icon","dashicons-plugins-checked":"Plugins Checked Icon","dashicons-plus":"Plus Icon","dashicons-plus-alt":"Plus (alt) Icon","dashicons-plus-alt2":"Plus (alt2) Icon","dashicons-podio":"Podio Icon","dashicons-portfolio":"Portfolio Icon","dashicons-post-status":"Post Status Icon","dashicons-pressthis":"Pressthis Icon","dashicons-printer":"Printer Icon","dashicons-privacy":"Privacy Icon","dashicons-products":"Products Icon","dashicons-randomize":"Randomize Icon","dashicons-reddit":"Reddit Icon","dashicons-redo":"Redo Icon","dashicons-remove":"Remove Icon","dashicons-rest-api":"REST API Icon","dashicons-rss":"RSS Icon","dashicons-saved":"Saved Icon","dashicons-schedule":"Schedule Icon","dashicons-screenoptions":"Screen Options Icon","dashicons-search":"Search Icon","dashicons-share":"Share Icon","dashicons-share-alt":"Share (alt) Icon","dashicons-share-alt2":"Share (alt2) Icon","dashicons-shield":"Shield Icon","dashicons-shield-alt":"Shield (alt) Icon","dashicons-shortcode":"Shortcode Icon","dashicons-slides":"Slides Icon","dashicons-smartphone":"Smartphone Icon","dashicons-smiley":"Smiley Icon","dashicons-sort":"Sort Icon","dashicons-sos":"Sos Icon","dashicons-spotify":"Spotify Icon","dashicons-star-empty":"Star Empty Icon","dashicons-star-filled":"Star Filled Icon","dashicons-star-half":"Star Half Icon","dashicons-sticky":"Sticky Icon","dashicons-store":"Store Icon","dashicons-superhero":"Superhero Icon","dashicons-superhero-alt":"Superhero (alt) Icon","dashicons-table-col-after":"Table Col After Icon","dashicons-table-col-before":"Table Col Before Icon","dashicons-table-col-delete":"Table Col Delete Icon","dashicons-table-row-after":"Table Row After Icon","dashicons-table-row-before":"Table Row Before Icon","dashicons-table-row-delete":"Table Row Delete Icon","dashicons-tablet":"Tablet Icon","dashicons-tag":"Tag Icon","dashicons-tagcloud":"Tagcloud Icon","dashicons-testimonial":"Testimonial Icon","dashicons-text":"Text Icon","dashicons-text-page":"Text Page Icon","dashicons-thumbs-down":"Thumbs Down Icon","dashicons-thumbs-up":"Thumbs Up Icon","dashicons-tickets":"Tickets Icon","dashicons-tickets-alt":"Tickets (alt) Icon","dashicons-tide":"Tide Icon","dashicons-translation":"Translation Icon","dashicons-trash":"Trash Icon","dashicons-twitch":"Twitch Icon","dashicons-twitter":"Twitter Icon","dashicons-twitter-alt":"Twitter (alt) Icon","dashicons-undo":"Undo Icon","dashicons-universal-access":"Universal Access Icon","dashicons-universal-access-alt":"Universal Access (alt) Icon","dashicons-unlock":"Unlock Icon","dashicons-update":"Update Icon","dashicons-update-alt":"Update (alt) Icon","dashicons-upload":"Upload Icon","dashicons-vault":"Vault Icon","dashicons-video-alt":"Video (alt) Icon","dashicons-video-alt2":"Video (alt2) Icon","dashicons-video-alt3":"Video (alt3) Icon","dashicons-visibility":"Visibility Icon","dashicons-warning":"Warning Icon","dashicons-welcome-add-page":"Add Page Icon","dashicons-welcome-comments":"Comments Icon","dashicons-welcome-learn-more":"Learn More Icon","dashicons-welcome-view-site":"View Site Icon","dashicons-welcome-widgets-menus":"Widgets Menus Icon","dashicons-welcome-write-blog":"Write Blog Icon","dashicons-whatsapp":"WhatsApp Icon","dashicons-wordpress":"WordPress Icon","dashicons-wordpress-alt":"WordPress (alt) Icon","dashicons-xing":"Xing Icon","dashicons-yes":"Yes Icon","dashicons-yes-alt":"Yes (alt) Icon","dashicons-youtube":"YouTube Icon"},"mimeTypeIcon":"https:\/\/repay.com\/wp-includes\/images\/media\/default.png","mimeTypes":{"jpg|jpeg|jpe":"image\/jpeg","gif":"image\/gif","png":"image\/png","bmp":"image\/bmp","tiff|tif":"image\/tiff","webp":"image\/webp","avif":"image\/avif","ico":"image\/x-icon","heic":"image\/heic","heif":"image\/heif","heics":"image\/heic-sequence","heifs":"image\/heif-sequence","asf|asx":"video\/x-ms-asf","wmv":"video\/x-ms-wmv","wmx":"video\/x-ms-wmx","wm":"video\/x-ms-wm","avi":"video\/avi","divx":"video\/divx","flv":"video\/x-flv","mov|qt":"video\/quicktime","mpeg|mpg|mpe":"video\/mpeg","mp4|m4v":"video\/mp4","ogv":"video\/ogg","webm":"video\/webm","mkv":"video\/x-matroska","3gp|3gpp":"video\/3gpp","3g2|3gp2":"video\/3gpp2","txt|asc|c|cc|h|srt":"text\/plain","csv":"text\/csv","tsv":"text\/tab-separated-values","ics":"text\/calendar","rtx":"text\/richtext","css":"text\/css","vtt":"text\/vtt","dfxp":"application\/ttaf+xml","mp3|m4a|m4b":"audio\/mpeg","aac":"audio\/aac","ra|ram":"audio\/x-realaudio","wav|x-wav":"audio\/wav","ogg|oga":"audio\/ogg","flac":"audio\/flac","mid|midi":"audio\/midi","wma":"audio\/x-ms-wma","wax":"audio\/x-ms-wax","mka":"audio\/x-matroska","rtf":"application\/rtf","pdf":"application\/pdf","class":"application\/java","tar":"application\/x-tar","zip":"application\/zip","gz|gzip":"application\/x-gzip","rar":"application\/rar","7z":"application\/x-7z-compressed","psd":"application\/octet-stream","xcf":"application\/octet-stream","doc":"application\/msword","pot|pps|ppt":"application\/vnd.ms-powerpoint","wri":"application\/vnd.ms-write","xla|xls|xlt|xlw":"application\/vnd.ms-excel","mdb":"application\/vnd.ms-access","mpp":"application\/vnd.ms-project","docx":"application\/vnd.openxmlformats-officedocument.wordprocessingml.document","docm":"application\/vnd.ms-word.document.macroEnabled.12","dotx":"application\/vnd.openxmlformats-officedocument.wordprocessingml.template","dotm":"application\/vnd.ms-word.template.macroEnabled.12","xlsx":"application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet","xlsm":"application\/vnd.ms-excel.sheet.macroEnabled.12","xlsb":"application\/vnd.ms-excel.sheet.binary.macroEnabled.12","xltx":"application\/vnd.openxmlformats-officedocument.spreadsheetml.template","xltm":"application\/vnd.ms-excel.template.macroEnabled.12","xlam":"application\/vnd.ms-excel.addin.macroEnabled.12","pptx":"application\/vnd.openxmlformats-officedocument.presentationml.presentation","pptm":"application\/vnd.ms-powerpoint.presentation.macroEnabled.12","ppsx":"application\/vnd.openxmlformats-officedocument.presentationml.slideshow","ppsm":"application\/vnd.ms-powerpoint.slideshow.macroEnabled.12","potx":"application\/vnd.openxmlformats-officedocument.presentationml.template","potm":"application\/vnd.ms-powerpoint.template.macroEnabled.12","ppam":"application\/vnd.ms-powerpoint.addin.macroEnabled.12","sldx":"application\/vnd.openxmlformats-officedocument.presentationml.slide","sldm":"application\/vnd.ms-powerpoint.slide.macroEnabled.12","onetoc|onetoc2|onetmp|onepkg":"application\/onenote","oxps":"application\/oxps","xps":"application\/vnd.ms-xpsdocument","odt":"application\/vnd.oasis.opendocument.text","odp":"application\/vnd.oasis.opendocument.presentation","ods":"application\/vnd.oasis.opendocument.spreadsheet","odg":"application\/vnd.oasis.opendocument.graphics","odc":"application\/vnd.oasis.opendocument.chart","odb":"application\/vnd.oasis.opendocument.database","odf":"application\/vnd.oasis.opendocument.formula","wp|wpd":"application\/wordperfect","key":"application\/vnd.apple.keynote","numbers":"application\/vnd.apple.numbers","pages":"application\/vnd.apple.pages"},"admin_url":"https:\/\/repay.com\/wp-admin\/","ajaxurl":"https:\/\/repay.com\/wp-admin\/admin-ajax.php","nonce":"4fec83b1ff","acf_version":"6.4.2","wp_version":"6.8.1","browser":"firefox","locale":"en_US","rtl":false,"screen":null,"post_id":null,"validation":null,"editor":"classic","is_pro":true,"debug":false,"StrictMode":false};
+</script>
+<script nonce="8h7GUYY+qVYR+C/biiMq5g==">
+acf.doAction( 'prepare' );
+</script>
+        <!-- ABD Tracking Beacon v2.7.0 -->
+        <script nonce="8h7GUYY+qVYR+C/biiMq5g==" data-abd-version="2.7.0">
+        (function(){
+          // Prevent duplicate tracking - only track once per page load
+          if (window.abdTracked) return;
+          window.abdTracked = true;
+
+          try {
+            // Normalize URL: remove trailing slash (except for root /)
+            var rawUrl = window.location.href;
+            var normalizedUrl = rawUrl;
+
+            // Parse URL to get pathname
+            var urlObj = new URL(rawUrl);
+            var pathname = urlObj.pathname;
+
+            // Remove trailing slash if not root
+            if (pathname !== '/' && pathname.endsWith('/')) {
+              urlObj.pathname = pathname.slice(0, -1);
+              normalizedUrl = urlObj.toString();
+            }
+
+            var payload = {
+              url: normalizedUrl, // Use normalized URL
+              ua: navigator.userAgent,
+              ts: Date.now(),
+              ref: document.referrer || ''
+            };
+
+            var data = JSON.stringify(payload);
+            var endpoint = "https:\/\/repay.com\/wp-json\/abd\/v1\/beacon";
+            var sent = false;
+
+            // Try sendBeacon first (most reliable, works even on page unload)
+            if (navigator.sendBeacon) {
+              try {
+                var blob = new Blob([data], {type: 'application/json'});
+                sent = navigator.sendBeacon(endpoint, blob);
+              } catch(e){
+                console.debug('ABD: sendBeacon failed, using fetch fallback');
+                sent = false;
+              }
+            }
+
+            // Fallback to fetch ONLY if sendBeacon failed or not available
+            if (!sent) {
+              fetch(endpoint, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: data,
+                keepalive: true
+              }).catch(function(err){
+                console.debug('ABD: fetch also failed', err);
+              });
+            } else {
+              console.debug('ABD: Tracking sent via sendBeacon');
+            }
+          } catch(e) {
+            console.debug('ABD: Tracking error', e);
+          }
+        })();
+        </script>
+        <script nonce="8h7GUYY+qVYR+C/biiMq5g==">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"NRJS-f87534465cd666d6e98","applicationID":"707745729","transactionName":"NFEHNRMFXBIFAUVfWg0bJAIVDV0PSwtfUlAb","queueTime":0,"applicationTime":447,"atts":"GBYEQ1sfTxw=","errorBeacon":"bam.nr-data.net","agent":""}</script>				<!-- Start of HubSpot Embed Code -->
+					<script nonce="8h7GUYY+qVYR+C/biiMq5g==" type="text/plain" mandatlydata-cookiecategoryid="0002" id="hs-script-loader" async defer src="//js.hs-scripts.com/875574.js"></script>
+				<!-- End of HubSpot Embed Code -->
+				<!-- LinkedIn Code -->
+					<script type="text/javascript" nonce="8h7GUYY+qVYR+C/biiMq5g==">
+						_linkedin_partner_id = "4427516";
+						window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+						window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+					</script>
+					<script type="text/plain" mandatlydata-cookiecategoryid="0002" nonce="8h7GUYY+qVYR+C/biiMq5g==">
+						(function(l) {
+						if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+						window.lintrk.q=[]}
+						var s = document.getElementsByTagName("script")[0];
+						var b = document.createElement("script");
+						b.type = "text/javascript";b.async = true;
+						b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+						s.parentNode.insertBefore(b, s);})(window.lintrk);
+					</script>
+					<noscript>
+						<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=4427516&fmt=gif" />
+					</noscript>
+				<!-- End LinkedIn Code -->
+
+				<!-- Trade Desk Pixel Code -->
+					<script nonce="8h7GUYY+qVYR+C/biiMq5g==" src="https://js.adsrvr.org/up_loader.1.1.0.js" type="text/plain" mandatlydata-cookiecategoryid="0002" ></script>
+					<script type="text/javascript" nonce="8h7GUYY+qVYR+C/biiMq5g=="> ttd_dom_ready( function() { if (typeof TTDUniversalPixelApi === 'function') { var universalPixelApi = new TTDUniversalPixelApi(); universalPixelApi.init("02zhxg0", ["0yx8loy"], "https://insight.adsrvr.org/track/up"); }});</script>
+				<!-- End Trade Desk Pixel Code -->
+    </body>
+</html>
+<!-- plugin=object-cache-pro client=phpredis metric#hits=3525 metric#misses=9 metric#hit-ratio=99.8 metric#bytes=4114863 metric#prefetches=0 metric#store-reads=146 metric#store-writes=8 metric#store-hits=295 metric#store-misses=3 metric#sql-queries=22 metric#ms-total=450.94 metric#ms-cache=58.13 metric#ms-cache-avg=0.3800 metric#ms-cache-ratio=12.9 sample#redis-hits=62319184 sample#redis-misses=607362 sample#redis-hit-ratio=99.0 sample#redis-ops-per-sec=95 sample#redis-evicted-keys=164389 sample#redis-used-memory=3485520 sample#redis-used-memory-rss=20144128 sample#redis-memory-fragmentation-ratio=5.8 sample#redis-connected-clients=1 sample#redis-tracking-clients=0 sample#redis-rejected-connections=0 sample#redis-keys=2414 -->

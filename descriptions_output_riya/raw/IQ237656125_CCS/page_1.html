@@ -1,0 +1,2666 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+
+    <script type="text/javascript">
+function OptanonWrapper() { var tagsH3 = document.querySelectorAll('#onetrust-consent-sdk h3');
+    var tagsH4 = document.querySelectorAll('#onetrust-consent-sdk h4');
+    for(i=0; i < tagsH4.length; i++) { otreplace(tagsH4[i], "ot-h4"); }
+    var tagsH5 = document.querySelectorAll('#onetrust-consent-sdk h5');
+    for(i=0; i < tagsH5.length; i++) { otreplace(tagsH5[i], "ot-h5"); }
+ for(i=0; i < tagsH3.length; i++) { otreplace(tagsH3[i], "ot-h3"); }       
+                
+                function otreplace(tag, otclass) {
+                  var parent = tag.parentNode;
+                  var newDiv = document.createElement("p");
+                  if (tag.id != undefined) newDiv.setAttribute("id", "" + tag.id + "");
+                  newDiv.classList = tag.classList;
+                  newDiv.innerHTML = tag.innerHTML;
+                  newDiv.classList.add(otclass);
+                  parent.insertBefore(newDiv, tag);
+                  parent.removeChild(tag);
+                }
+}
+</script>
+<!-- OneTrust Cookies Consent Notice end for www.centurycommunities.com -->
+
+
+    
+
+    <!-- Application Insights JavaScript SDK (browser / Real User Monitoring) -->
+    <script type="text/javascript">
+    !(function (cfg){function e(){cfg.onInit&&cfg.onInit(n)}var x,w,D,t,E,n,C=window,O=document,b=C.location,q="script",I="ingestionendpoint",L="disableExceptionTracking",j="ai.device.";"instrumentationKey"[x="toLowerCase"](),w="crossOrigin",D="POST",t="appInsightsSDK",E=cfg.name||"appInsights",(cfg.name||C[t])&&(C[t]=E),n=C[E]||function(g){var f=!1,m=!1,h={initialize:!0,queue:[],sv:"8",version:2,config:g};function v(e,t){var n={},i="Browser";function a(e){e=""+e;return 1===e.length?"0"+e:e}return n[j+"id"]=i[x](),n[j+"type"]=i,n["ai.operation.name"]=b&&b.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(h.sv||h.version),{time:(i=new Date).getUTCFullYear()+"-"+a(1+i.getUTCMonth())+"-"+a(i.getUTCDate())+"T"+a(i.getUTCHours())+":"+a(i.getUTCMinutes())+":"+a(i.getUTCSeconds())+"."+(i.getUTCMilliseconds()/1e3).toFixed(3).slice(2,5)+"Z",iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}},ver:undefined,seq:"1",aiDataContract:undefined}}var n,i,t,a,y=-1,T=0,S=["js.monitor.azure.com","js.cdn.applicationinsights.io","js.cdn.monitor.azure.com","js0.cdn.applicationinsights.io","js0.cdn.monitor.azure.com","js2.cdn.applicationinsights.io","js2.cdn.monitor.azure.com","az416426.vo.msecnd.net"],o=g.url||cfg.src,r=function(){return s(o,null)};function s(d,t){if((n=navigator)&&(~(n=(n.userAgent||"").toLowerCase()).indexOf("msie")||~n.indexOf("trident/"))&&~d.indexOf("ai.3")&&(d=d.replace(/(\/)(ai\.3\.)([^\d]*)$/,function(e,t,n){return t+"ai.2"+n})),!1!==cfg.cr)for(var e=0;e<S.length;e++)if(0<d.indexOf(S[e])){y=e;break}var n,i=function(e){var a,t,n,i,o,r,s,c,u,l;h.queue=[],m||(0<=y&&T+1<S.length?(a=(y+T+1)%S.length,p(d.replace(/^(.*\/\/)([\w\.]*)(\/.*)$/,function(e,t,n,i){return t+S[a]+i})),T+=1):(f=m=!0,s=d,!0!==cfg.dle&&(c=(t=function(){var e,t={},n=g.connectionString;if(n)for(var i=n.split(";"),a=0;a<i.length;a++){var o=i[a].split("=");2===o.length&&(t[o[0][x]()]=o[1])}return t[I]||(e=(n=t.endpointsuffix)?t.location:null,t[I]="https://"+(e?e+".":"")+"dc."+(n||"services.visualstudio.com")),t}()).instrumentationkey||g.instrumentationKey||"",t=(t=(t=t[I])&&"/"===t.slice(-1)?t.slice(0,-1):t)?t+"/v2/track":g.endpointUrl,t=g.userOverrideEndpointUrl||t,(n=[]).push((i="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",o=s,u=t,(l=(r=v(c,"Exception")).data).baseType="ExceptionData",l.baseData.exceptions=[{typeName:"SDKLoadFailed",message:i.replace(/\./g,"-"),hasFullStack:!1,stack:i+"\nSnippet failed to load ["+o+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(b&&b.pathname||"_unknown_")+"\nEndpoint: "+u,parsedStack:[]}],r)),n.push((l=s,i=t,(u=(o=v(c,"Message")).data).baseType="MessageData",(r=u.baseData).message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+l+")").replace(/\"/g,"")+'"',r.properties={endpoint:i},o)),s=n,c=t,JSON&&((u=C.fetch)&&!cfg.useXhr?u(c,{method:D,body:JSON.stringify(s),mode:"cors"}):XMLHttpRequest&&((l=new XMLHttpRequest).open(D,c),l.setRequestHeader("Content-type","application/json"),l.send(JSON.stringify(s)))))))},a=function(e,t){m||setTimeout(function(){!t&&h.core||i()},500),f=!1},p=function(e){var n=O.createElement(q),e=(n.src=e,t&&(n.integrity=t),n.setAttribute("data-ai-name",E),cfg[w]);return!e&&""!==e||"undefined"==n[w]||(n[w]=e),n.onload=a,n.onerror=i,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||a(0,t)},cfg.ld&&cfg.ld<0?O.getElementsByTagName("head")[0].appendChild(n):setTimeout(function(){O.getElementsByTagName(q)[0].parentNode.appendChild(n)},cfg.ld||0),n};p(d)}cfg.sri&&(n=o.match(/^((http[s]?:\/\/.*\/)\w+(\.\d+){1,5})\.(([\w]+\.){0,2}js)$/))&&6===n.length?(d="".concat(n[1],".integrity.json"),i="@".concat(n[4]),l=window.fetch,t=function(e){if(!e.ext||!e.ext[i]||!e.ext[i].file)throw Error("Error Loading JSON response");var t=e.ext[i].integrity||null;s(o=n[2]+e.ext[i].file,t)},l&&!cfg.useXhr?l(d,{method:"GET",mode:"cors"}).then(function(e){return e.json()["catch"](function(){return{}})}).then(t)["catch"](r):XMLHttpRequest&&((a=new XMLHttpRequest).open("GET",d),a.onreadystatechange=function(){if(a.readyState===XMLHttpRequest.DONE)if(200===a.status)try{t(JSON.parse(a.responseText))}catch(e){r()}else r()},a.send())):o&&r();try{h.cookie=O.cookie}catch(k){}function e(e){for(;e.length;)!function(t){h[t]=function(){var e=arguments;f||h.queue.push(function(){h[t].apply(h,e)})}}(e.pop())}var c,u,l="track",d="TrackPage",p="TrackEvent",l=(e([l+"Event",l+"PageView",l+"Exception",l+"Trace",l+"DependencyData",l+"Metric",l+"PageViewPerformance","start"+d,"stop"+d,"start"+p,"stop"+p,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),h.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4},(g.extensionConfig||{}).ApplicationInsightsAnalytics||{});return!0!==g[L]&&!0!==l[L]&&(e(["_"+(c="onerror")]),u=C[c],C[c]=function(e,t,n,i,a){var o=u&&u(e,t,n,i,a);return!0!==o&&h["_"+c]({message:e,url:t,lineNumber:n,columnNumber:i,error:a,evt:C.event}),o},g.autoExceptionInstrumented=!0),h}(cfg.cfg),(C[E]=n).queue&&0===n.queue.length?(n.queue.push(e),n.trackPageView({})):e();})({
+        src: "https://js.monitor.azure.com/scripts/b/ai.3.gbl.min.js",
+        crossOrigin: "anonymous",
+        cfg: {
+            // Per-environment routing is automatic: this connection string is the DXP-injected,
+            // environment-specific value, so telemetry lands in this environment's own resource.
+            connectionString: "InstrumentationKey=6c361650-bc3d-49a7-8858-7d3c29adc8c9;IngestionEndpoint=https://westus-0.in.applicationinsights.azure.com/;LiveEndpoint=https://westus.livediagnostics.monitor.azure.com/;ApplicationId=bb687c22-6773-449f-be57-29948d673ce4",
+            // Start cookie-less so this is compliant before being wired into OneTrust consent (follow-up).
+            disableCookiesUsage: true,
+            enableUnhandledPromiseRejectionTracking: true
+        },
+        onInit: function (sdk) {
+            // True for one known injected-script error: a single <anonymous> XMLHttpRequest frame.
+            function isInjectedXhrError(envelope) {
+                var exceptions = envelope.baseType === "ExceptionData" && envelope.baseData && envelope.baseData.exceptions;
+                if (!exceptions || exceptions.length !== 1) {
+                    return false;
+                }
+                var frames = exceptions[0].parsedStack;
+                return !!frames && frames.length === 1
+                    && frames[0].fileName === "<anonymous>"
+                    && String(frames[0].method).indexOf("XMLHttpRequest.") === 0
+                    && String(exceptions[0].message).indexOf("undefined: undefined") !== -1;
+            }
+
+            // Returning false drops the event.
+            sdk.addTelemetryInitializer(function (envelope) {
+                return !isInjectedXhrError(envelope);
+            });
+            // Tag browser telemetry with a distinct cloud role so it is separable from the server-side
+            // auto-instrumentation that already reports into the same App Insights resource.
+            sdk.addTelemetryInitializer(function (envelope) {
+                envelope.tags = envelope.tags || {};
+                envelope.tags["ai.cloud.role"] = "century-website-browser";
+                // Differentiate the CMS site within a single per-environment App Insights resource.
+                // envelope.data surfaces as customDimensions; query/split by customDimensions.site.
+                // SiteDefinition.Current resolves per request, so each site emits its own value.
+                envelope.data = envelope.data || {};
+                envelope.data["site"] = "Century Communites";
+            });
+        }
+    });
+    </script>
+    <!-- End Application Insights JavaScript SDK -->
+
+
+    
+
+
+<!-- Google Tag Manager -->
+<script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://gtm.centurycommunities.com/gtm.js?id='+i+dl+'';f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WK5X5R9');</script>
+<!-- End Google Tag Manager -->
+
+
+    <!-- Preload Fonts  -->
+<link rel="preload" as="style" href="https://use.typekit.net/hsl3pnm.css">
+<link rel="preload" as="style" href="https://use.typekit.net/jsw5ovl.css">
+<link rel="preload" as="style" href="https://use.typekit.net/xrp6lmj.css">
+
+<!-- Montserrat Font -->
+<link rel="stylesheet" href="https://use.typekit.net/hsl3pnm.css">
+
+<!-- Georgia Pro Font -->
+<link rel="stylesheet" href="https://use.typekit.net/jsw5ovl.css">
+
+<!-- Market Pro Condensed Font -->
+<link rel="stylesheet" href="https://use.typekit.net/xrp6lmj.css">
+
+
+    <style>
+        #epi-quickNavigator {
+            display: none !important;
+        }
+
+        div#onetrust-banner-sdk {
+            font-size: initial;
+        }
+    </style>
+
+        <script src="https://cdn.optimizely.com/js/30388500107.js"></script>
+
+    
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="https://www.centurycommunities.com/about-us/" />
+<meta property="og:Site_name" content="Century Communities" />
+<meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="About Us" />
+<meta property="og:url" content="https://www.centurycommunities.com/about-us/" />
+<meta property="og:type" content="website" />
+    <title>About Us</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+    <link rel="preconnect" href="https://www.google.com" crossorigin>
+    <link rel="preconnect" href="https://settings.luckyorange.net" crossorigin>
+    <link rel="preconnect" href="https://d10lpsik1i8c69.cloudfront.net" crossorigin>
+    <link rel="preconnect" href="https://stats.g.doubleclick.net" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect" href="https://bat.bing.com" crossorigin>
+    <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://js.monitor.azure.com" crossorigin>
+    <link rel="preconnect" href="https://api.livechatinc.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.cookielaw.org" crossorigin>
+    <link rel="preconnect" href="https://cdn.livechatinc.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://dl.episerver.net" crossorigin>
+
+    <script src="/Assets/js/jquery-3-v-3e7501d15c3630e791c8b20392eb9dee31a9f65ce3efdde76cef5c710141ab24.7.1.min.js"></script>
+    <script src="/Assets/js/jquery-v-84ef90f999dcac7866d3dbf48bdf2ea21439d3349d2a48b3fb81a8714db217ae.redirect.js" defer></script>
+    <script src="/Assets/js/jquery-v-270524b0d27afd1d3b6622d1a176c678daed94564c143297e217a63e21ce9820.validate.min.js" defer></script>
+    <script src="/Assets/js/jquery-v-e3124e90891a781a65379b6572fc6709b073df8a39fe4ce95dca63364a27568b.validate.unobtrusive.min.js" defer></script>
+    <script src="/Assets/js/jquery-v-2a0db34dc14ef4b5ce73b230701c7561e5012667a4c9cb274ecab646e1474995.mask.min.js" defer></script>
+
+    
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://www.centurycommunities.com/#organization","name":"Century Communities","url":"https://www.centurycommunities.com/","logo":{"@type":"ImageObject","url":"https://www.centurycommunities.com/globalassets/century/assets/footer/toggle_brands_ccs_r2.svg"},"sameAs":["https://www.linkedin.com/company/century-communities","https://www.facebook.com/CenturyCommunities","https://en.wikipedia.org/wiki/Century_Communities","https://www.nyse.com/quote/XNYS:CCS"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://www.centurycommunities.com/#website","url":"https://www.centurycommunities.com/","name":"Century Communities","publisher":{"@id":"https://www.centurycommunities.com/#organization"}}</script>
+    
+    
+
+    <link href="/dist/Blocks/fontawesome-v-74fdc8242eaddb470feee45283294102f0042191d34209e8775af5be5bdfbc60.min.css" rel="stylesheet" type="text/css" />
+    <link href="/dist/Blocks/bootstrap-v-b429aed4e9e46ffd57677775df2c462386bb06947978d66fc8dd7d8611375de8.min.css" rel="stylesheet" type="text/css" />
+    <link href="/dist/Blocks/main-v-884bdf07375c3b8bc572f52b585470d1b283656c3cd30940264afa30d62f544d.min.css" rel="stylesheet" type="text/css" />
+
+    
+
+    <style> .flag-dark-purple { background-color: #4a104a; } .flag-light-purple { background-color: #843f7f; }  </style>
+    
+
+<meta name="facebook-domain-verification" content="m8kllp1s37lwl0m53ky0uboblusx03" />
+
+<meta name="google-site-verification" content="QjUrxLwXOXbjjNoBndSnpGh7-7P1yiRD8xl5lJ-5KNA" /><meta name="ahrefs-site-verification" content="c804da71c73dca029d92b4aa8321d6a370b5f01d2bbcb1276f9886a92abef25e"><script>
+    if(document.location.href.indexOf('centurycommunitiescares') > -1) { 
+        document.location.href = 'http://www.centurycommunities.com/century-cares/';
+    }
+
+    if(document.location.href.indexOf('centurycommunitiesfoundation') > -1) { 
+        document.location.href = 'http://www.centurycommunities.com/century-cares/';
+    }
+</script>
+    <script nonce="ee08d12f-c09b-4a8b-9296-04f55ee14ea9">
+!function(T,l,y){var S=T.location,k="script",D="instrumentationKey",C="ingestionendpoint",I="disableExceptionTracking",E="ai.device.",b="toLowerCase",w="crossOrigin",N="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"5",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[b](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,u,p,l;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][b]()]=i[1])}if(!e[C]){var r=e.endpointsuffix,o=r?e.location:null;e[C]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[D]||d[D]||"",u=s[C],p=u?u+"/v2/track":d.endpointUrl,(l=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=p,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),l.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,p)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:N,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(N,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(l,p))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(k);n.src=h;var e=y[w];return!e&&""!==e||"undefined"==n[w]||(n[w]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(k)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[I]&&!0!==s[I]){var c="onerror";t(["_"+c]);var u=T[c];T[c]=function(e,t,n,a,i){var r=u&&u(e,t,n,a,i);return!0!==r&&m["_"+c]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);function a(){y.onInit&&y.onInit(n)}(T[t]=n).queue&&0===n.queue.length?(n.queue.push(a),n.trackPageView({})):a()}(window,document,{src: "https://js.monitor.azure.com/scripts/b/ai.2.gbl.min.js", crossOrigin: "anonymous", cfg: {connectionString: 'InstrumentationKey=6c361650-bc3d-49a7-8858-7d3c29adc8c9;IngestionEndpoint=https://westus-0.in.applicationinsights.azure.com/;LiveEndpoint=https://westus.livediagnostics.monitor.azure.com/;ApplicationId=bb687c22-6773-449f-be57-29948d673ce4', disableCookiesUsage: false }});
+</script>
+
+    
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link href="/dist/apps/mortgageCalculator-v-8d5e45dadf76c042828a6a9b6d52ac05161971a533cd909b6e23de7cb0942ef3.css" rel="stylesheet" type="text/css" />
+
+    <script src="/Assets/js/slimSelect-v-5bf0225d6b0f765538243ed16ae503b68e64d2937d4e5d34c1b01644c1c17fc5.js" defer></script>
+    <script src="/Assets/js/bootstrap-v-e4fd49181388c48ec5040bd3fe66f57c29c8e67fcd8502b3354b96ec7ab47cc7.min.js" defer></script>
+    <script src="/Assets/js/bootstrap-select-v-a1b2cfb8b839c71376302daccc46972da37cb4429881e08c9fe4d23ccc6a39f1.min.js" defer></script>
+
+    <script src='/Assets/js/simplemaps/search_simplemaps_usmap_mapdata-v-12d25af83170d57d6f7b5ee778b5b77d5a6e1b5f0069ba468e7eb170f8ea5c39.js' defer></script>
+    <script src='/Assets/js/simplemaps/usmap-v-ecfea10262eef9ba02b7d1d0911de102d7c020feef537740609bf4ed00073121.js' defer></script>
+
+    <script src="/dist/Blocks/main-v-8c76cdd22635f716f36a112f2f2334fc7eddebce8e12bab586ae6c7a8a3a95ad.min.js" defer></script>
+    
+</head> 
+<body>
+    
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://gtm.centurycommunities.com/ns.html?id=GTM-WK5X5R9"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+    
+
+
+    <div id="overlay" style="display:none;"></div>
+
+    <a name="top"></a>
+
+    
+
+
+<input type="hidden" value="" id="propertyId" />
+<input type="hidden" value="" id="communityVal" />
+<input type="hidden" value="" id="masterCommunityVal" />
+<input type="hidden" value="" id="metroVal" />
+<input type="hidden" value="Communities" id="originbrandVal" />
+
+<header class="header century-header" data-header-block>
+    <a class="skiplink" href="#maincontent">Skip to main content</a>
+    
+
+
+
+			<div id="utility-header-block"
+				 class="utility-header-block"
+				 data-template="UtilityHeaderBlock"
+				 role="region"
+				 aria-label="Announcement Banner">
+				<div class="utility-header-block-content">
+					
+<p style="background-color: #4a104a; width: 100%; text-align: center;"><span style="color: #ffffff;"><span style="font-size: 18.6667px;">A&nbsp;</span></span><span style="font-size: 16pt; color: #ffffff;" class="font-weight-medium"><strong><a style="color: #ffffff;" href="/promos/national/homes-worth-moving-for/"><span style="text-decoration: underline;">3.875% (4.735% APR)</span></a></strong> <span style="font-size: 14pt;">adjusted rate</span></span><span style="color: #ffffff;"><span style="font-size: 14pt;" class="font-weight-medium"> </span><span style="font-size: 11pt;">for the first 5 years?</span></span><span style="font-size: 14pt;">*</span></p>
+<p style="background-color: #4a104a; width: 100%; text-align: center;"><span style="font-size: 14pt;"><em><a href="/promos/national/homes-worth-moving-for/"><span style="color: #ffffff;"><u>That's worth moving for &rsaquo;</u></span></a></em></span></p>
+<p style="background-color: #4a104a; width: 100%; text-align: center;"><span style="font-size: 4pt;"><span style="color: #ffffff;">&nbsp;</span></span></p>
+				</div>
+			</div>
+    <noscript class="container-full col-12 text-center py-2">
+
+<p>Your browser appears to have JavaScript disabled. JavaScript is required for this site.</p>    </noscript>
+    <nav class="header__nav ">
+        <a href="/" class="header__logo-link">
+            
+
+    <img src="/contentassets/9f79aae3419e4d8b8c624721592ec745/ccs-logo---horizontal.svg"
+        alt="Century Communities home"
+        title=""
+        width=""
+        height=""
+        decoding="async"
+        loading="lazy"
+        class='header__logo-image' />
+
+        </a>
+
+        <div class="header__nav-links navLevel0" aria-label="Navigation Menu">
+            <a href="/" class="header__nav-links__logo-link d-lg-none position-absolute">
+                
+
+    <img src="/contentassets/9f79aae3419e4d8b8c624721592ec745/ccs-logo---horizontal.svg"
+        alt="Century Communities home"
+        title=""
+        width=""
+        height=""
+        decoding="async"
+        loading="lazy"
+        class='header__logo-image' />
+
+            </a>
+            <button class="header__nav-links__close-button bg-white border-0 d-lg-none text-primary position-absolute" type="button">
+                <span aria-hidden="true" class="far fa-solid fa-xmark"></span>
+                <span class="visually-hidden">Close Menu</span>
+            </button>
+            <ul class="header__nav-links-list header__nav-links-list--level0">
+
+
+<li class="fyh_block header__link-list-item">
+    <button class="header__nav-link header__nav-link--level0 fyh_block__menu-link" data-aria-label="Toggle the Find-Your-Home Modal" data-href="/find-your-new-home/">
+        <img class="fyh_block__icon" src="/Assets/icons/find-your-home-icon.svg" alt="">
+        <span class="fyh_block__menu-header">Find Your Home</span>
+    </button>
+    <button 
+        class="header__nav-link-button header__nav-link-button--level0 child-links" 
+        aria-controls='find-your-home_sub-links'
+        aria-expanded="false"
+        data-controls='find-your-home_sub-links'
+    >
+        <span class="visually-hidden">Find Your Home Submenu</span>
+        <span class="fas fa-angle-right"></span>
+    </button>
+    <ul id='find-your-home_sub-links' class="header__sub-nav-links fyh-links navLevel1">
+        <li>
+            <button class="back-btn">
+                <span class="fas fa-angle-left"></span>
+                <span>
+                    Back
+                </span>
+            </button>
+        </li>
+        <li class="current_category fyh_block__category mb-0 border-bottom-0">
+            <img class="fyh_block__icon" src="/Assets/icons/find-your-home-icon.svg" alt=''>
+            <h2 class="current_category-header"> Find Your Home</h2>
+        </li>
+        <li class="current_category fyh_block__category">
+            <img class="fyh_block__icon" src="/Assets/icons/location-compass.svg" alt=''>
+            <a href='/find-your-new-home/'>Search Current Location</a>
+        </li>
+            <li class="subcategory_link header__subcategory-list-item">
+                <a class="state" href="/find-your-new-home/alabama/"> Alabama</a>
+                    <button class="expand" aria-controls='alabama_sub-links-child' aria-expanded="false">
+                        <span class="visually-hidden">Alabama Metros</span>
+                        <span class="fas fa-chevron-right"></span>
+                    </button>
+                    <ul id='alabama_sub-links-child' class="sub-nav_links-child navLevel2">
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/alabama/birmingham-metro/">Birmingham</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/alabama/panhandle/">Panhandle-FL</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/alabama/huntsville-metro/">Huntsville</a>
+                                </li>
+                    </ul>
+            </li>
+            <li class="subcategory_link header__subcategory-list-item">
+                <a class="state" href="/find-your-new-home/arizona/"> Arizona</a>
+                    <button class="expand" aria-controls='arizona_sub-links-child' aria-expanded="false">
+                        <span class="visually-hidden">Arizona Metros</span>
+                        <span class="fas fa-chevron-right"></span>
+                    </button>
+                    <ul id='arizona_sub-links-child' class="sub-nav_links-child navLevel2">
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/arizona/phoenix-metro/">Phoenix</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/arizona/mohave-valley-metro/">Mohave Valley</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/arizona/tucson-metro/">Tucson</a>
+                                </li>
+                    </ul>
+            </li>
+            <li class="subcategory_link header__subcategory-list-item">
+                <a class="state" href="/find-your-new-home/california/"> California</a>
+                    <button class="expand" aria-controls='california_sub-links-child' aria-expanded="false">
+                        <span class="visually-hidden">California Metros</span>
+                        <span class="fas fa-chevron-right"></span>
+                    </button>
+                    <ul id='california_sub-links-child' class="sub-nav_links-child navLevel2">
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/california/central-california-metro/">Central California</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/california/northern-california-metro/">Northern California</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/california/southern-california-metro/">Southern California</a>
+                                </li>
+                    </ul>
+            </li>
+            <li class="subcategory_link header__subcategory-list-item">
+                <a class="state" href="/find-your-new-home/colorado/"> Colorado</a>
+                    <button class="expand" aria-controls='colorado_sub-links-child' aria-expanded="false">
+                        <span class="visually-hidden">Colorado Metros</span>
+                        <span class="fas fa-chevron-right"></span>
+                    </button>
+                    <ul id='colorado_sub-links-child' class="sub-nav_links-child navLevel2">
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/colorado/denver-metro/">Denver</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/colorado/northern-colorado/">Northern Colorado</a>
+                                </li>
+                    </ul>
+            </li>
+            <li class="subcategory_link header__subcategory-list-item">
+                <a class="state" href="/find-your-new-home/florida/"> Florida</a>
+                    <button class="expand" aria-controls='florida_sub-links-child' aria-expanded="false">
+                        <span class="visually-hidden">Florida Metros</span>
+                        <span class="fas fa-chevron-right"></span>
+                    </button>
+                    <ul id='florida_sub-links-child' class="sub-nav_links-child navLevel2">
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/florida/jacksonville-metro/">Jacksonville</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/florida/palm-coast-metro/">Palm Coast</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/florida/st.-augustine-metro">St. Augustine</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/florida/central-florida/">Central Florida</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/florida/gainesville-metro/">Gainesville</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/florida/gulf-coast-metro/">Gulf Coast</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/florida/panhandle-metro/">Panhandle </a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/florida/treasure-coast-metro/">Treasure Coast</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/florida/west-florida-metro/">West Florida</a>
+                                </li>
+                    </ul>
+            </li>
+            <li class="subcategory_link header__subcategory-list-item">
+                <a class="state" href="/find-your-new-home/georgia/"> Georgia</a>
+                    <button class="expand" aria-controls='georgia_sub-links-child' aria-expanded="false">
+                        <span class="visually-hidden">Georgia Metros</span>
+                        <span class="fas fa-chevron-right"></span>
+                    </button>
+                    <ul id='georgia_sub-links-child' class="sub-nav_links-child navLevel2">
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/georgia/atlanta-metro/">Atlanta</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/georgia/kingsland-metro/">Kingsland</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/georgia/columbus-ga-metro/">Columbus, GA</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/georgia/dalton-metro/">Dalton</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/georgia/macon-metro/">Macon</a>
+                                </li>
+                    </ul>
+            </li>
+            <li class="subcategory_link header__subcategory-list-item">
+                <a class="state" href="/find-your-new-home/indiana/"> Indiana</a>
+                    <button class="expand" aria-controls='indiana_sub-links-child' aria-expanded="false">
+                        <span class="visually-hidden">Indiana Metros</span>
+                        <span class="fas fa-chevron-right"></span>
+                    </button>
+                    <ul id='indiana_sub-links-child' class="sub-nav_links-child navLevel2">
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/indiana/louisville-metro-in/">Louisville</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/indiana/northwest-indiana/">Northwest Indiana</a>
+                                </li>
+                    </ul>
+            </li>
+            <li class="subcategory_link header__subcategory-list-item">
+                <a class="state" href="/find-your-new-home/kentucky/"> Kentucky</a>
+                    <button class="expand" aria-controls='kentucky_sub-links-child' aria-expanded="false">
+                        <span class="visually-hidden">Kentucky Metros</span>
+                        <span class="fas fa-chevron-right"></span>
+                    </button>
+                    <ul id='kentucky_sub-links-child' class="sub-nav_links-child navLevel2">
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/kentucky/louisville-metro-ky/">Louisville</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/kentucky/lexington-metro/">Lexington</a>
+                                </li>
+                    </ul>
+            </li>
+            <li class="subcategory_link header__subcategory-list-item">
+                <a class="state" href="/find-your-new-home/michigan/"> Michigan</a>
+                    <button class="expand" aria-controls='michigan_sub-links-child' aria-expanded="false">
+                        <span class="visually-hidden">Michigan Metros</span>
+                        <span class="fas fa-chevron-right"></span>
+                    </button>
+                    <ul id='michigan_sub-links-child' class="sub-nav_links-child navLevel2">
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/michigan/flint-metro/">Flint</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/michigan/greater-detroit-metro/">Greater Detroit</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/michigan/grand-rapids-metro/">Grand Rapids</a>
+                                </li>
+                    </ul>
+            </li>
+            <li class="subcategory_link header__subcategory-list-item">
+                <a class="state" href="/find-your-new-home/nevada/"> Nevada</a>
+                    <button class="expand" aria-controls='nevada_sub-links-child' aria-expanded="false">
+                        <span class="visually-hidden">Nevada Metros</span>
+                        <span class="fas fa-chevron-right"></span>
+                    </button>
+                    <ul id='nevada_sub-links-child' class="sub-nav_links-child navLevel2">
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/nevada/las-vegas-metro/">Las Vegas</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/nevada/pahrump-metro/">Pahrump</a>
+                                </li>
+                    </ul>
+            </li>
+            <li class="subcategory_link header__subcategory-list-item">
+                <a class="state" href="/find-your-new-home/north-carolina/"> North Carolina</a>
+                    <button class="expand" aria-controls='north-carolina_sub-links-child' aria-expanded="false">
+                        <span class="visually-hidden">North Carolina Metros</span>
+                        <span class="fas fa-chevron-right"></span>
+                    </button>
+                    <ul id='north-carolina_sub-links-child' class="sub-nav_links-child navLevel2">
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/north-carolina/charlotte-metro/">Charlotte</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/north-carolina/greensboro-high-point-metro/">Greensboro/High Point</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/north-carolina/greenville-metro/">Greenville</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/north-carolina/raleigh-durham-metro/">Raleigh/Durham</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/north-carolina/wilmington-metro/">Wilmington</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/north-carolina/winston-salem-metro/">Winston-Salem</a>
+                                </li>
+                    </ul>
+            </li>
+            <li class="subcategory_link header__subcategory-list-item">
+                <a class="state" href="/find-your-new-home/south-carolina/"> South Carolina</a>
+                    <button class="expand" aria-controls='south-carolina_sub-links-child' aria-expanded="false">
+                        <span class="visually-hidden">South Carolina Metros</span>
+                        <span class="fas fa-chevron-right"></span>
+                    </button>
+                    <ul id='south-carolina_sub-links-child' class="sub-nav_links-child navLevel2">
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/south-carolina/north-myrtle-beach-metro/">North Myrtle Beach</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/south-carolina/upstate-south-carolina-metro/">Upstate South Carolina</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/south-carolina/florence-metro/">Florence</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/south-carolina/charlotte-metro/">Charlotte - SC</a>
+                                </li>
+                    </ul>
+            </li>
+            <li class="subcategory_link header__subcategory-list-item">
+                <a class="state" href="/find-your-new-home/tennessee/"> Tennessee</a>
+                    <button class="expand" aria-controls='tennessee_sub-links-child' aria-expanded="false">
+                        <span class="visually-hidden">Tennessee Metros</span>
+                        <span class="fas fa-chevron-right"></span>
+                    </button>
+                    <ul id='tennessee_sub-links-child' class="sub-nav_links-child navLevel2">
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/tennessee/nashville-metro/">Nashville</a>
+                                </li>
+                    </ul>
+            </li>
+            <li class="subcategory_link header__subcategory-list-item">
+                <a class="state" href="/find-your-new-home/texas/"> Texas</a>
+                    <button class="expand" aria-controls='texas_sub-links-child' aria-expanded="false">
+                        <span class="visually-hidden">Texas Metros</span>
+                        <span class="fas fa-chevron-right"></span>
+                    </button>
+                    <ul id='texas_sub-links-child' class="sub-nav_links-child navLevel2">
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/texas/austin-metro/">Austin</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/texas/dallas-fort-worth-metro/">Dallas-Fort Worth</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/texas/houston-metro/">Houston</a>
+                                </li>
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/texas/san-antonio-metro/">San Antonio</a>
+                                </li>
+                    </ul>
+            </li>
+            <li class="subcategory_link header__subcategory-list-item">
+                <a class="state" href="/find-your-new-home/utah/"> Utah</a>
+                    <button class="expand" aria-controls='utah_sub-links-child' aria-expanded="false">
+                        <span class="visually-hidden">Utah Metros</span>
+                        <span class="fas fa-chevron-right"></span>
+                    </button>
+                    <ul id='utah_sub-links-child' class="sub-nav_links-child navLevel2">
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/utah/salt-lake-city-metro/">Salt Lake City</a>
+                                </li>
+                    </ul>
+            </li>
+            <li class="subcategory_link header__subcategory-list-item">
+                <a class="state" href="/find-your-new-home/washington/"> Washington</a>
+                    <button class="expand" aria-controls='washington_sub-links-child' aria-expanded="false">
+                        <span class="visually-hidden">Washington Metros</span>
+                        <span class="fas fa-chevron-right"></span>
+                    </button>
+                    <ul id='washington_sub-links-child' class="sub-nav_links-child navLevel2">
+                                <li class="header__city-list-item">
+                                    <a href="/find-your-new-home/washington/seattle-metro/">Seattle</a>
+                                </li>
+                    </ul>
+            </li>
+    </ul>
+    <!-- FYH Modal -->
+	<div class="fyh_block_modal" aria-labelledby="fyh_block_modal__heading" aria-describedby="fyh_block_modal__description" role="dialog" aria-modal="true">
+        <span id="fyh_block_modal__description" class="visually-hidden">
+            Search for your home with this list of available metros. Navigate to the close modal button or press the escape key to close this modal
+        </span>
+        <div class="fyh_block_modal__backdrop"></div>
+        <div class="fyh_block_modal__container d-flex">
+            <button class="close-modal bg-transparent border-0">
+                <span class="far fa-solid fa-xmark d-block" aria-hidden="true"></span>
+                <span class="visually-hidden">Close modal</span>
+            </button>
+            <div class="fyh_block_modal__list_view">
+                <header class="fyh_block_modal__header">
+                    <div class="fyh_block_modal__header-content">
+                        <img class="fyh_block_modal__header-icon" src="/Assets/icons/find-your-home-icon.svg" alt=''>
+                        <h2 id="fyh_block_modal__heading" class="fyh_block_modal__header-text">
+                            Find Your Home
+                        </h2>
+                    </div>
+                    <a class="fyh_block_modal__header-content" href="/find-your-new-home/">
+                        <img class="fyh_block_modal__header-icon" src="/Assets/icons/current-location-icon.svg" alt=''>
+                        <span class="fyh_block_modal__header-text">
+                            Search Current Location
+                        </span>
+                    </a>
+                </header>
+                <div class="fyh_block_modal__link-list">
+                    <ul>
+                            <li class="subcategory_link header__subcategory-list-item">
+                                <h3 class="pb-2 fw-normal" id="alabama_sub-links-header">
+                                    <a class="state p-0" href="/find-your-new-home/alabama/"> Alabama</a>
+                                </h3>
+                                    <ul 
+                                        id='alabama_modal-links-child'
+                                        class="sub-nav_links-child navLevel2"
+                                        aria-labelledby="alabama_sub-links-header"
+                                    >
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/alabama/birmingham-metro/">Birmingham</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/alabama/panhandle/">Panhandle-FL</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/alabama/huntsville-metro/">Huntsville</a>
+                                                </li>
+                                    </ul>
+                            </li>
+                            <li class="subcategory_link header__subcategory-list-item">
+                                <h3 class="pb-2 fw-normal" id="arizona_sub-links-header">
+                                    <a class="state p-0" href="/find-your-new-home/arizona/"> Arizona</a>
+                                </h3>
+                                    <ul 
+                                        id='arizona_modal-links-child'
+                                        class="sub-nav_links-child navLevel2"
+                                        aria-labelledby="arizona_sub-links-header"
+                                    >
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/arizona/phoenix-metro/">Phoenix</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/arizona/mohave-valley-metro/">Mohave Valley</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/arizona/tucson-metro/">Tucson</a>
+                                                </li>
+                                    </ul>
+                            </li>
+                            <li class="subcategory_link header__subcategory-list-item">
+                                <h3 class="pb-2 fw-normal" id="california_sub-links-header">
+                                    <a class="state p-0" href="/find-your-new-home/california/"> California</a>
+                                </h3>
+                                    <ul 
+                                        id='california_modal-links-child'
+                                        class="sub-nav_links-child navLevel2"
+                                        aria-labelledby="california_sub-links-header"
+                                    >
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/california/central-california-metro/">Central California</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/california/northern-california-metro/">Northern California</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/california/southern-california-metro/">Southern California</a>
+                                                </li>
+                                    </ul>
+                            </li>
+                            <li class="subcategory_link header__subcategory-list-item">
+                                <h3 class="pb-2 fw-normal" id="colorado_sub-links-header">
+                                    <a class="state p-0" href="/find-your-new-home/colorado/"> Colorado</a>
+                                </h3>
+                                    <ul 
+                                        id='colorado_modal-links-child'
+                                        class="sub-nav_links-child navLevel2"
+                                        aria-labelledby="colorado_sub-links-header"
+                                    >
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/colorado/denver-metro/">Denver</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/colorado/northern-colorado/">Northern Colorado</a>
+                                                </li>
+                                    </ul>
+                            </li>
+                            <li class="subcategory_link header__subcategory-list-item">
+                                <h3 class="pb-2 fw-normal" id="florida_sub-links-header">
+                                    <a class="state p-0" href="/find-your-new-home/florida/"> Florida</a>
+                                </h3>
+                                    <ul 
+                                        id='florida_modal-links-child'
+                                        class="sub-nav_links-child navLevel2"
+                                        aria-labelledby="florida_sub-links-header"
+                                    >
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/florida/jacksonville-metro/">Jacksonville</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/florida/palm-coast-metro/">Palm Coast</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/florida/st.-augustine-metro">St. Augustine</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/florida/central-florida/">Central Florida</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/florida/gainesville-metro/">Gainesville</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/florida/gulf-coast-metro/">Gulf Coast</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/florida/panhandle-metro/">Panhandle </a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/florida/treasure-coast-metro/">Treasure Coast</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/florida/west-florida-metro/">West Florida</a>
+                                                </li>
+                                    </ul>
+                            </li>
+                            <li class="subcategory_link header__subcategory-list-item">
+                                <h3 class="pb-2 fw-normal" id="georgia_sub-links-header">
+                                    <a class="state p-0" href="/find-your-new-home/georgia/"> Georgia</a>
+                                </h3>
+                                    <ul 
+                                        id='georgia_modal-links-child'
+                                        class="sub-nav_links-child navLevel2"
+                                        aria-labelledby="georgia_sub-links-header"
+                                    >
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/georgia/atlanta-metro/">Atlanta</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/georgia/kingsland-metro/">Kingsland</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/georgia/columbus-ga-metro/">Columbus, GA</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/georgia/dalton-metro/">Dalton</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/georgia/macon-metro/">Macon</a>
+                                                </li>
+                                    </ul>
+                            </li>
+                            <li class="subcategory_link header__subcategory-list-item">
+                                <h3 class="pb-2 fw-normal" id="indiana_sub-links-header">
+                                    <a class="state p-0" href="/find-your-new-home/indiana/"> Indiana</a>
+                                </h3>
+                                    <ul 
+                                        id='indiana_modal-links-child'
+                                        class="sub-nav_links-child navLevel2"
+                                        aria-labelledby="indiana_sub-links-header"
+                                    >
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/indiana/louisville-metro-in/">Louisville</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/indiana/northwest-indiana/">Northwest Indiana</a>
+                                                </li>
+                                    </ul>
+                            </li>
+                            <li class="subcategory_link header__subcategory-list-item">
+                                <h3 class="pb-2 fw-normal" id="kentucky_sub-links-header">
+                                    <a class="state p-0" href="/find-your-new-home/kentucky/"> Kentucky</a>
+                                </h3>
+                                    <ul 
+                                        id='kentucky_modal-links-child'
+                                        class="sub-nav_links-child navLevel2"
+                                        aria-labelledby="kentucky_sub-links-header"
+                                    >
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/kentucky/louisville-metro-ky/">Louisville</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/kentucky/lexington-metro/">Lexington</a>
+                                                </li>
+                                    </ul>
+                            </li>
+                            <li class="subcategory_link header__subcategory-list-item">
+                                <h3 class="pb-2 fw-normal" id="michigan_sub-links-header">
+                                    <a class="state p-0" href="/find-your-new-home/michigan/"> Michigan</a>
+                                </h3>
+                                    <ul 
+                                        id='michigan_modal-links-child'
+                                        class="sub-nav_links-child navLevel2"
+                                        aria-labelledby="michigan_sub-links-header"
+                                    >
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/michigan/flint-metro/">Flint</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/michigan/greater-detroit-metro/">Greater Detroit</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/michigan/grand-rapids-metro/">Grand Rapids</a>
+                                                </li>
+                                    </ul>
+                            </li>
+                            <li class="subcategory_link header__subcategory-list-item">
+                                <h3 class="pb-2 fw-normal" id="nevada_sub-links-header">
+                                    <a class="state p-0" href="/find-your-new-home/nevada/"> Nevada</a>
+                                </h3>
+                                    <ul 
+                                        id='nevada_modal-links-child'
+                                        class="sub-nav_links-child navLevel2"
+                                        aria-labelledby="nevada_sub-links-header"
+                                    >
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/nevada/las-vegas-metro/">Las Vegas</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/nevada/pahrump-metro/">Pahrump</a>
+                                                </li>
+                                    </ul>
+                            </li>
+                            <li class="subcategory_link header__subcategory-list-item">
+                                <h3 class="pb-2 fw-normal" id="north-carolina_sub-links-header">
+                                    <a class="state p-0" href="/find-your-new-home/north-carolina/"> North Carolina</a>
+                                </h3>
+                                    <ul 
+                                        id='north-carolina_modal-links-child'
+                                        class="sub-nav_links-child navLevel2"
+                                        aria-labelledby="north-carolina_sub-links-header"
+                                    >
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/north-carolina/charlotte-metro/">Charlotte</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/north-carolina/greensboro-high-point-metro/">Greensboro/High Point</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/north-carolina/greenville-metro/">Greenville</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/north-carolina/raleigh-durham-metro/">Raleigh/Durham</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/north-carolina/wilmington-metro/">Wilmington</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/north-carolina/winston-salem-metro/">Winston-Salem</a>
+                                                </li>
+                                    </ul>
+                            </li>
+                            <li class="subcategory_link header__subcategory-list-item">
+                                <h3 class="pb-2 fw-normal" id="south-carolina_sub-links-header">
+                                    <a class="state p-0" href="/find-your-new-home/south-carolina/"> South Carolina</a>
+                                </h3>
+                                    <ul 
+                                        id='south-carolina_modal-links-child'
+                                        class="sub-nav_links-child navLevel2"
+                                        aria-labelledby="south-carolina_sub-links-header"
+                                    >
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/south-carolina/north-myrtle-beach-metro/">North Myrtle Beach</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/south-carolina/upstate-south-carolina-metro/">Upstate South Carolina</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/south-carolina/florence-metro/">Florence</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/south-carolina/charlotte-metro/">Charlotte - SC</a>
+                                                </li>
+                                    </ul>
+                            </li>
+                            <li class="subcategory_link header__subcategory-list-item">
+                                <h3 class="pb-2 fw-normal" id="tennessee_sub-links-header">
+                                    <a class="state p-0" href="/find-your-new-home/tennessee/"> Tennessee</a>
+                                </h3>
+                                    <ul 
+                                        id='tennessee_modal-links-child'
+                                        class="sub-nav_links-child navLevel2"
+                                        aria-labelledby="tennessee_sub-links-header"
+                                    >
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/tennessee/nashville-metro/">Nashville</a>
+                                                </li>
+                                    </ul>
+                            </li>
+                            <li class="subcategory_link header__subcategory-list-item">
+                                <h3 class="pb-2 fw-normal" id="texas_sub-links-header">
+                                    <a class="state p-0" href="/find-your-new-home/texas/"> Texas</a>
+                                </h3>
+                                    <ul 
+                                        id='texas_modal-links-child'
+                                        class="sub-nav_links-child navLevel2"
+                                        aria-labelledby="texas_sub-links-header"
+                                    >
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/texas/austin-metro/">Austin</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/texas/dallas-fort-worth-metro/">Dallas-Fort Worth</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/texas/houston-metro/">Houston</a>
+                                                </li>
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/texas/san-antonio-metro/">San Antonio</a>
+                                                </li>
+                                    </ul>
+                            </li>
+                            <li class="subcategory_link header__subcategory-list-item">
+                                <h3 class="pb-2 fw-normal" id="utah_sub-links-header">
+                                    <a class="state p-0" href="/find-your-new-home/utah/"> Utah</a>
+                                </h3>
+                                    <ul 
+                                        id='utah_modal-links-child'
+                                        class="sub-nav_links-child navLevel2"
+                                        aria-labelledby="utah_sub-links-header"
+                                    >
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/utah/salt-lake-city-metro/">Salt Lake City</a>
+                                                </li>
+                                    </ul>
+                            </li>
+                            <li class="subcategory_link header__subcategory-list-item">
+                                <h3 class="pb-2 fw-normal" id="washington_sub-links-header">
+                                    <a class="state p-0" href="/find-your-new-home/washington/"> Washington</a>
+                                </h3>
+                                    <ul 
+                                        id='washington_modal-links-child'
+                                        class="sub-nav_links-child navLevel2"
+                                        aria-labelledby="washington_sub-links-header"
+                                    >
+                                                <li class="header__city-list-item">
+                                                    <a href="/find-your-new-home/washington/seattle-metro/">Seattle</a>
+                                                </li>
+                                    </ul>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="fyh_block_modal__map_view" role="region" aria-label="Map">
+                    <ul class="fyh-modal-map-key" aria-label="Map Legend">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-labelledby="ccs-map-pin">
+                                <title id="ccs-map-pin">Purple Map Pin</title>
+                                <path fill="#4a104a" d="M12,0A8.009,8.009,0,0,0,4,8c0,3.51,5,12.025,7.148,15.524A1,1,0,0,0,12,24a.991.991,0,0,0,.852-.477C15,20.026,20,11.514,20,8A8.009,8.009,0,0,0,12,0Zm0,11.5A3.5,3.5,0,1,1,15.5,8,3.5,3.5,0,0,1,12,11.5Z" />
+                            </svg>
+                            <span>Century Communities</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-labelledby="cmp-map-pin">
+                                <title id="cmp-map-pin">Blue Map Pin</title>
+                                <path fill="#007cad" d="M12,0A8.009,8.009,0,0,0,4,8c0,3.51,5,12.025,7.148,15.524A1,1,0,0,0,12,24a.991.991,0,0,0,.852-.477C15,20.026,20,11.514,20,8A8.009,8.009,0,0,0,12,0Zm0,11.5A3.5,3.5,0,1,1,15.5,8,3.5,3.5,0,0,1,12,11.5Z" />
+                            </svg>
+                            <span>Century Complete</span>
+                        </li>
+                    </ul>
+                <div id="header-search-map" data-map-title="Map of Continental United States"></div>
+            </div>
+        </div>
+    </div>
+</li>
+
+<script>
+    const metroLocations = {
+
+                "0": {
+                    lat: "38.170660",
+                    lng: "-85.707017",
+                    state: "KY",
+                    stateName: "Kentucky",
+                    url: '/find-your-new-home/kentucky/louisville-metro-ky/',
+                    color: "#07A9E0",
+                    name: "Louisville Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "1": {
+                    lat: "40.771299",
+                    lng: "-111.907442",
+                    state: "UT",
+                    stateName: "Utah",
+                    url: '/find-your-new-home/utah/salt-lake-city-metro/',
+                    color: "#8a388a",
+                    name: "Salt Lake City Metro",
+                    image_url: "/Assets/icons/purple-pin.svg"
+                },
+            
+                "2": {
+                    lat: "30.382243",
+                    lng: "-86.3981597",
+                    state: "FL",
+                    stateName: "Florida",
+                    url: '/find-your-new-home/florida/panhandle-metro/',
+                    color: "#07A9E0",
+                    name: "Panhandle",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "3": {
+                    lat: "35.5853493",
+                    lng: "-78.1301973",
+                    state: "NC",
+                    stateName: "North Carolina",
+                    url: '/find-your-new-home/north-carolina/raleigh-durham-metro/',
+                    color: "#07A9E0",
+                    name: "Raleigh/Durham Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "4": {
+                    lat: "33.8481303",
+                    lng: "-78.8634306",
+                    state: "SC",
+                    stateName: "South Carolina",
+                    url: '/find-your-new-home/south-carolina/north-myrtle-beach-metro/',
+                    color: "#07A9E0",
+                    name: "North Myrtle Beach Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "5": {
+                    lat: "29.892147",
+                    lng: "-81.313962",
+                    state: "FL",
+                    stateName: "Florida",
+                    url: '/find-your-new-home/florida/st.-augustine-metro',
+                    color: "#8a388a",
+                    name: "St. Augustine Metro",
+                    image_url: "/Assets/icons/purple-pin.svg"
+                },
+            
+                "6": {
+                    lat: "33.4528429",
+                    lng: "-112.0619113",
+                    state: "AZ",
+                    stateName: "Arizona",
+                    url: '/find-your-new-home/arizona/phoenix-metro/',
+                    color: "#8a388a",
+                    name: "Phoenix Metro",
+                    image_url: "/Assets/icons/purple-pin.svg"
+                },
+            
+                "7": {
+                    lat: "27.826305231987718",
+                    lng: "-81.55460590624286",
+                    state: "FL",
+                    stateName: "Florida",
+                    url: '/find-your-new-home/florida/central-florida/',
+                    color: "#07A9E0",
+                    name: "Central Florida",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "8": {
+                    lat: "27.72720091317786",
+                    lng: "-80.5368435276845",
+                    state: "FL",
+                    stateName: "Florida",
+                    url: '/find-your-new-home/florida/treasure-coast-metro/',
+                    color: "#07A9E0",
+                    name: "Treasure Coast Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "9": {
+                    lat: "33.607003",
+                    lng: "-83.876662",
+                    state: "GA",
+                    stateName: "Georgia",
+                    url: '/find-your-new-home/georgia/atlanta-metro/',
+                    color: "#07A9E0",
+                    name: "Atlanta Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "10": {
+                    lat: "34.1702041",
+                    lng: "-79.8646401",
+                    state: "SC",
+                    stateName: "South Carolina",
+                    url: '/find-your-new-home/south-carolina/florence-metro/',
+                    color: "#07A9E0",
+                    name: "Florence Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "11": {
+                    lat: "32.7873634",
+                    lng: "-84.8694875",
+                    state: "GA",
+                    stateName: "Georgia",
+                    url: '/find-your-new-home/georgia/columbus-ga-metro/',
+                    color: "#07A9E0",
+                    name: "Columbus, GA Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "12": {
+                    lat: "35.600679",
+                    lng: "-77.3699337",
+                    state: "NC",
+                    stateName: "North Carolina",
+                    url: '/find-your-new-home/north-carolina/greenville-metro/',
+                    color: "#07A9E0",
+                    name: "Greenville Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "13": {
+                    lat: "38.5270",
+                    lng: " -121.9784",
+                    state: "CA",
+                    stateName: "California",
+                    url: '/find-your-new-home/california/northern-california-metro/',
+                    color: "#8a388a",
+                    name: "Northern California Metro",
+                    image_url: "/Assets/icons/purple-pin.svg"
+                },
+            
+                "14": {
+                    lat: "33.8620502",
+                    lng: "-83.8190473",
+                    state: "GA",
+                    stateName: "Georgia",
+                    url: '/find-your-new-home/georgia/atlanta-metro/',
+                    color: "#8a388a",
+                    name: "Atlanta Metro",
+                    image_url: "/Assets/icons/purple-pin.svg"
+                },
+            
+                "15": {
+                    lat: "31.2299844",
+                    lng: "-85.5716838",
+                    state: "AL",
+                    stateName: "Alabama",
+                    url: '/find-your-new-home/alabama/panhandle/',
+                    color: "#07A9E0",
+                    name: "Panhandle Metro - FL",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "16": {
+                    lat: "28.611819775266532",
+                    lng: "-82.35714778165996",
+                    state: "FL",
+                    stateName: "Florida",
+                    url: '/find-your-new-home/florida/west-florida-metro/',
+                    color: "#07A9E0",
+                    name: "West Florida Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "17": {
+                    lat: "29.452420664579613",
+                    lng: "-81.25817804631366",
+                    state: "FL",
+                    stateName: "Florida",
+                    url: '/find-your-new-home/florida/palm-coast-metro/',
+                    color: "#07A9E0",
+                    name: "Palm Coast Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "18": {
+                    lat: "33.522345",
+                    lng: "-86.810828",
+                    state: "AL",
+                    stateName: "Alabama",
+                    url: '/find-your-new-home/alabama/birmingham-metro/',
+                    color: "#07A9E0",
+                    name: "Birmingham Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "19": {
+                    lat: "34.774131",
+                    lng: "-86.434753",
+                    state: "AL",
+                    stateName: "Alabama",
+                    url: '/find-your-new-home/alabama/huntsville-metro/',
+                    color: "#07A9E0",
+                    name: "Huntsville Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "20": {
+                    lat: "39.733936150017925",
+                    lng: "-104.960433",
+                    state: "CO",
+                    stateName: "Colorado",
+                    url: '/find-your-new-home/colorado/denver-metro/',
+                    color: "#8a388a",
+                    name: "Denver Metro",
+                    image_url: "/Assets/icons/purple-pin.svg"
+                },
+            
+                "21": {
+                    lat: "30.796079043140114",
+                    lng: "-81.68541920630547",
+                    state: "GA",
+                    stateName: "Georgia",
+                    url: '/find-your-new-home/georgia/kingsland-metro/',
+                    color: "#8a388a",
+                    name: "Kingsland Metro",
+                    image_url: "/Assets/icons/purple-pin.svg"
+                },
+            
+                "22": {
+                    lat: "31.9362915",
+                    lng: "-110.6812239",
+                    state: "AZ",
+                    stateName: "Arizona",
+                    url: '/find-your-new-home/arizona/tucson-metro/',
+                    color: "#07A9E0",
+                    name: "Tucson Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "23": {
+                    lat: "35.2033533",
+                    lng: "-80.9799122",
+                    state: "NC",
+                    stateName: "North Carolina",
+                    url: '/find-your-new-home/north-carolina/charlotte-metro/',
+                    color: "#07A9E0",
+                    name: "Charlotte Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "24": {
+                    lat: "34.2093234",
+                    lng: "-77.9679107",
+                    state: "NC",
+                    stateName: "North Carolina",
+                    url: '/find-your-new-home/north-carolina/wilmington-metro/',
+                    color: "#07A9E0",
+                    name: "Wilmington Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "25": {
+                    lat: "34.8825942",
+                    lng: "-81.9828579",
+                    state: "SC",
+                    stateName: "South Carolina",
+                    url: '/find-your-new-home/south-carolina/upstate-south-carolina-metro/',
+                    color: "#07A9E0",
+                    name: "Upstate South Carolina Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "26": {
+                    lat: "36.2085921",
+                    lng: "-116.0012179",
+                    state: "NV",
+                    stateName: "Nevada",
+                    url: '/find-your-new-home/nevada/pahrump-metro/',
+                    color: "#07A9E0",
+                    name: "Pahrump Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "27": {
+                    lat: "36.7809577",
+                    lng: "-119.9107195",
+                    state: "CA",
+                    stateName: "California",
+                    url: '/find-your-new-home/california/central-california-metro/',
+                    color: "#8a388a",
+                    name: "Central California Metro",
+                    image_url: "/Assets/icons/purple-pin.svg"
+                },
+            
+                "28": {
+                    lat: "29.452420664579613",
+                    lng: "-81.25817804631366",
+                    state: "FL",
+                    stateName: "Florida",
+                    url: '/find-your-new-home/florida/palm-coast-metro/',
+                    color: "#8a388a",
+                    name: "Palm Coast Metro",
+                    image_url: "/Assets/icons/purple-pin.svg"
+                },
+            
+                "29": {
+                    lat: "36.183233",
+                    lng: "-86.777012",
+                    state: "TN",
+                    stateName: "Tennessee",
+                    url: '/find-your-new-home/tennessee/nashville-metro/',
+                    color: "#8a388a",
+                    name: "Nashville Metro",
+                    image_url: "/Assets/icons/purple-pin.svg"
+                },
+            
+                "30": {
+                    lat: "35.552841323099784",
+                    lng: "-80.82134925733357",
+                    state: "NC",
+                    stateName: "North Carolina",
+                    url: '/find-your-new-home/north-carolina/charlotte-metro/',
+                    color: "#8a388a",
+                    name: "Charlotte Metro",
+                    image_url: "/Assets/icons/purple-pin.svg"
+                },
+            
+                "31": {
+                    lat: "29.102963",
+                    lng: "-82.020539",
+                    state: "FL",
+                    stateName: "Florida",
+                    url: '/find-your-new-home/florida/gainesville-metro/',
+                    color: "#07A9E0",
+                    name: "Gainesville Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "32": {
+                    lat: "33.6968",
+                    lng: "-117.1853",
+                    state: "CA",
+                    stateName: "California",
+                    url: '/find-your-new-home/california/southern-california-metro/',
+                    color: "#8a388a",
+                    name: "Southern California Metro",
+                    image_url: "/Assets/icons/purple-pin.svg"
+                },
+            
+                "33": {
+                    lat: "40.3418269",
+                    lng: "-104.9216957",
+                    state: "CO",
+                    stateName: "Colorado",
+                    url: '/find-your-new-home/colorado/northern-colorado/',
+                    color: "#8a388a",
+                    name: "Northern Colorado Metro",
+                    image_url: "/Assets/icons/purple-pin.svg"
+                },
+            
+                "34": {
+                    lat: "30.544103",
+                    lng: "-81.620793",
+                    state: "FL",
+                    stateName: "Florida",
+                    url: '/find-your-new-home/florida/jacksonville-metro/',
+                    color: "#8a388a",
+                    name: "Jacksonville Metro",
+                    image_url: "/Assets/icons/purple-pin.svg"
+                },
+            
+                "35": {
+                    lat: "42.3525424",
+                    lng: "-83.4110131",
+                    state: "MI",
+                    stateName: "Michigan",
+                    url: '/find-your-new-home/michigan/greater-detroit-metro/',
+                    color: "#07A9E0",
+                    name: "Greater Detroit Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "36": {
+                    lat: "38.04025327827661",
+                    lng: "-84.48099508620737",
+                    state: "KY",
+                    stateName: "Kentucky",
+                    url: '/find-your-new-home/kentucky/lexington-metro/',
+                    color: "#07A9E0",
+                    name: "Lexington Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "37": {
+                    lat: "32.89291434209783",
+                    lng: "-97.03230311183964",
+                    state: "TX",
+                    stateName: "Texas",
+                    url: '/find-your-new-home/texas/dallas-fort-worth-metro/',
+                    color: "#8a388a",
+                    name: "Dallas-Fort Worth Metro",
+                    image_url: "/Assets/icons/purple-pin.svg"
+                },
+            
+                "38": {
+                    lat: "30.320398657359274",
+                    lng: "-97.59943386303762",
+                    state: "TX",
+                    stateName: "Texas",
+                    url: '/find-your-new-home/texas/austin-metro/',
+                    color: "#8a388a",
+                    name: "Austin Metro",
+                    image_url: "/Assets/icons/purple-pin.svg"
+                },
+            
+                "39": {
+                    lat: "38.232176",
+                    lng: "-85.763205",
+                    state: "IN",
+                    stateName: "Indiana",
+                    url: '/find-your-new-home/indiana/louisville-metro-in/',
+                    color: "#07A9E0",
+                    name: "Louisville Metro - IN",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "40": {
+                    lat: "43.0125902",
+                    lng: "-83.7664545",
+                    state: "MI",
+                    stateName: "Michigan",
+                    url: '/find-your-new-home/michigan/flint-metro/',
+                    color: "#07A9E0",
+                    name: "Flint Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "41": {
+                    lat: "36.1046903",
+                    lng: "-80.3134976",
+                    state: "NC",
+                    stateName: "North Carolina",
+                    url: '/find-your-new-home/north-carolina/winston-salem-metro/',
+                    color: "#07A9E0",
+                    name: "Winston-Salem Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "42": {
+                    lat: "29.179823630642037",
+                    lng: "-98.54781970525907",
+                    state: "TX",
+                    stateName: "Texas",
+                    url: '/find-your-new-home/texas/san-antonio-metro/',
+                    color: "#8a388a",
+                    name: "San Antonio Metro",
+                    image_url: "/Assets/icons/purple-pin.svg"
+                },
+            
+                "43": {
+                    lat: "47.231994",
+                    lng: "-122.410736",
+                    state: "WA",
+                    stateName: "Washington",
+                    url: '/find-your-new-home/washington/seattle-metro/',
+                    color: "#8a388a",
+                    name: "Seattle Metro",
+                    image_url: "/Assets/icons/purple-pin.svg"
+                },
+            
+                "44": {
+                    lat: "34.9046238",
+                    lng: "-114.3277194",
+                    state: "AZ",
+                    stateName: "Arizona",
+                    url: '/find-your-new-home/arizona/mohave-valley-metro/',
+                    color: "#07A9E0",
+                    name: "Mohave Valley Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "45": {
+                    lat: "26.846507",
+                    lng: "-81.874409",
+                    state: "FL",
+                    stateName: "Florida",
+                    url: '/find-your-new-home/florida/gulf-coast-metro/',
+                    color: "#07A9E0",
+                    name: "Gulf Coast Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "46": {
+                    lat: "34.7601239",
+                    lng: "-84.9835878",
+                    state: "GA",
+                    stateName: "Georgia",
+                    url: '/find-your-new-home/georgia/dalton-metro/',
+                    color: "#07A9E0",
+                    name: "Dalton Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "47": {
+                    lat: "32.8328428",
+                    lng: "-83.7142092",
+                    state: "GA",
+                    stateName: "Georgia",
+                    url: '/find-your-new-home/georgia/macon-metro/',
+                    color: "#07A9E0",
+                    name: "Macon Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "48": {
+                    lat: "36.023578",
+                    lng: "-79.910981",
+                    state: "NC",
+                    stateName: "North Carolina",
+                    url: '/find-your-new-home/north-carolina/greensboro-high-point-metro/',
+                    color: "#07A9E0",
+                    name: "Greensboro/High Point Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "49": {
+                    lat: "30.0781",
+                    lng: "-95.3739",
+                    state: "TX",
+                    stateName: "Texas",
+                    url: '/find-your-new-home/texas/houston-metro/',
+                    color: "#8a388a",
+                    name: "Houston Metro",
+                    image_url: "/Assets/icons/purple-pin.svg"
+                },
+            
+                "50": {
+                    lat: "33.2741863",
+                    lng: "-111.3356149",
+                    state: "AZ",
+                    stateName: "Arizona",
+                    url: '/find-your-new-home/arizona/phoenix-metro/',
+                    color: "#07A9E0",
+                    name: "Phoenix Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "51": {
+                    lat: "42.925600304879175",
+                    lng: "-85.68987160640783",
+                    state: "MI",
+                    stateName: "Michigan",
+                    url: '/find-your-new-home/michigan/grand-rapids-metro/',
+                    color: "#07A9E0",
+                    name: "Grand Rapids Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "52": {
+                    lat: "30.134178",
+                    lng: "-81.509011",
+                    state: "FL",
+                    stateName: "Florida",
+                    url: '/find-your-new-home/florida/jacksonville-metro/',
+                    color: "#07A9E0",
+                    name: "Jacksonville Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "53": {
+                    lat: "36.1778",
+                    lng: "-115.1223",
+                    state: "NV",
+                    stateName: "Nevada",
+                    url: '/find-your-new-home/nevada/las-vegas-metro/',
+                    color: "#8a388a",
+                    name: "Las Vegas Metro",
+                    image_url: "/Assets/icons/purple-pin.svg"
+                },
+            
+                "54": {
+                    lat: "30.796079043140114",
+                    lng: "-81.68541920630547",
+                    state: "GA",
+                    stateName: "Georgia",
+                    url: '/find-your-new-home/georgia/kingsland-metro/',
+                    color: "#07A9E0",
+                    name: "Kingsland Metro",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                },
+            
+                "55": {
+                    lat: "41.3697934",
+                    lng: "-87.2029421",
+                    state: "IN",
+                    stateName: "Indiana",
+                    url: '/find-your-new-home/indiana/northwest-indiana/',
+                    color: "#07A9E0",
+                    name: "Northwest Indiana",
+                    image_url: "/Assets/icons/secondary-blue-pin.svg"
+                }
+                }
+</script>
+                            <li class="header__link-list-item  ">
+                                    <a class="header__nav-link header__nav-link--level0" id="About Century-menu" href="/about-us/" >
+                                        <span>About Century</span>
+                                    </a>
+                                    <button class="header__nav-link-button header__nav-link-button--level0 child-links" data-controls="about-century_sub-links" aria-controls="about-century_sub-links">
+                                        <span class="fas fa-angle-right" aria-hidden="true"></span>
+                                        <span class="visually-hidden">About Century Submenu</span>
+                                    </button>
+                                        <ul class="header__sub-nav-links child-links navLevel1" id="about-century_sub-links" aria-labelledby="About Century-menu">
+                                            <li class="header__back-btn-container">
+                                                <button class="back-btn">
+                                                    <span class="fas fa-angle-left"></span>
+                                                    <span>
+                                                        Back
+                                                    </span>
+                                                </button>
+                                            </li>
+                                            <li class="current_category">
+                                                <h2 class="current_category-header">
+                                                    About Century
+                                                </h2>
+                                            </li>
+                                                <li class="header__category-item">
+                                                    
+
+        <a class="" href="/about-us/" >About Us</a>
+<input value="{&quot;linkName&quot;:&quot;About Us&quot;,&quot;category&quot;:&quot;global header&quot;,&quot;subCategory&quot;:&quot;discover century&quot;,&quot;event&quot;:&quot;link click&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;destinationPage&quot;:&quot;/about-us/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;}" type="hidden" />
+
+                                                </li>
+                                                <li class="header__category-item">
+                                                    
+
+        <a class="" href="/century-cares/" >Century Cares</a>
+<input value="{&quot;linkName&quot;:&quot;Century Cares&quot;,&quot;category&quot;:&quot;global header&quot;,&quot;subCategory&quot;:&quot;discover century&quot;,&quot;event&quot;:&quot;link click&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;destinationPage&quot;:&quot;/century-cares/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;}" type="hidden" />
+
+                                                </li>
+                                                <li class="header__category-item">
+                                                    
+
+        <a class="" href="/century-home-connect-century-communities/" >Century Home Connect</a>
+<input value="{&quot;linkName&quot;:&quot;Century Home Connect&quot;,&quot;category&quot;:&quot;global header&quot;,&quot;subCategory&quot;:&quot;discover century&quot;,&quot;event&quot;:&quot;link click&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;destinationPage&quot;:&quot;/century-home-connect-century-communities/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;}" type="hidden" />
+
+                                                </li>
+                                                <li class="header__category-item">
+                                                    
+
+        <a class="" href="/Careers/" >Careers</a>
+<input value="{&quot;linkName&quot;:&quot;Careers&quot;,&quot;category&quot;:&quot;global header&quot;,&quot;subCategory&quot;:&quot;discover century&quot;,&quot;event&quot;:&quot;link click&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;destinationPage&quot;:&quot;/Careers/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;}" type="hidden" />
+
+                                                </li>
+                                                <li class="header__category-item">
+                                                    
+
+        <a class="" href="/reviews-century-communities/" >Homeowner Reviews</a>
+<input value="{&quot;linkName&quot;:&quot;Homeowner Reviews&quot;,&quot;category&quot;:&quot;global header&quot;,&quot;subCategory&quot;:&quot;discover century&quot;,&quot;event&quot;:&quot;link click&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;destinationPage&quot;:&quot;/reviews-century-communities/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;}" type="hidden" />
+
+                                                </li>
+                                                <li class="header__category-item">
+                                                    
+
+        <a class="" href="/vendor-partners/" >Vendor Partners</a>
+<input value="{&quot;linkName&quot;:&quot;Vendor Partners&quot;,&quot;category&quot;:&quot;global header&quot;,&quot;subCategory&quot;:&quot;discover century&quot;,&quot;event&quot;:&quot;link click&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;destinationPage&quot;:&quot;/vendor-partners/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;}" type="hidden" />
+
+                                                </li>
+                                                <li class="header__category-item">
+                                                    
+
+        <a class="" href="/broker-builder-partner-page/" >Broker Partners</a>
+<input value="{&quot;linkName&quot;:&quot;Broker Partners&quot;,&quot;category&quot;:&quot;Broker Partners&quot;,&quot;subCategory&quot;:&quot;Discover Century&quot;,&quot;event&quot;:&quot;link click&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;destinationPage&quot;:&quot;/broker-builder-partner-page/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;}" type="hidden" />
+
+                                                </li>
+                                                <li class="header__category-item">
+                                                    
+
+        <a class="" href="https://investors.centurycommunities.com/news-presentations/news-releases/default.aspx" >News</a>
+<input value="{&quot;linkName&quot;:&quot;News&quot;,&quot;category&quot;:&quot;global header&quot;,&quot;subCategory&quot;:&quot;discover century&quot;,&quot;event&quot;:&quot;link click&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;destinationPage&quot;:&quot;https://investors.centurycommunities.com/news-presentations/news-releases/default.aspx&quot;,&quot;originBrand&quot;:&quot;Communities&quot;}" type="hidden" />
+
+                                                </li>
+                                        </ul>
+                            </li>
+                            <li class="header__link-list-item  ">
+                                    <a class="header__nav-link header__nav-link--level0" id="Homebuyer Resources-menu" href="/homebuying-process/" >
+                                        <span>Homebuyer Resources</span>
+                                    </a>
+                                    <button class="header__nav-link-button header__nav-link-button--level0 child-links" data-controls="homebuyer-resources_sub-links" aria-controls="homebuyer-resources_sub-links">
+                                        <span class="fas fa-angle-right" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Homebuyer Resources Submenu</span>
+                                    </button>
+                                        <ul class="header__sub-nav-links child-links navLevel1" id="homebuyer-resources_sub-links" aria-labelledby="Homebuyer Resources-menu">
+                                            <li class="header__back-btn-container">
+                                                <button class="back-btn">
+                                                    <span class="fas fa-angle-left"></span>
+                                                    <span>
+                                                        Back
+                                                    </span>
+                                                </button>
+                                            </li>
+                                            <li class="current_category">
+                                                <h2 class="current_category-header">
+                                                    Homebuyer Resources
+                                                </h2>
+                                            </li>
+                                                <li class="header__category-item">
+                                                    
+
+        <a class="" href="/homebuying-process/" >Homebuying Process</a>
+<input value="{&quot;linkName&quot;:&quot;Homebuying Process&quot;,&quot;category&quot;:&quot;global header&quot;,&quot;subCategory&quot;:&quot;Homebuyers&quot;,&quot;event&quot;:&quot;link click&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;destinationPage&quot;:&quot;/homebuying-process/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;}" type="hidden" />
+
+                                                </li>
+                                                <li class="header__category-item">
+                                                    
+
+        <a class="" href="/online-homebuying/" >Online Homebuying</a>
+<input value="{&quot;linkName&quot;:&quot;Online Homebuying&quot;,&quot;category&quot;:&quot;global header&quot;,&quot;subCategory&quot;:&quot;Homebuyers&quot;,&quot;event&quot;:&quot;link click&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;destinationPage&quot;:&quot;/online-homebuying/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;}" type="hidden" />
+
+                                                </li>
+                                                <li class="header__category-item">
+                                                    
+
+        <a class="" href="/our-affiliates/" >Our Affiliates</a>
+<input value="{&quot;linkName&quot;:&quot;Our Affiliates&quot;,&quot;category&quot;:&quot;global header&quot;,&quot;subCategory&quot;:&quot;Homebuyers&quot;,&quot;event&quot;:&quot;link click&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;destinationPage&quot;:&quot;/our-affiliates/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;}" type="hidden" />
+
+                                                </li>
+                                                <li class="header__category-item">
+                                                    
+
+        <a class="" href="/the-front-porch/" >Blog: The Front Porch</a>
+<input value="{&quot;linkName&quot;:&quot;Blog: The Front Porch&quot;,&quot;category&quot;:&quot;global header&quot;,&quot;subCategory&quot;:&quot;Homebuyers&quot;,&quot;event&quot;:&quot;link click&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;destinationPage&quot;:&quot;/the-front-porch/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;}" type="hidden" />
+
+                                                </li>
+                                                <li class="header__mobile-promo header__mobile-promo--blog flow">
+
+
+                                                </li>
+                                        </ul>
+                            </li>
+                            <li class="header__link-list-item  ">
+                                    <a class="header__nav-link header__nav-link--level0" href="/contact/" >
+                                        Contact Us
+                                    </a>
+                            </li>
+            </ul>
+        </div>
+
+        <div class="header__search_bar">
+            <input id="SearchTag" name="SearchTag" type="hidden" value="{&quot;category&quot;:&quot;global header&quot;,&quot;event&quot;:&quot;search submit&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;destinationPage&quot;:&quot;&quot;,&quot;originBrand&quot;:&quot;Communities&quot;,&quot;searchValue&quot;:&quot;&quot;}" />
+            <div class="search_contain" id="searchContain" data-block-id="534788" data-no-results-message="No results - please try another search term" data-state-label="State" data-metro-label="Metro" data-city-label="City" data-community-label="Community" data-masterplan-label="Planned Community" data-blendedcommunity-label="Community">
+                <button class="header__search-button bg-transparent border-0" data-search-open aria-controls="global-search-input" aria-label="Open Search">
+                    <span class="fa-solid fa-magnifying-glass header__nav-search-icon" aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="header__account-actions d-none d-lg-block">
+                    <div class="dropdown">
+                            <button type="button" class="btn-login header__icon bg-transparent border-0" data-bs-toggle="modal" data-bs-target="#loginModal" data-gtm data-signin>
+                                <span class="header__nav-modal-person-icon far fa-user" data-signin></span>
+                                <span class="visually-hidden">Sign In</span>
+                            </button>
+                    </div>
+            </div>
+        </div>
+
+            <div class="header__mobile-account d-lg-none" data-bs-toggle="modal" data-bs-target="#loginModal">
+                <button type="button" class="header__account-menu header__icon bg-transparent border-0">
+                    <span class="header__nav-modal-person-icon far fa-user" aria-hidden="true"></span>
+                    <span class="visually-hidden">Toggle account modal</span>
+                </button>
+            </div>
+
+
+        <button class="header__mobile-menu bg-transparent" type="button">
+            <span class="visually-hidden">Open Menu</span>
+            <span id="bar" class="bar1" aria-hidden="true"></span>
+            <span id="bar2" class="bar2" aria-hidden="true"></span>
+            <span id="bar3" class="bar3" aria-hidden="true"></span>
+        </button>
+
+        <div class="header__search" data-search-container aria-label="Search">
+            <div class="header__search-field">
+                <button class="btn--close-search bg-transparent border-0" data-close-search aria-label="Close search">
+                    <span class="far fa-solid fa-xmark" aria-hidden="true"></span>
+                </button>
+
+                <div class="header__search-pill" data-search-pill>
+                    <span class="fa-solid fa-magnifying-glass header__icon" aria-hidden="true"></span>
+                    <input aria-autocomplete="list"
+                           aria-controls="autoSuggestionsResults"
+                           aria-describedby="search_instructions"
+                           aria-haspopup="listbox"
+                           aria-label="Search for your new home"
+                           autocomplete="off"
+                           data-gtm
+                           data-global-search-input
+                           id="global-search-input"
+                           placeholder="Search for your new home"
+                            />
+                </div>
+            </div>
+
+            <div class="search_modal">
+                    <ul class="search_modal__quick-links">
+                        <li class="search_modal__current-location">
+                            <a href="/find-your-new-home/">
+                                <span class="fa-solid fa-location-arrow" aria-hidden="true"></span>
+                                <span>Search Current Location</span>
+                            </a>
+                        </li>
+                    </ul>
+                <ul id="autoSuggestionsResults"
+                    role="listbox"
+                    aria-labelledby="global-search-input"
+                    aria-label="auto suggestions results for search">
+                    <!-- This is the placeholder for Auto Suggestions result -->
+                </ul>
+                <div id="results-count" class="visually-hidden" aria-live="assertive"></div>
+                <div id="search_instructions" class="visually-hidden" aria-hidden="true">Begin typing to search, the field will be completed as you type</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SignIn Modal -->
+
+
+<div class="modal modal-login modal-custom fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="modal-loginLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="account-tabs" id="preLoginTabs" role="tablist" aria-label="sign-in or register">
+                    <button id="login-tab" role="tab" aria-controls="loginTab" aria-selected="true">Sign in</button>
+                    <button id="register-tab" role="tab" aria-controls="registerTab" aria-selected="false" tabindex="-1">Register</button>
+                </div>
+                <div class="account-tabs-content" id="preLoginTabContent">
+                    <div id="loginTab" class="tab-panel tab-panel-login active" role="tabpanel" aria-labelledby="login-tab" tabindex="0">
+
+
+
+<div class="login" data-sign-in-form>
+    <div class="login-header" id="modal-loginLabel">
+            <h2 id="modal-welcomeMessageLabel" data-sign-in-welcome-message>Welcome to Century Communities!</h2>
+    </div>
+    <form class="login-form" id="modal-loginForm" data-login-form data-error-messages="{&quot;EmailIsRequired&quot;:&quot;Email is required.&quot;,&quot;InvalidEmailAddress&quot;:&quot;Invalid email address.&quot;,&quot;PasswordIsRequired&quot;:&quot;Password is required.&quot;}">
+        <input id="modal-ReturnUrl" name="ReturnUrl" type="hidden" value="" />
+        <input type="hidden" value="/publicapi/internallogin" id="modal-signInUrl" data-sign-in-url />
+        <div class="custom-form-validation text-center"></div>
+        <div class="custom-input-wrapper">
+            <label class="custom-label" for="modal-login-email">Email</label>
+            <input autocomplete="email" class="custom-input" data-login-email="" data-val="true" data-val-email="Invalid email address." data-val-required="Email is required." id="modal-login-email" name="Email" required="" type="email" value="" />
+            <span class="custom-field-validation"></span>
+        </div>
+        <div class="custom-input-wrapper">
+            <label class="custom-label" for="modal-login-password">Password</label>
+            <input autocomplete="current-password" class="custom-input" data-val="true" data-val-required="Password is required." id="modal-login-password" name="Password" required="" type="password" />
+            <span class="custom-field-validation"></span>
+
+            
+
+<div class="show-password" data-show-password>
+    <input class="visually-hidden" id="show-password-modal-sign-in" type="checkbox" />
+    <label for="show-password-modal-sign-in">
+        <span class="visually-hidden">Show Password</span>
+        <span class="far" aria-hidden="true"></span>
+    </label>
+</div>
+            
+        </div>
+        <fieldset class="custom-checkbox-wrapper">
+            <legend class="visually-hidden">Remember Credentials</legend>
+            <div class="custom-checkbox">
+                <label class="custom-checkbox-label tooltip-label" for="modal-RememberMe">
+                    Remember me
+                    <input data-remember-me="" data-val="true" data-val-required="Century.Website.Features.Pages.SignInPage.SignInPageViewModel.RememberMe-Required" id="modal-RememberMe" name="RememberMe" type="checkbox" value="true" /><input name="RememberMe" type="hidden" value="false" />
+                    <span class="checkmark"></span>
+                </label>
+                    <div class="flyout-wrapper">
+                        <button class="flyout-trigger" aria-expanded="false" aria-controls="modal-remember-me-tooltip" onclick="window.CenturyFlyout(event)">
+                            <span class="visually-hidden">Remember Me Tooltip</span>
+                        </button>
+                        <div id="modal-remember-me-tooltip" class="flyout-content" role="tooltip">Check this option to remember your email address.</div>
+                    </div>
+            </div>
+            <div class="custom-checkbox">
+                <label class="custom-checkbox-label tooltip-label" for="modal-RememberThisDevice">
+                    Remember device
+                    <input data-remember-device="" data-val="true" data-val-required="Century.Website.Features.Pages.SignInPage.SignInPageViewModel.RememberThisDevice-Required" id="modal-RememberThisDevice" name="RememberThisDevice" type="checkbox" value="true" /><input name="RememberThisDevice" type="hidden" value="false" />
+                    <span class="checkmark"></span>
+                </label>
+                    <div class="flyout-wrapper">
+                        <button class="flyout-trigger" aria-expanded="false" aria-controls="modal-remember-device-tooltip" onclick="window.CenturyFlyout(event)">
+                            <span class="visually-hidden">Remember Device Tooltip</span>
+                        </button>
+                        <div id="modal-remember-device-tooltip" class="flyout-content" role="tooltip">Check this option to remember this device the next time you sign in to skip two-factor authentication (not recommended for public devices).</div>
+                    </div>
+            </div>
+        </fieldset>
+        <div class="login-form-actions">
+            <button type="submit" class="btn btn-primary" name="login">Sign In</button>
+            <a href="/forgot-password/" class="forgot-password">Forgot your password?</a>
+            <a href="/registration/" class="forgot-password" data-gtm data-account-registration>Register for an account</a>
+        </div>
+    </form>
+</div>
+                    </div>
+                    <div id="registerTab" class="tab-panel tab-panel-register" role="tabpanel" aria-labelledby="register-tab" tabindex="0">
+                            <h2>Let's get you registered!</h2>
+                            <fieldset class="reg-btn-wrap">
+                                <legend class="reg-selection-text">Are you a...</legend>
+                                    <div class="reg-btn">
+                                        <input 
+                                            type="radio" 
+                                            name="reg-type"
+                                            class="visually-hidden"
+                                            id="reg-btn-0" 
+                                            value="/homeowner-registration/"
+                                            checked="checked"
+                                        />
+                                        <label for="reg-btn-0">
+                                            <div class="reg-btn-icon" aria-hidden="true">
+                                                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 65 60'>
+                                        <def>
+                                        <style>
+                                        .cls-3 {
+                                        fill: none;
+                                        stroke-linecap: round;
+                                        stroke-linejoin: round;
+                                        stroke-width: 3px;
+                                        }
+                                        </style>
+                                        </def>
+                                        <g id='Group_2897' data-name='Group 2897' transform='translate(0.476 -2.199)'>
+                                        <path id='Path_3717' class='cls-3' data-name='Path 3717' d='M16.208,28.525A10.359,10.359,0,1,0,26.567,18.166,10.36,10.36,0,0,0,16.208,28.525Z' transform='translate(5.077 5.05)' />
+                                        <path id='Path_3718' class='cls-3' data-name='Path 3718' d='M45.708,49.769a17.846,17.846,0,0,0-34.458,0' transform='translate(3.165 11.365)' />
+                                        <g id='Group_2894' data-name='Group 2894' transform='translate(1.644 3.699)'>
+                                        <path id='Path_3719' class='cls-3' data-name='Path 3719' d='M39.756,49.489V17.215' transform='translate(11.469 1.286)' />
+                                        <path id='Path_3720' class='cls-3' data-name='Path 3720' d='M8.244,17.215V49.489' transform='translate(0.531 1.286)' />
+                                        <path id='Path_3721' class='cls-3' data-name='Path 3721' d='M61.644,29.566l-26-24.281a5.837,5.837,0,0,0-8,0l-26,24.281' transform='translate(-1.644 -3.699)' />
+                                        </g>
+                                        </g>
+                                        </svg>
+                                            </div>
+                                            <p class="user-title">Home Owner</p>
+                                            <span class="user-description">Already own your home</span>
+                                        </label>
+                                    </div>
+                                    <div class="reg-btn">
+                                        <input 
+                                            type="radio" 
+                                            name="reg-type"
+                                            class="visually-hidden"
+                                            id="reg-btn-1" 
+                                            value="/registration/"
+                                        />
+                                        <label for="reg-btn-1">
+                                            <div class="reg-btn-icon" aria-hidden="true">
+                                                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 100'>
+                                            <defs>
+                                            <style>
+                                            .cls-1, .cls-2 {
+	                                            fill: none;
+	                                            stroke-linecap: round;
+	                                            stroke-linejoin: round;
+	                                            stroke-width: 5px
+                                            }
+                                            </style>
+                                            </defs>
+                                            <g id='Group_2896' data-name='Group 2896' transform='translate(0.476 -2.199)'>
+                                            <g id='Group_2896-2' data-name='Group 2896' transform='translate(18.317 13.453)'>
+	                                            <path id='Path_3722' data-name='Path 3722' class='cls-1' d='M12.82 12.76v32.022a6.894 6.894 0 0 0 6.895 6.892h27.572a6.891 6.891 0 0 0 6.892-6.892V12.76' transform='translate(.966 3.458)' />
+	                                            <path id='Path_3723' data-name='Path 3723' class='cls-1' d='M76.707 35.449 46.836 8.582a6.889 6.889 0 0 0-9.19 0L7.775 35.449' transform='translate(-7.775 -6.825)' />
+                                            </g>
+                                            <path id='Path_3724' data-name='Path 3724' class='cls-2' d='m1.691 41.983 8.722 34.4a7.786 7.786 0 0 0 7.568 5.824h68.67a8 8 0 0 0 7.949-6.742l9.994-65.721A8 8 0 0 1 112.543 3h9.148' />
+                                            <path id='Path_3725' data-name='Path 3725' class='cls-2' d='M7.383 47.748A10.248 10.248 0 1 0 17.631 37.5 10.248 10.248 0 0 0 7.383 47.748z' transform='translate(9.862 57.005)' />
+                                            <path id='Path_3726' data-name='Path 3726' class='cls-2' d='M25.5 47.748A10.248 10.248 0 1 0 35.748 37.5 10.248 10.248 0 0 0 25.5 47.748z' transform='translate(39.691 57.005)' />
+                                            </g>
+                                            </svg>
+                                            </div>
+                                            <p class="user-title">Home buyer</p>
+                                            <span class="user-description">In the purchase process</span>
+                                        </label>
+                                    </div>
+                            </fieldset>
+                        <a id="registerBtn" href="/homeowner-registration/" class="btn btn-primary">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer login-footer">
+                <p>Need help with your login? <a title="Contact Us" href="/link/5e8d3b3220c342d5ad641729396280d5.aspx">Contact us.</a></p>
+<p>Emergency warranty issue? Call our service number at <a href="tel:888-885-5653">888.885.5653.</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- post login nav with lot dropdown FOR HOMEBUYER-->
+
+    <!-- post login nav with lot dropdown FOR SALES AGENT, USED on Sales Agent Document Listing/Image Gallery pages-->
+
+    <!-- POST LOGIN HOMEOWNER ONLY - number of unread messages for Homeowner dashboard page-->
+
+</header>
+
+    <main id="maincontent" class="main-content">
+        <div class="body-content">
+            
+<div class="product_detail_contain">
+    
+<div><div>
+
+    <!-- Hero Image Block -->
+    <div data-template="PromoEventsHeroImageBlock" class="promo-event-image"  style="background-image:url(/contentassets/4f59e357b188482bbcde937cc1ce93b5/corp0825421_aboutuspage_revamp_images-1.jpg);">
+    </div>
+</div><div>
+
+<div class="intro-block" data-intro-block>
+    <div class="intro-block-content container-full text-center">
+        <h1 class="pb-4 mb-2">About Us</h1>
+        <div>
+            
+<h2 class="responsive-text" style="margin: 0; flex: 1 1 400px; min-width: 300px; padding-top: 10px; text-align: center;"><span style="color: #000000; font-size: 30pt;" class="font-header fw-normal">One Company. Two Homebuilders. </span></h2>
+<h2 class="responsive-text" style="margin: 0; flex: 1 1 400px; min-width: 300px; padding-top: 10px; text-align: center;"><span style="font-size: 30pt;"><em><span style="color: #000000;" class="font-header fw-normal">Built on Trust.</span></em></span></h2>
+        </div>
+    </div>
+    <div class="intro-block-image">
+        
+
+    <img src="/globalassets/century/assets/logos/awards/newsweek_us-trustworthy_4yr_champ_hor-06.png"
+        alt="Century Communities was awarded as Newsweek&#x27;s 2026 America&#x27;s Most Trustworthy Award for the 4th Year in a row"
+        title=""
+        width="4344"
+        height="2478"
+        decoding="async"
+        loading="lazy"
+        class='mx-auto' />
+
+    </div>
+</div>
+</div><div>
+
+
+<div class="two-card-block">
+    <div class="content-wrapper">
+            <h2 class="top-header" >
+                Our Brands
+            </h2>
+
+        <div class="card-wrapper row justify-content-center mx-0">
+            
+
+<div 
+    class="card border-0" 
+    role="region" 
+    aria-label="Builder"
+>
+        <h3 class="card-title text-body">
+
+
+    <img src="/contentassets/9f79aae3419e4d8b8c624721592ec745/ccs-logo---horizontal.svg"
+        alt=""
+        title=""
+        width=""
+        height=""
+        decoding="async"
+        loading="lazy"
+        class='card-img-top w-75 mx-auto' />
+            <span>A Home For Every Dream&#xAE;</span>
+        </h3>
+    
+    <div class="card-body">
+            <ul class="list-group">
+                    <li class="list-group-item border-0">Our Legacy Brand</li>
+                    <li class="list-group-item border-0">Purchase On-Site or Online</li>
+                    <li class="list-group-item border-0">Affordable to Luxury</li>
+                    <li class="list-group-item border-0">Single-Family Homes &#xB7; Townhomes &#xB7; Condos &#xB7; Paired Homes</li>
+            </ul>
+            <a class="fw-bold mt-auto" href="/century-communities/">
+                Explore
+                <span class="fa-solid fa-arrow-right" aria-hidden="true"></span>
+            </a>
+    </div>                
+</div>
+
+
+
+            
+
+<div 
+    class="card border-0" 
+    role="region" 
+    aria-label="Builder"
+>
+        <h3 class="card-title text-body">
+
+
+    <img src="/globalassets/century/assets/blocks/about-us/cmp_logo_aboutus_502x74.svg"
+        alt=""
+        title=""
+        width=""
+        height=""
+        decoding="async"
+        loading="lazy"
+        class='card-img-top w-75 mx-auto' />
+            <span>More Home, Less Money&#xAE;</span>
+        </h3>
+    
+    <div class="card-body">
+            <ul class="list-group">
+                    <li class="list-group-item border-0">Online Homebuying Pioneer</li>
+                    <li class="list-group-item border-0">Purchase Online</li>
+                    <li class="list-group-item border-0">Affordable Quality</li>
+                    <li class="list-group-item border-0">Single-Family Homes &#xB7; Paired Homes &#xB7; Townhomes</li>
+            </ul>
+            <a class="fw-bold mt-auto" href="/century-complete/">
+                Explore
+                <span class="fa-solid fa-arrow-right" aria-hidden="true"></span>
+            </a>
+    </div>                
+</div>
+
+
+        </div>
+    </div>  
+
+        <div class="bottom-spacer bg-primary"></div>
+        <div class="bottom-content-wrapper bg-primary" data-header="True">
+            <div class="bottom-content">
+                        <h3 class="bottom-header text-white">Our Story</h3>
+                
+<p style="text-align: center;"><span style="color: #ffffff; font-size: 16pt;">We've been building in sought-after metros from coast to coast for over two decades, with dream homes that come in all shapes and sizes&mdash;from single-family homes to townhomes, paired homes and condos in 16 states and over 45 markets across the country.</span></p>
+            </div>
+        </div>
+</div>
+</div><div>
+
+
+<div class="xhtml-block">
+    <div class="container-full">
+        
+<div style="display: flex; width: 100%; align-items: flex-start;"><!-- Landscape Image -->
+<div style="flex: 2 1 auto;"><img style="width: 100%; height: auto; display: block;" src="/contentassets/10ee384d27104d0983a01124c9b94148/nashville-new-community-pr-102124-1.jpg" alt="Landscape Image" /></div>
+<!-- Square Image -->
+<div style="flex: 1 1 auto;"><img style="width: 100%; height: auto; display: block;" src="/contentassets/10ee384d27104d0983a01124c9b94148/1-web-or-mls-dsc09804-asbury-ridge-1.png" alt="Square Image" /></div>
+</div>
+    </div>
+</div>
+</div><div>
+
+
+<div class="xhtml-block">
+    <div class="container-full">
+        
+<div style="display: flex; width: 100%; flex-wrap: wrap; background-color: #ffffff; padding: 40px 20px; align-items: center; gap: 20px;"><!-- Left Column -->
+<div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 10px; text-align: center;">
+<h2 style="font-family: Montserrat, sans-serif; font-size: 28pt; margin: 0;"><span class="font-header fw-normal" style="color: #000000; font-size: 36pt;">Where We Build</span></h2>
+<!-- Numbers row -->
+<div style="display: flex; justify-content: center; gap: 40px; font-family: Montserrat, sans-serif;"><!-- States -->
+<div style="text-align: center;">
+<h3 style="font-size: 36pt; font-weight: 600; color: #447a9e;"><span style="font-size: 48pt;">16+</span></h3>
+<h3 style="font-size: 14pt; color: #447a9e; font-style: italic;"><span style="font-size: 24pt;" class="font-header fw-normal">States</span></h3>
+</div>
+<h3><!-- Markets --></h3>
+<div style="text-align: center;">
+<h3 style="font-size: 36pt; font-weight: 600; color: #447a9e;"><span style="font-size: 48pt;">&nbsp;45+</span></h3>
+<h3 style="font-size: 14pt; color: #447a9e; font-style: italic;"><span style="font-size: 24pt;">&nbsp; &nbsp;Markets</span></h3>
+</div>
+</div>
+</div>
+<!-- Right Column -->
+<div style="flex: 1 1 300px; text-align: left;"><img style="width: 100%; height: auto; display: block;" src="/contentassets/e53fec574cc24c2b97140d072229a61a/corp0825421_aboutuspage_revamp_images5.jpg" alt="Map of our locations" /></div>
+</div>
+    </div>
+</div>
+</div><div>
+<section class="three-icons-block pt-5">
+    <div class="container-full px-5 mt-5">
+        <div class="row justify-content-center">
+
+            <div class="col-lg-4 col-xl-3 text-center text-lg-start align-self-center">
+                    <h2 class="block-title text-white letter-spacing-3">
+                            <span class="title-first-line text-uppercase d-block">Online Homebuying</span>
+                            <span class="title-second-line d-block">Pioneer</span>
+                    </h2>
+                    <a class="btn btn-outline-dark btn-large-text mt-5" href="/online-homebuying/" target='_self'>
+                        How It Works
+                    </a>
+                    <input value="{&quot;category&quot;:&quot;get started&quot;,&quot;event&quot;:&quot;link click&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;linkName&quot;:&quot;How It Works&quot;,&quot;destinationPage&quot;:&quot;/online-homebuying/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;,&quot;property&quot;:&quot;&quot;,&quot;pdpType&quot;:&quot;&quot;,&quot;community&quot;:&quot;&quot;,&quot;mastercommunity&quot;:&quot;&quot;,&quot;metro&quot;:&quot;&quot;}" type="hidden" />
+            </div>
+
+            <div class="col-lg-2">
+                <ul class="icons d-flex flex-wrap justify-content-around py-5 py-lg-0">
+                    <li class="pb-lg-3">
+
+
+    <img src="/contentassets/db0d7ad6eeb24006895dc12a97b595a8/shop-icon.png"
+        alt="Shop"
+        title=""
+        width="500"
+        height="500"
+        decoding="async"
+        loading="lazy"
+         />
+                    </li>
+                    <li class="pb-lg-3">
+
+
+    <img src="/contentassets/db0d7ad6eeb24006895dc12a97b595a8/purchase-icon.png"
+        alt="Purchase"
+        title=""
+        width="500"
+        height="500"
+        decoding="async"
+        loading="lazy"
+         />
+                    </li>
+                    <li class="">
+
+
+    <img src="/contentassets/db0d7ad6eeb24006895dc12a97b595a8/celebrate-icon.png"
+        alt="Celebrate"
+        title=""
+        width="500"
+        height="500"
+        decoding="async"
+        loading="lazy"
+         />
+                    </li>
+                </ul>
+            </div>
+
+                <div class="col-lg-4 align-self-end">
+                    
+
+    <img src="/contentassets/db0d7ad6eeb24006895dc12a97b595a8/hand-holding-phone.png"
+        alt="Graphical user interface, text, application, chat or text message."
+        title=""
+        width="514"
+        height="843"
+        decoding="async"
+        loading="lazy"
+        class='focal-image' />
+
+                </div>
+        </div>
+    </div>
+</section>
+</div><div>
+
+<div class="about-us-affiliate-block" data-about-us-affiliate-block>
+    <div class="container-full">
+            <h2 class="about-us-affiliate-title text-center">Our Affiliates</h2>
+            <h3 class="about-us-affiliate-sub-title text-center fst-italic">best-in-class homebuying services</h3>
+            <ul class="about-us-sub-affiliate-list row justify-content-center align-items-stretch mt-6">
+                
+<li class="about-us-sub-affiliate-list-item flex col-12 col-lg-4 col-xl-3">
+
+<div class="about-us-sub-affiliate-block card bg-white border-0" role="group" aria-label="affiliate" data-about-us-sub-affiliate-block>
+        <h4>
+            
+
+    <img src="/globalassets/century/assets/logos/brand-logos/inspire.svg"
+        alt="Inspire Home Loans logo"
+        title=""
+        width=""
+        height=""
+        decoding="async"
+        loading="lazy"
+        class='m-auto w-auto' />
+
+        </h4>
+    <div class="about-us-sub-affiliate-body card-body flex flex-column p-0 text-center">
+            <div class="about-us-sub-affiliate-description">
+                
+<p>Offering a wide range of financing options, Inspire Home Loans<sup>&reg;</sup> will help you secure the best mortgage for your dream home.</p>
+            </div>
+        
+            <a class="about-us-sub-affiliate-cta mt-auto fw-bold" href="https://www.inspirehomeloans.com/" target="_blank" rel="noopener">
+                <span>Explore </span>
+                <span class="fa-solid fa-arrow-right" aria-hidden="true"></span>
+            </a>
+    </div>
+</div></li><li class="about-us-sub-affiliate-list-item flex col-12 col-lg-4 col-xl-3">
+
+<div class="about-us-sub-affiliate-block card bg-white border-0" role="group" aria-label="affiliate" data-about-us-sub-affiliate-block>
+        <h4>
+            
+
+    <img src="/globalassets/devtest/affliates/parkway_200x89.png"
+        alt="Text, logo."
+        title=""
+        width="200"
+        height="89"
+        decoding="async"
+        loading="lazy"
+        class='m-auto w-auto' />
+
+        </h4>
+    <div class="about-us-sub-affiliate-body card-body flex flex-column p-0 text-center">
+            <div class="about-us-sub-affiliate-description">
+                
+<p><span>A full-service agency, Parkway Title delivers cost-effective and streamlined title insurance and settlement service solutions.</span></p>
+            </div>
+        
+            <a class="about-us-sub-affiliate-cta mt-auto fw-bold" href="https://www.parkwaytitleco.com/" target="_blank" rel="noopener">
+                <span>Explore </span>
+                <span class="fa-solid fa-arrow-right" aria-hidden="true"></span>
+            </a>
+    </div>
+</div></li><li class="about-us-sub-affiliate-list-item flex col-12 col-lg-4 col-xl-3">
+
+<div class="about-us-sub-affiliate-block card bg-white border-0" role="group" aria-label="affiliate" data-about-us-sub-affiliate-block>
+        <h4>
+            
+
+    <img src="/globalassets/century/assets/blocks/about-us/ihl.svg"
+        alt="Link to IHL Home Insurance"
+        title=""
+        width=""
+        height=""
+        decoding="async"
+        loading="lazy"
+        class='m-auto w-auto' />
+
+        </h4>
+    <div class="about-us-sub-affiliate-body card-body flex flex-column p-0 text-center">
+            <div class="about-us-sub-affiliate-description">
+                
+<p><span>Quick, precise and easy to work with, the full-service team at IHL Home Insurance&reg; will find the best coverage to protect your dream home, at the best price.</span></p>
+            </div>
+        
+            <a class="about-us-sub-affiliate-cta mt-auto fw-bold" href="https://www.ihlinsurance.com/" target="_blank" rel="noopener">
+                <span>Explore </span>
+                <span class="fa-solid fa-arrow-right" aria-hidden="true"></span>
+            </a>
+    </div>
+</div></li>
+            </ul>
+    </div>
+</div></div><div>
+<div class="adjacent-media-block d-flex flex-wrap align-items-stretch" data-adjacent-media-block>
+    <div class="adjacent-media-block-content d-flex flex-column align-items-center justify-content-center bg-primary col-12 col-md-6">
+            <h2 class="adjacent-media-block-heading text-white text-center">Supporting Our Communities</h2>
+
+            <div class="adjacent-media-block-description">
+                
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="/contentassets/5e15c0ac6dfe45d5a031a9142f9e4b68/century-cares.png" width="250" /></p>
+<p style="text-align: center;">&nbsp;</p>
+<h2 style="font-family: Montserrat, sans-serif; font-size: 18pt; margin: 0px; text-decoration: underline; color: #ffffff; text-align: center;"><a style="display: inline-block; margin-top: auto; margin-bottom: 40px; font-weight: 600; color: #ffffff;" href="/century-cares/"><span class="font-body fw-normal">Learn More &rarr;</span></a></h2>
+            </div>
+
+    </div>
+
+        <div class="adjacent-media-block-image p-0 col-12 col-md-6 ">
+            
+
+    <img src="/contentassets/5e15c0ac6dfe45d5a031a9142f9e4b68/century-cares-foundation.png"
+        alt="A group of women smiling."
+        title=""
+        width="1394"
+        height="886"
+        decoding="async"
+        loading="lazy"
+        class='w-100' />
+ 
+        </div>
+</div></div><div>
+<div class="adjacent-media-block d-flex flex-wrap align-items-stretch" data-adjacent-media-block>
+        <div class="adjacent-media-block-image d-none d-md-block p-0 col-12 col-md-6">
+            
+
+    <img src="/contentassets/d9a61ef61bb1449e9eaaeec5e4c11135/corp0825421_aboutuspage_revamp_images3-1.jpg"
+        alt="A group of people posing for a photo."
+        title=""
+        width="1452"
+        height="923"
+        decoding="async"
+        loading="lazy"
+        class='w-100' />
+
+        </div>
+    <div class="adjacent-media-block-content d-flex flex-column align-items-center justify-content-center bg-primary col-12 col-md-6">
+            <h2 class="adjacent-media-block-heading text-white text-center">Build your dream career</h2>
+
+            <div class="adjacent-media-block-description">
+                
+<h2 style="font-family: Montserrat, sans-serif; font-size: 18pt; margin: 0px; text-decoration: underline; color: #ffffff; text-align: center;"><a style="display: inline-block; margin-top: auto; margin-bottom: 40px; font-weight: 600; color: #ffffff;" href="https://careers.centurycommunities.com/"><span class="font-body fw-normal">View Current Openings &rarr;&nbsp;</span></a></h2>
+            </div>
+
+    </div>
+
+        <div class="adjacent-media-block-image p-0 col-12 col-md-6 d-block d-md-none">
+            
+
+    <img src="/contentassets/d9a61ef61bb1449e9eaaeec5e4c11135/corp0825421_aboutuspage_revamp_images3-1.jpg"
+        alt="A group of people posing for a photo."
+        title=""
+        width="1452"
+        height="923"
+        decoding="async"
+        loading="lazy"
+        class='w-100' />
+ 
+        </div>
+</div></div></div>
+    
+    
+
+</div>
+        </div>
+    </main>
+
+    
+
+<!-- Mortgage Calculator Modal -->
+<div class="d-none" data-mortgage-calculator-settings="{&quot;loadingText&quot;:&quot;Loading Calculator...&quot;,&quot;headers&quot;:{&quot;title&quot;:&quot;Costs For This Home&quot;,&quot;subtitle&quot;:&quot;Based on Special Financing&quot;,&quot;period&quot;:&quot;/mo.&quot;,&quot;prequalifiedButton&quot;:{&quot;text&quot;:&quot;Get Prequalified&quot;,&quot;url&quot;:&quot;https://www.inspirehomeloans.com/&quot;},&quot;modalTitle&quot;:&quot;Monthly Payment Estimate&quot;},&quot;labels&quot;:{&quot;homePrice&quot;:&quot;Home Price&quot;,&quot;propertyTaxEstimate&quot;:&quot;Property Tax Estimate&quot;,&quot;downPayment&quot;:&quot;Down Payment&quot;,&quot;homeownersInsurance&quot;:&quot;Homeowners Insurance (Annual)&quot;,&quot;loanType&quot;:&quot;Loan Type&quot;,&quot;hoaDues&quot;:&quot;HOA Dues (Monthly)&quot;,&quot;loanTerm&quot;:&quot;Loan Term&quot;,&quot;mortgageInsurance&quot;:&quot;Mortgage Insurance (Monthly)&quot;,&quot;specialFinancingRate&quot;:&quot;Interest Rate&quot;,&quot;marketRate&quot;:&quot;Market Rate and APR&quot;},&quot;helpText&quot;:{&quot;mortgageInsuranceNote&quot;:&quot;$0 if your down payment is 20% or if using a VA loan&quot;,&quot;averageMarketRate&quot;:&quot;&quot;,&quot;savingsPrefix&quot;:&quot;Save&quot;},&quot;tooltips&quot;:{&quot;propertyTax&quot;:&quot;This tax is a percentage of a home\u0027s assessed value and varies by area.  Homeowners pay this tax annually, semi-annually or as part of a monthly mortgage payment.&quot;,&quot;homeownersInsurance&quot;:&quot;Your actual homeowner\u0027s insurance rate will depend on several factors.  Contact an insurance agent to discuss actual rates and costs.&quot;,&quot;hoaDues&quot;:&quot;Homeowner Association Dues are fees paid by the homeowner for neighborhood operations, maintenance and repair costs.  These fees vary by community and are determined by the Homeowner\u0027s Association.&quot;,&quot;mortgageInsurance&quot;:&quot;Loans with less than a 20% down payment typically require private mortgage insurance (PMI), which will be included in the monthly mortgage payment. Sample is calculated based on a 1.5% PMI rate. Contact a loan officer to discuss actual rates and costs.&quot;,&quot;specialFinancingRate&quot;:&quot;Initial rate shown is based on special financing offer. Contact a sales office for more information. Special financing interest rates are subject to change at any time without notice. Special financing rate last updated: October 1, 2026&quot;,&quot;marketRate&quot;:&quot;Rates are subject to change without notice. Special financing rate last updated: October 1, 2026&quot;,&quot;downPayment&quot;:&quot;Loans with less than a 20% down payment typically require private mortgage insurance (PMI), which will be included in the monthly mortgage payment.&quot;},&quot;breakdownLabels&quot;:{&quot;principalAndInterest&quot;:&quot;Principal \u0026 Interest&quot;,&quot;propertyTax&quot;:&quot;Property Tax&quot;,&quot;homeInsurance&quot;:&quot;Homeowners Insurance&quot;,&quot;hoaDues&quot;:&quot;HOA&quot;,&quot;mortgageInsurance&quot;:&quot;Mortgage Insurance&quot;},&quot;cardTitles&quot;:{&quot;specialFinancingRate&quot;:&quot;Special Financing Payment&quot;,&quot;marketRate&quot;:&quot;Market Rate Payment&quot;},&quot;rateDescriptions&quot;:{&quot;specialFinancingRate&quot;:&quot;Rate: {rate}% ({aprRate}% APR) based on Century Communities special financing&quot;,&quot;marketRate&quot;:&quot;Rate: {rate}% ({aprRate}% APR) based on current market average&quot;},&quot;disclaimer&quot;:&quot;\u003Cp class=\u0022MsoNormal\u0022\u003EThis calculator is intended for planning and educational purposes only. The figures provided are based on the information entered into the calculator and are estimates only. Actual interest rates, APRs, monthly payments, and total costs may vary depending on the specific terms of your loan, verification of your information, your credit history, the location and type of property, and other factors.\u0026nbsp; Chart data is for illustrative purposes only. Displayed costs are not necessarily all-inclusive and may vary based on numerous factors. Please consult the sales office for current tax rates and HOA dues. \u0026nbsp;Homeowner\u0027s insurance rates will depend on several factors. Contact an insurance agent to discuss actual rates and costs. Loans with less than a 20% down payment typically require private mortgage insurance (PMI), which will be included in the monthly mortgage payment. Rates are subject to change at any time without notice. The results of this calculator do not constitute a loan offer or solicitation and should not be considered financial or legal advice. Please use this tool as a general guide and consult with a qualified professional for personalized advice. Starting interest rate last updated October 1, 2026.\u0026nbsp;\u003C!--StartFragment--\u003E\u003C!-- x-tinymce/html --\u003E\u003C/p\u003E\n\u003Cp\u003E\u0026nbsp;\u003C/p\u003E&quot;,&quot;options&quot;:{&quot;loanTypes&quot;:[{&quot;value&quot;:&quot;FHA&quot;,&quot;defaultDownPayment&quot;:3.5},{&quot;value&quot;:&quot;Conventional&quot;,&quot;defaultDownPayment&quot;:10},{&quot;value&quot;:&quot;VA&quot;,&quot;defaultDownPayment&quot;:0},{&quot;value&quot;:&quot;USDA&quot;,&quot;defaultDownPayment&quot;:0}],&quot;loanTerms&quot;:[{&quot;value&quot;:30,&quot;label&quot;:&quot;30-Year Fixed&quot;},{&quot;value&quot;:15,&quot;label&quot;:&quot;15-Year Fixed&quot;}]},&quot;validation&quot;:{&quot;maxLength&quot;:{&quot;currency&quot;:7,&quot;percentage&quot;:4},&quot;maxValues&quot;:{&quot;percentage&quot;:99.9,&quot;maxDigitsInInteger&quot;:2,&quot;homePrice&quot;:9999999,&quot;downPayment&quot;:9999999,&quot;homeownersInsurance&quot;:25000,&quot;hoaDues&quot;:10000,&quot;mortgageInsurance&quot;:5000},&quot;stepValues&quot;:{&quot;percentage&quot;:0.05,&quot;interestRate&quot;:0.125}},&quot;formatting&quot;:{&quot;currency&quot;:{&quot;minimumFractionDigits&quot;:0,&quot;maximumFractionDigits&quot;:0},&quot;number&quot;:{&quot;minimumFractionDigits&quot;:0,&quot;maximumFractionDigits&quot;:0}},&quot;errorMessages&quot;:{&quot;valueRequired&quot;:&quot;Required Value&quot;,&quot;invalidValue&quot;:&quot;Invalid Value&quot;},&quot;assets&quot;:{&quot;equalHousingLogoUrl&quot;:&quot;/globalassets/svgexport-1.svg&quot;,&quot;starIconUrl&quot;:&quot;/globalassets/stariconimage.png&quot;},&quot;globalFinancialData&quot;:{&quot;mortgageInsurance&quot;:800,&quot;mortgageInsuranceDisableThreshold&quot;:20,&quot;showMarketRate&quot;:true,&quot;paymentResultLayout&quot;:&quot;top&quot;,&quot;showSpecialFinancing&quot;:true,&quot;finSettingsFHA&quot;:{&quot;marketRate&quot;:5.69,&quot;marketAPR&quot;:0,&quot;specialFinancingInterestRate&quot;:4.875,&quot;specialFinancingAPR&quot;:0,&quot;downPaymentPercentage&quot;:3.5,&quot;downPaymentHelpText&quot;:&quot;Default 3.5% for FHA Loans&quot;,&quot;defaultLoanTerm&quot;:30,&quot;guaranteeFeePercent&quot;:0,&quot;annualMIPRate&quot;:0},&quot;finSettingsConventional&quot;:{&quot;marketRate&quot;:6.325,&quot;marketAPR&quot;:0,&quot;specialFinancingInterestRate&quot;:5.75,&quot;specialFinancingAPR&quot;:0,&quot;downPaymentPercentage&quot;:10,&quot;downPaymentHelpText&quot;:&quot;Default 10% for Conventional Loans&quot;,&quot;defaultLoanTerm&quot;:30,&quot;guaranteeFeePercent&quot;:0,&quot;annualMIPRate&quot;:0},&quot;finSettingsVA&quot;:{&quot;marketRate&quot;:5.71,&quot;marketAPR&quot;:0,&quot;specialFinancingInterestRate&quot;:4.875,&quot;specialFinancingAPR&quot;:0,&quot;downPaymentPercentage&quot;:0,&quot;downPaymentHelpText&quot;:&quot;Default 0% for VA Loans&quot;,&quot;defaultLoanTerm&quot;:30,&quot;guaranteeFeePercent&quot;:0,&quot;annualMIPRate&quot;:0},&quot;finSettingsUSDA&quot;:{&quot;marketRate&quot;:5,&quot;marketAPR&quot;:0,&quot;specialFinancingInterestRate&quot;:5.25,&quot;specialFinancingAPR&quot;:0,&quot;downPaymentPercentage&quot;:0,&quot;downPaymentHelpText&quot;:&quot;Default 0% for USDA Loans&quot;,&quot;defaultLoanTerm&quot;:30,&quot;guaranteeFeePercent&quot;:1,&quot;annualMIPRate&quot;:0.35},&quot;disableCalculatorModal&quot;:true},&quot;monthlyPayments&quot;:{&quot;prefix&quot;:&quot;Est.&quot;,&quot;suffix&quot;:&quot;/mo&quot;},&quot;aprPercentageSuffix&quot;:&quot;APR&quot;}"></div>
+
+    
+
+<footer class="footer">
+    <nav aria-label="Footer Links">
+        <div class="footer__connect">
+            <h2 class="heading">Connect With Us</h2>
+			<div class="middle-row">
+				<div class="connect-links">
+					<div class="logo">
+						<h3>
+							<img 
+								src="/globalassets/century/assets/footer/toggle_brands_ccs_r2.svg" 
+								width="177" 
+								height="32" 
+								alt="Century Communities" 
+								loading="lazy" 
+								decoding="async" 
+							/>
+						</h3>
+					</div>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+						<path d="M1 8H15V9H1V8Z" fill="#222222" />
+					</svg>
+					<div class="links">
+								<a href="https://www.linkedin.com/company/century-communities" target="_blank" rel="noopener">
+									<img src="/globalassets/century/assets/footer/in.svg" width="24" height="23" alt="linkedin" loading="lazy" decoding="async" />
+									<input value="{&quot;category&quot;:&quot;global footer&quot;,&quot;event&quot;:&quot;social share&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;,&quot;shareBrand&quot;:&quot;Community&quot;,&quot;socialPlatform&quot;:&quot;linkedin&quot;}" type="hidden" />
+								</a>
+								<a href="https://www.facebook.com/CenturyCommunities" target="_blank" rel="noopener">
+									<img src="/globalassets/century/assets/footer/face.svg" width="24" height="23" alt="facebook" loading="lazy" decoding="async" />
+									<input value="{&quot;category&quot;:&quot;global footer&quot;,&quot;event&quot;:&quot;social share&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;,&quot;shareBrand&quot;:&quot;Community&quot;,&quot;socialPlatform&quot;:&quot;facebook&quot;}" type="hidden" />
+								</a>
+								<a href="https://www.instagram.com/centurycommunities/" target="_blank" rel="noopener">
+									<img src="/globalassets/century/assets/footer/insta.svg" width="24" height="23" alt="instagram" loading="lazy" decoding="async" />
+									<input value="{&quot;category&quot;:&quot;global footer&quot;,&quot;event&quot;:&quot;social share&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;,&quot;shareBrand&quot;:&quot;Community&quot;,&quot;socialPlatform&quot;:&quot;instagram&quot;}" type="hidden" />
+								</a>
+								<a href="https://www.youtube.com/@centurycommunities4461" target="_blank" rel="noopener">
+									<img src="/globalassets/century/assets/footer/youtube2.svg" width="24" height="23" alt="YouTube" loading="lazy" decoding="async" />
+									<input value="{&quot;category&quot;:&quot;global footer&quot;,&quot;event&quot;:&quot;social share&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;,&quot;shareBrand&quot;:&quot;Community&quot;,&quot;socialPlatform&quot;:&quot;YouTube&quot;}" type="hidden" />
+								</a>
+								<a href="https://www.tiktok.com/@centurycommunities" target="_blank" rel="noopener">
+									<img src="/globalassets/century/assets/footer/tiktok-1.svg" width="24" height="23" alt="TikTok" loading="lazy" decoding="async" />
+									<input value="{&quot;category&quot;:&quot;Global footer&quot;,&quot;event&quot;:&quot;link click&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;,&quot;shareBrand&quot;:&quot;Community&quot;,&quot;socialPlatform&quot;:&quot;TikTok&quot;}" type="hidden" />
+								</a>
+					</div>
+				</div>
+
+				<div class="connect-links">
+					<div class="logo">
+						<h3>
+							<img 
+								src="/contentassets/23b9bb5c51e14c38bfe9d4bc8b3f0a6d/logo_century-complete.svg" 
+								width="243" 
+								height="32" 
+								alt="Century Complete" 
+								loading="lazy" 
+								decoding="async" 
+							/>
+						</h3>
+					</div>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+						<path d="M1 8H15V9H1V8Z" fill="#222222" />
+					</svg>
+					<div class="links">
+								<a href="https://www.linkedin.com/company/century-complete" target="_blank" rel="noopener">
+									<img src="/globalassets/century/assets/footer/in.svg" width="24" height="23" alt="linkedin" title="linkedin" loading="lazy" decoding="async" />
+									<input value="{&quot;category&quot;:&quot;global footer&quot;,&quot;event&quot;:&quot;social share&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;,&quot;shareBrand&quot;:&quot;Complete&quot;,&quot;socialPlatform&quot;:&quot;linkedin&quot;}" type="hidden" />
+								</a>
+								<a href="https://www.facebook.com/centurycomplete" target="_blank" rel="noopener">
+									<img src="/globalassets/century/assets/footer/face.svg" width="24" height="23" alt="facebook" title="facebook" loading="lazy" decoding="async" />
+									<input value="{&quot;category&quot;:&quot;global footer&quot;,&quot;event&quot;:&quot;social share&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;,&quot;shareBrand&quot;:&quot;Complete&quot;,&quot;socialPlatform&quot;:&quot;facebook&quot;}" type="hidden" />
+								</a>
+								<a href="https://www.instagram.com/centurycomplete/" target="_blank" rel="noopener">
+									<img src="/globalassets/century/assets/footer/insta.svg" width="24" height="23" alt="instagram" title="instagram" loading="lazy" decoding="async" />
+									<input value="{&quot;category&quot;:&quot;global footer&quot;,&quot;event&quot;:&quot;social share&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;,&quot;shareBrand&quot;:&quot;Complete&quot;,&quot;socialPlatform&quot;:&quot;instagram&quot;}" type="hidden" />
+								</a>
+								<a href="https://www.youtube.com/@CenturyComplete" target="_blank" rel="noopener">
+									<img src="/globalassets/century/assets/footer/youtube2.svg" width="24" height="23" alt="YouTube" title="YouTube" loading="lazy" decoding="async" />
+									<input value="{&quot;category&quot;:&quot;global footer&quot;,&quot;event&quot;:&quot;social share&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;,&quot;shareBrand&quot;:&quot;Complete&quot;,&quot;socialPlatform&quot;:&quot;YouTube&quot;}" type="hidden" />
+								</a>
+					</div>
+
+				</div>
+			</div>
+			<div class="bottom-row">				
+						<img src="https://www.centurycommunities.com/contentassets/23b9bb5c51e14c38bfe9d4bc8b3f0a6d/eho_logo_rgb_black_24px.svg" width="30px" height="31px" alt="Century Communities is an equal housing opportunity provider." loading="lazy" decoding="async" />
+					<span>&copy; 2026 CENTURY COMMUNITIES, All Rights Reserved.</span>				
+			</div>
+        </div>
+        <div class="footer__partners">
+            <h2 class="heading">Our Partners</h2>
+            <div class="partners-list">
+                        <a href="https://inspirehomeloans.com/" target="_blank" rel="noopener">
+                            
+
+    <img src="/globalassets/century/footers/inspire.svg"
+        alt="Inspire Homeloans"
+        title=""
+        width=""
+        height=""
+        decoding="async"
+        loading="lazy"
+         />
+
+                            <input value="{&quot;category&quot;:&quot;global footer&quot;,&quot;event&quot;:&quot;link click&quot;,&quot;linkName&quot;:&quot;https://inspirehomeloans.com/&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;,&quot;destinationPage&quot;:&quot;https://inspirehomeloans.com/&quot;}" type="hidden" />
+                        </a>
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+							<path d="M1 8H15V9H1V8Z" fill="#222222" />
+						</svg>
+                        <a href="https://www.parkwaytitleco.com/" target="_blank" rel="noopener">
+                            
+
+    <img src="/contentassets/0beff5521b45465eb2b675dd27f4eca3/parkway.svg"
+        alt="Parkway Title"
+        title=""
+        width=""
+        height=""
+        decoding="async"
+        loading="lazy"
+         />
+
+                            <input value="{&quot;category&quot;:&quot;global footer&quot;,&quot;event&quot;:&quot;link click&quot;,&quot;linkName&quot;:&quot;https://www.parkwaytitleco.com/&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;,&quot;destinationPage&quot;:&quot;https://www.parkwaytitleco.com/&quot;}" type="hidden" />
+                        </a>
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+							<path d="M1 8H15V9H1V8Z" fill="#222222" />
+						</svg>
+                        <a href="https://www.ihlinsurance.com/" target="_blank" rel="noopener">
+                            
+
+    <img src="/globalassets/century/assets/footer/ihl.svg"
+        alt="IHL Home Insurance"
+        title=""
+        width=""
+        height=""
+        decoding="async"
+        loading="lazy"
+         />
+
+                            <input value="{&quot;category&quot;:&quot;global footer&quot;,&quot;event&quot;:&quot;link click&quot;,&quot;linkName&quot;:&quot;https://www.ihlinsurance.com/&quot;,&quot;originPage&quot;:&quot;/about-us/&quot;,&quot;originBrand&quot;:&quot;Communities&quot;,&quot;destinationPage&quot;:&quot;https://www.ihlinsurance.com/&quot;}" type="hidden" />
+                        </a>
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+							<path d="M1 8H15V9H1V8Z" fill="#222222" />
+						</svg>
+            </div>
+
+			<div class="footer__tertiary-links">
+						<div class="link">
+							<a href="https://investors.centurycommunities.com/ir-home/default.aspx">Investor Relations</a>
+							<span>|</span>
+						</div>
+						<div class="link">
+							<a href="/privacy-policy/">Privacy Policy</a>
+							<span>|</span>
+						</div>
+						<div class="link">
+							<a href="/terms-of-use/">Terms Of Use</a>
+							<span>|</span>
+						</div>
+						<div class="link">
+							<a href="https://privacyportal.onetrust.com/webform/3203d2d9-24f6-4a29-a21f-5b6cda749e8a/bc1fb6cb-2ac3-4709-93cb-b35ea816ca04" target="_blank">Exercise My Rights</a>
+							<span>|</span>
+						</div>
+						<div class="link">
+							<a href="/do-not-sell-my-info/">Do Not Sell My Info</a>
+							<span>|</span>
+						</div>
+						<div class="link">
+							<a href="/limit-the-use-or-disclosure-of-my-sensitive-personal-information/">Limit Use of Sensitive PI</a>
+							<span>|</span>
+						</div>
+						<div class="link">
+							<a href="/consumer-notice-at-collection/">Notice at Collection</a>
+							<span>|</span>
+						</div>
+						<div class="link">
+							<a href="/accessibility-statement/">Accessibility Statement</a>
+							<span>|</span>
+						</div>
+				<div class="link">
+					<!-- OneTrust Cookies Settings button start -->
+					<button id="ot-sdk-btn" class="ot-sdk-show-settings" type="button">Cookie Settings</button>
+					<!-- OneTrust Cookies Settings button end -->
+				</div>
+			</div>
+        </div>
+        <div class="footer__copyright">
+                <img src="https://www.centurycommunities.com/contentassets/23b9bb5c51e14c38bfe9d4bc8b3f0a6d/eho_logo_rgb_black_24px.svg" width="26" height="26" alt="Century Communities is an equal housing opportunity provider." loading="lazy" decoding="async" />
+            <span>&copy; 2026 CENTURY COMMUNITIES, All Rights Reserved.</span>
+        </div>
+    </nav>
+</footer>
+
+
+    
+
+        <script src="/dist/apps/apps-vendor-v-f1d099521d1d96cdbca49fdb7cad7e8a1115a7e798522ef940f3a04b5c01392b.js" defer></script>
+        <script src="/dist/apps/apps-common-v-3b105b70860eab03c3debf77524890f76e40f1b0994a2a26b992239564a13552.js" defer></script>
+        <script src="/dist/apps/react-v-46c674f119ec888eed5cdc79b5e8f470dae6f701887e3845f2fa0bc82bfdc27e.js" defer></script>
+    <script src="/dist/apps/mortgageCalculator-v-0ee882115d0ff243229e317ee18aa9c726545ba33ff1927a7a49127ea5ded9c9.js" defer></script>
+
+
+
+    
+
+<script type='text/javascript'>
+
+document.addEventListener('DOMContentLoaded', function () {
+    
+    if (window.location.href.indexOf('washington/seattle-metro/port-orchard/mccormick-amherst') > -1){
+        
+		document.querySelector("#qmi > div > div > div.col-lg-3.col-sm-12.quick-move-in-col3 > div > span").innerHTML = "Select one of these addresses for a faster move.";
+
+		document.querySelector("div.col-lg-3.col-sm-12.quick-move-in-col3 > div > div > p").innerHTML = "​Under construction or already completed, these new homes give you the convenience of a quicker move—with the option to reserve online.";
+	}
+
+});
+
+</script>
+    <script defer="defer" nonce="ee08d12f-c09b-4a8b-9296-04f55ee14ea9" src="/Util/Find/epi-util/find.js"></script>
+<script nonce="ee08d12f-c09b-4a8b-9296-04f55ee14ea9">
+document.addEventListener('DOMContentLoaded',function(){if(typeof FindApi === 'function'){var api = new FindApi();api.setApplicationUrl('/');api.setServiceApiBaseUrl('/find_v2/');api.processEventFromCurrentUri();api.bindWindowEvents();api.bindAClickEvent();api.sendBufferedEvents();}})
+</script>
+
+
+
+    <input type="hidden" value="rzCeNBHt5WZBSFWtg_MHDg" data-odp-tracker-id />
+</body>
+</html>

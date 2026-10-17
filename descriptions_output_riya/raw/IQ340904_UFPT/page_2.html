@@ -1,0 +1,1900 @@
+    <!DOCTYPE html>
+<!-- [if lt IE 9]><html class="no-js no-svg ie lt-ie9 lt-ie8 lt-ie7" lang="en-US"> <![endif] -->
+<!-- [if IE 9]><html class="no-js no-svg ie ie9 lt-ie9 lt-ie8" lang="en-US"> <![endif] -->
+<!-- [if gt IE 9]><! -->
+<html class="no-js no-svg" lang="en-US">
+      <!-- <![endif] -->
+      <head>
+            <script>
+            (function() {
+              // Global Privacy Control: detected client-side only. The Sec-GPC header
+              // can't be checked server-side — full-page caching (WPEngine/Cloudflare)
+              // doesn't vary on it, so a server-rendered class poisons the cache for
+              // all visitors.
+              if (typeof navigator.globalPrivacyControl !== 'undefined' && navigator.globalPrivacyControl === true) {
+                document.documentElement.classList.add('gpc-opt-out');
+              }
+              window.__gpcSignal = document.documentElement.classList.contains('gpc-opt-out');
+              if (window.__gpcSignal) {
+                // Termly can re-render its prompt after the resource blocker has
+                // loaded. Keep the standard prompt hidden for GPC visitors, as
+                // their browser signal already communicates an opt-out.
+                function hideGpcConsentBanner() {
+                  var banner = document.querySelector('[aria-label="Cookie Consent Prompt"]');
+                  if (banner) banner.style.setProperty('display', 'none', 'important');
+                  // Termly also inserts its own persistent GPC confirmation.
+                  // Keep only the site's auto-dismissing confirmation below.
+                  document.querySelectorAll('[class*="termly-styles-root-"]').forEach(function (notice) {
+                    if (!notice.closest('#termly-gpc-toast') &&
+                        notice.textContent.indexOf('Your global privacy preferences have been applied.') !== -1 &&
+                        notice.style.display !== 'none') {
+                      notice.style.setProperty('display', 'none', 'important');
+                    }
+                  });
+                }
+                var gpcBannerObserver = new MutationObserver(hideGpcConsentBanner);
+                gpcBannerObserver.observe(document.documentElement, { childList: true, subtree: true });
+                hideGpcConsentBanner();
+              }
+              // Confirm the opt-out to the visitor as soon as the page loads —
+              // independent of Termly, which may load late or not at all (e.g. local dev).
+              if (window.__gpcSignal) {
+                // showGpcAppliedMessage is declared in a later <script> block, which
+                // hasn't run yet at this point — reference it by name inside a
+                // closure so it resolves at call time, not now (avoids a
+                // ReferenceError that was silently killing this whole branch).
+                if (document.readyState === 'complete') {
+                  showGpcAppliedMessage();
+                } else {
+                  window.addEventListener('load', function () { showGpcAppliedMessage(); });
+                }
+              }
+            })();
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('consent', 'default', {
+              'ad_storage': 'denied',
+              'ad_user_data': 'denied',
+              'ad_personalization': 'denied',
+              'analytics_storage': 'denied'
+            });
+            </script>
+            <script>
+            var _termlyFirstConsent = true;
+            function onTermlyLoaded() {
+              if (window.__gpcSignal) {
+                // GPC opts the visitor out up front — don't let the banner show or grant anything.
+                gtag('consent', 'update', {
+                  'analytics_storage': 'denied',
+                  'ad_storage': 'denied',
+                  'ad_user_data': 'denied',
+                  'ad_personalization': 'denied'
+                });
+                // Toast already fired at page load for GPC visitors (see head IIFE).
+                return;
+              }
+              Termly.on("consent", function (data) {
+                var consentState = data.consentState || {};
+                gtag('consent', 'update', {
+                  'analytics_storage': consentState.analytics ? 'granted' : 'denied',
+                  'ad_storage': consentState.advertising ? 'granted' : 'denied',
+                  'ad_user_data': consentState.advertising ? 'granted' : 'denied',
+                  'ad_personalization': consentState.advertising ? 'granted' : 'denied'
+                });
+
+                if (_termlyFirstConsent) {
+                  _termlyFirstConsent = false;
+                  return;
+                }
+                var declined = !data.consentState || (
+                  !data.consentState.analytics &&
+                  !data.consentState.advertising &&
+                  !data.consentState.performance
+                );
+                if (declined) {
+                  showOptOutToast();
+                }
+              });
+            }
+            function showOptOutToast() {
+              if (document.getElementById("termly-optout-toast")) return;
+              var toast = document.createElement("div");
+              toast.id = "termly-optout-toast";
+              toast.setAttribute("role", "status");
+              toast.setAttribute("aria-live", "polite");
+              toast.style.cssText =
+                "position:fixed;bottom:24px;left:50%;transform:translateX(-50%);" +
+                "background:#1a1a1a;color:#fff;padding:14px 24px;border-radius:8px;" +
+                "font-size:14px;font-family:sans-serif;z-index:999999;box-shadow:0 4px 12px rgba(0,0,0,0.25);" +
+                "opacity:0;transition:opacity 0.3s ease;max-width:90vw;text-align:center;";
+              toast.textContent =
+                "Your opt-out request has been honored. No optional cookies will be set.";
+              document.body.appendChild(toast);
+              requestAnimationFrame(function () { toast.style.opacity = "1"; });
+              setTimeout(function () {
+                toast.style.opacity = "0";
+                setTimeout(function () {
+                  if (toast.parentNode) toast.parentNode.removeChild(toast);
+                }, 300);
+              }, 4000);
+            }
+            function showGpcAppliedMessage() {
+              if (document.getElementById("termly-gpc-toast")) return;
+              try {
+                if (localStorage.getItem('gpc-toast-seen-v1')) return;
+                localStorage.setItem('gpc-toast-seen-v1', '1');
+              } catch (e) {
+                // Still show the notice when browser storage is unavailable.
+              }
+              var toast = document.createElement("div");
+              toast.id = "termly-gpc-toast";
+              toast.style.cssText =
+                "position:fixed;left:24px;bottom:24px;" +
+                "z-index:999999;opacity:0;transition:opacity 0.3s ease;";
+              toast.innerHTML =
+                '<div role="status" aria-live="polite">' +
+                  '<div role="alert" class="termly-styles-root-c36810" style="display:flex;align-items:center;gap:10px;background:#003AFA;color:#fff;padding:12px 16px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.25);font-family:sans-serif;font-size:14px;max-width:90vw;">' +
+                    '<img alt="" width="20" height="20" style="flex-shrink:0;" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8Y2lyY2xlIGN4PSIxMCIgY3k9IjEwIiByPSIxMCIgZmlsbD0id2hpdGUiLz4KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTEzLjQ5MzcgNy4yNTYyOEMxMy44MzgzIDYuOTE0NTcgMTQuMzk3IDYuOTE0NTcgMTQuNzQxNiA3LjI1NjI4QzE1LjA4NjEgNy41OTc5OSAxNS4wODYxIDguMTUyMDEgMTQuNzQxNiA4LjQ5MzcyTDkuNDQ3NDUgMTMuNzQzN0M5LjEwMjg3IDE0LjA4NTQgOC41NDQxOSAxNC4wODU0IDguMTk5NjEgMTMuNzQzN0w1LjI1ODQ0IDEwLjgyNzFDNC45MTM4NSAxMC40ODUzIDQuOTEzODUgOS45MzEzMiA1LjI1ODQ0IDkuNTg5NjFDNS42MDMwMiA5LjI0NzkxIDYuMTYxNjkgOS4yNDc5MSA2LjUwNjI3IDkuNTg5NjFMOC44MjM1MyAxMS44ODc2TDEzLjQ5MzcgNy4yNTYyOFoiIGZpbGw9IiMwMDNBRkEiLz4KPC9zdmc+Cg=="/>' +
+                    '<span class="termly-styles-message-ea3e0e" style="flex:1;line-height:1.4;">Your global privacy preferences have been applied.<a href="https://termly.io/resources/articles/what-is-global-privacy-control/" rel="noopener noreferrer" target="_blank" class="termly-styles-link-b46a41" style="color:#fff;text-decoration:none;margin-left:6px;"><span class="termly-styles-questionMark-e58ee5" style="display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border:1px solid rgba(255,255,255,.7);border-radius:50%;font-size:10px;vertical-align:middle;">?</span></a></span>' +
+                    '<button aria-label="Close notification" type="button" class="termly-styles-closeButton-b843e0" style="background:none;border:none;color:#fff;font-size:18px;line-height:1;cursor:pointer;padding:0;flex-shrink:0;min-width:24px;min-height:24px;">&times;</button>' +
+                  '</div>' +
+                '</div>';
+              document.body.appendChild(toast);
+              toast.querySelector(".termly-styles-closeButton-b843e0").addEventListener("click", function () {
+                if (toast.parentNode) toast.parentNode.removeChild(toast);
+              });
+              requestAnimationFrame(function () { toast.style.opacity = "1"; });
+              setTimeout(function () {
+                toast.style.opacity = "0";
+                setTimeout(function () {
+                  if (toast.parentNode) toast.parentNode.removeChild(toast);
+                }, 300);
+              }, 3000);
+            }
+            </script>
+            <script>
+            // Termly's auto-blocker categorizes third-party resources by hostname. Any
+            // host missing from its built-in map falls through to "unclassified", which
+            // stays blocked until the visitor accepts cookies — that hides the HubSpot
+            // contact forms. HubSpot is not in Termly's map at all, so every HubSpot
+            // host was being treated as unclassified.
+            //
+            // TERMLY_CUSTOM_BLOCKING_MAP is merged into that map (it must be defined
+            // BEFORE the resource-blocker script below, which reads it on load). Lookups
+            // walk up the subdomain chain, so "hsforms.net" also covers "js.hsforms.net".
+            //
+            // Split deliberately: the form embed is functional and always allowed, while
+            // HubSpot's visitor-tracking hosts stay gated behind real consent.
+            window.TERMLY_CUSTOM_BLOCKING_MAP = {
+              // Form embed — required for forms to render/submit. Sets no tracking
+              // cookies of its own.
+              'hsforms.net': 'essential',
+              'hsforms.com': 'essential',
+              'hubspotforms.com': 'essential',
+              'hsappstatic.net': 'essential',
+
+              // HubSpot forms render an invisible Google reCAPTCHA for spam
+              // protection. Without these, the widget can't load/execute pre-consent
+              // and form submission fails with "Failed to validate Captcha" —
+              // security/anti-spam, not tracking, so always allowed.
+              'google.com': 'essential',
+              'gstatic.com': 'essential',
+              'recaptcha.net': 'essential',
+
+              // QuoteMedia (QMod) SEC filings widget on the investor page. Sets no
+              // tracking cookies of its own — just renders filing data — so it must
+              // load pre-consent or the filings table never appears.
+              'quotemedia.com': 'essential',
+
+              // Visitor tracking / marketing (hubspotutk et al) — genuinely non-essential.
+              // Left gated so consent is still honored.
+              'hs-scripts.com': 'analytics,advertising',
+              'hs-banner.com': 'analytics,advertising',
+              'hs-analytics.net': 'analytics',
+              'hscollectedforms.net': 'analytics',
+              'hsadspixel.net': 'advertising',
+              'usemessages.com': 'analytics'
+            };
+            </script>
+            <script src="https://app.termly.io/resource-blocker/85c17437-4fa7-4597-98b3-9c74a8beeff9?autoBlock=on" onload="onTermlyLoaded()"></script>
+            <meta charset="UTF-8" />
+            <meta name="description" content="" />
+            <link rel="stylesheet"
+                  href="https://ufpt.com/wp-content/themes/ufpt/assets/dist/app.css"
+                  type="text/css"
+                  media="screen" />
+            <link rel="stylesheet"
+                  href="https://ufpt.com/wp-content/themes/ufpt/assets/dist/ufp.css"
+                  type="text/css"
+                  media="screen" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="author" href="https://ufpt.com/wp-content/themes/ufpt/humans.txt" />
+            <link rel="pingback" href="https://ufpt.com/xmlrpc.php" />
+            <link rel="profile" href="http://gmpg.org/xfn/11" />
+            <link rel="apple-touch-icon"
+                  sizes="180x180"
+                  href="https://ufpt.com/wp-content/themes/ufpt/assets/images/apple-touch-icon.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="32x32"
+                  href="https://ufpt.com/wp-content/themes/ufpt/assets/images/favicon-32x32.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="16x16"
+                  href="https://ufpt.com/wp-content/themes/ufpt/assets/images/favicon-16x16.png" />
+            <link rel="manifest"
+                  href="https://ufpt.com/wp-content/themes/ufpt/assets/images/site.webmanifest" />
+            <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+<link rel="canonical" href="https://ufpt.com/advanced-components/capabilities/" />
+
+	<!-- This site is optimized with the Yoast SEO plugin v28.6 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>Capabilities - UFP Technologies</title>
+	<link rel="canonical" href="https://ufpt.com/advanced-components/capabilities/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Capabilities - UFP Technologies" />
+	<meta property="og:url" content="https://ufpt.com/advanced-components/capabilities/" />
+	<meta property="og:site_name" content="UFP Technologies" />
+	<meta property="article:modified_time" content="2025-12-30T20:34:28+00:00" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/ufpt.com\/advanced-components\/capabilities\/","url":"https:\/\/ufpt.com\/advanced-components\/capabilities\/","name":"Capabilities - UFP Technologies","isPartOf":{"@id":"https:\/\/ufpt.com\/#website"},"datePublished":"2023-06-20T18:06:41+00:00","dateModified":"2025-12-30T20:34:28+00:00","breadcrumb":{"@id":"https:\/\/ufpt.com\/advanced-components\/capabilities\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/ufpt.com\/advanced-components\/capabilities\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/ufpt.com\/advanced-components\/capabilities\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/ufpt.com\/"},{"@type":"ListItem","position":2,"name":"Advanced Components","item":"https:\/\/ufpt.com\/advanced-components\/"},{"@type":"ListItem","position":3,"name":"Capabilities"}]},{"@type":"WebSite","@id":"https:\/\/ufpt.com\/#website","url":"https:\/\/ufpt.com\/","name":"UFP Technologies","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/ufpt.com\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+
+
+
+            <script defer
+                    src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
+            <script defer
+                    src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+            <script defer src="https://ufpt.com/wp-content/themes/ufpt/assets/dist/alpine.js"></script>
+            <script defer src="https://ufpt.com/wp-content/themes/ufpt/assets/dist/site.js"></script>
+            <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
+                    integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE="
+                    crossorigin="anonymous"></script>
+            <script type="text/javascript"
+                    src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+            <link rel="stylesheet"
+                  type="text/css"
+                  href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+            <link rel="stylesheet"
+                  type="text/css"
+                  href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+            <meta name="p:domain_verify" content="0aa39084bee9a350d3d319ed846dad29" />
+            <meta name="google-site-verification"
+                  content="MvmQC4pFV4McKyRQLgKqywLAqXQVA2nbjc1JIShCQJ0" />
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-529R8H7CWM"></script>
+            <script>
+    gtag('js', new Date());
+    gtag('config', 'UA-3437574-1', {
+    'link_attribution': true});
+    gtag('config', 'G-529R8H7CWM', {
+    'link_attribution': true});
+    gtag('config', 'AW-992870998');
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1092119147535906');
+    fbq('track', 'PageView');
+    _linkedin_partner_id = "421865";
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+    (function(l) {
+    if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+    window.lintrk.q=[]}
+    var s = document.getElementsByTagName("script")[0];
+    var b = document.createElement("script");
+    b.type = "text/javascript";b.async = true;
+    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+    s.parentNode.insertBefore(b, s);})(window.lintrk);
+            </script>
+            <script id="hs-script-loader"
+                    async
+                    defer
+                    src="//js.hs-scripts.com/3309029.js"></script>
+            <script type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+            <script charset="utf-8"
+                    type="text/javascript"
+                    src="//js.hsforms.net/forms/embed/v2.js"></script>
+            
+            <script type="text/javascript">
+            window.addEventListener("message", function(event) {
+            if(event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormSubmit') {
+                  gtag('event', 'form_submission', {
+                        'form_id': event.data.id,
+                        });
+                  }
+            });
+            
+            </script>
+      </head>
+</html>
+        </head>
+<body class="wp-singular page-template-default page page-id-123 page-child parent-pageid-419 wp-theme-ufpt" data-template="base.twig">
+    <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+    <header class="header">
+                    <div id="nav-main" class="" role="navigation">
+                  <div class="py-2 text-center relative px-8 lg:px-0"
+       id="announcement_bar"
+       style="background-color: #0080ff;
+              display: none !important">
+    <div class="max-w-4xl mx-auto flex flex-row justify-between items-center">
+      <span class="flex-1 announcement_text"><p><span style="color: white;">UFP Technologies Acquires CI Medical To Expand Medical Device Printing Capabilities.<br />
+<a style="color: white;" href="https://ufpt.com/news/ufp-technologies-expands-medical-capabilities-with-acquisition-of-ci-medical/">Learn More</a>.</span></p>
+</span>
+    </div>
+    <span class="absolute right-3 lg:right-8 top-0 h-full flex flex-row justify-end items-center w-fit">
+      <svg class="h-5 w-5 text-white cursor-pointer"
+           viewBox="0 0 20 20"
+           stroke="currentColor"
+           aria-hidden="true"
+           id="announcement_bar_close">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" stroke-width="3.5" />
+      </svg>
+    </span>
+  </div>
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+var slug = `Announcement_09_02_26`;
+// slugify
+slug = slug.toString().toLowerCase().trim()
+  .replace(/&/g, '-and-')
+  .replace(/[\s\W-]+/g, '-')
+  .replace(/-$/, '');
+// check if a cookie exists that is the options.text slugified
+if (document.cookie.indexOf(slug) >= 0) {
+    document.getElementById('announcement_bar').style.display = 'none';
+} else {
+    document.getElementById('announcement_bar').style.display = 'block';
+  }
+// if the cookie does not exist, show the announcement bar
+
+document.getElementById('announcement_bar_close').addEventListener('click', function() {
+    // set to all pages on domain
+  document.cookie = slug + '=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/';
+    document.getElementById('announcement_bar').style.display = 'none';
+
+});
+});
+  </script>
+<nav x-data="open" @click.outside="open = false">
+  <div class="mx-auto layout px-6 lg:px-8 py-4 overflow-hidden">
+    <div class="flex h-16 justify-between w-full items-center">
+      <div class="flex flex-row justify-between w-full">
+        <div class="flex flex-shrink-0 items-center">
+          <a href="/" class="h-auto w-64">
+            <svg version="1.1"
+                 id="Layer_1"
+                 xmlns="http://www.w3.org/2000/svg"
+                 class="block w-full object-cover aspect-[2/1]"
+                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                 x="0px"
+                 y="0px"
+                 viewBox="0 0 438.29 73.11"
+                 style="enable-background:new 0 0 438.29 73.11"
+                 xml:space="preserve">
+              <style type="text/css">
+                  .st0 {
+                      fill: #FFFFFF;
+                  }
+              </style>
+              <g>
+              <g>
+              <path class="st0" d="M65.8,0.18L65.78,0.2c0,3.4-2.76,6.16-6.16,6.16H26.88c-3.4,0-6.16-2.76-6.16-6.16c0,0,0,0,0-0.01L20.7,0.18 H0.18V13.4h86.45V0.18H65.8z" />
+              <path class="st0" d="M65.8,16.14l-0.02,0.02c0,3.4-2.76,6.16-6.16,6.16H26.88c-3.4,0-6.16-2.76-6.16-6.16c0,0,0,0,0-0.01 l-0.02-0.02H0.18v13.22h86.45V16.14H65.8z" />
+              <path class="st0" d="M65.8,32.09l-0.02,0.03c0,3.4-2.76,6.16-6.16,6.16H26.88c-3.4,0-6.16-2.76-6.16-6.16c0,0,0,0,0-0.01 l-0.02-0.02H0.18v12.18c0,0.35,0.01,0.7,0.03,1.04h86.4c0.01-0.34,0.03-0.69,0.03-1.04V32.09H65.8z" />
+              <path class="st0" d="M65.8,48.05l-0.02,0.03c0,3.4-2.76,6.16-6.16,6.16H26.88c-3.4,0-6.16-2.76-6.16-6.16c0,0,0,0,0-0.01 l-0.02-0.02H0.24C1.1,61.87,12.57,72.81,26.6,72.81h33.6c14.03,0,25.51-10.94,26.37-24.76H65.8z" />
+              </g>
+              <g>
+              <path class="st0" d="M115.85,17.61V0.4h8.63v17.04c0,4.42,2.23,6.53,5.65,6.53c3.42,0,5.65-2.02,5.65-6.31V0.4h8.63v16.99 c0,9.9-5.65,14.23-14.36,14.23C121.33,31.62,115.85,27.2,115.85,17.61z" />
+              <path class="st0" d="M149.45,0.4h24.52v7.45h-16.03v5.21h14.5v7.05h-14.5v10.95h-8.5V0.4z" />
+              <path class="st0" d="M177.83,0.4h13.14c7.75,0,12.74,3.98,12.74,10.77v0.09c0,7.23-5.56,11.04-13.18,11.04h-4.2v8.76h-8.5V0.4z M190.35,15.64c3.02,0,4.86-1.58,4.86-3.99v-0.09c0-2.63-1.84-4.03-4.9-4.03h-3.99v8.1H190.35z" />
+              </g>
+              <path class="st0" d="M124.8,47.64h-9.32v-2.9h21.81v2.9h-9.32V72.5h-3.17V47.64z" />
+              <path class="st0" d="M143.16,44.74h20.07v2.86h-16.93v9.48h15.15v2.86h-15.15v9.72h17.13v2.86h-20.26V44.74z" />
+              <path class="st0" d="M168.51,58.7v-0.08c0-7.85,5.87-14.36,14.04-14.36c5.04,0,8.05,1.79,10.83,4.4l-2.14,2.3 c-2.34-2.22-4.96-3.81-8.72-3.81c-6.15,0-10.75,5-10.75,11.38v0.08c0,6.42,4.64,11.46,10.75,11.46c3.81,0,6.31-1.47,8.96-4.01 l2.06,2.02c-2.9,2.93-6.07,4.88-11.1,4.88C174.42,72.98,168.51,66.67,168.51,58.7z" />
+              <path class="st0" d="M199.01,44.74h3.13v12.33h16.02V44.74h3.13V72.5h-3.13V60.01h-16.02V72.5h-3.13V44.74z" />
+              <path class="st0" d="M229.15,44.74h2.93l17.49,22.25V44.74h3.05V72.5h-2.5l-17.93-22.76V72.5h-3.05V44.74z" />
+              <path class="st0" d="M259.26,58.7v-0.08c0-7.65,5.75-14.36,14.2-14.36c8.45,0,14.12,6.62,14.12,14.28c0.04,0.04,0.04,0.04,0,0.08 c0,7.65-5.75,14.36-14.2,14.36C264.93,72.98,259.26,66.35,259.26,58.7z M284.32,58.7v-0.08c0-6.3-4.6-11.46-10.95-11.46 c-6.34,0-10.87,5.08-10.87,11.38v0.08c0,6.31,4.6,11.46,10.95,11.46C279.8,70.08,284.32,65.01,284.32,58.7z" />
+              <path class="st0" d="M294.2,44.74h3.13v24.87h15.63v2.89H294.2V44.74z" />
+              <path class="st0" d="M314.98,58.7v-0.08c0-7.65,5.75-14.36,14.2-14.36c8.45,0,14.12,6.62,14.12,14.28c0.04,0.04,0.04,0.04,0,0.08 c0,7.65-5.75,14.36-14.2,14.36C320.65,72.98,314.98,66.35,314.98,58.7z M340.04,58.7v-0.08c0-6.3-4.6-11.46-10.95-11.46 c-6.34,0-10.87,5.08-10.87,11.38v0.08c0,6.31,4.6,11.46,10.95,11.46C335.52,70.08,340.04,65.01,340.04,58.7z" />
+              <path class="st0" d="M348.69,58.7v-0.08c0-7.61,5.59-14.36,13.92-14.36c4.68,0,7.58,1.35,10.35,3.69l-2.02,2.38 c-2.14-1.86-4.52-3.17-8.45-3.17c-6.15,0-10.55,5.2-10.55,11.38v0.08c0,6.62,4.24,11.54,10.99,11.54c3.17,0,6.11-1.23,8.01-2.78 v-6.9h-8.45v-2.81h11.46v11.06c-2.58,2.3-6.46,4.24-11.14,4.24C354.08,72.98,348.69,66.63,348.69,58.7z" />
+              <path class="st0" d="M381.29,44.74h3.13V72.5h-3.13V44.74z" />
+              <path class="st0" d="M392.56,44.74h20.07v2.86h-16.93v9.48h15.15v2.86h-15.15v9.72h17.13v2.86h-20.27V44.74z" />
+              <path class="st0" d="M417.31,68.46l1.94-2.3c2.9,2.62,5.67,3.93,9.52,3.93c3.73,0,6.19-1.98,6.19-4.72v-0.08 c0-2.58-1.39-4.04-7.22-5.27c-6.39-1.39-9.32-3.45-9.32-8.01v-0.08c0-4.36,3.85-7.58,9.12-7.58c4.04,0,6.94,1.15,9.75,3.41 l-1.82,2.42c-2.58-2.1-5.16-3.01-8.01-3.01c-3.61,0-5.91,1.98-5.91,4.48v0.08c0,2.62,1.43,4.08,7.54,5.39 c6.19,1.35,9.04,3.61,9.04,7.85v0.08c0,4.76-3.97,7.85-9.48,7.85C424.25,72.9,420.64,71.43,417.31,68.46z" />
+              </g>
+            </svg>
+          </a>
+        </div>
+        <div class="hidden lg:ml-6 lg:flex lg:space-x-8">
+                      <ul class="flex justify-center items-center space-x-6 plain"
+                x-data="{ show : false, grand : false }"
+                @mouseleave="show = false, grand = false">
+                              <li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-22 flex flex-row justify-center align-middle"
+                    @mouseover="show = 'MedTech'">
+                  <a target=""
+                     href="/medtech/"
+                     class=""
+                     rel="prefetch">
+                    MedTech
+                  </a>
+                                  </li>
+                              <li class=" menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-23 menu-item-has-children flex flex-row justify-center align-middle"
+                    @mouseover="show = 'Advanced Components'">
+                  <a target=""
+                     href="/advanced-components/"
+                     class=""
+                     rel="prefetch">
+                    Advanced Components
+                  </a>
+                                      <svg class="h-5 w-5 text-white mt-[2px]"
+                         viewBox="0 0 20 20"
+                         fill="currentColor"
+                         aria-hidden="true">
+                      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                    </svg>
+                    <div class="absolute left-50 z-10 mt-8 flex w-screen max-w-max px-4"
+                         x-show="show == 'Advanced Components'"
+                         style="display: none"
+                         x-cloak
+                         @mouseleave="show = false, grand = false">
+                      <div class="w-fit max-w-md flex-auto bg-[#00549e] text-sm leading-6 shadow-2xl">
+                        <div class="p-4">
+                          <ul class="flex flex-col relative">
+                                                          <li class="flex flex-row align-middle items-center relative">
+                                <a target=""
+                                   href="/advanced-components/design-development/"
+                                   rel="prefetch"
+                                   class="py-4"
+                                   @mouseover="grand = 'Design & Development'">
+                                  Design & Development
+                                </a>
+                                                              </li>
+                                                          <li class="flex flex-row align-middle items-center relative">
+                                <a target=""
+                                   href="/advanced-components/applications/"
+                                   rel="prefetch"
+                                   class="py-4"
+                                   @mouseover="grand = 'Applications'">
+                                  Applications
+                                </a>
+                                                                  <svg class="h-5 w-5 text-white mt-[2px]"
+                                       viewBox="0 0 20 20"
+                                       fill="currentColor"
+                                       aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                  </svg>
+                                  <div class="absolute left-[100%] top-[-25px] z-10 mt-8 flex w-screen max-w-max px-4"
+                                       x-show="grand == 'Applications'"
+                                       style="display: none"
+                                       x-cloak
+                                       @mouseleave="grand = false">
+                                    <div class="w-fit max-w-md flex-auto overflow-hidden bg-[#00549e] text-sm leading-6 shadow-2xl">
+                                      <div class="p-4">
+                                        <ul class="flex flex-col">
+                                                                                      <li class="relative">
+                                              <a target=""
+                                                 href="/advanced-components/applications/packaging/"
+                                                 class="py-4"
+                                                 rel="prefetch">
+                                                Equipment Protection & Packaging
+                                              </a>
+                                            </li>
+                                                                                      <li class="relative">
+                                              <a target=""
+                                                 href="/advanced-components/applications/acoustic-thermal/"
+                                                 class="py-4"
+                                                 rel="prefetch">
+                                                Acoustic & Thermal Insulation
+                                              </a>
+                                            </li>
+                                                                                      <li class="relative">
+                                              <a target=""
+                                                 href="/advanced-components/applications/fluid-air-management/"
+                                                 class="py-4"
+                                                 rel="prefetch">
+                                                Fluid & Air Management
+                                              </a>
+                                            </li>
+                                                                                      <li class="relative">
+                                              <a target=""
+                                                 href="/advanced-components/applications/comfort-support-protection/"
+                                                 class="py-4"
+                                                 rel="prefetch">
+                                                Comfort, Support & Protection
+                                              </a>
+                                            </li>
+                                                                                      <li class="relative">
+                                              <a target=""
+                                                 href="/advanced-components/applications/trim-structural-components/"
+                                                 class="py-4"
+                                                 rel="prefetch">
+                                                Trim & Structural Components
+                                              </a>
+                                            </li>
+                                                                                  </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                                              </li>
+                                                          <li class="flex flex-row align-middle items-center relative">
+                                <a target=""
+                                   href="/advanced-components/materials-expertise/"
+                                   rel="prefetch"
+                                   class="py-4"
+                                   @mouseover="grand = 'Materials Expertise'">
+                                  Materials Expertise
+                                </a>
+                                                              </li>
+                                                          <li class="flex flex-row align-middle items-center relative">
+                                <a target=""
+                                   href="/advanced-components/capabilities/"
+                                   rel="prefetch"
+                                   class="py-4"
+                                   @mouseover="grand = 'Capabilities'">
+                                  Capabilities
+                                </a>
+                                                              </li>
+                                                          <li class="flex flex-row align-middle items-center relative">
+                                <a target=""
+                                   href="/resources/"
+                                   rel="prefetch"
+                                   class="py-4"
+                                   @mouseover="grand = 'Resources'">
+                                  Resources
+                                </a>
+                                                              </li>
+                                                      </ul>
+                        </div>
+                      </div>
+                    </div>
+                                  </li>
+                              <li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-24 menu-item-has-children flex flex-row justify-center align-middle"
+                    @mouseover="show = 'About'">
+                  <a target=""
+                     href="/about-us/"
+                     class=""
+                     rel="prefetch">
+                    About
+                  </a>
+                                      <svg class="h-5 w-5 text-white mt-[2px]"
+                         viewBox="0 0 20 20"
+                         fill="currentColor"
+                         aria-hidden="true">
+                      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                    </svg>
+                    <div class="absolute left-50 z-10 mt-8 flex w-screen max-w-max px-4"
+                         x-show="show == 'About'"
+                         style="display: none"
+                         x-cloak
+                         @mouseleave="show = false, grand = false">
+                      <div class="w-fit max-w-md flex-auto bg-[#00549e] text-sm leading-6 shadow-2xl">
+                        <div class="p-4">
+                          <ul class="flex flex-col relative">
+                                                          <li class="flex flex-row align-middle items-center relative">
+                                <a target=""
+                                   href="https://ufpt.com/about-us/#leadership"
+                                   rel="prefetch"
+                                   class="py-4"
+                                   @mouseover="grand = 'Leadership'">
+                                  Leadership
+                                </a>
+                                                              </li>
+                                                          <li class="flex flex-row align-middle items-center relative">
+                                <a target=""
+                                   href="/about-us/operating-principles/"
+                                   rel="prefetch"
+                                   class="py-4"
+                                   @mouseover="grand = 'Operating Principles'">
+                                  Operating Principles
+                                </a>
+                                                              </li>
+                                                          <li class="flex flex-row align-middle items-center relative">
+                                <a target=""
+                                   href="/about-us/sustainability/"
+                                   rel="prefetch"
+                                   class="py-4"
+                                   @mouseover="grand = 'Sustainability'">
+                                  Sustainability
+                                </a>
+                                                              </li>
+                                                          <li class="flex flex-row align-middle items-center relative">
+                                <a target=""
+                                   href="/about-us/quality-and-certifications/"
+                                   rel="prefetch"
+                                   class="py-4"
+                                   @mouseover="grand = 'Quality and Certifications'">
+                                  Quality and Certifications
+                                </a>
+                                                              </li>
+                                                          <li class="flex flex-row align-middle items-center relative">
+                                <a target=""
+                                   href="https://ufpt.com/about-us/awards-recognition/"
+                                   rel="prefetch"
+                                   class="py-4"
+                                   @mouseover="grand = 'Awards & Recognition'">
+                                  Awards & Recognition
+                                </a>
+                                                              </li>
+                                                          <li class="flex flex-row align-middle items-center relative">
+                                <a target=""
+                                   href="/about-us/locations/"
+                                   rel="prefetch"
+                                   class="py-4"
+                                   @mouseover="grand = 'Locations'">
+                                  Locations
+                                </a>
+                                                              </li>
+                                                          <li class="flex flex-row align-middle items-center relative">
+                                <a target=""
+                                   href="https://ufpt.com/about-us/our-companies/"
+                                   rel="prefetch"
+                                   class="py-4"
+                                   @mouseover="grand = 'Our Companies'">
+                                  Our Companies
+                                </a>
+                                                              </li>
+                                                      </ul>
+                        </div>
+                      </div>
+                    </div>
+                                  </li>
+                              <li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-25 flex flex-row justify-center align-middle"
+                    @mouseover="show = 'Investors'">
+                  <a target=""
+                     href="/investors/"
+                     class=""
+                     rel="prefetch">
+                    Investors
+                  </a>
+                                  </li>
+                              <li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-27 menu-item-has-children flex flex-row justify-center align-middle"
+                    @mouseover="show = 'Careers'">
+                  <a target=""
+                     href="/careers/"
+                     class=""
+                     rel="prefetch">
+                    Careers
+                  </a>
+                                      <svg class="h-5 w-5 text-white mt-[2px]"
+                         viewBox="0 0 20 20"
+                         fill="currentColor"
+                         aria-hidden="true">
+                      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                    </svg>
+                    <div class="absolute left-50 z-10 mt-8 flex w-screen max-w-max px-4"
+                         x-show="show == 'Careers'"
+                         style="display: none"
+                         x-cloak
+                         @mouseleave="show = false, grand = false">
+                      <div class="w-fit max-w-md flex-auto bg-[#00549e] text-sm leading-6 shadow-2xl">
+                        <div class="p-4">
+                          <ul class="flex flex-col relative">
+                                                          <li class="flex flex-row align-middle items-center relative">
+                                <a target=""
+                                   href="https://ufpt.com/careers/#job_openings"
+                                   rel="prefetch"
+                                   class="py-4"
+                                   @mouseover="grand = 'Job Openings'">
+                                  Job Openings
+                                </a>
+                                                              </li>
+                                                          <li class="flex flex-row align-middle items-center relative">
+                                <a target=""
+                                   href="/careers/internship-program/"
+                                   rel="prefetch"
+                                   class="py-4"
+                                   @mouseover="grand = 'Internship Program'">
+                                  Internship Program
+                                </a>
+                                                              </li>
+                                                      </ul>
+                        </div>
+                      </div>
+                    </div>
+                                  </li>
+                              <li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-28 flex flex-row justify-center align-middle"
+                    @mouseover="show = 'News'">
+                  <a target=""
+                     href="/news/"
+                     class=""
+                     rel="prefetch">
+                    News
+                  </a>
+                                  </li>
+                              <li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-29 flex flex-row justify-center align-middle"
+                    @mouseover="show = 'Contact'">
+                  <a target=""
+                     href="/contact-us/"
+                     class=""
+                     rel="prefetch">
+                    Contact
+                  </a>
+                                  </li>
+                          </ul>
+            <div class="header-search">
+                <svg data-id="searchToggle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-6 h-6 search-icon cursor-pointer scroll-lock" @click="modal = !modal" :aria-expanded="modal ? 'true' : 'false'" aria-expanded="false">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"></path>
+                </svg>
+            </div>
+                  </div>
+      </div>
+      <div class="flex items-center lg:hidden mobile-menu relative h-12 w-12">
+        <button type="button"
+                class="flex items-center space-x-2 focus:outline-none h-full w-full text-white"
+                x-on:click="toggle">
+          <div class="w-6 flex items-center justify-center relative">
+            <span x-bind:class="open ? 'translate-y-0 rotate-45' : '-translate-y-2'"
+                  class="transform transition w-full h-px bg-current absolute">
+            </span>
+            <span x-bind:class="open ? 'opacity-0 translate-x-3' : 'opacity-100'"
+                  class="transform transition w-full h-px bg-current absolute">
+            </span>
+            <span x-bind:class="open ? 'translate-y-0 -rotate-45' : 'translate-y-2'"
+                  class="transform transition w-full h-px bg-current absolute">
+            </span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Mobile menu, show/hide based on menu state. -->
+  <div class="md:hidden transition-[height] duration-500 ease-out container px-8"
+       style="display: none"
+       id="mobile-menu"
+       x-show="open"
+       x-transition>
+    <div class="space-y-1 pb-3 pt-2">
+      <ul class="plain " x-data="{ show : false, grand : false }">
+                  <li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-22 py-2">
+                          <a target=""
+                 href="/medtech/"
+                 class="w-full"
+                 rel="prefetch">
+                MedTech
+              </a>
+                                  </li>
+                  <li class=" menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-23 menu-item-has-children py-2">
+                          <div class="child-nav w-full !text-left">
+                <a target=""
+                   href="/advanced-components/"
+                   rel="prefetch"
+                   class="w-fit flex-1 !text-left">Advanced Components</a>
+                <div class="flex-1"
+                     @click="show != 'Advanced Components' ? show = 'Advanced Components' : show = ''">
+                  <svg class="h-5 w-5 text-white mt-[2px]"
+                       viewBox="0 0 20 20"
+                       fill="currentColor"
+                       aria-hidden="true">
+                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+                                      <div class="ml-2 pt-4"
+                   x-show="show == 'Advanced Components'"
+                   style="display: none"
+                   x-cloak>
+                <div class="">
+                  <ul class="flex flex-col relative">
+                                          <li class="py-2">
+                                                  <a target=""
+                             href="/advanced-components/design-development/"
+                             rel="prefetch"
+                             class="w-full">
+                            Design & Development
+                          </a>
+                                                                      </li>
+                                          <li class="py-2">
+                                                  <div class="child-nav w-full !text-left">
+                            <a class="w-fit flex-1 !text-left" href="/advanced-components/applications/">Applications</a>
+                            <div class="flex-1"
+                                 @click="grand != 'Applications' ? grand = 'Applications' : grand = ''">
+                              <svg class="h-5 w-5 text-white mt-[2px]"
+                                   viewBox="0 0 20 20"
+                                   fill="currentColor"
+                                   aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                              </svg>
+                            </div>
+                          </div>
+                                                                          <div class="ml-2 pt-4"
+                               x-show="grand == 'Applications'"
+                               style="display: none"
+                               x-cloak>
+                            <div class="">
+                              <ul class="flex flex-col">
+                                                                  <li class="relative py-1">
+                                    <a target=""
+                                       href="/advanced-components/applications/packaging/"
+                                       class=""
+                                       rel="prefetch">
+                                      Equipment Protection & Packaging
+                                    </a>
+                                  </li>
+                                                                  <li class="relative py-1">
+                                    <a target=""
+                                       href="/advanced-components/applications/acoustic-thermal/"
+                                       class=""
+                                       rel="prefetch">
+                                      Acoustic & Thermal Insulation
+                                    </a>
+                                  </li>
+                                                                  <li class="relative py-1">
+                                    <a target=""
+                                       href="/advanced-components/applications/fluid-air-management/"
+                                       class=""
+                                       rel="prefetch">
+                                      Fluid & Air Management
+                                    </a>
+                                  </li>
+                                                                  <li class="relative py-1">
+                                    <a target=""
+                                       href="/advanced-components/applications/comfort-support-protection/"
+                                       class=""
+                                       rel="prefetch">
+                                      Comfort, Support & Protection
+                                    </a>
+                                  </li>
+                                                                  <li class="relative py-1">
+                                    <a target=""
+                                       href="/advanced-components/applications/trim-structural-components/"
+                                       class=""
+                                       rel="prefetch">
+                                      Trim & Structural Components
+                                    </a>
+                                  </li>
+                                                              </ul>
+                            </div>
+                          </div>
+                                              </li>
+                                          <li class="py-2">
+                                                  <a target=""
+                             href="/advanced-components/materials-expertise/"
+                             rel="prefetch"
+                             class="w-full">
+                            Materials Expertise
+                          </a>
+                                                                      </li>
+                                          <li class="py-2">
+                                                  <a target=""
+                             href="/advanced-components/capabilities/"
+                             rel="prefetch"
+                             class="w-full">
+                            Capabilities
+                          </a>
+                                                                      </li>
+                                          <li class="py-2">
+                                                  <a target=""
+                             href="/resources/"
+                             rel="prefetch"
+                             class="w-full">
+                            Resources
+                          </a>
+                                                                      </li>
+                                      </ul>
+                </div>
+              </div>
+                      </li>
+                  <li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-24 menu-item-has-children py-2">
+                          <div class="child-nav w-full !text-left">
+                <a target=""
+                   href="/about-us/"
+                   rel="prefetch"
+                   class="w-fit flex-1 !text-left">About</a>
+                <div class="flex-1"
+                     @click="show != 'About' ? show = 'About' : show = ''">
+                  <svg class="h-5 w-5 text-white mt-[2px]"
+                       viewBox="0 0 20 20"
+                       fill="currentColor"
+                       aria-hidden="true">
+                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+                                      <div class="ml-2 pt-4"
+                   x-show="show == 'About'"
+                   style="display: none"
+                   x-cloak>
+                <div class="">
+                  <ul class="flex flex-col relative">
+                                          <li class="py-2">
+                                                  <a target=""
+                             href="https://ufpt.com/about-us/#leadership"
+                             rel="prefetch"
+                             class="w-full">
+                            Leadership
+                          </a>
+                                                                      </li>
+                                          <li class="py-2">
+                                                  <a target=""
+                             href="/about-us/operating-principles/"
+                             rel="prefetch"
+                             class="w-full">
+                            Operating Principles
+                          </a>
+                                                                      </li>
+                                          <li class="py-2">
+                                                  <a target=""
+                             href="/about-us/sustainability/"
+                             rel="prefetch"
+                             class="w-full">
+                            Sustainability
+                          </a>
+                                                                      </li>
+                                          <li class="py-2">
+                                                  <a target=""
+                             href="/about-us/quality-and-certifications/"
+                             rel="prefetch"
+                             class="w-full">
+                            Quality and Certifications
+                          </a>
+                                                                      </li>
+                                          <li class="py-2">
+                                                  <a target=""
+                             href="https://ufpt.com/about-us/awards-recognition/"
+                             rel="prefetch"
+                             class="w-full">
+                            Awards & Recognition
+                          </a>
+                                                                      </li>
+                                          <li class="py-2">
+                                                  <a target=""
+                             href="/about-us/locations/"
+                             rel="prefetch"
+                             class="w-full">
+                            Locations
+                          </a>
+                                                                      </li>
+                                          <li class="py-2">
+                                                  <a target=""
+                             href="https://ufpt.com/about-us/our-companies/"
+                             rel="prefetch"
+                             class="w-full">
+                            Our Companies
+                          </a>
+                                                                      </li>
+                                      </ul>
+                </div>
+              </div>
+                      </li>
+                  <li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-25 py-2">
+                          <a target=""
+                 href="/investors/"
+                 class="w-full"
+                 rel="prefetch">
+                Investors
+              </a>
+                                  </li>
+                  <li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-27 menu-item-has-children py-2">
+                          <div class="child-nav w-full !text-left">
+                <a target=""
+                   href="/careers/"
+                   rel="prefetch"
+                   class="w-fit flex-1 !text-left">Careers</a>
+                <div class="flex-1"
+                     @click="show != 'Careers' ? show = 'Careers' : show = ''">
+                  <svg class="h-5 w-5 text-white mt-[2px]"
+                       viewBox="0 0 20 20"
+                       fill="currentColor"
+                       aria-hidden="true">
+                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+                                      <div class="ml-2 pt-4"
+                   x-show="show == 'Careers'"
+                   style="display: none"
+                   x-cloak>
+                <div class="">
+                  <ul class="flex flex-col relative">
+                                          <li class="py-2">
+                                                  <a target=""
+                             href="https://ufpt.com/careers/#job_openings"
+                             rel="prefetch"
+                             class="w-full">
+                            Job Openings
+                          </a>
+                                                                      </li>
+                                          <li class="py-2">
+                                                  <a target=""
+                             href="/careers/internship-program/"
+                             rel="prefetch"
+                             class="w-full">
+                            Internship Program
+                          </a>
+                                                                      </li>
+                                      </ul>
+                </div>
+              </div>
+                      </li>
+                  <li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-28 py-2">
+                          <a target=""
+                 href="/news/"
+                 class="w-full"
+                 rel="prefetch">
+                News
+              </a>
+                                  </li>
+                  <li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-29 py-2">
+                          <a target=""
+                 href="/contact-us/"
+                 class="w-full"
+                 rel="prefetch">
+                Contact
+              </a>
+                                  </li>
+              </ul>
+      <div class="header-search">
+          <svg data-id="searchToggle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-6 h-6 search-icon cursor-pointer scroll-lock" @click="modal = !modal" :aria-expanded="modal ? 'true' : 'false'" aria-expanded="false">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"></path>
+          </svg>
+      </div>
+    </div>
+  </div>
+</nav>
+<script>
+  document.addEventListener('alpine:init', () => { Alpine.data('open', () => ({
+    open: false,
+    modal: false,
+    toggle() { this.open = ! this.open }
+  })) })
+</script>
+            </div>
+            <!-- #nav -->
+            </header>
+    <section id="content" role="main" class="content-wrapper overflow-hidden">
+                <div class="wrapper ">
+              <div class="" id="content">
+    <article class="post-type-page" id="post-123">
+      <div>
+                                        <div id="" class="scrollspy-section">
+              <div class="diamond-hero relative isolate max-w-[150em] mx-auto">
+  <div class="bg_squares">
+  </div>
+  <div class="squares">
+    <div class="mx-auto pb-16 flex flex-col-reverse md:flex-col md:py-16 ">
+      <div class="layout mx-auto w-full">
+        <div class="content mt-4 md:mt-0 min-h-[300px] xl:min-h-[500px] relative max-w-full xl:max-w-[75%] 2xl:max-w-[78%] 3xl:max-w-[90%]">
+          <div class="main flex flex-col-reverse md:flex-row">
+            <div class="w-full md:w-1/2 xl:w-2/3 2xl:w-[75%]">
+              <p class="subtitle">
+                Advanced Components: Capabilities
+              </p>
+              <h1 class="title">
+                Manufacturing Processes
+              </h1>
+                            <div class="body">
+                <p>UFP’s manufacturing resources combined with our access to an array of materials gives us the ability to create custom solutions that best fit your needs. Our manufacturing capabilities include the following:</p>
+
+              </div>
+            </div>
+          </div>
+                            </div>
+      </div>
+      <div class="diamonds z-10 block">
+                  <div class="diamond-homepage z-10">
+              <img src="https://ufpt.com/wp-content/uploads/2023/08/Group-2-5.png"
+       alt="" class="h-full w-full object-cover object-top relative" width="1549"
+                        height="
+       1088
+       " />
+          </div>
+                          <div class="diamond-mobile z-10">
+              <img src="https://ufpt.com/wp-content/uploads/2023/08/KC-–-Mobile-3.png"
+       alt="Industrial CNC machine cutting gray foam blocks, surrounded by blue geometric shapes and textured gray backgrounds." class="h-full w-full object-cover object-top relative" width="1170"
+                        height="
+       630
+       " />
+          </div>
+              </div>
+    </div>
+  </div>
+      <div class="absolute bottom-0 h-12 text-center w-full mt-8">
+      <a href="#first" class="absolute w-full h-full left-0 right-0">
+        <span class="sr-only">Scroll to first section</span>
+        <svg xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink"
+             width="25px"
+             viewBox="0 0 29.911 15.554"
+             role="image"
+             style="height: auto"
+             class="mx-auto">
+          <title>
+            Down Arrow
+          </title>
+          <defs>
+          <clipPath id="clip-path">
+          <rect id="Rectangle_8" data-name="Rectangle 8" width="15.554" height="29.912" fill="#0080ff" />
+          </clipPath>
+          </defs>
+          <g id="Group_5189" data-name="Group 5189" transform="translate(29.911) rotate(90)">
+          <g id="Group_12" data-name="Group 12" transform="translate(0 0)" clip-path="url(#clip-path)">
+          <path id="Path_21" data-name="Path 21" d="M5279.313,1949.078a2.38,2.38,0,0,1-.559,1.327l-10.765,12.558a2.392,2.392,0,1,1-3.643-3.1l9.436-11.007-9.436-11.006h0a2.392,2.392,0,1,1,3.643-3.1l10.765,12.557a2.393,2.393,0,0,1,.559,1.776Z" transform="translate(-5263.771 -1933.898)" fill="#0080ff" />
+          </g>
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+            </div>
+                                                                                                                                                                                                                                                                                                                                                                        <span id="first" class="sr-only"></span>
+                                                                                                                                                                                                                                                  <div id="" class="scrollspy-section">
+              <section class="container mx-auto
+                                                    pt-0
+                                                                                                    pb-16
+                                                                                                max-w-5xl px-8">
+        <div class="flex flex-col gap-4 text-body text-small">
+        <div class="flex flex-col md:flex-row gap-0 md:gap-8">
+<ul class="w-full md:w-1/2">
+<li class="li">Compression Molding</li>
+<li class="li">Thermoplastic Welding &amp; Heat Sealing</li>
+<li class="li">Vacuum Forming</li>
+<li class="li">Thin Film Thermoforming (offered through <a href="https://welchfluorocarbon.com/" target="_blank" rel="noopener">Welch Fluorocarbon, a UFP Technologies company</a>)</li>
+<li class="li">Injection Molding (offered through <a href="https://technoplastics.com/" target="_blank" rel="noopener">Techno Plastics Industries, a UFP Technologies company</a>)</li>
+<li class="li">High-Speed Die Cutting</li>
+</ul>
+<ul class="w-full md:w-1/2">
+<li class="li">CNC Routing &amp; Water Jet Cutting</li>
+<li class="li">Foam Cutting &amp; Convoluting</li>
+<li class="li">Technical Fabric Joining</li>
+<li class="li">Cut and Sew (offered through <a href="https://www.ajrspecialtyproducts.com/" target="_blank" rel="noopener">AJR Specialty Products, a UFP Technologies company</a>)</li>
+<li class="li">Lamination</li>
+<li class="li">Felting</li>
+<li class="li">Printing &amp; Decoration (Laser Etching, Pad Printing)</li>
+</ul>
+</div>
+<p><!--more--></p>
+
+    </div>
+</section>
+            </div>
+                                                                                                                                                                                                                  <div id="" class="scrollspy-section">
+              <section class="box-layout">
+  <div class="justify-center mx-auto flex flex-col items-center max-w-6xl text-center">
+    <p class="subtitle">Services</p>
+    <p class="title">Exceptional Manufacturing Services</p>
+    <div class="body">
+      
+    </div>
+  </div>
+  <div class="boxes">
+          <div class="box group overflow-hidden relative aspect-auto min-h-[400px]">
+                          <div>
+            <img class="absolute h-full w-full object-cover top-0 left-0 opacity-[35%] grayscale"
+              src="https://ufpt.com/wp-content/uploads/2023/07/rapid-protoyping-1.jpg"
+              alt="3D printer nozzle extruding material onto a partially completed black, lattice-patterned object on a build platform." />
+          </div>
+                <div class="relative h-full w-full">
+          <div class="front group-hover:opacity-0 duration-500 group-hover:translate-y-full translate-y-0">
+            <p class="title">
+              Rapid Prototyping
+            </p>
+          </div>
+          <div class="group-hover:translate-y-0 translate-y-full transition-all duration-500 group-hover:opacity-100 opacity-0">
+            <p class="title">
+              Rapid Prototyping
+            </p>
+            <div class="description">
+              <p>We understand the importance of getting to market quickly and efficiently. Our nimble team of engineers, technicians and machinists will work with you to create prototypes that are designed for manufacturability. Our multiple lab locations and in-house machining allow us to produce your prototype in 24-to-72 hours.</p>
+
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+          <div class="box group overflow-hidden relative aspect-auto min-h-[400px]">
+                          <div>
+            <img class="absolute h-full w-full object-cover top-0 left-0 opacity-[35%] grayscale"
+              src="https://ufpt.com/wp-content/uploads/2023/07/image79315.jpg"
+              alt="Two men examine a metal mold on a lab table, using calipers. One has gray hair, wearing a blue jacket; the other has curly hair, dressed in a plaid shirt." />
+          </div>
+                <div class="relative h-full w-full">
+          <div class="front group-hover:opacity-0 duration-500 group-hover:translate-y-full translate-y-0">
+            <p class="title">
+              Tooling
+            </p>
+          </div>
+          <div class="group-hover:translate-y-0 translate-y-full transition-all duration-500 group-hover:opacity-100 opacity-0">
+            <p class="title">
+              Tooling
+            </p>
+            <div class="description">
+              <p>UFP Technologies has multiple in-house tooling departments. The ability to manufacture the tooling ourselves provides us and our customers with the control we need to satisfy the quality work they expect. Most importantly, it allows us to provide a fast turnaround to keep your project on time and on budget.</p>
+
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+          <div class="box group overflow-hidden relative aspect-auto min-h-[400px]">
+                          <div>
+            <img class="absolute h-full w-full object-cover top-0 left-0 opacity-[35%] grayscale"
+              src="https://ufpt.com/wp-content/uploads/2023/07/R8.jpg"
+              alt="Open black case with a gray interior, containing white blocks arranged in a grid pattern." />
+          </div>
+                <div class="relative h-full w-full">
+          <div class="front group-hover:opacity-0 duration-500 group-hover:translate-y-full translate-y-0">
+            <p class="title">
+              Kitting
+            </p>
+          </div>
+          <div class="group-hover:translate-y-0 translate-y-full transition-all duration-500 group-hover:opacity-100 opacity-0">
+            <p class="title">
+              Kitting
+            </p>
+            <div class="description">
+              <p>UFP can assemble multiple products into a single package, or kit, which we then deliver to you. We’ll select and package all the necessary components for the manufacture of your product. Kitting simplifies your fulfillment process and makes it significantly more efficient.</p>
+
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+          <div class="box group overflow-hidden relative aspect-auto min-h-[400px]">
+                          <div>
+            <img class="absolute h-full w-full object-cover top-0 left-0 opacity-[35%] grayscale"
+              src="https://ufpt.com/wp-content/uploads/2023/07/AF14237_Blue-copy.jpg"
+              alt="Industrial automation setup with robotic arms above a flat surface, surrounded by aluminum framing and cables." />
+          </div>
+                <div class="relative h-full w-full">
+          <div class="front group-hover:opacity-0 duration-500 group-hover:translate-y-full translate-y-0">
+            <p class="title">
+              Custom Equipment
+            </p>
+          </div>
+          <div class="group-hover:translate-y-0 translate-y-full transition-all duration-500 group-hover:opacity-100 opacity-0">
+            <p class="title">
+              Custom Equipment
+            </p>
+            <div class="description">
+              <p>What if your new product or innovation is so revolutionary that the tools needed to produce it don’t even exist? With our independent mindset and creativity, UFP can develop the custom equipment necessary to manufacture your product. Now nothing can stop you.</p>
+
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+          <div class="box group overflow-hidden relative aspect-auto min-h-[400px]">
+                          <div>
+            <img class="absolute h-full w-full object-cover top-0 left-0 opacity-[35%] grayscale"
+              src="https://ufpt.com/wp-content/uploads/2023/07/contract-1-scaled.jpg"
+              alt="Three women in blue lab coats work diligently in a laboratory, focused on their tasks with safety glasses and gloves on." />
+          </div>
+                <div class="relative h-full w-full">
+          <div class="front group-hover:opacity-0 duration-500 group-hover:translate-y-full translate-y-0">
+            <p class="title">
+              Contract Manufacturing
+            </p>
+          </div>
+          <div class="group-hover:translate-y-0 translate-y-full transition-all duration-500 group-hover:opacity-100 opacity-0">
+            <p class="title">
+              Contract Manufacturing
+            </p>
+            <div class="description">
+              <p>UFP acts as an extension of your R&amp;D and manufacturing teams. We will work with you to design and develop your product and/or packaging, select the proper materials, manufacture, package and ship your goods with your labels. It’s a seamless experience through the lifecycle of your product.</p>
+
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+          <div class="box group overflow-hidden relative aspect-auto min-h-[400px]">
+                          <div>
+            <img class="absolute h-full w-full object-cover top-0 left-0 opacity-[35%] grayscale"
+              src="https://ufpt.com/wp-content/uploads/2023/07/turnkey-2.jpg"
+              alt="Automated machinery on a conveyor belt packaging items into cardboard boxes in a factory setting." />
+          </div>
+                <div class="relative h-full w-full">
+          <div class="front group-hover:opacity-0 duration-500 group-hover:translate-y-full translate-y-0">
+            <p class="title">
+              Turnkey Solutions
+            </p>
+          </div>
+          <div class="group-hover:translate-y-0 translate-y-full transition-all duration-500 group-hover:opacity-100 opacity-0">
+            <p class="title">
+              Turnkey Solutions
+            </p>
+            <div class="description">
+              <p>UFP Technologies offers complete turnkey solutions, from packaging design and development to drop-shipping, we will work with you from start to finish to make your product launch successful.</p>
+
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+        
+  </div>
+  </section>
+
+<script>
+// on hover, add a full click link to the box
+// then remove it on mouse leave
+const boxes = document.querySelectorAll('.box');
+boxes.forEach(box => {
+  box.addEventListener('mouseenter', () => {
+    // find the box-link class remove hidden
+    // check if it has a link
+    if(box.querySelector('.box-link')){
+      box.querySelector('.box-link').classList.remove('hidden');
+    }
+  });
+  box.addEventListener('mouseleave', () => {
+    if(box.querySelector('.box-link')){
+      box.querySelector('.box-link').classList.add('hidden');
+    }
+  });
+});
+</script>
+            </div>
+                                                                                                                                                                                                                                                                                                                                                                                            <div id="" class="scrollspy-section">
+              <section class="small-diamond">
+  <div class="image">
+    <div class="front-diamond">
+        <img src="https://ufpt.com/wp-content/uploads/2023/07/Group-4.png"
+       alt="Woman with long brown hair working on a machine, focused on adjusting a component, wearing a blue jacket in a lab setting." class="h-full w-full object-cover object-top relative" width="888"
+                          loading="lazy"
+                        height="
+       748
+       " />
+    </div>
+  </div>
+  <div class="content">
+    <div>
+      <h2 class="title">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg"
+               width="18.209"
+               height="18.208"
+               viewBox="0 0 18.209 18.208">
+            <path d="M9.1,0l9.1,9.1-9.1,9.1L0,9.1Z" transform="translate(0)" fill="#0080ff" />
+          </svg>
+        </span>Quality and Certifications
+      </h2>
+    </div>
+    <div class="body">
+      <p>UFP Technologies continually invests in our quality management systems and operations to provide the most seamless experience for our clients. UFP Technologies currently holds quality certifications in key markets across the country.</p>
+
+    </div>
+          <div class="mt-4">
+        <a href="/about-us/quality-and-certifications/" class="text-ufp-light-blue flex flex-row font-normal text-base font-gotham items-center" target="" aria-label="Learn More">
+  <span class="uppercase">Learn More</span>
+  <svg xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke-width="4"
+    stroke="currentColor"
+    class="w-4 h-4 ml-4 -mr-0.5">
+    <path stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+  </svg>
+</a>
+      </div>
+      </div>
+</section>
+            </div>
+                                                                                                                                                                                                                                                                                                                                                              <div id="" class="scrollspy-section">
+              <section class="call_to_action white 
+    "
+  style=" background-position: center; background-size: cover; background-image: url(https://ufpt.com/wp-content/uploads/2023/09/frame.jpeg)">
+      <div class="video-background-wrapper"
+      data-video-src="https://ufpt.com/wp-content/uploads/2023/06/iStock-883275456.mp4"
+      data-poster="https://ufpt.com/wp-content/uploads/2023/09/frame.jpeg">
+      <img src="https://ufpt.com/wp-content/uploads/2023/09/frame.jpeg"
+        class="video-poster absolute z-10 h-[600px] w-auto min-w-full max-w-none object-cover"
+        alt="" />
+    </div>
+    <div class="content">
+    <div>
+      <p class="subtitle">
+        DESIGN & DEVELOPMENT
+      </p>
+    </div>
+    <div>
+      <p class="title">
+        Shaping Innovation
+      </p>
+    </div>
+    <div class="body">
+      <p>See how UFP Technologies uses over 60 years of manufacturing experience to turn your vision into reality.</p>
+
+    </div>
+          <div class="mt-8">
+        <a href="/advanced-components/design-development/" class="button" target="">
+  <span>Learn More</span>
+  <svg xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke-width="2"
+    stroke="currentColor"
+    class="w-4 h-4 ml-4 -mr-0.5">
+    <path stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+  </svg>
+</a>
+      </div>
+      </div>
+</section>
+            </div>
+                                                                                                                                                                                                                                                                                                                                                                        <div id="" class="scrollspy-section">
+              <section class="contact-us" id="contact">
+  <div class="contact-us-form">
+    <div>
+      <p class="subtitle">
+        Contact Us
+      </p>
+      <h2 class="title">
+        Contact UFP
+      </h2>
+      <div class="body">
+        <p>
+          To contact UFP Technologies, please call the number below or complete
+          the following form so that we may route your request to the proper
+          contact.
+        </p>
+      </div>
+      <ul class="mt-8 flex flex-col gap-8 plain">
+        <li class="flex flex-row gap-4">
+          <span>
+            <svg id="Group_4588"
+              data-name="Group 4588"
+              xmlns="http://www.w3.org/2000/svg"
+              width="29"
+              height="29"
+              viewBox="0 0 29 29">
+              <g id="Group_4586"
+                data-name="Group 4586"
+                transform="translate(0 0)">
+                <g id="Group_4335" data-name="Group 4335">
+                  <circle id="Ellipse_319"
+                    data-name="Ellipse 319"
+                    cx="14.5"
+                    cy="14.5"
+                    r="14.5"
+                    fill="#0085ff" />
+                </g>
+              </g>
+              <path id="Path_4299"
+                data-name="Path 4299"
+                d="M313.092,224.7l.029.043.109.157,4.192,6.034h0a.654.654,0,0,0,1.074,0l4.187-6.024c.039-.056.08-.111.118-.169l.027-.039a5.792,5.792,0,1,0-9.729,0Zm4.868-5.551a2.414,2.414,0,1,1-1.707.707A2.414,2.414,0,0,1,317.96,219.149Z"
+                transform="translate(-303.258 -208.338)"
+                fill="#fff" />
+            </svg>
+          </span>
+          <span class="font-gotham text-lg text-[#808080]">
+            100 Hale Street Newburyport, MA 01950 USA
+          </span>
+        </li>
+        <li class="flex flex-row gap-4">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg"
+              width="29"
+              height="30"
+              viewBox="0 0 29 30">
+              <g id="Group_4590"
+                data-name="Group 4590"
+                transform="translate(0 -0.252)">
+                <g id="Group_4589"
+                  data-name="Group 4589"
+                  transform="translate(0 0)">
+                  <g id="Group_4586" data-name="Group 4586">
+                    <g id="Group_4335"
+                      data-name="Group 4335"
+                      transform="translate(0 0)">
+                      <ellipse id="Ellipse_319"
+                        data-name="Ellipse 319"
+                        cx="14.5"
+                        cy="15"
+                        rx="14.5"
+                        ry="15"
+                        transform="translate(0 0.252)"
+                        fill="#0085ff" />
+                    </g>
+                  </g>
+                </g>
+                <path id="Path_4300"
+                  data-name="Path 4300"
+                  d="M157.41,113.968c1.863.939,2.739,1.795,3.027,2.54a1.57,1.57,0,0,1-.047,1.3,2.606,2.606,0,0,1-.819.922,5.11,5.11,0,0,1-2.176.895l-.01,0a12.937,12.937,0,0,1-3.868-1.6,14.372,14.372,0,0,1-3.2-2.789,13.8,13.8,0,0,1-3.353-7.262v0a5.2,5.2,0,0,1,1.172-2.363,2.6,2.6,0,0,1,.98-.729,1.477,1.477,0,0,1,1.256.075c.7.363,1.434,1.349,2.121,3.36.285.642-.132,1.086-.574,1.558-.415.442-.862.92-.257,1.613l2.5,2.857c.6.69,1.133.316,1.624-.031.527-.372,1.024-.723,1.624-.343Z"
+                  transform="translate(-138.795 -97.122)"
+                  fill="#fff"
+                  fill-rule="evenodd" />
+              </g>
+            </svg>
+          </span>
+          <span class="font-gotham text-lg text-[#808080]">800-372-3172</span>
+        </li>
+        <li class="flex flex-row gap-4">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg"
+              width="29"
+              height="30"
+              viewBox="0 0 29 30">
+              <g id="Group_4592"
+                data-name="Group 4592"
+                transform="translate(0 0.36)">
+                <g id="Group_4591"
+                  data-name="Group 4591"
+                  transform="translate(0 0)">
+                  <g id="Group_4589" data-name="Group 4589">
+                    <g id="Group_4586" data-name="Group 4586">
+                      <g id="Group_4335"
+                        data-name="Group 4335"
+                        transform="translate(0 0)">
+                        <ellipse id="Ellipse_319"
+                          data-name="Ellipse 319"
+                          cx="14.5"
+                          cy="15"
+                          rx="14.5"
+                          ry="15"
+                          transform="translate(0 -0.36)"
+                          fill="#0085ff" />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+                <g id="Group_4137"
+                  data-name="Group 4137"
+                  transform="translate(7.427 9.239)">
+                  <path id="Path_4301"
+                    data-name="Path 4301"
+                    d="M305.339,379.276a2.2,2.2,0,0,1,2.117-1.356h9.875a2.231,2.231,0,0,1,2.126,1.307.395.395,0,0,1-.209.61l-6.55,3.413a.546.546,0,0,1-.543,0l-6.634-3.442a.345.345,0,0,1-.183-.531Z"
+                    transform="translate(-305.153 -377.918)"
+                    fill="#fff" />
+                  <path id="Path_4302"
+                    data-name="Path 4302"
+                    d="M314.715,520.164a2.213,2.213,0,0,1-2.219,1.871h-9.96a2.242,2.242,0,0,1-2.216-1.664,2.276,2.276,0,0,1-.081-.581v-4.743c0-.41.256-.561.624-.372q3.093,1.609,6.181,3.224h0a.9.9,0,0,0,.915,0q3.073-1.612,6.155-3.2a.708.708,0,0,1,.186-.076.346.346,0,0,1,.456.369v4.1h0a6.464,6.464,0,0,1-.041,1.063Z"
+                    transform="translate(-300.239 -511.286)"
+                    fill="#fff" />
+                </g>
+              </g>
+            </svg>
+          </span>
+          <span class="font-gotham text-lg text-[#808080]">info@ufpt.com</span>
+        </li>
+      </ul>
+    </div>
+    <div class="hform hs-input">
+            <script>
+        function createContactForm() {
+          if (window.hbspt && window.hbspt.forms) {
+            hbspt.forms.create({
+              region: "na1",
+              portalId: "3309029",
+              formId: "307fe9eb-c307-4a59-9fcf-a2fecccff2e0"
+            });
+          } else {
+            setTimeout(createContactForm, 100);
+          }
+        }
+        createContactForm();
+      </script>
+          </div>
+  </div>
+</section>
+
+            </div>
+                                                                                                                                                                                                                                                                                                                          </div>
+    </article>
+  </div>
+        </div>
+            </section>
+            <footer id="footer">
+            <footer aria-labelledby="footer-heading">
+  <h2 id="footer-heading" class="sr-only">
+	Footer
+  </h2>
+  <div class="mx-auto layout px-6 py-16 lg:px-8 lg:py-32">
+	<div class="footer-wrap">
+	  <div class="footer-contact flex flex-col gap-8">
+		<a href="/">
+		  <span class="sr-only">Homepage</span>
+		  <svg version="1.1"
+			   id="Layer_1"
+			   xmlns="http://www.w3.org/2000/svg"
+			   class="block h-auto w-64"
+			   xmlns:xlink="http://www.w3.org/1999/xlink"
+			   x="0px"
+			   y="0px"
+			   viewBox="0 0 438.29 73.11"
+			   style="enable-background:new 0 0 438.29 73.11"
+			   xml:space="preserve">
+			<style type="text/css">
+				.st0 {
+					fill: #FFFFFF;
+				}
+			</style>
+			<g>
+			<g>
+			<path class="st0" d="M65.8,0.18L65.78,0.2c0,3.4-2.76,6.16-6.16,6.16H26.88c-3.4,0-6.16-2.76-6.16-6.16c0,0,0,0,0-0.01L20.7,0.18 H0.18V13.4h86.45V0.18H65.8z" />
+			<path class="st0" d="M65.8,16.14l-0.02,0.02c0,3.4-2.76,6.16-6.16,6.16H26.88c-3.4,0-6.16-2.76-6.16-6.16c0,0,0,0,0-0.01 l-0.02-0.02H0.18v13.22h86.45V16.14H65.8z" />
+			<path class="st0" d="M65.8,32.09l-0.02,0.03c0,3.4-2.76,6.16-6.16,6.16H26.88c-3.4,0-6.16-2.76-6.16-6.16c0,0,0,0,0-0.01 l-0.02-0.02H0.18v12.18c0,0.35,0.01,0.7,0.03,1.04h86.4c0.01-0.34,0.03-0.69,0.03-1.04V32.09H65.8z" />
+			<path class="st0" d="M65.8,48.05l-0.02,0.03c0,3.4-2.76,6.16-6.16,6.16H26.88c-3.4,0-6.16-2.76-6.16-6.16c0,0,0,0,0-0.01 l-0.02-0.02H0.24C1.1,61.87,12.57,72.81,26.6,72.81h33.6c14.03,0,25.51-10.94,26.37-24.76H65.8z" />
+			</g>
+			<g>
+			<path class="st0" d="M115.85,17.61V0.4h8.63v17.04c0,4.42,2.23,6.53,5.65,6.53c3.42,0,5.65-2.02,5.65-6.31V0.4h8.63v16.99 c0,9.9-5.65,14.23-14.36,14.23C121.33,31.62,115.85,27.2,115.85,17.61z" />
+			<path class="st0" d="M149.45,0.4h24.52v7.45h-16.03v5.21h14.5v7.05h-14.5v10.95h-8.5V0.4z" />
+			<path class="st0" d="M177.83,0.4h13.14c7.75,0,12.74,3.98,12.74,10.77v0.09c0,7.23-5.56,11.04-13.18,11.04h-4.2v8.76h-8.5V0.4z M190.35,15.64c3.02,0,4.86-1.58,4.86-3.99v-0.09c0-2.63-1.84-4.03-4.9-4.03h-3.99v8.1H190.35z" />
+			</g>
+			<path class="st0" d="M124.8,47.64h-9.32v-2.9h21.81v2.9h-9.32V72.5h-3.17V47.64z" />
+			<path class="st0" d="M143.16,44.74h20.07v2.86h-16.93v9.48h15.15v2.86h-15.15v9.72h17.13v2.86h-20.26V44.74z" />
+			<path class="st0" d="M168.51,58.7v-0.08c0-7.85,5.87-14.36,14.04-14.36c5.04,0,8.05,1.79,10.83,4.4l-2.14,2.3 c-2.34-2.22-4.96-3.81-8.72-3.81c-6.15,0-10.75,5-10.75,11.38v0.08c0,6.42,4.64,11.46,10.75,11.46c3.81,0,6.31-1.47,8.96-4.01 l2.06,2.02c-2.9,2.93-6.07,4.88-11.1,4.88C174.42,72.98,168.51,66.67,168.51,58.7z" />
+			<path class="st0" d="M199.01,44.74h3.13v12.33h16.02V44.74h3.13V72.5h-3.13V60.01h-16.02V72.5h-3.13V44.74z" />
+			<path class="st0" d="M229.15,44.74h2.93l17.49,22.25V44.74h3.05V72.5h-2.5l-17.93-22.76V72.5h-3.05V44.74z" />
+			<path class="st0" d="M259.26,58.7v-0.08c0-7.65,5.75-14.36,14.2-14.36c8.45,0,14.12,6.62,14.12,14.28c0.04,0.04,0.04,0.04,0,0.08 c0,7.65-5.75,14.36-14.2,14.36C264.93,72.98,259.26,66.35,259.26,58.7z M284.32,58.7v-0.08c0-6.3-4.6-11.46-10.95-11.46 c-6.34,0-10.87,5.08-10.87,11.38v0.08c0,6.31,4.6,11.46,10.95,11.46C279.8,70.08,284.32,65.01,284.32,58.7z" />
+			<path class="st0" d="M294.2,44.74h3.13v24.87h15.63v2.89H294.2V44.74z" />
+			<path class="st0" d="M314.98,58.7v-0.08c0-7.65,5.75-14.36,14.2-14.36c8.45,0,14.12,6.62,14.12,14.28c0.04,0.04,0.04,0.04,0,0.08 c0,7.65-5.75,14.36-14.2,14.36C320.65,72.98,314.98,66.35,314.98,58.7z M340.04,58.7v-0.08c0-6.3-4.6-11.46-10.95-11.46 c-6.34,0-10.87,5.08-10.87,11.38v0.08c0,6.31,4.6,11.46,10.95,11.46C335.52,70.08,340.04,65.01,340.04,58.7z" />
+			<path class="st0" d="M348.69,58.7v-0.08c0-7.61,5.59-14.36,13.92-14.36c4.68,0,7.58,1.35,10.35,3.69l-2.02,2.38 c-2.14-1.86-4.52-3.17-8.45-3.17c-6.15,0-10.55,5.2-10.55,11.38v0.08c0,6.62,4.24,11.54,10.99,11.54c3.17,0,6.11-1.23,8.01-2.78 v-6.9h-8.45v-2.81h11.46v11.06c-2.58,2.3-6.46,4.24-11.14,4.24C354.08,72.98,348.69,66.63,348.69,58.7z" />
+			<path class="st0" d="M381.29,44.74h3.13V72.5h-3.13V44.74z" />
+			<path class="st0" d="M392.56,44.74h20.07v2.86h-16.93v9.48h15.15v2.86h-15.15v9.72h17.13v2.86h-20.27V44.74z" />
+			<path class="st0" d="M417.31,68.46l1.94-2.3c2.9,2.62,5.67,3.93,9.52,3.93c3.73,0,6.19-1.98,6.19-4.72v-0.08 c0-2.58-1.39-4.04-7.22-5.27c-6.39-1.39-9.32-3.45-9.32-8.01v-0.08c0-4.36,3.85-7.58,9.12-7.58c4.04,0,6.94,1.15,9.75,3.41 l-1.82,2.42c-2.58-2.1-5.16-3.01-8.01-3.01c-3.61,0-5.91,1.98-5.91,4.48v0.08c0,2.62,1.43,4.08,7.54,5.39 c6.19,1.35,9.04,3.61,9.04,7.85v0.08c0,4.76-3.97,7.85-9.48,7.85C424.25,72.9,420.64,71.43,417.31,68.46z" />
+			</g>
+		  </svg>
+		</a>
+		  <hr class="w-16 border-[#0080FF] border-[1px]" />
+		<div>
+		  <p class="text-sm leading-6 text-white font-gotham">
+			Corporate Headquarters
+			<br />
+			100 Hale Street Newburyport,
+			<br />
+			MA 01950
+		  </p>
+		</div>
+		<div class="flex space-x-6">
+		  <a href="https://www.linkedin.com/company/ufp-technologies-inc-"
+			 class="text-white hover:text-gray-100"
+			 target="_blank">
+			<span class="sr-only">LinkedIn</span>
+			<svg role="img"
+				 viewBox="0 0 24 24"
+				 class="h-6 w-6"
+				 xmlns="http://www.w3.org/2000/svg">
+			  <title>
+				LinkedIn
+			  </title>
+			  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" class="text-white" style="fill: #fff" />
+			</svg>
+		  </a>
+		  <a href="https://www.facebook.com/ufptechnologies"
+			 class="text-white hover:text-gray-100"
+			 target="_blank">
+			<span class="sr-only">Facebook</span>
+			<svg class="h-6 w-6"
+				 fill="currentColor"
+				 viewBox="0 0 24 24"
+				 aria-hidden="true">
+			  <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+			</svg>
+		  </a>
+		  <a href="https://www.instagram.com/ufptechnologies/"
+			 class="text-white hover:text-gray-100"
+			 target="_blank">
+			<span class="sr-only">Instagram</span>
+			<svg class="h-6 w-6"
+				 fill="currentColor"
+				 viewBox="0 0 24 24"
+				 aria-hidden="true">
+			  <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+			</svg>
+		  </a>
+		  <a href="https://twitter.com/ufpt"
+			 class="text-white hover:text-gray-100"
+			 target="_blank">
+			<span class="sr-only">Twitter</span>
+			<svg class="h-6 w-6 fill-current"
+				 fill="currentColor"
+				 viewBox="0 0 24 24"
+				 aria-hidden="true">
+			  <g>
+			  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+			  </path>
+			  </g>
+			</svg>
+		  </a>
+		  <a href="https://www.youtube.com/user/UFPTechnologies"
+			 class="text-white hover:text-gray-100"
+			 target="_blank">
+			<span class="sr-only">Youtube</span>
+			<svg class="h-6 w-6 fill-current"
+				 fill="currentColor"
+				 viewBox="0 0 256 180"
+				 aria-hidden="true">
+			  <g>
+			  <path d="M250.346231,28.0746923 C247.358133,17.0320558 238.732098,8.40602109 227.689461,5.41792308 C207.823743,0 127.868333,0 127.868333,0 C127.868333,0 47.9129229,0.164179487 28.0472049,5.58210256 C17.0045684,8.57020058 8.37853373,17.1962353 5.39043571,28.2388718 C-0.618533519,63.5374615 -2.94988224,117.322662 5.5546152,151.209308 C8.54271322,162.251944 17.1687479,170.877979 28.2113844,173.866077 C48.0771024,179.284 128.032513,179.284 128.032513,179.284 C128.032513,179.284 207.987923,179.284 227.853641,173.866077 C238.896277,170.877979 247.522312,162.251944 250.51041,151.209308 C256.847738,115.861464 258.801474,62.1091 250.346231,28.0746923 Z" fill="#FFFFFF" />
+			  <polygon fill="#00549e" points="102.420513 128.06 168.749025 89.642 102.420513 51.224" />
+			  </g>
+			</svg>
+		  </a>
+		</div>
+	  </div>
+
+	<div class="footer-navs">
+		<div class="footer-nav-col1 footer-nav">
+			<div class="nav-header">
+			  <a href="/medtech/" class="flex items-center font-normal text-base text-white no-underline">
+				<span>Medtech</span>
+				<span class="ml-2 h-4 w-4 rotate-90 block">
+				  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="stroke-current">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+</svg>
+				</span>
+			  </a>
+			</div>
+		</div>
+		<div class="footer-nav-col2 footer-nav">
+			<div class="nav-header">
+			  <a href="/advanced-components/" class="flex items-center font-normal text-base text-white">
+				<span>Advanced Components</span>
+				<span class="ml-2 h-4 w-4 rotate-90 block">
+				  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="stroke-current">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+</svg>
+				</span>
+			  </a>
+			</div>
+			<ul class="mt-1 space-y-2 plain">
+			  <li><a href="/advanced-components/design-development/" class="nav-items">Design & Development</a></li>
+			  <li><a href="/advanced-components/materials-expertise/" class="nav-items">Materials Expertise</a></li>
+			  <li><a href="/advanced-components/applications/" class="nav-items">Applications</a></li>
+			  <li><a href="/advanced-components/capabilities/" class="nav-items">Capabilities</a></li>
+			</ul>
+		</div>
+		<div class="footer-nav-col3 footer-nav">
+			<p class="nav-header font-normal text-base text-white">Menu</p>
+			<ul class="mt-1 space-y-2 plain">
+			  <li><a href="/about-us/" class="nav-items">About</a></li>
+			  <li><a href="/investors/" class="nav-items">Investors</a></li>
+			  <li><a href="/resources/" class="nav-items">Resources</a></li>
+			  <li><a href="/careers/" class="nav-items">Careers</a></li>
+			  <li><a href="/news/" class="nav-items">News</a></li>
+			  <li><a href="/contact-us/" class="nav-items">Contact</a></li>
+			</ul>
+		</div>
+		<div class="footer-nav-col4 footer-nav">
+			<p class="nav-header font-normal text-base text-white">Contact</p>
+			<ul class="mt-1 space-y-2 plain">
+			  <li><a href="tel:800-372-3172" class="nav-items">800-372-3172</a></li>
+			  <li><a href="tel:978-352-2200" class="nav-items">978-352-2200</a></li>
+			  <li><a href="mailto:info@ufpt.com" class="nav-items">info@ufpt.com</a></li>
+			</ul>
+		</div>
+		<div class="footer-nav-col5 footer-nav">
+			<ul class="mt-1 space-y-2 plain">
+			  <li><a href="/terms-conditions/" class="nav-items">Terms & Conditions</a></li>
+			  <li><a href="/privacy-policy/" class="nav-items">Privacy Policy</a></li>
+			  <li><a href="/accessibility-policy/" class="nav-items">Accessibility Policy</a></li>
+			  <li class="leading-tight"><a href="#" class="termly-display-preferences nav-items">Consent Preferences</a></li>
+			  <li class="leading-tight"><a href="#" class="termly-display-preferences nav-items">Do Not Sell or Share My Personal information</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	</div>
+  </div>
+  <div class="bg-white py-4 text-center flex flex-row divide-x divide-[#808080]/10 items-center align-middle justify-center mx-auto">
+	<p class="text-xs leading-5 text-[#808080] pr-4">
+	  &copy;2026
+	  UFP Technologies, Inc.
+	</p>
+  </div>
+</footer>
+<style>
+  [aria-label="Cookie Consent Prompt"] {
+    visibility: hidden;
+  }
+
+  [aria-label="Cookie Consent Prompt"].termly-banner-ready {
+    visibility: visible;
+  }
+
+  /* GPC signal already communicates opt-out — don't nag with the banner. */
+  .gpc-opt-out [aria-label="Cookie Consent Prompt"] {
+    display: none !important;
+    visibility: hidden !important;
+  }
+</style>
+<script>
+// Override Termly cookie consent banner text
+(function() {
+  var customText = 'We use essential cookies to make our site work. With your permission, we may also use non\u2011essential cookies for analytics, advertising, and personalization purposes. These cookies are disabled by default.<br><br>You can accept all cookies, reject non\u2011essential cookies, or manage your preferences at any time. For more information about how we use cookies and our partners, see our <a href="/privacy-policy/" style="text-decoration:underline; text-size-adjust:100%; font-family:Roboto,Open Sans,Arial,Helvetica; font-feature-settings:normal; font-size:12px;">Privacy Policy</a>. You can change your cookie settings at any time by clicking \u201CPreferences.\u201D';
+
+  var attempts = 0;
+  var maxAttempts = 60;
+
+  function tryReplace() {
+    var banner = document.querySelector('[aria-label="Cookie Consent Prompt"]');
+    if (banner) {
+      var msgEl = banner.querySelector('[class*="message"]');
+      if (msgEl) {
+        msgEl.innerHTML = customText;
+		banner.classList.add('termly-banner-ready');
+		document.body.classList.add('termly-banner-ready');
+        console.log('[Termly Override] SUCCESS — replaced text');
+        return true;
+      }
+    }
+    return false;
+  }
+
+  // Try on Termly script load
+  var termlyScript = document.querySelector('script[src*="termly.io"]');
+  if (termlyScript) {
+    termlyScript.addEventListener('load', function() {
+      if (!tryReplace()) {
+        // Termly loaded but banner not yet in DOM — start polling
+        var interval = setInterval(function() {
+          attempts++;
+          if (tryReplace() || attempts >= maxAttempts) clearInterval(interval);
+        }, 1000);
+      }
+    });
+  }
+
+  // Also poll immediately in case script already loaded
+  var interval = setInterval(function() {
+    attempts++;
+    if (tryReplace() || attempts >= maxAttempts) clearInterval(interval);
+  }, 1000);
+})();
+</script>
+<script>
+// for each slider create a slider
+$('.logos').slick({
+  infinite: true,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  dots: false,
+  arrows: true,
+  // on mobile
+  responsive: [
+	{
+	  breakpoint: 768,
+	  settings: {
+		slidesToShow: 2,
+		slidesToScroll: 1,
+		dots: false,
+	  }
+	}
+  ]
+});
+
+</script>
+        </footer>
+        <script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/ufpt/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+
+        <noscript>
+        <img height="1"
+             width="1"
+             style="display:none"
+             alt=""
+             src="https://www.facebook.com/tr?id=1092119147535906&ev=PageView&noscript=1" />
+        <img height="1"
+             width="1"
+             style="display:none"
+             alt=""
+             src="https://px.ads.linkedin.com/collect/?pid=421865&fmt=gif" />
+    </noscript>
+    <script> (function(){ var s = document.createElement('script'); var h = document.querySelector('head') || document.body; s.src = 'https://acsbapp.com/apps/app/dist/js/app.js'; s.async = true; s.onload = function(){ acsbJS.init({ statementLink : 'https://ufpt.com/accessibility-policy/', footerHtml : '', hideMobile : false, hideTrigger : false, disableBgProcess : false, language : 'en', position : 'left', leadColor : '#00549e', triggerColor : '#00549e', triggerRadius : '50%', triggerPositionX : 'right', triggerPositionY : 'bottom', triggerIcon : 'people', triggerSize : 'medium', triggerOffsetX : 20, triggerOffsetY : 20, mobile : { triggerSize : 'small', triggerPositionX : 'right', triggerPositionY : 'bottom', triggerOffsetX : 10, triggerOffsetY : 10, triggerRadius : '50%' } }); }; h.appendChild(s); })(); </script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a4c195428b44862e',t:'MTc5MjI2NDAxMw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

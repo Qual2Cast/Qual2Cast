@@ -1,0 +1,4747 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="purple" data-imagery="rich" class="hero-intro-active">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paradium.AI</title>
+<meta name="description" content="Paradium.AI is an AI technology company. One centralized, AI-optimized infrastructure that puts the tools, data, and reach media entrepreneurs could never build alone directly into their hands.">
+<link rel="icon" type="image/png" href="assets/Favicon.png">
+<link rel="apple-touch-icon" href="assets/Favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="paradium.css">
+<style>
+/* ============================================================
+   R5 · BOLD EDITORIAL
+   Bold hero on flat editorial paper; editorial sections below.
+   ============================================================ */
+:root {
+  --ink: #F3F2ED;
+  --ink-2: #F3F2ED;
+  --ink-3: #F3F2ED;
+  --bone: #15140F;
+  --bone-70: #4C4A42;
+  /* #82807A is 3.52:1 on the paper and 3.77:1 on white: below AA for every
+     small label that uses it (footer meta, leadership roles, mono captions).
+     Same warm grey, one step down, clearing 4.5:1 on both surfaces. */
+  --bone-45: #6F6D64;
+  --line: rgba(21, 20, 15, 0.09);
+  --line-strong: rgba(21, 20, 15, 0.16);
+  --paper: #E9E8E1;
+  --paper-ink: #15140F;
+  --duo-dark: #15140F;
+  --atmos-a: transparent;
+  --atmos-b: transparent;
+  --atmos-c: transparent;
+  --grain-opacity: 0;
+  --edge: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  --edge-soft: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  --e1: 0 1px 2px rgba(21, 20, 15, 0.06), 0 10px 24px -14px rgba(21, 20, 15, 0.18);
+  --e2: 0 2px 5px rgba(21, 20, 15, 0.08), 0 28px 60px -30px rgba(21, 20, 15, 0.22);
+  --e3: 0 4px 10px rgba(21, 20, 15, 0.10), 0 60px 120px -44px rgba(21, 20, 15, 0.28);
+  --surface: #F3F2ED;
+  --grain-blend: overlay;
+  --nav-h: 64px;
+  --accent-ink: #F6F7FF;
+
+  /* locked: Violet */
+  --accent: #4F24C9;
+  --accent-hover: #2A1070;
+  --accent-2: #6E4AE0;
+  --accent-bright: #6B4AFF;
+  /* #6B4AFF lands at 3.53:1 on the dark bands (#12141F). That clears AA for
+     display sizes but not for the 11px mono eyebrows, which is most of where
+     it is used as TEXT. This is the same violet lightened to 5.27:1 for those
+     small labels; the display-size uses keep --accent-bright. */
+  --accent-bright-text: #8B74FF;
+  --orb-deep: #24105E;
+  --duo-light: #8B74E8;
+  --accent-ink: #F7F5FF;
+  --theme-label: "Violet";
+
+  /* ── RADIUS SYSTEM ─────────────────────────────────────────────────────
+     Two tiers. One rule each. No literals anywhere else in this sheet.
+
+       --r-control     full pill. Anything you click that is text-sized:
+                       buttons, nav links, tabs, chips, the ticker, and
+                       progress lozenges (a 2px bar at pill radius IS a
+                       lozenge, so bars belong to this tier too).
+       --r-surface     12px. Anything that holds content: cards, panels,
+                       media frames, portraits.
+       --r-surface-in  7px. Nested inside a --r-surface. 12 minus a ~5px
+                       inset, so the inner arc stays concentric with the
+                       outer one instead of guessing.
+
+     The page already leads with a full-pill floating nav island, and the
+     same .btn component was rendering as a pill up there and a near-square
+     down in the body. Pill wins: it is the signature already on screen, and
+     pill controls against hairline editorial rules is a deliberate premium
+     media look rather than a default.
+
+     Exempt: true circles keep 50% (orb, sheen, orbit rings, glows, the
+     button fill puck). A circle is not a radius decision.
+
+     --r / --r-lg are the shared base sheet's token names, aliased here so
+     paradium.css inherits this system without being edited. */
+  --r-control: 999px;
+  --r-surface: 12px;
+  --r-surface-in: 7px;
+  --r: var(--r-control);
+  --r-lg: var(--r-surface);
+}
+body { background: #F3F2ED; }
+/* The base sheet stamps a hard 2px corner onto every :focus-visible target,
+   which would square off a pill the instant it is focused. Focus follows the
+   control tier; the two scroll surfaces that take focus are named explicitly. */
+:focus-visible { border-radius: var(--r-control); }
+.ed .roster:focus-visible,
+.ed .roster .creator:focus-visible { border-radius: var(--r-surface); }
+/* Nav chrome is owned by the R6 floating-island block at the end of this sheet;
+   the full-width-bar rules that used to live here would out-specify it. */
+.nav .logo-mark {
+  width: 150px;
+  height: calc(150px * 0.1309);
+}
+.fx-vignette .hero::after { display: none; }
+.geo-ring-front { box-shadow: none; }
+
+.hero {
+  overflow: visible;
+  z-index: 2;
+  position: relative;
+  --geo-right: 10vw; /* between original 8vw and prior 12vw nudge */
+  /* The headline sat ~14px under the nav pill. The content exactly fills the
+     hero (align-items:center has no slack), so clearance is bought by shifting
+     the vertical padding down — +2rem on top, -2rem off the bottom. The sum is
+     unchanged (nav-h + 4rem total), so the hero height and the measured
+     brand-band peek below it are untouched; only the composition moves down. */
+  padding-top: calc(var(--nav-h) + 4rem);
+  padding-bottom: 2rem;
+}
+.ed {
+  position: relative;
+  z-index: 1;
+}
+.hero .hero-content {
+  margin-left: max(1.5rem, calc((100% - min(1320px, 100% - 3rem)) / 2 + 2vw));
+  margin-right: auto;
+}
+/* Gloock descenders drop 0.224em; the base 0.1em mask clipped the "g" and "p".
+   Deeper mask needs a deeper rise start, or the text peeks before it animates. */
+.hero-h .line {
+  padding-bottom: 0.26em;
+  margin-bottom: -0.26em;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-h .line > span { transform: translateY(132%); }
+}
+.geo-orb {
+  right: var(--geo-right);
+  /* nudged 44%->46% so the orb clears the nav by the same amount as the copy */
+  top: 46%;
+}
+html { overflow-x: clip; }
+/* Reserve the scrollbar gutter so opening a modal <dialog> (which removes the
+   page scrollbar) doesn't reflow and shift centered sections right. Reserves 0
+   on overlay-scrollbar systems, the classic width where scrollbars take space. */
+html { scrollbar-gutter: stable; }
+/* The base sheet sets "overflow-x: hidden" on <body>, and any non-visible
+   overflow makes an element a scroll container. Since html already clips
+   horizontally, overflow does not propagate from body to the viewport, so body
+   became a scroll container that never scrolls — and every position: sticky on
+   the page was measuring against THAT, which is why the investor thesis column
+   would not pin. "clip" does the same horizontal clipping without creating a
+   scroll container. Do not put "hidden" back on either element. */
+body { overflow-x: clip; }
+
+/* nav: editorial wordmark left; ticker beside Partner CTA */
+.logo-mark {
+  --logo-w: 150px;
+  width: var(--logo-w);
+  height: calc(var(--logo-w) * 0.1309);
+  background: none !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+  object-fit: contain;
+  display: block;
+}
+.nav-end {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex: 0 0 auto;
+}
+.nav-end .ticker {
+  margin-left: 0;
+}
+@media (max-width: 960px) {
+  /* Mobile nav: the hamburger is replaced by the Partner CTA. Re-show the CTA
+     container (its ticker stays hidden via its own inline style) and drop the
+     menu button. The #mobileMenu markup stays in the DOM, just unused. */
+  .nav-end { display: inline-flex; }
+  .nav .btn.nav-cta { display: inline-flex; }
+  .nav .menu-btn { display: none !important; }
+}
+
+/* concentric rings behind the orb — white, centered on the blue orb */
+.geo-rings {
+  top: 46%;
+  right: calc(var(--geo-right, 12vw) + (min(27vw, 370px) - min(78vw, 1000px)) / 2);
+  background:
+    repeating-radial-gradient(circle at 50% 50%,
+      transparent 0 26px,
+      rgba(255, 255, 255, 0.95) 26px 27px);
+}
+@media (max-width: 900px) {
+  .hero { --geo-right: -12vw; }
+  .geo-rings {
+    top: 18%;
+    right: calc(var(--geo-right) + (62vw - 130vw) / 2);
+  }
+  .hero .hero-content {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/* On wide screens the orb otherwise drifts to the far right edge and opens a
+   dead gap beside the headline. Grow the right offset with viewport width so
+   the orb (and its rings/orbits, which share --geo-right) tucks back in toward
+   the copy. 1440 stays as-is; the pull-in ramps up past it. */
+@media (min-width: 1440px) {
+  .hero { --geo-right: clamp(144px, calc((100vw - 1200px) * 0.42), 420px); }
+}
+
+/* ---- orbiting chips around the ORIGINAL large orb ---- */
+.geo-orbits {
+  z-index: 4;
+  width: min(46vw, 560px);
+  aspect-ratio: 1;
+  right: calc(var(--geo-right, 12vw) + (min(27vw, 370px) - min(46vw, 560px)) / 2);
+  top: 46%;
+  translate: 0 -50%;
+  transform: translate(calc(var(--mx, 0) * 26px), calc(var(--my, 0) * 26px));
+  opacity: 0;
+  animation: geoOrbitsIn 0.9s var(--ease, cubic-bezier(0.16, 1, 0.3, 1)) 0.35s forwards;
+}
+@keyframes geoOrbitsIn { to { opacity: 1; } }
+.geo-orbit {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--accent) 10%, transparent);
+}
+.geo-orbit.o-outer {
+  inset: 2%;
+  animation: geoOrbit 28s linear infinite;
+}
+.geo-orbit.o-inner {
+  inset: 16%;
+  border-color: color-mix(in srgb, var(--accent) 8%, transparent);
+  animation: geoOrbitRev 18s linear infinite;
+}
+.geo-sat {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+}
+/* translate must use length units — % is relative to the 0×0 sat itself */
+.geo-orbit.o-outer .geo-sat {
+  --n: 6;
+  --r: min(21.5vw, 262px);
+  transform:
+    rotate(calc(var(--i) * (360deg / var(--n))))
+    translateY(calc(-1 * var(--r)))
+    rotate(calc(var(--i) * (-360deg / var(--n))));
+}
+.geo-orbit.o-inner .geo-sat {
+  --n: 3;
+  --r: min(15.8vw, 192px);
+  transform:
+    rotate(calc(var(--i) * (360deg / var(--n))))
+    translateY(calc(-1 * var(--r)))
+    rotate(calc(var(--i) * (-360deg / var(--n))));
+}
+.geo-sat b {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  max-width: none;
+  box-sizing: border-box;
+  translate: -50% -50%;
+  padding: 0.42rem 0.8rem;
+  border-radius: var(--r-control);
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
+  background: #ffffff;
+  box-shadow: 0 8px 20px -12px rgba(21, 20, 15, 0.35);
+  font-family: var(--font-mono, "Schibsted Grotesk", system-ui, sans-serif);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #15140F;
+  white-space: nowrap;
+  line-height: 1;
+  animation: geoSatCounter 28s linear infinite;
+}
+.geo-orbit.o-inner .geo-sat b {
+  animation-name: geoSatCounterRev;
+  animation-duration: 18s;
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  background: #ffffff;
+}
+@keyframes geoOrbit { to { transform: rotate(360deg); } }
+@keyframes geoOrbitRev { to { transform: rotate(-360deg); } }
+@keyframes geoSatCounter { to { transform: rotate(-360deg); } }
+@keyframes geoSatCounterRev { to { transform: rotate(360deg); } }
+/* The old guard was `.geo-orbit, .geo-sat b` (0,1,0 / 0,0,2), which never beat
+   `.geo-orbit.o-outer` (0,2,0), so the rings kept spinning under reduced
+   motion. Matching the specificity of the rules being cancelled fixes it. */
+@media (prefers-reduced-motion: reduce) {
+  .geo-orbit,
+  .geo-orbit.o-outer,
+  .geo-orbit.o-inner,
+  .geo-sat b,
+  .geo-orbit.o-inner .geo-sat b { animation: none; }
+}
+@media (max-width: 900px) {
+  .geo-orbits {
+    width: min(72vw, 380px);
+    right: calc(var(--geo-right, -12vw) + (min(62vw, 280px) - min(72vw, 380px)) / 2);
+  }
+  .geo-orbit.o-outer .geo-sat { --r: min(34vw, 175px); }
+  .geo-orbit.o-inner .geo-sat { --r: min(25vw, 128px); }
+  .geo-sat b { font-size: 0.52rem; padding: 0.24rem 0.46rem; }
+}
+
+/* ---- mobile hero: stack cleanly; leave desktop alone ---- */
+/* Mobile hero. On a 375 column there is no room to run copy alongside the
+   circular geometry, so the orb stops being a background layer and takes its
+   own row above the headline. Everything else in the absolute layer goes: the
+   rings were 110vw wide, which was the page's only source of horizontal
+   overflow, and the orbit chips are unreadable at this size. Nothing overlaps
+   the text, and .hero-content keeps its .wrap gutter. */
+@media (max-width: 767px) {
+  .hero {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    /* content-height here, so the band cannot be bought with hero height —
+       it is bought with padding at both seams instead */
+    min-height: unset;
+    padding-top: calc(var(--nav-h) + 0.9rem);
+    padding-bottom: 1.25rem;
+    overflow: hidden;
+  }
+  .hero .hero-content {
+    margin-inline: auto;
+    max-width: none;
+    position: relative;
+    z-index: 4;
+  }
+  /* the orb + its orbiting labels become one centered, animated stage that
+     sits above the headline. Both are absolutely centered on the same point so
+     the chips ring the orb exactly; the headline is pushed below with padding. */
+  .geo-orb {
+    position: absolute;
+    inset: auto;
+    left: 50%;
+    right: auto;
+    /* the stage sits fully below the nav: the top orbit chip fills the gap under
+       the nav (no whitespace) while nothing is clipped at the top edge */
+    top: calc(var(--nav-h) + 150px);
+    translate: none;
+    transform: translate(-50%, -50%);
+    width: min(54vw, 200px);
+    margin: 0;
+    opacity: 1;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .geo-rings,
+  .geo-ring-front { display: none; }
+  .geo-orbits {
+    display: block;
+    position: absolute;
+    left: 50%;
+    right: auto;
+    top: calc(var(--nav-h) + 150px);
+    width: min(94vw, 380px);
+    translate: none;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    animation: none;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .geo-orbit.o-outer .geo-sat { --r: 138px; }
+  .geo-orbit.o-inner .geo-sat { --r: 108px; }
+  .geo-sat b { font-size: 0.52rem; padding: 0.22rem 0.44rem; }
+  /* reserve the stage height so the headline clears the orbit */
+  .hero .hero-content { padding-top: 324px; }
+  .hero-sub { max-width: none; }
+  .hero-ctas {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-ctas .btn { width: 100%; }
+}
+
+/* Short phones (SE-class, ~667px tall). The hero column alone runs past the
+   viewport there, so the band cannot fit on padding alone: the orb comes down
+   a size, the seams tighten, and the two CTAs sit side by side instead of
+   stacking. Tall phones keep the roomier version above. */
+@media (max-width: 767px) and (max-height: 780px) {
+  /* keep the enlarged orb on SE-class phones; the orbit radii and stage padding
+     are inherited from the block above, so this only sizes the video circle */
+  .geo-orb { width: min(52vw, 196px); margin: 0.2rem auto 1rem; }
+  .hero-sub { margin-top: 1.1rem; }
+  .hero-ctas {
+    margin-top: 1.4rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.65rem;
+  }
+  .hero-ctas .btn { width: auto; flex: 1 1 0; justify-content: center; }
+  .hero { padding-bottom: 0.75rem; }
+}
+
+/* ---------- editorial body (below hero) ---------- */
+.ed {
+  --ed-ink: #15140F;
+  --ed-ink-70: #4C4A42;
+  /* was #82807A, which lands at 3.95:1 on white and on the paper: below AA for
+     the small text that uses it (spot-meta labels, roster roles, footnotes).
+     #6F6D64 is the same warm grey one step down, and clears 4.5:1 on both
+     surfaces. Neutral only; the locked Violet accent is untouched. */
+  --ed-ink-45: #6F6D64;
+  --ed-paper: #F3F2ED;
+  --ed-paper-2: #E9E8E1;
+  --ed-rule: rgba(21, 20, 15, 0.16);
+  --ed-rule-soft: rgba(21, 20, 15, 0.09);
+  --ed-accent: var(--accent);
+  --serif-display: 'Gloock', Georgia, serif;
+  --sans: "Schibsted Grotesk", system-ui, sans-serif;
+  --mono: "Schibsted Grotesk", system-ui, sans-serif;
+  color: var(--ed-ink-70);
+  font-family: var(--sans);
+}
+.ed section { padding-block: clamp(4.5rem, 9vw, 8.5rem); position: relative; }
+.ed h2, .ed h3 { font-family: var(--serif-display); color: var(--ed-ink); font-weight: 600; letter-spacing: -0.022em; line-height: 1.04; }
+.ed h2 em, .ed h3 em { font-style: normal; font-weight: inherit; color: var(--ed-accent); }
+.ed .h-sec { font-size: clamp(2.1rem, 4.4vw, 3.6rem); letter-spacing: -0.022em; max-width: 20ch; text-wrap: balance; }
+.ed .lede { max-width: 58ch; margin-top: 1.5rem; font-size: clamp(1.1rem, 1.5vw, 1.32rem); line-height: 1.55; color: var(--ed-ink-70); }
+.ed .kicker {
+  display: inline-flex; align-items: center; gap: 0.7rem;
+  font-family: var(--mono); font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--ed-accent);
+  margin-bottom: 1.6rem;
+}
+.ed .kicker::before { content: none; }
+/* Section eyebrow labels removed site-wide */
+.ed .kicker { display: none; }
+.ed .note { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; color: var(--ed-ink-45); }
+.ed .fig { font-family: var(--serif-display); font-weight: 500; letter-spacing: -0.03em; line-height: 0.92; color: var(--ed-ink); font-variant-numeric: lining-nums tabular-nums; }
+
+/* ---------- buttons: circle-fill hover (cursor-origin) ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1.02rem 1.85rem;
+  border-radius: var(--r-control);
+  font-family: "Schibsted Grotesk", system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  cursor: pointer;
+  box-shadow: none;
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+  isolation: isolate;
+  transition: border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-circle {
+  position: absolute;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%) scale(0);
+  transform-origin: center;
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+.btn.is-fill .btn-circle {
+  transform: translate(-50%, -50%) scale(var(--btn-fill-scale, 1));
+}
+.btn-label {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  transition: color 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent);
+}
+.btn-primary .btn-circle {
+  background: var(--accent-hover);
+}
+.btn-primary.is-fill,
+.btn-primary:focus-visible {
+  border-color: var(--accent-hover);
+  color: var(--accent-ink);
+}
+.btn-primary.is-fill .btn-label,
+.btn-primary:focus-visible .btn-label {
+  color: var(--accent-ink);
+}
+.btn-ghost {
+  background: transparent;
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.btn-ghost .btn-circle {
+  background: var(--accent);
+}
+.btn-ghost.is-fill,
+.btn-ghost:focus-visible {
+  color: var(--accent-ink);
+  border-color: var(--accent);
+}
+.btn-ghost.is-fill .btn-label,
+.btn-ghost:focus-visible .btn-label {
+  color: var(--accent-ink);
+}
+@media (hover: none) {
+  .btn-circle { display: none; }
+  .btn-primary:active { background: var(--accent-hover); border-color: var(--accent-hover); }
+  .btn-ghost:active {
+    background: var(--accent);
+    color: var(--accent-ink);
+    border-color: var(--accent);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-circle { transition: none; display: none; }
+  .btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+  .btn-ghost:hover {
+    background: var(--accent);
+    color: var(--accent-ink);
+    border-color: var(--accent);
+  }
+}
+
+/* BRAND BAND — sits directly under the hero now, so it reads as the hero's
+   proof line rather than as its own chapter: tighter than a full section, and
+   the .logo-band already carries the bottom padding. */
+.ed .brandband { padding-block: clamp(0.9rem, 1.6vw, 1.4rem) 0; border-top: 0; }
+/* The marquee is the proof line under the headline, so it has to be the LAST
+   thing in the first screen rather than the first thing in the second. The
+   hero hands back exactly the band's height; --band-h is measured and written
+   by script on load and resize, and the value below is the estimate that
+   covers the frame before that runs. */
+.hero { min-height: calc(100dvh - var(--band-h, 14rem)); }
+.ed .brandband .logo-band { margin-top: 0; }
+
+/* PRODUCTS — dark cards on light paper */
+.ed .products { border-top: 1px solid var(--ed-rule); }
+.ed .prod-grid {
+  margin-top: clamp(2.4rem, 4.5vw, 3.6rem);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.35rem, 2.4vw, 1.85rem);
+  align-items: stretch;
+  padding-block: 0.55rem 0.25rem;
+}
+.ed .prod-card {
+  --i: 0;
+  --tilt: 0deg;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: #12141F;
+  color: #BCC2D6;
+  border: 1px solid rgba(238, 240, 248, 0.1);
+  border-radius: var(--r-surface);
+  overflow: hidden;
+  box-shadow: 0 22px 48px -28px rgba(18, 20, 31, 0.55);
+  transform: rotate(var(--tilt));
+  transform-origin: center center;
+}
+.ed .prod-card:nth-child(1) { --tilt: -1.1deg; }
+.ed .prod-card:nth-child(2) { --tilt: 0.85deg; }
+.ed .prod-card:nth-child(3) { --tilt: -0.75deg; }
+@media (prefers-reduced-motion: no-preference) {
+  .ed .prod-card[data-reveal] {
+    opacity: 0;
+    filter: blur(6px);
+    transition:
+      opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 1.05s cubic-bezier(0.16, 1, 0.3, 1),
+      filter 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--rd, 0s);
+  }
+  .ed .prod-card:nth-child(1)[data-reveal] {
+    transform: translate3d(-2.25rem, 2.75rem, 0) rotate(-8deg) scale(0.9);
+  }
+  .ed .prod-card:nth-child(2)[data-reveal] {
+    transform: translate3d(0, 3.25rem, 0) rotate(7deg) scale(0.88);
+  }
+  .ed .prod-card:nth-child(3)[data-reveal] {
+    transform: translate3d(2.25rem, 2.75rem, 0) rotate(8deg) scale(0.9);
+  }
+  .ed .prod-card[data-reveal].is-in {
+    opacity: 1;
+    filter: none;
+    transform: rotate(var(--tilt));
+  }
+}
+@media (max-width: 960px) {
+  .ed .prod-card:nth-child(1) { --tilt: -0.7deg; }
+  .ed .prod-card:nth-child(2) { --tilt: 0.55deg; }
+  .ed .prod-card:nth-child(3) { --tilt: -0.5deg; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ed .prod-card[data-reveal] {
+    opacity: 1;
+    filter: none;
+    transform: rotate(var(--tilt));
+    transition: none;
+  }
+}
+.ed .prod-card .p-role {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-bright-text, var(--accent));
+}
+.ed .prod-card .p-prop {
+  margin: 0.15rem 0 0;
+  font-family: var(--sans);
+  /* was 0.9–0.98rem at rgba(188,194,214,.88) — legible but dim on the dark
+     card. Up a step in size and to a brighter solid ink for easier reading. */
+  font-size: clamp(0.95rem, 1.2vw, 1.04rem);
+  line-height: 1.58;
+  color: #CBD1E2;
+}
+@media (max-width: 960px) {
+  .ed .prod-grid {
+    grid-template-columns: 1fr;
+    max-width: 26rem;
+  }
+}
+
+/* TALENT */
+.ed .talent { border-top: 1px solid var(--ed-rule); }
+.ed .roster-toolbar {
+  margin-top: clamp(2.6rem, 5vw, 3.4rem);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.ed .roster-label {
+  flex: 1; min-width: 0; margin: 0;
+  display: flex; align-items: center; gap: 1rem;
+  font-family: var(--mono); font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--ed-ink-70);
+  border: 0; padding: 0;
+}
+.ed .roster-label::after { content: ""; flex: 1; height: 1px; background: var(--ed-rule); }
+.ed .roster-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-shrink: 0;
+}
+.ed .roster-btn {
+  width: 2.55rem;
+  height: 2.55rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--ed-rule);
+  border-radius: var(--r-control);
+  background: #fff;
+  color: var(--ed-accent);
+  cursor: pointer;
+  box-shadow: none;
+  transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease, opacity 0.2s ease;
+}
+.ed .roster-btn svg { width: 1rem; height: 1rem; display: block; }
+.ed .roster-btn:hover:not(:disabled),
+.ed .roster-btn:focus-visible {
+  border-color: var(--ed-accent);
+  background: var(--ed-accent);
+  color: var(--accent-ink, #F7F5FF);
+  outline: none;
+}
+.ed .roster-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+  color: var(--ed-ink-45);
+}
+.ed .roster-carousel {
+  --roster-gutter: max(1.5rem, calc((100% - min(1320px, 100% - 3rem)) / 2));
+  width: 100%;
+  margin-top: 1.1rem;
+}
+@media (max-width: 767px) {
+  .ed .roster-carousel { --roster-gutter: 1.125rem; }
+}
+.ed .roster {
+  list-style: none;
+  display: flex;
+  gap: 1.1rem;
+  margin: 0;
+  /* extra top/bottom room so the card lift + drop-shadow are not clipped by
+     the horizontal-scroll container's overflow */
+  padding: 1rem var(--roster-gutter) 2.4rem;
+  border: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--roster-gutter);
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  cursor: grab;
+  scrollbar-width: none;
+}
+.ed .roster::-webkit-scrollbar { display: none; }
+.ed .roster.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
+}
+.ed .roster.is-dragging * { pointer-events: none; }
+/* Roster tiles. Portraits sit in their own colour at rest, so the wall reads
+   as sixteen people rather than one tinted block. Hover or keyboard focus
+   lifts a single tile off the paper: the card rises, the portrait pushes
+   forward inside its frame, and a violet wash climbs from the base of the
+   photo. Transform and opacity only — the elevation is a pre-composited
+   pseudo-element cross-fading on opacity, so no shadow is ever interpolated
+   and no layout property is animated. */
+.ed .roster .creator {
+  position: relative;
+  flex: 0 0 clamp(200px, 22vw, 280px);
+  width: clamp(200px, 22vw, 280px);
+  scroll-snap-align: start;
+  scroll-margin-inline: var(--roster-gutter);
+  background: #fff;
+  border: 1px solid var(--ed-rule);
+  border-radius: var(--r-surface);
+  overflow: hidden;
+  /* shadow + hover matched to the Latest News tiles */
+  box-shadow: 0 20px 44px -34px rgba(21, 20, 15, 0.5);
+  transform: translate3d(0, 0, 0);
+  outline-offset: 4px;
+  transition:
+    transform 0.44s var(--ease, cubic-bezier(0.16, 1, 0.3, 1)),
+    box-shadow 0.44s var(--ease, cubic-bezier(0.16, 1, 0.3, 1)),
+    border-color 0.44s var(--ease, cubic-bezier(0.16, 1, 0.3, 1));
+}
+/* the ::before overlay is retained for stacking but no longer paints a shadow —
+   the card now animates its own box-shadow to match the news tiles */
+.ed .roster .creator::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  box-shadow: none;
+  transition: opacity 0.5s var(--ease, cubic-bezier(0.16, 1, 0.3, 1));
+}
+.ed .creator-portrait img {
+  /* a hairline of overscan so the scale-up never opens a gap at the edge */
+  transform: scale(1.001);
+  transform-origin: 50% 22%;
+  transition: transform 0.62s var(--ease, cubic-bezier(0.16, 1, 0.3, 1));
+}
+/* Violet wash climbs from the base of the portrait: an opacity fade over a
+   static gradient, so no paint work happens during the transition. */
+.ed .creator-portrait::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--orb-deep, #24105E) 78%, transparent) 0%,
+    color-mix(in srgb, var(--accent) 30%, transparent) 34%,
+    transparent 66%);
+  opacity: 0;
+  transition: opacity 0.42s var(--ease, cubic-bezier(0.16, 1, 0.3, 1));
+}
+.ed .roster .creator:hover,
+.ed .roster .creator:focus-visible,
+.ed .roster .creator:has(.creator-open:focus-visible) {
+  transform: translate3d(0, -5px, 0);
+  box-shadow: 0 16px 30px -22px rgba(21, 20, 15, 0.3);
+  border-color: color-mix(in srgb, var(--ed-accent) 34%, transparent);
+}
+.ed .roster .creator:hover::before,
+.ed .roster .creator:focus-visible::before,
+.ed .roster .creator:has(.creator-open:focus-visible)::before { opacity: 1; }
+.ed .roster .creator:hover .creator-portrait::after,
+.ed .roster .creator:focus-visible .creator-portrait::after,
+.ed .roster .creator:has(.creator-open:focus-visible) .creator-portrait::after { opacity: 1; }
+.ed .roster .creator:hover .creator-portrait img,
+.ed .roster .creator:focus-visible .creator-portrait img,
+.ed .roster .creator:has(.creator-open:focus-visible) .creator-portrait img { transform: scale(1.055); }
+.ed .roster .creator:hover .creator-vert,
+.ed .roster .creator:focus-visible .creator-vert,
+.ed .roster .creator:has(.creator-open:focus-visible) .creator-vert { color: var(--ed-accent); }
+.ed .creator-vert { transition: color 0.35s ease; }
+/* Reduced motion keeps the state (it is still legible, and colour is not a
+   vestibular trigger) but drops the travel and every transition. */
+@media (prefers-reduced-motion: reduce) {
+  .ed .roster .creator,
+  .ed .roster .creator::before,
+  .ed .creator-portrait img,
+  .ed .creator-portrait::after,
+  .ed .creator-vert { transition: none; }
+  .ed .roster .creator:hover,
+  .ed .roster .creator:focus-visible,
+  .ed .roster .creator:has(.creator-open:focus-visible) { transform: none; }
+  .ed .roster .creator:hover .creator-portrait img,
+  .ed .roster .creator:focus-visible .creator-portrait img,
+  .ed .roster .creator:has(.creator-open:focus-visible) .creator-portrait img { transform: scale(1.001); }
+}
+/* Staggered card entrance when carousel scrolls into view */
+@media (prefers-reduced-motion: no-preference) {
+  .roster-carousel[data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .roster-carousel[data-reveal] .creator {
+    opacity: 0;
+    transform: translateY(36px) scale(0.94);
+    transition:
+      opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .roster-carousel[data-reveal].is-in .creator {
+    opacity: 1;
+    transform: none;
+  }
+  .roster-carousel[data-reveal].is-in .creator:nth-child(1) { transition-delay: 0.04s; }
+  .roster-carousel[data-reveal].is-in .creator:nth-child(2) { transition-delay: 0.1s; }
+  .roster-carousel[data-reveal].is-in .creator:nth-child(3) { transition-delay: 0.16s; }
+  .roster-carousel[data-reveal].is-in .creator:nth-child(4) { transition-delay: 0.22s; }
+  .roster-carousel[data-reveal].is-in .creator:nth-child(5) { transition-delay: 0.28s; }
+  .roster-carousel[data-reveal].is-in .creator:nth-child(6) { transition-delay: 0.34s; }
+  .roster-carousel[data-reveal].is-in .creator:nth-child(7) { transition-delay: 0.4s; }
+  .roster-carousel[data-reveal].is-in .creator:nth-child(8) { transition-delay: 0.46s; }
+  .roster-carousel[data-reveal].is-in .creator:nth-child(9) { transition-delay: 0.52s; }
+  .roster-carousel[data-reveal].is-in .creator:nth-child(10) { transition-delay: 0.58s; }
+  .roster-carousel[data-reveal].is-in .creator:nth-child(11) { transition-delay: 0.64s; }
+  .roster-carousel[data-reveal].is-in .creator:nth-child(12) { transition-delay: 0.7s; }
+  .roster-carousel[data-reveal].is-in .creator:nth-child(13) { transition-delay: 0.76s; }
+  .roster-carousel[data-reveal].is-in .creator:nth-child(14) { transition-delay: 0.82s; }
+  .roster-carousel[data-reveal].is-in .creator:nth-child(15) { transition-delay: 0.88s; }
+  .roster-carousel[data-reveal].is-in .creator:nth-child(16) { transition-delay: 0.94s; }
+  .roster-carousel[data-reveal].is-in .creator:nth-child(n+17) { transition-delay: 1s; }
+}
+.ed .creator-portrait {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #1C1F2E;
+}
+.ed .creator-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: grayscale(0.2) contrast(1.04);
+  pointer-events: none;
+}
+/* ::after is NOT in this list: it now carries the roster's rest-state scrim. */
+.ed .creator-portrait .field,
+.ed .creator-portrait .sil,
+.ed .creator-portrait .halftone,
+.ed .creator-tool { display: none; }
+.ed .creator-name { color: var(--ed-ink); }
+.ed .creator-vert {
+  color: var(--ed-ink-45);
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  font-family: var(--sans);
+}
+.ed .creator-figure { display: none; }
+.ed .talent > .wrap > .note { margin-top: 1.5rem; }
+@media (prefers-reduced-motion: reduce) {
+  .ed .roster { scroll-behavior: auto; }
+  .ed .roster-btn { transition: none; }
+}
+
+/* PARTNERS — see the creator-spotlight block at the end of this sheet */
+.ed .partners { border-top: 1px solid var(--ed-rule); }
+.ed .partners h2 { max-width: 16ch; }
+
+/* News — latest press releases as an editorial list (up to five + see-all) */
+.ed .news { border-top: 1px solid var(--ed-rule); }
+/* Live IR press widget host. The Kaleidoscope widget attaches a shadow root
+   here and renders the latest releases; the static .news-list inside is the
+   fallback shown only if the widget script never runs. */
+.ed .news-widget { margin-top: clamp(2.2rem, 4.5vw, 3.2rem); min-height: 4rem; }
+.ed .news-widget .news-list { margin-top: 0; }
+.ed .news-list {
+  margin-top: clamp(2.2rem, 4.5vw, 3.2rem);
+  border-top: 1px solid var(--ed-rule);
+}
+.ed .news-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1.1rem, 3vw, 2.4rem);
+  padding: clamp(1.25rem, 2.6vw, 1.9rem) 0;
+  border-bottom: 1px solid var(--ed-rule);
+  text-decoration: none;
+  color: var(--ed-ink);
+  transition:
+    padding-left 0.4s var(--ease, cubic-bezier(0.16, 1, 0.3, 1)),
+    border-color 0.3s ease;
+}
+@media (hover: hover) {
+  .ed .news-row:hover {
+    padding-left: 0.6rem;
+    border-bottom-color: color-mix(in srgb, var(--accent) 40%, var(--ed-rule));
+  }
+  .ed .news-row:hover .news-title { color: var(--accent); }
+  .ed .news-row:hover .news-go {
+    transform: translate(3px, -3px);
+    color: var(--accent);
+    border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  }
+}
+.ed .news-row:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+.ed .news-row-main { min-width: 0; }
+.ed .news-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.72rem;
+}
+.ed .news-tag {
+  font-family: var(--sans);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  border-radius: var(--r-control);
+  padding: 0.3rem 0.72rem;
+  white-space: nowrap;
+}
+.ed .news-date {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--ed-ink-45);
+  white-space: nowrap;
+}
+.ed .news-title {
+  font-family: var(--serif-display);
+  font-weight: 400;
+  font-size: clamp(1.15rem, 1.7vw, 1.5rem);
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  color: var(--ed-ink);
+  margin: 0;
+  transition: color 0.3s ease;
+  text-wrap: balance;
+}
+.ed .news-go {
+  flex: none;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--ed-rule);
+  display: grid;
+  place-items: center;
+  color: var(--ed-ink);
+  font-size: 0.95rem;
+  transition:
+    transform 0.3s var(--ease, cubic-bezier(0.16, 1, 0.3, 1)),
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+.ed .news-all {
+  display: flex;
+  width: fit-content;
+  margin: clamp(2rem, 3.6vw, 2.8rem) auto 0;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.7rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
+  border-radius: 999px;
+  transition:
+    background-color 0.3s var(--ease, cubic-bezier(0.16, 1, 0.3, 1)),
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+.ed .news-all span { display: inline-block; transition: transform 0.3s var(--ease, cubic-bezier(0.16, 1, 0.3, 1)); }
+.ed .news-all:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (hover: hover) {
+  .ed .news-all:hover {
+    background: var(--accent);
+    color: var(--accent-ink, #F7F5FF);
+    border-color: var(--accent);
+  }
+  .ed .news-all:hover span { transform: translate(2px, -2px); }
+}
+@media (max-width: 640px) {
+  .ed .news-go { width: 2.2rem; height: 2.2rem; }
+  .ed .news-title { font-size: 1.12rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ed .news-row, .ed .news-go, .ed .news-all span { transition: color 0.2s ease; }
+}
+
+/* JOIN · closing careers CTA ──────────────────────────────────────────────
+   A filled violet band that closes the page before the footer and sends
+   people to the careers site. Light text and a light button keep it AA. */
+.ed .join {
+  border-top: 1px solid var(--ed-rule);
+  /* Same deep-violet surface the product cards use, so the node field reads
+     with the same glow here as it does behind the three products. */
+  background: radial-gradient(120% 150% at 50% -10%,
+    #2A1E5C 0%, #160F32 56%, #100B24 100%);
+  color: var(--accent-ink);
+  text-align: center;
+  overflow: clip;
+}
+/* Animated node field — the same constellation that streams behind the three
+   product cards, here spanning the full band as one wide "flow". Driven by the
+   shared prod-field rAF loop (it selects every .prod-field on the page), so no
+   extra JS. Purely ornamental: aria-hidden, pointer-none, sits under the copy. */
+.ed .join .prod-field {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(120% 140% at 50% 50%, transparent 30%, #000 78%);
+          mask-image: radial-gradient(120% 140% at 50% 50%, transparent 30%, #000 78%);
+}
+.ed .join .wrap { position: relative; z-index: 1; max-width: 62ch; }
+.ed .join h2 { color: #fff; margin-inline: auto; }
+.ed .join h2 em {
+  font-style: italic;
+  color: color-mix(in srgb, #fff 62%, var(--accent-bright));
+}
+.ed .join .lede {
+  color: rgba(247, 245, 255, 0.82);
+  margin-inline: auto;
+}
+.ed .join .join-cta { margin-top: clamp(2rem, 3.4vw, 2.6rem); }
+.ed .join .btn-primary {
+  background: #fff;
+  color: var(--accent-hover);
+  border-color: #fff;
+}
+.ed .join .btn-primary .btn-circle { background: var(--accent-hover); }
+.ed .join .btn-primary.is-fill,
+.ed .join .btn-primary:hover,
+.ed .join .btn-primary:focus-visible {
+  color: #fff;
+  border-color: #fff;
+}
+.ed .join .btn-ext { margin-left: 0.1rem; }
+
+/* INVEST · rebuilt in R7.2 ────────────────────────────────────────────────
+   The audit finding: this is the closing beat of the page and the last thing
+   an investor reads, and it was giving its largest type to `01 02 03 04`.
+   Those ordinals carry no information. Meanwhile 2.16x, 1.0 to 1.5x, one new
+   brand per quarter and 10x EBITDA, the four things an investor actually
+   scans for, were buried mid-sentence in 1rem body copy at 72% opacity.
+
+   The position taken here is simply to invert that: THE FIGURE REPLACES THE
+   ORDINAL. Each highlight is a ledger row whose left rail is the fact itself,
+   set in the display face at display scale with tabular numerals, over a mono
+   label that says what the number is. Title and prose sit to its right. The
+   reader can now scan the left rail alone and come away with the numbers.
+
+   Where a highlight genuinely has no number, the rail carries the operative
+   word in the same face rather than an invented statistic. Row 03 is the only
+   row describing a MOVEMENT, so it is the only row that gets two figures and
+   an arrow: it earns the extra structure because it is the only one that
+   needs it.
+
+   Layout is a sticky thesis column beside the ledger. That fills a section
+   that previously left half the wrap empty, and it is a layout family used
+   nowhere else on the page. */
+.ed .invest {
+  border-top: 1px solid transparent;
+  background: #12141F;
+  color: #BCC2D6;
+  box-shadow: inset 0 24px 60px -40px rgba(0,0,0,0.55), inset 0 -24px 60px -40px rgba(0,0,0,0.4);
+  /* The base sheet sets "overflow: hidden" here, which makes this section a
+     scroll container: the sticky thesis column then sticks to a box that never
+     scrolls, so it never sticks at all. "clip" does the same clipping WITHOUT
+     creating a scroll container, which leaves the viewport as the sticky
+     element's scrollport. Do not put "hidden" back. */
+  overflow: clip;
+}
+.ed .invest::before { display: none; }
+.ed .invest .kicker { color: var(--accent-bright); }
+.ed .invest .h-sec { color: #EEF0F8; max-width: 16ch; }
+
+.ed .invest-split {
+  /* the headline moved inside the left column, so the split starts at the top
+     of the section and the two columns share one baseline */
+  margin-top: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+  gap: clamp(2.5rem, 6vw, 5.5rem);
+  align-items: start;
+}
+.ed .invest-thesis { position: sticky; top: calc(var(--nav-h) + 2.25rem); }
+/* The one credibility signal on the page that is not a number: give it the
+   weight of a stamp rather than of a caption. */
+.ed .invest .invest-thesis .h-sec { margin-bottom: clamp(1.4rem, 2.6vw, 2rem); }
+.ed .invest .ticker-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--accent-bright) 45%, transparent);
+  border-radius: var(--r-control);
+  background: color-mix(in srgb, var(--accent-bright) 12%, transparent);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #DCD6FF;
+}
+.ed .invest .ticker-line b { font-weight: 500; color: #F4F1FF; }
+.ed .invest .ticker-line i {
+  font-style: normal;
+  color: color-mix(in srgb, var(--accent-bright) 70%, #fff);
+}
+.ed .invest .invest-lede {
+  margin-top: 1.6rem;
+  max-width: 46ch;
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  line-height: 1.66;
+  color: rgba(238,240,248,0.74);
+}
+.ed .invest .btn { margin-top: 2rem; }
+
+/* the ledger */
+.ed .highlights {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: block;
+  grid-template-columns: none;
+  gap: 0;
+  counter-reset: none;
+  border-top: 1px solid rgba(238,240,248,0.28);
+}
+.ed .highlight {
+  display: grid;
+  /* the rail used to carry a headline figure; it now carries one icon, so it
+     shrinks to the badge and gives the claim the width back. */
+  grid-template-columns: 3.25rem minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 2.4rem);
+  align-items: start;
+  padding: clamp(1.5rem, 2.6vw, 2.1rem) 0;
+  border-bottom: 1px solid rgba(238,240,248,0.12);
+  background: none;
+  box-shadow: none;
+  /* the only zero in the sheet: highlights are ledger rows now, not cards, so
+     this cancels the shared base sheet's card radius. Not a fourth tier. */
+  border-radius: 0;
+}
+.ed .highlight:hover { transform: none; box-shadow: none; }
+.ed .highlight::before { display: none; content: none; }
+
+/* left rail: the mark */
+.ed .highlight .hicon {
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--r-control);
+  border: 1px solid color-mix(in srgb, var(--accent-bright) 40%, transparent);
+  background: color-mix(in srgb, var(--accent-bright) 12%, transparent);
+  color: var(--accent-bright);
+}
+.ed .highlight .hicon svg { width: 1.45rem; height: 1.45rem; display: block; }
+
+/* right: the claim */
+.ed .highlight .hb h3 {
+  font-size: clamp(1.15rem, 1.7vw, 1.5rem);
+  font-weight: 400;
+  color: #EEF0F8;
+  letter-spacing: -0.018em;
+  line-height: 1.15;
+}
+.ed .highlight .hb p {
+  margin-top: 0.55rem;
+  font-size: 0.97rem;
+  line-height: 1.6;
+  color: rgba(238,240,248,0.7);
+  max-width: 54ch;
+}
+
+@media (max-width: 1000px) {
+  .ed .invest-split { grid-template-columns: 1fr; gap: clamp(2.4rem, 5vw, 3.2rem); }
+  .ed .invest-thesis { position: static; }
+  .ed .invest .h-sec { max-width: 20ch; }
+  .ed .invest .invest-lede { max-width: 62ch; }
+}
+@media (max-width: 620px) {
+  .ed .highlight {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+  .ed .highlight .hlbl { margin-top: 0.5rem; }
+}
+
+.ed .invest .btn-primary {
+  background: #EEF0F8;
+  color: #12141F;
+  border-color: #EEF0F8;
+}
+.ed .invest .btn-primary .btn-circle {
+  background: var(--accent-bright);
+}
+.ed .invest .btn-primary.is-fill,
+.ed .invest .btn-primary:focus-visible {
+  color: var(--accent-ink);
+  border-color: var(--accent-bright);
+}
+.ed .invest .btn-primary.is-fill .btn-label,
+.ed .invest .btn-primary:focus-visible .btn-label {
+  color: var(--accent-ink);
+}
+.ed .invest .btn-ghost {
+  background: transparent;
+  border-color: rgba(238, 240, 248, 0.55);
+  color: #EEF0F8;
+}
+.ed .invest .btn-ghost .btn-circle {
+  background: #EEF0F8;
+}
+.ed .invest .btn-ghost.is-fill,
+.ed .invest .btn-ghost:focus-visible {
+  color: #12141F;
+  border-color: #EEF0F8;
+}
+.ed .invest .btn-ghost.is-fill .btn-label,
+.ed .invest .btn-ghost:focus-visible .btn-label {
+  color: #12141F;
+}
+.ed .invest :focus-visible { outline-color: #EEF0F8; }
+
+/* ---------- Imagery Opt 2 (rich) ---------- */
+.img-only { display: none !important; }
+html[data-imagery="rich"] .img-only { display: block !important; }
+
+/* Solid paper nav so links stay legible over hero photo (even at scroll top) */
+html[data-imagery="rich"] .nav,
+html[data-imagery="rich"] .nav.scrolled {
+  background: var(--ed-paper, #F3F2ED);
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 25%;
+  /* The hero is wider than the source frame, so cover crops vertically only and
+     object-position can't pan horizontally. Zoom in and slide right instead, so
+     the creator clears the paper scrim and lands between the copy and the orb. */
+  transform: scale(1.3) translate(11.5%, 3%);
+  opacity: 0.52;
+  filter: grayscale(0.06) contrast(1.06) saturate(1.02);
+}
+html[data-imagery="rich"] .hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(105deg,
+      #F3F2ED 0%,
+      color-mix(in srgb, #F3F2ED 88%, transparent) 36%,
+      color-mix(in srgb, #F3F2ED 30%, transparent) 58%,
+      transparent 76%);
+}
+html[data-imagery="rich"] .geo-rings,
+html[data-imagery="rich"] .geo-orb,
+html[data-imagery="rich"] .geo-orbits,
+html[data-imagery="rich"] .geo-ring-front { z-index: 2; }
+html[data-imagery="rich"] .hero-content { z-index: 4; }
+
+/* Brand morph intro — fixed to the viewport so the mark stays dead-centered */
+.hero-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  overflow: hidden;
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.85s;
+}
+.hero-intro-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+  mix-blend-mode: screen;
+}
+.hero-intro-glow span {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  will-change: transform, opacity;
+}
+.hero-intro-glow .g1 {
+  width: min(62vw, 560px);
+  height: min(62vw, 560px);
+  left: 42%;
+  top: 38%;
+  translate: -50% -50%;
+  background: radial-gradient(circle, rgba(168, 148, 255, 0.85) 0%, rgba(107, 74, 255, 0.35) 42%, transparent 70%);
+}
+.hero-intro-glow .g2 {
+  width: min(52vw, 440px);
+  height: min(52vw, 440px);
+  left: 58%;
+  top: 58%;
+  translate: -50% -50%;
+  background: radial-gradient(circle, rgba(107, 74, 255, 0.7) 0%, rgba(79, 36, 201, 0.28) 48%, transparent 72%);
+}
+.hero-intro-glow .g3 {
+  width: min(40vw, 320px);
+  height: min(40vw, 320px);
+  left: 30%;
+  top: 64%;
+  translate: -50% -50%;
+  background: radial-gradient(circle, rgba(200, 180, 255, 0.55) 0%, transparent 68%);
+}
+.hero-intro-glow .g4 {
+  width: min(46vw, 380px);
+  height: min(46vw, 380px);
+  left: 70%;
+  top: 30%;
+  translate: -50% -50%;
+  background: radial-gradient(circle, rgba(90, 48, 220, 0.5) 0%, transparent 70%);
+}
+.hero-intro video {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  filter: brightness(1.1) contrast(1.03);
+}
+/* The morph is a 16:9 frame (white background, dark wordmark). `cover` fills a
+   landscape viewport cleanly, but on a portrait phone it fills the height and
+   crops the sides, cutting the ends off the wordmark ("...aradium.A..."). In
+   portrait we `contain` so the whole mark fits, and set the backdrop to the
+   video's own white so the letterbox is seamless (and the hand-off to the paper
+   hero stays clean). Scoped to portrait so the desktop full-bleed is untouched. */
+@media (max-aspect-ratio: 1 / 1) {
+  .hero-intro { background: #fff; }
+  .hero-intro video { object-fit: contain; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-intro-glow .g1 { animation: introOrbA 5.5s ease-in-out infinite alternate; }
+  .hero-intro-glow .g2 { animation: introOrbB 6.8s ease-in-out infinite alternate; }
+  .hero-intro-glow .g3 { animation: introOrbC 4.6s ease-in-out infinite alternate; }
+  .hero-intro-glow .g4 { animation: introOrbA 7.2s ease-in-out infinite alternate-reverse; }
+}
+@keyframes introOrbA {
+  from { transform: translate(-8%, -4%) scale(1); opacity: 0.75; }
+  to { transform: translate(6%, 8%) scale(1.12); opacity: 1; }
+}
+@keyframes introOrbB {
+  from { transform: translate(5%, -6%) scale(0.95); opacity: 0.7; }
+  to { transform: translate(-7%, 5%) scale(1.1); opacity: 1; }
+}
+@keyframes introOrbC {
+  from { transform: translate(-4%, 6%) scale(1.05); opacity: 0.65; }
+  to { transform: translate(8%, -5%) scale(0.92); opacity: 0.95; }
+}
+html.hero-intro-active,
+html.hero-intro-active body {
+  overflow: hidden;
+}
+/* .hero-intro is inside .hero's stacking context, so the nav paints over it */
+html.hero-intro-active .nav {
+  opacity: 0;
+  pointer-events: none;
+}
+/* The rail only fades in after the intro; the pill owns every other transition. */
+.nav {
+  opacity: 1;
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+}
+.hero-intro-skip {
+  position: absolute;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 3;
+  appearance: none;
+  border: 1px solid rgba(238, 240, 248, 0.28);
+  background: color-mix(in srgb, #000 55%, transparent);
+  color: rgba(238, 240, 248, 0.85);
+  font-family: "Schibsted Grotesk", system-ui, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.55rem 0.85rem;
+  border-radius: var(--r-control);
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.hero-intro-skip:hover {
+  border-color: rgba(238, 240, 248, 0.55);
+  color: #EEF0F8;
+}
+.hero-intro.is-done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+/* Hold entrance animations until intro ends (they would finish during the video otherwise) */
+@media (prefers-reduced-motion: no-preference) {
+  html.hero-intro-active .hero-h .line > span {
+    animation: none !important;
+    transform: translateY(132%) !important;
+  }
+  html.hero-intro-active .hero-sub,
+  html.hero-intro-active .hero-ctas {
+    animation: none !important;
+    opacity: 0 !important;
+    transform: translateY(18px) !important;
+  }
+  html.hero-intro-active .geo-orb,
+  html.hero-intro-active .geo-rings,
+  html.hero-intro-active .geo-ring-front {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+  html.hero-intro-active .geo-orbits {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+  html.hero-intro-active .hero-photo {
+    opacity: 0;
+    transition: none;
+  }
+  html:not(.hero-intro-active) .hero-photo {
+    opacity: 1;
+    transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.05s;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-intro { display: none !important; }
+}
+
+@media (max-width: 767px) {
+  .hero-photo img {
+    /* Portrait viewport crops horizontally, so object-position pans again. */
+    object-position: 44% 32%;
+    transform: none;
+    opacity: 0.36;
+  }
+}
+
+/* Portfolio logo marquee — infinite loop */
+.logo-band {
+  margin-top: clamp(2.8rem, 5.5vw, 4.2rem);
+  padding-bottom: clamp(2.75rem, 8vh, 4.75rem);
+}
+.logo-band .kicker { margin-bottom: 1.35rem; }
+.logo-marquee {
+  overflow: hidden;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+.logo-marquee-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  animation: logoMarquee 48s linear infinite;
+}
+.logo-marquee:hover .logo-marquee-track {
+  animation-play-state: paused;
+}
+.logo-cloud {
+  /* --logo-cell is the pitch: one identical slot per mark, so the spacing the
+     eye actually measures (centre to centre) is constant even though the marks
+     are 55px to 160px wide. The slot carries the gap, which is why both the
+     gap and the inline padding are zero here — the old padding met itself at
+     the loop seam and produced one double-width gap per cycle. */
+  --logo-cell: clamp(9rem, 13vw, 12rem);
+  list-style: none;
+  margin: 0;
+  padding: 0.35rem 0;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0;
+  flex: 0 0 auto;
+}
+.logo-cloud li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: 0;
+  flex: 0 0 var(--logo-cell);
+  width: var(--logo-cell);
+}
+.logo-cloud img {
+  display: block;
+  width: auto;
+  height: clamp(1.35rem, 2.4vw, 1.85rem);
+  max-width: none;
+  object-fit: contain;
+  object-position: center;
+  max-width: calc(100% - 2.5rem);
+  opacity: 0.82;
+  filter: grayscale(1) contrast(1.05);
+  transition: opacity 0.25s ease, filter 0.25s ease;
+}
+.logo-cloud li:hover img {
+  opacity: 1;
+  filter: grayscale(0.35) contrast(1.05);
+}
+@keyframes logoMarquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+@media (max-width: 860px) {
+  .logo-band { padding-bottom: clamp(1.75rem, 5vh, 3rem); }
+  .logo-cloud { --logo-cell: clamp(7rem, 26vw, 9rem); }
+  .logo-cloud img { max-width: calc(100% - 1.75rem); }
+  .logo-cloud img {
+    height: clamp(1.2rem, 3.6vw, 1.55rem);
+  }
+  .logo-marquee-track { animation-duration: 36s; }
+}
+@media (max-width: 520px) {
+  .logo-cloud { --logo-cell: 6.5rem; }
+  .logo-cloud img { height: 1.15rem; max-width: calc(100% - 1.4rem); }
+  .logo-marquee-track { animation-duration: 28s; }
+}
+/* Phone: the hero is content-height, so the band can only be bought with
+   padding. Placed after the 860px rule above, which it has to out-order. */
+@media (max-width: 767px) {
+  .ed .brandband { padding-block: 1.4rem 0; }
+  .logo-band { padding-bottom: 1.5rem; }
+  .logo-band .kicker { margin-bottom: 0.9rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee {
+    width: 100%;
+    margin-left: 0;
+    -webkit-mask-image: none;
+    mask-image: none;
+    overflow: visible;
+  }
+  .logo-marquee-track {
+    display: block;
+    width: auto;
+    animation: none;
+  }
+  .logo-marquee-track .logo-cloud[aria-hidden="true"] { display: none; }
+  .logo-cloud {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-inline: 0;
+    gap: clamp(1.1rem, 3.5vw, 1.75rem) clamp(1.25rem, 4vw, 2rem);
+  }
+  .logo-cloud li { flex: 0 0 auto; width: auto; }
+  .logo-cloud img { max-width: none; }
+}
+
+/* Cooler scroll reveals (page-level) */
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--rd, 0s);
+  }
+  [data-reveal="left"] { transform: translateX(-36px); }
+  [data-reveal="right"] { transform: translateX(36px); }
+  [data-reveal="scale"] { transform: translateY(20px) scale(0.94); }
+  [data-reveal].is-in { opacity: 1; transform: none; }
+
+  .footer-inner[data-reveal] {
+    transform: translateY(20px);
+  }
+}
+
+
+/* ════════════════════════════════════════════════════════════
+   R6 · FLOATING NAV + MEDIA ORB
+   ════════════════════════════════════════════════════════════ */
+
+/* ---------- 1. Floating nav island ----------
+   .nav is a transparent positioning rail; .nav-inner is the pill.
+   The page is warm editorial paper, so the pill stays paper. On scroll it
+   CONSOLIDATES rather than changing costume: it pulls in, sits down, and goes
+   from a translucent sheet over the hero to a settled, near-opaque chip. One
+   gesture on one easing — no palette inversion, nothing to re-read. */
+.nav {
+  inset: clamp(0.6rem, 1.4vw, 1.1rem) 0 auto 0;
+  height: auto;
+  padding-inline: clamp(1rem, 3vw, 2.2rem);
+  background: none !important;
+  border-bottom: 0;
+  box-shadow: none;
+  pointer-events: none;
+}
+.nav .nav-inner {
+  position: relative;
+  pointer-events: auto;
+  width: min(1160px, 100%);
+  margin-inline: auto;
+  height: 64px;
+  padding-inline: 0.6rem 0.6rem;
+  gap: 1.5rem;
+  border-radius: var(--r-control);
+  border: 1px solid color-mix(in srgb, #15140F 10%, transparent);
+  background: color-mix(in srgb, #FFFFFF 74%, transparent);
+  -webkit-backdrop-filter: blur(14px) saturate(1.25);
+  backdrop-filter: blur(14px) saturate(1.25);
+  box-shadow: 0 10px 26px -20px rgba(21, 20, 15, 0.5);
+  transition:
+    height 0.38s var(--ease, cubic-bezier(0.16, 1, 0.3, 1)),
+    width 0.38s var(--ease, cubic-bezier(0.16, 1, 0.3, 1)),
+    background-color 0.38s var(--ease, cubic-bezier(0.16, 1, 0.3, 1)),
+    border-color 0.38s var(--ease, cubic-bezier(0.16, 1, 0.3, 1)),
+    box-shadow 0.38s var(--ease, cubic-bezier(0.16, 1, 0.3, 1));
+  /* backdrop-filter is deliberately NOT transitioned. Interpolating a blur
+     re-rasterizes the backdrop every frame for 380ms, which is the most
+     expensive thing on this page; the background-color crossfade already
+     covers the change, so snapping the blur is invisible and free. */
+}
+.nav.scrolled .nav-inner {
+  height: 56px;
+  width: min(1040px, 100%);
+  /* On scroll: white, held slightly translucent so the blur reads as frosted
+     glass rather than a solid bar. */
+  background: color-mix(in srgb, #FFFFFF 82%, transparent);
+  border-color: color-mix(in srgb, #15140F 12%, transparent);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  backdrop-filter: blur(16px) saturate(1.3);
+  box-shadow: 0 18px 40px -26px rgba(21, 20, 15, 0.6);
+}
+/* the rich-imagery override painted a solid paper bar — the pill replaces it */
+html[data-imagery="rich"] .nav,
+html[data-imagery="rich"] .nav.scrolled {
+  background: none;
+}
+/* The rail is a positioning frame only. The base sheet puts backdrop-filter and
+   a shadow on .nav.scrolled — full-bleed, so it blurred a strip of page well
+   outside the pill. Every surface effect belongs to .nav-inner alone. */
+.nav,
+.nav.scrolled {
+  height: auto;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: none;
+  border: 0;
+}
+
+/* Nav links: capsules, like everything else in this pill. Hover grows a tinted
+   chip; the section you're actually in keeps one. */
+.nav .nav-links { gap: 0.15rem; }
+.nav .nav-links a {
+  position: relative;
+  z-index: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--r-control);
+  transition: color 0.24s var(--ease, cubic-bezier(0.16, 1, 0.3, 1));
+}
+.nav .nav-links a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: color-mix(in srgb, var(--accent) 9%, transparent);
+  opacity: 0;
+  transform: scale(0.82);
+  transition: opacity 0.24s var(--ease, cubic-bezier(0.16, 1, 0.3, 1)),
+              transform 0.24s var(--ease, cubic-bezier(0.16, 1, 0.3, 1));
+}
+.nav .nav-links a:hover,
+.nav .nav-links a:focus-visible { color: var(--accent); }
+.nav .nav-links a:hover::before,
+.nav .nav-links a:focus-visible::before { opacity: 1; transform: scale(1); }
+.nav .nav-links a[aria-current] { color: var(--accent); }
+.nav .nav-links a[aria-current]::before {
+  opacity: 1;
+  transform: scale(1);
+  background: color-mix(in srgb, var(--accent) 15%, transparent);
+}
+/* focus ring already follows the capsule; drop the base 2px square radius */
+.nav .nav-links a:focus-visible { border-radius: var(--r-control); }
+@media (prefers-reduced-motion: reduce) {
+  .nav .nav-links a::before { transition: opacity 0.2s linear; transform: scale(1); }
+}
+
+/* External-link arrow (↗). Nudged toward the baseline and slightly smaller so
+   it reads as a superscript cue, not a second word. Lifts on hover. */
+.nav-ext {
+  font-size: 0.82em;
+  margin-left: 0.24em;
+  line-height: 1;
+  transform: translateY(-0.04em);
+  transition: transform 0.24s var(--ease, cubic-bezier(0.16, 1, 0.3, 1));
+}
+.nav .nav-links a:hover .nav-ext,
+.nav .nav-links a:focus-visible .nav-ext {
+  transform: translate(0.08em, -0.14em);
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav .nav-links a:hover .nav-ext,
+  .nav .nav-links a:focus-visible .nav-ext { transform: translateY(-0.04em); }
+}
+
+.nav .logo-link { flex: 0 0 auto; display: block; margin-left: 0.85rem; }
+.nav .logo-mark {
+  transition: width 0.38s var(--ease, cubic-bezier(0.16, 1, 0.3, 1)),
+              height 0.38s var(--ease, cubic-bezier(0.16, 1, 0.3, 1));
+}
+.nav.scrolled .logo-mark {
+  --logo-w: 130px;
+  width: 130px;
+  height: calc(130px * 0.1309);
+}
+
+/* Capsule inside a capsule: a full-pill radius on the CTA is concentric with
+   the outer pill at any height, and one fixed size keeps the target honest
+   through the contraction. Only the chrome moves. */
+.nav .btn.nav-cta {
+  height: 44px;
+  padding: 0 1.5rem;
+  border-radius: var(--r-control);
+  font-size: 0.82rem;
+  letter-spacing: 0.01em;
+  transition: transform 0.22s var(--ease, cubic-bezier(0.16, 1, 0.3, 1)),
+              box-shadow 0.22s var(--ease, cubic-bezier(0.16, 1, 0.3, 1)),
+              color 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+/* No box lift — same bottom-edge flicker fix as the base .btn (a -1px hover
+   translate slid the pill out from under a pointer on its bottom edge). */
+.nav .btn.nav-cta:hover { transform: translateZ(0); }
+/* The trigger is a mark, not a word. Three equal bars is the icon everyone
+   draws; this is the typographic device the rest of the page already speaks in
+   — a thick-thin double rule, the Didone stroke contrast the display face is
+   built on, sitting under a nav wordmark that is itself a Didone. Open, the
+   two rules cross into a close mark and equalise, so the state change is the
+   same two strokes rather than a different icon.
+
+   The label stays in the DOM at font-size 0: paradium.js swaps "Menu" and
+   "Close" as textContent, which is exactly the accessible name this wants, and
+   zeroing the type keeps that name without drawing it. */
+.nav .menu-btn {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  min-width: 0;
+  border-radius: var(--r-control);
+  margin-right: 0.15rem;
+  font-size: 0;
+  line-height: 0;
+  align-items: center;
+  justify-content: center;
+}
+.nav .menu-btn::before,
+.nav .menu-btn::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 18px;
+  height: 1.5px;
+  background: currentColor;
+  border-radius: 1px;
+  translate: -50% 0;
+  transition:
+    top 0.34s var(--ease, cubic-bezier(0.16, 1, 0.3, 1)),
+    rotate 0.34s var(--ease, cubic-bezier(0.16, 1, 0.3, 1));
+}
+/* two evenly-weighted rules, 6px apart, centred as a pair */
+.nav .menu-btn::before { top: calc(50% - 3px); }
+.nav .menu-btn::after  { top: calc(50% + 3px); }
+
+.nav .menu-btn[aria-expanded="true"]::before,
+.nav .menu-btn[aria-expanded="true"]::after {
+  top: calc(50% - 0.75px);
+}
+.nav .menu-btn[aria-expanded="true"]::before { rotate: 45deg; }
+.nav .menu-btn[aria-expanded="true"]::after  { rotate: -45deg; }
+
+@media (prefers-reduced-motion: reduce) {
+  .nav .menu-btn::before,
+  .nav .menu-btn::after { transition: none; }
+}
+
+/* ---------- mobile menu ----------
+   The base sheet styles every <a> inside .mobile-menu as a display-scale serif
+   link, which caught the CTA too: it was rendering as 3rem Gloock in near-black
+   ink on the violet fill. Scope the display treatment to the nav list, and give
+   the button back its own component styling. */
+.mobile-menu {
+  justify-content: flex-start;
+  padding: calc(var(--nav-h) + 3.25rem) 1.5rem 2.5rem;
+}
+.mobile-menu nav { width: 100%; }
+.mobile-menu ul { gap: 0.65rem; }
+.mobile-menu ul a {
+  display: block;
+  padding-block: 0.2rem;
+  font-size: clamp(2rem, 9vw, 2.6rem);
+}
+.mobile-menu ul a:hover,
+.mobile-menu ul a:focus-visible { color: var(--accent); font-style: normal; }
+.mobile-menu .btn {
+  display: flex;
+  width: 100%;
+  margin-top: 2.4rem;
+  justify-self: stretch;
+  justify-content: center;
+  font-family: var(--sans, "Schibsted Grotesk", system-ui, sans-serif);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  color: var(--accent-ink);
+}
+
+@media (max-width: 860px) {
+  .nav .nav-inner { height: 58px; padding-inline: 0.5rem; }
+  .nav.scrolled .nav-inner { height: 52px; width: min(1040px, 100%); }
+  .nav .logo-link { margin-left: 0.9rem; }
+  .nav .menu-btn { width: 40px; height: 40px; }
+}
+/* Mobile nav fit: keep the Partner CTA fully inside the floating pill. The empty
+   links <nav> wrapper (its <ul> is hidden) still consumed one of the pill's
+   1.5rem gap slots, and that gap plus the logo indent pushed the CTA past the
+   pill's right edge. Placed after the base nav rules so it wins on source order. */
+@media (max-width: 960px) {
+  .nav .nav-inner { gap: 0.6rem; }
+  .nav .nav-inner > nav { display: none; }
+  .nav .btn.nav-cta { padding: 0 1.15rem; }
+}
+/* The contraction is scroll-linked geometry, so it snaps under reduced motion.
+   Surface and elevation still cross-fade — colour is not a vestibular trigger. */
+@media (prefers-reduced-motion: reduce) {
+  .nav .nav-inner {
+    transition: background-color 0.3s linear, border-color 0.3s linear, box-shadow 0.3s linear;
+  }
+  .nav .logo-mark,
+  .nav .btn.nav-cta { transition: color 0.3s linear; }
+}
+
+/* ---------- 2. The orb is now a moving window onto the work ----------
+   Same sphere geometry and cast shadow; the fill is a crossfading reel of
+   creators instead of a gradient. Sheen + rim keep it reading as the orb. */
+.geo-orb {
+  background: none;
+  box-shadow: 0 54px 120px -34px color-mix(in srgb, var(--orb-deep, #24105E) 55%, transparent);
+}
+.orb-media {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--orb-deep, #24105E);
+  /* The video sets will-change/transform, which promotes it to its own
+     compositing layer. On iOS WebKit (Safari AND Chrome, both WebKit) an
+     ancestor's border-radius + overflow:hidden does NOT clip a composited
+     child, so the reel leaked out as a square. clip-path clips the composited
+     subtree, so the circle holds on iOS. */
+  -webkit-clip-path: circle(50% at 50% 50%);
+          clip-path: circle(50% at 50% 50%);
+}
+/* One beat drives the whole hero: the reel, the glint, and both orbit rings.
+   4.5s per frame, 13.5s for the full cycle, down from 7s / 21s. */
+.hero { --orb-beat: 4.5s; }
+.orb-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+  will-change: transform;
+}
+/* Three frames at delay = duration/3. The visible window still has to run past
+   33.3% or the wrap from the last frame back to the first exposes the backing.
+
+   The old curve spent 7.5s easing 1.16 -> 1.02 across the whole visible window,
+   which is why it read as a dissolve: nothing ever arrived, it just slowly
+   faded past. This is a hand-off instead, in three distinct moves.
+     0 -> 3.5%   the incoming frame ARRIVES: it pushes in from 1.14 and lands
+                 at 1.075 on a decelerating curve. 0.47s, and it reads as a cut
+                 with weight rather than a fade.
+     3.5 -> 30%  it SETTLES: 1.075 -> 1.018, linear, 3.6s. Barely perceptible
+                 drift, which is what makes the arrival read as an arrival.
+     30 -> 37%   it RECEDES to rest at 1.0 while going transparent. 0.95s.
+   No keyframe drops below scale 1: the frame is `inset: 0` inside a circular
+   mask, so anything under 1.0 would pull the photo off the mask edge and show
+   the backing colour through the rim. */
+@keyframes orbReel {
+  0%    { opacity: 0; transform: scale(1.14);  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
+  3.5%  { opacity: 1; transform: scale(1.075); animation-timing-function: linear; }
+  30%   { opacity: 1; transform: scale(1.018); animation-timing-function: cubic-bezier(0.5, 0, 0.3, 1); }
+  37%   { opacity: 0; transform: scale(1);     animation-timing-function: linear; }
+  100%  { opacity: 0; transform: scale(1.14); }
+}
+/* Violet wash — enough to hold the brand, light enough to read the photo */
+.orb-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 36% 30%,
+      color-mix(in srgb, var(--accent-2) 34%, transparent) 0%,
+      color-mix(in srgb, var(--accent) 30%, transparent) 48%,
+      color-mix(in srgb, var(--orb-deep, #24105E) 62%, transparent) 100%);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+.orb-sheen {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.5) 0%, transparent 22%),
+    radial-gradient(circle at 50% 50%, transparent 54%, rgba(16, 8, 44, 0.5) 100%);
+  box-shadow:
+    inset 0 -26px 62px rgba(12, 6, 34, 0.5),
+    inset 0 10px 40px rgba(255, 255, 255, 0.14),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+/* A specular sweep across the rim on every hand-off. It fires on the beat, so
+   the change reads as the glass catching the light rather than as a dissolve,
+   and it gives the eye a reason to look at the orb the moment it turns over. */
+.orb-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  background: conic-gradient(from 196deg,
+    transparent 0 8%,
+    rgba(255, 255, 255, 0.34) 15%,
+    rgba(214, 200, 255, 0.16) 20%,
+    transparent 28% 100%);
+  mix-blend-mode: screen;
+  opacity: 0;
+  animation: orbGlint var(--orb-beat, 4.5s) linear infinite;
+  will-change: transform, opacity;
+}
+@keyframes orbGlint {
+  0%   { opacity: 0.85; transform: rotate(-15deg); animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); }
+  24%  { opacity: 0;    transform: rotate(11deg); }
+  100% { opacity: 0;    transform: rotate(11deg); }
+}
+/* The orbit rings are now harmonics of the same beat: 5 beats and 3 beats.
+   The counter-rotation on each chip must keep matching its ring exactly, or
+   the labels start to tumble. */
+.geo-orbit.o-outer,
+.geo-sat b { animation-duration: calc(var(--orb-beat, 4.5s) * 5); }
+.geo-orbit.o-inner,
+.geo-orbit.o-inner .geo-sat b { animation-duration: calc(var(--orb-beat, 4.5s) * 3); }
+@media (prefers-reduced-motion: reduce) {
+  .orb-sheen::after { animation: none; opacity: 0; }
+}
+/* Hold the glint still until the brand intro has cleared */
+@media (prefers-reduced-motion: no-preference) {
+  html.hero-intro-active .orb-sheen::after { animation-play-state: paused; }
+}
+
+/* ---------- 3. Hero background ----------
+   A top-down desk flat-lay: no single subject to frame, but the centre is
+   bright and busy, so it sits back further than the R5 portrait did. */
+.hero-photo img {
+  object-position: 50% 48%;
+  transform: scale(1.12);
+  opacity: 0.4;
+  filter: grayscale(0.22) contrast(1.04) saturate(0.9);
+}
+html[data-imagery="rich"] .hero::before {
+  background:
+    linear-gradient(105deg,
+      #F3F2ED 0%,
+      color-mix(in srgb, #F3F2ED 92%, transparent) 38%,
+      color-mix(in srgb, #F3F2ED 52%, transparent) 62%,
+      color-mix(in srgb, #F3F2ED 18%, transparent) 82%,
+      transparent 100%);
+}
+@media (max-width: 767px) {
+  /* The desk photo is decoration on a 375 column, not an image anyone reads.
+     Hold it well back, and swap the diagonal scrim for a vertical one: the
+     105deg version faded to transparent on the right, which is exactly where
+     the copy now runs full width. */
+  .hero-photo img {
+    object-position: 50% 45%;
+    transform: none;
+    opacity: 0.16;
+  }
+  html[data-imagery="rich"] .hero::before {
+    background: linear-gradient(
+      to bottom,
+      #F3F2ED 0%,
+      color-mix(in srgb, #F3F2ED 88%, transparent) 46%,
+      color-mix(in srgb, #F3F2ED 76%, transparent) 100%);
+  }
+}
+
+/* ---------- 4. Tablet band ----------
+   768 to 900 is the band where the hero still runs side by side but has no
+   width to spare. Previously the orb was 420px wide at -6vw, which put it
+   straight through the headline and the body copy: at 768 it started at x=399
+   while the copy ran to x=466. Here the orb comes back on screen at its own
+   size and the copy is capped short of it, so the two columns never touch.
+   Rings and orbit chips are dropped: there is no room to draw a 900px ring
+   around a 260px orb without it crossing the type, and a hairline over the
+   headline is still noise. The full composition returns above 900. */
+@media (min-width: 768px) and (max-width: 900px) {
+  .hero { --geo-right: 1.5rem; }
+  .geo-orb {
+    width: min(34vw, 268px);
+    top: 48%;
+  }
+  .geo-rings,
+  .geo-orbits,
+  .geo-ring-front { display: none; }
+  .hero-h,
+  .hero-sub,
+  .hero-ctas { max-width: 26rem; }
+}
+
+/* ---------- 5. Creator cloud ----------
+   The carousel that used to sit here made three profiles cost a full screen
+   and a controller. The section only has to answer "who writes here", so it
+   is a field of faces now: portrait, name, beat, nothing else. Tiles drift on
+   their own offset phase so the field reads as floating rather than gridded,
+   and the drift is cosmetic — it is the first thing reduced-motion drops. */
+.ed .creator-cloud {
+  margin: clamp(2.6rem, 5vw, 3.8rem) 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  /* Three across, two rows. auto-fit put all six on one line at desktop and
+     squeezed every beat label onto three ragged mono lines; a fixed three
+     gives each tile a column wide enough for its own caption. */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(2rem, 4vw, 3.2rem) clamp(1.2rem, 2.6vw, 2rem);
+  max-width: 58rem;
+}
+.ed .cw-item { margin: 0; }
+/* every other tile hangs a little low, so the row never lines up as a rule */
+.ed .cw-item:nth-child(even) { padding-top: clamp(0.6rem, 1.6vw, 1.5rem); }
+.ed .cw-item figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.95rem;
+  animation: cwFloat 7s ease-in-out infinite;
+  animation-delay: calc(var(--k, 0) * -1.15s);
+}
+.ed .cw-face {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: clamp(6rem, 10vw, 9.5rem);
+  aspect-ratio: 1;
+  border-radius: var(--r-control);
+  overflow: hidden;
+  background:
+    radial-gradient(120% 120% at 30% 20%, rgba(255,255,255,0.9), transparent 60%),
+    color-mix(in srgb, var(--ed-accent) 14%, var(--ed-paper-2));
+  box-shadow: var(--e1);
+  transition: transform 0.35s var(--ease, cubic-bezier(0.16, 1, 0.3, 1)),
+              box-shadow 0.35s var(--ease, cubic-bezier(0.16, 1, 0.3, 1));
+}
+/* initials stand in until a portrait lands; the <img> covers them when it loads
+   and removes itself when it 404s, so one markup shape serves both states. */
+.ed .cw-face::after {
+  content: attr(data-initials);
+  font-family: var(--serif-display);
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  color: color-mix(in srgb, var(--ed-accent) 72%, var(--ed-ink));
+  letter-spacing: 0.02em;
+}
+.ed .cw-face img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+}
+/* open slot: same silhouette, drawn rather than filled, so the section reads
+   as "seats available" instead of as a broken image. */
+.ed .cw-face.is-empty {
+  background: none;
+  box-shadow: none;
+  border: 1px dashed var(--line-strong);
+}
+.ed .cw-face.is-empty::after {
+  content: "";
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: var(--r-control);
+  background: var(--line-strong);
+}
+.ed .cw-item figure:hover .cw-face {
+  transform: translateY(-4px);
+  box-shadow: var(--e2);
+}
+.ed .cw-name {
+  display: block;
+  font-family: var(--serif-display);
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
+  line-height: 1.2;
+  color: var(--ed-ink);
+}
+.ed .cw-beat {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: var(--ed-ink-45);
+  max-width: 24ch;
+  margin-inline: auto;
+}
+.ed .cw-item.is-open .cw-name,
+.ed .cw-item.is-open .cw-beat { color: var(--ed-ink-45); }
+.ed .cw-item.is-open figure { animation-duration: 8.5s; }
+
+@keyframes cwFloat {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(0, -7px, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ed .cw-item figure { animation: none; }
+  .ed .cw-item:nth-child(even) { padding-top: 0; }
+  .ed .cw-face { transition: none; }
+}
+@media (max-width: 620px) {
+  .ed .creator-cloud { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ed .cw-beat { font-size: 0.6rem; }
+}
+
+/* Mobile: the orb is a small accent behind the copy — lighter interior shading
+   so the photo still reads at 42% opacity. Timing stays shared with desktop;
+   changing duration here would desync it from the 7s frame delays. */
+@media (max-width: 767px) {
+  .orb-sheen { box-shadow: inset 0 -14px 34px rgba(12, 6, 34, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.24); }
+}
+
+/* ════════════════════════════════════════════════════════════
+   R8 · PRODUCTION PASS
+   Hit areas, compositor hygiene, and the roster's vertical rhythm.
+   ════════════════════════════════════════════════════════════ */
+
+/* Touch targets. Several controls were fine to look at but under the 44px
+   minimum for a finger: the footer links measured 15px tall, the spotlight
+   tabs 34, the roster arrows 41. Grow the HIT AREA, not the visible mark, and
+   scope it to coarse pointers so the desktop rhythm is untouched. */
+/* Gated on width AND pointer, not pointer alone: a tablet in landscape is a
+   touch device at 1024, and `pointer: coarse` is unreliable enough on hybrid
+   hardware that it cannot be the only signal. Above 1024 the input is
+   overwhelmingly a mouse, where 44px is not a requirement. */
+@media (max-width: 1024px), (pointer: coarse) {
+  .footer-nav { gap: 0 1.5rem; }
+  .footer-nav a,
+  .footer-meta a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .ed .roster-btn { width: 44px; height: 44px; }
+  /* the hover pill is drawn on the anchor box, so growing the hit area grows
+     the pill with it: at 44px it reads as a deliberate nav chip, not a stretch */
+  .nav .nav-links a { min-height: 44px; }
+  .nav .menu-btn { width: 44px; height: 44px; }
+  .nav .logo-link { padding-block: 0.8rem; margin-block: -0.8rem; }
+  .footer .logo-link { padding-block: 0; }
+}
+
+/* Footer: a row of links, then the wordmark. On phones the wordmark sits
+   centered below the links; on desktop it floats to the left of the row. */
+.footer {
+  overflow: visible;
+  text-align: center;
+  border-top: 1px solid var(--line);
+  padding-bottom: 0;
+}
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.3rem, 3vw, 1.9rem);
+  padding-top: clamp(2.5rem, 5vw, 3.4rem);
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+}
+.footer-nav {
+  order: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem 1.9rem;
+  list-style: none;
+}
+.footer-nav a {
+  font-family: "Schibsted Grotesk", system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  color: var(--paper-ink);
+  opacity: 0.82;
+  transition: color 0.2s var(--ease), opacity 0.2s var(--ease);
+}
+.footer-nav a:hover,
+.footer-nav a:focus-visible { color: var(--accent); opacity: 1; }
+/* Wordmark: a normal, un-clipped logo. order:2 drops it below the links on
+   phones; the desktop rule below flips it to order:-1 so it floats left. */
+.footer .logo-link {
+  order: 2;
+  display: inline-flex;
+  width: auto;
+  aspect-ratio: auto;
+  overflow: visible;
+  line-height: 0;
+  margin-inline: auto;
+}
+.footer .logo-mark {
+  --logo-w: 150px;
+  width: var(--logo-w);
+  height: calc(var(--logo-w) * 0.1309);
+  max-width: 62vw;
+  display: block;
+}
+.footer-copy {
+  order: 3;
+  margin: 0;
+  font-family: "Schibsted Grotesk", system-ui, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.01em;
+  opacity: 0.62;
+}
+@media (min-width: 768px) {
+  .footer-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+  }
+  .footer .logo-link { order: -1; margin-inline: 0; }
+  .footer-nav { order: 0; }
+  .footer-copy { order: 1; }
+}
+
+
+
+/* ---------- Roster card: the whole card is the trigger ----------
+   The visible "Overview" label was doing nothing the card itself does not
+   already promise, and it was buying a line of type plus its leading on all
+   sixteen cards. The button keeps its accessible name (per person, so a screen
+   reader hears which one) and shrinks to nothing; the stretched ::after is the
+   real hit area. The roster's capture-phase click guard already swallows the
+   click that ends a drag, so a swipe cannot open it. */
+.ed .creator-open {
+  display: block;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.ed .creator-open::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-surface);
+  cursor: pointer;
+}
+.ed .creator-open:focus-visible { outline: none; }
+.ed .creator:has(.creator-open:focus-visible) {
+  outline: 2px solid var(--ed-accent);
+  outline-offset: 4px;
+}
+
+/* "View bio" CTA — a pill that fades up over the portrait on hover/focus only.
+   Decorative (pointer-events:none); the whole card is already the click target
+   via .creator-open, and its aria-label carries the accessible name. */
+.ed .roster .creator-portrait::before {
+  content: "View bio";
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: 1rem;
+  transform: translate(-50%, 10px);
+  padding: 0.5rem 1.05rem;
+  border-radius: var(--r-control);
+  background: #fff;
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 10px 24px -12px rgba(21, 20, 15, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.4s var(--ease, cubic-bezier(0.16, 1, 0.3, 1)),
+    transform 0.4s var(--ease, cubic-bezier(0.16, 1, 0.3, 1));
+}
+.ed .roster .creator:hover .creator-portrait::before,
+.ed .roster .creator:focus-visible .creator-portrait::before,
+.ed .roster .creator:has(.creator-open:focus-visible) .creator-portrait::before {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ed .roster .creator-portrait::before { transition: opacity 0.01s; transform: translate(-50%, 0); }
+}
+
+/* Restored leaders without a bio are display-only: no "View bio" CTA, no hover
+   affordance, default cursor. They are also excluded from the dialog nav (JS). */
+.ed .roster .creator.no-bio { cursor: default; }
+.ed .roster .creator.no-bio .creator-portrait::before { content: none; }
+.ed .roster .creator.no-bio:hover,
+.ed .roster .creator.no-bio:focus-within {
+  transform: none;
+  box-shadow: 0 20px 44px -34px rgba(21, 20, 15, 0.5);
+  border-color: var(--ed-rule);
+}
+.ed .roster .creator.no-bio:hover::before,
+.ed .roster .creator.no-bio:focus-within::before { opacity: 0; }
+.ed .roster .creator.no-bio:hover .creator-portrait::after,
+.ed .roster .creator.no-bio:focus-within .creator-portrait::after { opacity: 0; }
+.ed .roster .creator.no-bio:hover .creator-portrait img,
+.ed .roster .creator.no-bio:focus-within .creator-portrait img { transform: scale(1.001); }
+.ed .roster .creator.no-bio:hover .creator-vert,
+.ed .roster .creator.no-bio:focus-within .creator-vert { color: var(--ed-ink-45); }
+
+/* the card only holds a name and a role now, so it does not need the padding
+   of one that held three lines */
+.ed .roster .creator-body {
+  padding: 0.85rem 0.95rem 0.95rem;
+  gap: 0.2rem;
+}
+
+/* ---------- Leadership overview dialog ----------
+   Same panel language as the contact dialog; only the interior differs. */
+.exec-modal {
+  /* The UA centring, restated. Two things break it: the base sheet zeroes
+     margins globally, and "position: relative" (added so the corner close
+     button had a containing block) drops the dialog out of the UA rule
+     altogether. fixed + inset 0 + auto margins centres AND anchors. */
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(46rem, calc(100vw - 2rem));
+  max-height: min(88vh, 46rem);
+  padding: clamp(1.6rem, 3vw, 2.3rem);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-surface);
+  background: var(--surface);
+  color: var(--bone-70);
+  font-family: "Schibsted Grotesk", system-ui, sans-serif;
+  box-shadow: var(--e3);
+  overflow: auto;
+}
+.exec-modal::backdrop {
+  background: rgba(18, 20, 31, 0.62);
+  backdrop-filter: blur(3px);
+}
+.exec-modal[open] { animation: cmIn 0.28s cubic-bezier(0.16, 1, 0.3, 1); }
+@media (prefers-reduced-motion: reduce) {
+  .exec-modal[open] { animation: none; }
+}
+
+/* The chrome used to own two full rows of the panel — a close button on its
+   own line at the top and a three-up arrow bar at the bottom — which pushed
+   the person, the reason anyone opened this, into the middle third. The close
+   button is out of flow in the corner now, and the arrows are a quiet
+   right-aligned pair under a hairline. */
+.exec-x-form { position: absolute; top: 0.85rem; right: 0.85rem; margin: 0; z-index: 2; }
+.exec-x {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: var(--r-control);
+  background: none;
+  color: var(--bone-45);
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.exec-x:hover { color: var(--bone); background: rgba(21, 20, 15, 0.06); }
+.exec-x svg { width: 14px; height: 14px; }
+
+.exec-body {
+  display: grid;
+  grid-template-columns: clamp(6.5rem, 13vw, 8.5rem) minmax(0, 1fr);
+  gap: clamp(1.2rem, 3vw, 1.9rem);
+  align-items: start;
+}
+.exec-portrait {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--r-surface);
+  overflow: hidden;
+  background: #1C1F2E;
+  box-shadow: var(--e1);
+}
+.exec-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.exec-copy .kicker { color: var(--accent); }
+.exec-copy h2 {
+  margin: 0.55rem 0 0;
+  font-family: 'Gloock', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--bone);
+}
+.exec-title {
+  margin: 0.4rem 0 0;
+  font-family: var(--mono, "Schibsted Grotesk", system-ui, sans-serif);
+  font-size: 0.66rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--bone-45);
+}
+.exec-overview {
+  margin-top: 1rem;
+  font-size: 0.97rem;
+  line-height: 1.62;
+  color: var(--bone-70);
+  max-width: 52ch;
+}
+.exec-overview p { margin: 0; }
+.exec-overview p + p { margin-top: 0.8rem; }
+.exec-overview .is-placeholder {
+  padding: 0.85rem 1rem;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--r-surface-in);
+  font-size: 0.92rem;
+  color: var(--bone-45);
+}
+
+.exec-nav {
+  margin-top: clamp(1.2rem, 2.6vw, 1.7rem);
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.exec-nav .exec-count { margin-right: auto; }
+.exec-step {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: var(--r-control);
+  background: none;
+  color: var(--bone-45);
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.exec-step:hover { color: var(--bone); background: rgba(21, 20, 15, 0.06); }
+.exec-step svg { width: 13px; height: 13px; }
+.exec-count {
+  margin: 0;
+  font-family: var(--mono, "Schibsted Grotesk", system-ui, sans-serif);
+  font-size: 0.63rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--bone-45);
+}
+@media (max-width: 560px) {
+  .exec-body { grid-template-columns: 1fr; }
+  .exec-portrait { width: 8rem; }
+}
+
+/* ---------- Contact dialog ----------
+   Paper panel on the same editorial palette as the body, not a new surface
+   language. ::backdrop is the only place the page dims, so it carries the
+   dark band's ink rather than plain black. */
+.contact-modal {
+  /* see .exec-modal: the UA centring restated, because the global margin reset
+     kills it and the corner close button needs a containing block. */
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(38rem, calc(100vw - 2rem));
+  max-height: min(86vh, 52rem);
+  padding: clamp(1.6rem, 3.4vw, 2.4rem);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-surface);
+  background: var(--surface);
+  color: var(--bone-70);
+  font-family: "Schibsted Grotesk", system-ui, sans-serif;
+  box-shadow: var(--e3);
+  overflow: auto;
+}
+.contact-modal::backdrop {
+  background: rgba(18, 20, 31, 0.62);
+  backdrop-filter: blur(3px);
+}
+.contact-modal[open] { animation: cmIn 0.28s cubic-bezier(0.16, 1, 0.3, 1); }
+@keyframes cmIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.985); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact-modal[open] { animation: none; }
+}
+
+/* out of flow, same as the overview dialog: with the standfirst gone the
+   headline should start at the top of the panel, not below a button row */
+.contact-x-form { position: absolute; top: 0.85rem; right: 0.85rem; margin: 0; z-index: 2; }
+.contact-x {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: var(--r-control);
+  background: none;
+  color: var(--bone-45);
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.contact-x:hover { color: var(--bone); background: rgba(21, 20, 15, 0.06); }
+.contact-x svg { width: 14px; height: 14px; }
+
+/* ---- Send: "sending" spinner + success confirmation ---- */
+.btn.is-sending { color: transparent !important; pointer-events: none; position: relative; }
+.btn.is-sending::after {
+  content: "";
+  position: absolute; top: 50%; left: 50%;
+  width: 18px; height: 18px; margin: -9px 0 0 -9px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  animation: cfSpin 0.6s linear infinite;
+}
+@keyframes cfSpin { to { transform: rotate(360deg); } }
+
+/* Success panel replaces the form once the enquiry is handed off. */
+.cf-success { display: none; }
+.contact-modal.is-sent .contact-head,
+.contact-modal.is-sent .contact-form { display: none; }
+.contact-modal.is-sent .cf-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.35rem;
+  padding: 1.4rem 0 0.6rem;
+}
+.cf-check { position: relative; width: 82px; height: 82px; margin-bottom: 0.5rem; }
+.contact-modal.is-sent .cf-check { animation: cfPop 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.cf-check svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.cf-check-ring { fill: color-mix(in srgb, var(--accent) 12%, transparent); }
+.cf-check-circle {
+  fill: none; stroke: var(--accent); stroke-width: 2.4; stroke-linecap: round;
+  stroke-dasharray: 151; stroke-dashoffset: 151;
+}
+.cf-check-mark {
+  fill: none; stroke: var(--accent); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round;
+  stroke-dasharray: 40; stroke-dashoffset: 40;
+}
+.contact-modal.is-sent .cf-check-circle { animation: cfDraw 0.5s cubic-bezier(0.65, 0, 0.35, 1) forwards; }
+.contact-modal.is-sent .cf-check-mark { animation: cfDraw 0.4s cubic-bezier(0.65, 0, 0.35, 1) 0.36s forwards; }
+@keyframes cfDraw { to { stroke-dashoffset: 0; } }
+@keyframes cfPop {
+  0%   { transform: scale(0.5); opacity: 0; }
+  55%  { transform: scale(1.12); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.cf-success-h {
+  margin: 0;
+  font-family: 'Gloock', Georgia, serif; font-weight: 400;
+  font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.12; color: var(--bone);
+}
+.cf-success-sub {
+  margin: 0.15rem 0 0.55rem;
+  font-family: "Schibsted Grotesk", system-ui, sans-serif;
+  font-size: 0.95rem; line-height: 1.5; color: var(--bone-45); max-width: 34ch;
+}
+/* confetti burst — particles are injected at the check centre */
+.cf-burst { position: absolute; left: 50%; top: 50%; width: 0; height: 0; pointer-events: none; z-index: 3; }
+.cf-confetti-bit { position: absolute; left: 0; top: 0; border-radius: 1px; will-change: transform, opacity; }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn.is-sending::after { animation: none; }
+  .contact-modal.is-sent .cf-check,
+  .contact-modal.is-sent .cf-check-circle,
+  .contact-modal.is-sent .cf-check-mark { animation: none; }
+  .cf-check-circle, .cf-check-mark { stroke-dashoffset: 0; }
+}
+
+.contact-head h2 {
+  margin: 0;
+  padding-right: 2.5rem;
+  font-family: 'Gloock', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--bone);
+}
+.contact-form {
+  margin-top: clamp(1.2rem, 2.4vw, 1.6rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.cf-field { display: flex; flex-direction: column; gap: 0.4rem; min-width: 0; }
+.cf-field label {
+  font-family: "Schibsted Grotesk", system-ui, sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--bone-45);
+}
+.cf-opt { text-transform: none; letter-spacing: 0.04em; opacity: 0.75; }
+.cf-field input,
+.cf-field select,
+.cf-field textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--bone);
+  background: #FFFDF8;
+  border: 1px solid var(--line-strong);
+  /* inputs hold content, so they sit on the surface tier, not the pill tier */
+  border-radius: var(--r-surface-in);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.cf-field textarea { resize: vertical; min-height: 5.5rem; line-height: 1.5; }
+.cf-field select {
+  appearance: none;
+  padding-right: 2.2rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%236F6D64' stroke-width='1.4' stroke-linecap='round' d='M4 6.5 8 10.5l4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.8rem center;
+  background-size: 15px;
+}
+.cf-field input:focus-visible,
+.cf-field select:focus-visible,
+.cf-field textarea:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  border-radius: var(--r-surface-in);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+.cf-field :is(input, select, textarea).is-invalid { border-color: #A32020; }
+
+.cf-error {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #A32020;
+}
+.cf-actions {
+  margin-top: 0.35rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+@media (max-width: 560px) {
+  .cf-row { grid-template-columns: 1fr; }
+}
+
+/* The nav ticker sets 9.6px mono on a 5%-ink tint, which composites to #E8E7E2
+   and drops the muted grey to 4.19:1. One step darker clears AA at that size
+   without touching the token every other muted label uses. */
+.nav .ticker { color: #66645C; }
+
+/* Roster rhythm. Every tile stretches to the tallest in the rail, and one
+   three-line job title was driving all sixteen. Reserving two lines on the
+   role keeps the common case from looking short and the outlier from looking
+   like a mistake, and align-content:start puts the leftover space in one
+   predictable place instead of splitting it between the rows. */
+.ed .roster .creator-body { align-content: start; }
+.ed .roster .creator-vert { min-height: 2.4em; }
+
+/* Compositor hygiene. will-change on a permanent element holds a layer for the
+   life of the page. The button fill circle is on every CTA and the flywheel
+   peek is a full-bleed photo, so both were promoting layers that are only
+   needed while the pointer is actually over them. Promote on demand. */
+.btn .btn-circle { will-change: auto; }
+.btn:hover .btn-circle,
+.btn:focus-visible .btn-circle { will-change: transform; }
+
+/* The skip link animated `top`, a layout property. Park it at its final
+   position and move it with transform instead: identical motion, composited,
+   and it no longer forces a layout on the first Tab press of the page. */
+.skip-link {
+  top: 12px;
+  transform: translateY(-72px);
+  transition: transform 0.2s var(--ease, cubic-bezier(0.16, 1, 0.3, 1));
+}
+.skip-link:focus,
+.skip-link:focus-visible { top: 12px; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .skip-link { transition: none; }
+}
+
+/* ↓↓↓ candidate overrides relocated to end of sheet so source-order wins ↓↓↓ */
+/* ══════════════════════════════════════════════════════════════════════════
+   STREAMLINE OVERRIDES (round · 2026-08-18)
+   Loaded last in the head sheet, so equal-specificity rules here win. Three
+   things only: (1) the sans is Schibsted Grotesk — the swap is done in the
+   declarations above, this just retargets paradium.css's body var; (2) the
+   product tiles become the clean option cards with the supplied wordmarks
+   floating in the upper portion; (3) the hero loses its washed collage and
+   gains one soft violet bloom behind the orb, the "rendered" look from B, on
+   the existing light paper. Serif (Gloock) and the button hover are untouched.
+   ══════════════════════════════════════════════════════════════════════════ */
+:root { --font-sans: "Schibsted Grotesk", system-ui, sans-serif; }
+
+/* ── Product tiles: flat, clean, one grid + one arc, floating wordmark ── */
+.ed .prod-card:nth-child(1),
+.ed .prod-card:nth-child(2),
+.ed .prod-card:nth-child(3) { --tilt: 0deg; }
+
+.ed .prod-card {
+  background: #12141F;
+  border: 1px solid rgba(238, 240, 248, 0.10);
+  border-radius: var(--r-surface);
+  box-shadow: 0 22px 48px -30px rgba(18, 20, 31, 0.5);
+  transform: none;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@media (hover: hover) {
+  .ed .prod-card:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--accent-bright) 42%, transparent);
+  }
+}
+/* Reveal is a clean fade-up now — no rotate/scale confetti. */
+@media (prefers-reduced-motion: no-preference) {
+  .ed .prod-card:nth-child(1)[data-reveal],
+  .ed .prod-card:nth-child(2)[data-reveal],
+  .ed .prod-card:nth-child(3)[data-reveal] {
+    transform: translate3d(0, 2rem, 0);
+    filter: none;
+  }
+  .ed .prod-card[data-reveal].is-in { transform: none; }
+}
+
+/* The wordmark is the hero of each card visual now: centered in the dark
+   band, sized up, and given a --logo-shift the scroll handler drives so it
+   drifts a little as the card passes through the viewport (parallax). */
+.ed .prod-logo {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  padding-inline: 1.5rem;
+  transform: translate3d(0, var(--logo-shift, 0px), 0);
+  will-change: transform;
+}
+.ed .prod-logo img {
+  width: auto;
+  height: auto;
+  max-height: clamp(2.2rem, 3.8vw, 3.1rem);
+  max-width: min(82%, 320px);
+  object-fit: contain;
+}
+@media (max-width: 960px) {
+  .ed .prod-logo img { max-height: clamp(2.4rem, 8vw, 3rem); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ed .prod-logo { transform: none; }
+}
+
+/* Slight ambient motion layered on top of the scroll parallax: the wordmark
+   breathes vertically, the grid drifts one cell, and the arc drifts + tilts a
+   hair. Low amplitude, long periods, staggered per card, and entirely behind
+   `no-preference` so reduced-motion users get a still card. */
+@media (prefers-reduced-motion: no-preference) {
+  .ed .prod-logo img {
+    animation: prodLogoFloat 7s ease-in-out infinite;
+    will-change: transform;
+  }
+  .ed .prod-card:nth-child(2) .prod-logo img { animation-duration: 8.5s; animation-delay: -2.5s; }
+  .ed .prod-card:nth-child(3) .prod-logo img { animation-duration: 6.5s; animation-delay: -4s; }
+
+}
+@keyframes prodLogoFloat {
+  0%   { transform: translate(-3.5px, -4px); }
+  25%  { transform: translate(3.5px, -1.5px); }
+  50%  { transform: translate(2.5px, 4px); }
+  75%  { transform: translate(-2px, 1.5px); }
+  100% { transform: translate(-3.5px, -4px); }
+}
+
+/* ── Products: dark purple band, light-mode cards, one turning "loop".
+   Flat ground (no gradient fill — the same flat-dark + edge-vignette the
+   investors band uses); light paper card BOXES with dark ink and NO border
+   (a transparent border on a light card leaked the light bg through as a 1px
+   white rim — the "white outline"); the dark logo panel stays dark for the
+   wordmarks and its foot dissolves into the body. The section's one authored
+   motion is the arc — the loop — turning slowly behind each logo. ── */
+.ed .products {
+  border-top: 0;
+  /* FLAT deep violet, close to the investors band, plus that band's own
+     edge-vignette for depth. No gradient fill. */
+  background: #14102A;
+  box-shadow:
+    inset 0 26px 64px -44px rgba(0, 0, 0, 0.6),
+    inset 0 -26px 64px -44px rgba(0, 0, 0, 0.5);
+  color: #C4BEDE;
+}
+.ed .products .h-sec { color: #F3F1F9; }
+.ed .products .h-sec em { color: #B9A8FF; }
+.ed .products .lede { color: #C4BEDE; }
+
+/* light card, floated by a soft shadow, NO border — border:0 kills the white
+   rim; background-clip padding-box is belt-and-braces against any future edge. */
+.ed .products .prod-card {
+  background: #F4F2EC;
+  background-clip: padding-box;
+  border: 0;
+  box-shadow: 0 40px 84px -46px rgba(0, 0, 0, 0.82);
+  transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.45s cubic-bezier(0.16,1,0.3,1);
+}
+@media (hover: hover) {
+  .ed .products .prod-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 48px -34px rgba(0, 0, 0, 0.5);
+  }
+}
+/* flat dark panel (no gradient), a touch lighter than the ground so the card
+   top still reads; foot masked to transparent so it dissolves into the body. */
+/* the arc IS the loop — make it read, then turn it. A larger, brighter ring
+   whose lit segment sweeps behind the logo as it rotates. Continuous, slow,
+   linear; alternating direction per card so the three don't lock into rhythm. */
+/* body text -> dark ink on the light card */
+.ed .products .prod-card .p-role { color: var(--accent); }
+.ed .products .prod-card .p-prop { color: #3B382F; }
+@keyframes prodLoopSpin { to { transform: rotate(360deg); } }
+
+/* ── Products v2: one dark surface per card + an animated node field behind
+   the content. The field's motion maps to each engine (data streams in →
+   signals converge to a match → one source fans out to many). A ~10% top pad
+   opens a strip up top so the animation reads before the label. The old
+   light-card / dark-visual-panel treatment is fully overridden below. ── */
+.ed .products .prod-card {
+  position: relative;
+  background: radial-gradient(120% 85% at 78% -8%, #2A1E5C, #160F32 58%, #100B24);
+  border: 1px solid rgba(139, 116, 255, 0.16);
+  border-radius: var(--r-surface);
+  box-shadow: 0 40px 84px -46px rgba(0, 0, 0, 0.82);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 10% 22px 22px;
+}
+@media (hover: hover) {
+  .ed .products .prod-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 48px -34px rgba(0, 0, 0, 0.5);
+    border-color: color-mix(in srgb, var(--accent-bright) 40%, transparent);
+  }
+}
+/* full-card animated node field, behind the content */
+.ed .products .prod-field {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+/* the slow loop arc keeps turning behind the field */
+.ed .products .prod-loop {
+  position: absolute;
+  right: -20%;
+  top: -40%;
+  width: 92%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+  border: 2px solid color-mix(in srgb, var(--accent-bright) 58%, transparent);
+  opacity: 0.5;
+  -webkit-mask-image: linear-gradient(150deg, #000 26%, transparent 66%);
+          mask-image: linear-gradient(150deg, #000 26%, transparent 66%);
+  animation: prodLoopSpin 36s linear infinite;
+}
+.ed .products .prod-card:nth-child(2) .prod-loop { animation-duration: 30s; animation-direction: reverse; }
+.ed .products .prod-card:nth-child(3) .prod-loop { animation-duration: 42s; }
+
+/* content sits above the field */
+.ed .products .prod-card > .p-role,
+.ed .products .prod-card > .prod-logo,
+.ed .products .prod-card > .p-prop { position: relative; z-index: 1; }
+
+/* role -> pill */
+.ed .products .prod-card .p-role {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid rgba(139, 116, 255, 0.4);
+  border-radius: var(--r-control);
+  padding: 5px 12px;
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent-bright-text);
+  background: rgba(107, 74, 255, 0.08);
+}
+/* wordmark -> left-aligned in normal flow (overrides the absolute grid centering
+   and the float/parallax so the canvas owns the motion) */
+.ed .products .prod-card .prod-logo {
+  position: relative;
+  inset: auto;
+  display: flex;
+  place-items: unset;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 16px 0 0;
+  min-height: 48px;
+  transform: none;
+}
+.ed .products .prod-card .prod-logo img {
+  width: auto;
+  height: auto;
+  max-height: 48px;
+  max-width: 90%;
+  object-fit: contain;
+  animation: none;
+}
+/* copy -> light ink on the dark card */
+.ed .products .prod-card .p-prop {
+  color: #B9B2D6;
+  margin: 13px 0 0;
+}
+/* per-card CTA button -> pinned to the card foot so buttons line up across tiles */
+.ed .products .prod-card > .p-cta {
+  z-index: 1;
+  align-self: flex-start;
+  margin: auto 0 0;
+}
+.ed .products .prod-card > .p-prop:has(+ .p-cta) { margin-bottom: 24px; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ed .products .prod-loop { animation: none; }
+}
+@media (max-width: 960px) {
+  .ed .products .prod-card { padding: 8% 20px 20px; }
+}
+
+/* ── Hero: drop the washed collage, add one soft violet bloom behind the orb ──
+   The collage carries class .img-only, and `html[data-imagery="rich"] .img-only`
+   forces it visible with !important — so this needs equal/greater specificity
+   plus !important to win, not a bare `.hero-photo`. */
+html[data-imagery="rich"] .hero-photo.img-only,
+.hero-photo { display: none !important; }
+html[data-imagery="rich"] .hero::before { display: none; }
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 44%;
+  right: calc(var(--geo-right, 10vw) + (min(27vw, 370px) - min(64vw, 780px)) / 2);
+  width: min(64vw, 780px);
+  height: min(64vw, 780px);
+  transform: translateY(-50%);
+  background: radial-gradient(circle,
+    color-mix(in srgb, var(--accent-bright) 32%, transparent) 0%,
+    color-mix(in srgb, var(--accent) 15%, transparent) 42%,
+    transparent 68%);
+  filter: blur(34px);
+  pointer-events: none;
+}
+@media (max-width: 900px) {
+  .hero::after {
+    top: 18%;
+    right: calc(var(--geo-right) + (62vw - 120vw) / 2);
+    width: 120vw;
+    height: 120vw;
+    transform: none;
+  }
+}
+
+</style>
+<script>
+/* Refresh restarts the prototype from the top, not the restored scroll position */
+(function () {
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  if (window.location.hash) return;
+  function top() { window.scrollTo(0, 0); }
+  top();
+  window.addEventListener("DOMContentLoaded", top);
+  window.addEventListener("load", top);
+  window.addEventListener("pageshow", function (e) { if (e.persisted) top(); });
+})();
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="nav-sentinel" aria-hidden="true"></div>
+
+<!-- silhouette sprite for the operator roster portraits -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="sil-a" viewBox="0 0 100 125">
+    <circle cx="50" cy="39" r="21"/>
+    <rect x="40" y="54" width="20" height="22" rx="9"/>
+    <path d="M0 125c2-31 21-54 50-54s48 23 50 54z"/>
+  </symbol>
+  <symbol id="sil-b" viewBox="0 0 100 125">
+    <circle cx="45" cy="36" r="19"/>
+    <rect x="36" y="50" width="18" height="22" rx="8"/>
+    <path d="M-2 125c1-32 18-58 46-58s48 26 50 58z"/>
+  </symbol>
+  <symbol id="sil-c" viewBox="0 0 100 125">
+    <circle cx="55" cy="41" r="22"/>
+    <rect x="45" y="57" width="20" height="22" rx="9"/>
+    <path d="M2 125c2-30 22-51 51-51s47 21 49 51z"/>
+  </symbol>
+</svg>
+
+
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="logo-link" href="#top" aria-label="Paradium.AI home"><img class="logo-mark" src="assets/ParadiumAI-Logo-currentColor.svg" alt="Paradium.AI" width="150" height="20"></a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#products">Product</a></li>
+        <li><a href="#talent">Leadership</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#careers">Careers</a></li>
+        <li><a href="https://investors.thearenagroup.net/" target="_blank" rel="noopener noreferrer">Investors <span class="nav-ext" aria-hidden="true">↗</span></a></li>
+      </ul>
+    </nav>
+    <div class="nav-end">
+      <span class="ticker" aria-label="N Y S E American ticker P A A I" style="display:none">NYSE American <b>PAAI</b></span>
+      <button type="button" class="btn btn-primary nav-cta" data-contact-open>Partner with us</button>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <nav aria-label="Mobile">
+    <ul>
+      <li><a href="#products">Product</a></li>
+      <li><a href="#talent">Leadership</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="https://investors.thearenagroup.net/" target="_blank" rel="noopener noreferrer">Investors <span class="nav-ext" aria-hidden="true">↗</span></a></li>
+    </ul>
+    <button type="button" class="btn btn-primary" data-contact-open>Partner with us</button>
+  </nav>
+</div>
+
+<main id="main">
+
+  <!-- ══════════════════ HERO ══════════════════ -->
+  <section class="hero" id="top" aria-labelledby="hero-h">
+    <div class="hero-intro" id="heroIntro" role="dialog" aria-label="Brand introduction">
+      <div class="hero-intro-glow" aria-hidden="true">
+        <span class="g1"></span>
+        <span class="g2"></span>
+        <span class="g3"></span>
+        <span class="g4"></span>
+      </div>
+      <video id="heroIntroVideo" src="assets/Paradium_LogoMorph_FULL-16x9-White.mp4" muted playsinline preload="auto" aria-hidden="true"></video>
+      <button type="button" class="hero-intro-skip" id="heroIntroSkip">Skip</button>
+    </div>
+    <div class="hero-photo img-only" aria-hidden="true">
+      <img id="heroPhotoImg" src="assets/hero_background.avif" alt="" width="1668" height="1261">
+    </div>
+    <div class="hero-geo geo-rings" aria-hidden="true"></div>
+    <div class="hero-geo geo-orb" aria-hidden="true">
+      <div class="orb-media">
+        <video class="orb-video" autoplay muted loop playsinline preload="auto" poster="assets/hero_background.avif">
+          <source src="assets/Publication-Clips_Short_2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <span class="orb-sheen"></span>
+    </div>
+    <div class="hero-geo geo-orbits" aria-hidden="true">
+      <div class="geo-orbit o-outer">
+        <span class="geo-sat" style="--i:0"><b>Commerce</b></span>
+        <span class="geo-sat" style="--i:1"><b>Creators</b></span>
+        <span class="geo-sat" style="--i:2"><b>Publishers</b></span>
+        <span class="geo-sat" style="--i:3"><b>Platform</b></span>
+        <span class="geo-sat" style="--i:4"><b>Media Entrepreneurs</b></span>
+        <span class="geo-sat" style="--i:5"><b>Content</b></span>
+      </div>
+      <div class="geo-orbit o-inner">
+        <span class="geo-sat" style="--i:0"><b>IP</b></span>
+        <span class="geo-sat" style="--i:1"><b>Media</b></span>
+        <span class="geo-sat" style="--i:2"><b>Brands</b></span>
+      </div>
+    </div>
+    <div class="hero-geo geo-ring-front" aria-hidden="true"></div>
+
+    <div class="wrap hero-content">
+      <h1 class="hero-h" id="hero-h">
+        <span class="line line-1"><span>Amplified</span></span>
+        <span class="line line-2"><span><em>Intelligence.</em></span></span>
+      </h1>
+      <p class="hero-sub">An AI technology company. One centralized, AI-optimized infrastructure that puts the tools, data, and reach media entrepreneurs could never build alone directly into their hands.</p>
+      <div class="hero-ctas">
+        <button type="button" class="btn btn-primary" data-contact-open>Partner with us</button>
+        <a class="btn btn-ghost" href="#products">See the product</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="ed">
+
+  <!-- ══════════════════ BRAND BAND ══════════════════ -->
+  <section class="brandband">
+    <div class="wrap">
+      <div class="logo-band" data-reveal>
+        <p class="kicker">Running on the platform</p>
+        <div class="logo-marquee" aria-label="Brands on the platform">
+          <div class="logo-marquee-track">
+            <ul class="logo-cloud">
+              <li><img src="assets/logos/thestreet.svg" alt="TheStreet" width="180" height="41" loading="lazy" decoding="async"></li>
+              <li><img src="assets/logos/parade.svg" alt="Parade" width="233" height="50" loading="lazy" decoding="async"></li>
+              <li><img src="assets/logos/mens-journal.svg" alt="Men's Journal" width="192" height="50" loading="lazy" decoding="async"></li>
+              <li><img src="assets/logos/athlon-sports.svg" alt="Athlon Sports" width="242" height="50" loading="lazy" decoding="async"></li>
+              <li><img src="assets/logos/autoblog.svg" alt="Autoblog" width="214" height="50" loading="lazy" decoding="async"></li>
+              <li><img src="assets/logos/surfer.svg" alt="Surfer" width="246" height="96" loading="lazy" decoding="async"></li>
+              <li><img src="assets/logos/powder.svg" alt="Powder" width="255" height="50" loading="lazy" decoding="async"></li>
+              <li><img src="assets/logos/bike.svg" alt="Bike" width="140" height="59" loading="lazy" decoding="async"></li>
+              <li><img src="assets/logos/the-spun.svg" alt="The Spun" width="284" height="50" loading="lazy" decoding="async"></li>
+              <li><img src="assets/logos/travelhost.svg" alt="TravelHost" width="345" height="50" loading="lazy" decoding="async"></li>
+              <li><img src="assets/logos/mens-fitness.svg" alt="Men's Fitness" width="282" height="64" loading="lazy" decoding="async"></li>
+              <li><img src="assets/logos/pethelpful.svg" alt="PetHelpful" width="202" height="50" loading="lazy" decoding="async"></li>
+            </ul>
+            <ul class="logo-cloud" aria-hidden="true">
+              <li><img src="assets/logos/thestreet.svg" alt="" width="180" height="41" loading="lazy" decoding="async"></li>
+              <li><img src="assets/logos/parade.svg" alt="" width="233" height="50" loading="lazy" decoding="async"></li>
+              <li><img src="assets/logos/mens-journal.svg" alt="" width="192" height="50" loading="lazy" decoding="async"></li>
+              <li><img src="assets/logos/athlon-sports.svg" alt="" width="242" height="50" loading="lazy" decoding="async"></li>
+              <li><img src="assets/logos/autoblog.svg" alt="" width="214" height="50" loading="lazy" decoding="async"></li>
+              <li><img src="assets/logos/surfer.svg" alt="" width="246" height="96" loading="lazy" decoding="async"></li>
+              <li><img src="assets/logos/powder.svg" alt="" width="255" height="50" loading="lazy" decoding="async"></li>
+              <li><img src="assets/logos/bike.svg" alt="" width="140" height="59" loading="lazy" decoding="async"></li>
+              <li><img src="assets/logos/the-spun.svg" alt="" width="284" height="50" loading="lazy" decoding="async"></li>
+              <li><img src="assets/logos/travelhost.svg" alt="" width="345" height="50" loading="lazy" decoding="async"></li>
+              <li><img src="assets/logos/mens-fitness.svg" alt="" width="282" height="64" loading="lazy" decoding="async"></li>
+              <li><img src="assets/logos/pethelpful.svg" alt="" width="202" height="50" loading="lazy" decoding="async"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ PRODUCTS ══════════════════ -->
+  <section class="products" id="products" aria-labelledby="prod-h">
+    <div class="wrap">
+      <h2 class="h-sec" data-reveal style="--rd:.05s" id="prod-h">Three products <em>run the loop.</em></h2>
+      <p class="lede" data-reveal style="--rd:.1s">One to generate language from live data, one to create video at machine volume, and one to monetize and personalize every impression. Every partner gets the full stack on day one.</p>
+
+      <!-- Clean product tiles (candidate). The dark visual carries a measured
+           grid + one violet arc (the "loop"), shifted per --i so the three read
+           as three frames of one system. The supplied product wordmark floats
+           in the upper portion; the logo IS the name, so the old serif .p-name
+           heading is dropped to avoid a wordmark-then-heading repeat. -->
+      <div class="prod-grid">
+        <article class="prod-card" data-reveal style="--rd:.08s; --i:0">
+          <canvas class="prod-field" data-mode="flow" aria-hidden="true"></canvas><span class="prod-loop" aria-hidden="true"></span>
+          <span class="p-role">Language engine</span>
+          <span class="prod-logo">
+            <img src="assets/product_infosentience.png" alt="Infosentience" width="1652" height="157" loading="lazy" decoding="async">
+          </span>
+          <p class="p-prop">An industry leader in automated, data-driven natural language generation. Infosentience turns live structured data into accurate, on-brand stories. AI content at scale, running in production today.</p>
+          <a class="btn btn-primary p-cta" href="https://infosentience.com/" target="_blank" rel="noopener noreferrer">Learn More <span class="btn-ext" aria-hidden="true">↗</span><span class="sr-only"> about Infosentience (opens in a new tab)</span></a>
+        </article>
+        <article class="prod-card" data-reveal style="--rd:.2s; --i:1">
+          <canvas class="prod-field" data-mode="fan" aria-hidden="true"></canvas><span class="prod-loop" aria-hidden="true"></span>
+          <span class="p-role">Video &amp; social</span>
+          <span class="prod-logo">
+            <img src="assets/product_cutterstudio.png" alt="Cutter Studio" width="1494" height="227" loading="lazy" decoding="async">
+          </span>
+          <p class="p-prop">Our proprietary video production engine that transforms and distributes video content and accompanying articles. Long-form video and audio come in; publish-ready cut-downs, captions, and posts go out, then straight to every channel an audience already lives on.</p>
+          <a class="btn btn-primary p-cta" href="cutterstudios/index.html" target="_blank" rel="noopener noreferrer">Learn More <span class="btn-ext" aria-hidden="true">↗</span><span class="sr-only"> about Cutter Studio (opens in a new tab)</span></a>
+        </article>
+        <article class="prod-card" data-reveal style="--rd:.34s; --i:2">
+          <canvas class="prod-field" data-mode="converge" aria-hidden="true"></canvas><span class="prod-loop" aria-hidden="true"></span>
+          <span class="p-role">Monetization</span>
+          <span class="prod-logo">
+            <img src="assets/product_encore.png" alt="Encore" width="1459" height="270" loading="lazy" decoding="async">
+          </span>
+          <p class="p-prop">The engine behind Paradium.AI's monetization and personalization. Encore reads first-party signals and matches the right content, offer, and format to every person, so the same audience earns more.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ CREATOR SPOTLIGHT ══════════════════ -->
+  <!-- Creators section hidden for now (restore by removing hidden attribute) -->
+  <section class="partners" id="partners" aria-labelledby="part-h" hidden>
+    <div class="wrap">
+      <p class="kicker" data-reveal>Creator spotlight</p>
+      <h2 class="h-sec" data-reveal style="--rd:.05s" id="part-h">Not employment. Not a utility. <em>Co-ownership.</em></h2>
+      <p class="lede" data-reveal style="--rd:.1s">Creators keep their name, their beat, and their equity. The platform hands them the tools, data, and reach on day one, and takes the operating weight off.</p>
+
+      <!-- Six slots. The three named creators are live; the rest are open
+           placeholders — drop a name, a beat and a portrait into each and
+           the tile fills in with no other change. -->
+      <ul class="creator-cloud" aria-label="Creators on the platform">
+        <li class="cw-item" data-reveal="scale" style="--rd:0.10s; --k:0">
+          <figure>
+            <span class="cw-face" data-initials="MB"><img src="assets/creators/mike-bloom.jpg" alt="" width="240" height="240" loading="lazy" decoding="async" onerror="this.remove()"></span>
+            <figcaption>
+              <span class="cw-name">Mike Bloom</span>
+              <span class="cw-beat">Survivor &amp; competition reality</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="cw-item" data-reveal="scale" style="--rd:0.16s; --k:1">
+          <figure>
+            <span class="cw-face" data-initials="ST"><img src="assets/creators/sharon-tharp.jpg" alt="" width="240" height="240" loading="lazy" decoding="async" onerror="this.remove()"></span>
+            <figcaption>
+              <span class="cw-name">Sharon Tharp</span>
+              <span class="cw-beat">Food, home &amp; everyday living</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="cw-item" data-reveal="scale" style="--rd:0.22s; --k:2">
+          <figure>
+            <span class="cw-face" data-initials="DK"><img src="assets/creators/dan-kline.jpg" alt="" width="240" height="240" loading="lazy" decoding="async" onerror="this.remove()"></span>
+            <figcaption>
+              <span class="cw-name">Dan Kline</span>
+              <span class="cw-beat">Retail, restaurants &amp; consumer markets</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="cw-item is-open" data-reveal="scale" style="--rd:0.28s; --k:3">
+          <figure>
+            <span class="cw-face is-empty" aria-hidden="true"></span>
+            <figcaption>
+              <span class="cw-name">Creator name</span>
+              <span class="cw-beat">Beat or vertical</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="cw-item is-open" data-reveal="scale" style="--rd:0.34s; --k:4">
+          <figure>
+            <span class="cw-face is-empty" aria-hidden="true"></span>
+            <figcaption>
+              <span class="cw-name">Creator name</span>
+              <span class="cw-beat">Beat or vertical</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="cw-item is-open" data-reveal="scale" style="--rd:0.40s; --k:5">
+          <figure>
+            <span class="cw-face is-empty" aria-hidden="true"></span>
+            <figcaption>
+              <span class="cw-name">Creator name</span>
+              <span class="cw-beat">Beat or vertical</span>
+            </figcaption>
+          </figure>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════ TALENT & SCALE ══════════════════ -->
+  <section class="talent" id="talent" aria-labelledby="tal-h">
+    <div class="wrap">
+      <p class="kicker" data-reveal>Leadership</p>
+      <h2 class="h-sec" data-reveal style="--rd:.05s" id="tal-h">Our people are the <em>core of our technology.</em></h2>
+      <p class="lede" data-reveal style="--rd:.1s">While we supercharge with AI, our people remain at the absolute core of the business. This technology is designed to elevate our teams, not replace them. Bleeding-edge tools in the hands of the operators who know what to do with them.</p>
+
+      <div class="roster-toolbar" data-reveal>
+        <h3 class="roster-label" id="roster-label">The team</h3>
+        <div class="roster-controls">
+          <button type="button" class="roster-btn" data-roster-prev aria-controls="rosterTrack" aria-label="Previous team members">
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M10.2 2.2 4.4 8l5.8 5.8 1.1-1.1L6.6 8l4.7-4.7z"/></svg>
+          </button>
+          <button type="button" class="roster-btn" data-roster-next aria-controls="rosterTrack" aria-label="Next team members">
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="m5.8 2.2-1.1 1.1L9.4 8l-4.7 4.7 1.1 1.1L11.6 8z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="roster-carousel" data-reveal="scale" style="--rd:.1s">
+      <div class="roster" id="rosterTrack" role="list" tabindex="0" aria-labelledby="roster-label">
+        <article class="creator" role="listitem" tabindex="-1">
+          <div class="creator-portrait">
+            <img src="assets/leadership/paul-edmondson.jpg" alt="Paul Edmondson" width="400" height="500" loading="lazy">
+          </div>
+          <div class="creator-body">
+            <p class="creator-name">Paul Edmondson</p>
+            <p class="creator-vert">Chief Executive Officer</p>
+            <button type="button" class="creator-open" data-exec-open aria-label="Overview: Paul Edmondson"></button>
+          </div>
+        </article>
+        <article class="creator" role="listitem" tabindex="-1">
+          <div class="creator-portrait">
+            <img src="assets/leadership/chris-hunter.jpg" alt="Chris Hunter" width="400" height="500" loading="lazy">
+          </div>
+          <div class="creator-body">
+            <p class="creator-name">Chris Hunter</p>
+            <p class="creator-vert">President, Business Operations</p>
+            <button type="button" class="creator-open" data-exec-open aria-label="Overview: Chris Hunter"></button>
+          </div>
+        </article>
+        <article class="creator" role="listitem" tabindex="-1">
+          <div class="creator-portrait">
+            <img src="assets/leadership/geoffrey-wait.jpg" alt="Geoffrey Wait" width="400" height="500" loading="lazy">
+          </div>
+          <div class="creator-body">
+            <p class="creator-name">Geoffrey Wait</p>
+            <p class="creator-vert">Principal Financial Officer</p>
+            <button type="button" class="creator-open" data-exec-open aria-label="Overview: Geoffrey Wait"></button>
+          </div>
+        </article>
+        <article class="creator" role="listitem" tabindex="-1">
+          <div class="creator-portrait">
+            <img src="assets/leadership/amy-larkin.jpg" alt="Amy Larkin" width="400" height="500" loading="lazy">
+          </div>
+          <div class="creator-body">
+            <p class="creator-name">Amy Larkin</p>
+            <p class="creator-vert">Head of Human Resources</p>
+            <button type="button" class="creator-open" data-exec-open aria-label="Overview: Amy Larkin"></button>
+          </div>
+        </article>
+        <article class="creator" role="listitem" tabindex="-1">
+          <div class="creator-portrait">
+            <img src="assets/leadership/miles-stiverson.jpg" alt="Miles Stiverson" width="400" height="500" loading="lazy">
+          </div>
+          <div class="creator-body">
+            <p class="creator-name">Miles Stiverson</p>
+            <p class="creator-vert">Head of Commerce</p>
+            <button type="button" class="creator-open" data-exec-open aria-label="Overview: Miles Stiverson"></button>
+          </div>
+        </article>
+        <article class="creator no-bio" role="listitem" tabindex="-1">
+          <div class="creator-portrait">
+            <img src="assets/leadership/alex-wasserburger.jpg" alt="Alex Wasserburger" width="400" height="500" loading="lazy">
+          </div>
+          <div class="creator-body">
+            <p class="creator-name">Alex Wasserburger</p>
+            <p class="creator-vert">SVP, General Counsel</p>
+          </div>
+        </article>
+        <article class="creator" role="listitem" tabindex="-1">
+          <div class="creator-portrait">
+            <img src="assets/leadership/eric-aledort.jpg" alt="Eric Aledort" width="400" height="500" loading="lazy">
+          </div>
+          <div class="creator-body">
+            <p class="creator-name">Eric Aledort</p>
+            <p class="creator-vert">Head of Business Development</p>
+            <button type="button" class="creator-open" data-exec-open aria-label="Overview: Eric Aledort"></button>
+          </div>
+        </article>
+        <article class="creator" role="listitem" tabindex="-1">
+          <div class="creator-portrait">
+            <img src="assets/leadership/melissa-sin.jpg" alt="Melissa Sin" width="400" height="500" loading="lazy">
+          </div>
+          <div class="creator-body">
+            <p class="creator-name">Melissa Sin</p>
+            <p class="creator-vert">Head of Ad Tech &amp; Monetization</p>
+            <button type="button" class="creator-open" data-exec-open aria-label="Overview: Melissa Sin"></button>
+          </div>
+        </article>
+        <article class="creator" role="listitem" tabindex="-1">
+          <div class="creator-portrait">
+            <img src="assets/leadership/stephanie-mazzamaro.jpg" alt="Stephanie Mazzamaro" width="400" height="500" loading="lazy">
+          </div>
+          <div class="creator-body">
+            <p class="creator-name">Stephanie Mazzamaro</p>
+            <p class="creator-vert">Head of Programmatic, Addressability &amp; Ops</p>
+            <button type="button" class="creator-open" data-exec-open aria-label="Overview: Stephanie Mazzamaro"></button>
+          </div>
+        </article>
+        <article class="creator" role="listitem" tabindex="-1">
+          <div class="creator-portrait">
+            <img src="assets/leadership/tim-martin.jpg" alt="Tim Martin" width="400" height="500" loading="lazy">
+          </div>
+          <div class="creator-body">
+            <p class="creator-name">Tim Martin</p>
+            <p class="creator-vert">Head of Engineering</p>
+            <button type="button" class="creator-open" data-exec-open aria-label="Overview: Tim Martin"></button>
+          </div>
+        </article>
+        <article class="creator no-bio" role="listitem" tabindex="-1">
+          <div class="creator-portrait">
+            <img src="assets/leadership/michael-mccracken.jpg" alt="Michael McCracken" width="400" height="500" loading="lazy">
+          </div>
+          <div class="creator-body">
+            <p class="creator-name">Michael McCracken</p>
+            <p class="creator-vert">Head of Product</p>
+          </div>
+        </article>
+        <article class="creator" role="listitem" tabindex="-1">
+          <div class="creator-portrait">
+            <img src="assets/leadership/chris-heck.jpg" alt="Chris Heck" width="400" height="500" loading="lazy">
+          </div>
+          <div class="creator-body">
+            <p class="creator-name">Chris Heck</p>
+            <p class="creator-vert">VP, Integrated Marketing</p>
+            <button type="button" class="creator-open" data-exec-open aria-label="Overview: Chris Heck"></button>
+          </div>
+        </article>
+        <article class="creator" role="listitem" tabindex="-1">
+          <div class="creator-portrait">
+            <img src="assets/leadership/eric-karp.jpg" alt="Eric Karp" width="400" height="500" loading="lazy">
+          </div>
+          <div class="creator-body">
+            <p class="creator-name">Eric Karp</p>
+            <p class="creator-vert">Head of Brand Licensing</p>
+            <button type="button" class="creator-open" data-exec-open aria-label="Overview: Eric Karp"></button>
+          </div>
+        </article>
+        <article class="creator" role="listitem" tabindex="-1">
+          <div class="creator-portrait">
+            <img src="assets/leadership/jermaine-spradley.jpg" alt="Jermaine Spradley" width="400" height="500" loading="lazy">
+          </div>
+          <div class="creator-body">
+            <p class="creator-name">Jermaine Spradley</p>
+            <p class="creator-vert">Head of Video &amp; Social</p>
+            <button type="button" class="creator-open" data-exec-open aria-label="Overview: Jermaine Spradley"></button>
+          </div>
+        </article>
+        <article class="creator no-bio" role="listitem" tabindex="-1">
+          <div class="creator-portrait">
+            <img src="assets/leadership/lisa-delaney.jpg" alt="Lisa Delaney" width="400" height="500" loading="lazy">
+          </div>
+          <div class="creator-body">
+            <p class="creator-name">Lisa Delaney</p>
+            <p class="creator-vert">GM &amp; Chief Content Officer, Lifestyle</p>
+          </div>
+        </article>
+        <article class="creator no-bio" role="listitem" tabindex="-1">
+          <div class="creator-portrait">
+            <img src="assets/leadership/ryan-bonini.jpg" alt="Ryan Bonini" width="400" height="500" loading="lazy">
+          </div>
+          <div class="creator-body">
+            <p class="creator-name">Ryan Bonini</p>
+            <p class="creator-vert">General Manager, Sports &amp; Leisure</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════ NEWS ══════════════════ -->
+  <section class="news" id="news" aria-labelledby="news-h">
+    <div class="wrap">
+      <p class="kicker" data-reveal>Newsroom</p>
+      <h2 class="h-sec" data-reveal style="--rd:.05s" id="news-h">Latest <em>news.</em></h2>
+      <p class="lede" data-reveal style="--rd:.1s">Company milestones, results, and announcements from Paradium.AI.</p>
+
+      <!-- Live press releases from the Paradium.AI IR newsroom via the Kaleidoscope
+           press widget (latest five, newest first). On load the widget attaches a
+           shadow root to #paradium-news-widget, which hides the static .news-list
+           fallback nested inside; if the widget script never runs, the fallback
+           stays visible. Keep the fallback copy roughly in sync with the newsroom.
+           Loader + config live just before </body>. -->
+      <div id="paradium-news-widget" class="news-widget"
+           data-key="b4eb4db2-973b-4847-9986-6744e939c098"
+           data-variation="press" data-latest-mode="true" data-limit="3"
+           aria-label="Latest press releases">
+        <div class="news-list" role="list">
+        <a class="news-row" role="listitem" data-reveal style="--rd:.15s" href="https://www.businesswire.com/news/home/20260902756624/en/Paradium.AI-and-Elcano-Partner-to-Expand-Brand-IP-Across-Programmatic-Channels-Through-Victoria-and-Encore-Integration" target="_blank" rel="noopener noreferrer">
+          <div class="news-row-main">
+            <div class="news-meta">
+              <span class="news-tag">Partnership</span>
+              <span class="news-date">September 2, 2026</span>
+            </div>
+            <h3 class="news-title">Paradium.AI and Elcano Partner to Expand Brand IP Across Programmatic Channels Through Victoria and Encore Integration</h3>
+          </div>
+          <span class="news-go" aria-hidden="true">↗</span>
+        </a>
+        <a class="news-row" role="listitem" data-reveal style="--rd:.24s" href="https://www.businesswire.com/news/home/20260901728299/en/Paradium.AI-to-Participate-in-the-Lake-Street-2026-BIG10-Conference" target="_blank" rel="noopener noreferrer">
+          <div class="news-row-main">
+            <div class="news-meta">
+              <span class="news-tag">Events</span>
+              <span class="news-date">September 1, 2026</span>
+            </div>
+            <h3 class="news-title">Paradium.AI to Participate in the Lake Street 2026 BIG10 Conference</h3>
+          </div>
+          <span class="news-go" aria-hidden="true">↗</span>
+        </a>
+        <a class="news-row" role="listitem" data-reveal style="--rd:.33s" href="https://www.businesswire.com/news/home/20260821628027/en/The-Arena-Group-dba-Paradium.AI-Announces-Intent-to-Change-Legal-Name-and-Stock-Ticker" target="_blank" rel="noopener noreferrer">
+          <div class="news-row-main">
+            <div class="news-meta">
+              <span class="news-tag">Corporate</span>
+              <span class="news-date">August 21, 2026</span>
+            </div>
+            <h3 class="news-title">Paradium.AI Announces Intent to Change Legal Name and Stock Ticker</h3>
+          </div>
+          <span class="news-go" aria-hidden="true">↗</span>
+        </a>
+        </div>
+      </div>
+      <a class="news-all" data-reveal style="--rd:.6s" href="https://investors.paradium.ai/news-and-events/news-releases/" target="_blank" rel="noopener noreferrer">See all news <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+
+  <section class="join" id="careers" aria-labelledby="join-h">
+    <canvas class="prod-field" data-mode="flow" data-count="80" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <p class="kicker" data-reveal>Careers</p>
+      <h2 class="h-sec" data-reveal style="--rd:.05s" id="join-h">Join our <em>team.</em></h2>
+      <p class="lede" data-reveal style="--rd:.1s">We're building the infrastructure that puts world-class tools, data, and reach into the hands of media entrepreneurs. Come build it with us.</p>
+      <div class="join-cta" data-reveal style="--rd:.15s">
+        <a class="btn btn-primary" href="https://paradium.careers.hibob.com/" target="_blank" rel="noopener noreferrer">See open roles <span class="btn-ext" aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  </div>
+</main>
+
+<!-- Leadership overview. One dialog, re-filled from the roster card that
+     opened it, so sixteen bios cost one panel instead of sixteen. Prev/next
+     walk the whole roster without closing. -->
+<dialog class="exec-modal" id="execModal" aria-labelledby="exec-name">
+  <form method="dialog" class="exec-x-form">
+    <button type="submit" class="exec-x" value="dismiss" aria-label="Close">
+      <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" d="M4 4l8 8M12 4l-8 8"/></svg>
+    </button>
+  </form>
+
+  <div class="exec-body">
+    <div class="exec-portrait">
+      <img id="execImg" src="" alt="" width="320" height="400">
+    </div>
+    <div class="exec-copy">
+      <h2 id="exec-name">Name</h2>
+      <p class="exec-title" id="execTitle">Title</p>
+      <div class="exec-overview" id="execOverview"></div>
+    </div>
+  </div>
+
+  <div class="exec-nav">
+    <p class="exec-count" id="execCount" aria-live="polite"></p>
+    <button type="button" class="exec-step" data-exec-prev aria-label="Previous person">
+      <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M10.2 2.2 4.4 8l5.8 5.8 1.1-1.1L6.6 8l4.7-4.7z"/></svg>
+    </button>
+    <button type="button" class="exec-step" data-exec-next aria-label="Next person">
+      <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="m5.8 2.2-1.1 1.1L9.4 8l-4.7 4.7 1.1 1.1L11.6 8z"/></svg>
+    </button>
+  </div>
+</dialog>
+
+<!-- Contact dialog. Native <dialog> so the modal semantics, the top layer,
+     Esc-to-close and the focus loop come from the platform instead of from a
+     hand-rolled trap. There is no backend behind this page, so submit hands
+     the composed enquiry to the visitor's mail client; swap sendEnquiry() for
+     a fetch() when an endpoint exists. -->
+<dialog class="contact-modal" id="contactModal" aria-labelledby="contact-h">
+  <form method="dialog" class="contact-x-form">
+    <button type="submit" class="contact-x" value="dismiss" aria-label="Close">
+      <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" d="M4 4l8 8M12 4l-8 8"/></svg>
+    </button>
+  </form>
+
+  <div class="contact-head">
+    <h2 id="contact-h">Partner with us</h2>
+  </div>
+
+  <form class="contact-form" id="contactForm" novalidate>
+    <div class="cf-field">
+      <label for="cf-topic">Topic</label>
+      <select id="cf-topic" name="topic" required>
+        <option value="Partnership">Partnership</option>
+        <option value="Investor relations">Investor relations</option>
+        <option value="Press &amp; media">Press &amp; media</option>
+        <option value="Careers">Careers</option>
+        <option value="Advertising &amp; brand">Advertising &amp; brand</option>
+        <option value="General enquiry">General enquiry</option>
+      </select>
+    </div>
+
+    <div class="cf-row">
+      <div class="cf-field">
+        <label for="cf-name">Name</label>
+        <input id="cf-name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="cf-field">
+        <label for="cf-email">Email</label>
+        <input id="cf-email" name="email" type="email" autocomplete="email" required>
+      </div>
+    </div>
+
+    <div class="cf-field">
+      <label for="cf-org">Company <span class="cf-opt">optional</span></label>
+      <input id="cf-org" name="company" type="text" autocomplete="organization">
+    </div>
+
+    <div class="cf-field">
+      <label for="cf-msg">Message</label>
+      <textarea id="cf-msg" name="message" rows="4" required></textarea>
+    </div>
+
+    <p class="cf-error" id="cfError" role="alert" hidden></p>
+
+    <div class="cf-actions">
+      <button type="submit" class="btn btn-primary">Send enquiry</button>
+      <button type="button" class="btn btn-ghost" data-contact-close>Cancel</button>
+    </div>
+  </form>
+
+  <div class="cf-success" id="cfSuccess" role="status" aria-live="polite">
+    <div class="cf-check" aria-hidden="true">
+      <svg viewBox="0 0 52 52">
+        <circle class="cf-check-ring" cx="26" cy="26" r="25"></circle>
+        <circle class="cf-check-circle" cx="26" cy="26" r="24"></circle>
+        <path class="cf-check-mark" d="M16 27 l7 7 l13 -14"></path>
+      </svg>
+      <span class="cf-burst" id="cfBurst"></span>
+    </div>
+    <h3 class="cf-success-h">Enquiry sent</h3>
+    <p class="cf-success-sub" id="cfSuccessSub">Thanks — your enquiry is on its way. We'll be in touch soon.</p>
+    <button type="button" class="btn btn-primary" data-contact-close>Done</button>
+  </div>
+</dialog>
+
+<footer class="footer">
+  <div class="wrap footer-inner" data-reveal>
+    <a class="logo-link" href="#top" aria-label="Paradium.AI home"><img class="logo-mark" src="assets/ParadiumAI-Logo-currentColor.svg" alt="Paradium.AI" width="150" height="20"></a>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="terms-of-use/index.html">Terms of Use</a>
+      <a href="privacy-policy/index.html">Privacy Policy</a>
+      <a href="#careers">Careers</a>
+      <a href="https://investors.thearenagroup.net/" target="_blank" rel="noopener">Investors</a>
+    </nav>
+    <p class="footer-copy">&copy; 2026 Paradium.AI</p>
+  </div>
+</footer>
+
+<script>
+/* Scroll spy — marks the nav link for the section currently being read.
+   A threshold line beats IntersectionObserver here: the sections vary wildly in
+   height, so "which one crosses the reading line last" stays stable where
+   "most visible" would flicker between a tall band and a short one. */
+(function () {
+  var links = Array.prototype.slice.call(
+    document.querySelectorAll('.nav-links a[href^="#"]')
+  );
+  var items = links
+    .map(function (a) {
+      var id = a.getAttribute("href");
+      return { link: a, sec: id.length > 1 ? document.querySelector(id) : null };
+    })
+    .filter(function (i) { return i.sec; })
+    // Sort by document position, not nav order — the "last one past the line"
+    // test below is only correct on a document-ordered list.
+    .sort(function (a, b) {
+      var pos = a.sec.compareDocumentPosition(b.sec);
+      if (pos & Node.DOCUMENT_POSITION_FOLLOWING) return -1;
+      if (pos & Node.DOCUMENT_POSITION_PRECEDING) return 1;
+      return 0;
+    });
+  if (!items.length) return;
+
+  var current = null;
+  var ticking = false;
+
+  function update() {
+    ticking = false;
+    var line = window.innerHeight * 0.36;
+    var found = null;
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].sec.getBoundingClientRect().top <= line) found = items[i].link;
+    }
+    // The last section can be too short to ever cross the line; at the page
+    // bottom it is unambiguously the one being read.
+    var doc = document.documentElement;
+    if (window.scrollY + window.innerHeight >= doc.scrollHeight - 4) {
+      found = items[items.length - 1].link;
+    }
+    if (found === current) return;
+    if (current) current.removeAttribute("aria-current");
+    if (found) found.setAttribute("aria-current", "location");
+    current = found;
+  }
+
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(update);
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll, { passive: true });
+  update();
+})();
+</script>
+<script>
+/* Product-logo parallax — each wordmark drifts a little as its card travels
+   through the viewport. rAF-throttled, transform-only, and disabled under
+   reduced-motion. --logo-shift is read by the .prod-logo transform. */
+(function () {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var logos = Array.prototype.slice.call(document.querySelectorAll(".prod-logo"));
+  if (!logos.length) return;
+  var AMP = 24; /* max px of drift each way */
+  var ticking = false;
+
+  function update() {
+    ticking = false;
+    var vh = window.innerHeight;
+    for (var i = 0; i < logos.length; i++) {
+      var card = logos[i].closest(".prod-card");
+      if (!card) continue;
+      var r = card.getBoundingClientRect();
+      /* 0 when the card is centered in the viewport, ±1 at the edges */
+      var p = (vh / 2 - (r.top + r.height / 2)) / (vh / 2 + r.height / 2);
+      if (p > 1) p = 1; else if (p < -1) p = -1;
+      logos[i].style.setProperty("--logo-shift", (p * AMP).toFixed(1) + "px");
+    }
+  }
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll, { passive: true });
+  update();
+})();
+</script>
+<script>
+/* Product-card node fields — a light constellation animates behind each card,
+   its motion mapped to the engine: "flow" streams data left→right (language),
+   "converge" pulls signals to a match point (monetization), "fan" emits from a
+   source out to many targets (video → every channel). Canvas-only, one shared
+   rAF loop, and it renders a single still frame under reduced-motion. */
+(function () {
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var canvases = Array.prototype.slice.call(document.querySelectorAll(".prod-field"));
+  if (!canvases.length) return;
+  var fields = canvases.map(function (c) { return makeField(c, c.getAttribute("data-mode")); });
+
+  function rand(a, b) { return a + Math.random() * (b - a); }
+
+  function makeField(canvas, mode) {
+    var ctx = canvas.getContext("2d");
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var W = 0, H = 0, parts = [], anchor = { x: 0, y: 0 }, src = { x: 0, y: 0 };
+    var N = parseInt(canvas.getAttribute("data-count"), 10) || 16;
+
+    function resize() {
+      var r = canvas.getBoundingClientRect();
+      W = canvas.width = Math.max(1, Math.round(r.width * dpr));
+      H = canvas.height = Math.max(1, Math.round(r.height * dpr));
+      anchor = { x: W * 0.5, y: H * 0.4 };
+      src = { x: W * 0.12, y: H * 0.5 };
+      seed();
+    }
+    function seed() {
+      parts = [];
+      for (var i = 0; i < N; i++) {
+        var p = { r: rand(1.1, 2.6) * dpr, lead: i < 3 };
+        if (mode === "fan") { resetFan(p); }
+        else {
+          p.x = rand(0, W); p.y = rand(0, H);
+          p.vx = rand(-0.25, 0.25) * dpr; p.vy = rand(-0.25, 0.25) * dpr;
+          if (mode === "flow") { p.vx = rand(0.18, 0.5) * dpr; }
+        }
+        parts.push(p);
+      }
+    }
+    function resetFan(p) {
+      p.x = src.x + rand(-4, 4) * dpr; p.y = src.y + rand(-4, 4) * dpr;
+      var ang = rand(-0.62, 0.62), sp = rand(0.5, 1.05) * dpr;
+      p.vx = Math.cos(ang) * sp; p.vy = Math.sin(ang) * sp;
+    }
+    function step() {
+      for (var i = 0; i < parts.length; i++) {
+        var p = parts[i];
+        if (mode === "flow") {
+          p.x += p.vx; p.y += p.vy + Math.sin((p.x + i * 40) / 120) * 0.12 * dpr;
+          if (p.x > W + 6) { p.x = -6; p.y = rand(0, H); }
+          if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+        } else if (mode === "converge") {
+          var dx = anchor.x - p.x, dy = anchor.y - p.y, d = Math.hypot(dx, dy) || 1;
+          p.vx += (dx / d) * 0.010 * dpr; p.vy += (dy / d) * 0.010 * dpr;
+          p.vx += (-dy / d) * 0.006 * dpr; p.vy += (dx / d) * 0.006 * dpr;
+          p.vx *= 0.96; p.vy *= 0.96;
+          p.x += p.vx; p.y += p.vy;
+          if (d < 12 * dpr) {
+            if (Math.random() < 0.5) { p.x = rand(0, W); p.y = Math.random() < 0.5 ? -4 : H + 4; }
+            else { p.x = Math.random() < 0.5 ? -4 : W + 4; p.y = rand(0, H); }
+            p.vx = 0; p.vy = 0;
+          }
+        } else {
+          p.x += p.vx; p.y += p.vy;
+          if (p.x > W + 6 || p.y < -6 || p.y > H + 6) { resetFan(p); }
+        }
+      }
+    }
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      var thr = W * 0.30;
+      for (var a = 0; a < parts.length; a++) {
+        for (var b = a + 1; b < parts.length; b++) {
+          var pa = parts[a], pb = parts[b];
+          var d = Math.hypot(pa.x - pb.x, pa.y - pb.y);
+          if (d < thr) {
+            var al = (1 - d / thr) * 0.22;
+            ctx.strokeStyle = "rgba(130,100,255," + al.toFixed(3) + ")";
+            ctx.lineWidth = 1 * dpr;
+            ctx.beginPath(); ctx.moveTo(pa.x, pa.y); ctx.lineTo(pb.x, pb.y); ctx.stroke();
+          }
+        }
+      }
+      if (mode !== "flow") {
+        var f = mode === "converge" ? anchor : src;
+        for (var j = 0; j < parts.length; j++) {
+          var q = parts[j], dd = Math.hypot(q.x - f.x, q.y - f.y);
+          if (dd < thr * 1.2) {
+            var al2 = (1 - dd / (thr * 1.2)) * 0.16;
+            ctx.strokeStyle = "rgba(150,120,255," + al2.toFixed(3) + ")";
+            ctx.lineWidth = 1 * dpr;
+            ctx.beginPath(); ctx.moveTo(q.x, q.y); ctx.lineTo(f.x, f.y); ctx.stroke();
+          }
+        }
+      }
+      for (var k = 0; k < parts.length; k++) {
+        var pt = parts[k];
+        if (pt.lead) { ctx.shadowColor = "rgba(139,116,255,0.9)"; ctx.shadowBlur = 10 * dpr; ctx.fillStyle = "rgba(184,164,255,0.95)"; }
+        else { ctx.shadowBlur = 0; ctx.fillStyle = "rgba(150,128,236,0.62)"; }
+        ctx.beginPath(); ctx.arc(pt.x, pt.y, pt.r, 0, 6.2832); ctx.fill();
+      }
+      ctx.shadowBlur = 0;
+    }
+    return { resize: resize, tick: function () { step(); draw(); }, still: draw };
+  }
+
+  function resizeAll() { fields.forEach(function (f) { f.resize(); }); }
+  resizeAll();
+  window.addEventListener("resize", resizeAll);
+  window.addEventListener("load", resizeAll);
+
+  if (reduce) { fields.forEach(function (f) { f.still(); }); return; }
+  (function loop() {
+    for (var i = 0; i < fields.length; i++) fields[i].tick();
+    requestAnimationFrame(loop);
+  })();
+})();
+</script>
+<script src="paradium.js"></script>
+<script>
+(function () {
+  var fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!fine || reduce) return;
+
+  function coverScale(btn, circle, x, y) {
+    var size = circle.offsetWidth || parseFloat(getComputedStyle(circle).width) || 22;
+    var w = btn.clientWidth;
+    var h = btn.clientHeight;
+    var maxX = Math.max(x, w - x);
+    var maxY = Math.max(y, h - y);
+    /* diameter to farthest corner + buffer so edges never clip */
+    return (2 * Math.hypot(maxX, maxY) / size) * 1.35;
+  }
+
+  function prep(btn) {
+    if (btn.querySelector(".btn-circle")) return;
+    var circle = document.createElement("span");
+    circle.className = "btn-circle";
+    circle.setAttribute("aria-hidden", "true");
+    var label = document.createElement("span");
+    label.className = "btn-label";
+    while (btn.firstChild) label.appendChild(btn.firstChild);
+    btn.appendChild(circle);
+    btn.appendChild(label);
+
+    function place(e) {
+      var rect = btn.getBoundingClientRect();
+      var cs = getComputedStyle(btn);
+      var bl = parseFloat(cs.borderLeftWidth) || 0;
+      var bt = parseFloat(cs.borderTopWidth) || 0;
+      /* coords relative to padding box (absolute containing block) */
+      var x = e.clientX - rect.left - bl;
+      var y = e.clientY - rect.top - bt;
+      circle.style.left = x + "px";
+      circle.style.top = y + "px";
+      return { x: x, y: y };
+    }
+
+    btn.addEventListener("mouseenter", function (e) {
+      var p = place(e);
+      btn.style.setProperty("--btn-fill-scale", String(coverScale(btn, circle, p.x, p.y)));
+      btn.classList.add("is-fill");
+    });
+    btn.addEventListener("mouseleave", function (e) {
+      place(e);
+      btn.classList.remove("is-fill");
+    });
+    btn.addEventListener("focus", function () {
+      var x = btn.clientWidth / 2;
+      var y = btn.clientHeight / 2;
+      circle.style.left = x + "px";
+      circle.style.top = y + "px";
+      btn.style.setProperty("--btn-fill-scale", String(coverScale(btn, circle, x, y)));
+      btn.classList.add("is-fill");
+    });
+    btn.addEventListener("blur", function () {
+      btn.classList.remove("is-fill");
+    });
+  }
+
+  document.querySelectorAll(".btn").forEach(prep);
+})();
+</script>
+<script>
+(function () {
+  var track = document.getElementById("rosterTrack");
+  if (!track) return;
+
+  var section = track.closest(".talent") || document;
+  var carousel = track.closest(".roster-carousel");
+  var prev = section.querySelector("[data-roster-prev]");
+  var next = section.querySelector("[data-roster-next]");
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var dragging = false;
+  var moved = false;
+  var startX = 0;
+  var startScroll = 0;
+  var pointerId = null;
+  var autoTimer = null;
+  var userPaused = false;
+  var inView = false;
+  var hovering = false;
+
+  function step() {
+    var card = track.querySelector(".creator");
+    if (!card) return Math.round(track.clientWidth * 0.75);
+    var styles = window.getComputedStyle(track);
+    var gap = parseFloat(styles.columnGap || styles.gap) || 0;
+    return Math.round(card.getBoundingClientRect().width + gap);
+  }
+
+  function syncButtons() {
+    var max = track.scrollWidth - track.clientWidth;
+    var x = track.scrollLeft;
+    var atStart = x <= 2;
+    var atEnd = x >= max - 2;
+    if (prev) prev.disabled = false;
+    if (next) next.disabled = false;
+    if (reduce) {
+      if (prev) prev.disabled = atStart;
+      if (next) next.disabled = atEnd || max <= 2;
+    }
+  }
+
+  function scrollByDir(dir, fromAuto) {
+    var max = Math.max(0, track.scrollWidth - track.clientWidth);
+    if (max <= 2) return;
+    if (dir > 0 && track.scrollLeft >= max - 4) {
+      track.scrollTo({ left: 0, behavior: reduce ? "auto" : "smooth" });
+    } else if (dir < 0 && track.scrollLeft <= 4) {
+      track.scrollTo({ left: max, behavior: reduce ? "auto" : "smooth" });
+    } else {
+      track.scrollBy({
+        left: dir * step(),
+        behavior: reduce ? "auto" : "smooth"
+      });
+    }
+    if (!fromAuto) {
+      userPaused = true;
+      stopAuto();
+      window.setTimeout(function () { userPaused = false; startAuto(); }, 8000);
+    }
+  }
+
+  function stopAuto() {
+    if (autoTimer) {
+      window.clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  }
+
+  function startAuto() {
+    /* Auto-advance disabled: the roster only moves on user action (buttons,
+       drag, keyboard). Kept as a no-op so existing callers stay valid. */
+    stopAuto();
+    return;
+  }
+
+  if (prev) prev.addEventListener("click", function () { scrollByDir(-1, false); });
+  if (next) next.addEventListener("click", function () { scrollByDir(1, false); });
+
+  track.addEventListener("scroll", syncButtons, { passive: true });
+  window.addEventListener("resize", function () {
+    syncButtons();
+    startAuto();
+  });
+
+  /* Roving focus. The track is the single tab stop; arrow keys move focus card
+     to card inside it, so the tile that just scrolled in is the one wearing the
+     hover/focus state. Cards carry tabindex="-1", so they never add tab stops.
+     Focus stays inside the track, so this keydown listener keeps receiving the
+     arrow keys by bubbling. */
+  function cardList() {
+    return track.querySelectorAll(".creator");
+  }
+  function leadIndex() {
+    var cards = cardList();
+    if (!cards.length) return -1;
+    var base = cards[0].offsetLeft;
+    var x = track.scrollLeft;
+    var best = 0;
+    var bestD = Infinity;
+    for (var i = 0; i < cards.length; i++) {
+      var d = Math.abs((cards[i].offsetLeft - base) - x);
+      if (d < bestD) { bestD = d; best = i; }
+    }
+    return best;
+  }
+
+  track.addEventListener("keydown", function (e) {
+    var dir = e.key === "ArrowLeft" ? -1 : e.key === "ArrowRight" ? 1 : 0;
+    if (!dir) return;
+    e.preventDefault();
+    scrollByDir(dir, false);
+    var cards = cardList();
+    if (!cards.length) return;
+    var i = leadIndex();
+    if (i < 0) i = 0;
+    i += dir;
+    if (i < 0) i = cards.length - 1;
+    if (i > cards.length - 1) i = 0;
+    // preventScroll: scrollByDir already owns the scroll, and letting focus
+    // scroll too would fight its smooth animation.
+    cards[i].focus({ preventScroll: true });
+  });
+
+  track.addEventListener("pointerdown", function (e) {
+    if (e.pointerType === "touch") return;
+    if (e.button !== 0) return;
+    dragging = true;
+    moved = false;
+    startX = e.clientX;
+    startScroll = track.scrollLeft;
+    pointerId = e.pointerId;
+    track.classList.add("is-dragging");
+    stopAuto();
+    try { track.setPointerCapture(pointerId); } catch (err) {}
+  });
+
+  track.addEventListener("pointermove", function (e) {
+    if (!dragging || e.pointerId !== pointerId) return;
+    var dx = e.clientX - startX;
+    if (Math.abs(dx) > 4) moved = true;
+    track.scrollLeft = startScroll - dx;
+  });
+
+  function endDrag(e) {
+    if (!dragging || (e && e.pointerId !== pointerId)) return;
+    dragging = false;
+    pointerId = null;
+    track.classList.remove("is-dragging");
+    syncButtons();
+    if (moved) {
+      userPaused = true;
+      window.setTimeout(function () { userPaused = false; startAuto(); }, 8000);
+    } else {
+      startAuto();
+    }
+  }
+
+  track.addEventListener("pointerup", endDrag);
+  track.addEventListener("pointercancel", endDrag);
+  track.addEventListener("lostpointercapture", endDrag);
+
+  track.addEventListener("click", function (e) {
+    if (!moved) return;
+    e.preventDefault();
+    e.stopPropagation();
+    moved = false;
+  }, true);
+
+  if (carousel) {
+    carousel.addEventListener("mouseenter", function () {
+      hovering = true;
+      stopAuto();
+      /* stopAuto only clears the timer; a smooth scroll already in flight keeps
+         running and slides the card out from under the cursor, so the click
+         that follows opens a neighbour. Re-targeting the current position with
+         behavior auto cancels the animation. */
+      track.scrollTo({ left: track.scrollLeft, behavior: "auto" });
+    });
+    carousel.addEventListener("mouseleave", function () {
+      hovering = false;
+      if (!userPaused) startAuto();
+    });
+    carousel.addEventListener("focusin", stopAuto);
+    carousel.addEventListener("focusout", function (e) {
+      if (!carousel.contains(e.relatedTarget)) startAuto();
+    });
+  }
+
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        inView = en.isIntersecting;
+        if (inView) startAuto();
+        else stopAuto();
+      });
+    }, { threshold: 0.25 });
+    io.observe(carousel || track);
+  } else {
+    inView = true;
+    startAuto();
+  }
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) stopAuto();
+    else startAuto();
+  });
+
+  syncButtons();
+})();
+</script>
+<script>
+(function () {
+  var root = document.documentElement;
+  var layer = document.getElementById("heroIntro");
+  var video = document.getElementById("heroIntroVideo");
+  var skip = document.getElementById("heroIntroSkip");
+  if (!layer || !video) {
+    root.classList.remove("hero-intro-active");
+    return;
+  }
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var done = false;
+
+  /* Play the brand intro only on a visitor's first launch. Once it has run,
+     remember it so return visits (and reloads) go straight to the hero. */
+  var seen = false;
+  try { seen = window.localStorage.getItem("paradiumIntroSeen") === "1"; } catch (e) {}
+
+  function finish() {
+    if (done) return;
+    done = true;
+    layer.classList.add("is-done");
+    root.classList.remove("hero-intro-active");
+    try { video.pause(); } catch (e) {}
+
+    /* Restart rise / fadeUp / geoIn now that intro is gone */
+    var nodes = document.querySelectorAll(
+      ".hero-h .line > span, .hero-sub, .hero-ctas, .geo-orb, .geo-rings, .geo-ring-front, .geo-orbits"
+    );
+    nodes.forEach(function (el) { el.style.animation = "none"; });
+    void root.offsetWidth;
+    nodes.forEach(function (el) { el.style.animation = ""; });
+
+    window.setTimeout(function () {
+      if (layer && layer.parentNode) layer.parentNode.removeChild(layer);
+    }, 900);
+  }
+
+  if (reduce || seen) {
+    finish();
+    return;
+  }
+  try { window.localStorage.setItem("paradiumIntroSeen", "1"); } catch (e) {}
+
+  skip.addEventListener("click", finish);
+  video.addEventListener("ended", finish);
+  video.addEventListener("error", finish);
+
+  var playPromise = video.play();
+  if (playPromise && typeof playPromise.catch === "function") {
+    playPromise.catch(function () { finish(); });
+  }
+
+  /* Safety: never trap the page if playback stalls */
+  window.setTimeout(function () { if (!done) finish(); }, 16000);
+})();
+</script>
+<script>
+/* Hero orb video: respect reduced-motion (hold on the poster frame), and keep
+   the loop muted/inline so autoplay stays reliable across browsers. */
+(function () {
+  var orb = document.querySelector(".orb-video");
+  if (!orb) return;
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    orb.removeAttribute("autoplay");
+    orb.autoplay = false;
+    try { orb.pause(); } catch (e) {}
+    return;
+  }
+  orb.loop = true;
+  function play() {
+    var p = orb.play && orb.play();
+    if (p && typeof p.catch === "function") { p.catch(function () {}); }
+  }
+  play();
+  /* Belt-and-suspenders: the `loop` attribute handles this, but if any browser
+     ever fires `ended` or pauses the loop, restart it. */
+  orb.addEventListener("ended", function () { orb.currentTime = 0; play(); });
+  /* Resume the loop when the tab comes back to the foreground. */
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden && orb.paused && !orb.ended) { play(); }
+  });
+})();
+</script>
+<script>
+/* Contact dialog. Every "Partner with us" on the page is a button rather than
+   an anchor, so they all route here; the topic select is pre-set from the
+   trigger when the trigger knows what it is asking about. */
+(function () {
+  var modal = document.getElementById("contactModal");
+  var form = document.getElementById("contactForm");
+  if (!modal || !form) return;
+
+  var errorBox = document.getElementById("cfError");
+  var topic = form.elements.topic;
+  var lastTrigger = null;
+
+  function open(trigger) {
+    lastTrigger = trigger || null;
+    /* the mobile menu closes on link clicks, and its CTA is a button now, so
+       it has to be dismissed here or it stays open behind the dialog */
+    var menu = document.getElementById("mobileMenu");
+    var menuBtn = document.getElementById("menuBtn");
+    if (menu && menu.classList.contains("open")) {
+      menu.classList.remove("open");
+      if (menuBtn) {
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.textContent = "Menu";
+      }
+    }
+    var preset = trigger && trigger.getAttribute("data-contact-topic");
+    if (preset) topic.value = preset;
+    clearError();
+    if (typeof modal.showModal === "function") modal.showModal();
+    else modal.setAttribute("open", "");
+    /* the topic select is the first thing to decide, so start there rather
+       than on the close button the markup happens to put first */
+    var first = document.getElementById("cf-topic");
+    if (first) first.focus();
+  }
+
+  function clearError() {
+    errorBox.hidden = true;
+    errorBox.textContent = "";
+    Array.prototype.forEach.call(form.querySelectorAll(".is-invalid"), function (el) {
+      el.classList.remove("is-invalid");
+    });
+  }
+
+  /* The enquiry has nowhere to POST on a static page, so it is handed to the
+     visitor's own mail client with everything already filled in. Replace this
+     one function with a fetch() when there is an endpoint to hit. */
+  function sendEnquiry(data) {
+    var body = [
+      "Topic: " + data.topic,
+      "Name: " + data.name,
+      "Email: " + data.email,
+      data.company ? "Company: " + data.company : null,
+      "",
+      data.message
+    ].filter(Boolean).join("\n");
+
+    window.location.href = "mailto:media@thearenagroup.net" +
+      "?subject=" + encodeURIComponent("[" + data.topic + "] " + data.name) +
+      "&body=" + encodeURIComponent(body);
+  }
+
+  /* A short confetti burst fired from the checkmark centre. Pure Web Animations
+     API — no library, no external asset — and skipped under reduced motion. */
+  function burstConfetti(reduce) {
+    if (reduce) return;
+    var host = document.getElementById("cfBurst");
+    if (!host || typeof host.animate !== "function") return;
+    var colors = ["#4F24C9", "#6E4AE0", "#6B4AFF", "#8B74FF", "#C8B4FF", "#F4C752"];
+    for (var i = 0; i < 28; i++) {
+      var bit = document.createElement("span");
+      bit.className = "cf-confetti-bit";
+      var w = 6 + Math.random() * 7;
+      bit.style.width = w + "px";
+      bit.style.height = (w * (0.35 + Math.random() * 0.35)) + "px";
+      bit.style.background = colors[i % colors.length];
+      host.appendChild(bit);
+      var ang = (-Math.PI / 2) + (Math.random() - 0.5) * (Math.PI * 1.15);
+      var dist = 60 + Math.random() * 120;
+      var dx = Math.cos(ang) * dist;
+      var dy = Math.sin(ang) * dist + (70 + Math.random() * 90);
+      var rot = (Math.random() * 720 - 360).toFixed(0);
+      var anim = bit.animate([
+        { transform: "translate(-50%, -50%) rotate(0deg)", opacity: 1 },
+        { transform: "translate(calc(-50% + " + dx.toFixed(1) + "px), calc(-50% + " + dy.toFixed(1) + "px)) rotate(" + rot + "deg)", opacity: 0 }
+      ], { duration: 900 + Math.random() * 700, easing: "cubic-bezier(0.2, 0.7, 0.3, 1)", fill: "forwards" });
+      (function (b) { anim.onfinish = function () { b.remove(); }; })(bit);
+    }
+  }
+
+  function resetContact() {
+    modal.classList.remove("is-sent");
+    form.reset();
+    var sb = form.querySelector('button[type="submit"]');
+    if (sb) { sb.classList.remove("is-sending"); sb.disabled = false; }
+    clearError();
+  }
+
+  document.addEventListener("click", function (e) {
+    var opener = e.target.closest("[data-contact-open]");
+    if (opener) {
+      e.preventDefault();
+      open(opener);
+      return;
+    }
+    if (e.target.closest("[data-contact-close]")) {
+      e.preventDefault();
+      modal.close();
+    }
+  });
+
+  /* click on the backdrop = click on the dialog box itself, since the panel's
+     own children swallow anything inside it */
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) modal.close();
+  });
+
+  modal.addEventListener("close", function () {
+    /* clear the send/success state so a re-open always starts on a fresh form */
+    resetContact();
+    if (lastTrigger && document.contains(lastTrigger)) lastTrigger.focus();
+    lastTrigger = null;
+  });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    clearError();
+
+    var data = {
+      topic: topic.value,
+      name: form.elements.name.value.trim(),
+      email: form.elements.email.value.trim(),
+      company: form.elements.company.value.trim(),
+      message: form.elements.message.value.trim()
+    };
+
+    var missing = [];
+    if (!data.name) missing.push(form.elements.name);
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(data.email)) missing.push(form.elements.email);
+    if (!data.message) missing.push(form.elements.message);
+
+    if (missing.length) {
+      missing.forEach(function (el) { el.classList.add("is-invalid"); });
+      errorBox.textContent = "Add your name, a valid email, and a message before sending.";
+      errorBox.hidden = false;
+      missing[0].focus();
+      return;
+    }
+
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var sendBtn = form.querySelector('button[type="submit"]');
+    if (sendBtn) { sendBtn.classList.add("is-sending"); sendBtn.disabled = true; }
+
+    /* Hold a short "sending" beat, then swap the form for the success panel and
+       fire the confetti. The mail hand-off runs a beat after that so the
+       animation is seen before the mail client can steal focus. */
+    window.setTimeout(function () {
+      var sub = document.getElementById("cfSuccessSub");
+      if (sub) {
+        var first = data.name ? data.name.split(" ")[0] : "";
+        sub.textContent = "Thanks" + (first ? ", " + first : "") +
+          " — your enquiry is on its way. We'll be in touch soon.";
+      }
+      modal.classList.add("is-sent");
+      burstConfetti(reduce);
+      window.setTimeout(function () { sendEnquiry(data); }, reduce ? 0 : 280);
+    }, reduce ? 0 : 620);
+  });
+})();
+</script>
+<script>
+/* Brand band inside the first screen.
+   The hero is 100dvh by default, which pushed the marquee exactly one band
+   below the fold. The hero now subtracts --band-h, and this measures the real
+   band rather than guessing at it — the logo height, the kicker's line box and
+   the marquee padding all move with the breakpoint and with font loading. */
+(function () {
+  var band = document.querySelector(".brandband");
+  if (!band) return;
+  var root = document.documentElement;
+
+  function sync() {
+    root.style.setProperty("--band-h", Math.round(band.getBoundingClientRect().height) + "px");
+  }
+
+  sync();
+  window.addEventListener("load", sync);
+  if ("ResizeObserver" in window) new ResizeObserver(sync).observe(band);
+  else window.addEventListener("resize", sync);
+})();
+</script>
+<script>
+/* Leadership overviews.
+   One dialog, refilled from whichever roster card opened it. Prev/next walk
+   the full roster in DOM order without closing, and Arrow keys do the same
+   while the dialog has focus.
+
+   BIOS is the only thing to edit when real copy lands: key by the name as it
+   appears on the card, value = one string or an array of paragraphs. Anyone
+   without an entry gets the visible brief below instead of invented copy. */
+(function () {
+  var modal = document.getElementById("execModal");
+  var track = document.getElementById("rosterTrack");
+  if (!modal || !track) return;
+
+  var BIOS = {
+    "Paul Edmondson": [
+      "On February 12, 2025, Paul Edmondson was appointed Interim CEO of The Arena Group.",
+      "Paul began working with the company in 2018, when the business he founded and led, HubPages, was acquired by Arena.",
+      "He served as COO of The Arena Group from August 2018 until October 2019, when he was named the company’s President. In January 2021, the President role was split into two separate officer roles and Paul became President of the Platform, where he oversaw the company’s core content management system, programmatic advertising, and the technology stack for publishers and owned and operated properties.",
+      "In 2024, in addition to Paul’s role as President, Platform, he was named the General Manager of The Arena Group’s sports media business, including Athlon Sports. Under Paul’s direction and leadership, Athlon Sports experienced a renaissance, becoming one of the strongest and most-viewed sport-related websites in the U.S.",
+      "Before HubPages, Paul was a Group Product Manager for Microsoft Corporation’s MSN Entertainment, having joined Microsoft through the acquisition of MongoMusic, Inc. Prior to that, he developed applications for Hewlett-Packard Company.",
+      "Paul holds a Bachelor of Business Administration, Management Information Systems from California Polytechnic State University, San Luis Obispo."
+    ],
+    "Chris Hunter": [
+      "Chris Hunter is the President at The Arena Group, leading day-to-day operations across our media portfolio, ensuring efficiency and driving scalable growth of the company. Chris joined the company in 2022, and previously held the role of VP, Media.",
+      "With previous experience as the General Manager, Yahoo Finance, Head of Strategic Business Development at The Weather Company, Executive Director, Head of Client Solutions & Ad Products at IHS Market (Now S&P Global), and Vice President, Digital Strategy & Corporate Development at USA Today, Chris leads initiatives that diversify our verticals, drives audience growth, and building customer loyalty.",
+      "Chris holds a Bachelor of Business Administration, Finance from William & Mary."
+    ],
+    "Geoffrey Wait": [
+      "Geoffrey Wait holds the title of Principal Financial Officer at The Arena Group. He oversees Arena’s financial strategy, as well as all accounting and financial reporting, capital planning and allocation, revenue diversification, and more.",
+      "With over 15 years working in finance and accounting, he leads The Arena Group in growth and maximizing overall operational efficiency. His early career began at Grant Thornton LLP, and from there he went on to work at American Axle & Manufacturing in various capacities. Additionally, he served as Controller of Simplify Inventions, LLC before beginning at The Arena Group as a Senior Financial Advisor.",
+      "Geoff has a Bachelor of Arts in Accounting and a Master of Science in Accounting, both from Michigan State University and is also a Certified Public Accountant."
+    ],
+    "Amy Larkin": [
+      "Amy Larkin is the Head of HR at The Arena Group. She joined the company in 2020, where she held the role of Director, HR, and then was promoted to her current role in 2023.",
+      "Amy has over 15 years of experience in the field of Human Resources. She leads the team in improving employee experience and culture, as well as talent acquisition and retention and more.",
+      "Prior to joining The Arena Group, Amy worked as a HR consultant at OneDigital and additionally held the title of HR Manager at Rocket Fuel, where she helped clients transform small and emerging businesses into robust, scalable operations.",
+      "Amy holds a Bachelor of Arts in Psychology from The American School of Professional Psychology."
+    ],
+    "Miles Stiverson": [
+      "Miles Stiverson is the Head of Commerce at The Arena Group, overseeing commerce efforts across brands, including editorial strategy, paid sponsorships, and managing merchant partnerships.",
+      "Before joining the company in July of 2022 as Senior Vice President and General Manager, Lifestyle, Miles worked as the General Manager, Travel for Dotdash Meredith. He has also worked for both Travel + Leisure and Allure as Digital Director, and held various positions during his seven years at The Knot.",
+      "Miles holds a Bachelor of Arts in Journalism from New York University."
+    ],
+    "Eric Aledort": [
+      "Eric Aledort is the Head of Business Development at The Arena Group, where he oversees syndication, new revenue opportunities, and technology negotiations. He focuses on establishing new revenue streams, minimizing costs, and managing partnership renewals and extensions across all brands to support content vertical teams.",
+      "Prior to joining The Arena Group in 2019, Eric spent his career in business development and partnerships, with experience at UberMedia, Yahoo!, DEXONE, WebMD, and Walt Disney Internet Group. Throughout his career, Eric launched the ESPN Mobile MVNO, started a mobile location data business from scratch at UberMedia, and managed $2 billion in revenue at Yahoo!.",
+      "Eric holds both bachelor’s and master’s degrees in history from Vassar College and The London School of Economics and Political Science (LSE), as well as a JD from Georgetown Law."
+    ],
+    "Melissa Sin": [
+      "Melissa Sin is the Head of Ad Tech and Monetization at The Arena Group, where she leads strategic ad revenue growth and oversees monetization strategy across the company’s digital ad stack since 2019. She focuses on optimizing ad inventory quality and performance, advancing monetization testing and innovation, and ensuring operational excellence across programmatic and direct digital campaigns.",
+      "Prior to joining The Arena Group, Melissa held senior ad technology and monetization roles at TheStreet and Penguin Random House. Her experience also includes positions at Wenner Media, supporting brands such as Rolling Stone, Us Weekly, and Men’s Journal, and at NBCUniversal. Throughout her career, she has led ad stack transformations, integrated new demand partners, and launched innovative revenue channels that enhance inventory value and drive measurable growth.",
+      "Melissa holds a Bachelor of Science from the Peter J. Tobin College of Business at St. John’s University."
+    ],
+    "Stephanie Mazzamaro": [
+      "Stephanie Mazzamaro serves as the Head of Programmatic, Addressability & Operations at The Arena Group, where she oversees programmatic strategy, ad operations, and revenue monetization. Since joining the company in 2022, she has held several leadership roles, including VP of Data Strategy & Ops and VP of Addressability & Premium Programmatic, before stepping into her current position in 2024.",
+      "With over 15 years of experience in data strategy, Stephanie previously held key roles at Trusted Media Brands, Inc., Univision Communications Inc., and Forbes. In 2022, her industry contributions were recognized with the AdMonsters Top Women in Media & Tech award for being a Data Demystifier, and the Cynopsis Top Women in Media honor.",
+      "Stephanie holds a Bachelor of Science in Business Marketing from James Madison University."
+    ],
+    "Tim Martin": [
+      "Tim Martin serves as Head of Engineering at The Arena Group, bringing a deep understanding of the organization through his progression from Engineer to Engineering Manager and now executive leadership. He manages and leads the engineering and data teams in order to build and maintain The Arena Group’s high performance publishing platform.",
+      "Tim’s previous experience is at various startups in Silicon Valley, including founding an events-based social media company. He’s also an author of two published IETF RFCs, and has received the Internet Mail Innovation Award.",
+      "Tim holds a degree in Computer Science from Carnegie Mellon University."
+    ],
+    "Chris Heck": [
+      "Chris Heck is the Vice President, Integrated Marketing at The Arena Group, having joined the company in June of 2019 as Senior Director, Integrated Marketing. He oversees development and execution of multi-platform sponsorship programs that achieve client objectives while maintaining editorial integrity, in order to drive sales revenue.",
+      "Prior to joining The Arena Group, Chris spent his career working in media, from ESPN and SiriusXM to Time, Inc.",
+      "Chris holds a Bachelor of Arts in Journalism, Mass Communication from St. Bonaventure University."
+    ],
+    "Eric Karp": [
+      "Eric Karp is the Head of Brand Licensing for The Arena Group and for the 5-Hour Energy family of brands. His team manages all brand licensing businesses of the company, including large scale retail programs featuring branded products, book publishing, branded location-based real estate projects, fan merchandise, badging and content licensing.",
+      "Eric joined the company in November of 2024, after 22 years of robust licensing experience at Fox & Disney, MGM Studios, Crayola, BuzzFeed, and Vox Media. Throughout his career, initiatives that he led have generated several billion dollars in retail sales and have been celebrated with two Licensing Industry Excellence Awards.",
+      "He holds a Bachelor of Arts in Religious Studies from the University of Virginia, and a Master of Arts in Documentary Film from The American University. Eric also serves on the Licensing Industry Merchandisers’ Association Board of Directors."
+    ],
+    "Jermaine Spradley": [
+      "Jermaine Spradley is the Head of Video & Social at The Arena Group, joining in July 2025. He oversees video strategy, social platform growth, and audience development initiatives focused on driving referral traffic and platform monetization across brands including Parade Magazine, TheStreet, and Athlon Sports. Jermaine also leads the video & social P&Ls across Arena’s brands.",
+      "Before joining The Arena Group, Jermaine served as SVP & Publisher of SB Nation. In his multiple leadership roles there, including VP of Network Development and GM, he oversaw a portfolio of over 300 communities and 150 podcasts, led a team of 100+ staffers and 2,000+ freelancers, and shaped the brand’s editorial and business roadmap.",
+      "Jermaine’s career also includes time as Executive Editor at Bleacher Report, having been recognized with a Clio Award for building and scaling the Social Movements team, and developing branded franchises such as Gridiron Heights. His contributions helped transform Bleacher Report into a cross-platform storytelling leader—leading to its recognition on Fast Company’s Most Innovative Companies list.",
+      "He began his media career at The Huffington Post, leading coverage for the Black Voices and Latino Voices verticals, and managing award-winning reporting on landmark moments. Across his career, Jermaine has focused on building authentic communities, empowering creators, and driving innovation at the intersection of storytelling and strategy."
+    ],
+  };
+
+  var elImg = document.getElementById("execImg");
+  var elName = document.getElementById("exec-name");
+  var elTitle = document.getElementById("execTitle");
+  var elOverview = document.getElementById("execOverview");
+  var elCount = document.getElementById("execCount");
+
+  var cards = Array.prototype.slice.call(track.querySelectorAll(".creator:not(.no-bio)"));
+  if (!cards.length) return;
+  var index = 0;
+  var lastTrigger = null;
+
+  function read(card) {
+    var img = card.querySelector(".creator-portrait img");
+    return {
+      name: (card.querySelector(".creator-name") || {}).textContent || "",
+      title: (card.querySelector(".creator-vert") || {}).textContent || "",
+      src: img ? img.getAttribute("src") : "",
+      alt: img ? img.getAttribute("alt") : ""
+    };
+  }
+
+  function render(i) {
+    index = (i + cards.length) % cards.length;
+    var card = cards[index];
+    var p = read(card);
+
+    elImg.src = p.src;
+    elImg.alt = p.alt;
+    elName.textContent = p.name;
+    elTitle.textContent = p.title;
+    elCount.textContent = (index + 1) + " of " + cards.length;
+
+    var bio = BIOS[p.name];
+    elOverview.textContent = "";
+    if (bio) {
+      (typeof bio === "string" ? [bio] : bio).forEach(function (para) {
+        var el = document.createElement("p");
+        el.textContent = para;
+        elOverview.appendChild(el);
+      });
+    } else {
+      var slot = document.createElement("p");
+      slot.className = "is-placeholder";
+      slot.textContent = "Overview copy for " + p.name + " goes here: the remit at Paradium.AI, " +
+        "the track record behind it, and what they are building next. Two or three sentences.";
+      elOverview.appendChild(slot);
+    }
+
+    /* always show each person from the top of the dialog */
+    modal.scrollTop = 0;
+
+    /* Intentionally do NOT scroll the roster to the person being read. Centring
+       the card slid the whole leadership carousel behind the dialog every time a
+       profile opened or prev/next was pressed (read as the section shifting).
+       The roster stays exactly where the visitor left it. */
+  }
+
+  function open(i, trigger) {
+    lastTrigger = trigger || null;
+    render(i);
+    if (typeof modal.showModal === "function") modal.showModal();
+    else modal.setAttribute("open", "");
+
+    /* Focus a control at the TOP of the panel (the close button), not the
+       next-arrow at the bottom. Mobile Chrome ignores preventScroll and
+       scrolls the focused element into view, which was dropping the visitor
+       halfway down the dialog — past the portrait and name. */
+    var closeBtn = modal.querySelector(".exec-x");
+    if (closeBtn) closeBtn.focus({ preventScroll: true });
+
+    /* Belt-and-suspenders: pin the scroll to the top after the browser has
+       had its chance to auto-scroll on focus/open. */
+    modal.scrollTop = 0;
+    if (typeof requestAnimationFrame === "function") {
+      requestAnimationFrame(function () { modal.scrollTop = 0; });
+    }
+  }
+
+  /* The roster calls setPointerCapture on its track so drag-to-scroll survives
+     the pointer leaving a card. A side effect is that pointerup retargets to
+     the track, so the click event that follows a REAL mouse press on a card
+     arrives with e.target = #rosterTrack and closest() finds nothing. (A
+     synthetic .click() skips capture entirely, which is why this only shows up
+     with a live pointer.) Remember what the press landed on, and use it when
+     the click cannot resolve itself — but only if the pointer stayed put, so a
+     drag still scrolls instead of opening whatever it started on. */
+  var pressed = null, pressX = 0, pressY = 0;
+  document.addEventListener("pointerdown", function (e) {
+    pressed = e.target.closest ? e.target.closest("[data-exec-open]") : null;
+    pressX = e.clientX;
+    pressY = e.clientY;
+  }, true);
+
+  document.addEventListener("click", function (e) {
+    var opener = e.target.closest("[data-exec-open]");
+    if (!opener && pressed &&
+        Math.abs(e.clientX - pressX) < 5 && Math.abs(e.clientY - pressY) < 5) {
+      opener = pressed;
+    }
+    pressed = null;
+
+    if (opener) {
+      e.preventDefault();
+      var card = opener.closest(".creator");
+      open(cards.indexOf(card), opener);
+      return;
+    }
+    if (e.target.closest("[data-exec-prev]")) render(index - 1);
+    else if (e.target.closest("[data-exec-next]")) render(index + 1);
+  });
+
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) modal.close();
+  });
+
+  modal.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") { e.preventDefault(); render(index - 1); }
+    else if (e.key === "ArrowRight") { e.preventDefault(); render(index + 1); }
+  });
+
+  modal.addEventListener("close", function () {
+    if (lastTrigger && document.contains(lastTrigger)) lastTrigger.focus();
+    lastTrigger = null;
+  });
+})();
+</script>
+
+<!-- ══════════════════ LIVE PRESS RELEASES (Kaleidoscope IR widget) ══════════════════
+     Pulls the latest releases published by Paradium.AI, Inc. (NYSE American: PAAI)
+     from the same IR newsroom feed as investors.paradium.ai. The widget renders
+     into #paradium-news-widget (latest_mode → compact list, no filters; limit 5),
+     replacing the static fallback nested in that container. custom_css themes the
+     shadow DOM to the site palette (transparent ground, Schibsted Grotesk, violet
+     accent inherited from the key's baked styles). data-key is the public IR widget
+     key; swap it if the newsroom is re-provisioned. -->
+<script src="https://api.kscope.io/widgets/js/init.js"></script>
+<script src="https://api.kscope.io/widgets/js/widget.js?content=pr_news&key=b4eb4db2-973b-4847-9986-6744e939c098"></script>
+<script>
+(function () {
+  var KEY = "b4eb4db2-973b-4847-9986-6744e939c098";
+  var CSS =
+    ":host{background:transparent;font-family:'Schibsted Grotesk',system-ui,sans-serif;}" +
+    ".widget-container{padding:0 !important;}";
+  var tries = 0;
+  (function boot() {
+    if (typeof window.kscope_press_widget === "function") {
+      try {
+        window.kscope_press_widget({
+          container_id: "paradium-news-widget",
+          api_key: KEY,
+          latest_mode: true,
+          limit: 3,
+          custom_css: CSS
+        });
+      } catch (e) {
+        /* leave the static .news-list fallback in place */
+      }
+      return;
+    }
+    if (tries++ < 80) setTimeout(boot, 150); /* wait for init.js/widget.js */
+  })();
+})();
+</script>
+</body>
+</html>

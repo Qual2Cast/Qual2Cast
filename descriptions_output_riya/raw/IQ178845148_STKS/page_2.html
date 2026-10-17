@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" prefix="og: https://ogp.me/ns#">
+<head profile="http://gmpg.org/xfn/11">
+<script data-cookieconsent="ignore">
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag("consent", "default", {
+            ad_personalization: "denied",
+            ad_storage: "denied",
+            ad_user_data: "denied",
+            analytics_storage: "denied",
+            functionality_storage: "denied",
+            personalization_storage: "denied",
+            security_storage: "granted",
+            wait_for_update: 2000,
+        });
+        gtag("set", "ads_data_redaction", true);
+        gtag("set", "url_passthrough", true);
+    </script>
+
+    <!-- Start cookieyes banner --> <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/a03a590cfa5e52ee3f9e2cfe/script.js"></script> <!-- End cookieyes banner -->
+    <script>
+        (function () {
+            const COOKIE_NAME = 'cookieyes-consent';
+            const BANNER_SELECTOR = '#cky-consent, .cky-consent-container, .cky-modal, #cookie-law-info-bar';
+            let isLocked = false;
+
+            function getCookieValue(name) {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                if (parts.length !== 2) {
+                    return null;
+                }
+
+                return parts.pop().split(';').shift() || null;
+            }
+
+            function hasConsentDecision() {
+                const consentCookie = getCookieValue(COOKIE_NAME);
+                if (!consentCookie) {
+                    return false;
+                }
+
+                const decoded = decodeURIComponent(consentCookie).toLowerCase();
+                return /action:(yes|no|accept|reject|acceptall|rejectall)/.test(decoded);
+            }
+
+            function isVisible(element) {
+                if (!element) {
+                    return false;
+                }
+
+                const style = window.getComputedStyle(element);
+                if (style.display === 'none' || style.visibility === 'hidden') {
+                    return false;
+                }
+
+                if (element.getAttribute('aria-hidden') === 'true') {
+                    return false;
+                }
+
+                return element.getClientRects().length > 0;
+            }
+
+            function getBanners() {
+                return Array.from(document.querySelectorAll(BANNER_SELECTOR));
+            }
+
+            function getActiveBanner() {
+                const visibleBanners = getBanners().filter(isVisible);
+                if (!visibleBanners.length) {
+                    return null;
+                }
+
+                return visibleBanners[visibleBanners.length - 1];
+            }
+
+            function getFocusableInBanner(banner) {
+                if (!banner) {
+                    return [];
+                }
+
+                return Array.from(
+                    banner.querySelectorAll('a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])')
+                ).filter((element) => element.tabIndex !== -1 && !element.hasAttribute('disabled') && isVisible(element));
+            }
+
+            function setPageInert(locked) {
+                const banners = getBanners();
+                const bodyChildren = Array.from(document.body.children);
+
+                bodyChildren.forEach((child) => {
+                    const isBannerHost = banners.some((banner) => child === banner || child.contains(banner));
+                    if (isBannerHost) {
+                        child.removeAttribute('inert');
+                        return;
+                    }
+
+                    if (locked) {
+                        child.setAttribute('inert', '');
+                    } else {
+                        child.removeAttribute('inert');
+                    }
+                });
+            }
+
+            function lockSite() {
+                if (isLocked) {
+                    return;
+                }
+
+                const activeBanner = getActiveBanner();
+                if (!activeBanner) {
+                    return;
+                }
+
+                isLocked = true;
+                document.body.style.overflow = 'hidden';
+                setPageInert(true);
+
+                const focusable = getFocusableInBanner(activeBanner);
+                if (focusable.length) {
+                    focusable[0].focus();
+                }
+            }
+
+            function unlockSite() {
+                if (!isLocked) {
+                    return;
+                }
+
+                isLocked = false;
+                document.body.style.overflow = '';
+                setPageInert(false);
+            }
+
+            function syncLockState() {
+                if (!hasConsentDecision() && getActiveBanner()) {
+                    lockSite();
+                    return;
+                }
+
+                unlockSite();
+            }
+
+            function trapTabInBanner(event) {
+                if (!isLocked || event.key !== 'Tab') {
+                    return;
+                }
+
+                const banner = getActiveBanner();
+                const focusable = getFocusableInBanner(banner);
+
+                if (!banner || !focusable.length) {
+                    event.preventDefault();
+                    return;
+                }
+
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                const active = document.activeElement;
+
+                if (!banner.contains(active)) {
+                    event.preventDefault();
+                    first.focus();
+                    return;
+                }
+
+                if (event.shiftKey && active === first) {
+                    event.preventDefault();
+                    last.focus();
+                    return;
+                }
+
+                if (!event.shiftKey && active === last) {
+                    event.preventDefault();
+                    first.focus();
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                document.addEventListener('keydown', trapTabInBanner, true);
+                const observer = new MutationObserver(syncLockState);
+                observer.observe(document.body, { childList: true, subtree: true, attributes: true });
+
+                syncLockState();
+                window.setTimeout(syncLockState, 400);
+                window.setTimeout(syncLockState, 1200);
+            });
+        })();
+    </script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="pingback" href="https://togrp.com/wp/xmlrpc.php"/>
+    <link rel="alternate" type="application/rss+xml" title="The ONE Group RSS2 Feed"
+          href="https://togrp.com/feed/"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&family=Unbounded:wght@200..900&display=swap"
+          rel="stylesheet">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+        // Function to get cookie value
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return null;
+        }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KBQ2TQ8F');</script>
+    <!-- End Google Tag Manager -->
+
+    
+<!-- Search Engine Optimization by Rank Math PRO - https://rankmath.com/ -->
+<title>Benihana - The ONE Group - Hospitality Services</title>
+<meta name="description" content="Experience Benihana, where expert chefs create unforgettable teppanyaki dining moments. Discover our blend of entertainment and culinary mastery that brings people together."/>
+<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+<link rel="canonical" href="https://togrp.com/benihana/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Benihana - The ONE Group - Hospitality Services" />
+<meta property="og:description" content="Experience Benihana, where expert chefs create unforgettable teppanyaki dining moments. Discover our blend of entertainment and culinary mastery that brings people together." />
+<meta property="og:url" content="https://togrp.com/benihana/" />
+<meta property="og:site_name" content="The One Group" />
+<meta property="og:updated_time" content="2025-05-28T08:00:59+00:00" />
+<meta property="og:image" content="https://togrp.com/wp-content/uploads/2024/04/a3684c5e548de25e1c9f65068b646791-1024x671.jpeg" />
+<meta property="og:image:secure_url" content="https://togrp.com/wp-content/uploads/2024/04/a3684c5e548de25e1c9f65068b646791-1024x671.jpeg" />
+<meta property="og:image:width" content="1024" />
+<meta property="og:image:height" content="671" />
+<meta property="og:image:alt" content="STK Steakhouse restaurant interior" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Benihana - The ONE Group - Hospitality Services" />
+<meta name="twitter:description" content="Experience Benihana, where expert chefs create unforgettable teppanyaki dining moments. Discover our blend of entertainment and culinary mastery that brings people together." />
+<meta name="twitter:image" content="https://togrp.com/wp-content/uploads/2024/04/a3684c5e548de25e1c9f65068b646791-1024x671.jpeg" />
+<meta name="twitter:label1" content="Time to read" />
+<meta name="twitter:data1" content="Less than a minute" />
+<!-- /Rank Math WordPress SEO plugin -->
+
+<link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://togrp.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ftogrp.com%2Fbenihana%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://togrp.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ftogrp.com%2Fbenihana%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+
+
+<link rel='stylesheet' id='site-style-css' href='https://togrp.com/wp-content/themes/the-one-group-2024/assets/dist/css/style.css?ver=1790940519' media='all' />
+<link rel='stylesheet' id='slick-style-css' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css?ver=1.0' media='all' />
+<script id="jquery-core-js" src="https://togrp.com/wp/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://togrp.com/wp/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="file_uploads_nfpluginsettings-js-extra">
+var params = {"clearLogRestUrl":"https://togrp.com/wp-json/nf-file-uploads/debug-log/delete-all","clearLogButtonId":"file_uploads_clear_debug_logger","downloadLogRestUrl":"https://togrp.com/wp-json/nf-file-uploads/debug-log/get-all","downloadLogButtonId":"file_uploads_download_debug_logger"};
+//# sourceURL=file_uploads_nfpluginsettings-js-extra
+</script>
+<script id="file_uploads_nfpluginsettings-js" src="https://togrp.com/wp-content/plugins/ninja-forms-uploads/assets/js/nfpluginsettings.js?ver=3.3.29"></script>
+<script id="vendor-jquery-js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<link rel="https://api.w.org/" href="https://togrp.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://togrp.com/wp-json/wp/v2/pages/268" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://togrp.com/wp/xmlrpc.php?rsd" />
+
+<link rel='shortlink' href='https://togrp.com/?p=268' />
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="H5v1MXl++yLhb8TnoqPcRw" async></script>
+<link rel="icon" href="https://togrp.com/wp-content/uploads/2024/08/Favicon.png" sizes="32x32" />
+<link rel="icon" href="https://togrp.com/wp-content/uploads/2024/08/Favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://togrp.com/wp-content/uploads/2024/08/Favicon.png" />
+<meta name="msapplication-TileImage" content="https://togrp.com/wp-content/uploads/2024/08/Favicon.png" />
+    <script>
+        var $ = jQuery.noConflict();     </script>
+</head>
+<body class="wp-singular page-template-default page page-id-268 wp-theme-the-one-group-2024 radial-flare-gradient-top-right bg-gradient-to-r from-purple/40 to-black to-40%">
+<div x-data="{ 
+    isOpen: false,
+    animationsEnabled: getCookie('animations_enabled') !== 'false',
+    toggleAnimations() {
+        this.animationsEnabled = !this.animationsEnabled;
+        document.cookie = `animations_enabled=${this.animationsEnabled}; path=/; max-age=31536000`;
+        location.reload();
+    }
+}">
+    <button
+        @click="isOpen = !isOpen"
+        :class="{ '-translate-x-[200px]': isOpen }"
+        class="fixed right-0 top-48 z-[9999] rounded-l-lg p-2 bg-black border border-black focus:border-white transition-transform duration-300">
+        <svg :aria-label="isOpen ? 'Close Animation Settings' : 'Open Animation Settings'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+             stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+        </svg>
+    </button>
+
+    <!-- Settings Panel -->
+    <div
+        x-show="isOpen"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 transform translate-x-full"
+        x-transition:enter-end="opacity-100 transform translate-x-0"
+        x-transition:leave="transition ease-in duration-300"
+        x-transition:leave-start="opacity-100 transform translate-x-0"
+        x-transition:leave-end="opacity-0 transform translate-x-full"
+        class="fixed z-[9999] right-0 top-48 w-[200px] bg-black/90 border border-black text-white p-4 rounded-bl-lg shadow-lg"
+    >
+        <h3 class="text-base font-bold mb-4">Animation Settings</h3>
+        <div class="flex items-center justify-between">
+            <p for="animations" class="mr-2">Animations</p>
+            <button
+                id="animations"
+                @click="toggleAnimations"
+                :class="{ 'bg-plum': animationsEnabled, 'bg-dark-plum': !animationsEnabled }"
+                class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+                :aria-label="animationsEnabled ? 'Disable animations, this will refresh the page' : 'Enable animations, this will refresh the page'"
+                role="switch"
+                :aria-checked="animationsEnabled.toString()"
+            >
+                <span class="sr-only" x-text="animationsEnabled ? 'Disable animations, this will refresh the page' : 'Enable animations, this will refresh the page'"></span>
+                <span
+                    :class="{ 'translate-x-6': animationsEnabled, 'translate-x-1': !animationsEnabled }"
+                    class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform"
+                    aria-hidden="true"
+                ></span>
+            </button>
+        </div>
+    </div>
+</div>
+<a href="#main"
+   class="sr-only focus:not-sr-only scale-90 focus:scale-100 -translate-y-1 focus:translate-y-0 !absolute !top-4 !left-4 bg-blue-600 text-white !px-4 !py-2 rounded-md shadow-lg font-bold !z-[9999]">
+    Skip to main content
+</a>
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KBQ2TQ8F"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header class="page-header sticky top-0 z-50">
+    <div class="container relative py-8 flex justify-items-center transition-all duration-700 motion-reduce:duration-300 transform-gpu">
+        <div class="logo-container">
+            <a href="https://togrp.com/" class="logo hover:opacity-70"><img
+                        src="https://togrp.com/wp-content/themes/the-one-group-2024/assets/dist/images/logos/the-one-group-logo.svg"
+                        title="The ONE Group" alt="The ONE Group logo" /></a>
+        </div>
+        <div class="header-navigation-container">
+            <div class="burger-menu-button-container">
+                <button class="open-menu-button">Menu <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0.714844H9.5" stroke="white"/><path d="M3.5 7.90512L9.5 7.90512" stroke="white"/></svg></button>
+                <button class="close-menu-button">Close <span class="ml-3">x</span></button>
+            </div>
+            <nav class="main-navigation bg-black lg:bg-transparent sticky !p-0 md:!p-9">
+                <div class="radial-flare-gradient"></div>
+                <div class="bg-transparent lg:bg-black w-full h-full grid md:grid-cols-12">
+                    <div class="col-span-6 p-6 md:p-14 md:h-full flex flex-col gap-4 order-1 md:order-none">
+                                                <div class="md:mt-52">
+                                                                                                                                                                                    <p class="uppercase font-normal text-gray tracking-widest text-xs font-readex-pro">Email</p>
+                                                                                <a class="block mt-2 text-base text-white no-underline hover:text-bright-pink" href="/cdn-cgi/l/email-protection#391f1a08080f02565e4b1f1a080908024a1f1a080908021f1a08080d024f1f1a000e021f1a08080f021f1a08090c021f1a08080802571f1a08080c021f1a0f0d021f1a08080f021f1a080808021f1a08090a024b1f1a08080b021f1a0d0f025a5654">t&#111;gr&#101;ser&#118;&#97;&#116;ions&#64;&#116;&#111;g&#114;&#112;&#46;&#99;&#111;&#109;</a>
+                                                                                                                                                                                        <a class="block mt-2 text-base text-white no-underline hover:text-bright-pink" href="/cdn-cgi/l/email-protection#d8b1fefbe9e9e8e3beb7fefbeeece3acb7bffefbe9e9ece3a8f6bbb7fefbe9e8e1e3">inf&#111;&#64;t&#111;g&#114;&#112;.&#99;&#111;m</a>
+                                                                                                                                                                                                                                                                                                                                                                    <p class="uppercase text-gray tracking-widest text-xs mt-8">Follow Us</p>
+                            <div class="flex gap-4 mt-3 items-center">
+                                    <div class="social-icons-container">
+        <ul class="social-icons flex items-center">
+                                                <li>
+                        <a href="https://www.facebook.com/eatSTK" target="_blank" rel="nofollow" aria-label="Visit our Facebook account (opens in a new tab)">
+                            <img src="https://togrp.com/wp-content/themes/the-one-group-2024/assets/dist/images/icons/social/facebook-icon.svg" alt="Facebook icon" />
+                        </a>
+                    </li>
+                                                                <li>
+                        <a href="https://www.instagram.com/eatSTK" target="_blank" rel="nofollow" aria-label="Visit our Instagram account (opens in a new tab)">
+                            <img src="https://togrp.com/wp-content/themes/the-one-group-2024/assets/dist/images/icons/social/instagram-icon.svg" alt="Instagram icon" />
+                        </a>
+                    </li>
+                                                                <li>
+                        <a href="https://x.com/eatSTK" target="_blank" rel="nofollow" aria-label="Visit our X account (opens in a new tab)">
+                            <img src="https://togrp.com/wp-content/themes/the-one-group-2024/assets/dist/images/icons/social/x-icon.svg" alt="X icon" />
+                        </a>
+                    </li>
+                                                                <li>
+                        <a href="https://www.linkedin.com/company/the-one-group/" target="_blank" rel="nofollow" aria-label="Visit our Linkedin account (opens in a new tab)">
+                            <img src="https://togrp.com/wp-content/themes/the-one-group-2024/assets/dist/images/icons/social/linkedin-icon.svg" alt="Linkedin icon" />
+                        </a>
+                    </li>
+                                    </ul>
+    </div>
+                            </div>
+                                                    </div>
+                        <div class="md:mt-auto md:flex mt-4 gap-9">
+                                                                                                <a class="block mt-2 text-xs text-white uppercase tracking-widest no-underline hover:text-bright-pink"
+                                       href="https://togrp.com/terms-conditions/">terms</a>
+                                                                    <a class="block mt-2 text-xs text-white uppercase tracking-widest no-underline hover:text-bright-pink"
+                                       href="https://togrp.com/cookie-policy/">cookies</a>
+                                                                                    </div>
+                    </div>
+                    <div class="col-span-6 p-6 md:p-0 flex flex-col my-auto gap-2">
+                        <div>
+                            <p class="text-2xl font-normal tracking-widest uppercase bg-gradient-to-r from-bright-pink to-pink bg-clip-text text-transparent !mb-8">
+                                Brands</p>
+
+                            <ul id="menu-brands-menu" class="nav-menu nav-brands-menu"><li id="menu-item-367" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-367"><a href="https://togrp.com/stk-steakhouse/"><span class='sr-only'>Find about more about STK Steakhouse</span><svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.72551 68.4349C8.51347 68.3743 7.7259 68.1623 7.39269 68.0815H7.38259C6.95852 67.9603 6.90803 67.7382 6.90803 67.5867C6.90803 67.1222 7.47347 67.092 7.65522 67.092C8.22065 67.092 8.51347 67.3242 8.54376 67.8088V67.9098H9.58376V67.7987C9.58376 66.8395 8.81638 66.1933 7.68551 66.1933C6.80706 66.1933 5.86803 66.6578 5.86803 67.6776C5.86803 68.132 6.05987 68.7176 6.97871 68.97C7.21094 69.0306 7.41289 69.0811 7.59463 69.1316C7.90764 69.2123 8.16007 69.2729 8.36201 69.3537C8.50337 69.4042 8.67502 69.5153 8.67502 69.8182C8.67502 70.1918 8.35192 70.4139 7.80667 70.4139C7.40279 70.4139 6.73638 70.3028 6.73638 69.5254V69.4143H5.68628V69.5254C5.70647 70.636 6.47385 71.3024 7.74609 71.3024C8.65483 71.3024 9.71503 70.8885 9.71503 69.7273C9.71503 69.2628 9.4525 68.6469 8.72551 68.4248" fill="white"/><path d="M11.5426 67.2333H13.0269V71.1914H14.0669V67.2333H15.5411V66.3044H11.5426V67.2333Z" fill="white"/><path d="M18.6914 69.1215H21.044V68.2329H18.6914V67.2333H21.2358V66.3044H17.6514V71.1914H21.2762V70.2624H18.6914V69.1215Z" fill="white"/><path d="M24.8405 66.3044L22.9624 71.1914H24.0529L24.4871 69.9595H26.1834L26.6176 71.1914H27.7383L25.8603 66.3044H24.8405ZM25.9007 69.1114H24.79L25.3453 67.5362L25.9007 69.1114Z" fill="white"/><path d="M33.9884 66.3044H32.6657L30.7473 68.2632V66.3044H29.7073V71.1914H30.7473V69.5557L31.2824 69.0306L32.7667 71.1914H34.0692L31.9993 68.2935L33.9884 66.3044Z" fill="white"/><path d="M38.8958 68.1622H36.9975V66.3044H35.9575V71.1914H36.9975V69.0912H38.8958V71.1914H39.9358V66.3044H38.8958V68.1622Z" fill="white"/><path d="M44.5803 66.1933C43.197 66.1933 42.2378 67.2434 42.2378 68.7479C42.2378 70.2523 43.197 71.3024 44.5803 71.3024C45.9636 71.3024 46.9229 70.2523 46.9229 68.7479C46.9229 67.2434 45.9636 66.1933 44.5803 66.1933ZM45.8828 68.7479C45.8828 69.5153 45.5396 70.4139 44.5803 70.4139C43.6211 70.4139 43.2778 69.5153 43.2778 68.7479C43.2778 67.9805 43.6211 67.0819 44.5803 67.0819C45.5396 67.0819 45.8828 67.9805 45.8828 68.7479Z" fill="white"/><path d="M52.1937 69.1316C52.1937 69.8384 52.123 70.3735 51.2142 70.3735C50.3055 70.3735 50.2348 69.8384 50.2348 69.1316V66.3044H49.1948V69.3941C49.1948 70.5856 49.9521 71.2924 51.2243 71.2924C52.4966 71.2924 53.2539 70.5856 53.2539 69.3941V66.3044H52.2139V69.1316H52.1937Z" fill="white"/><path d="M58.4942 68.4349C58.2519 68.3642 57.1917 68.0916 57.1513 68.0714C56.7272 67.9603 56.6767 67.7382 56.6767 67.5766C56.6767 67.1122 57.2421 67.0819 57.4138 67.0819C57.9792 67.0819 58.272 67.3141 58.3023 67.7988V67.8997H59.3423V67.7887C59.3423 66.8294 58.575 66.1832 57.4441 66.1832C56.5656 66.1832 55.6266 66.6477 55.6266 67.6675C55.6266 68.1219 55.8185 68.7075 56.7373 68.9599C56.9695 69.0205 57.1715 69.071 57.3532 69.1215C57.6662 69.2023 57.9187 69.2629 58.1206 69.3436C58.262 69.3941 58.4336 69.5052 58.4336 69.8081C58.4336 70.1817 58.1105 70.4038 57.5653 70.4038C57.1614 70.4038 56.495 70.2928 56.495 69.5153V69.4042H55.455V69.5153C55.4752 70.626 56.2425 71.2924 57.5148 71.2924C58.4235 71.2924 59.4837 70.8784 59.4837 69.7172C59.4837 69.2527 59.2212 68.6368 58.4942 68.4147" fill="white"/><path d="M62.8056 69.1215H65.1583V68.2329H62.8056V67.2333H65.34V66.3044H61.7656V71.1914H65.3905V70.2624H62.8056V69.1215Z" fill="white"/><path d="M23.7197 33.923C23.7197 31.3179 22.6696 29.9952 20.5896 29.9952H12.1787C10.0078 29.9952 8.95771 28.834 8.95771 26.4511V23.9066L8.9981 10.0938C8.9981 8.52873 9.25053 7.26659 9.75538 6.33766C10.2501 5.41882 10.9468 4.96445 11.8556 4.96445H17.3383C18.8125 4.96445 19.7717 5.39862 20.1756 6.24678C20.5896 7.12523 20.8016 8.44795 20.8016 10.1746V21.4833H23.8106V8.04407C23.861 6.5497 23.5379 5.16639 22.8412 3.93454C22.1344 2.6926 21.0137 2.006 19.489 1.89493H11.0579C9.14956 2.006 7.75616 2.71279 6.93829 4.01532C6.12043 5.28756 5.71654 6.81222 5.71654 8.51863V27.895C5.71654 31.5501 7.14023 33.408 9.95733 33.408H17.096C18.1663 33.4282 18.974 33.7311 19.5092 34.2865C20.0847 34.8923 20.3573 35.8414 20.317 37.1035L20.4381 55.0461C20.4381 56.6011 20.0746 57.8632 19.3476 58.7921C18.6307 59.711 17.4999 60.1754 15.9853 60.1754H12.0979C10.6136 60.1754 9.66451 59.7413 9.26063 58.8931C8.84664 58.0147 8.63461 56.6919 8.63461 54.9754V43.6667H5.62567V57.116C5.57518 58.6104 5.97907 60.0038 6.83732 61.2356C7.70567 62.4776 8.74567 63.1642 9.94723 63.2753H18.3682C20.2766 63.1642 21.6599 62.4574 22.4878 61.1549C23.3057 59.8725 23.7197 58.3479 23.7197 56.6516V33.9432V33.923Z" fill="white"/><path d="M33.6756 63.2551H36.7552V5.13611H44.5401V2.05649H26.3754V5.13611H33.6756V63.2551Z" fill="white"/><path d="M65.0068 2.05649H61.2002L49.8006 32.9738L49.9116 2.05649H46.7916V63.2551H49.9116L49.8006 41.0919L53.4759 32.055L61.6445 63.1743L61.6647 63.2551H65.4309L55.6367 26.7843L65.0068 2.05649Z" fill="white"/><path d="M69.5302 3.02582C69.3485 2.69261 69.0759 2.43009 68.7528 2.24834C68.0864 1.89494 67.3695 1.89494 66.7131 2.24834C66.3799 2.43009 66.1174 2.69261 65.9357 3.02582C65.7539 3.35902 65.653 3.71242 65.653 4.06582C65.653 4.41922 65.7438 4.77262 65.9256 5.09573C66.1073 5.42893 66.3698 5.69145 66.7031 5.86311C67.0262 6.04485 67.3695 6.13573 67.733 6.13573C68.0965 6.13573 68.4398 6.04485 68.7629 5.86311C69.0961 5.68136 69.3485 5.41883 69.5403 5.08563C69.7221 4.75242 69.813 4.40912 69.813 4.05572C69.813 3.70232 69.7221 3.34893 69.5403 3.01572M67.319 3.85378V3.4398H67.5916C67.7935 3.4398 67.8743 3.45999 67.8945 3.47009C67.9349 3.49029 67.9652 3.51048 67.9854 3.54077C68.0056 3.57106 68.0157 3.60135 68.0157 3.64174C68.0157 3.70232 67.9955 3.75281 67.945 3.7932C67.9248 3.81339 67.844 3.85378 67.6118 3.85378H67.3089H67.319ZM67.319 5.26738V4.36873H67.4098C67.5007 4.36873 67.5714 4.38893 67.6219 4.41922C67.6724 4.45961 67.7733 4.57068 67.945 4.87359L68.1671 5.26738H68.6922C68.6316 5.31786 68.571 5.35825 68.5003 5.38854C68.0157 5.66116 67.4603 5.66116 66.9757 5.38854C66.905 5.34815 66.8444 5.30776 66.7838 5.26738H67.3291H67.319ZM68.4801 4.68174C68.3691 4.5 68.2681 4.35864 68.1671 4.25767C68.258 4.21728 68.3388 4.16679 68.4095 4.09611C68.5407 3.96485 68.6114 3.7932 68.6114 3.61145C68.6114 3.48019 68.571 3.34893 68.4902 3.23786C68.4095 3.11669 68.2984 3.03592 68.1671 2.98543C68.046 2.94504 67.8541 2.92485 67.5916 2.92485H66.7535V5.24718C66.6122 5.13611 66.491 4.98466 66.4001 4.8231C66.2689 4.58077 66.1982 4.31825 66.1982 4.06582C66.1982 3.81339 66.2689 3.54077 66.4102 3.29844C66.5516 3.04601 66.7333 2.86426 66.9757 2.733C67.218 2.60174 67.4704 2.53106 67.733 2.53106C67.9955 2.53106 68.2378 2.60174 68.4801 2.733C68.7225 2.86426 68.9143 3.05611 69.0456 3.29844C69.1869 3.54077 69.2475 3.8033 69.2475 4.06582C69.2475 4.32835 69.1768 4.58077 69.0456 4.8231C68.9749 4.95437 68.884 5.06543 68.7831 5.16641L68.4801 4.67165V4.68174Z" fill="white"/></svg></a></li>
+<li id="menu-item-365" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-268 current_page_item menu-item-365"><a href="https://togrp.com/benihana/" aria-current="page"><span class='sr-only'>Find about more about Benihana</span><svg xmlns="http://www.w3.org/2000/svg" width="88" height="19" viewBox="0 0 88 19" fill="none"><path d="M73.1881 2.58296L73.3284 3.33701V18.1901L73.1706 18.2778C71.3819 18.2778 70.4875 18.2778 68.8742 18.2778L68.769 18.155V5.8096C68.6989 5.51148 68.4534 5.24844 68.1903 5.12569C67.9273 5.02047 67.6467 5.12569 67.4363 5.26598L67.1031 5.70438V18.1725L66.9628 18.2602C65.0163 18.2602 64.122 18.2602 62.5086 18.2602L62.3683 18.1375V4.16121C62.2982 3.14411 62.1754 2.10948 62.0352 1.10993L62.1404 1.05732H66.3315L66.4718 1.25022C66.5419 1.82891 66.6998 2.37253 66.8576 2.89861L66.9277 2.846C67.1908 2.0218 67.9974 1.19761 68.9093 1.02225C70.4876 0.741669 72.4691 0.952102 73.1881 2.58296Z" fill="white"/><path d="M20.1583 1.21524V5.09071L20.0356 5.19593H16.0373C15.8971 5.24854 15.9146 5.30114 15.9146 5.4239C15.9146 6.21302 15.9146 6.96707 15.9146 7.63344L16.0549 7.72112H20.1759L20.2811 7.86141V11.6317L20.1232 11.772H16.0373L15.9321 11.9298V14.0516L16.1075 14.1919H20.246L20.3161 14.2621V18.1551L20.2285 18.2603H13.5472C12.6879 18.0499 12.0742 17.0679 11.8287 16.2963L11.6533 14.6829V3.56507C11.6709 2.49537 12.3898 1.3906 13.4771 1.11002L14.161 1.02234H20.0531L20.1583 1.21524Z" fill="white"/><path d="M37.5197 1.18009V18.1726L37.3795 18.2953H33.2409C32.9253 18.2953 32.9779 17.9621 32.9779 17.7341V1.19762L33.1182 1.09241H37.4321L37.5197 1.18009Z" fill="white"/><path d="M8.53199 1.09241C9.35618 1.2327 10.3031 1.74124 10.5837 2.61805C10.8994 4.35412 10.952 6.30062 10.6539 8.01916C10.5837 8.65046 9.95241 9.21161 9.39126 9.52726L9.30358 9.57987C10.0576 10.0007 10.8643 10.7723 11.0396 11.6491C11.0923 13.3326 11.2325 15.209 10.7941 16.7697C10.5486 17.436 9.91734 18.1726 9.25097 18.2953C6.51534 18.3128 4.49869 18.2953 0.78104 18.2953L0.693359 18.1726V1.14502L0.78104 1.09241H8.53199ZM6.07694 4.98542C5.72621 4.98542 5.20013 4.82759 4.97216 5.10817V7.72105L5.04231 7.80873C6.0594 7.80873 6.11201 7.94902 6.41012 7.58076C6.79592 6.98453 6.62056 6.12526 6.56795 5.42382C6.46273 5.26599 6.28737 5.03803 6.07694 4.98542ZM6.11201 11.5088C5.72622 11.4387 5.2352 11.351 5.00724 11.6141V14.262C5.37549 14.4023 5.88404 14.3497 6.23476 14.2094C6.58548 14.0866 6.63809 13.7184 6.6907 13.3852C6.63809 12.7714 6.81345 12.0875 6.41012 11.6491L6.11201 11.5088Z" fill="white"/><path d="M61.2808 18.2252L61.123 18.3128H56.8968L56.7565 18.1901V14.5075C56.7565 14.4549 56.7039 14.3497 56.5636 14.3146C56.0375 14.1919 55.6166 14.1743 55.1256 14.3146C54.8976 14.3672 54.8977 14.5075 54.8977 14.5075V18.1901L54.7574 18.3128C53.0564 18.3128 52.2322 18.3128 50.5838 18.3128L50.4961 18.1725V2.46022C50.6188 1.79385 51.2677 1.25023 51.899 1.09241C51.9516 1.09241 55.6517 1.09241 55.8972 1.09241C56.1427 1.09241 59.8779 1.09241 59.8954 1.09241C60.5267 1.2327 61.158 1.79385 61.2808 2.46022V18.2252ZM55.8446 4.79252C55.073 4.79252 55.0379 5.09063 54.9853 5.35368V10.4216L55.0379 10.5268H56.6162L56.6863 10.4041C56.6863 7.61583 56.6863 6.96699 56.6863 5.23092C56.6337 5.12571 56.6688 4.79252 55.8446 4.79252Z" fill="white"/><path d="M31.8726 2.58299L32.0129 3.33704V18.1901L31.8551 18.2778C30.0664 18.2778 29.1721 18.2778 27.5588 18.2778L27.4535 18.155V5.82716C27.3834 5.52905 27.1379 5.26601 26.8573 5.14326C26.5943 5.03804 26.3137 5.14326 26.1033 5.28355L25.7701 5.72195V18.1901L25.6298 18.2778C23.6833 18.2778 22.7889 18.2778 21.1756 18.2778L21.0353 18.155V4.17877C20.9652 3.16168 20.8424 2.12705 20.7021 1.12749L20.8074 1.07489H24.9985L25.1388 1.26778C25.2089 1.84647 25.3667 2.39009 25.5246 2.91618L25.5947 2.86357C25.8578 2.03937 26.6644 1.21517 27.5763 1.03981C29.1721 0.724164 31.1537 0.952134 31.8726 2.58299Z" fill="white"/><path d="M85.0249 2.44276V18.2077L84.8496 18.2954H80.6409L80.5357 18.2077V14.5251C80.5357 14.4725 80.4831 14.3848 80.3779 14.3498L80.3603 14.3322C79.729 14.1919 79.3783 14.2095 78.8522 14.3322C78.8172 14.3673 78.6593 14.455 78.6418 14.4901V18.1726L78.5015 18.2954C76.8005 18.2954 75.9763 18.2954 74.3279 18.2954L74.2402 18.1551V2.44276C74.363 1.79393 75.0118 1.23278 75.6431 1.07495C75.6957 1.07495 79.3958 1.07495 79.6414 1.07495C79.8869 1.07495 83.622 1.07495 83.6396 1.07495C84.2709 1.21524 84.9022 1.77639 85.0249 2.44276ZM79.5712 4.77506C78.7996 4.77506 78.7645 5.07318 78.7119 5.33622V10.4041L78.8172 10.5094H80.3428L80.4129 10.3866C80.4129 8.15953 80.4129 6.91447 80.4129 5.21347C80.3603 5.09071 80.3779 4.75753 79.5712 4.77506Z" fill="white"/><path d="M49.4612 1.09249C47.8128 1.07495 44.9895 1.09249 44.9895 1.09249L44.9544 1.18017V7.49316C44.9544 7.54577 44.9018 7.65098 44.7615 7.68606C44.2705 7.80881 43.8496 7.82634 43.3937 7.68606C43.1832 7.63345 43.1832 7.45809 43.1832 7.45809V1.18017L43.1131 1.07495H38.7992C38.694 1.12756 38.5712 1.07495 38.5537 1.1977V18.1726L38.6765 18.2954H43.1306L43.2183 18.1902V11.9999C43.2183 11.9999 43.2183 11.8596 43.4287 11.807C43.9022 11.6667 44.3055 11.6843 44.7966 11.807C44.9368 11.8421 44.9895 11.9473 44.9895 11.9999V18.1902L45.1122 18.3129H49.4261L49.5488 18.2077V1.18017L49.4612 1.09249Z" fill="white"/><path d="M86.8307 16.2963C86.9886 16.2963 87.1464 16.3489 87.3042 16.4366C87.462 16.5242 87.5673 16.647 87.6549 16.8223C87.7426 16.9802 87.7777 17.1555 87.7777 17.3309C87.7777 17.5063 87.7426 17.6816 87.6549 17.8394C87.5673 17.9973 87.4445 18.12 87.3042 18.2252C87.1464 18.3129 86.9886 18.3655 86.8307 18.3655C86.6554 18.3655 86.4976 18.3129 86.3573 18.2252C86.1994 18.1376 86.0942 18.0148 86.0065 17.8394C85.9189 17.6816 85.8838 17.5063 85.8838 17.3309C85.8838 17.1555 85.9189 16.9802 86.0065 16.8223C86.0942 16.6645 86.217 16.5242 86.3573 16.4366C86.4976 16.3313 86.6554 16.2963 86.8307 16.2963ZM86.8307 16.4892C86.6905 16.4892 86.5677 16.5242 86.4449 16.5944C86.3222 16.6645 86.2345 16.7697 86.1644 16.8925C86.0942 17.0328 86.0591 17.1555 86.0591 17.3134C86.0591 17.4536 86.0942 17.5939 86.1644 17.7167C86.2345 17.8394 86.3222 17.9447 86.4449 18.0148C86.5677 18.0849 86.6905 18.12 86.8307 18.12C86.971 18.12 87.0938 18.0849 87.2165 18.0148C87.3393 17.9447 87.427 17.8394 87.4971 17.7167C87.5673 17.5939 87.6023 17.4536 87.6023 17.3134C87.6023 17.1731 87.5673 17.0328 87.4971 16.8925C87.427 16.7522 87.3393 16.6645 87.2165 16.5944C87.0938 16.5242 86.9535 16.4892 86.8307 16.4892ZM86.3923 17.857V16.7873H86.6028C86.7957 16.7873 86.9009 16.7873 86.9184 16.7873C86.9886 16.7873 87.0412 16.8048 87.0762 16.8223C87.1113 16.8399 87.1464 16.875 87.1639 16.9276C87.1815 16.9802 87.199 17.0328 87.199 17.0854C87.199 17.1555 87.1815 17.2257 87.1289 17.2783C87.0762 17.3309 87.0236 17.366 86.936 17.3835C86.971 17.401 86.9886 17.401 87.0061 17.4186C87.0236 17.4361 87.0412 17.4536 87.0762 17.5063C87.0762 17.5238 87.1113 17.5589 87.1464 17.629L87.2691 17.8394H87.0061L86.9184 17.6641C86.8658 17.5413 86.8132 17.4712 86.7781 17.4361C86.7431 17.401 86.6904 17.3835 86.6378 17.3835H86.5852V17.8219H86.3923V17.857ZM86.6028 17.2432H86.6905C86.8132 17.2432 86.8833 17.2432 86.9009 17.2257C86.936 17.2081 86.9535 17.1906 86.971 17.1731C86.9886 17.1555 86.9886 17.1205 86.9886 17.0854C86.9886 17.0503 86.9886 17.0328 86.971 16.9977C86.9535 16.9802 86.936 16.9626 86.9009 16.9451C86.8658 16.9276 86.7957 16.9276 86.6905 16.9276H86.6028V17.2432Z" fill="white"/></svg></a></li>
+<li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-366"><a href="https://togrp.com/kona-grill/"><span class='sr-only'>Find about more about Kona Grill</span><svg width="70" height="71" viewBox="0 0 70 71" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.09949 13.7449H11.0313V22.3369C11.1747 21.6796 15.5251 13.7449 15.5251 13.7449H23.3772L17.1624 23.4124L24.0345 33.5818H15.6804C15.6804 33.5818 11.1867 25.7068 11.0433 25.2885V33.5818H4.09949V13.7449Z" fill="white"/><path d="M30.3449 25.0017C31.7671 25.0017 32.7472 26.0055 32.7472 27.4753C32.7472 28.8735 31.803 29.8534 30.4286 29.8534C29.0542 29.8534 28.0502 28.8496 28.0502 27.4395C28.0502 26.0294 29.0422 25.0017 30.3449 25.0017ZM30.4644 20.9148C26.3053 20.9148 23.4131 23.6275 23.4131 27.4753C23.4131 31.3232 26.2934 33.9403 30.3688 33.9403C34.4443 33.9403 37.3843 31.2037 37.3843 27.4395C37.3843 23.6753 34.5399 20.9148 30.4644 20.9148Z" fill="white"/><path d="M39.0695 21.106H43.4795C43.4795 21.106 46.8738 27.1407 47.316 28.1326V21.106H51.738V33.761H47.3399C47.3399 33.761 43.8142 27.8816 43.4795 27.1168V33.761H39.0814V21.106H39.0695Z" fill="white"/><path d="M58.0005 32.1717H61.5023L61.9206 33.761H66.8087L62.2791 21.0941H57.1878L52.8016 33.761H57.6659L58.0125 32.1717H58.0005ZM58.861 29.1722C58.861 29.1722 59.602 26.1011 59.6976 25.3244H59.8649C59.9247 25.9099 60.7015 29.1722 60.7015 29.1722H58.861Z" fill="white"/><path d="M24.7277 45.448C24.7516 49.8695 24.1063 52.0922 22.206 54.0759C20.1503 56.1791 17.0669 57.4219 13.828 57.4219C7.434 57.4219 3.01196 53.2752 3.01196 47.2883C3.01196 41.3014 7.434 36.9875 13.9714 36.9875C18.3098 36.9875 22.0865 38.9473 23.7238 42.0304L17.0071 44.5398C16.29 43.4643 15.5251 43.0102 14.2702 43.0102C11.9516 43.0102 10.2904 44.9342 10.2904 47.5751C10.2904 50.0727 11.8082 51.8412 14.0312 51.8412C15.4534 51.8412 16.529 51.2198 16.8876 50.1324H13.6129V45.4361H24.7277V45.448Z" fill="white"/><path d="M31.1816 49.7859V47.5273H32.0182C32.6516 47.5273 33.1057 48.0053 33.1057 48.6745C33.1057 49.3437 32.6038 49.7859 31.8389 49.7859H31.1816ZM26.5205 57.0873H31.1816V52.8689L33.3448 57.0873H38.8544L35.8904 52.6538C35.7351 52.4148 35.5677 52.2834 35.1972 52.0444V51.9249C36.1056 51.65 36.5836 51.411 36.9183 51.0167C37.4441 50.4192 37.7429 49.4991 37.7429 48.4714C37.7429 46.8103 37.0497 45.5436 35.6275 44.6713C34.755 44.1216 33.8945 43.9184 32.4604 43.9184H26.5085V57.0992L26.5205 57.0873Z" fill="white"/><path d="M45.105 43.9184H40.3005V57.0992H45.105V43.9184Z" fill="white"/><path d="M47.0052 43.9184H51.8217V52.845H55.8493V57.0992H47.0052V43.9184Z" fill="white"/><path d="M57.5942 43.9184H62.3868V52.845H66.4264V57.0992H57.5942V43.9184Z" fill="white"/><path d="M64.8009 21.0821C64.8009 20.4607 65.3029 19.9947 65.9004 19.9947C66.498 19.9947 67 20.4607 67 21.0821C67 21.7035 66.498 22.1696 65.9004 22.1696C65.3029 22.1696 64.8009 21.7155 64.8009 21.0821ZM65.9004 21.9903C66.3904 21.9903 66.7848 21.6079 66.7848 21.0821C66.7848 20.5563 66.3904 20.1859 65.9004 20.1859C65.4104 20.1859 65.016 20.5683 65.016 21.0821C65.016 21.596 65.3985 21.9903 65.9004 21.9903ZM65.6734 21.7035H65.4821V20.4488H65.9602C66.259 20.4488 66.4024 20.5563 66.4024 20.8073C66.4024 21.0343 66.259 21.1299 66.0797 21.1538L66.4383 21.7035H66.2231L65.8885 21.1658H65.6734V21.7035ZM65.9004 20.9985C66.0678 20.9985 66.2112 20.9985 66.2112 20.7953C66.2112 20.64 66.0678 20.6161 65.9363 20.6161H65.6734V20.9985H65.9004Z" fill="white"/></svg></a></li>
+<li id="menu-item-364" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-364"><a href="https://togrp.com/ra-sushi/"><span class='sr-only'>Find about more about RA Sushi</span><?xml version="1.0" encoding="UTF-8"?><svg id="Layer_2" data-name="Layer 2" width="72px" height="72px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1772.00001 1772"><style>.cls-11 {
+            fill: white;
+            }</style><g id="Layer_1-2" data-name="Layer 1"><g><path d="M912.91462,1771.79892l-53.91462.20108-1.01267-.89174-21.68093-.62241c-146.52769-8.12611-288.46881-52.23108-413.62317-129.18229-146.22409-89.90594-263.71298-220.37977-337.48125-375.48955C36.72481,1163.88288,8.66084,1054.15463,1.5295,941.77102l-.68839-17.6998c-.01978-.50861-.48329-2.49343-.84111-2.07122l.08332-68.91127c1.35531-5.38939.69445-10.98303,1.20193-17.07702l.81096-9.73839c.23927-2.87324,17.83875-2.32735,26.71051-8.42898,6.6714-7.56887,11.38342-16.44165,17.59428-24.41661,10.76832-13.8269,23.17701-25.49774,39.38659-32.66625,20.28816-8.97222,42.65276-11.59757,64.54949-8.06482,19.49871,3.14585,34.54663,15.84267,42.02007,34.07771,6.33919,15.46749,9.71238,31.96935,9.32898,49.39105-1.1075,50.32428-6.48299,99.67672-12.91707,149.78963-7.44429,57.98111-17.32821,114.60286-27.74811,171.90179l-7.26459,45.15548c-1.09714,6.81961-.77412,16.1086,4.10595,21.06326l16.37542,16.62575c11.0655-12.63377,36.67023-42.44692,33.98322-54.38859-1.64441-7.30812-5.66119-13.43008-4.65588-21.36835l2.10562-16.62667,118.59667-476.43917c51.753-13.12724,105.05457-19.25179,158.59634-17.58975,19.43207.60321,37.05917,4.47329,54.87138,10.8858,21.65867,8.19201,48.6828,27.05968,52.03805,49.911,2.01615,13.73121-2.64256,27.00298-10.58866,38.13355-28.11011,39.37549-99.06262,60.34315-144.53211,76.43451l-58.30902,20.63518c-10.14245,3.58935-19.46635,8.72212-27.62775,15.20501-6.00287,4.7683-8.04229,11.24513-5.70084,18.46316,8.10944,24.99902,37.37534,45.29019,60.44935,58.6373,60.45466,34.96987,138.96753,57.4123,207.57111,72.44198,58.29586,12.77146,116.35857,21.36051,176.28279,28.21994-19.80786,13.03627-40.05493,24.08391-61.8202,33.19587-14.56598,6.098-28.99752,10.00684-44.43007,12.6253-10.45466,1.77386-20.07661-1.48906-30.07687-1.03584-11.20236.50771-22.25803,7.54374-32.30943,12.72105-26.54142,13.67105-50.25816,30.73397-72.95831,49.82737l-15.35662,15.02128c9.88883,12.75896,33.69821,8.15562,49.15443,2.75687,91.65435-30.03708,179.64094-68.93445,261.82112-120.01576,80.42955,7.20793,160.81486,9.88372,241.68447,10.58887,104.28204.9093,207.82057-7.37582,310.70682-24.04334,78.19236,75.02016,161.1992,141.29022,256.80745,192.91196,14.51017-2.30198,25.17194-14.60413,25.39542-29.50824-55.40931-33.24001-107.02547-76.20042-153.90981-120.3017l-56.66682-56.40434c61.78006-12.74084,121.62074-27.9032,181.49537-46.67773l121.76424-44.04244,1.83259-.76095c.30798-.12788.14166,1.18441.09824,2.04319-14.40333,284.83472-165.66554,544.0149-404.77346,698.54606-128.92132,83.31954-277.06359,130.69923-430.09041,139.74859l-22.77154,1.34661Z" class="cls-11"/><path d="M922,0l1.01306.88832,17.93966.586c115.18838,7.21573,227.58736,36.408,331.62276,86.97833,150.18319,73.0022,276.82642,187.16869,365.28575,328.6843,78.89717,126.21824,124.20818,269.90527,132.575,418.36807l.69197,22.48374.87181,1.01798-.00201,42.98628-2.32666,3.72999c-106.20114,42.22984-217.61302,69.3835-330.24505,87.61855-67.56242-75.1765-129.64625-154.86969-177.72744-242.97626-13.22395-24.88042-24.81145-49.4158-34.02278-75.97146-10.92912-31.50795-19.08393-68.02108-10.91286-100.67742l-1.75535-.80407c-20.37868-1.67317-39.75483-.01783-59.9083,4.26358-43.48951,9.23893-84.52335,26.13645-122.22308,49.53147-11.14818,6.91814-20.65749,14.28031-30.00999,23.30459-1.41784,3.35166-.34752,9.54821,1.35008,12.54685l8.79788,15.5406c2.66845,4.71355,6.1387,10.33755,6.89543,15.97171,6.10782,45.47525-9.14974,93.44147-29.93272,133.94286-33.44983,65.18626-87.85527,125.75398-144.57474,172.86498-62.54403-10.93547-125.07848-26.85275-181.90241-56.32964-39.47581-21.17159-85.64085-55.66853-93.65888-101.40907-1.85305-10.57109.58299-20.65852,7.267-29.16292,7.78718-9.90803,17.02932-18.37577,27.96988-24.93174l43.74759-26.21509,43.83448-27.11537c9.00788-5.57214,16.29183-13.13002,22.27547-21.66734,5.89132-8.40562,7.4078-17.99903,4.92853-27.89389-6.17489-24.64427-32.15307-40.37319-55.23966-49.81126-45.30783-18.52237-103.21967-24.51611-152.72245-25.44985-59.1779-1.11624-117.32974,4.38484-175.38288,14.85767,4.62863-21.20663,11.22781-40.31652,14.5568-60.74163,2.41442-14.81373-9.4557-27.64187-21.79791-33.14692-51.62172-5.40528-109.22484,13.52265-151.22203,42.00977-11.15691,7.56784-20.70996,16.20333-28.0973,27.48621l15.74458,18.06812c8.75696,13.73609,15.61228,28.33503,20.15417,43.7588-59.64235,18.82452-116.25551,41.12131-172.48845,68.88841C63.02926,448.40345,249.17952,205.65775,510.25725,83.16847,610.99793,35.90418,719.30311,8.47407,830.24121,1.53533l18.75879-1.53533h73Z" class="cls-11"/><path d="M1286.5228,926.0232l76.86945,79.26701c-93.64672,10.65907-186.47886,15.79485-280.34025,14.83613-60.75378-.62055-120.58448-3.99329-181.52776-11.17944,80.36275-59.13899,150.99681-128.11292,207.98943-209.18687,23.874-4.76741,49.18951,9.31761,68.30193,23.44663,15.0504,11.12614,28.98196,22.46335,42.22927,35.81499l66.47792,67.00154Z" class="cls-11"/><path d="M1568.2014,1710.61515c-20.4103,19.33204-51.4828,19.39592-72.11957,1.24809-21.85909-19.22274-24.1221-52.69966-5.00603-74.91385,19.57246-22.74454,54.94591-24.58715,76.91192-3.93962,22.10326,20.77654,22.54998,56.4491.21369,77.60539ZM1523.9787,1628.47027c-25.05187,4.21071-40.08882,27.60542-36.06355,51.08053,4.14279,24.16044,27.16004,40.01896,51.04865,35.94461,23.82964-4.0643,39.80895-26.5572,36.14543-50.1462-3.76506-24.2428-25.97521-41.10703-51.13053-36.87894Z" class="cls-11"/><path d="M1544.71699,1701.56484c-8.3674-13.99147-11.5785-27.47431-27.16122-24.01156l-.03793,23.98282-9.52346-.06349.00709-57.52518,26.92775.21025c9.24515.07219,16.63082,5.56317,17.36829,14.31502.71813,8.52231-5.32643,15.72216-14.76315,17.39308,3.28294,2.8801,6.42543,5.72415,8.49245,9.00669l10.42092,16.54893-11.73075.14343ZM1534.83481,1668.49909c5.24514-.18156,7.83558-4.75939,7.43972-8.98793-.29194-3.11847-3.51113-7.07575-7.57315-7.18606l-17.17303-.46637.01268,17.239,17.29379-.59864Z" class="cls-11"/></g></g></svg></a></li>
+<li id="menu-item-3545" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3545"><a href="https://togrp.com/salt-water-social/"><span class='sr-only'>Find about more about Salt Water Social</span><svg xmlns="http://www.w3.org/2000/svg" height="88" version="1.1" viewBox="0 0 360 360"><defs><style>.cls-10 {
+            fill: white;
+            }</style></defs><!--Generator: Adobe Illustrator 28.6.0, SVG Export Plug-In . SVG Version: 1.2.0 Build 709)--><g><g id="Layer_1"><g><path class="cls-10" d="M179.6,333c-84.2,0-152.8-68.5-152.8-152.8S95.4,27.4,179.6,27.4s152.8,68.5,152.8,152.8-68.5,152.8-152.8,152.8ZM179.6,34.3c-80.5,0-145.9,65.5-145.9,145.9s65.5,145.9,145.9,145.9,145.9-65.5,145.9-145.9S260.1,34.3,179.6,34.3Z"/><path class="cls-10" d="M179.6,343.9c-90.3,0-163.7-73.4-163.7-163.7S89.3,16.5,179.6,16.5s163.7,73.4,163.7,163.7-73.4,163.7-163.7,163.7ZM179.6,18.8C90.6,18.8,18.2,91.2,18.2,180.2s72.4,161.5,161.5,161.5,161.5-72.4,161.5-161.5S268.6,18.8,179.6,18.8Z"/><g><path class="cls-10" d="M118.3,291c1,2.3,2.7,4,5.1,5.2,2.8,1.3,4.8,1,5.8-1.1.8-1.7.4-3.1-1.4-4.4-.8-.5-1.7-1.1-2.7-1.8-1.7-1.2-2.8-2.6-3.2-4.2-.5-1.6-.3-3.3.5-4.9.9-2,2.3-3.2,4.2-3.8,1.8-.6,3.8-.4,6.1.7,2.7,1.4,4.6,3.3,5.9,5.7l-3.2,1.9c-1.1-1.9-2.6-3.3-4.5-4.3-1-.5-2-.6-2.9-.4-1,.2-1.7.8-2.3,1.9-.3.6-.4,1.3-.1,2.1.2.8.8,1.5,1.8,2.2.5.4,1.3.9,2.3,1.5,1.9,1.3,3,2.8,3.4,4.4.4,1.7.2,3.3-.6,4.9-2.2,4.2-5.8,5.2-10.8,2.8-3.2-1.6-5.5-3.9-6.8-7.1l3.4-1.5Z"/><path class="cls-10" d="M141.4,294.3c.7-2.8,1.3-4.7,1.7-5.6.4-.9.9-1.6,1.4-2.1.8-1,2-1.7,3.5-2.3,1.5-.6,3.1-.6,4.9-.2,1.9.5,3.3,1.3,4.3,2.5,1,1.2,1.6,2.4,1.9,3.7.2.7.3,1.5.2,2.5-.1,1-.5,2.9-1.2,5.7-.7,2.8-1.2,4.6-1.6,5.5-.4.9-.9,1.6-1.4,2.1-.8,1-2,1.7-3.4,2.3-1.5.6-3.1.6-5,.2-1.8-.5-3.2-1.4-4.2-2.6-1-1.2-1.7-2.4-2-3.6,0-.4-.1-.8-.2-1.2,0-.4,0-.8,0-1.4,0-1,.5-2.9,1.2-5.7ZM145,295.2c-.6,2.4-.9,4-1,4.9,0,.9,0,1.6.4,2.3.2.6.6,1.1,1.2,1.6.5.5,1.2.9,2,1.1.8.2,1.6.2,2.3,0,.7-.2,1.2-.4,1.7-.9.6-.4,1.1-1,1.5-1.8.4-.8.9-2.4,1.5-4.8.6-2.4.9-4,1-4.9,0-.9-.1-1.6-.4-2.2-.2-.6-.6-1.1-1.1-1.6-.5-.5-1.2-.8-2.1-1.1-.8-.2-1.6-.2-2.3,0-.7.2-1.3.5-1.8.9-.6.4-1.1,1-1.4,1.8-.4.8-.9,2.4-1.5,4.8Z"/><path class="cls-10" d="M182.1,306c-.6,2.3-1.7,4-3.3,5.2-1.6,1.1-3.4,1.7-5.5,1.6-1.9-.1-3.4-.7-4.7-1.7-1.2-.9-2.1-2-2.7-3.2-.2-.4-.3-.8-.4-1.1-.1-.4-.2-.8-.3-1.3-.1-1,0-2.9,0-5.8.1-2.9.3-4.8.5-5.8.2-1,.5-1.7.9-2.3.6-1.1,1.6-2.1,3-2.9,1.3-.8,2.9-1.2,4.8-1.2,2.3.1,4.2.9,5.6,2.4,1.4,1.5,2.2,3.3,2.5,5.4l-3.9-.2c-.2-1-.7-1.9-1.5-2.6-.8-.7-1.8-1.1-2.9-1.2-.9,0-1.6.1-2.2.4-.6.3-1.2.7-1.6,1.2-.5.5-.9,1.2-1,2-.2.9-.4,2.5-.5,5-.1,2.5-.1,4.1,0,5,.1.9.4,1.6.8,2.2.4.5.8,1,1.5,1.3.6.4,1.3.6,2.2.7,2.1.1,3.6-.9,4.8-3.2l3.9.2Z"/><path class="cls-10" d="M187.9,287.4l3.6-.3,2.3,24.8-3.6.3-2.3-24.8Z"/><path class="cls-10" d="M215.4,302l-8.9,2.3-.4,5.9-3.7,1,2.3-26.3,3-.8,14.7,21.9-3.7,1-3.2-4.9ZM213.6,299l-6.1-9.7h0s-.7,11.4-.7,11.4l6.8-1.8Z"/><path class="cls-10" d="M220.2,280.1l3.3-1.6,9.3,19.2,10.6-5.1,1.6,3.2-13.8,6.7-10.9-22.4Z"/></g><g><path class="cls-10" d="M89.8,113.8c2.5-.4,4.6-1.6,6.3-3.6,2-2.4,2.1-4.4.4-5.9-1.4-1.2-2.9-1.1-4.6.2-.7.7-1.5,1.4-2.4,2.1-1.6,1.4-3.2,2.1-4.9,2.1-1.7,0-3.2-.5-4.6-1.7-1.7-1.4-2.6-3.1-2.7-5-.1-1.9.6-3.8,2.2-5.7,2-2.2,4.3-3.7,7-4.3l1.1,3.6c-2.1.6-3.9,1.7-5.3,3.3-.7.9-1.1,1.8-1.1,2.7,0,1,.4,1.9,1.3,2.7.5.5,1.2.7,2,.6.8,0,1.7-.4,2.6-1.2.5-.4,1.2-1,2.1-1.8,1.7-1.5,3.4-2.3,5.2-2.2,1.7,0,3.2.6,4.6,1.8,3.6,3.2,3.6,6.9,0,11.1-2.3,2.7-5.1,4.3-8.5,4.8l-.6-3.7Z"/><path class="cls-10" d="M114.9,89.9l-7.2,5.6,2,5.5-3.1,2.4-8.3-25,2.4-1.9,22.2,14.3-3,2.4-4.9-3.3ZM112,87.9l-9.4-6.5h0s3.9,10.8,3.9,10.8l5.6-4.3Z"/><path class="cls-10" d="M116.4,66l3.3-1.6,9.3,19.2,10.6-5.1,1.5,3.2-13.9,6.7-10.9-22.4Z"/><path class="cls-10" d="M142.5,58.7l-6.4,1.8-.9-3.2,16.2-4.7.9,3.2-6.4,1.8,6,20.7-3.5,1-6-20.7Z"/><path class="cls-10" d="M172.5,49.3l3.8.2,2.8,17.9h0s5.6-17.4,5.6-17.4h2.6c0,.1,3.7,18.1,3.7,18.1h0s4.7-17.5,4.7-17.5l3.8.2-7.3,24.5-3.1-.2-3.6-18.2h0s-5.6,17.7-5.6,17.7l-3-.2-4.7-25.2Z"/><path class="cls-10" d="M215.3,75l-8.8-2.6-3.4,4.8-3.7-1.1,15.5-21.4,2.9.9,1.3,26.4-3.7-1.1-.2-5.9ZM215.2,71.5l-.3-11.4h0s-6.4,9.4-6.4,9.4l6.8,2Z"/><path class="cls-10" d="M235.3,66l-5.9-3,1.5-3,15,7.7-1.5,3-5.9-3-9.8,19.2-3.3-1.7,9.8-19.2Z"/><path class="cls-10" d="M254.2,73.1l12.1,9.5-2.2,2.8-9.3-7.2-4.4,5.6,7.9,6.2-2.1,2.6-7.9-6.2-4.5,5.8,9.3,7.2-2.2,2.8-12.1-9.5,15.3-19.6Z"/><path class="cls-10" d="M274,89.9l6.1,7.2c1.3,1.5,1.9,3.1,1.9,4.8,0,2-.8,3.7-2.5,5.3-2.6,2.1-5.4,2.4-8.3.9l-4.8,11.4-2.8-3.3,4.9-10.7-3-3.6-8.1,6.9-2.4-2.8,19-16.1ZM268,99.8l3.6,4.2c.9,1,1.9,1.6,2.9,1.6,1,0,1.9-.3,2.7-1,1-.9,1.4-1.8,1.4-2.7,0-.8-.4-1.7-1.1-2.5l-3.7-4.4-5.8,4.9Z"/></g><g><path class="cls-10" d="M110.7,282.6c-32.9-22.2-54.5-59.8-54.5-102.4s5.6-42.2,15.5-59.9l-2-1.1c-10.1,18.1-15.8,38.9-15.8,61,0,43.3,22,81.6,55.5,104.2l1.3-1.8Z"/><path class="cls-10" d="M289.5,119.2l-2,1c9.9,17.8,15.6,38.2,15.6,60,0,43-22.1,80.9-55.5,103l1.3,1.8c34-22.5,56.5-61.1,56.5-104.9s-5.7-42.9-15.8-61Z"/></g><g><path class="cls-10" d="M155.7,169.4c0,0,0-.1,0-.2-.7-2.6.6-4.4,1.6-5.5.2-.3.5-.7.6-1-.3-.2-.8-.4-1.2-.4-.8,0-1.7,0-2.6.1-.8,0-1.6.1-2.5.1-1.4,0-2.8,0-4.2-.1-1.5,0-3.1-.1-4.6-.1h0c-.2,0-.5.1-.8.3,0,.3.3.7.4.8,2.3,1.1,10.8,11,12,13.7,2.5,3,9.4,14.3,12.7,25.5.2.6.5,1.2.9,1.5,1,.8,2.5,1,4,.5,1.5-.5,2.6-1.5,3-2.7,1-3.2,2-6.4,2.9-9.7l3.4-11.2c.1-.4.4-.6.8-.7h.6c.4,0,.8.1.9.5,0,.2.2.4.3.6.2.5.4.9.6,1.4,1,3.2,2,6.4,3,9.5,1.1,3.4,2.1,6.8,3.2,10.1.4,1.3,1.2,1.9,2.4,2,.6,0,1.2,0,1.8,0,.4,0,.8,0,1.2,0h0c1.4,0,2.2-.6,2.6-2,2-6.5,4.1-13,6.1-19.5,1.2-3.8,2.5-7.5,5.2-10.6,1.3-1.4,3.3-3.3,6.7-2.5,1.6.4,3.2,0,4.8-1.2,1.3-.9,1.8-2.3,1.4-4-.4-1.6-1.3-2.6-2.7-2.9-2.3-.5-4.3-.2-6.2.9-3.6,2.2-6.4,5.5-8.4,9.8-1.7,3.8-3.3,7.7-4.9,11.5-.7,1.7-1.4,3.5-2.1,5.2-.2.5-.5,1-.7,1.7l-.5,1.1c-.1.3-.4.5-.8.5-.3,0-.7-.1-.9-.4-.2-.3-.3-.5-.4-.7-.2-.4-.4-.7-.6-1l-.7-2.5c-1.9-6.5-3.8-13.3-5.6-19.9-.8-2.8.9-4.3,2.4-5.2.6-.3,1-.9,1-1.1,0,0,0-.1,0-.1,0,0-.6,0-.8,0-.1,0-.3,0-.4,0-4.3,0-9.3,0-14.3,0-.6,0-1.3.3-1.4.5,0,0,0,.1,0,.1,0,.2.7.5.9.6h.1c3.2,1.8,5.5,6.9,4.6,10.3-1.4,5.6-2.8,10.8-4.2,15.8-.3,1.1-.7,2.1-1.2,3.1-.2.4-.4.9-.6,1.3-.2.4-.6.6-1,.6h-.5c-.3-.1-.6-.3-.7-.6,0-.2-.2-.4-.2-.5-.1-.3-.2-.5-.4-.8-6.1-10.9-9.2-14.3-11.7-17-1.5-1.6-2.8-3-4.3-5.6Z"/><path class="cls-10" d="M209.5,156.3c1-.6,2-1.1,3.1-1.5-.7-2.6-.8-4.8-.8-5.6,0-6.1,3.2-12.1,8.6-16.1,3.8-2.8,8.5-4.2,14-4.4h0s0,0,0,0c9.8,0,20.2,5.3,26.6,13.4,1,1.4,2,2.8,3,4.6h1.2l-2-16c-1.4.9-2.9,1.4-5.1,1.4s-4.7-.7-7.2-1.5c-1.1-.3-2.1-.6-2.8-.8h0s0,0,0,0c-6.6-1.8-11.4-2.1-14.8-2.1-9.2,0-16.8,2.7-22.6,7.9-2.5,2.3-8.2,8.7-8.2,18.4s.3,4.9,1,7.3c1.8-2,3.8-3.7,6.1-5.2Z"/><path class="cls-10" d="M103,177.7h0s0,0,0,0c1.4,1.3,2.8,2.5,4.3,3.7h0s0,0,0,0c3.1,2.5,6.2,4.7,9.5,6.9,10.3.6,21.1,4.7,33.2,9.7-2.7-2.7-5.9-5.3-9.6-8-1.9-1.3-3.9-2.7-5.8-4-2-1.3-4-2.7-5.9-4.1-4.8-3.4-9.1-6.6-12.9-9.8-4.9-3.6-10.3-8-13.2-14.3-1.8-3.7-1.9-7.6-1.9-8.6,0-6.1,3.2-12.1,8.6-16.1,3.8-2.8,8.5-4.2,14-4.4h0s0,0,0,0c9.8,0,20.2,5.3,26.6,13.4,1,1.4,2,2.8,3,4.6h1.2l-2-16c-1.4.9-2.9,1.4-5.1,1.4s-4.7-.7-7.2-1.5c-1.1-.3-2.1-.6-2.8-.8h0s0,0,0,0c-6.6-1.8-11.4-2.1-14.8-2.1-9.2,0-16.8,2.7-22.6,7.9-2.5,2.3-8.2,8.7-8.2,18.4s8.8,20.9,11.6,23.6Z"/><path class="cls-10" d="M209.6,211.7c1.7-2.6,2.8-5.5,3.7-8.6,1.3-7.6-.9-11.8-2.3-12.2-.1,10.5-2.5,12.5-3.4,14.2-6.8,8.3-15.3,9.6-24.2,9.5-4.2,0-8.1-.7-11.6-1.8-1.5-.6-3.2-1.2-4.9-1.9-2-.8-4.2-1.7-6.6-2.7-.3-.1-.6-.3-.9-.4-16.8-7-30.7-13.5-43.3-14.1-3.7-.2-7.2.1-10.7,1.1-9.3,2.5-23.2,13.1-17,34.2,1.6,5.4,5.7,11.9,10.7,15.8h0c6.2,4.8,12.2,7,17.3,8,2.6.5,5.8.9,9.6.9,15.9,0,24.6-8.2,28.4-13.1h0s0,0,0,0c2.7-3.4,6-8.9,6.5-16.6-.6-.2-1.2-.4-1.5-.6-.5-.2-1-.4-1.2-.5-2.4-.9-5-1.8-7.7-2.8.8,2.2,1.3,4.6,1.3,7.3,0,8.3-4.3,18.7-16.4,23h0s0,0,0,0c-1.4.5-6.3,2-12.1,2,0,0,0,0,0,0-.5,0-.9,0-1.4,0-3.9-.2-8.7-1.2-13.8-4.1-5.1-3.4-12-9.7-13.6-19.6-2.2-14.1,1.7-21.2,9.7-24.4,5.7-2.3,11.9-1.8,16.8-.6,5.3,1.2,26.7,9.5,39.1,14.1,14,6.4,20.3,6.8,24.8,6.6,0,0,0,0,0,0,0,0,0,0,0,0,13.1-.9,20.6-5.8,24.9-12.5Z"/><path class="cls-10" d="M251.6,190.2c-1.9-1.3-3.9-2.7-5.8-4-2-1.3-4-2.7-5.9-4.1-4.5-3.2-8.4-6.1-12-9.1-.6.8-1.3,1.4-2.2,2-2.5,1.8-5.3,2.8-8.1,2.8s-1.4,0-2.2-.2c-.2.2-.4.5-.6.8,1.2,1.1,2.4,2.1,3.7,3.1h0s0,0,0,0c4.2,3.4,8.6,6.4,13.2,9.5l1.2.8c11.5,7.7,17.1,11.7,21.9,17.1h0s0,0,0,0l.3.4c2.1,2.5,7.6,9.1,7.6,17.7s-4.3,18.7-16.4,23h0s0,0,0,0c-1.4.5-6.3,2-12.2,2-18,0-26.9-11.9-29.3-15.6-.9-1.3-1.6-2.5-2.2-3.9-.3.2-.7.3-1,.5l2.4,17.1c1.7-1.4,3.4-1.9,5.8-1.9s4.7.6,7.7,1.6c1.1.4,2.4.8,4,1.2h0s0,0,0,0c2.1.7,7.7,2.4,15.4,2.4,15.9,0,24.6-8.2,28.4-13.1h0s0,0,0,0c3-3.7,6.6-9.9,6.6-18.7s-6.3-21.5-20.4-31.5Z"/></g></g></g></g></svg></a></li>
+<li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="https://togrp.com/samurai/"><span class='sr-only'>Find about more about Samurai</span><svg xmlns="http://www.w3.org/2000/svg" width="70" height="14" viewBox="0 0 70 14" fill="none"><path d="M8.67633 1.23565C8.67633 1.23565 5.46872 0.473183 3.20761 1.78778C3.20761 1.78778 2.65548 2.18216 2.39256 2.49766C2.39256 2.49766 0.841341 4.28551 0.736173 5.2846C0.736173 5.2846 0.262919 6.46774 1.44605 7.2565C1.44605 7.2565 2.05077 7.72975 2.97099 7.8875C2.97099 7.8875 4.864 8.25559 5.73164 8.30817C5.73164 8.30817 6.57298 8.51851 7.36173 9.17581C7.36173 9.17581 7.91386 9.54389 7.91386 10.1486C7.91386 10.1486 7.86128 10.4904 6.65185 10.7796C6.65185 10.7796 4.60108 11.4106 1.3146 10.727L0.920217 10.7007C0.920217 10.7007 0.736173 10.8059 0.631006 11.0951L0 12.7515C0 12.7515 0.0525838 13.0144 0.262919 13.0407C0.262919 13.0407 2.97099 13.4877 5.25838 12.9618C5.25838 12.9618 7.01994 12.62 7.59836 11.989C7.59836 11.989 8.51858 11.2266 9.59655 8.91289C9.59655 8.91289 9.99092 7.99267 9.17588 7.17762C9.17588 7.17762 8.67633 6.70437 7.62465 6.46774C7.62465 6.46774 5.94197 6.12594 4.78513 5.91561C4.78513 5.91561 2.94469 5.54752 2.49773 4.52214C2.49773 4.52214 2.07706 4.12776 2.68177 3.73338C2.68177 3.73338 4.18041 2.65541 7.38803 3.20754L7.75611 3.28642C7.75611 3.28642 7.99274 3.26013 8.1242 3.04979L8.80779 1.55115C8.83408 1.55115 8.99183 1.44598 8.67633 1.23565Z" fill="white"/><path d="M9.41273 12.883L13.6194 2.2085L14.0401 4.60106L11.4109 11.621C11.4109 11.621 11.332 11.8576 11.2532 11.9628L9.8334 13.4877C9.8334 13.4877 9.14981 13.8032 9.41273 12.883Z" fill="white"/><path d="M17.037 12.7251L12.9355 2.05055C12.9355 2.05055 12.804 1.68246 13.3299 1.60359C13.3299 1.60359 13.882 1.49842 14.6708 1.07775C14.6708 1.07775 15.0389 0.788538 15.1966 1.41954C15.3544 2.05055 15.2229 1.49842 15.2229 1.49842C15.2229 1.49842 15.4858 2.23459 15.9065 3.31256L19.2981 12.1466C19.2981 12.1466 19.3507 12.4621 19.2193 12.541L17.4314 13.0406C17.4314 13.0143 17.0896 13.0932 17.037 12.7251Z" fill="white"/><path d="M9.30779 10.5954C9.30779 10.5954 14.5136 10.648 16.2226 10.3325C16.2226 10.3325 19.1147 9.64892 19.9297 9.17567C19.9297 9.17567 20.587 8.67612 19.7194 8.62354L11.0168 8.70241C11.0168 8.70241 10.5172 8.75499 10.2543 9.14937L9.17633 10.2799C9.15004 10.2799 8.9397 10.5691 9.30779 10.5954Z" fill="white"/><path d="M52.0584 12.5411L56.2651 1.86658L56.712 4.25914L54.0828 11.3054C54.0828 11.3054 54.004 11.542 53.9251 11.6472L52.5053 13.1721C52.4527 13.1458 51.7692 13.435 52.0584 12.5411Z" fill="white"/><path d="M59.6826 12.3571L55.581 1.68263C55.581 1.68263 55.4496 1.31454 55.9754 1.23567C55.9754 1.23567 56.5275 1.1305 57.3163 0.709829C57.3163 0.709829 57.6844 0.420618 57.8421 1.05162C57.9999 1.68263 57.8684 1.1305 57.8684 1.1305C57.8684 1.1305 58.1313 1.86667 58.552 2.94464L61.9437 11.7787C61.9437 11.7787 61.9962 12.0942 61.8648 12.1731L60.0769 12.6726C60.0769 12.6464 59.7351 12.7252 59.6826 12.3571Z" fill="white"/><path d="M51.9528 10.2275C51.9528 10.2275 57.1586 10.2801 58.8675 9.96459C58.8675 9.96459 61.7334 9.281 62.5747 8.80775C62.5747 8.80775 63.232 8.3082 62.3644 8.25562L53.6354 8.33449C53.6354 8.33449 53.1359 8.38707 52.873 8.78145L51.795 9.91201C51.795 9.91201 51.5584 10.2012 51.9528 10.2275Z" fill="white"/><path d="M20.2451 12.8039L20.6395 1.4984L22.4799 0.946268C22.4799 0.946268 22.8217 0.919976 22.8217 1.26177L22.6377 11.7785C22.6377 11.7785 22.6114 11.9889 22.4011 12.1203L20.6132 12.9617C20.5869 12.9354 20.2451 13.1457 20.2451 12.8039Z" fill="white"/><path d="M20.0865 1.97175L25.5815 10.3063C25.5815 10.3063 25.7656 10.6481 26.3177 10.3852L28.0267 9.30719L29.6042 5.86295C29.6042 5.86295 29.762 5.52116 29.8145 6.047L30.4718 13.0669C30.4718 13.0669 30.4718 13.5402 31.1291 13.2247L32.5752 12.5148C32.5752 12.5148 32.7329 12.3833 32.6804 11.6735L31.8127 0.946366C31.8127 0.946366 31.6813 0.657155 31.3658 0.814906L30.1563 1.39333C30.1563 1.39333 30.0512 1.4985 29.9723 1.62996L27.0802 8.83394C27.0802 8.83394 26.9487 8.91281 26.8698 8.75506L22.7683 2.4713L21.9796 1.10412C21.9796 1.10412 21.6115 0.841198 21.2697 1.02524L20.1917 1.52479C20.1917 1.52479 19.9288 1.65625 20.0865 1.97175Z" fill="white"/><path d="M32.6016 1.81388L32.8908 7.75585C32.8908 7.75585 32.9959 10.7531 34.3894 12.2518C34.3894 12.2518 35.4411 13.6189 37.8599 12.3832C37.8599 12.3832 39.937 11.5682 40.8835 9.88549C40.8835 9.88549 41.3831 8.64978 41.5145 7.38776L41.8826 0.972538C41.8826 0.972538 41.83 0.630743 41.4356 0.788494L39.7004 1.39321C39.7004 1.39321 39.4112 1.52467 39.4375 1.97163C39.4375 1.97163 39.1745 9.67516 38.2806 11.3578C38.2806 11.3578 35.3359 11.463 35.2045 6.78305C35.2045 6.78305 34.9153 2.02421 34.889 1.02512C34.889 1.02512 34.9415 0.604451 34.3894 0.762202L32.8119 1.34062C32.8119 1.34062 32.6016 1.47208 32.6016 1.81388Z" fill="white"/><path d="M42.9873 12.4097L43.1188 2.12952H45.5639L45.3799 11.1476L45.3536 11.358L45.301 11.5946C45.301 11.5946 45.301 11.7786 44.8803 11.9627L43.2765 12.62C43.3028 12.62 43.1451 12.7514 42.9873 12.4097Z" fill="white"/><path d="M42.2766 2.68171L47.5875 2.7343C47.5875 2.7343 50.2956 2.94463 50.1378 4.49586C50.1378 4.49586 48.7444 5.54753 46.9828 5.70528C46.9828 5.70528 46.6147 5.86304 46.4307 6.20483L45.1161 7.80864L50.059 13.2511C50.059 13.2511 50.243 13.4351 50.5585 13.1722L51.6628 12.3834C51.6628 12.3834 51.9257 12.1468 51.5839 11.7787L47.7453 7.49313L47.6401 7.38797C47.6401 7.38797 49.6646 6.28371 49.7172 6.17854C49.7172 6.17854 49.9538 5.9945 50.243 5.44237C50.243 5.44237 51.4524 3.33901 51.5576 2.81317C51.5576 2.81317 51.6628 1.97183 51.1895 1.73521C51.1895 1.73521 50.6637 1.18308 49.1125 0.999032C49.1125 0.999032 46.3781 0.841281 43.486 0.920156C43.486 0.920156 43.1179 0.841281 42.855 1.26195L42.0925 2.28734C42.1188 2.31363 41.7244 2.70801 42.2766 2.68171Z" fill="white"/><path d="M65.9933 11.1476C65.9933 11.1476 65.336 10.6743 65.8619 1.62991L65.9144 0.946315C65.9144 0.946315 65.9933 0.473061 65.3886 0.709688L63.8111 1.23553C63.8111 1.23553 63.5219 1.3144 63.4956 1.57732C63.4956 1.57732 63.0749 9.88557 63.2327 10.7532C63.2327 10.7532 63.3641 12.0152 63.5745 12.4885C63.5745 12.4885 63.6533 12.7251 64.2318 12.5936C64.2318 12.5936 65.5726 12.2255 66.3614 11.6997C66.3614 11.6997 66.5454 11.5945 66.3614 11.4368" fill="white"/><path d="M66.6357 0.234497H67.8357V0.47134H67.3778V1.66608H67.0936V0.47134H66.6357V0.234497ZM69.6673 1.66608H69.3831L69.3305 0.823972C69.3252 0.713446 69.3252 0.576603 69.32 0.423971H69.3042C69.2673 0.550287 69.2252 0.718709 69.1831 0.850288L68.9252 1.64503H68.6305L68.3726 0.829235C68.3463 0.718709 68.3042 0.550287 68.2726 0.423971H68.2568C68.2568 0.55555 68.2515 0.692393 68.2463 0.823972L68.1936 1.66608H67.92L68.0252 0.234497H68.4515L68.6989 0.934498C68.7305 1.04502 68.7568 1.15029 68.7936 1.29766H68.7989C68.8357 1.16608 68.8673 1.04502 68.8989 0.939762L69.1463 0.234497H69.5568L69.6673 1.66608Z" fill="white"/></svg></a></li>
+<li id="menu-item-368" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-368"><a target="_blank" href="https://baoyum.com/" title="Visit the Bao Yum website (opens in a new tab)"><span class='sr-only'>Find about more about Bao Yum</span><svg width="71" height="71" viewBox="0 0 71 71" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.18248 37.5626C5.02297 37.6478 4.85776 37.7387 4.69824 37.8239C4.97739 38.9602 5.17109 40.1249 5.55848 41.2215C6.658 44.352 7.85436 47.4541 8.98235 50.5789C9.16466 51.0903 9.36405 51.6925 9.25581 52.1925C8.61775 55.1469 7.88284 58.0729 7.2049 61.0216C7.10236 61.459 7.13654 61.9249 7.10806 62.3795C7.60939 62.3681 8.1449 62.4476 8.61205 62.3056C9.00514 62.1863 9.4609 61.8795 9.6489 61.5272C10.2642 60.3512 10.9079 59.158 11.2896 57.8967C12.0302 55.4423 12.4917 52.897 13.2665 50.4539C14.2634 47.295 15.5168 44.21 16.5251 41.051C16.9353 39.7613 17.0492 38.358 17.1974 37.0001C17.2828 36.2331 16.8954 35.6138 16.0979 35.3866C15.306 35.1593 14.8103 35.5286 14.5312 36.2501C13.3405 39.3068 12.1328 42.3521 10.9763 45.4201C10.6117 46.386 10.3895 47.403 10.1047 48.3916C9.48938 47.3859 9.10199 46.3519 8.7089 45.3235C7.84296 43.0566 6.98842 40.7897 6.07121 38.5398C5.91739 38.1591 5.49012 37.8864 5.18818 37.5626" fill="white"/><path d="M25.6403 57.3513C26.3695 58.499 27.5488 58.7831 28.1356 57.7093C28.4489 57.1354 29.0927 56.6014 28.6711 55.6866C28.4375 55.1753 28.6255 54.4481 28.6768 53.8231C28.9901 50.0903 29.3205 46.3576 29.6453 42.6248C29.7364 41.5908 29.8333 40.5511 29.9301 39.517C30.0099 38.6648 29.5598 38.25 28.8021 38.5114C28.09 38.7614 27.1785 39.125 26.8709 39.7102C25.0307 43.2043 23.3387 46.7723 21.6012 50.3233C21.1397 51.2664 20.684 52.2095 20.2282 53.1527C20.1143 53.1243 19.9946 53.0959 19.8807 53.0618C18.5077 49.3517 19.4306 45.494 19.4933 41.6987C18.3653 41.6646 17.7785 42.0964 17.6304 43.0737C17.3455 44.9542 16.9354 46.8235 16.81 48.7097C16.7075 50.2096 16.8214 51.755 17.0721 53.2436C17.2202 54.1072 17.8868 54.8742 18.935 54.931C20.0402 54.9935 21.0201 54.7265 21.5556 53.6072C21.8461 53.005 22.1709 52.4141 22.4728 51.8175C23.2476 50.2721 24.0167 48.7211 24.7915 47.17C24.8427 47.1871 24.8997 47.1984 24.951 47.2155C24.9111 47.7723 24.8655 48.3291 24.8256 48.8745C25.2529 48.3688 25.6517 47.8916 26.0505 47.42C26.1473 47.4768 26.2442 47.5336 26.341 47.5905C26.2613 50.1699 26.1815 52.7436 26.1075 55.323C26.2271 55.2378 26.341 55.1526 26.4607 55.0673C26.7056 55.2094 26.9506 55.3514 27.1386 55.465C26.7854 55.8003 26.5347 55.9878 26.3467 56.2264C26.1189 56.5218 25.9479 56.857 25.6289 57.3684" fill="white"/><path d="M5.18244 37.5626C5.48438 37.8864 5.90596 38.1591 6.06547 38.5398C6.97699 40.784 7.83153 43.0566 8.70316 45.3235C9.09625 46.3519 9.48365 47.3859 10.0989 48.3916C10.3838 47.3973 10.6059 46.3803 10.9706 45.4201C12.127 42.3521 13.3348 39.3068 14.5255 36.2501C14.8046 35.5286 15.3002 35.1593 16.0921 35.3866C16.8897 35.6138 17.2771 36.2331 17.1916 37.0001C17.0435 38.3637 16.9296 39.7613 16.5194 41.051C15.511 44.21 14.2577 47.2893 13.2607 50.4539C12.4859 52.897 12.0245 55.4423 11.2839 57.8967C10.9022 59.158 10.2584 60.3512 9.64316 61.5272C9.46086 61.8795 9.0051 62.1863 8.60632 62.3056C8.13916 62.4476 7.60935 62.3624 7.10232 62.3795C7.1308 61.9249 7.09662 61.4591 7.19917 61.0216C7.8771 58.0785 8.61201 55.1469 9.25007 52.1925C9.35831 51.6925 9.15892 51.0903 8.97662 50.5789C7.84862 47.4541 6.65796 44.352 5.55275 41.2215C5.16535 40.1249 4.97735 38.9602 4.6925 37.8239C4.85202 37.7387 5.01723 37.6478 5.17675 37.5626" fill="white"/><path d="M25.6402 57.3513C25.9536 56.84 26.1302 56.5048 26.358 56.2093C26.5403 55.9707 26.791 55.7889 27.1499 55.448C26.9619 55.3401 26.7169 55.198 26.472 55.0503C26.3523 55.1355 26.2384 55.2208 26.1188 55.306C26.1985 52.7266 26.2783 50.1528 26.3523 47.5734C26.2555 47.5166 26.1586 47.4598 26.0618 47.403C25.663 47.8802 25.2642 48.3518 24.8369 48.8575C24.8768 48.312 24.9224 47.7552 24.9623 47.1984C24.911 47.1814 24.854 47.17 24.8028 47.153C24.028 48.7041 23.2589 50.2551 22.4841 51.8005C22.1822 52.4027 21.8574 52.9879 21.5669 53.5902C21.0314 54.7037 20.0515 54.9708 18.9463 54.914C17.8981 54.8571 17.2315 54.0901 17.0834 53.2265C16.827 51.7437 16.7188 50.1983 16.8213 48.6927C16.9524 46.8064 17.3568 44.9315 17.6417 43.0566C17.7898 42.0794 18.3766 41.6476 19.5046 41.6817C19.4419 45.4826 18.519 49.3347 19.892 53.0447C20.0059 53.0731 20.1256 53.1015 20.2395 53.1356C20.6953 52.1925 21.151 51.2437 21.6125 50.3062C23.35 46.761 25.042 43.1873 26.8822 39.6932C27.1898 39.108 28.1013 38.7443 28.8134 38.4944C29.5654 38.2273 30.0212 38.6478 29.9414 39.5C29.8446 40.534 29.7477 41.5737 29.6566 42.6078C29.3318 46.3405 29.0014 50.0733 28.6881 53.8061C28.6368 54.431 28.4431 55.1583 28.6824 55.6696C29.104 56.5843 28.4602 57.1184 28.1469 57.6922C27.5601 58.766 26.3808 58.482 25.6516 57.3343" fill="white"/><path d="M31.4512 46.3178C31.5822 46.3292 31.7189 46.3462 31.85 46.3576C31.9411 45.619 32.0266 44.8747 32.1177 44.1361C31.9582 44.1191 31.7987 44.102 31.6392 44.085C31.5765 44.8292 31.5138 45.5735 31.4512 46.3178ZM50.9974 44.9145C50.5303 46.3633 50.0005 47.9143 48.3541 48.2893C46.7703 48.6529 45.5739 47.8007 44.7251 46.4428C44.2409 45.6758 43.7623 45.6758 43.204 46.4712C42.7312 47.1416 42.3722 47.8859 41.9393 48.5791C41.4664 49.329 40.9195 50.0222 39.8884 49.8347C38.9199 49.6585 38.4584 48.9313 38.2761 48.045C37.9856 46.636 37.752 45.2099 37.4729 43.6929C36.0372 44.4259 35.4391 45.7269 35.0972 47.1359C34.5959 49.187 34.237 51.2664 33.7869 53.3288C33.7015 53.7038 33.5591 54.2151 33.2799 54.3742C32.7045 54.7037 31.9867 55.0617 31.3885 54.9708C31.0809 54.9253 30.7334 53.9708 30.6935 53.4083C30.42 49.3347 30.7448 45.3065 31.5879 41.3067C31.7645 40.4602 32.226 40.1704 32.8811 40.3238C33.6559 40.4999 34.3908 40.8863 35.0972 41.2669C35.2454 41.3465 35.2852 41.784 35.2454 42.0339C35.1713 42.4544 34.989 42.8521 34.7668 43.5055C35.5131 42.9373 36.0201 42.4657 36.6012 42.1192C37.7748 41.4203 39.1706 41.534 39.4839 42.3976C39.7516 43.1362 39.7801 43.96 39.877 44.7554C40.0137 45.869 39.689 47.0962 40.7486 48.1473C41.193 47.5337 41.5633 46.9825 41.9792 46.4712C42.4691 45.869 42.9362 45.2156 43.5344 44.7327C44.332 44.0906 45.329 44.1986 45.8987 45.0395C47.8983 48.0052 48.8326 47.011 50.724 45.0963C50.8037 45.0167 50.9063 44.9656 50.9917 44.8974" fill="white"/><path d="M22.6778 17.8875C21.8005 17.3932 20.1654 17.7397 19.7268 18.5522C18.6614 20.5237 17.8069 22.5861 17.9607 24.8871C17.9892 25.3189 18.3025 26.0007 18.6102 26.0802C19.0545 26.1938 19.7268 26.0007 20.0914 25.6882C20.5414 25.3018 20.7807 24.6655 21.0997 24.1258C21.2991 23.7962 21.4814 23.4554 21.7321 23.0008C21.9429 24.5405 22.0397 25.87 22.3474 27.154C22.467 27.6483 22.9968 28.2903 23.4526 28.404C24.3014 28.6085 24.4439 27.7676 24.4723 27.1597C24.5977 24.7053 24.6546 22.2509 24.7458 19.7965C24.7743 18.9215 24.0508 18.8135 23.5437 18.8931C23.0367 18.9726 22.3702 19.3419 22.1537 19.768C21.2422 21.6032 20.4845 23.5065 19.647 25.3814C19.6071 25.4723 19.3964 25.4893 19.0887 25.6086C19.1742 22.4156 19.6584 19.5919 22.6778 17.8761" fill="white"/><path d="M10.8966 27.7733C11.0048 27.8017 11.1131 27.8358 11.227 27.8642C12.8393 26.2848 14.7819 24.9723 15.665 22.6543C14.1211 22.1032 12.8564 22.569 11.603 22.9497C11.3751 23.0179 11.096 23.3872 11.0789 23.6315C10.9821 25.0121 10.9536 26.3927 10.9023 27.779M11.2954 21.2055C13.8704 18.5238 16.2062 16.1205 17.6988 12.9729C17.3627 12.865 17.2145 12.7684 17.1519 12.8082C15.3402 13.9331 13.5343 15.0694 11.7398 16.2171C11.6372 16.2796 11.603 16.4955 11.5916 16.6432C11.4948 18.0409 11.4093 19.4442 11.2954 21.2055ZM11.717 15.1774C12.3892 14.6831 12.9874 14.0808 13.7109 13.7513C14.8617 13.2286 16.0694 12.7116 17.3057 12.5298C18.616 12.3423 19.0205 13.0014 18.7071 14.3706C18.24 16.4387 17.0208 18.0409 15.4827 19.4385C14.8218 20.0408 14.1837 20.6714 13.4488 21.3646C14.3148 21.5805 15.0896 21.6884 15.8017 21.9668C17.3285 22.552 17.7614 23.694 16.8442 25.0348C15.4485 27.0688 13.8932 28.9835 11.5176 30.0289C11.1758 30.1766 10.9308 30.6482 10.7485 31.0288C10.3782 31.7845 10.1674 32.631 9.73442 33.3412C9.25018 34.1309 8.63491 34.1082 8.2874 33.256C7.92279 32.3697 7.70061 31.3924 7.60946 30.4323C7.04546 24.6087 7.51831 18.8136 8.31588 13.0411C8.42412 12.2571 7.97976 11.3196 9.05649 10.7742C9.95091 10.3254 10.589 10.4106 10.8795 11.3821C11.227 12.5696 11.4207 13.8025 11.717 15.1717" fill="white"/><path d="M30.2491 27.8472C30.4257 27.8529 30.5966 27.8585 30.7732 27.8642C31.2005 26.7052 31.6277 25.5405 32.1063 24.2394C31.1834 24.336 30.4997 24.4099 29.6224 24.5008C29.8446 25.6882 30.0497 26.7677 30.2491 27.8415M29.9699 23.7963C31.1264 23.4099 32.186 23.6144 32.5051 22.5122C33.24 19.9669 33.0577 17.4273 32.2601 14.9274C31.9638 13.9956 30.9384 13.7456 30.3231 14.5013C29.6281 15.3535 29.1154 16.3535 28.5001 17.3364C31.0068 18.217 30.8301 18.4272 30.4826 20.4328C30.306 21.4498 30.1693 22.4668 29.9699 23.8019M35.2054 21.8134C36.3847 20.9328 37.3019 20.251 38.2134 19.5692C38.2932 19.6544 38.3672 19.734 38.447 19.8192C37.6323 20.5976 36.886 21.4612 35.9859 22.1259C35.1029 22.7736 34.6984 23.6031 34.368 24.5917C33.9236 25.9211 33.4451 27.2677 32.7272 28.4551C32.3 29.1653 31.4511 29.7221 30.6763 30.1027C29.5768 30.6425 27.6114 30.1368 27.3265 28.6596C26.922 26.5632 26.4549 24.4724 26.2099 22.3532C26.0675 21.1316 26.2897 19.8646 26.3694 18.6204C26.3865 18.359 26.415 17.9045 26.5346 17.8704C27.9589 17.4386 27.8563 15.8649 28.6995 15.0467C29.4002 14.3649 30.1921 13.6888 31.0751 13.3025C31.9752 12.9048 32.6703 13.6491 33.0634 14.3763C34.0603 16.2228 35.2225 18.0295 35.137 20.2624C35.1257 20.6487 35.1712 21.0407 35.2111 21.8134" fill="white"/><path d="M22.6778 17.8875C19.6584 19.6033 19.1742 22.427 19.0887 25.62C19.3964 25.5007 19.6071 25.4837 19.647 25.3928C20.4788 23.5235 21.2422 21.6145 22.1537 19.7794C22.3645 19.3476 23.031 18.984 23.5437 18.9045C24.0508 18.8249 24.78 18.9272 24.7458 19.8078C24.6603 22.2622 24.5977 24.7167 24.4723 27.1711C24.4439 27.779 24.3014 28.6199 23.4526 28.4153C22.9968 28.3074 22.467 27.6597 22.3474 27.1654C22.0397 25.8814 21.9429 24.5519 21.7321 23.0122C21.4757 23.4667 21.2991 23.8076 21.0997 24.1371C20.7807 24.6712 20.5414 25.3075 20.0914 25.6996C19.7268 26.012 19.0545 26.2052 18.6102 26.0916C18.3025 26.012 17.9892 25.3303 17.9607 24.8985C17.8069 22.5974 18.6614 20.5294 19.7268 18.5636C20.1654 17.7454 21.8062 17.3989 22.6778 17.8988" fill="white"/><path d="M53.618 26.904L62.4369 16.0466C61.2349 15.0751 60.0841 14.416 58.6428 13.8592C57.0305 13.2399 55.3727 12.9445 53.7377 12.9275C54.4498 11.6889 54.4327 10.3424 53.6864 9.9049C53.0085 9.50719 51.9602 10.0128 51.231 11.0355C50.7525 10.2515 49.9606 9.83104 49.2542 10.064C48.6788 10.2571 48.3142 10.8367 48.2458 11.5355C47.1577 11.0867 46.0867 11.1832 45.7107 11.8309C45.272 12.5809 45.9271 13.774 47.1748 14.4956C44.2352 16.0125 41.8253 18.5692 40.5435 21.8872C37.7691 29.0914 41.381 37.1762 48.6047 39.9374C55.8285 42.7043 63.9352 39.1022 66.704 31.8981L53.6237 26.8926L53.618 26.904ZM50.2341 23.2622C49.3339 23.4383 48.4623 22.8531 48.2857 21.9554C48.1091 21.0577 48.6959 20.1884 49.596 20.0123C50.4961 19.8362 51.3677 20.4214 51.5444 21.3191C51.721 22.2168 51.1342 23.086 50.2341 23.2622Z" fill="white"/></svg></a></li>
+</ul>                        </div>
+                        <div class="mt-6">
+                            <ul id="menu-main-menu" class="nav-menu nav-header-menu"><li id="menu-item-525" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-525"><a href="https://togrp.com/vibe-dining/">Vibe Dining</a></li>
+<li id="menu-item-3695" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3695"><a href="https://togrp.com/friends-with-benefits/">Rewards &#038; Benefits</a></li>
+<li id="menu-item-40" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40"><a target="_blank" href="https://ir.togrp.com/" title="Visit our Investor Relations website (opens in a new tab)">Investor Relations</a></li>
+<li id="menu-item-398" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-398"><a href="https://togrp.com/licensee-opportunities/">Licensee Opportunities</a></li>
+<li id="menu-item-531" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-531"><a target="_blank" href="https://shop.stksteakhouse.com/" title="Visit STK Meat Market (opens in a new tab)">STK Meat Market</a></li>
+<li id="menu-item-532" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-532"><a target="_blank" href="https://togrp.com/gift-cards/" title="Find out more about our Gift Cards (opens in a new tab)">Gift Cards</a></li>
+<li id="menu-item-560" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-560"><a href="https://togrp.com/contact-us/">Contact Us</a></li>
+</ul>                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header><main id="main">
+    
+    <section class="image-video-hero-row container relative pt-12 xl:pt-24">
+    <div class="relative z-10 overflow-hidden md:text-center -mb-8 lg:-mb-16 xl-wide:-mb-24 benihana-gradient">
+        <h1 class="h1 staggered-text z-10 xl:mb-20 !text-5xl xl-wide:!text-[4vw]"><span>Creating great</span><span> <mark>guest memories</mark></span></h1>
+    </div>
+    <div class="w-full flex just-space-between flex-col md:flex-row gap-8 xl-wide:gap-24 items-center pr-0 lg:pr-8 xl-wide:pr-16">
+        <div class="branding-icon border-red motion-safe:sticky bottom-56 p-6 xl-wide:p-12 rounded-full border-[3px] xl-wide:ml-8 hidden md:block">
+            <picture>
+                <img class="w-24 md:w-64 aspect-square" loading="lazy" src='https://togrp.com/wp-content/themes/the-one-group-2024/assets/dist/images/logos/benihana-logo.svg'  alt="Benihana logo" />
+            </picture>
+        </div>
+        <div class="media-container relative grow">
+                                        <figure class="aspect-video videoDiv relative">
+                    <!-- Video description is now at the top of the component -->
+                    <div class="sr-only">Benihana chef twirls spatulas while he cooks as customers sit nearby smiling, and enjoying their food and drinks. Text says: "Benihana - memories in the making."</div>
+                    
+                    <video class="aspect-video"
+                           title="Benihana chef twirls spatulas while he cooks as customers sit nearby smiling, and enjoying their food and drinks. Text says: &quot;Benihana - memories in the making.&quot;"
+                           playsinline autoplay muted loop>
+                        <source src="https://togrp.com/wp-content/uploads/2024/05/benihana_fy24_30s_1024x720.mp4" type="video/mp4">
+                    </video>
+
+                    <div class="video-controls opacity-75 absolute left-8 right-8 bottom-4 z-20 flex flex-row justify-center md:justify-start gap-4">
+                        <div class="pause-play relative">
+                            <button id="playHeroVideoButton"
+                                    class="flex hidden cursor-pointer flex-row items-center gap-2 text-white whitespace-nowrap"
+                                    aria-label="Play Hero Video">
+                                <span class="svg pr-2 w-4 h-4">
+                                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play"><polygon points="5 3 19 12 5 21 5 3"/></svg>                                </span>
+                                <label>Play</label>
+                            </button>
+                            <button id="pauseHeroVideoButton"
+                                    class="flex flex-row cursor-pointer items-center gap-2 text-white whitespace-nowrap"
+                                    aria-label="Pause Hero Video">
+                                <span class="svg pr-2 w-4 h-4">
+                                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>                                </span>
+                                <label>Pause</label>
+                            </button>
+                        </div>
+                        <div class="hide">
+                            <button id="hideVideo" class="flex flex-row gap-2 items-center text-white"
+                                    aria-label="Hide Hero Video">
+                                <span class="svg mr-2 w-4 h-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye-off"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>                                </span>
+                                <label>Hide</label>
+                            </button>
+                        </div>
+                    </div>
+                </figure>
+                        <div class="w-full md:w-auto md:absolute bottom-0 right-0 mt-4 lg:mt-0 pr-4 lg:pr-8 pb-6 lg:pb-12 flex items-center justify-between gap-8 md:gap-0 -translate-y-full md:translate-y-0">
+                <div class="branding-icon border-red p-6 xl-wide:p-12 rounded-full border-[3px] ml-4 md:hidden">
+                    <picture>
+                        <img class="w-16 md:w-64 aspect-square" loading="lazy" src='https://togrp.com/wp-content/themes/the-one-group-2024/assets/dist/images/logos/benihana-logo.svg' alt="Benihana logo" />
+                    </picture>
+                </div>
+                <div class="flex gap-4 md:gap-8 min-w-[50%]">
+                    <div class="basis-1/2 md:basis-auto">
+                        <div class="inline-block  alt-style  dark-mode">
+            <a href="https://order.benihana.com/" class="btn text-white text-xs                 text-red before:bg-red        " target="_blank" aria-label="Order online (opens in a new tab)">
+            <span>Order online</span>
+
+                    </a>
+    </div>                    </div>
+                    <div class="basis-1/2 md:basis-auto">
+                        <div class="inline-block  alt-style  ">
+            <a href="https://www.benihana.com/reservations/" class="btn text-white text-xs         bg-gradient-to-r !text-black from-red to-dark-red before:bg-red                " target="_blank" aria-label="Make a reservation (opens in a new tab)">
+            <span>Make a reservation</span>
+
+                    </a>
+    </div>                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const animationsEnabled = getCookie('animations_enabled') !== 'false';
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const shouldReduceAnimations = reducedMotion || !animationsEnabled;
+        
+        // If animations should be reduced, pause the video after it loads one frame
+        const videoElement = document.querySelector('.image-video-hero-row video');
+        if (videoElement && shouldReduceAnimations) {
+            videoElement.addEventListener('loadeddata', function() {
+                // Let it play one frame then pause
+                setTimeout(() => {
+                    videoElement.pause();
+                }, 100);
+            });
+        }
+        
+        // Video control buttons
+        const playButton = document.getElementById('playHeroVideoButton');
+        const pauseButton = document.getElementById('pauseHeroVideoButton');
+        const hideButton = document.getElementById('hideVideo');
+        
+        if (playButton && pauseButton && videoElement) {
+            playButton.addEventListener('click', function() {
+                videoElement.play();
+                playButton.classList.add('hidden');
+                pauseButton.classList.remove('hidden');
+            });
+            
+            pauseButton.addEventListener('click', function() {
+                videoElement.pause();
+                pauseButton.classList.add('hidden');
+                playButton.classList.remove('hidden');
+            });
+        }
+        
+        if (hideButton && videoElement) {
+            hideButton.addEventListener('click', function() {
+                videoElement.parentElement.classList.add('hidden');
+            });
+        }
+    });
+    
+    // Function to get cookie value (copied from head.php)
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
+    }
+</script><section class="animated-heading-row container relative">
+    <div class="py-12 xl:py-24 relative overflow-hidden text-center benihana-gradient">
+        <h2 class="h1 staggered-text z-10 mb-20"><span>At Benihana, it's not just a</span><span> meal, it's an <mark>experience.</mark></span></h2>
+    </div>
+</section>
+    <section class="full-width-slider-row relative">
+        <div class="slider">
+                            <picture>
+                    <source media="(min-width: 1500px)" srcset="https://togrp.com/wp-content/uploads/2024/05/Benihana-couple.jpg">     
+                        <source media="(min-width: 1000px)" srcset="https://togrp.com/wp-content/uploads/2024/05/Benihana-couple-1536x1024.jpg">                    
+                        <source media="(min-width: 700px)" srcset="https://togrp.com/wp-content/uploads/2024/05/Benihana-couple-1024x683.jpg">                        
+                        <source media="(min-width: 300px)" srcset="https://togrp.com/wp-content/uploads/2024/05/Benihana-couple-768x512.jpg">
+                        <img class="w-full aspect-[16/7] object-cover" alt="Couple smiles as they watch a Benihana chef cook with fire." title="Benihana-couple" loading="lazy" src="https://togrp.com/wp-content/uploads/2024/05/Benihana-couple-300x200.jpg">
+                    </picture>
+                            <picture>
+                    <source media="(min-width: 1500px)" srcset="https://togrp.com/wp-content/uploads/2024/05/Benihana_fam_grill.jpg">     
+                        <source media="(min-width: 1000px)" srcset="https://togrp.com/wp-content/uploads/2024/05/Benihana_fam_grill-1536x1024.jpg">                    
+                        <source media="(min-width: 700px)" srcset="https://togrp.com/wp-content/uploads/2024/05/Benihana_fam_grill-1024x683.jpg">                        
+                        <source media="(min-width: 300px)" srcset="https://togrp.com/wp-content/uploads/2024/05/Benihana_fam_grill-768x512.jpg">
+                        <img class="w-full aspect-[16/7] object-cover" alt="Family and friends enjoying a meal in a Benihana restaurant" title="Benihana_fam_grill" loading="lazy" src="https://togrp.com/wp-content/uploads/2024/05/Benihana_fam_grill-300x200.jpg">
+                    </picture>
+                            <picture>
+                    <source media="(min-width: 1500px)" srcset="https://togrp.com/wp-content/uploads/2024/06/benihana_drinks_edited.jpg">     
+                        <source media="(min-width: 1000px)" srcset="https://togrp.com/wp-content/uploads/2024/06/benihana_drinks_edited-1536x1024.jpg">                    
+                        <source media="(min-width: 700px)" srcset="https://togrp.com/wp-content/uploads/2024/06/benihana_drinks_edited-1024x683.jpg">                        
+                        <source media="(min-width: 300px)" srcset="https://togrp.com/wp-content/uploads/2024/06/benihana_drinks_edited-768x512.jpg">
+                        <img class="w-full aspect-[16/7] object-cover" alt="A close up of three people holding colorful cocktails in cheers, a woman smiles in the background." title="benihana_drinks_edited" loading="lazy" src="https://togrp.com/wp-content/uploads/2024/06/benihana_drinks_edited-300x200.jpg">
+                    </picture>
+                    </div>
+        <div class="container">
+            <div class="px-0 xl:px-32 pt-12 xl:pt-24 pb-24 xl:pb-48">
+                <div class="w-full xl-wide:w-1/2 pr-0 xl-wide:pr-12">
+                    <nav class="slider-nav -mt-8 mb-8 cursor-pointer" data-slides-to-show="3" aria-hidden="true">
+                                                    <div class="timer grow bg-white/20 h-1">
+                                <div class="timer-line benihana-gradient h-full w-full"></div>
+                            </div>
+                                                    <div class="timer grow bg-white/20 h-1">
+                                <div class="timer-line benihana-gradient h-full w-full"></div>
+                            </div>
+                                                    <div class="timer grow bg-white/20 h-1">
+                                <div class="timer-line benihana-gradient h-full w-full"></div>
+                            </div>
+                                            </nav>
+
+                    <h2 class="relative z-20 text-4xl leading-[1.2] mb-8">A cultural icon with 77 Benihana restaurants in the United States, Caribbean, and Central and South America.</h2>
+                    <p>At Benihana, we celebrate what each guest brings to the table. Whether it’s your family, friends, appetites, or enthusiasm, we’re here to transform every meal into a memorable experience. Our skilled teppanyaki chefs prepare your meal right before your eyes. Our USDA Choice steaks are aged to perfection, and our sauces, salad dressings, and crisp vegetables are all made from scratch. Our sushi chefs expertly craft a diverse selection of signature sushi and sashimi using hand-selected, high-quality ingredients. And if you’re thirsty, explore our variety of handcrafted cocktails, wine, beer, and of course, sake. Beyond food, we’re passionate about entertaining you.</p>
+                                    </div>
+            </div>
+        </div>
+    </section>
+
+<section class="image-text-row container relative ">
+    <div class="px-0 md:px-16 xl:px-32 py-12 xl:py-24 relative overflow-hidden md:flex md:flex-row-reverse justify-center gap-8 lg:gap-12 xl-wide:gap-24">
+
+        <div class="staggered-image-top mb-6 md:mb-0">
+            <figure class="relative basis-full lg:basis-full">
+                <picture>
+                            <source media="(min-width: 1500px)" srcset="https://togrp.com/wp-content/uploads/2025/03/Chandler-1536x1028-1-e1742590071293.webp">     
+                            <source media="(min-width: 1000px)" srcset="https://togrp.com/wp-content/uploads/2025/03/Chandler-1536x1028-1-e1742590071293.webp">                    
+                            <source media="(min-width: 700px)" srcset="https://togrp.com/wp-content/uploads/2025/03/Chandler-1536x1028-1-e1742590071293-770x1024.webp">                        
+                            <source media="(min-width: 300px)" srcset="https://togrp.com/wp-content/uploads/2025/03/Chandler-1536x1028-1-e1742590071293-768x1021.webp">
+                            <img class="object-cover aspect-[16/7] md:h-[602px] md:w-[453px]" alt="Exterior of a Benihana restaurant with a glowing red sign that says 'Benihana.'" title="Chandler-1536x1028" loading="lazy" src="https://togrp.com/wp-content/uploads/2025/03/Chandler-1536x1028-1-e1742590071293-226x300.webp">
+                        </picture>
+                   </figure>
+        </div>
+        <div class="md:flex flex-col gap-36">
+            <div class="mb-8 lg:mb-0 xl-wide:pr-56">
+                                    <h1 class="relative text-base tracking-widest uppercase bg-gradient-to-r from-bright-pink to-pink bg-clip-text text-transparent">Invest in a legacy</h1>
+                                <h2 class="relative text-4xl lg:text-[2vw] mb-6">FRANCHISING OPPORTUNITIES</h2>
+                <div class="max-w-md">
+                    <p>The BENIHANA name is well known throughout the world, famous for the art of teppanyaki cooking and its unrivaled guest experience. The brand has grown from one teppanyaki restaurant in New York City in 1964 to 77 restaurants in the United States, Central and South America (excluding Mexico), and the Caribbean as of March 2025, with more company-owned and franchised restaurants being planned. Ready to be part of the Benihana brand? Get in touch with us today. </p>
+                </div>
+
+                                    <div class="inline-block mt-8">
+                        <div class="flex md:justify-between md:flex-nowrap flex-wrap mt-8">
+                            <div class="inline-block    ">
+            <a href="https://www.benihana.com/about/franchising/" class="btn text-white text-xs                         " target="_blank" >
+            <span>Learn More about franchising opportunities</span>
+
+            <svg aria-hidden="true" width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="21.5" cy="21.5" r="21" stroke="url(#a)"/><path d="M14 21.5H28" stroke="#FF4AEA" stroke-linecap="round"/><path d="M27.9999 21.4999C25.5582 21.4999 23.5789 19.5205 23.5789 17.0789" stroke="#FF4AEA" stroke-linecap="round"/><path d="M23.5789 25.9211C23.5789 23.4794 25.5582 21.5 27.9999 21.5" stroke="#FF4AEA" stroke-linecap="round"/><defs><linearGradient id="a" x1="9.5" y1="22.5" x2="43.6181" y2="22.5169" gradientUnits="userSpaceOnUse"><stop stop-color="#FF4AEA" stop-opacity="0"/><stop offset="1" stop-color="#FF4AEA"/></linearGradient></defs></svg>        </a>
+    </div>                        </div>
+                    </div>
+                            </div>
+
+                    </div>
+    </div>
+</section><section class="stats-row container relative">
+    <div class="px-8 lg:px-16 xl:px-32 py-12 md:py-24 relative bg-off-white overflow-hidden">
+        <div class="flex items-start lg:items-center flex-col lg:flex-row gap-8 xl:gap-24">
+            <div class="basis-1/2">
+                <h2 class="staggered-text relative z-20 text-4xl lg:text-[4vw] text-dark-plum">Operating across the Americas</h2>
+            </div>
+            <div class="basis-1/2">
+                <div class="statistics">
+                                            <div class="statistic [&:nth-child(2)]:mt-8 lg:[&:nth-child(2)]:mt-16">
+                            <h3 class="text-7xl lg:text-[7vw] font-light block xl:flex items-end m-0 benihana-gradient leading-[0.82]"><mark class="tabular-nums" data-starting-number="7.7">77</mark> <span class="block xl:inline-block text-2xl font-normal mt-2 ml-0 xl:ml-4 text-dark-plum">restaurants</span></h3>
+                        </div>
+                                            <div class="statistic [&:nth-child(2)]:mt-8 lg:[&:nth-child(2)]:mt-16">
+                            <h3 class="text-7xl lg:text-[7vw] font-light block xl:flex items-end m-0 benihana-gradient leading-[0.82]"><mark class="tabular-nums" data-starting-number="524.3">5243</mark> <span class="block xl:inline-block text-2xl font-normal mt-2 ml-0 xl:ml-4 text-dark-plum">employees</span></h3>
+                        </div>
+                                    </div>
+            </div>
+        </div>
+    </div>
+</section>    <section class="explore-brands-row relative">
+        <div class="py-24 relative">
+            <div>
+                                    <div class="container">
+                        <h2 class="relative z-10 text-6xl mb-20 staggered-text"><span>Explore </span><span>our brands</span></h2>
+                    </div>
+                                <div class="container mb-4">
+    <a
+        href="#explore-brands-slider-6ad3ac88cb99f-after"
+        class="sr-only focus:not-sr-only inline-flex items-center rounded-md bg-blue-600 px-4 py-2 text-white font-bold shadow-lg"
+    >Skip Explore Brands slider items</a>
+</div>
+                <div class="slider" aria-label="Explore Brands Slider">
+                                            <div>
+                             
+                            <a href="https://togrp.com/stk-steakhouse/" target="">
+                                                            <span class="sr-only">Brand: stk-steakhouse </span>
+                                <article class="relative flex justify-center aspect-square" aria-hidden="true">
+                                    <div class="absolute inset-0 z-20 flex items-center justify-center">
+                                                                                    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.72551 68.4349C8.51347 68.3743 7.7259 68.1623 7.39269 68.0815H7.38259C6.95852 67.9603 6.90803 67.7382 6.90803 67.5867C6.90803 67.1222 7.47347 67.092 7.65522 67.092C8.22065 67.092 8.51347 67.3242 8.54376 67.8088V67.9098H9.58376V67.7987C9.58376 66.8395 8.81638 66.1933 7.68551 66.1933C6.80706 66.1933 5.86803 66.6578 5.86803 67.6776C5.86803 68.132 6.05987 68.7176 6.97871 68.97C7.21094 69.0306 7.41289 69.0811 7.59463 69.1316C7.90764 69.2123 8.16007 69.2729 8.36201 69.3537C8.50337 69.4042 8.67502 69.5153 8.67502 69.8182C8.67502 70.1918 8.35192 70.4139 7.80667 70.4139C7.40279 70.4139 6.73638 70.3028 6.73638 69.5254V69.4143H5.68628V69.5254C5.70647 70.636 6.47385 71.3024 7.74609 71.3024C8.65483 71.3024 9.71503 70.8885 9.71503 69.7273C9.71503 69.2628 9.4525 68.6469 8.72551 68.4248" fill="white"/><path d="M11.5426 67.2333H13.0269V71.1914H14.0669V67.2333H15.5411V66.3044H11.5426V67.2333Z" fill="white"/><path d="M18.6914 69.1215H21.044V68.2329H18.6914V67.2333H21.2358V66.3044H17.6514V71.1914H21.2762V70.2624H18.6914V69.1215Z" fill="white"/><path d="M24.8405 66.3044L22.9624 71.1914H24.0529L24.4871 69.9595H26.1834L26.6176 71.1914H27.7383L25.8603 66.3044H24.8405ZM25.9007 69.1114H24.79L25.3453 67.5362L25.9007 69.1114Z" fill="white"/><path d="M33.9884 66.3044H32.6657L30.7473 68.2632V66.3044H29.7073V71.1914H30.7473V69.5557L31.2824 69.0306L32.7667 71.1914H34.0692L31.9993 68.2935L33.9884 66.3044Z" fill="white"/><path d="M38.8958 68.1622H36.9975V66.3044H35.9575V71.1914H36.9975V69.0912H38.8958V71.1914H39.9358V66.3044H38.8958V68.1622Z" fill="white"/><path d="M44.5803 66.1933C43.197 66.1933 42.2378 67.2434 42.2378 68.7479C42.2378 70.2523 43.197 71.3024 44.5803 71.3024C45.9636 71.3024 46.9229 70.2523 46.9229 68.7479C46.9229 67.2434 45.9636 66.1933 44.5803 66.1933ZM45.8828 68.7479C45.8828 69.5153 45.5396 70.4139 44.5803 70.4139C43.6211 70.4139 43.2778 69.5153 43.2778 68.7479C43.2778 67.9805 43.6211 67.0819 44.5803 67.0819C45.5396 67.0819 45.8828 67.9805 45.8828 68.7479Z" fill="white"/><path d="M52.1937 69.1316C52.1937 69.8384 52.123 70.3735 51.2142 70.3735C50.3055 70.3735 50.2348 69.8384 50.2348 69.1316V66.3044H49.1948V69.3941C49.1948 70.5856 49.9521 71.2924 51.2243 71.2924C52.4966 71.2924 53.2539 70.5856 53.2539 69.3941V66.3044H52.2139V69.1316H52.1937Z" fill="white"/><path d="M58.4942 68.4349C58.2519 68.3642 57.1917 68.0916 57.1513 68.0714C56.7272 67.9603 56.6767 67.7382 56.6767 67.5766C56.6767 67.1122 57.2421 67.0819 57.4138 67.0819C57.9792 67.0819 58.272 67.3141 58.3023 67.7988V67.8997H59.3423V67.7887C59.3423 66.8294 58.575 66.1832 57.4441 66.1832C56.5656 66.1832 55.6266 66.6477 55.6266 67.6675C55.6266 68.1219 55.8185 68.7075 56.7373 68.9599C56.9695 69.0205 57.1715 69.071 57.3532 69.1215C57.6662 69.2023 57.9187 69.2629 58.1206 69.3436C58.262 69.3941 58.4336 69.5052 58.4336 69.8081C58.4336 70.1817 58.1105 70.4038 57.5653 70.4038C57.1614 70.4038 56.495 70.2928 56.495 69.5153V69.4042H55.455V69.5153C55.4752 70.626 56.2425 71.2924 57.5148 71.2924C58.4235 71.2924 59.4837 70.8784 59.4837 69.7172C59.4837 69.2527 59.2212 68.6368 58.4942 68.4147" fill="white"/><path d="M62.8056 69.1215H65.1583V68.2329H62.8056V67.2333H65.34V66.3044H61.7656V71.1914H65.3905V70.2624H62.8056V69.1215Z" fill="white"/><path d="M23.7197 33.923C23.7197 31.3179 22.6696 29.9952 20.5896 29.9952H12.1787C10.0078 29.9952 8.95771 28.834 8.95771 26.4511V23.9066L8.9981 10.0938C8.9981 8.52873 9.25053 7.26659 9.75538 6.33766C10.2501 5.41882 10.9468 4.96445 11.8556 4.96445H17.3383C18.8125 4.96445 19.7717 5.39862 20.1756 6.24678C20.5896 7.12523 20.8016 8.44795 20.8016 10.1746V21.4833H23.8106V8.04407C23.861 6.5497 23.5379 5.16639 22.8412 3.93454C22.1344 2.6926 21.0137 2.006 19.489 1.89493H11.0579C9.14956 2.006 7.75616 2.71279 6.93829 4.01532C6.12043 5.28756 5.71654 6.81222 5.71654 8.51863V27.895C5.71654 31.5501 7.14023 33.408 9.95733 33.408H17.096C18.1663 33.4282 18.974 33.7311 19.5092 34.2865C20.0847 34.8923 20.3573 35.8414 20.317 37.1035L20.4381 55.0461C20.4381 56.6011 20.0746 57.8632 19.3476 58.7921C18.6307 59.711 17.4999 60.1754 15.9853 60.1754H12.0979C10.6136 60.1754 9.66451 59.7413 9.26063 58.8931C8.84664 58.0147 8.63461 56.6919 8.63461 54.9754V43.6667H5.62567V57.116C5.57518 58.6104 5.97907 60.0038 6.83732 61.2356C7.70567 62.4776 8.74567 63.1642 9.94723 63.2753H18.3682C20.2766 63.1642 21.6599 62.4574 22.4878 61.1549C23.3057 59.8725 23.7197 58.3479 23.7197 56.6516V33.9432V33.923Z" fill="white"/><path d="M33.6756 63.2551H36.7552V5.13611H44.5401V2.05649H26.3754V5.13611H33.6756V63.2551Z" fill="white"/><path d="M65.0068 2.05649H61.2002L49.8006 32.9738L49.9116 2.05649H46.7916V63.2551H49.9116L49.8006 41.0919L53.4759 32.055L61.6445 63.1743L61.6647 63.2551H65.4309L55.6367 26.7843L65.0068 2.05649Z" fill="white"/><path d="M69.5302 3.02582C69.3485 2.69261 69.0759 2.43009 68.7528 2.24834C68.0864 1.89494 67.3695 1.89494 66.7131 2.24834C66.3799 2.43009 66.1174 2.69261 65.9357 3.02582C65.7539 3.35902 65.653 3.71242 65.653 4.06582C65.653 4.41922 65.7438 4.77262 65.9256 5.09573C66.1073 5.42893 66.3698 5.69145 66.7031 5.86311C67.0262 6.04485 67.3695 6.13573 67.733 6.13573C68.0965 6.13573 68.4398 6.04485 68.7629 5.86311C69.0961 5.68136 69.3485 5.41883 69.5403 5.08563C69.7221 4.75242 69.813 4.40912 69.813 4.05572C69.813 3.70232 69.7221 3.34893 69.5403 3.01572M67.319 3.85378V3.4398H67.5916C67.7935 3.4398 67.8743 3.45999 67.8945 3.47009C67.9349 3.49029 67.9652 3.51048 67.9854 3.54077C68.0056 3.57106 68.0157 3.60135 68.0157 3.64174C68.0157 3.70232 67.9955 3.75281 67.945 3.7932C67.9248 3.81339 67.844 3.85378 67.6118 3.85378H67.3089H67.319ZM67.319 5.26738V4.36873H67.4098C67.5007 4.36873 67.5714 4.38893 67.6219 4.41922C67.6724 4.45961 67.7733 4.57068 67.945 4.87359L68.1671 5.26738H68.6922C68.6316 5.31786 68.571 5.35825 68.5003 5.38854C68.0157 5.66116 67.4603 5.66116 66.9757 5.38854C66.905 5.34815 66.8444 5.30776 66.7838 5.26738H67.3291H67.319ZM68.4801 4.68174C68.3691 4.5 68.2681 4.35864 68.1671 4.25767C68.258 4.21728 68.3388 4.16679 68.4095 4.09611C68.5407 3.96485 68.6114 3.7932 68.6114 3.61145C68.6114 3.48019 68.571 3.34893 68.4902 3.23786C68.4095 3.11669 68.2984 3.03592 68.1671 2.98543C68.046 2.94504 67.8541 2.92485 67.5916 2.92485H66.7535V5.24718C66.6122 5.13611 66.491 4.98466 66.4001 4.8231C66.2689 4.58077 66.1982 4.31825 66.1982 4.06582C66.1982 3.81339 66.2689 3.54077 66.4102 3.29844C66.5516 3.04601 66.7333 2.86426 66.9757 2.733C67.218 2.60174 67.4704 2.53106 67.733 2.53106C67.9955 2.53106 68.2378 2.60174 68.4801 2.733C68.7225 2.86426 68.9143 3.05611 69.0456 3.29844C69.1869 3.54077 69.2475 3.8033 69.2475 4.06582C69.2475 4.32835 69.1768 4.58077 69.0456 4.8231C68.9749 4.95437 68.884 5.06543 68.7831 5.16641L68.4801 4.67165V4.68174Z" fill="white"/></svg>                                                                            </div>
+                                    <picture class="size-full bg-black flex">                
+                                        <source media="(min-width: 700px)" srcset="https://togrp.com/wp-content/uploads/2024/06/663A2540-1024x683.jpg">                               
+                                        <source media="(min-width: 300px)" srcset="https://togrp.com/wp-content/uploads/2024/06/663A2540-768x512.jpg">
+                                        <img class="w-full object-cover opacity-60" alt=""  loading="lazy" src="https://togrp.com/wp-content/uploads/2024/06/663A2540-300x200.jpg">
+                                    </picture>
+
+                                </article>
+                             
+                                </a>
+                                                    </div>
+                                            <div>
+                             
+                            <a href="https://togrp.com/kona-grill/" target="">
+                                                            <span class="sr-only">Brand: kona-grill </span>
+                                <article class="relative flex justify-center aspect-square" aria-hidden="true">
+                                    <div class="absolute inset-0 z-20 flex items-center justify-center">
+                                                                                    <svg width="70" height="71" viewBox="0 0 70 71" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.09949 13.7449H11.0313V22.3369C11.1747 21.6796 15.5251 13.7449 15.5251 13.7449H23.3772L17.1624 23.4124L24.0345 33.5818H15.6804C15.6804 33.5818 11.1867 25.7068 11.0433 25.2885V33.5818H4.09949V13.7449Z" fill="white"/><path d="M30.3449 25.0017C31.7671 25.0017 32.7472 26.0055 32.7472 27.4753C32.7472 28.8735 31.803 29.8534 30.4286 29.8534C29.0542 29.8534 28.0502 28.8496 28.0502 27.4395C28.0502 26.0294 29.0422 25.0017 30.3449 25.0017ZM30.4644 20.9148C26.3053 20.9148 23.4131 23.6275 23.4131 27.4753C23.4131 31.3232 26.2934 33.9403 30.3688 33.9403C34.4443 33.9403 37.3843 31.2037 37.3843 27.4395C37.3843 23.6753 34.5399 20.9148 30.4644 20.9148Z" fill="white"/><path d="M39.0695 21.106H43.4795C43.4795 21.106 46.8738 27.1407 47.316 28.1326V21.106H51.738V33.761H47.3399C47.3399 33.761 43.8142 27.8816 43.4795 27.1168V33.761H39.0814V21.106H39.0695Z" fill="white"/><path d="M58.0005 32.1717H61.5023L61.9206 33.761H66.8087L62.2791 21.0941H57.1878L52.8016 33.761H57.6659L58.0125 32.1717H58.0005ZM58.861 29.1722C58.861 29.1722 59.602 26.1011 59.6976 25.3244H59.8649C59.9247 25.9099 60.7015 29.1722 60.7015 29.1722H58.861Z" fill="white"/><path d="M24.7277 45.448C24.7516 49.8695 24.1063 52.0922 22.206 54.0759C20.1503 56.1791 17.0669 57.4219 13.828 57.4219C7.434 57.4219 3.01196 53.2752 3.01196 47.2883C3.01196 41.3014 7.434 36.9875 13.9714 36.9875C18.3098 36.9875 22.0865 38.9473 23.7238 42.0304L17.0071 44.5398C16.29 43.4643 15.5251 43.0102 14.2702 43.0102C11.9516 43.0102 10.2904 44.9342 10.2904 47.5751C10.2904 50.0727 11.8082 51.8412 14.0312 51.8412C15.4534 51.8412 16.529 51.2198 16.8876 50.1324H13.6129V45.4361H24.7277V45.448Z" fill="white"/><path d="M31.1816 49.7859V47.5273H32.0182C32.6516 47.5273 33.1057 48.0053 33.1057 48.6745C33.1057 49.3437 32.6038 49.7859 31.8389 49.7859H31.1816ZM26.5205 57.0873H31.1816V52.8689L33.3448 57.0873H38.8544L35.8904 52.6538C35.7351 52.4148 35.5677 52.2834 35.1972 52.0444V51.9249C36.1056 51.65 36.5836 51.411 36.9183 51.0167C37.4441 50.4192 37.7429 49.4991 37.7429 48.4714C37.7429 46.8103 37.0497 45.5436 35.6275 44.6713C34.755 44.1216 33.8945 43.9184 32.4604 43.9184H26.5085V57.0992L26.5205 57.0873Z" fill="white"/><path d="M45.105 43.9184H40.3005V57.0992H45.105V43.9184Z" fill="white"/><path d="M47.0052 43.9184H51.8217V52.845H55.8493V57.0992H47.0052V43.9184Z" fill="white"/><path d="M57.5942 43.9184H62.3868V52.845H66.4264V57.0992H57.5942V43.9184Z" fill="white"/><path d="M64.8009 21.0821C64.8009 20.4607 65.3029 19.9947 65.9004 19.9947C66.498 19.9947 67 20.4607 67 21.0821C67 21.7035 66.498 22.1696 65.9004 22.1696C65.3029 22.1696 64.8009 21.7155 64.8009 21.0821ZM65.9004 21.9903C66.3904 21.9903 66.7848 21.6079 66.7848 21.0821C66.7848 20.5563 66.3904 20.1859 65.9004 20.1859C65.4104 20.1859 65.016 20.5683 65.016 21.0821C65.016 21.596 65.3985 21.9903 65.9004 21.9903ZM65.6734 21.7035H65.4821V20.4488H65.9602C66.259 20.4488 66.4024 20.5563 66.4024 20.8073C66.4024 21.0343 66.259 21.1299 66.0797 21.1538L66.4383 21.7035H66.2231L65.8885 21.1658H65.6734V21.7035ZM65.9004 20.9985C66.0678 20.9985 66.2112 20.9985 66.2112 20.7953C66.2112 20.64 66.0678 20.6161 65.9363 20.6161H65.6734V20.9985H65.9004Z" fill="white"/></svg>                                                                            </div>
+                                    <picture class="size-full bg-black flex">                
+                                        <source media="(min-width: 700px)" srcset="https://togrp.com/wp-content/uploads/2024/06/Cheers-Al-Fresco-1024x683.jpg">                               
+                                        <source media="(min-width: 300px)" srcset="https://togrp.com/wp-content/uploads/2024/06/Cheers-Al-Fresco-768x512.jpg">
+                                        <img class="w-full object-cover opacity-60" alt=""  loading="lazy" src="https://togrp.com/wp-content/uploads/2024/06/Cheers-Al-Fresco-300x200.jpg">
+                                    </picture>
+
+                                </article>
+                             
+                                </a>
+                                                    </div>
+                                            <div>
+                             
+                            <a href="https://togrp.com/ra-sushi/" target="">
+                                                            <span class="sr-only">Brand: ra-sushi </span>
+                                <article class="relative flex justify-center aspect-square" aria-hidden="true">
+                                    <div class="absolute inset-0 z-20 flex items-center justify-center">
+                                                                                    <?xml version="1.0" encoding="UTF-8"?><svg id="Layer_2" data-name="Layer 2" width="72px" height="72px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1772.00001 1772"><style>.cls-11 {
+            fill: white;
+            }</style><g id="Layer_1-2" data-name="Layer 1"><g><path d="M912.91462,1771.79892l-53.91462.20108-1.01267-.89174-21.68093-.62241c-146.52769-8.12611-288.46881-52.23108-413.62317-129.18229-146.22409-89.90594-263.71298-220.37977-337.48125-375.48955C36.72481,1163.88288,8.66084,1054.15463,1.5295,941.77102l-.68839-17.6998c-.01978-.50861-.48329-2.49343-.84111-2.07122l.08332-68.91127c1.35531-5.38939.69445-10.98303,1.20193-17.07702l.81096-9.73839c.23927-2.87324,17.83875-2.32735,26.71051-8.42898,6.6714-7.56887,11.38342-16.44165,17.59428-24.41661,10.76832-13.8269,23.17701-25.49774,39.38659-32.66625,20.28816-8.97222,42.65276-11.59757,64.54949-8.06482,19.49871,3.14585,34.54663,15.84267,42.02007,34.07771,6.33919,15.46749,9.71238,31.96935,9.32898,49.39105-1.1075,50.32428-6.48299,99.67672-12.91707,149.78963-7.44429,57.98111-17.32821,114.60286-27.74811,171.90179l-7.26459,45.15548c-1.09714,6.81961-.77412,16.1086,4.10595,21.06326l16.37542,16.62575c11.0655-12.63377,36.67023-42.44692,33.98322-54.38859-1.64441-7.30812-5.66119-13.43008-4.65588-21.36835l2.10562-16.62667,118.59667-476.43917c51.753-13.12724,105.05457-19.25179,158.59634-17.58975,19.43207.60321,37.05917,4.47329,54.87138,10.8858,21.65867,8.19201,48.6828,27.05968,52.03805,49.911,2.01615,13.73121-2.64256,27.00298-10.58866,38.13355-28.11011,39.37549-99.06262,60.34315-144.53211,76.43451l-58.30902,20.63518c-10.14245,3.58935-19.46635,8.72212-27.62775,15.20501-6.00287,4.7683-8.04229,11.24513-5.70084,18.46316,8.10944,24.99902,37.37534,45.29019,60.44935,58.6373,60.45466,34.96987,138.96753,57.4123,207.57111,72.44198,58.29586,12.77146,116.35857,21.36051,176.28279,28.21994-19.80786,13.03627-40.05493,24.08391-61.8202,33.19587-14.56598,6.098-28.99752,10.00684-44.43007,12.6253-10.45466,1.77386-20.07661-1.48906-30.07687-1.03584-11.20236.50771-22.25803,7.54374-32.30943,12.72105-26.54142,13.67105-50.25816,30.73397-72.95831,49.82737l-15.35662,15.02128c9.88883,12.75896,33.69821,8.15562,49.15443,2.75687,91.65435-30.03708,179.64094-68.93445,261.82112-120.01576,80.42955,7.20793,160.81486,9.88372,241.68447,10.58887,104.28204.9093,207.82057-7.37582,310.70682-24.04334,78.19236,75.02016,161.1992,141.29022,256.80745,192.91196,14.51017-2.30198,25.17194-14.60413,25.39542-29.50824-55.40931-33.24001-107.02547-76.20042-153.90981-120.3017l-56.66682-56.40434c61.78006-12.74084,121.62074-27.9032,181.49537-46.67773l121.76424-44.04244,1.83259-.76095c.30798-.12788.14166,1.18441.09824,2.04319-14.40333,284.83472-165.66554,544.0149-404.77346,698.54606-128.92132,83.31954-277.06359,130.69923-430.09041,139.74859l-22.77154,1.34661Z" class="cls-11"/><path d="M922,0l1.01306.88832,17.93966.586c115.18838,7.21573,227.58736,36.408,331.62276,86.97833,150.18319,73.0022,276.82642,187.16869,365.28575,328.6843,78.89717,126.21824,124.20818,269.90527,132.575,418.36807l.69197,22.48374.87181,1.01798-.00201,42.98628-2.32666,3.72999c-106.20114,42.22984-217.61302,69.3835-330.24505,87.61855-67.56242-75.1765-129.64625-154.86969-177.72744-242.97626-13.22395-24.88042-24.81145-49.4158-34.02278-75.97146-10.92912-31.50795-19.08393-68.02108-10.91286-100.67742l-1.75535-.80407c-20.37868-1.67317-39.75483-.01783-59.9083,4.26358-43.48951,9.23893-84.52335,26.13645-122.22308,49.53147-11.14818,6.91814-20.65749,14.28031-30.00999,23.30459-1.41784,3.35166-.34752,9.54821,1.35008,12.54685l8.79788,15.5406c2.66845,4.71355,6.1387,10.33755,6.89543,15.97171,6.10782,45.47525-9.14974,93.44147-29.93272,133.94286-33.44983,65.18626-87.85527,125.75398-144.57474,172.86498-62.54403-10.93547-125.07848-26.85275-181.90241-56.32964-39.47581-21.17159-85.64085-55.66853-93.65888-101.40907-1.85305-10.57109.58299-20.65852,7.267-29.16292,7.78718-9.90803,17.02932-18.37577,27.96988-24.93174l43.74759-26.21509,43.83448-27.11537c9.00788-5.57214,16.29183-13.13002,22.27547-21.66734,5.89132-8.40562,7.4078-17.99903,4.92853-27.89389-6.17489-24.64427-32.15307-40.37319-55.23966-49.81126-45.30783-18.52237-103.21967-24.51611-152.72245-25.44985-59.1779-1.11624-117.32974,4.38484-175.38288,14.85767,4.62863-21.20663,11.22781-40.31652,14.5568-60.74163,2.41442-14.81373-9.4557-27.64187-21.79791-33.14692-51.62172-5.40528-109.22484,13.52265-151.22203,42.00977-11.15691,7.56784-20.70996,16.20333-28.0973,27.48621l15.74458,18.06812c8.75696,13.73609,15.61228,28.33503,20.15417,43.7588-59.64235,18.82452-116.25551,41.12131-172.48845,68.88841C63.02926,448.40345,249.17952,205.65775,510.25725,83.16847,610.99793,35.90418,719.30311,8.47407,830.24121,1.53533l18.75879-1.53533h73Z" class="cls-11"/><path d="M1286.5228,926.0232l76.86945,79.26701c-93.64672,10.65907-186.47886,15.79485-280.34025,14.83613-60.75378-.62055-120.58448-3.99329-181.52776-11.17944,80.36275-59.13899,150.99681-128.11292,207.98943-209.18687,23.874-4.76741,49.18951,9.31761,68.30193,23.44663,15.0504,11.12614,28.98196,22.46335,42.22927,35.81499l66.47792,67.00154Z" class="cls-11"/><path d="M1568.2014,1710.61515c-20.4103,19.33204-51.4828,19.39592-72.11957,1.24809-21.85909-19.22274-24.1221-52.69966-5.00603-74.91385,19.57246-22.74454,54.94591-24.58715,76.91192-3.93962,22.10326,20.77654,22.54998,56.4491.21369,77.60539ZM1523.9787,1628.47027c-25.05187,4.21071-40.08882,27.60542-36.06355,51.08053,4.14279,24.16044,27.16004,40.01896,51.04865,35.94461,23.82964-4.0643,39.80895-26.5572,36.14543-50.1462-3.76506-24.2428-25.97521-41.10703-51.13053-36.87894Z" class="cls-11"/><path d="M1544.71699,1701.56484c-8.3674-13.99147-11.5785-27.47431-27.16122-24.01156l-.03793,23.98282-9.52346-.06349.00709-57.52518,26.92775.21025c9.24515.07219,16.63082,5.56317,17.36829,14.31502.71813,8.52231-5.32643,15.72216-14.76315,17.39308,3.28294,2.8801,6.42543,5.72415,8.49245,9.00669l10.42092,16.54893-11.73075.14343ZM1534.83481,1668.49909c5.24514-.18156,7.83558-4.75939,7.43972-8.98793-.29194-3.11847-3.51113-7.07575-7.57315-7.18606l-17.17303-.46637.01268,17.239,17.29379-.59864Z" class="cls-11"/></g></g></svg>                                                                            </div>
+                                    <picture class="size-full bg-black flex">                
+                                        <source media="(min-width: 700px)" srcset="https://togrp.com/wp-content/uploads/2024/06/AGRIECO-00971-683x1024.jpg">                               
+                                        <source media="(min-width: 300px)" srcset="https://togrp.com/wp-content/uploads/2024/06/AGRIECO-00971-768x1152.jpg">
+                                        <img class="w-full object-cover opacity-60" alt=""  loading="lazy" src="https://togrp.com/wp-content/uploads/2024/06/AGRIECO-00971-200x300.jpg">
+                                    </picture>
+
+                                </article>
+                             
+                                </a>
+                                                    </div>
+                                            <div>
+                             
+                            <a href="https://togrp.com/benihana/" target="">
+                                                            <span class="sr-only">Brand: benihana </span>
+                                <article class="relative flex justify-center aspect-square" aria-hidden="true">
+                                    <div class="absolute inset-0 z-20 flex items-center justify-center">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="88" height="19" viewBox="0 0 88 19" fill="none"><path d="M73.1881 2.58296L73.3284 3.33701V18.1901L73.1706 18.2778C71.3819 18.2778 70.4875 18.2778 68.8742 18.2778L68.769 18.155V5.8096C68.6989 5.51148 68.4534 5.24844 68.1903 5.12569C67.9273 5.02047 67.6467 5.12569 67.4363 5.26598L67.1031 5.70438V18.1725L66.9628 18.2602C65.0163 18.2602 64.122 18.2602 62.5086 18.2602L62.3683 18.1375V4.16121C62.2982 3.14411 62.1754 2.10948 62.0352 1.10993L62.1404 1.05732H66.3315L66.4718 1.25022C66.5419 1.82891 66.6998 2.37253 66.8576 2.89861L66.9277 2.846C67.1908 2.0218 67.9974 1.19761 68.9093 1.02225C70.4876 0.741669 72.4691 0.952102 73.1881 2.58296Z" fill="white"/><path d="M20.1583 1.21524V5.09071L20.0356 5.19593H16.0373C15.8971 5.24854 15.9146 5.30114 15.9146 5.4239C15.9146 6.21302 15.9146 6.96707 15.9146 7.63344L16.0549 7.72112H20.1759L20.2811 7.86141V11.6317L20.1232 11.772H16.0373L15.9321 11.9298V14.0516L16.1075 14.1919H20.246L20.3161 14.2621V18.1551L20.2285 18.2603H13.5472C12.6879 18.0499 12.0742 17.0679 11.8287 16.2963L11.6533 14.6829V3.56507C11.6709 2.49537 12.3898 1.3906 13.4771 1.11002L14.161 1.02234H20.0531L20.1583 1.21524Z" fill="white"/><path d="M37.5197 1.18009V18.1726L37.3795 18.2953H33.2409C32.9253 18.2953 32.9779 17.9621 32.9779 17.7341V1.19762L33.1182 1.09241H37.4321L37.5197 1.18009Z" fill="white"/><path d="M8.53199 1.09241C9.35618 1.2327 10.3031 1.74124 10.5837 2.61805C10.8994 4.35412 10.952 6.30062 10.6539 8.01916C10.5837 8.65046 9.95241 9.21161 9.39126 9.52726L9.30358 9.57987C10.0576 10.0007 10.8643 10.7723 11.0396 11.6491C11.0923 13.3326 11.2325 15.209 10.7941 16.7697C10.5486 17.436 9.91734 18.1726 9.25097 18.2953C6.51534 18.3128 4.49869 18.2953 0.78104 18.2953L0.693359 18.1726V1.14502L0.78104 1.09241H8.53199ZM6.07694 4.98542C5.72621 4.98542 5.20013 4.82759 4.97216 5.10817V7.72105L5.04231 7.80873C6.0594 7.80873 6.11201 7.94902 6.41012 7.58076C6.79592 6.98453 6.62056 6.12526 6.56795 5.42382C6.46273 5.26599 6.28737 5.03803 6.07694 4.98542ZM6.11201 11.5088C5.72622 11.4387 5.2352 11.351 5.00724 11.6141V14.262C5.37549 14.4023 5.88404 14.3497 6.23476 14.2094C6.58548 14.0866 6.63809 13.7184 6.6907 13.3852C6.63809 12.7714 6.81345 12.0875 6.41012 11.6491L6.11201 11.5088Z" fill="white"/><path d="M61.2808 18.2252L61.123 18.3128H56.8968L56.7565 18.1901V14.5075C56.7565 14.4549 56.7039 14.3497 56.5636 14.3146C56.0375 14.1919 55.6166 14.1743 55.1256 14.3146C54.8976 14.3672 54.8977 14.5075 54.8977 14.5075V18.1901L54.7574 18.3128C53.0564 18.3128 52.2322 18.3128 50.5838 18.3128L50.4961 18.1725V2.46022C50.6188 1.79385 51.2677 1.25023 51.899 1.09241C51.9516 1.09241 55.6517 1.09241 55.8972 1.09241C56.1427 1.09241 59.8779 1.09241 59.8954 1.09241C60.5267 1.2327 61.158 1.79385 61.2808 2.46022V18.2252ZM55.8446 4.79252C55.073 4.79252 55.0379 5.09063 54.9853 5.35368V10.4216L55.0379 10.5268H56.6162L56.6863 10.4041C56.6863 7.61583 56.6863 6.96699 56.6863 5.23092C56.6337 5.12571 56.6688 4.79252 55.8446 4.79252Z" fill="white"/><path d="M31.8726 2.58299L32.0129 3.33704V18.1901L31.8551 18.2778C30.0664 18.2778 29.1721 18.2778 27.5588 18.2778L27.4535 18.155V5.82716C27.3834 5.52905 27.1379 5.26601 26.8573 5.14326C26.5943 5.03804 26.3137 5.14326 26.1033 5.28355L25.7701 5.72195V18.1901L25.6298 18.2778C23.6833 18.2778 22.7889 18.2778 21.1756 18.2778L21.0353 18.155V4.17877C20.9652 3.16168 20.8424 2.12705 20.7021 1.12749L20.8074 1.07489H24.9985L25.1388 1.26778C25.2089 1.84647 25.3667 2.39009 25.5246 2.91618L25.5947 2.86357C25.8578 2.03937 26.6644 1.21517 27.5763 1.03981C29.1721 0.724164 31.1537 0.952134 31.8726 2.58299Z" fill="white"/><path d="M85.0249 2.44276V18.2077L84.8496 18.2954H80.6409L80.5357 18.2077V14.5251C80.5357 14.4725 80.4831 14.3848 80.3779 14.3498L80.3603 14.3322C79.729 14.1919 79.3783 14.2095 78.8522 14.3322C78.8172 14.3673 78.6593 14.455 78.6418 14.4901V18.1726L78.5015 18.2954C76.8005 18.2954 75.9763 18.2954 74.3279 18.2954L74.2402 18.1551V2.44276C74.363 1.79393 75.0118 1.23278 75.6431 1.07495C75.6957 1.07495 79.3958 1.07495 79.6414 1.07495C79.8869 1.07495 83.622 1.07495 83.6396 1.07495C84.2709 1.21524 84.9022 1.77639 85.0249 2.44276ZM79.5712 4.77506C78.7996 4.77506 78.7645 5.07318 78.7119 5.33622V10.4041L78.8172 10.5094H80.3428L80.4129 10.3866C80.4129 8.15953 80.4129 6.91447 80.4129 5.21347C80.3603 5.09071 80.3779 4.75753 79.5712 4.77506Z" fill="white"/><path d="M49.4612 1.09249C47.8128 1.07495 44.9895 1.09249 44.9895 1.09249L44.9544 1.18017V7.49316C44.9544 7.54577 44.9018 7.65098 44.7615 7.68606C44.2705 7.80881 43.8496 7.82634 43.3937 7.68606C43.1832 7.63345 43.1832 7.45809 43.1832 7.45809V1.18017L43.1131 1.07495H38.7992C38.694 1.12756 38.5712 1.07495 38.5537 1.1977V18.1726L38.6765 18.2954H43.1306L43.2183 18.1902V11.9999C43.2183 11.9999 43.2183 11.8596 43.4287 11.807C43.9022 11.6667 44.3055 11.6843 44.7966 11.807C44.9368 11.8421 44.9895 11.9473 44.9895 11.9999V18.1902L45.1122 18.3129H49.4261L49.5488 18.2077V1.18017L49.4612 1.09249Z" fill="white"/><path d="M86.8307 16.2963C86.9886 16.2963 87.1464 16.3489 87.3042 16.4366C87.462 16.5242 87.5673 16.647 87.6549 16.8223C87.7426 16.9802 87.7777 17.1555 87.7777 17.3309C87.7777 17.5063 87.7426 17.6816 87.6549 17.8394C87.5673 17.9973 87.4445 18.12 87.3042 18.2252C87.1464 18.3129 86.9886 18.3655 86.8307 18.3655C86.6554 18.3655 86.4976 18.3129 86.3573 18.2252C86.1994 18.1376 86.0942 18.0148 86.0065 17.8394C85.9189 17.6816 85.8838 17.5063 85.8838 17.3309C85.8838 17.1555 85.9189 16.9802 86.0065 16.8223C86.0942 16.6645 86.217 16.5242 86.3573 16.4366C86.4976 16.3313 86.6554 16.2963 86.8307 16.2963ZM86.8307 16.4892C86.6905 16.4892 86.5677 16.5242 86.4449 16.5944C86.3222 16.6645 86.2345 16.7697 86.1644 16.8925C86.0942 17.0328 86.0591 17.1555 86.0591 17.3134C86.0591 17.4536 86.0942 17.5939 86.1644 17.7167C86.2345 17.8394 86.3222 17.9447 86.4449 18.0148C86.5677 18.0849 86.6905 18.12 86.8307 18.12C86.971 18.12 87.0938 18.0849 87.2165 18.0148C87.3393 17.9447 87.427 17.8394 87.4971 17.7167C87.5673 17.5939 87.6023 17.4536 87.6023 17.3134C87.6023 17.1731 87.5673 17.0328 87.4971 16.8925C87.427 16.7522 87.3393 16.6645 87.2165 16.5944C87.0938 16.5242 86.9535 16.4892 86.8307 16.4892ZM86.3923 17.857V16.7873H86.6028C86.7957 16.7873 86.9009 16.7873 86.9184 16.7873C86.9886 16.7873 87.0412 16.8048 87.0762 16.8223C87.1113 16.8399 87.1464 16.875 87.1639 16.9276C87.1815 16.9802 87.199 17.0328 87.199 17.0854C87.199 17.1555 87.1815 17.2257 87.1289 17.2783C87.0762 17.3309 87.0236 17.366 86.936 17.3835C86.971 17.401 86.9886 17.401 87.0061 17.4186C87.0236 17.4361 87.0412 17.4536 87.0762 17.5063C87.0762 17.5238 87.1113 17.5589 87.1464 17.629L87.2691 17.8394H87.0061L86.9184 17.6641C86.8658 17.5413 86.8132 17.4712 86.7781 17.4361C86.7431 17.401 86.6904 17.3835 86.6378 17.3835H86.5852V17.8219H86.3923V17.857ZM86.6028 17.2432H86.6905C86.8132 17.2432 86.8833 17.2432 86.9009 17.2257C86.936 17.2081 86.9535 17.1906 86.971 17.1731C86.9886 17.1555 86.9886 17.1205 86.9886 17.0854C86.9886 17.0503 86.9886 17.0328 86.971 16.9977C86.9535 16.9802 86.936 16.9626 86.9009 16.9451C86.8658 16.9276 86.7957 16.9276 86.6905 16.9276H86.6028V17.2432Z" fill="white"/></svg>                                                                            </div>
+                                    <picture class="size-full bg-black flex">                
+                                        <source media="(min-width: 700px)" srcset="https://togrp.com/wp-content/uploads/2024/06/DSC04514-683x1024.jpg">                               
+                                        <source media="(min-width: 300px)" srcset="https://togrp.com/wp-content/uploads/2024/06/DSC04514-768x1152.jpg">
+                                        <img class="w-full object-cover opacity-60" alt=""  loading="lazy" src="https://togrp.com/wp-content/uploads/2024/06/DSC04514-200x300.jpg">
+                                    </picture>
+
+                                </article>
+                             
+                                </a>
+                                                    </div>
+                                            <div>
+                             
+                            <a href="https://togrp.com/samurai/" target="">
+                                                            <span class="sr-only">Brand: samurai </span>
+                                <article class="relative flex justify-center aspect-square" aria-hidden="true">
+                                    <div class="absolute inset-0 z-20 flex items-center justify-center">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="70" height="14" viewBox="0 0 70 14" fill="none"><path d="M8.67633 1.23565C8.67633 1.23565 5.46872 0.473183 3.20761 1.78778C3.20761 1.78778 2.65548 2.18216 2.39256 2.49766C2.39256 2.49766 0.841341 4.28551 0.736173 5.2846C0.736173 5.2846 0.262919 6.46774 1.44605 7.2565C1.44605 7.2565 2.05077 7.72975 2.97099 7.8875C2.97099 7.8875 4.864 8.25559 5.73164 8.30817C5.73164 8.30817 6.57298 8.51851 7.36173 9.17581C7.36173 9.17581 7.91386 9.54389 7.91386 10.1486C7.91386 10.1486 7.86128 10.4904 6.65185 10.7796C6.65185 10.7796 4.60108 11.4106 1.3146 10.727L0.920217 10.7007C0.920217 10.7007 0.736173 10.8059 0.631006 11.0951L0 12.7515C0 12.7515 0.0525838 13.0144 0.262919 13.0407C0.262919 13.0407 2.97099 13.4877 5.25838 12.9618C5.25838 12.9618 7.01994 12.62 7.59836 11.989C7.59836 11.989 8.51858 11.2266 9.59655 8.91289C9.59655 8.91289 9.99092 7.99267 9.17588 7.17762C9.17588 7.17762 8.67633 6.70437 7.62465 6.46774C7.62465 6.46774 5.94197 6.12594 4.78513 5.91561C4.78513 5.91561 2.94469 5.54752 2.49773 4.52214C2.49773 4.52214 2.07706 4.12776 2.68177 3.73338C2.68177 3.73338 4.18041 2.65541 7.38803 3.20754L7.75611 3.28642C7.75611 3.28642 7.99274 3.26013 8.1242 3.04979L8.80779 1.55115C8.83408 1.55115 8.99183 1.44598 8.67633 1.23565Z" fill="white"/><path d="M9.41273 12.883L13.6194 2.2085L14.0401 4.60106L11.4109 11.621C11.4109 11.621 11.332 11.8576 11.2532 11.9628L9.8334 13.4877C9.8334 13.4877 9.14981 13.8032 9.41273 12.883Z" fill="white"/><path d="M17.037 12.7251L12.9355 2.05055C12.9355 2.05055 12.804 1.68246 13.3299 1.60359C13.3299 1.60359 13.882 1.49842 14.6708 1.07775C14.6708 1.07775 15.0389 0.788538 15.1966 1.41954C15.3544 2.05055 15.2229 1.49842 15.2229 1.49842C15.2229 1.49842 15.4858 2.23459 15.9065 3.31256L19.2981 12.1466C19.2981 12.1466 19.3507 12.4621 19.2193 12.541L17.4314 13.0406C17.4314 13.0143 17.0896 13.0932 17.037 12.7251Z" fill="white"/><path d="M9.30779 10.5954C9.30779 10.5954 14.5136 10.648 16.2226 10.3325C16.2226 10.3325 19.1147 9.64892 19.9297 9.17567C19.9297 9.17567 20.587 8.67612 19.7194 8.62354L11.0168 8.70241C11.0168 8.70241 10.5172 8.75499 10.2543 9.14937L9.17633 10.2799C9.15004 10.2799 8.9397 10.5691 9.30779 10.5954Z" fill="white"/><path d="M52.0584 12.5411L56.2651 1.86658L56.712 4.25914L54.0828 11.3054C54.0828 11.3054 54.004 11.542 53.9251 11.6472L52.5053 13.1721C52.4527 13.1458 51.7692 13.435 52.0584 12.5411Z" fill="white"/><path d="M59.6826 12.3571L55.581 1.68263C55.581 1.68263 55.4496 1.31454 55.9754 1.23567C55.9754 1.23567 56.5275 1.1305 57.3163 0.709829C57.3163 0.709829 57.6844 0.420618 57.8421 1.05162C57.9999 1.68263 57.8684 1.1305 57.8684 1.1305C57.8684 1.1305 58.1313 1.86667 58.552 2.94464L61.9437 11.7787C61.9437 11.7787 61.9962 12.0942 61.8648 12.1731L60.0769 12.6726C60.0769 12.6464 59.7351 12.7252 59.6826 12.3571Z" fill="white"/><path d="M51.9528 10.2275C51.9528 10.2275 57.1586 10.2801 58.8675 9.96459C58.8675 9.96459 61.7334 9.281 62.5747 8.80775C62.5747 8.80775 63.232 8.3082 62.3644 8.25562L53.6354 8.33449C53.6354 8.33449 53.1359 8.38707 52.873 8.78145L51.795 9.91201C51.795 9.91201 51.5584 10.2012 51.9528 10.2275Z" fill="white"/><path d="M20.2451 12.8039L20.6395 1.4984L22.4799 0.946268C22.4799 0.946268 22.8217 0.919976 22.8217 1.26177L22.6377 11.7785C22.6377 11.7785 22.6114 11.9889 22.4011 12.1203L20.6132 12.9617C20.5869 12.9354 20.2451 13.1457 20.2451 12.8039Z" fill="white"/><path d="M20.0865 1.97175L25.5815 10.3063C25.5815 10.3063 25.7656 10.6481 26.3177 10.3852L28.0267 9.30719L29.6042 5.86295C29.6042 5.86295 29.762 5.52116 29.8145 6.047L30.4718 13.0669C30.4718 13.0669 30.4718 13.5402 31.1291 13.2247L32.5752 12.5148C32.5752 12.5148 32.7329 12.3833 32.6804 11.6735L31.8127 0.946366C31.8127 0.946366 31.6813 0.657155 31.3658 0.814906L30.1563 1.39333C30.1563 1.39333 30.0512 1.4985 29.9723 1.62996L27.0802 8.83394C27.0802 8.83394 26.9487 8.91281 26.8698 8.75506L22.7683 2.4713L21.9796 1.10412C21.9796 1.10412 21.6115 0.841198 21.2697 1.02524L20.1917 1.52479C20.1917 1.52479 19.9288 1.65625 20.0865 1.97175Z" fill="white"/><path d="M32.6016 1.81388L32.8908 7.75585C32.8908 7.75585 32.9959 10.7531 34.3894 12.2518C34.3894 12.2518 35.4411 13.6189 37.8599 12.3832C37.8599 12.3832 39.937 11.5682 40.8835 9.88549C40.8835 9.88549 41.3831 8.64978 41.5145 7.38776L41.8826 0.972538C41.8826 0.972538 41.83 0.630743 41.4356 0.788494L39.7004 1.39321C39.7004 1.39321 39.4112 1.52467 39.4375 1.97163C39.4375 1.97163 39.1745 9.67516 38.2806 11.3578C38.2806 11.3578 35.3359 11.463 35.2045 6.78305C35.2045 6.78305 34.9153 2.02421 34.889 1.02512C34.889 1.02512 34.9415 0.604451 34.3894 0.762202L32.8119 1.34062C32.8119 1.34062 32.6016 1.47208 32.6016 1.81388Z" fill="white"/><path d="M42.9873 12.4097L43.1188 2.12952H45.5639L45.3799 11.1476L45.3536 11.358L45.301 11.5946C45.301 11.5946 45.301 11.7786 44.8803 11.9627L43.2765 12.62C43.3028 12.62 43.1451 12.7514 42.9873 12.4097Z" fill="white"/><path d="M42.2766 2.68171L47.5875 2.7343C47.5875 2.7343 50.2956 2.94463 50.1378 4.49586C50.1378 4.49586 48.7444 5.54753 46.9828 5.70528C46.9828 5.70528 46.6147 5.86304 46.4307 6.20483L45.1161 7.80864L50.059 13.2511C50.059 13.2511 50.243 13.4351 50.5585 13.1722L51.6628 12.3834C51.6628 12.3834 51.9257 12.1468 51.5839 11.7787L47.7453 7.49313L47.6401 7.38797C47.6401 7.38797 49.6646 6.28371 49.7172 6.17854C49.7172 6.17854 49.9538 5.9945 50.243 5.44237C50.243 5.44237 51.4524 3.33901 51.5576 2.81317C51.5576 2.81317 51.6628 1.97183 51.1895 1.73521C51.1895 1.73521 50.6637 1.18308 49.1125 0.999032C49.1125 0.999032 46.3781 0.841281 43.486 0.920156C43.486 0.920156 43.1179 0.841281 42.855 1.26195L42.0925 2.28734C42.1188 2.31363 41.7244 2.70801 42.2766 2.68171Z" fill="white"/><path d="M65.9933 11.1476C65.9933 11.1476 65.336 10.6743 65.8619 1.62991L65.9144 0.946315C65.9144 0.946315 65.9933 0.473061 65.3886 0.709688L63.8111 1.23553C63.8111 1.23553 63.5219 1.3144 63.4956 1.57732C63.4956 1.57732 63.0749 9.88557 63.2327 10.7532C63.2327 10.7532 63.3641 12.0152 63.5745 12.4885C63.5745 12.4885 63.6533 12.7251 64.2318 12.5936C64.2318 12.5936 65.5726 12.2255 66.3614 11.6997C66.3614 11.6997 66.5454 11.5945 66.3614 11.4368" fill="white"/><path d="M66.6357 0.234497H67.8357V0.47134H67.3778V1.66608H67.0936V0.47134H66.6357V0.234497ZM69.6673 1.66608H69.3831L69.3305 0.823972C69.3252 0.713446 69.3252 0.576603 69.32 0.423971H69.3042C69.2673 0.550287 69.2252 0.718709 69.1831 0.850288L68.9252 1.64503H68.6305L68.3726 0.829235C68.3463 0.718709 68.3042 0.550287 68.2726 0.423971H68.2568C68.2568 0.55555 68.2515 0.692393 68.2463 0.823972L68.1936 1.66608H67.92L68.0252 0.234497H68.4515L68.6989 0.934498C68.7305 1.04502 68.7568 1.15029 68.7936 1.29766H68.7989C68.8357 1.16608 68.8673 1.04502 68.8989 0.939762L69.1463 0.234497H69.5568L69.6673 1.66608Z" fill="white"/></svg>                                                                            </div>
+                                    <picture class="size-full bg-black flex">                
+                                        <source media="(min-width: 700px)" srcset="https://togrp.com/wp-content/uploads/2024/06/DSC05140-666x1024.jpg">                               
+                                        <source media="(min-width: 300px)" srcset="https://togrp.com/wp-content/uploads/2024/06/DSC05140-768x1182.jpg">
+                                        <img class="w-full object-cover opacity-60" alt=""  loading="lazy" src="https://togrp.com/wp-content/uploads/2024/06/DSC05140-195x300.jpg">
+                                    </picture>
+
+                                </article>
+                             
+                                </a>
+                                                    </div>
+                                    </div>
+            </div>
+                            <nav class="slider-nav flex justify-center items-center mt-4">
+                    <button class="previous-slide rotate-180 mr-8 transition rounded-full" aria-label="Go back to previous slide" tabindex="-1"><svg aria-hidden="true" width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="21.5" cy="21.5" r="21" stroke="url(#a)"/><path d="M14 21.5H28" stroke="#FF4AEA" stroke-linecap="round"/><path d="M27.9999 21.4999C25.5582 21.4999 23.5789 19.5205 23.5789 17.0789" stroke="#FF4AEA" stroke-linecap="round"/><path d="M23.5789 25.9211C23.5789 23.4794 25.5582 21.5 27.9999 21.5" stroke="#FF4AEA" stroke-linecap="round"/><defs><linearGradient id="a" x1="9.5" y1="22.5" x2="43.6181" y2="22.5169" gradientUnits="userSpaceOnUse"><stop stop-color="#FF4AEA" stop-opacity="0"/><stop offset="1" stop-color="#FF4AEA"/></linearGradient></defs></svg></button>
+                    <label class="slide-pagination"></label>
+                    <button class="next-slide ml-8 transition rounded-full" aria-label="Go forward to next slide" tabindex="-1"><svg aria-hidden="true" width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="21.5" cy="21.5" r="21" stroke="url(#a)"/><path d="M14 21.5H28" stroke="#FF4AEA" stroke-linecap="round"/><path d="M27.9999 21.4999C25.5582 21.4999 23.5789 19.5205 23.5789 17.0789" stroke="#FF4AEA" stroke-linecap="round"/><path d="M23.5789 25.9211C23.5789 23.4794 25.5582 21.5 27.9999 21.5" stroke="#FF4AEA" stroke-linecap="round"/><defs><linearGradient id="a" x1="9.5" y1="22.5" x2="43.6181" y2="22.5169" gradientUnits="userSpaceOnUse"><stop stop-color="#FF4AEA" stop-opacity="0"/><stop offset="1" stop-color="#FF4AEA"/></linearGradient></defs></svg></button>
+                </nav>
+                        <div id="explore-brands-slider-6ad3ac88cb99f-after" tabindex="-1" class="sr-only">End of Explore Brands slider items</div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const animationEnabled = getCookie('animations_enabled') !== 'false';
+    </script>
+
+<section class="get-in-touch-row container relative">
+    <div class="bg-off-white text-black px-12 xl:px-32 py-12 xl:py-24 relative overflow-hidden">
+        <div class="relative z-10 block lg:flex justify-between gap-24 items-center">
+            <div>
+                <h2 class="h1 relative z-10 text-7xl mb-8 the-one-group-purple-gradient"><mark>Let's chat...</mark></h2>
+
+                            </div>
+            
+            
+                        <div class="shrink-0 flex flex-col gap-4 justify-center items-center">
+                                    <div class="inline-block w-full alt-style  ">
+            <a href="https://togrp.com/licensee-inquiry-form/" class="btn text-white text-xs         bg-gradient-to-r !text-black from-bright-pink to-bright-pink before:bg-bright-pink                " target="_self" >
+            <span>Inquiry Form</span>
+
+                    </a>
+    </div>                                    <div class="inline-block w-full alt-style light-mode ">
+            <a href="https://togrp.com/contact-us/" class="btn text-white text-xs !from-white !to-white        bg-gradient-to-r !text-black from-bright-pink to-bright-pink before:bg-bright-pink                " target="_self" >
+            <span>Contact Us</span>
+
+                    </a>
+    </div>                                        </div>
+        </div>
+    </div>
+</section>
+</main>
+
+<footer class="bg-black">
+    <div class="container">
+        <nav class="footer-navigation flex flex-col gap-8 m:gap-0 md:flex-row items-center justify-center md:justify-start">
+            <div class="logo-container mr-0 md:mr-16 xl:mr-64">
+                <a href="https://togrp.com/" class="logo block hover:opacity-70 mb-4">
+                    <img src="https://togrp.com/wp-content/themes/the-one-group-2024/assets/dist/images/logos/the-one-group-logo.svg" title="The ONE Group" alt="The ONE Group logo"  />
+                </a>
+
+                    <div class="social-icons-container">
+        <ul class="social-icons flex items-center">
+                                                <li>
+                        <a href="https://www.facebook.com/eatSTK" target="_blank" rel="nofollow" aria-label="Visit our Facebook account (opens in a new tab)">
+                            <img src="https://togrp.com/wp-content/themes/the-one-group-2024/assets/dist/images/icons/social/facebook-icon.svg" alt="Facebook icon" />
+                        </a>
+                    </li>
+                                                                <li>
+                        <a href="https://www.instagram.com/eatSTK" target="_blank" rel="nofollow" aria-label="Visit our Instagram account (opens in a new tab)">
+                            <img src="https://togrp.com/wp-content/themes/the-one-group-2024/assets/dist/images/icons/social/instagram-icon.svg" alt="Instagram icon" />
+                        </a>
+                    </li>
+                                                                <li>
+                        <a href="https://x.com/eatSTK" target="_blank" rel="nofollow" aria-label="Visit our X account (opens in a new tab)">
+                            <img src="https://togrp.com/wp-content/themes/the-one-group-2024/assets/dist/images/icons/social/x-icon.svg" alt="X icon" />
+                        </a>
+                    </li>
+                                                                <li>
+                        <a href="https://www.linkedin.com/company/the-one-group/" target="_blank" rel="nofollow" aria-label="Visit our Linkedin account (opens in a new tab)">
+                            <img src="https://togrp.com/wp-content/themes/the-one-group-2024/assets/dist/images/icons/social/linkedin-icon.svg" alt="Linkedin icon" />
+                        </a>
+                    </li>
+                                    </ul>
+    </div>
+            </div>
+            <ul id="menu-footer-menu" class="nav-menu nav-footer-menu"><li id="menu-item-695" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-695"><a href="https://togrp.com/vibe-dining/">Vibe Dining</a></li>
+<li id="menu-item-45" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45"><a target="_blank" href="https://ir.togrp.com/" title="Visit our Investor Relations website (opens in a new tab)">Investor Relations</a></li>
+<li id="menu-item-696" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-696"><a href="https://togrp.com/licensee-opportunities/">Licensee Opportunities</a></li>
+<li id="menu-item-697" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-697"><a href="https://togrp.com/contact-us/">Contact Us</a></li>
+<li id="menu-item-698" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-698"><a href="https://togrp.com/licensee-inquiry-form/">Licensee Inquiry Form</a></li>
+<li id="menu-item-832" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-832"><a target="_blank" href="https://harri.com/kg-jobs" title="Find out more about Kona Grill Careers (opens in a new tab)">Kona Grill Careers</a></li>
+<li id="menu-item-833" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-833"><a target="_blank" href="https://harri.com/stk-jobs" title="Find out more about STK Careers (opens in a new tab)">STK Careers</a></li>
+<li id="menu-item-834" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-834"><a target="_blank" href="https://benihana.ourstory.harri.com/" title="Find out more about Benihana Careers (opens in a new tab)">Benihana Careers</a></li>
+<li id="menu-item-835" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-835"><a target="_blank" href="https://ra-sushi.ourstory.harri.com/" title="Find out more about RA Sushi Careers (opens in a new tab)">RA Sushi Careers</a></li>
+<li id="menu-item-1113" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1113"><a href="https://harri.com/ss-jobs">Salt Water Socials Careers</a></li>
+</ul>        </nav>
+        <hr class="border-t border-t-white my-16" />
+        <nav class="policies-navigation flex gap-8 flex-col xl:flex-row justify-between">
+            <ul id="menu-policies-menu" class="nav-menu nav-policies-menu"><li id="menu-item-707" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-707"><a rel="privacy-policy" href="https://togrp.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-710" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-710"><a href="https://togrp.com/cookie-policy/">Cookie Policy</a></li>
+<li id="menu-item-1079" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1079"><a href="https://togrp.com/accessibility-statement/">Accessibility Statement</a></li>
+<li id="menu-item-2352" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2352"><a href="https://togrp.com/friends-with-benefits-rewards-terms-of-use/">Friends with Benefits Terms of Use</a></li>
+<li class="menu-item menu-item-custom"><a href="javascript:void(0)" onclick="revisitCkyConsent()">Do Not Sell or Share My Personal Information</a></li></ul>            <div class="copyright flex flex-col md:flex-row items-center uppercase tracking-widest">
+                <div>
+                    <p class="font-normal mr-8">The ONE Group</p>
+                </div>
+                <div class="mt-3 md:mt-0 text-center md:text-left">
+                    <p class="uppercase text-xs">&copy; 2026 The ONE Group, LLC. All Rights Reserved.</p>
+                </div>
+            </div>
+        </nav>
+    </div>
+</footer>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp/wp-*.php","/wp/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/the-one-group-2024/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script id="alpine-js-js" src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.14.1/cdn.min.js?ver=3.14.1"></script>
+<script id="slick-js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" src="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+<script id="gsap-js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" src="//cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script id="gsap-scroll-trigger-js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" src="//cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script id="website-script-js" src="https://togrp.com/wp-content/themes/the-one-group-2024/assets/dist/js/main.js?ver=1790940525"></script>
+
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"7156323716694dce9c507d2589f970f7","r":1,"spa":2}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a4c191915c2841ba',t:'MTc5MjI2Mzg2MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+</html>

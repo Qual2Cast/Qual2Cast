@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"a4cc726ee7","applicationID":"81896881","transactionName":"IloPFRAKCVRcF0tRXgxQTggMAQBA","queueTime":2,"applicationTime":1409,"agent":""}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).init={ajax:{deny_list:["bam.nr-data.net"]}};(window.NREUM||(NREUM={})).loader_config={licenseKey:"a4cc726ee7",applicationID:"81896881",browserID:"81909993"};;/*! For license information please see nr-loader-rum-1.324.0.min.js.LICENSE.txt */
+(()=>{var e={8122(e,t,r){"use strict";r.d(t,{a:()=>i});var n=r(944);function i(e,t){try{if(!e||"object"!=typeof e)return(0,n.R)(3);if(!t||"object"!=typeof t)return(0,n.R)(4);const r=Object.create(Object.getPrototypeOf(t),Object.getOwnPropertyDescriptors(t)),a=0===Object.keys(r).length?e:r;for(let s in a)if(void 0!==e[s])try{if(null===e[s]){r[s]=null;continue}Array.isArray(e[s])&&Array.isArray(t[s])?r[s]=Array.from(new Set([...e[s],...t[s]])):e[s]instanceof Map||e[s]instanceof Set||e[s]instanceof Date||e[s]instanceof RegExp?r[s]=e[s]:"object"==typeof e[s]&&null!==t[s]&&"object"==typeof t[s]?r[s]=i(e[s],t[s]):r[s]=e[s]}catch(e){r[s]||(0,n.R)(1,e)}return r}catch(e){(0,n.R)(2,e)}}},2555(e,t,r){"use strict";r.d(t,{f:()=>s});var n=r(384),i=r(8122);const a={beacon:n.NT.beacon,errorBeacon:n.NT.errorBeacon,licenseKey:void 0,applicationID:void 0,sa:void 0,queueTime:void 0,applicationTime:void 0,ttGuid:void 0,user:void 0,account:void 0,product:void 0,extra:void 0,jsAttributes:{},userAttributes:void 0,atts:void 0,transactionName:void 0,tNamePlain:void 0};function s(e){try{return!!e.licenseKey&&!!e.errorBeacon&&!!e.applicationID}catch(e){return!1}}r.d(t,["D",0,e=>(0,i.a)(e,a)])},7699(e,t,r){"use strict";var n=r(860);const i=1e6,a={[n.K7.logging]:!0,[n.K7.genericEvents]:!0,[n.K7.jserrors]:!0,[n.K7.ajax]:!0};r.d(t,["It",0,i,"KC",0,a,"qh",0,"SESSION_ERROR","zd",0,5e5])},9324(e,t,r){"use strict";r.d(t,["xv",0,"1.324.0"])},981(e,t,r){"use strict";r.d(t,["R",0,{AJAX:"AjaxRequest",PA:"PageAction",UA:"UserAction",BP:"BrowserPerformance",WS:"WebSocket",SPV:"SecurityPolicyViolation",JSE:"JavaScriptError",LOG:"Log",PVE:"PageView",PVT:"PageViewTiming",SR:"SessionReplay",ST:"SessionTrace",BI:"BrowserInteraction"}])},6154(e,t,r){"use strict";var n=r(1863);const i="undefined"!=typeof window&&!!window.document,a="undefined"!=typeof WorkerGlobalScope&&("undefined"!=typeof self&&self instanceof WorkerGlobalScope&&self.navigator instanceof WorkerNavigator||"undefined"!=typeof globalThis&&globalThis instanceof WorkerGlobalScope&&globalThis.navigator instanceof WorkerNavigator),s=i?window:"undefined"!=typeof WorkerGlobalScope&&("undefined"!=typeof self&&self instanceof WorkerGlobalScope&&self||"undefined"!=typeof globalThis&&globalThis instanceof WorkerGlobalScope&&globalThis),o=Boolean("hidden"===s?.document?.visibilityState),c=""+s?.location,u=/iPad|iPhone|iPod/.test(s.navigator?.userAgent),d=u&&"undefined"==typeof SharedWorker,l=((()=>{const e=s.navigator?.userAgent?.match(/Firefox[/\s](\d+\.\d+)/);Array.isArray(e)&&e.length>=2&&e[1]})(),Date.now()-(0,n.t)());r.d(t,["OF",0,u,"RI",0,i,"WN",0,l,"bv",0,a,"gm",0,s,"m",0,c,"mw",0,o,"sb",0,d,"zk",0,()=>{const e=s?.performance?.getEntriesByType?.("navigation")?.[0];if(e&&e.responseStart>0&&e.responseStart<s.performance.now())return e}])},3241(e,t,r){"use strict";r.d(t,{W:()=>i});var n=r(6154);function i(e={}){try{n.gm.dispatchEvent(new CustomEvent("newrelic",{detail:e}))}catch(e){}}},1687(e,t,r){"use strict";r.d(t,{Ak:()=>o,Ze:()=>u,x3:()=>c});var n=r(3241),i=r(3606),a=r(860),s=r(2646);function o(e,t){if(!e)return;const r={staged:!1,priority:a.P3[t]||0};e.runtime.drainRegistry.get(t)||e.runtime.drainRegistry.set(t,r)}function c(e,t){if(!e)return;const r=e.runtime.drainRegistry;r&&(r.get(t)&&r.delete(t),l(e,t,!1),r.size&&d(e))}function u(e,t="feature",r=!1){if(e){if(!e.runtime.drainRegistry.get(t)||r)return l(e,t);e.runtime.drainRegistry.get(t).staged=!0,d(e)}}function d(e){if(!e)return;const t=Array.from(e.runtime.drainRegistry);t.every(([e,t])=>t.staged)&&(t.sort((e,t)=>e[1].priority-t[1].priority),t.forEach(([t])=>{e.runtime.drainRegistry.delete(t),l(e,t)}))}function l(e,t,r=!0){if(!e)return;const a=e.ee,o=i.i.handlers;if(a&&!a.aborted&&a.backlog&&o){if((0,n.W)({type:"lifecycle",name:"drain",feature:t}),r){const e=a.backlog[t],r=o[t];if(r){for(let t=0;e&&t<e.length;++t)f(e[t],r);Object.entries(r).forEach(([e,t])=>{Object.values(t||{}).forEach(t=>{t[0]?.on&&t[0].context()instanceof s.y&&!t[0].listeners(e).includes(t[1])&&t[0].on(e,t[1])})})}}a.isolatedBacklog||delete o[t],a.backlog[t]=null,a.emit("drain-"+t,[])}}function f(e,t){var r=e[1];Object.values(t[r]||{}).forEach(t=>{var r=e[0];if(t[0]===r){var n=t[1],i=e[3],a=e[2];n.apply(i,a)}})}},7836(e,t,r){"use strict";var n=r(384),i=r(8990),a=r(2646),s=r(5607);const o="nr@context:".concat(s.W),c=function e(t,r){var n={},s={},d={},l=!1;try{l=16===r.length&&u.initializedAgents?.[r]?.runtime.isolatedBacklog}catch(e){}var f={on:p,addEventListener:p,removeEventListener:function(e,t){var r=n[e];if(!r)return;for(var i=0;i<r.length;i++)r[i]===t&&r.splice(i,1)},emit:function(e,r,n,i,a){!1!==a&&(a=!0);if(c.aborted&&!i)return;t&&a&&t.emit(e,r,n);var o=g(n);m(e).forEach(e=>{e.apply(o,r)});var u=v()[s[e]];u&&u.push([f,e,r,o]);return o},get:h,listeners:m,context:g,buffer:function(e,t){const r=v();if(t=t||"feature",f.aborted)return;Object.entries(e||{}).forEach(([e,n])=>{s[n]=t,t in r||(r[t]=[])})},abort:function(){f._aborted=!0,Object.keys(f.backlog).forEach(e=>{delete f.backlog[e]})},isBuffering:function(e){return!!v()[s[e]]},debugId:r,backlog:l?{}:t&&"object"==typeof t.backlog?t.backlog:{},isolatedBacklog:l};return Object.defineProperty(f,"aborted",{get:()=>{let e=f._aborted||!1;return e||(t&&(e=t.aborted),e)}}),f;function g(e){return e&&e instanceof a.y?e:e?(0,i.I)(e,o,()=>new a.y(o)):new a.y(o)}function p(e,t){n[e]=m(e).concat(t)}function m(e){return n[e]||[]}function h(t){return d[t]=d[t]||e(f,t)}function v(){return f.backlog}}(void 0,"globalEE"),u=(0,n.Zm)();u.ee||(u.ee=c),r.d(t,["P",0,o,"ee",0,c])},2646(e,t,r){"use strict";r.d(t,{y:()=>n});class n{constructor(e){this.contextId=e}}},9908(e,t,r){"use strict";r.d(t,{d:()=>n,p:()=>i});var n=r(7836).ee.get("handle");function i(e,t,r,i,a){a?(a.buffer([e],i),a.emit(e,t,r)):(n.buffer([e],i),n.emit(e,t,r))}},3606(e,t,r){"use strict";r.d(t,{i:()=>a});var n=r(9908);a.on=s;var i=a.handlers={};function a(e,t,r,a){s(a||n.d,i,e,t,r)}function s(e,t,r,i,a){a||(a="feature"),e||(e=n.d);var s=t[a]=t[a]||{};(s[r]=s[r]||[]).push([e,i])}},3878(e,t,r){"use strict";function n(e,t){return{capture:e,passive:!1,signal:t}}function i(e,t,r=!1,i){window.addEventListener(e,t,n(r,i))}function a(e,t,r=!1,i){document.addEventListener(e,t,n(r,i))}r.d(t,{DD:()=>a,jT:()=>n,sp:()=>i})},5607(e,t,r){"use strict";const n=(0,r(9566).bz)();r.d(t,["W",0,n])},9566(e,t,r){"use strict";r.d(t,{LA:()=>s,bz:()=>a});var n=r(6154);function i(e,t){return e?15&e[t]:16*Math.random()|0}function a(){const e=n.gm?.crypto||n.gm?.msCrypto;let t,r=0;return e&&e.getRandomValues&&(t=e.getRandomValues(new Uint8Array(30))),"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".split("").map(e=>"x"===e?i(t,r++).toString(16):"y"===e?(3&i()|8).toString(16):e).join("")}function s(e){const t=n.gm?.crypto||n.gm?.msCrypto;let r,a=0;t&&t.getRandomValues&&(r=t.getRandomValues(new Uint8Array(e)));const s=[];for(var o=0;o<e;o++)s.push(i(r,a++).toString(16));return s.join("")}},2614(e,t,r){"use strict";r.d(t,["BB",0,18e5,"Wt",0,"NRBA_SESSION::","iL",0,{SAME_TAB:"same-tab",CROSS_TAB:"cross-tab"},"tS",0,{STARTED:"session-started",PAUSE:"session-pause",RESET:"session-reset",RESUME:"session-resume",UPDATE:"session-update"},"wk",0,144e5])},1863(e,t,r){"use strict";function n(){return Math.floor(performance.now())}r.d(t,{t:()=>n})},944(e,t,r){"use strict";r.d(t,{R:()=>i});var n=r(3241);function i(e,t){"function"==typeof console.debug&&(console.debug("New Relic Warning: https://github.com/newrelic/newrelic-browser-agent/blob/main/docs/warning-codes.md#".concat(e),t),(0,n.W)({drained:null,type:"data",name:"warn",feature:"warn",data:{code:e,secondary:t}}))}},8990(e,t,r){"use strict";r.d(t,{I:()=>i});var n=Object.prototype.hasOwnProperty;function i(e,t,r){if(n.call(e,t))return e[t];var i=r();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:i,writable:!0,enumerable:!1}),i}catch(e){}return e[t]=i,i}},6389(e,t,r){"use strict";function n(e,t=500,r={}){const n=r?.leading||!1;let i;return(...r)=>{n&&void 0===i&&(e.apply(this,r),i=setTimeout(()=>{i=clearTimeout(i)},t)),n||(clearTimeout(i),i=setTimeout(()=>{e.apply(this,r)},t))}}function i(e){let t=!1;return(...r)=>{t||(t=!0,e.apply(this,r))}}r.d(t,{J:()=>i,s:()=>n})},1910(e,t,r){"use strict";r.d(t,{i:()=>a});var n=r(944);const i=new Map;function a(...e){return e.every(e=>{if(i.has(e))return i.get(e);const t="function"==typeof e?e.toString():"",r=t.includes("[native code]"),a=t.includes("nrWrapper");return r||a||(0,n.R)(64,e?.name||t),i.set(e,r),r})}},5289(e,t,r){"use strict";r.d(t,{GG:()=>s,Qr:()=>c,sB:()=>o});var n=r(3878),i=r(6389);function a(){return"undefined"==typeof document||"complete"===document.readyState}function s(e,t){if(a())return e();const r=(0,i.J)(e),s=setInterval(()=>{a()&&(clearInterval(s),r())},500);(0,n.sp)("load",r,t)}function o(e){if(a())return e();(0,n.DD)("DOMContentLoaded",e)}function c(e){if(a())return e();(0,n.sp)("popstate",e)}},384(e,t,r){"use strict";r.d(t,{Zm:()=>c,bQ:()=>d,dV:()=>u,pV:()=>l});var n=r(6154),i=r(1863),a=r(944),s=r(1910);const o={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net"};function c(){return n.gm.NREUM||(n.gm.NREUM={}),void 0===n.gm.newrelic&&(n.gm.newrelic=n.gm.NREUM),n.gm.NREUM}function u(){let e=c();return e.o||(e.o={ST:n.gm.setTimeout,SI:n.gm.setImmediate||n.gm.setInterval,CT:n.gm.clearTimeout,XHR:n.gm.XMLHttpRequest,REQ:n.gm.Request,EV:n.gm.Event,PR:n.gm.Promise,MO:n.gm.MutationObserver,FETCH:n.gm.fetch,WS:n.gm.WebSocket},(0,s.i)(...Object.values(e.o))),e}function d(e,t){let r=c();r.initializedAgents??={},t.initializedAt={ms:(0,i.t)(),date:new Date},r.initializedAgents[e]=t,2===Object.keys(r.initializedAgents).length&&(0,a.R)(69)}function l(){return function(){let e=c();const t=e.info||{};e.info={beacon:o.beacon,errorBeacon:o.errorBeacon,...t}}(),function(){let e=c();const t=e.init||{};e.init={...t}}(),u(),function(){let e=c();const t=e.loader_config||{};e.loader_config={...t}}(),c()}r.d(t,["NT",0,o])},2843(e,t,r){"use strict";r.d(t,{G:()=>a,u:()=>i});var n=r(3878);function i(e,t=!1,r,i){(0,n.DD)("visibilitychange",function(){if(t)return void("hidden"===document.visibilityState&&e());e(document.visibilityState)},r,i)}function a(e,t,r){(0,n.sp)("pagehide",e,t,r)}},9300(e,t,r){"use strict";r(860).K7.ajax;r.d(t,["mo",0,{NONE:"none",FAILURES:"failures",ALL:"all"}])},3969(e,t,r){"use strict";const n=r(860).K7.metrics;r.d(t,["TZ",0,n,"XG",0,"storeEventMetrics","xV",0,"storeSupportabilityMetrics"])},6630(e,t,r){"use strict";const n=r(860).K7.pageViewEvent;r.d(t,["T",0,n])},782(e,t,r){"use strict";const n=r(860).K7.pageViewTiming;r.d(t,["T",0,n])},4234(e,t,r){"use strict";r.d(t,{W:()=>i});var n=r(1687);class i{constructor(e,t){this.agentRef=e,this.ee=e?.ee,this.featureName=t,this.blocked=!1}deregisterDrain(){(0,n.x3)(this.agentRef,this.featureName)}}},7767(e,t,r){"use strict";var n=r(6154);r.d(t,["V",0,e=>n.RI&&!0===e?.privacy.cookies_enabled])},8362(e,t,r){"use strict";r.d(t,{d:()=>a});var n=r(9566),i=r(1741);class a extends i.W{agentIdentifier=(0,n.LA)(16)}},1741(e,t,r){"use strict";r.d(t,{W:()=>a});var n=r(944),i=r(4261);class a{#e(e,...t){if(this[e]!==a.prototype[e])return this[e](...t);(0,n.R)(35,e)}addPageAction(e,t){return this.#e(i.hG,e,t)}register(e){return this.#e(i.eY,e)}recordCustomEvent(e,t){return this.#e(i.fF,e,t)}setPageViewName(e,t){return this.#e(i.Fw,e,t)}setCustomAttribute(e,t,r){return this.#e(i.cD,e,t,r)}noticeError(e,t){return this.#e(i.o5,e,t)}setUserId(e,t=!1){return this.#e(i.Dl,e,t)}setApplicationVersion(e){return this.#e(i.nb,e)}setErrorHandler(e){return this.#e(i.bt,e)}addRelease(e,t){return this.#e(i.k6,e,t)}log(e,t){return this.#e("log",e,t)}start(){return this.#e("start")}finished(e){return this.#e(i.BL,e)}recordReplay(){return this.#e(i.CH)}pauseReplay(){return this.#e(i.Tb)}addToTrace(e){return this.#e(i.U2,e)}setCurrentRouteName(e){return this.#e(i.PA,e)}interaction(e){return this.#e(i.dT,e)}wrapLogger(e,t,r){return this.#e(i.Wb,e,t,r)}measure(e,t){return this.#e(i.V1,e,t)}consent(e){return this.#e(i.Pv,e)}}},4261(e,t,r){"use strict";r.d(t,["BL",0,"finished","CH",0,"recordReplay","Dl",0,"setUserId","Fw",0,"setPageViewName","PA",0,"setCurrentRouteName","Pv",0,"consent","Tb",0,"pauseReplay","U2",0,"addToTrace","V1",0,"measure","Wb",0,"wrapLogger","bt",0,"setErrorHandler","cD",0,"setCustomAttribute","dT",0,"interaction","eY",0,"register","fF",0,"recordCustomEvent","hG",0,"addPageAction","k6",0,"addRelease","nb",0,"setApplicationVersion","o5",0,"noticeError"])},1738(e,t,r){"use strict";r.d(t,{U:()=>l,Y:()=>d});var n=r(3241),i=r(9908),a=r(1863),s=r(944),o=r(3969),c=r(8362),u=r(860);function d(e,t,r,a){const d=a||r;!d||d[e]&&d[e]!==c.d.prototype[e]||(d[e]=function(){(0,i.p)(o.xV,["API/"+e+"/called"],void 0,u.K7.metrics,r.ee),(0,n.W)({drained:!!r.runtime?.activatedFeatures,type:"data",name:"api",feature:"api-"+e,data:{}});try{return t.apply(this,arguments)}catch(e){(0,s.R)(23,e)}})}function l(e,t,r,n,s){const o=e.info;null===r?delete o.jsAttributes[t]:o.jsAttributes[t]=r,(s||null===r)&&(0,i.p)("api-"+n,[(0,a.t)(),t,r],void 0,"session",e.ee)}},8374(e,t,r){r.nc=(()=>{try{return document?.currentScript?.nonce}catch(e){}return""})()},860(e,t,r){"use strict";const n="events",i="jserrors",a="browser/blobs",s="browser/logs",o={ajax:"ajax",genericEvents:"generic_events",jserrors:i,logging:"logging",metrics:"metrics",pageAction:"page_action",pageViewEvent:"page_view_event",pageViewTiming:"page_view_timing",sessionReplay:"session_replay",sessionTrace:"session_trace",softNav:"soft_navigations"},c={[o.pageViewEvent]:1,[o.pageViewTiming]:2,[o.metrics]:3,[o.jserrors]:4,[o.softNav]:5,[o.ajax]:6,[o.sessionTrace]:7,[o.sessionReplay]:8,[o.logging]:9,[o.genericEvents]:10},u={[o.pageViewEvent]:"rum",[o.pageViewTiming]:n,[o.ajax]:n,[o.softNav]:n,[o.metrics]:i,[o.jserrors]:i,[o.sessionTrace]:a,[o.sessionReplay]:a,[o.logging]:s,[o.genericEvents]:"ins"};r.d(t,["$J",0,u,"K7",0,o,"P3",0,c,"XX",0,i,"Yy",0,s,"df",0,a,"hg",0,"connect"])}};const t={};function r(n){const i=t[n];if(void 0!==i)return i.exports;const a=t[n]={exports:{}};return e[n](a,a.exports,r),a.exports}r.m=e,r.d=(e,t)=>{if(Array.isArray(t))for(var n=0;n<t.length;){var i=t[n++],a=t[n++];r.o(e,i)?0===a&&n++:0===a?Object.defineProperty(e,i,{enumerable:!0,value:t[n++]}):Object.defineProperty(e,i,{enumerable:!0,get:a})}else for(var i in t)r.o(t,i)&&!r.o(e,i)&&Object.defineProperty(e,i,{enumerable:!0,get:t[i]})},r.f={},r.e=e=>Promise.all(Object.keys(r.f).reduce((t,n)=>(r.f[n](e,t),t),[])),r.u=e=>"nr-rum-1.324.0.min.js",r.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),(()=>{const e={},t="NRBA-1.324.0.PROD:";r.l=(n,i,a,s)=>{if(e[n])return void e[n].push(i);let o,c;if(void 0!==a){const e=document.getElementsByTagName("script");for(var u=0;u<e.length;u++){const r=e[u];if(r.getAttribute("src")==n||r.getAttribute("data-webpack")==t+a){o=r;break}}}if(!o){c=!0;var d={296:"sha512-Pjy0Jxmo6oAG6oGKLKrf8x8xyaSM1NuL7vLGv9xRLEw0hrpERDruLI5RxlCHNy0NpMyEPWhlC34zujXIR3qJPQ=="};o=document.createElement("script"),o.charset="utf-8",r.nc&&o.setAttribute("nonce",r.nc),o.setAttribute("data-webpack",t+a),o.src=n,0!==o.src.indexOf(window.location.origin+"/")&&(o.crossOrigin="anonymous"),d[s]&&(o.integrity=d[s])}e[n]=[i];const l=(t,r)=>{o.onerror=o.onload=null,clearTimeout(f);const i=e[n];if(delete e[n],o.parentNode?.removeChild(o),i?.forEach(e=>e(r)),t)return t(r)},f=setTimeout(l.bind(null,void 0,{type:"timeout",target:o}),12e4);o.onerror=l.bind(null,o.onerror),o.onload=l.bind(null,o.onload),c&&document.head.appendChild(o)}})(),r.r=e=>{Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},r.p="https://js-agent.newrelic.com/",(()=>{const e={374:0,840:0};r.f.j=(t,n)=>{let i=r.o(e,t)?e[t]:void 0;if(0!==i)if(i)n.push(i[2]);else{const a=new Promise((r,n)=>i=e[t]=[r,n]);n.push(i[2]=a);const s=r.p+r.u(t),o=new Error,c=n=>{if(r.o(e,t)&&(i=e[t],0!==i&&(e[t]=void 0),i)){const e=n&&("load"===n.type?"missing":n.type),r=n&&n.target&&n.target.src;o.message="Loading chunk "+t+" failed: ("+e+": "+r+")",o.name="ChunkLoadError",o.type=e,o.request=r,i[1](o)}};r.l(s,c,"chunk-"+t,t)}};const t=(t,n)=>{let[i,a,s]=n;var o,c,u=0;if(i.some(t=>0!==e[t])){for(o in a)r.o(a,o)&&(r.m[o]=a[o]);if(s)s(r)}for(t&&t(n);u<i.length;u++)c=i[u],r.o(e,c)&&e[c]&&e[c][0](),e[c]=0},n=self["webpackChunk:NRBA-1.324.0.PROD"]=self["webpackChunk:NRBA-1.324.0.PROD"]||[];n.forEach(t.bind(null,0)),n.push=t.bind(null,n.push.bind(n))})(),(()=>{"use strict";r(8374);var e=r(8362),t=r(860);const n=Object.values(t.K7);var i=r(384),a=r(1741);var s=r(2555),o=r(981);t.K7.genericEvents,o.R.PA,o.R.UA,o.R.BP;const c={RESOURCES:"experimental.resources",REGISTER:"register"};var u=r(9300);const d=e=>{if(!e||"string"!=typeof e)return!1;try{document.createDocumentFragment().querySelector(e)}catch{return!1}return!0};var l=r(2614),f=r(944),g=r(8122);const p="[data-nr-mask]",m=e=>(0,g.a)(e,(()=>{const e={feature_flags:[],experimental:{register:!1,resources:!1,iframe_bridge:!1,iframe_domains:[]},mask_selector:"*",block_selector:"[data-nr-block]",mask_input_options:{color:!1,date:!1,"datetime-local":!1,email:!1,month:!1,number:!1,range:!1,search:!1,tel:!1,text:!1,time:!1,url:!1,week:!1,textarea:!1,select:!1,password:!0}};return{ajax:{deny_list:void 0,block_internal:!0,enabled:!0,autoStart:!0,capture_payloads:u.mo.NONE},api:{register:{get enabled(){return e.feature_flags.includes(c.REGISTER)||e.experimental.register},set enabled(t){e.experimental.register=t},duplicate_data_to_container:!1,get allow_iframe_bridge(){return e.feature_flags.includes(c.IFRAME_BRIDGE)||e.experimental.iframe_bridge},set allow_iframe_bridge(t){e.experimental.iframe_bridge=t},get iframe_domains(){return e.experimental.iframe_domains},set iframe_domains(t){Array.isArray(t)?e.experimental.iframe_domains=t:(0,f.R)(1,t)}}},browser_consent_mode:{enabled:!1},distributed_tracing:{enabled:void 0,exclude_newrelic_header:void 0,cors_use_newrelic_header:void 0,cors_use_tracecontext_headers:void 0,allowed_origins:void 0},get feature_flags(){return e.feature_flags},set feature_flags(t){e.feature_flags=t},generic_events:{enabled:!0,autoStart:!0},harvest:{interval:30},jserrors:{enabled:!0,autoStart:!0},logging:{enabled:!0,autoStart:!0},metrics:{enabled:!0,autoStart:!0},obfuscate:void 0,page_action:{enabled:!0},page_view_event:{enabled:!0,autoStart:!0},page_view_timing:{enabled:!0,autoStart:!0},performance:{capture_marks:!1,capture_measures:!1,capture_detail:!0,resources:{get enabled(){return e.feature_flags.includes(c.RESOURCES)||e.experimental.resources},set enabled(t){e.experimental.resources=t},asset_types:[],first_party_domains:[],ignore_newrelic:!0}},privacy:{cookies_enabled:!0},proxy:{assets:void 0,beacon:void 0},session:{expiresMs:l.wk,inactiveMs:l.BB},session_replay:{autoStart:!0,enabled:!1,preload:!1,sampling_rate:10,error_sampling_rate:100,collect_fonts:!1,inline_images:!1,fix_stylesheets:!0,mask_all_inputs:!0,get mask_text_selector(){return e.mask_selector},set mask_text_selector(t){d(t)?e.mask_selector="".concat(t,",").concat(p):""===t||null===t?e.mask_selector=p:(0,f.R)(5,t)},get block_class(){return"nr-block"},get ignore_class(){return"nr-ignore"},get mask_text_class(){return"nr-mask"},get block_selector(){return e.block_selector},set block_selector(t){d(t)?e.block_selector+=",".concat(t):""!==t&&(0,f.R)(6,t)},get mask_input_options(){return e.mask_input_options},set mask_input_options(t){t&&"object"==typeof t?e.mask_input_options={...t,password:!0}:(0,f.R)(7,t)}},session_trace:{enabled:!0,autoStart:!0},soft_navigations:{enabled:!0,autoStart:!0},ssl:void 0,user_actions:{enabled:!0,elementAttributes:["id","className","tagName","type"]},web_sockets:{enabled:!1}}})());var h=r(6154),v=r(9324);let b=0;const y={buildEnv:"PROD",distMethod:"CDN",version:v.xv,originTime:h.WN},_={consented:!1},w={activatedFeatures:void 0,appMetadata:{},configured:!1,get consented(){return this.session?.state?.consent||_.consented},set consented(e){_.consented=e},customTransaction:void 0,denyList:[],disabled:!1,drainRegistry:new Map,connector:void 0,harvester:void 0,v2Target:void 0,isolatedBacklog:!1,isRecording:!1,loaderType:void 0,maxBytes:3e4,obfuscator:void 0,onerror:void 0,ptid:void 0,releaseIds:{},session:void 0,timeKeeper:void 0,registeredEntities:[],jsAttributesMetadata:{bytes:0},get harvestCount(){return++b},listeningForIframeMessages:!1},R="BA";var A=r(7836),x=r(3241);const E={accountID:void 0,trustKey:void 0,agentID:void 0,licenseKey:void 0,applicationID:void 0,xpid:void 0};var S=r(9908);const k="newrelic-iframe-";function T(e,t={},n,o){let{init:c,info:u,loader_config:d,runtime:l={},exposed:f=!0}=t;if(!u){const e=(0,i.pV)();c=e.init,u=e.info,d=e.loader_config}var p;e.init=m(c||{}),e.loader_config=(p=d||{},(0,g.a)(p,E)),u.jsAttributes??={},h.bv&&(u.jsAttributes.isWorker=!0),e.info=(0,s.D)(u);const v=e.init;e.runtime??=(e=>{const t=(0,g.a)(e,w),r=Object.keys(y).reduce((e,t)=>(e[t]={value:y[t],writable:!1,configurable:!0,enumerable:!0},e),{});return Object.defineProperties(t,r)})(l),e.runtime.v2Target??={type:R,instance:e.agentIdentifier,get id(){return e.runtime.appMetadata?.agents?.[0]?.entityGuid},get attributes(){return{"entity.guid":this.id,appId:e.info.applicationID}}},v.proxy.assets&&(e=>{const t=e.startsWith("http");e+="/",r.p=t?e:"https://"+e})(v.proxy.assets),e.runtime.configured||(Object.defineProperty(e,"beacons",{get:()=>[e.info.beacon,e.info.errorBeacon,e.init.proxy.assets,e.init.proxy.beacon].filter(Boolean)}),Object.defineProperty(e.runtime,"denyList",{get:()=>[...e.init.ajax.deny_list||[],...e.init.ajax.block_internal?e.beacons:[]]}),e.runtime.ptid=e.agentIdentifier,function(e){const t=(0,i.pV)();Object.getOwnPropertyNames(a.W.prototype).forEach(r=>{const n=a.W.prototype[r];if("function"!=typeof n||"constructor"===n)return;let i=t[r];e[r]&&!1!==e.exposed&&"micro-agent"!==e.runtime?.loaderType&&(t[r]=(...t)=>{const n=e[r](...t);return i?i(...t):n})})}(e),e.runtime.loaderType=n,e.ee=A.ee.get(e.agentIdentifier),e.exposed=f,(0,x.W)({drained:!!e.runtime.activatedFeatures,type:"lifecycle",name:"initialize",feature:void 0,data:e.config}),e.init.api.register.allow_iframe_bridge&&h.gm.addEventListener("message",t=>{"string"==typeof t.data?.type&&t.data.type.startsWith(k)&&(0,S.p)("iframe-message",[t],void 0,"IFRAME",e.ee)}),e.runtime.configured=!0)}var j=r(1863),P=r(4261),N=r(1738);var O=r(1687),M=r(4234),I=r(5289),D=r(7767);function V(e){return!!(0,i.dV)().o.MO&&(0,D.V)(e)&&!0===e?.session_trace.enabled}var W=r(6389),B=r(7699);const C=new WeakSet,K=new WeakMap;class U extends M.W{constructor(e,t){super(e,t),this.abortHandler=void 0,this.featAggregate=void 0,this.loadedSuccessfully=void 0,this.onAggregateImported=new Promise(e=>{this.loadedSuccessfully=e}),this.deferred=Promise.resolve(),!1===e.init[this.featureName].autoStart?this.deferred=new Promise((t,r)=>{this.ee.on("manual-start-all",(0,W.J)(()=>{(0,O.Ak)(e,this.featureName),t()}))}):(0,O.Ak)(e,t)}importAggregator(e,t,n={}){if(this.featAggregate)return;const i=async()=>{if(await this.deferred,this.#t(e),!(0,s.f)(e.info))return(0,f.R)(43),e.ee.abort(),void this.loadedSuccessfully(!1);try{await async function(e,t,n){if(K.has(e))return K.get(e);const i=(async()=>{if((0,D.V)(e.init))try{const{setupAgentSession:t}=await r.e(296).then(r.bind(r,1768));t(e)}catch(e){(0,f.R)(20,e),t.emit("internal-error",[e]),(0,S.p)(B.qh,[e],void 0,n,t)}if(e.init.api.register.allow_iframe_bridge)try{const{setupIframeMFEMessageListener:t}=await Promise.resolve().then(function(){const e=new Error("Cannot find module '../../loaders/configure/iframe-message-handler'");throw e.code="MODULE_NOT_FOUND",e});t(e)}catch(e){(0,f.R)(23,e)}const[{Connector:i},{Harvester:a}]=await Promise.all([r.e(296).then(r.bind(r,6589)),r.e(296).then(r.bind(r,5237))]);e.runtime.connector=new i(e),e.runtime.harvester=new a(e);const s=Object.values(e.features).filter(t=>e.runtime.drainRegistry.has(t.featureName));Promise.all(s.map(e=>e.onAggregateImported)).then(()=>e.runtime.harvester.startTimer())})();K.set(e,i),await i}(e,this.ee,this.featureName)}catch(e){return(0,f.R)(79,e),this.ee.abort(),void this.loadedSuccessfully(!1)}try{if(!this.#r(this.featureName,e.runtime.session,e.init))return this.abortHandler?.(),(0,O.Ze)(this.agentRef,this.featureName),void this.loadedSuccessfully(!1);const{Aggregate:r}=await t();this.featAggregate=new r(e,n),e.runtime.harvester.initializedAggregates.push(this.featAggregate),this.loadedSuccessfully(!0)}catch(e){(0,f.R)(34,e),this.abortHandler?.(),(0,O.Ze)(this.agentRef,this.featureName,!0),this.loadedSuccessfully(!1)}};h.RI?(0,I.GG)(()=>i(),!0):i()}#r(e,r,n){if(this.blocked)return!1;switch(e){case t.K7.sessionReplay:return V(n)&&!!r;case t.K7.sessionTrace:return!!r;default:return!0}}#t(e){if(!C.has(e)&&(C.add(e),!(0,s.f)(e.info))){const t=(0,i.pV)();let r={...t.info?.jsAttributes};try{r={...r,...e.info?.jsAttributes}}catch(e){}T(e,{...t,info:{...t.info,jsAttributes:r},runtime:e.runtime},e.runtime.loaderType)}}}var L=r(6630);class F extends U{static featureName=L.T;constructor(e){var t;super(e,L.T),this.setupInspectionEvents(),t=e,(0,N.Y)(P.Fw,function(e,r){"string"==typeof e&&("/"!==e.charAt(0)&&(e="/"+e),t.runtime.customTransaction=(r||"http://custom.transaction")+e,(0,S.p)("api-"+P.Fw,[(0,j.t)()],void 0,void 0,t.ee))},t),this.importAggregator(e,()=>e.init.feature_flags.includes("rum_v2")?r.e(296).then(r.bind(r,908)):r.e(296).then(r.bind(r,7927)))}setupInspectionEvents(){const e=(e,t)=>{e&&(0,x.W)({timeStamp:e.timeStamp,loaded:"complete"===e.target.readyState,type:"window",name:t,data:e.target.location+""})};(0,I.sB)(t=>{e(t,"DOMContentLoaded")}),(0,I.GG)(t=>{e(t,"load")}),(0,I.Qr)(t=>{e(t,"navigate")}),this.ee.on(l.tS.UPDATE,(e,t)=>{(0,x.W)({type:"lifecycle",name:"session",data:t})})}}class G extends e.d{constructor(e){var t;(super(),h.gm)?(this.features={},(0,i.bQ)(this.agentIdentifier,this),this.desiredFeatures=new Set(e.features||[]),this.desiredFeatures.add(F),T(this,e,e.loaderType||"agent"),t=this,(0,N.Y)(P.cD,function(e,r,n=!1){if("string"==typeof e){if(["string","number","boolean"].includes(typeof r)||null===r)return(0,N.U)(t,e,r,P.cD,n);(0,f.R)(40,typeof r)}else(0,f.R)(39,typeof e)},t),function(e){(0,N.Y)(P.Dl,function(t,r=!1){if("string"!=typeof t&&null!==t)return void(0,f.R)(41,typeof t);const n=e.info.jsAttributes["enduser.id"];r&&null!=n&&n!==t?(0,S.p)("api-setUserIdAndResetSession",[t],void 0,"session",e.ee):(0,N.U)(e,"enduser.id",t,P.Dl,!0)},e)}(this),function(e){(0,N.Y)(P.nb,function(t){if("string"==typeof t||null===t)return(0,N.U)(e,"application.version",t,P.nb,!1);(0,f.R)(42,typeof t)},e)}(this),function(e){(0,N.Y)("start",function(){e.ee.emit("manual-start-all")},e)}(this),function(e){(0,N.Y)(P.Pv,function(t=!0){if("boolean"==typeof t){if((0,S.p)("api-"+P.Pv,[t],void 0,"session",e.ee),e.runtime.consented=t,t){const t=e.features.page_view_event;t.onAggregateImported.then(e=>{const r=t.featAggregate;e&&!r.sentRum&&r.sendRum?.()})}}else(0,f.R)(65,typeof t)},e)}(this),this.run()):(0,f.R)(21)}get config(){return{info:this.info,init:this.init,loader_config:this.loader_config,runtime:this.runtime}}get api(){return this}run(){try{const e=function(e){const t={};return n.forEach(r=>{t[r]=!!e[r]?.enabled}),t}(this.init),r=[...this.desiredFeatures],i=this.init.feature_flags.includes("rum_v2");r.sort((e,r)=>t.P3[e.featureName]-t.P3[r.featureName]),r.forEach(r=>{if(!e[r.featureName]&&(i||r.featureName!==t.K7.pageViewEvent))return;const n=function(e){switch(e){case t.K7.ajax:return[t.K7.jserrors];case t.K7.sessionTrace:return[t.K7.ajax,t.K7.pageViewEvent];case t.K7.sessionReplay:return[t.K7.sessionTrace];case t.K7.pageViewTiming:return[t.K7.pageViewEvent];default:return[]}}(r.featureName).filter(e=>!(e in this.features));n.length>0&&(0,f.R)(36,{targetFeature:r.featureName,missingDependencies:n}),this.features[r.featureName]=new r(this)})}catch(e){(0,f.R)(22,e);for(const e in this.features)this.features[e].abortHandler?.();const t=(0,i.Zm)();delete t.initializedAgents[this.agentIdentifier]?.features,delete this.sharedAggregator;return t.ee.get(this.agentIdentifier).abort(),!1}}}var H=r(2843),z=r(782);class Y extends U{static featureName=z.T;constructor(e){super(e,z.T),h.RI&&((0,H.u)(()=>(0,S.p)("docHidden",[(0,j.t)()],void 0,z.T,this.ee),!0),(0,H.G)(()=>(0,S.p)("winPagehide",[(0,j.t)()],void 0,z.T,this.ee)),this.importAggregator(e,()=>r.e(296).then(r.bind(r,9981))))}}var Z=r(3969);class q extends U{static featureName=Z.TZ;constructor(e){super(e,Z.TZ),this.importAggregator(e,()=>r.e(296).then(r.bind(r,9623)))}}new G({features:[F,Y,q],loaderType:"lite"})})()})();</script>
+<script id="termly" src="https://app.termly.io/resource-blocker/3086b62f-8965-466c-8b09-c84061279915?autoBlock=on" type="text/javascript"></script>
+<script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5HSNPG26');
+</script>
+<title>Homepage</title>
+
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" name="viewport">
+<meta content="-1" http-equiv="expires">
+<meta content="no-cache" http-equiv="cache-control">
+<meta content="no-cache" http-equiv="pragma">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+<link rel="preload" href="/assets/application-f47837a7f6e17beef739a18727efa1179bc20ae07db6a1a7fdd1df6e87cfa861.css" media="all" data-turbolinks-track="true" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;" />
+<script data-cookieconsent="necessary" src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js" type="text/javascript"></script>
+<script data-cookieconsent="necessary" src="https://js.stripe.com/v3/" type="text/javascript"></script>
+<meta name="stripe-key" content="pk_live_tXpieNnQSAyexYzd3anViSV6" />
+<script src="/assets/application-6402b84d1b8103530405aa1e633412e7f80eb7ce937cf75faacfb0c82e23609d.js" data-turbolinks-track="true"></script>
+<link rel="icon" type="image/x-icon" href="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/favicon.ico" />
+<link rel="icon" type="image/x-icon" href="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/favicon-16x16.png" />
+<link rel="icon" type="image/x-icon" href="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/favicon-32x32.png" />
+<link rel="icon" type="image/x-icon" href="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/favicon-96x96.png" />
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="ouzoPZXPX36qUsfA4wiDQ0UxCJDKWJQjCzvx1RuwSHoWY3gzs__DUEySd0VDBMYDXsWV5niUtzTPZYJ4WvwY3g" />
+<meta content="zE7teSjBeHkRGPyDBucqzeSMyWtjpWcN5T4kjXyGfJE" name="google-site-verification">
+<script type="text/javascript">
+  (function() {
+    /** CONFIGURATION START **/
+    var _sf_async_config = window._sf_async_config = (window._sf_async_config || {});
+    _sf_async_config.uid = 67258;
+    _sf_async_config.domain = 'dailyjournal.com';
+    _sf_async_config.flickerControl = false;
+    _sf_async_config.useCanonical = true;
+    _sf_async_config.useCanonicalDomain = true;
+    _sf_async_config.sections = "Home|Index"; 
+    _sf_async_config.authors  = ""; 
+    /** CONFIGURATION ENDS **/
+    function loadChartbeat() {
+        var e = document.createElement('script');
+        var n = document.getElementsByTagName('script')[0];
+        e.type = 'text/javascript';
+        e.async = true;
+        e.src = '//static.chartbeat.com/js/chartbeat.js';
+        n.parentNode.insertBefore(e, n);
+    }
+    loadChartbeat();
+  })();
+</script>
+<script async src="//static.chartbeat.com/js/chartbeat_mab.js"></script>
+
+<meta name="description" content="The Daily Journal has more journalists covering the California legal profession than any other publication.  Comprehensive coverage of litigation, arbitration, and mediation results from California state and federal trial courts for attorneys and legal professionals." />
+<meta name="facebook-domain-verification" content="ns0czqsui7y1o6gggjx6acxqrrjk6f" />
+<script async="async" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async="async" data-cookieconsent="necessary" src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+<script async="async" src="//www.googletagmanager.com/gtag/js?id=G-0NVJ5MNWQL"></script>
+<style>
+  @media print {
+    .container {
+      display: none !important;
+    }
+  
+    .print-ad {
+      display: block !important
+    }
+  }
+</style>
+<style>
+  #termly-code-snippet-support {
+    .termly-floating-preferences {
+      display: block;
+      height: 100px !important;
+      width: 100px !important;
+      position: fixed !important;
+    }
+    /* Desktop: show text */
+    @media (min-width: 768px) {
+      .termly-floating-preferences::before {
+        content: "Cookie Preferences";
+        position: absolute;
+        right: 100%;
+        margin-right: 10px;
+        white-space: nowrap;
+  
+        font-size: 14px;
+        color: #fff;
+        background: #000;
+        padding: 6px 10px;
+        border-radius: 4px;
+      }
+    }
+  
+    /* Mobile: hide text completely */
+    @media (max-width: 767px) {
+      .termly-floating-preferences::before {
+        content: "";
+       }
+    }
+  }
+</style>
+</head>
+<body data-controller="home" data-controller-action="index" data-env="production" data-impaired="false" id="">
+<noscript>
+<iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-5HSNPG26" style="display:none;visibility:hidden" width="0"></iframe>
+</noscript>
+<div class="print-ad">
+<img loading="lazy" src="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/dj_logo_high_rez.png">
+<br>
+<p></p>
+For reprint rights or to purchase a copy of your Daily Journal photo, email Jeremy_Ellis@dailyjournal.com for prices or call 213-229-5424.
+<p></p>
+To buy more copies, call 866-531-1492 or email subscribe@dailyjournal.com
+</div>
+<div class="hide" id="content-warning">
+This is the property of the Daily Journal Corporation and fully protected by copyright.
+It is made available only to Daily Journal subscribers for personal or collaborative purposes
+and may not be distributed, reproduced, modified, stored or transferred without written permission.
+Please click "Reprint" to order presentation-ready copies to distribute to clients or use in commercial
+marketing materials or for permission to post on a website. and copyright (showing year of publication) at the bottom.
+</div>
+
+<div id="header-space"></div>
+<header>
+<div class="container-fluid">
+<div class="top-nav">
+<div class="row">
+<div class="col-md-2 text-right" style="margin-top: 20px;">
+<a target="_blank" rel="noopener" style="display:block; text-align:center; font-size:14px; color:#000; text-decoration:none; line-height:1.3;" href="/digital_editions">Read Today's Digital Edition
+</a></div>
+<div class="col-md-8">
+<div class="logo-container">
+<div class="dj-container">
+<a href="/"><img class="logo" loading="lazy" src="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/dj_logo_high_rez.png" />
+</a></div>
+<div class="cal-lawyer-container">
+<a href="/cal_lawyer"><img class="logo cal-lawyer" style="padding-left: 0px" src="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/CalLawyer_Calgary.png" loading="lazy" />
+</a></div>
+</div>
+</div>
+<div class="col-md-2 text-left" style="margin-top: 20px;">
+<a target="_blank" rel="noopener" style="display:block; text-align:center; font-size:14px; color:#000; text-decoration:none; line-height:1.3;" href="https://www.legaladstore.com">Place Your Legal Notices
+</a><a target="_blank" rel="noopener" style="display:block; text-align:center; font-size:14px; color:#000; text-decoration:none; line-height:1.3;" href="/job_listings">View Our Classifieds
+</a></div>
+</div>
+<!-- MOBILE MENU -->
+<div class="mobile-nav hide">
+<div class="mobile-menu-wrap">
+<div class="col-xs-4">
+<a class="menu-trigger" href="#" id="js-open-mobile-menu">
+<span aria-hidden="true" class="hamburger">
+<span class="bar"></span>
+<span class="bar"></span>
+<span class="bar"></span>
+</span>
+<span class="sr-only">Menu</span>
+</a>
+</div>
+<div class="col-xs-4 text-center"></div>
+<div class="col-xs-4 text-right" style="padding: 10px;">
+<a aria-controls="mobileSearch" aria-expanded="false" data-toggle="collapse" href="#mobileSearch" role="button">
+<i class="fa fa-search"></i>
+Search
+</a>
+</div>
+<div class="clearfix"></div>
+</div>
+<div class="js-nav-items hide">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<!-- NEWS -->
+<div class="panel panel-default no-background">
+<div class="panel-heading" id="NewsHeading" role="tab">
+<h4 class="panel-title">
+<a aria-controls="News" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#News" role="button">
+News
+</a>
+</h4>
+</div>
+<div aria-labelledby="NewsHeading" class="panel-collapse collapse" id="News" role="tabpanel">
+<div class="panel-body">
+<ul>
+<li><a href="https://www.dailyjournal.com/articles">Current News</a></li>
+<li><a href="/on-the-move">On The Move</a></li>
+<li><a href="/premium_newsletters">Premium Newsletters</a></li>
+<li><a href="/special_reports">Special Reports</a></li>
+<li><a href="/webinars">Webinars</a></li>
+<li><a href="/judicial-elections">Judicial Elections</a></li>
+<li><a href="/olympics">Olympics</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- PERSPECTIVE -->
+<div class="panel panel-default no-background">
+<div class="panel-heading" id="PerspectiveHeading" role="tab">
+<h4 class="panel-title">
+<a aria-controls="Perspective" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#Perspective" role="button">
+Perspective
+</a>
+</h4>
+</div>
+<div aria-labelledby="PerspectiveHeading" class="panel-collapse collapse" id="Perspective" role="tabpanel">
+<div class="panel-body">
+<ul>
+<li><a class="primary-nav-link " href="/columns">Columns</a></li>
+<li><a href="/mcle">MCLE</a></li>
+<li><a href="/podcast">Podcasts</a></li>
+<li><a href="/videos">Videos</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- PEOPLE -->
+<div class="panel panel-default no-background">
+<div class="panel-heading" id="PeopleHeading" role="tab">
+<h4 class="panel-title">
+<a aria-controls="People" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#People" role="button">
+People
+</a>
+</h4>
+</div>
+<div aria-labelledby="PeopleHeading" class="panel-collapse collapse" id="People" role="tabpanel">
+<div class="panel-body">
+<ul>
+<li><a href="/judicial_profiles">Judicial Profiles</a></li>
+<li><a href="/adr_profiles">ADR Profiles</a></li>
+<li><a href="/small_firms">Firm Profiles</a></li>
+<li><a href="/corporate_counsels">Corporate Counsel Q&amp;A</a></li>
+<li><a href="/people">People</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- VERDICTS & DAR -->
+<div class="panel panel-default no-background">
+<div class="panel-heading" id="VerdictsDARHeading" role="tab">
+<h4 class="panel-title">
+<a aria-controls="VerdictsDAR" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#VerdictsDAR" role="button">
+Appellate / Verdicts
+</a>
+</h4>
+</div>
+<div aria-labelledby="VerdictsDARHeading" class="panel-collapse collapse" id="VerdictsDAR" role="tabpanel">
+<div class="panel-body">
+<ul>
+<li><a href="https://www.dailyjournal.com/verdicts_and_settlements">Verdicts</a></li>
+<li><a href="https://www.dailyjournal.com/dar">Appellate</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Resources -->
+<div class="panel panel-default no-background">
+<div class="panel-heading" id="ResourcesHeading" role="tab">
+<h4 class="panel-title">
+<a aria-controls="ResourcesPanel" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#ResourcesPanel" role="button">
+Resources
+</a>
+</h4>
+</div>
+<div aria-labelledby="ResourcesHeading" class="panel-collapse collapse" id="ResourcesPanel" role="tabpanel">
+<div class="panel-body">
+<ul>
+<li><a href="https://www.dailyjournal.com/job_listings?ocation=Legal+Services+%26+Opportunities&amp;job_type=Services">Legal Resources</a></li>
+<li><a href="/legal_links">Legal Links</a></li>
+<li><a href="/"><a href="https://www.dailyjournal.com/job_listings?location=Contract+Attorneys&amp;job_type=Services">Contract Attorneys</a></a></li>
+<li><a href="/editorial_calendar">Editorial Calendar</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Legal Notices -->
+<div class="panel panel-default no-background">
+<div class="panel-heading" id="LegalNoticesHeading" role="tab">
+<h4 class="panel-title">
+<a aria-controls="LegalNotices" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#LegalNotices" role="button">
+Legal Notices/Ads
+</a>
+</h4>
+</div>
+<div aria-labelledby="LegalNoticesHeading" class="panel-collapse collapse" id="LegalNotices" role="tabpanel">
+<div class="panel-body">
+<ul>
+<li><a target="_blank" href="/job_listings">Classifieds</a></li>
+<li><a target="_blank" href="https://www.dailyjournal.com/job_listings?job_type=Expert+Witnesses">Experts</a></li>
+<li><a target="_blank" href="https://www.DBAStore.com">DBAstore</a></li>
+<li><a href="https://www.LegalAdStore.com">LegalAdstore</a></li>
+<li><a href="https://adtech.dailyjournal.com">Adtech</a></li>
+<li><a href="https://notices.dailyjournal.com/index.cfm?ldj=1">Today&#39;s Los Angeles legal notices</a></li>
+<li><a href="https://notices.dailyjournal.com/index.cfm?sfj=1">Today’s San Francisco legal notices</a></li>
+<li><a href="https://www.capublicnotices.com">Search Legal Notices</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- SUBMIT -->
+<div class="panel panel-default no-background">
+<div class="panel-heading" id="SubmitHeading" role="tab">
+<h4 class="panel-title">
+<a aria-controls="Submit" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#Submit" role="button">
+Submit
+</a>
+</h4>
+</div>
+<div aria-labelledby="SubmitHeading" class="panel-collapse collapse" id="Submit" role="tabpanel">
+<div class="panel-body">
+<ul>
+<li><a href="/verdicts_and_settlements/new">Verdicts</a></li>
+<li><a href="/on-the-move/new">On The Move</a></li>
+<li><a href="/profile_submission">Profiles</a></li>
+<li><a href="/perspective">Columns</a></li>
+<li><a href="/nominations">Nominations</a></li>
+<li><a target="_blank" href="/corrections_policy">Corrections Policy</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Courts -->
+<div class="panel panel-default no-background">
+<div class="panel-heading" id="CourtsHeading" role="tab">
+<h4 class="panel-title">
+<a aria-controls="Courts" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#Courts" role="button">
+Courts
+</a>
+</h4>
+</div>
+<div aria-labelledby="CourtsHeading" class="panel-collapse collapse" id="Courts" role="tabpanel">
+<div class="panel-body">
+<ul>
+<li><a target="_blank" href="/pdf/2026 Holiday Calendar.pdf">Holiday Calendar</a></li>
+<li><a href="/courts">Court Directory</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- About -->
+<div class="panel panel-default no-background">
+<div class="panel-heading" id="AboutHeading" role="tab">
+<h4 class="panel-title">
+<a aria-controls="About" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#About" role="button">
+About
+</a>
+</h4>
+</div>
+<div aria-labelledby="AboutHeading" class="panel-collapse collapse" id="About" role="tabpanel">
+<div class="panel-body">
+<ul>
+<li><a href="/mission">Mission/Leadership</a></li>
+<li><a class="dropdown-item" href="/staff">Editorial Staff</a></li>
+<li><a class="dropdown-item" href="/testimonial">Testimonial</a></li>
+<li><a class="dropdown-item" href="/offices">Offices</a></li>
+<li><a class="dropdown-item" href="/careeropportunities">Career Opportunities</a></li>
+<li><a class="dropdown-item" href="/advertising">Advertising</a></li>
+<li><a target="_blank" href="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/footers/upload4s/000/000/001/original/Board_Diversity_Matrix_2024.12.15.pdf?1734380655">Board Diversity</a></li>
+<li><a target="_blank" href="https://ir.dailyjournal.com/">Investor Relations</a></li>
+<li><a target="_blank" href="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/footers/upload5s/000/000/001/original/About_page_w_QR_code.pdf?1729270706">Text Alerts Sign-up</a></li>
+<li><a class="dropdown-item" href="https://dailyjournal56543.ac-page.com/newsletter">Enewsletter Sign-up</a></li>
+<li><a class="dropdown-item" href="/userguide">User Guide</a></li>
+</ul>
+</div>
+</div>
+</div>
+<a style="margin: 5px 5px;" class="btn btn-primary btn-pill" href="/users/sign_in"><span aria-hidden="true" class="glyphicon glyphicon-log-in"></span>
+<span>Sign in</span>
+</a></div>
+</div>
+</div>
+<div class="row">
+<div class="collapse" id="mobileSearch">
+<div id="main-search-bar">
+<div class="box-wrap no-bg" style="margin-bottom: 0; border-bottom: none;">
+<form action="/search" accept-charset="UTF-8" method="get"><div class="row nav-search">
+<div class="col-sm-12 col-md-3">
+<h6>Filter by date</h6>
+<div class="form-inline">
+<input type="text" name="start_date" id="start_date" class="js-start-date js-datepicker form-control date-range" data-provide="datepicker" data-date-format="MM dd, yyyy" placeholder="Start date" autocomplete="off" />
+<span class="by-date-separator">&nbsp;to&nbsp;</span>
+<input type="text" name="end_date" id="end_date" class="js-end-date js-datepicker form-control date-range" data-provide="datepicker" data-date-format="MM dd, yyyy" placeholder="End date" autocomplete="off" />
+</div>
+
+</div>
+<div class="col-md-2">
+<h6>Exact Phrase</h6>
+<input type="text" name="match_phrase" id="match_phrase" class="form-control" />
+</div>
+<div class="col-md-2">
+<h6>Not the words</h6>
+<input type="text" name="must_not_have_words" id="must_not_have_words" class="form-control" />
+</div>
+<div class="col-md-3">
+<h6>
+At least one of the words
+<div class="fa fa-info-circle" data-placement="top" data-toggle="tooltip" title="Tip: Find articles that have any one of these words. Don&#39;t use commas"></div>
+</h6>
+<input type="text" name="may_include" id="may_include" class="form-control" />
+</div>
+<div class="col-md-2">
+<h6>
+All the words
+<div class="fa fa-info-circle" data-placement="top" data-toggle="tooltip" title="Tip: Find articles that contain all of these words. Don&#39;t use commas"></div>
+</h6>
+<div class="common-search-wrap">
+<input type="text" name="search" id="search" class="form-control" />
+<button type="submit" value="Search Daily Journal" title="Submit Search" class="btn btn-primary"><i class="fa fa-search"></i>
+</button></div>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="top-nav main-nav-sticky" id="main-nav">
+<div class="row">
+<!-- HAMBURGER -->
+<div class="col-sm-1">
+<button aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" class="btn btn-default btn-pill dropdown-toggle" data-target="#navbarToggleExternalContent" data-toggle="collapse" type="button">
+<span aria-hidden="true" class="hamburger">
+<span class="bar"></span>
+<span class="bar"></span>
+<span class="bar"></span>
+</span>
+<span class="sr-only">Menu</span>
+</button>
+</div>
+<!-- EDITORIAL MENU -->
+<div class="col-sm-11 col-lg-11" id="editori-menu">
+<div class="top-nav-links">
+<ul>
+<li>
+<div class="btn-group">
+<a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown">
+News
+<i class="fa fa-caret-down"></i>
+</a>
+<div class="dropdown-menu dropdown-items">
+<a href="https://www.dailyjournal.com/articles">Current News</a>
+<a href="/on-the-move">On The Move</a>
+<a href="/premium_newsletters">Premium Newsletters</a>
+<a href="/articles/cal_lawyer?category=Discipline+Report">Discipline Report</a>
+<a href="/judicial-elections">Judicial Elections</a>
+</div>
+</div>
+</li>
+<li>
+<div class="btn-group">
+<a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown">
+Perspective
+<i class="fa fa-caret-down"></i>
+</a>
+<div class="dropdown-menu dropdown-items">
+<a class="primary-nav-link " href="/columns">Columns</a>
+<a href="/podcast">Podcasts</a>
+<a href="/videos">Videos</a>
+<a href="/olympics">Olympics</a>
+</div>
+</div>
+</li>
+<li>
+<div class="btn-group">
+<a href="/network">Network</a>
+</div>
+</li>
+<li>
+<div class="btn-group">
+<a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown">
+People
+<i class="fa fa-caret-down"></i>
+</a>
+<div class="dropdown-menu dropdown-items">
+<a href="/judicial_profiles">Judicial Profiles</a>
+<a href="/adr_profiles">ADR Profiles</a>
+<a href="/small_firms">Firm Profiles</a>
+<a href="/corporate_counsels">Corporate Counsel Q&amp;A</a>
+<a href="/people">People</a>
+<a href="/mvp">MVP Profiles</a>
+</div>
+</div>
+</li>
+<li>
+<div class="btn-group">
+<a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown">
+Special Reports
+<i class="fa fa-caret-down"></i>
+</a>
+<div class="dropdown-menu dropdown-items">
+<a href="/special_reports?report_type=Antitrust">Antitrust</a>
+<a href="/special_reports?report_type=Banking+%26+Financial+Services">Banking &amp; Financial Services</a>
+<a href="/special_reports?report_type=CLAY+awards">CLAY awards</a>
+<a href="/special_reports?report_type=Commercial+Litigators">Commercial Litigators</a>
+<a href="/special_reports?report_type=Cyber%2FAI">Cyber/AI</a>
+<a href="/special_reports?report_type=Estate+%26+Wealth+">Estate &amp; Wealth </a>
+<a href="/special_reports?report_type=Intellectual+Property">Intellectual Property</a>
+<a href="/special_reports?report_type=Labor+%26+Employment">Labor &amp; Employment</a>
+<a href="/special_reports?report_type=Neutrals">Neutrals</a>
+<a href="/special_reports?report_type=New+Laws">New Laws</a>
+<a href="/special_reports?report_type=Niche+Lawyers">Niche Lawyers</a>
+<a href="/special_reports?report_type=Probate">Probate</a>
+<a href="/special_reports?report_type=Professional+Responsibility">Professional Responsibility</a>
+<a href="/special_reports?report_type=Real+Estate%2FDevelopment">Real Estate/Development</a>
+<a href="/special_reports?report_type=Recruiting">Recruiting</a>
+<a href="/special_reports?report_type=Special+Coverage">Special Coverage</a>
+<a href="/special_reports?report_type=Technology">Technology</a>
+<a href="/special_reports?report_type=Top+100">Top 100</a>
+<a href="/special_reports?report_type=Top+Bankruptcy">Top Bankruptcy</a>
+<a href="/special_reports?report_type=Top+Boutiques">Top Boutiques</a>
+<a href="/special_reports?report_type=Top+Cannabis+Lawyers">Top Cannabis Lawyers</a>
+<a href="/special_reports?report_type=Top+Family+Law+Lawyers">Top Family Law Lawyers</a>
+<a href="/special_reports?report_type=Top+Health+Care+Lawyers">Top Health Care Lawyers</a>
+<a href="/special_reports?report_type=Top+Plaintiffs">Top Plaintiffs</a>
+<a href="/special_reports?report_type=Top+Trade+Secrets+Lawyers">Top Trade Secrets Lawyers</a>
+<a href="/special_reports?report_type=Top+Under+40">Top Under 40</a>
+<a href="/special_reports?report_type=Top+Verdicts">Top Verdicts</a>
+<a href="/special_reports?report_type=Top+Women">Top Women</a>
+<a href="/special_reports?report_type=White+Collar">White Collar</a>
+</div>
+</div>
+</li>
+<li class="btn-group"><a href="https://www.dailyjournal.com/verdicts_and_settlements">Verdicts</a></li>
+<li class="btn-group"><a href="https://www.dailyjournal.com/dar">Appellate</a></li>
+<li>
+<div class="btn-group">
+<a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown">
+Legal Notices/Ads
+<i class="fa fa-caret-down"></i>
+</a>
+<div class="dropdown-menu dropdown-items">
+<a class="dropdown-item" href="/job_listings">Classifieds</a>
+<a class="dropdown-item" href="https://www.dailyjournal.com/job_listings?job_type=Expert+Witnesses" target="_blank">Experts</a>
+<a class="dropdown-item" href="https://www.DBAStore.com" target="_blank">DBAstore</a>
+<a class="dropdown-item" href="https://www.LegalAdStore.com" target="_blank">LegalAdstore</a>
+<a class="dropdown-item" href="https://www.capublicnotices.com" target="_blank">CA Public Notices</a>
+<a class="dropdown-item" href="https://adtech.dailyjournal.com" target="_blank">Adtech</a>
+<a class="dropdown-item" href="https://notices.dailyjournal.com/index.cfm?ldj=1" target="_blank">Today’s Los Angeles legal notices</a>
+<a class="dropdown-item" href="https://notices.dailyjournal.com/index.cfm?sfj=1" target="_blank">Today’s San Francisco legal notices</a>
+<a class="dropdown-item" href="https://www.capublicnotices.com" target="_blank">Search Legal Notices</a>
+</div>
+</div>
+</li>
+<li class="hidden-xs">
+<div class="btn-group">
+<a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown">
+Submit
+<i class="fa fa-caret-down"></i>
+</a>
+<div class="dropdown-menu dropdown-items">
+<a class="dropdown-item" href="/verdicts_and_settlements/new">Verdicts</a>
+<a class="dropdown-item hide" href="/deal-makers/new">Dealmakers</a>
+<a class="dropdown-item" href="/on-the-move/new">On The Move</a>
+<a class="dropdown-item" href="/profile_submission">Profiles</a>
+<a class="dropdown-item" href="/perspective">Columns</a>
+<a class="dropdown-item" href="/nominations">Nominations</a>
+<a class="dropdown-item" target="_blank" href="/corrections_policy">Corrections Policy</a>
+</div>
+</div>
+</li>
+<li>
+<div class="btn-group">
+<a href="/users/sign_in">Sign In</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<!-- SEARCH -->
+</div>
+<div class="row">
+<div class="col">
+<div class="pos-f-t hide">
+  <nav class="navbar" id="NavBar">
+    <!--- hidden menu --->
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="row">
+        <div class="col-md-1"></div>
+
+        <div class="col-md-2">
+          <h3 class="text-primary slide-menu-header">About</h3>
+          <div><a class="slide-menu-item" href="/mission">Mission/Leadership</a></div>
+          <div><a class="slide-menu-item" href="/staff">Editorial Staff</a></div>
+          <div><a class="slide-menu-item" href="/testimonial">Testimonial</a></div>
+          <div><a class="slide-menu-item" href="/offices">Offices</a></div>
+          <div><a class="slide-menu-item" href="/careeropportunities">Career Opportunities</a></div>
+          <div><a class="slide-menu-item" href="/advertising">Advertising</a></div>
+          <div><a href="/"><a target="_blank" class="slide-menu-item" href="https://ir.dailyjournal.com/">Investor Relations</a></a></div>
+              <div><a target="_blank" class="slide-menu-item" href="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/footers/upload4s/000/000/001/original/Board_Diversity_Matrix_2024.12.15.pdf?1734380655">Board Diversity</a></div>
+          <div><a class="slide-menu-item" href="/userguide">User Guide</a></div>
+        </div>
+
+        <div class="col-md-2">
+          <h3 class="text-primary slide-menu-header">Courts</h3>
+          <div><a target="_blank" class="slide-menu-item" href="/pdf/2026 Holiday Calendar.pdf">Holiday Calendar</a></div>
+          <div><a class="slide-menu-item" href="/courts">Court Directory</a></div>
+        </div>
+
+        <div class="col-md-2">
+          <h3 class="text-primary slide-menu-header">Resources</h3>
+          <div><a class="slide-menu-item" href="/mcle">MCLE</a></div>
+          <div><a class="slide-menu-item" href="/webinars">Webinars</a></div>  
+          <div><a class="slide-menu-item" href="https://www.dailyjournal.com/job_listings?ocation=Legal+Services+%26+Opportunities&amp;job_type=Services">Legal Resources</a></div>
+          <div><a class="slide-menu-item" href="/legal_links">Legal Links</a></div>
+          <div><a class="slide-menu-item" href="https://www.dailyjournal.com/job_listings?location=Contract+Attorneys&amp;job_type=Services">Contract Attorneys</a></div>
+          <div><a class="slide-menu-item" href="/editorial_calendar">Editorial Calendar</a></div>
+        </div>
+
+
+        <div class="col-md-2">
+          <h3 class="text-primary slide-menu-header">Other DJ Publications</h3>
+          <div><a target="_blank" class="slide-menu-item" href="http://www.dailycommerce.news">Daily Commerce (Los Angeles, CA)</a></div>
+          <div><a target="_blank" class="slide-menu-item" href="http://www.sdtranscript.com">The Daily Transcript (San Diego, CA)</a></div>
+          <div><a target="_blank" class="slide-menu-item" href="http://www.riversidejournal.news">Riverside Business Journal</a></div>
+          <div><a target="_blank" class="slide-menu-item" href="http://www.ocreporter.news">Orange County Reporter</a></div>
+          <div><a target="_blank" class="slide-menu-item" href="http://www.postrecord.news">San Jose Post-Record</a></div>
+          <div><a target="_blank" class="slide-menu-item" href="http://www.intercityexpress.news">The Inter-City Express (Hayward, CA)</a></div>
+          <div><a target="_blank" class="slide-menu-item" href="http://www.dailyrecorder.news">The Daily Recorder (Sacramento, CA)</a></div>
+          <div><a target="_blank" class="slide-menu-item" href="http://www.recordreporter.com">The Record Reporter (Phoenix, AZ)</a></div>
+        </div>
+
+        <div class="col-md-2">
+          <h3 class="text-primary slide-menu-header">Sign-up</h3>
+              <div><a target="_blank" class="slide-menu-item" href="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/footers/upload5s/000/000/001/original/About_page_w_QR_code.pdf?1729270706">Text Alerts Sign-up</a></div>
+          <div><a target="_blank" class="slide-menu-item" href="https://dailyjournal56543.ac-page.com/newsletter">e-Newsletter Sign-up</a></div>
+        </div>
+      </div>                   
+    </div>
+  </nav>
+</div>
+
+</div>
+</div>
+<br>
+<div class="col-md-12">
+<div class="collapse" id="collapseSearch">
+<div id="main-search-bar">
+<div class="box-wrap no-bg" style="margin-bottom: 0; border-bottom: none;">
+<form action="/search" accept-charset="UTF-8" method="get"><div class="row nav-search">
+<div class="col-sm-12 col-md-3">
+<h6>Filter by date</h6>
+<div class="form-inline">
+<input type="text" name="start_date" id="start_date" class="js-start-date js-datepicker form-control date-range" data-provide="datepicker" data-date-format="MM dd, yyyy" placeholder="Start date" autocomplete="off" />
+<span class="by-date-separator">&nbsp;to&nbsp;</span>
+<input type="text" name="end_date" id="end_date" class="js-end-date js-datepicker form-control date-range" data-provide="datepicker" data-date-format="MM dd, yyyy" placeholder="End date" autocomplete="off" />
+</div>
+
+</div>
+<div class="col-md-2">
+<h6>Exact Phrase</h6>
+<input type="text" name="match_phrase" id="match_phrase" class="form-control" />
+</div>
+<div class="col-md-2">
+<h6>Not the words</h6>
+<input type="text" name="must_not_have_words" id="must_not_have_words" class="form-control" />
+</div>
+<div class="col-md-3">
+<h6>
+At least one of the words
+<div class="fa fa-info-circle" data-placement="top" data-toggle="tooltip" title="Tip: Find articles that have any one of these words. Don&#39;t use commas"></div>
+</h6>
+<input type="text" name="may_include" id="may_include" class="form-control" />
+</div>
+<div class="col-md-2">
+<h6>
+All the words
+<div class="fa fa-info-circle" data-placement="top" data-toggle="tooltip" title="Tip: Find articles that contain all of these words. Don&#39;t use commas"></div>
+</h6>
+<div class="common-search-wrap">
+<input type="text" name="search" id="search" class="form-control" />
+<button type="submit" value="Search Daily Journal" title="Submit Search" class="btn btn-primary"><i class="fa fa-search"></i>
+</button></div>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="row">
+<div class="col-md-12">
+<div id="subscribe-bar">
+<span id="subscribe-bar-text">Subscribe to the Daily Journal for access to Daily Appellate Reports, Verdicts, Judicial Profiles and more...</span>
+<a class="btn btn-primary inline subscribe-btn" href="/dj_subscriptions/new">Subscribe</a>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<div class="container">
+</div>
+
+
+
+
+<input type="hidden" name="search_down" id="search_down" value="false" autocomplete="off" />
+<div aria-labelledby="myModalLabel" class="modal" id="search-down-modal" role="dialog" tabindex="-1">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<button aria-label="Close" class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">×</span>
+</button>
+<h3 class="modal-title">Search Is Currently Unavailable</h3>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-md-3"></div>
+<div class="col-md-6">
+<p>The Daily Journal search functionality is currently unavailable. We will have this back up as soon as possible.</p>
+</div>
+<div class="col-md-3"></div>
+</div>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="container" id="main-content-wrapper">
+<div class="index-type" data-indtype="Public Homepage"></div>
+<div class="row text-center">
+<div class="col-md-12">
+<div class="long-ad" id="top-banner-xs"></div>
+<div class="long-ad" id="top-banner"></div>
+</div>
+</div>
+
+<div id="homepage">
+<div class="row">
+<div class="col-sm-3 col-lg-3">
+<div class="row">
+<h4 class="homepage-heading"><a href="/special_reports">Special Reports</a></h4>
+<div id="special_report1">
+<div class="box-wrap plain">
+<div class="row">
+<div class="col-sm-12">
+<h3 class="box-title">
+<a href="/special_reports/724">Top Boutiques 2026</a>
+</h3>
+<div class="box-date" style="margin-bottom: 5px">Oct. 14, 2026</div>
+<div id="special_report">
+<div class="box-wrap plain">
+<div class="row">
+<div class="col-sm-12 index-image-special-report" style="border: none;">
+<a href="/special_reports/724"><img src="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/special_reports/covers/000/000/724/original/TopBoutiquesTeaser.png?1791922820" loading="lazy" />
+</a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<br>
+<div class="col-xs-6 col-sm-12">
+<h4 class="homepage-heading">
+<a href="https://www.dailyjournal.com/judicial_profiles">Judicial Profile</a>
+</h4>
+<a href="/judicial_profile/11129"><div class="index-image">
+<img src="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/articles/images/000/395/356/original/James_Atkins_OPTION_A.JPG?1792104339" loading="lazy" />
+</div>
+</a><div class="box-wrap no-bg plain">
+<h3 class="box-title"><a href="/judicial_profile/11129">Commissioner James Atkins brings a human approach to family law</a></h3>
+<div class="profile-info">James T. Atkins</div>
+<div class="profile-info">San Diego County Superior Court</div>
+</div>
+<hr style="margin-bottom: 6px;">
+
+</div>
+<div class="col-xs-6 col-sm-12">
+<h4 class="homepage-heading">
+<a href="/adr_profiles">ADR Profile</a>
+</h4>
+<a href="/adr_profiles/1644"><div class="index-image">
+<img src="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/articles/images/000/395/329/original/LOW_RES_StuartRice_32_copy.jpg?1792087263" loading="lazy" />
+</div>
+</a><div class="box-wrap no-bg plain">
+<h3 class="box-title"><a href="/adr_profiles/1644">For Stuart Rice, resolving disputes means staying nimble </a></h3>
+<div class="profile-info">Stuart M. Rice</div>
+<div class="profile-info">JAMS </div>
+</div>
+<hr style="margin-bottom: 6px;">
+
+</div>
+<div class="clearfix"></div>
+<div class="col-xs-6 col-sm-12">
+<h4 class="homepage-heading">
+<a href="/small_firms">Firm Profile</a>
+</h4>
+<a href="/small_firms/1104"><div class="index-image">
+<img src="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/articles/images/000/394/809/original/20260915_KendallBrill__208.jpg?1790364102" loading="lazy" />
+</div>
+</a><div class="box-wrap no-bg plain">
+<h3 class="box-title"><a href="/small_firms/1104">Kendall Brill &amp; Kelly bets the future on staying small</a></h3>
+<div class="profile-info">Kendall Brill &amp; Kelly </div>
+<div class="profile-info"></div>
+</div>
+<hr style="margin-bottom: 6px;">
+
+</div>
+<div class="col-xs-6 col-sm-12">
+2026-10-17
+<h4 class="homepage-heading"><a data-free-content="true" href="/mcle">MCLE</a></h4>
+<div id="mcle">
+<div class="box-wrap plain no-margin">
+<h3 class="box-title"><a data-free-content="true" href="/mcle/1973-california-s-billionaire-tax-puts-residency-under-the-microscope">California's billionaire tax puts residency under the microscope</a></h3>
+<div class="box-date">Oct. 15, 2026</div>
+<p class="box-content no-margin">California's proposed billionaire tax could trigger legal...</p>
+<small class="box-date">By Robert W. Wood</small>
+</div>
+<div class="box-wrap plain no-margin">
+<h3 class="box-title"><a data-free-content="true" href="/mcle/1971-the-cost-of-incivility-when-lawyers-cross-the-line">The cost of incivility: When lawyers cross the line</a></h3>
+<div class="box-date">Oct. 12, 2026</div>
+<p class="box-content no-margin">Incivility in litigation comes at a price, from unnecessa...</p>
+<small class="box-date">By Richard Seely</small>
+</div>
+<div class="box-wrap plain no-margin">
+<h3 class="box-title"><a data-free-content="true" href="/mcle/1937-when-ministerial-approvals-become-discretionary-under-ceqa">When ministerial approvals become discretionary under CEQA</a></h3>
+<div class="box-date">Oct.  9, 2026</div>
+<p class="box-content no-margin">A lot line adjustment is ordinarily exempt from CEQA as a...</p>
+<small class="box-date">By Joaquin Vazquez</small>
+</div>
+<span><a data-free-content="true" class="btn btn-primary btn-sm hidden-xs" style="margin-top:-4px;" href="/mcle">See More...</a></span>
+<hr style="margin-bottom: 6px;">
+</div>
+</div>
+<div class="col-xs-6 col-sm-12">
+<h4 class="homepage-heading"><a data-free-content="true" href="/articles/cal_lawyer?category=Discipline+Report">Discipline Report</a></h4>
+<a href="/articles/cal_lawyer?category=Discipline+Report"><img class="discipline-report" src="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/discipline_report.jpg" loading="lazy" />
+</a><hr>
+<br>
+</div>
+</div>
+</div>
+
+<div class="col-sm-8 col-lg-9" id="homepage-right-wrap">
+<div class="row">
+<div class="col-xs-12 col-md-8" id="homepage-center-column">
+<br>
+<h4 class="homepage-heading">
+<a href="/articles">Today&#39;s News</a>
+<span><a class="btn btn-primary btn-sm pull-right hidden-xs" style="margin-top: -4px;" href="/articles">More News</a></span>
+<span><a target="_blank" style="margin-right: 5%;margin-top: -4px;" class="btn btn-primary btn-sm pull-right hidden-xs" href="https://dailyjournal56543.ac-page.com/newsletter">Enewsletter Sign-up</a></span>
+</h4>
+<div class="row" id="general_news">
+<div class="col-sm-12">
+<div class="box-wrap plain no-margin">
+<div class="row">
+<div class="col-sm-12 categories-wrap">
+<h4 class="no-margin-top">
+Immigration
+</h4>
+</div>
+<div class="col-xs-12 col-sm-6 col-lg-3">
+<a href="/article/395386-california-faces-uphill-battle-in-courthouse-ice-lawsuit-experts-say"><div class="index-image" data-image-orientation="portrait">
+<img class="article-img" alt="California faces uphill battle in courthouse ICE lawsuit, experts say" loading="lazy" src="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/articles/images/000/395/386/thumb/johnson_kevin_web.jpg?1792189996" />
+</div>
+</a></div>
+<br class="visible-xs">
+<div class="col-xs-12 col-sm-6 col-lg-9">
+<h3 class="box-title"><a href="/article/395386-california-faces-uphill-battle-in-courthouse-ice-lawsuit-experts-say">California faces uphill battle in courthouse ICE lawsuit, experts say</a></h3>
+<div class="box-date">
+Oct. 19, 2026
+<br>
+<small class="box-date">By Skyler Romero</small>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<p class="box-content no-margin" style="padding: 6px 0px;">Legal scholars say California has a legitimate interest in protecting witnesses and victims from immigration enforcement at courthouses, but federal supremac...</p>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+
+<hr>
+</div>
+<div class="col-sm-12">
+<div class="box-wrap plain no-margin">
+<div class="row">
+<div class="col-sm-12 categories-wrap">
+<h4 class="no-margin-top">
+Government
+</h4>
+</div>
+<div class="col-xs-12 col-sm-6 col-lg-3">
+<a href="/article/395381-bonta-sues-to-block-closure-of-national-archives-in-san-bruno"><div class="index-image" data-image-orientation="landscape">
+<img class="article-img" alt="Bonta sues to block closure of National Archives in San Bruno " loading="lazy" src="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/articles/images/000/395/381/thumb/shutterstock_2521441263.jpg?1792189504" />
+</div>
+</a></div>
+<br class="visible-xs">
+<div class="col-xs-12 col-sm-6 col-lg-9">
+<h3 class="box-title"><a href="/article/395381-bonta-sues-to-block-closure-of-national-archives-in-san-bruno">Bonta sues to block closure of National Archives in San Bruno </a></h3>
+<div class="box-date">
+Oct. 19, 2026
+<br>
+<small class="box-date">By Alicia Alvarez</small>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<p class="box-content no-margin" style="padding: 6px 0px;">California Attorney General Rob Bonta sued to block the closure of a federal archives facility in San Bruno, arguing that relocating historical records would...</p>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+
+<hr>
+</div>
+<div class="col-sm-12">
+<div class="box-wrap plain no-margin">
+<div class="row">
+<div class="col-sm-12 categories-wrap">
+<h4 class="no-margin-top">
+Civil Procedure
+</h4>
+</div>
+<br class="visible-xs">
+<div class="col-xs-12">
+<h3 class="box-title"><a href="/article/395382-dominguez-channel-plaintiffs-seek-more-time-as-trial-deadline-approaches">Dominguez Channel plaintiffs seek more time as trial deadline approaches </a></h3>
+<div class="box-date">
+Oct. 19, 2026
+<br>
+<small class="box-date">By Devon Belcher</small>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<p class="box-content no-margin" style="padding: 6px 0px;">A Los Angeles judge will consider whether California's five-year trial deadline can be extended in Dominguez Channel odor litigation involving 13,000 plainti...</p>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+
+<hr>
+</div>
+<div class="col-sm-12 text-center">
+
+</div>
+<div class="clearfix"></div>
+<div class="col-sm-12">
+<div class="box-wrap plain no-margin">
+<div class="row">
+<div class="col-sm-12 categories-wrap">
+<h4 class="no-margin-top">
+Antitrust &amp; Trade Reg.
+</h4>
+</div>
+<div class="col-xs-12 col-sm-6 col-lg-3">
+<a href="/article/395385-judge-rejects-80m-fee-bid-in-google-play-antitrust-case"><div class="index-image" data-image-orientation="landscape">
+<img class="article-img" alt="Judge rejects $80M fee bid in Google Play antitrust case" loading="lazy" src="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/articles/images/000/395/385/thumb/shutterstock_2638284201.jpg?1792189810" />
+</div>
+</a></div>
+<br class="visible-xs">
+<div class="col-xs-12 col-sm-6 col-lg-9">
+<h3 class="box-title"><a href="/article/395385-judge-rejects-80m-fee-bid-in-google-play-antitrust-case">Judge rejects $80M fee bid in Google Play antitrust case</a></h3>
+<div class="box-date">
+Oct. 19, 2026
+<br>
+<small class="box-date">By Daniel Schrager</small>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<p class="box-content no-margin" style="padding: 6px 0px;">U.S. District Judge James Donato criticized consumer plaintiffs' lawyers for inadequate billing records and questioned their contribution to a $700 million s...</p>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+
+<hr>
+</div>
+<div class="col-sm-12">
+<div class="box-wrap plain no-margin">
+<div class="row">
+<div class="col-sm-12 categories-wrap">
+<h4 class="no-margin-top">
+Ethics/Professional Responsibility
+</h4>
+</div>
+<br class="visible-xs">
+<div class="col-xs-12">
+<h3 class="box-title"><a href="/article/395383-loeb-loeb-sued-over-alleged-conflicts-in-31m-law-firm-dispute">Loeb &amp; Loeb sued over alleged conflicts in $31M law firm dispute</a></h3>
+<div class="box-date">
+Oct. 19, 2026
+<br>
+<small class="box-date">By Malcolm Maclachlan</small>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<p class="box-content no-margin" style="padding: 6px 0px;">Sacramento environmental law firm Miller &amp; Axline accuses Loeb &amp; Loeb of improperly representing both the firm and a minority shareholder in a bitter...</p>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+
+<hr>
+</div>
+<div class="col-sm-12">
+<div class="box-wrap plain no-margin">
+<div class="row">
+<div class="col-sm-12 categories-wrap">
+<h4 class="no-margin-top">
+Judges and Judiciary
+</h4>
+</div>
+<br class="visible-xs">
+<div class="col-xs-12">
+<h3 class="box-title"><a href="/article/395384-california-courts-confront-interpreter-crisis-as-ai-fears-grow">California courts confront interpreter crisis as AI fears grow</a></h3>
+<div class="box-date">
+Oct. 19, 2026
+<br>
+<small class="box-date">By Malcolm Maclachlan</small>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<p class="box-content no-margin" style="padding: 6px 0px;">With a third of certified court interpreters at retirement age and exam pass rates plunging, the Judicial Council approved recruitment and certification chan...</p>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+
+<hr>
+</div>
+<div class="col-sm-12 text-center">
+
+</div>
+<div class="clearfix"></div>
+</div>
+<h4 class="homepage-heading">
+<a href="/columns">Columns</a>
+<span><a class="btn btn-primary btn-sm pull-right hidden-xs" style="margin-top: -4px;" href="/columns">More Analysis</a></span>
+</h4>
+<div id="perspective">
+<div class="box-wrap plain no-margin">
+<div class="row">
+<div class="col-sm-12 categories-wrap">
+<h4 class="no-margin-top">
+Environmental &amp; Energy
+</h4>
+</div>
+<div class="pull-left" style="width: 215px; padding-left: 15px;">
+<div class="pull-left" id="406150">
+<a href="/article/395372-the-forest-service-roadless-rule-revisited"><div class="index-image perspective">
+<img class="avatar-img" alt="Elisabeth Esposito" loading="lazy" src="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/people/avatars/000/233/891/original/EspositoElisabeth_1108x974.jpg?1792180839" />
+</div>
+</a></div>
+<div class="pull-left" id="406151">
+<a href="/article/395372-the-forest-service-roadless-rule-revisited"><div class="index-image perspective">
+<img class="avatar-img" alt="Mary Loum" loading="lazy" src="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/people/avatars/000/233/892/original/LoumMary_1108x974.jpg?1792180873" />
+</div>
+</a></div>
+</div>
+<div class="pull-right" style="width: calc(100% - 215px); padding: 0px 15px;">
+<h3 class="box-title"><a href="/article/395372-the-forest-service-roadless-rule-revisited">The Forest Service Roadless Rule, revisited</a></h3>
+<div class="box-date">
+Oct. 19, 2026
+<br>
+<small class="box-date">By  Elisabeth Esposito, Mary Loum </small>
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<p class="box-content no-margin" style="padding: 6px 0px;">What 17 states' opposition to the rule's proposed rescission signals for the road ahead.</p>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+
+<hr>
+<div class="box-wrap plain no-margin">
+<div class="row">
+<div class="col-sm-12 categories-wrap">
+<h4 class="no-margin-top">
+Environmental &amp; Energy
+</h4>
+</div>
+<div class="pull-left" style="width: 115px; padding-left: 15px;">
+<div class="pull-left" id="406149">
+<a href="/article/395371-climate-change-on-trial-can-oil-companies-escape-state-court"><div class="index-image perspective">
+<img class="avatar-img" alt="Erwin Chemerinsky" loading="lazy" src="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/people/avatars/000/197/417/original/chemerinsky_erwin_web.jpg?1498865297" />
+</div>
+</a></div>
+</div>
+<div class="pull-right" style="width: calc(100% - 115px); padding: 0px 15px;">
+<h3 class="box-title"><a href="/article/395371-climate-change-on-trial-can-oil-companies-escape-state-court">Climate change on trial: Can oil companies escape state court?</a></h3>
+<div class="box-date">
+Oct. 19, 2026
+<br>
+<small class="box-date">By  Erwin Chemerinsky </small>
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<p class="box-content no-margin" style="padding: 6px 0px;">Federal law does not preempt state tort suits against energy companies for their role in climate change. Yet Supreme Court ora...</p>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+
+<hr>
+<div class="box-wrap plain no-margin">
+<div class="row">
+<div class="col-sm-12 categories-wrap">
+<h4 class="no-margin-top">
+Construction
+</h4>
+</div>
+<div class="pull-left" style="width: 115px; padding-left: 15px;">
+<div class="pull-left" id="406128">
+<a href="/article/395348-prevailing-wages-unexpected-bills-two-lessons-from-i-nabors-i"><div class="index-image perspective">
+<img class="avatar-img" alt="Garret D. Murai" loading="lazy" src="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/people/avatars/000/219/154/original/murai_garret_web.jpg?1614632886" />
+</div>
+</a></div>
+</div>
+<div class="pull-right" style="width: calc(100% - 115px); padding: 0px 15px;">
+<h3 class="box-title"><a href="/article/395348-prevailing-wages-unexpected-bills-two-lessons-from-i-nabors-i">Prevailing wages, unexpected bills: Two lessons from <i>Nabors</i></a></h3>
+<div class="box-date">
+Oct. 16, 2026
+<br>
+<small class="box-date">By  Garret D. Murai </small>
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<p class="box-content no-margin" style="padding: 6px 0px;">Mistakenly treating a project as exempt from prevailing wages can leave contractors facing increased costs. <i>Nabors</i> prov...</p>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+
+<hr>
+</div>
+<br>
+<h4 class="homepage-heading">
+<a href="/verdicts_and_settlements">Verdicts &amp; Settlements</a>
+<span><a class="btn btn-primary btn-sm pull-right hidden-xs" style="margin-top: -4px;" href="/verdicts_and_settlements/new">Submit a Verdict</a></span>
+</h4>
+<table class="mini-table">
+<tbody>
+<tr>
+<td>Clayton Antitrust Act</td>
+<td>
+<span data-toggle="tooltip" title="The State of California; The State of Arizona; The State of Colorado; The State of Connecticut; The Commonwealth of Massachusetts; The State of Minnesota; The State of Nevada; The State of New Jersey; The State of New Mexico; The State of New York; The State of Oregon; and The State of Washington v. Paramount Skydance Corp.; Warner Bros. Discovery Inc.">
+<a href="/verdicts_and_settlement/147727-the-state-of-california-the-state-of-arizona-the-state-of-colorado-the-state-of-connecticut-the-commonwealth-of-massachusetts-the-state-of-minnesota-the-state-of-nevada-the-state-of-new-jersey-the-state-of-new-mexico-the-state-of-new-york-the-state-of-oregon-and-the-state-of-washington-v-paramount-skydance-corp-warner-bros-discovery-inc">The State of California; Th...</a>
+</span>
+</td>
+<td class="align-right">
+$40,000,000
+<span class="small">
+
+</span>
+</td>
+</tr>
+
+<tr>
+<td>Malpractice</td>
+<td>
+<span data-toggle="tooltip" title="Tyler Amezquita Aispuro, et al. v. Los Angeles County">
+<a href="/verdicts_and_settlement/147572-tyler-amezquita-aispuro-et-al-v-los-angeles-county">Tyler Amezquita Aispuro, et...</a>
+</span>
+</td>
+<td class="align-right">
+$20,000,000
+<span class="small">
+
+</span>
+</td>
+</tr>
+
+<tr>
+<td>Dangerous Condition of Public Property</td>
+<td>
+<span data-toggle="tooltip" title="Hong Lee v. Los Angeles County Metropolitan Transportation Authority">
+<a href="/verdicts_and_settlement/147675-hong-lee-v-los-angeles-county-metropolitan-transportation-authority">Hong Lee v. Los Angeles Cou...</a>
+</span>
+</td>
+<td class="align-right">
+$10,000,000
+<span class="small">
+
+</span>
+</td>
+</tr>
+
+<tr>
+<td>Dangerous Condition of Public Property</td>
+<td>
+<span data-toggle="tooltip" title="Danielle Womack v. City of Rialto">
+<a href="/verdicts_and_settlement/147668-danielle-womack-v-city-of-rialto">Danielle Womack v. City of ...</a>
+</span>
+</td>
+<td class="align-right">
+$4,125,000
+<span class="small">
+
+</span>
+</td>
+</tr>
+
+<tr>
+<td>Auto v. Bicycle</td>
+<td>
+<span data-toggle="tooltip" title="Joseph William Narhuminti v. Curtis Gordon Fong, and Does 1 to 20, inclusive">
+<a href="/verdicts_and_settlement/147665-joseph-william-narhuminti-v-curtis-gordon-fong-and-does-1-to-20-inclusive">Joseph William Narhuminti v...</a>
+</span>
+</td>
+<td class="align-right">
+$3,000,000
+<span class="small">
+
+</span>
+</td>
+</tr>
+
+<tr>
+<td>Auto v. Truck</td>
+<td>
+<span data-toggle="tooltip" title="Emily Cyre v. AG Trans LLC, et al.">
+<a href="/verdicts_and_settlement/147176-emily-cyre-v-ag-trans-llc-et-al">Emily Cyre v. AG Trans LLC,...</a>
+</span>
+</td>
+<td class="align-right">
+$2,250,000
+<span class="small">
+
+</span>
+</td>
+</tr>
+
+<tr>
+<td>Eminent Domain</td>
+<td>
+<span data-toggle="tooltip" title="Carmen Velovici v. City of Los Angeles">
+<a href="/verdicts_and_settlement/147691-carmen-velovici-v-city-of-los-angeles">Carmen Velovici v. City of ...</a>
+</span>
+</td>
+<td class="align-right">
+$2,100,000
+<span class="small">
+
+</span>
+</td>
+</tr>
+
+<tr>
+<td>Malpractice</td>
+<td>
+<span data-toggle="tooltip" title="Jane Doe v. Roe Acute Care Hospital">
+<a href="/verdicts_and_settlement/147656-jane-doe-v-roe-acute-care-hospital">Jane Doe v. Roe Acute Care ...</a>
+</span>
+</td>
+<td class="align-right">
+$1,500,000
+<span class="small">
+
+</span>
+</td>
+</tr>
+
+<tr>
+<td>Dangerous Condition of Public Property</td>
+<td>
+<span data-toggle="tooltip" title="Mauricio De Leon v. State of California, and Does 1 to 50, inclusive">
+<a href="/verdicts_and_settlement/147672-mauricio-de-leon-v-state-of-california-and-does-1-to-50-inclusive">Mauricio De Leon v. State o...</a>
+</span>
+</td>
+<td class="align-right">
+$1,283,000
+<span class="small">
+
+</span>
+</td>
+</tr>
+
+<tr>
+<td>Wage and Hour</td>
+<td>
+<span data-toggle="tooltip" title="Eric Koontz, an individual acting in a representative capacity v. Cisco Systems Inc., et al.">
+<a href="/verdicts_and_settlement/147725-eric-koontz-an-individual-acting-in-a-representative-capacity-v-cisco-systems-inc-et-al">Eric Koontz, an individual ...</a>
+</span>
+</td>
+<td class="align-right">
+$1,200,000
+<span class="small">
+
+</span>
+</td>
+</tr>
+
+</tbody>
+</table>
+<div class="clearfix"></div>
+<a class="btn btn-primary btn-block hidden-md hidden-lg" href="/verdicts_and_settlements/new">Submit a Verdict</a>
+<br>
+<h4 class="homepage-heading">
+<a href="/on-the-move">On the Move</a>
+<span><a class="btn btn-primary btn-sm pull-right hidden-xs" style="margin-top: -4px;" href="/on-the-move/new">Submit Your News</a></span>
+</h4>
+<div class="box-wrap no-bg">
+<div class="row">
+<div class="col-xs-9">
+<h3 class="box-title">
+Jenner &amp; Block
+</h3>
+<div class="box-date">
+<label class="badge">
+Joining the firm
+</label>
+Oct. 16, 2026
+</div>
+</div>
+</div>
+<hr class="short">
+<br>
+<div class="box-content">
+<span class="hide" data-count="1" id="js-person-count"></span>
+<div class="otm-attorney-image" id="person-image-0">
+<img class="fancy-border" src="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/otm_people/avatars/000/009/766/thumb/Helen_Gilbert.jpg?1791985812" loading="lazy" />
+<a style="display: inline;" target="blank" href="https://www.linkedin.com/in/helen-gilbert-a65896100"><svg class="bi bi-linkedin" fill="currentColor" height="16" style="margin-top:5px;" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401m-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4"></path>
+</svg>
+</a></div>
+<div class="otm-attorney-info">
+<p>
+<p>Helen Gilbert joined Jenner &amp; Block as a partner in San Francisco.  The move was Oct. 14, 2026.</p>
+
+<div class="collapse expand-otm" id="person-otm-6893" style="height: 40px; min-height: 50px; display: block; overflow: hidden;">
+<p>
+Gilbert spent more than 10 years at the U.S. Attorney&#39;s Office for the Northern District of California, where she served as chief of the National Security, Cyber, and Special Prosecutions Section. She supervised prosecutions involving national security, cybersecurity, trade secret theft, economic espionage and public corruption. Her experience also includes wire fraud, tax fraud, government program fraud and evaluating qui tam cases for potential criminal prosecution. In private practice, she represents clients in government investigations, white-collar criminal matters and corporate crises, including companies in the artificial intelligence, semiconductor, cybersecurity and advanced mobility industries.
+ 
+</p>
+</div>
+<br>
+</p>
+</div>
+<div class="clearfix"></div>
+<div class="row">
+<div class="col-sm-12">
+<h4>Details</h4>
+<div id="otm-6893">
+<p>
+Jenner &amp; Block has 500 attorneys in 7 offices including San Francisco, Los Angeles, Century City.  Among the law firm’s key practice areas are Appellate and Supreme Court; Investigations, Compliance and Defense, Media and Entertainment Litigation; Intellectual Property; Energy.
+The firm’s website is
+<a href="http://http://https//www.jenner.com/en">http://https//www.jenner.com/en</a>
+</p>
+</div>
+</div>
+<div class="col-sm-5">
+<h4>
+</h4>
+<p>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="clearfix"></div>
+<a class="btn btn-primary btn-block hidden-md hidden-lg" href="/on-the-move/new">Submit Your News</a>
+<h4 class="homepage-heading"><a data-free-content="true" href="/featured_content">Featured Content</a></h4>
+<div id="featured_content">
+<div class="box-wrap plain no-margin">
+<div class="row">
+<div class="col-sm-12 categories-wrap">
+<h4 class="no-margin-top">
+</h4>
+</div>
+<div class="col-xs-12 col-sm-6 col-lg-3" style="padding: 0px 0px 0px 5px">
+<a href="/articles/394001-building-the-path-to-resolution-in-complex-construction-mediation"><div class="index-image home-image">
+<img loading="lazy" alt="Building the Path to Resolution in Complex Construction Mediation" src="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/articles/images/000/394/001/original/Ballati.jpg?1787946940" />
+</div>
+</a></div>
+<br class="visible-xs">
+<div class="col-xs-12 col-sm-6 col-lg-8">
+<h3 class="box-title"><a data-free-content="true" href="/articles/394001-building-the-path-to-resolution-in-complex-construction-mediation">Building the Path to Resolution in Complex Construction Mediation</a></h3>
+<div class="box-date">
+Sep.  1, 2026
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<p class="box-content no-margin" style="padding: 6px 0px;"></p>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+
+<hr>
+<div class="box-wrap plain no-margin">
+<div class="row">
+<div class="col-sm-12 categories-wrap">
+<h4 class="no-margin-top">
+</h4>
+</div>
+<div class="col-xs-12 col-sm-6 col-lg-3" style="padding: 0px 0px 0px 5px">
+<a href="/articles/392727-when-the-feeding-hand-bites-the-dog"><div class="index-image home-image">
+<img loading="lazy" alt="When the Feeding Hand Bites the Dog " src="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/articles/images/000/392/727/original/Cardone_David_2024.1.jpg?1782930135" />
+</div>
+</a></div>
+<br class="visible-xs">
+<div class="col-xs-12 col-sm-6 col-lg-8">
+<h3 class="box-title"><a data-free-content="true" href="/articles/392727-when-the-feeding-hand-bites-the-dog">When the Feeding Hand Bites the Dog </a></h3>
+<div class="box-date">
+Aug. 31, 2026
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<p class="box-content no-margin" style="padding: 6px 0px;">Insurance defense attorneys have long been on the front lines for their clients. Now they're facing a new threat: the carriers...</p>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+
+<hr>
+<div class="box-wrap plain no-margin">
+<div class="row">
+<div class="col-sm-12 categories-wrap">
+<h4 class="no-margin-top">
+Alternative Dispute Resolution
+</h4>
+</div>
+<br class="visible-xs">
+<div class="col-xs-12">
+<h3 class="box-title"><a data-free-content="true" href="/articles/390591-inside-wage-and-hour-mediations-what-neutrals-are-seeing-now">Inside Wage-and-Hour Mediations: What Neutrals Are Seeing Now</a></h3>
+<div class="box-date">
+Apr.  1, 2026
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<p class="box-content no-margin" style="padding: 6px 0px;">JAMS neutrals examine how evolving PAGA reforms, shifting case law and data-driven claims are reshaping mediation strategies i...</p>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+
+<hr>
+</div>
+<br>
+<h4 class="homepage-heading"><a data-free-content="true" href="/public/Community_News">Community News</a></h4>
+<div id="community-news">
+<div class="box-wrap plain no-margin">
+<div class="row">
+<div class="col-sm-12 categories-wrap">
+<h4 class="no-margin-top">
+Slideshow,
+Community News
+</h4>
+</div>
+<br class="visible-xs">
+<div class="col-xs-12">
+<h3 class="box-title"><a data-free-content="true" href="/articles/394832-riverside-bar-honors-2-veteran-criminal-defense-attorneys">Riverside Bar honors 2 veteran criminal defense attorneys</a></h3>
+<div class="box-date">
+Sep. 28, 2026
+<br>
+<small class="box-date">By Ricardo Pineda</small>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<p class="box-content no-margin" style="padding: 6px 0px;">Virginia M. Blumenthal and Steven L. Harmon presented each other with the association's top service awards as Elisabeth A. Lor...</p>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+
+<hr>
+</div>
+<br>
+</div>
+<div class="col-xs-12 col-md-4">
+<div id="netWork">
+<a href="/judicial-elections"><img class="video-fancy-border" src="/assets/judicial_elections_title-62d5a1bd5b0387e42ae5a4f2b97884d73c263cbde52248ffce3c3a3088492653.png" loading="lazy" />
+</a><div class="box-wrap plain"></div>
+<p class="box-content no-margin"></p>
+</div>
+<hr>
+<div class="row">
+<div class="col-md-12">
+<div class="box-ad" id="box-ad-1"></div>
+<div class="box-ad" id="box-ad-2"></div>
+<div class="box-ad" id="box-ad-3"></div>
+<div class="box-ad" id="box-ad-4"></div>
+</div>
+</div>
+
+<h4 class="homepage-heading">
+<a href="/dar">Daily Appellate Report</a>
+</h4>
+<div class="box-wrap plain" style="padding-top: 0;">
+<h4>Environmental Law </h4>
+<h3 class="box-title"><a href="/daily_appellate_report/286204-san-joaquin-facilities-management-inc-v-dept-of-conservation">San Joaquin Facilities Management, Inc. v. Dept. of Conservation</a></h3>
+<p class="box-content no-margin">
+A pre-CEQA oil field does not exempt new 4,500-foot injection wells when modern approval gives regulators materially greater control over the project.
+
+</p>
+</div>
+
+<hr>
+<div class="box-wrap plain" style="padding-top: 0;">
+<h4>Administrative Agencies </h4>
+<h3 class="box-title"><a href="/daily_appellate_report/286205-modification-bombardini-v-board-of-psychology">Modification: Bombardini v. Board of Psychology</a></h3>
+<p class="box-content no-margin">
+Board of Psychology&#39;s denial of petition to terminate probationary period early was subject to substantial evidence review because it did not concern a fundamental vested right.
+</p>
+</div>
+
+<hr>
+<div class="box-wrap plain" style="padding-top: 0;">
+<h4>Administrative Agencies </h4>
+<h3 class="box-title"><a href="/daily_appellate_report/286201-fcc-v-brown">FCC v. Brown</a></h3>
+<p class="box-content no-margin">
+Writ of mandamus imposing deadline on FCC to resolve application for review was improper because it interfered with internal workings of coordinate branch of government over which it had ...
+</p>
+</div>
+
+<hr>
+<div class="box-wrap plain" style="padding-top: 0;">
+<h4>Criminal Law and Procedure </h4>
+<h3 class="box-title"><a href="/daily_appellate_report/286202-u-s-v-le">U.S. v. Le</a></h3>
+<p class="box-content no-margin">
+Juror&#39;s incapacitating mental distress from pressure to reach a particular verdict required a mistrial, not replacement.
+
+</p>
+</div>
+
+<hr>
+<div class="box-wrap plain" style="padding-top: 0;">
+<h4>Family Law </h4>
+<h3 class="box-title"><a href="/daily_appellate_report/286203-sterndahl-v-sterndahl">Sterndahl v. Sterndahl </a></h3>
+<p class="box-content no-margin">
+Temporary spousal support order over which trial court expressly retained jurisdiction to retroactively modify was not final and was not appealable.
+</p>
+</div>
+
+<hr>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div class="row text-center">
+<div class="col-md-12">
+<div class="long-ad" id="bottom-banner"></div>
+<div class="long-ad" id="bottom-banner-xs"></div>
+</div>
+</div>
+<hr class="thick">
+
+</div>
+<div class="container">
+<div id="footer-bottom">
+<div class="row hidden-xs hidden-sm" id="footer-nav1">
+<div class="col-lg-2">
+<ul>
+<li><a href="https://www.dailyjournal.com/articles">Current News</a></li>
+<li><a class="primary-nav-link " href="/columns">Columns</a></li>
+<li><a href="/articles/cal_lawyer?category=Discipline+Report">Discipline Report</a></li>
+<li><a class="dropdown-item" href="/on-the-move/new">On The Move</a></li>
+<li><a href="/podcast">Podcasts</a></li>
+<li><a href="/videos">Videos</a></li>
+</ul>
+</div>
+<div class="col-lg-2">
+<ul>
+<li><a href="https://www.dailyjournal.com/dar">Daily Appellate</a></li>
+<li><a href="https://www.dailyjournal.com/verdicts_and_settlements">Verdicts</a></li>
+<li><a href="/judicial_profiles">Judicial Profiles</a></li>
+<li><a href="/adr_profiles">ADR Profiles</a></li>
+<li><a href="/small_firms">Firm Profiles</a></li>
+<li><a href="/corporate_counsels">Corporate Counsel</a></li>
+<li><a href="/people">People</a></li>
+</ul>
+</div>
+<div class="col-lg-3">
+<ul>
+<li><a href="/special_reports?report_type=Top+100">Top 100</a></li>
+<li><a href="/special_reports?report_type=Top+Bankruptcy">Top Bankruptcy</a></li>
+<li><a href="/special_reports?report_type=Top+Boutiques">Top Boutiques</a></li>
+<li><a href="/special_reports?report_type=Top+Cannabis+Lawyers">Top Cannabis Lawyers</a></li>
+<li><a href="/special_reports?report_type=Top+Family+Law+Lawyers">Top Family Law Lawyers</a></li>
+<li><a href="/special_reports?report_type=Top+Health+Care+Lawyers">Top Health Care Lawyers</a></li>
+<li><a href="/special_reports?report_type=Top+Plaintiffs">Top Plaintiffs</a></li>
+<li><a href="/special_reports?report_type=Top+Trade+Secrets+Lawyers">Top Trade Secrets Lawyers</a></li>
+<li><a href="/special_reports?report_type=Top+Under+40">Top Under 40</a></li>
+<li><a href="/special_reports?report_type=Top+Verdicts">Top Verdicts</a></li>
+<li><a href="/special_reports?report_type=Top+Women">Top Women</a></li>
+</ul>
+</div>
+<div class="col-lg-3">
+<ul>
+<li><a href="/special_reports?report_type=Antitrust">Antitrust</a></li>
+<li><a href="/special_reports?report_type=Banking+%26+Financial+Services">Banking &amp; Financial Services</a></li>
+<li><a href="/special_reports?report_type=CLAY+awards">CLAY awards</a></li>
+<li><a href="/special_reports?report_type=Commercial+Litigators">Commercial Litigators</a></li>
+<li><a href="/special_reports?report_type=Cyber%2FAI">Cyber/AI</a></li>
+<li><a href="/special_reports?report_type=Estate+%26+Wealth+">Estate &amp; Wealth </a></li>
+<li><a href="/special_reports?report_type=Intellectual+Property">Intellectual Property</a></li>
+<li><a href="/special_reports?report_type=Labor+%26+Employment">Labor &amp; Employment</a></li>
+<li><a href="/special_reports?report_type=Neutrals">Neutrals</a></li>
+<li><a href="/special_reports?report_type=New+Laws">New Laws</a></li>
+<li><a href="/special_reports?report_type=Niche+Lawyers">Niche Lawyers</a></li>
+<li><a href="/special_reports?report_type=Probate">Probate</a></li>
+<li><a href="/special_reports?report_type=Professional+Responsibility">Professional Responsibility</a></li>
+<li><a href="/special_reports?report_type=Real+Estate%2FDevelopment">Real Estate/Development</a></li>
+<li><a href="/special_reports?report_type=Recruiting">Recruiting</a></li>
+<li><a href="/special_reports?report_type=Special+Coverage">Special Coverage</a></li>
+<li><a href="/special_reports?report_type=Technology">Technology</a></li>
+<li><a href="/special_reports?report_type=White+Collar">White Collar</a></li>
+</ul>
+</div>
+<div class="col-lg-3" style="width:26%">
+<ul>
+<li><a target="_blank" href="http://www.dailycommerce.news">Daily Commerce (Los Angeles, CA)</a></li>
+<li><a target="_blank" href="http://www.sdtranscript.com">The Daily Transcript (San Diego, CA)</a></li>
+<li><a target="_blank" href="http://www.riversidejournal.news">Riverside Business Journal</a></li>
+<li><a target="_blank" href="http://www.ocreporter.news">Orange County Reporter</a></li>
+<li><a target="_blank" href="http://www.postrecord.news">San Jose Post-Record</a></li>
+<li><a target="_blank" href="http://www.intercityexpress.news">The Inter-City Express (Hayward, CA)</a></li>
+<li><a target="_blank" href="http://www.dailyrecorder.news">The Daily Recorder (Sacramento, CA)</a></li>
+<li><a target="_blank" href="http://www.recordreporter.com">The Record Reporter (Phoenix, AZ)</a></li>
+</ul>
+</div>
+<hr class="hidden-xs hidden-sm">
+</div>
+<div id="footer-nav2">
+<div class="row">
+<div class="col-sm-12">
+<h6>
+<ul class="list-inline">
+<li>
+<a href="/copyright">&copy;
+2026 Daily Journal Corporation.
+All Rights Reserved.
+</a></li>
+<li>
+<a href="/feedbacks/new">Feedback</a>
+</li>
+<li><a href="/advertising">Advertise With Us</a></li>
+<li><a href="/printing_services">Printing Services</a></li>
+<li><a href="/privacy">Privacy</a></li>
+<li><a href="/user_agreement">User Agreement</a></li>
+<li><a target="_blank" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0000783412">SEC</a></li>
+<li>
+<div class="btn-group dropup">
+<a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown">
+About
+<i class="fa fa-caret-up"></i>
+</a>
+<div class="dropdown-menu dropdown-items">
+<a class="dropdown-item" href="/mission">Mission/Leadership</a>
+<a class="dropdown-item" href="/staff">Testimonial/Editorial Staff</a>
+<a class="dropdown-item" href="/offices">Offices</a>
+<a class="dropdown-item" href="/careeropportunities">Career Opportunities</a>
+<a class="dropdown-item" href="/advertising">Advertising</a>
+<a target="_blank" href="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/footers/upload4s/000/000/001/original/Board_Diversity_Matrix_2024.12.15.pdf?1734380655">Board Diversity</a>
+<a target="_blank" href="https://ir.dailyjournal.com/">Investor Relations</a>
+<a target="_blank" href="https://s3-us-west-2.amazonaws.com/dailyjournal-prod/footers/upload5s/000/000/001/original/About_page_w_QR_code.pdf?1729270706">Text Alerts Sign-up</a>
+<a class="dropdown-item" href="https://dailyjournal56543.ac-page.com/newsletter">Enewsletter Sign-up</a>
+<a class="dropdown-item" href="/userguide">User Guide</a>
+</div>
+</div>
+</li>
+<li>
+<div class="btn-group dropup">
+<a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown">
+Submit
+<i class="fa fa-caret-up"></i>
+</a>
+<div class="dropdown-menu dropdown-items">
+<a class="dropdown-item" href="/verdicts_and_settlements/new">Verdicts</a>
+<a class="dropdown-item hide" href="/deal-makers/new">Dealmakers</a>
+<a class="dropdown-item" href="/on-the-move/new">On The Move</a>
+<a class="dropdown-item" href="/profile_submission">Profiles</a>
+<a class="dropdown-item" href="/perspective">Columns</a>
+<a class="dropdown-item" href="/nominations">Nominations</a>
+<a class="dropdown-item" target="_blank" href="/corrections_policy">Corrections Policy</a>
+</div>
+</div>
+</li>
+</ul>
+</h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="footerFeedbackModalLabel" class="modal" id="footerFeedbackModal" role="dialog" tabindex="-1">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<button aria-label="Close" class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">&times;</span>
+</button>
+<h3 class="modal-title" id="footerFeedbackModalLabel">How can we help you?</h3>
+</div>
+<div class="modal-body">
+<form class="new_feedback" id="new_feedback" action="/feedbacks" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="Fywy6jFAhsdZSaZPmSp2E0r7Ddd-6L_CGKulu5P7q4udRpAri50j4LtpE_UI_wBC6zHdAjgf2B9HYScqGozAOA" autocomplete="off" /><div class="form-group">
+<label for="feedback_name">Name</label>
+<input class="form-control" required="required" type="text" name="feedback[name]" id="feedback_name" />
+</div>
+<div class="form-group">
+<label for="feedback_email">E-mail:</label>
+<input class="form-control" required="required" type="email" name="feedback[email]" id="feedback_email" />
+</div>
+<div class="form-group">
+<label for="feedback_body">message:</label>
+<textarea class="form-control md-textarea" required="required" name="feedback[body]" id="feedback_body">
+</textarea>
+</div>
+<div class="row">
+<div class="col-md-12">
+<script src="https://www.recaptcha.net/recaptcha/api.js" async defer ></script>
+<div data-sitekey="6LfjdyMTAAAAALUWr3eVK-qaSzCTISqsw9x9SnCZ" class="g-recaptcha " id="1792261795" ajax="true"></div>
+          <noscript>
+            <div>
+              <div style="width: 302px; height: 422px; position: relative;">
+                <div style="width: 302px; height: 422px; position: absolute;">
+                  <iframe
+                    src="https://www.recaptcha.net/recaptcha/api/fallback?k=6LfjdyMTAAAAALUWr3eVK-qaSzCTISqsw9x9SnCZ"
+                    name="ReCAPTCHA"
+                    style="width: 302px; height: 422px; border-style: none; border: 0; overflow: hidden;">
+                  </iframe>
+                </div>
+              </div>
+              <div style="width: 300px; height: 60px; border-style: none;
+                bottom: 12px; left: 25px; margin: 0px; padding: 0px; right: 25px;
+                background: #f9f9f9; border: 1px solid #c1c1c1; border-radius: 3px;">
+                <textarea name="g-recaptcha-response"
+                  class="g-recaptcha-response"
+                  style="width: 250px; height: 40px; border: 1px solid #c1c1c1;
+                  margin: 10px 25px; padding: 0px; resize: none;">
+                </textarea>
+              </div>
+            </div>
+          </noscript>
+
+</div>
+</div>
+
+<hr>
+<div class="form-group">
+<input type="submit" name="commit" value="Submit" class="btn btn-primary btn-block btn-lg" data-disable-with="Submit" />
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0NVJ5MNWQL');
+  
+  $(document).ready(ready);
+  $(document).on('load page:load', ready);
+  
+  
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof Stripe !== "undefined") {
+      initializeStripe();
+    } else {
+      console.warn("❌ Stripe.js is not yet loaded. Waiting...");
+      let checkStripe = setInterval(() => {
+        if (typeof Stripe !== "undefined") {
+          clearInterval(checkStripe);
+          initializeStripe();
+        }
+      }, 500); // Check every 500ms until Stripe loads
+    }
+  });
+  
+  function initializeStripe() {
+    const stripeKeyMeta = document.querySelector('meta[name="stripe-key"]');
+    const stripeKey = stripeKeyMeta ? stripeKeyMeta.content : null;
+  
+    if (!stripeKey) {
+      console.error("❌ Stripe key is missing. Check your Rails configuration.");
+      return;
+    }
+  
+    try {
+      var stripe = Stripe(stripeKey);
+      console.log("✅ Stripe initialized successfully.");
+    } catch (error) {
+      console.error("❌ Error initializing Stripe:", error);
+    }
+  }
+</script>
+</html>

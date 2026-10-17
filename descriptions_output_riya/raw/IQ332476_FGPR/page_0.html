@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html class="">
+<head id="head">
+
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--Hi from HEAD SCRIPTS-->
+    <script>
+        (function () {
+            // Shared handler — dispatches fg:consent-changed then reloads so
+            // server-rendered consent checks re-evaluate against the updated cookie.
+            function onConsentChanged() {
+                window.dispatchEvent(new CustomEvent("fg:consent-changed"));
+                window.location.reload();
+            }
+
+            // Explicit-consent mode: TrustArc posts a message from the consent iframe
+            // when the user clicks "Submit Preferences".
+            window.addEventListener("message", function (e) {
+                if (e.origin !== "https://consent.trustarc.com") { return; }
+                try {
+                    var data = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
+                    if (data && data.message === "submit_preferences") {
+                        onConsentChanged();
+                    }
+                } catch (ex) { /* non-JSON postMessage, ignore */ }
+            });
+
+            // Implied-consent mode: TrustArc fires this native window event when it
+            // has written or updated the consent cookie without a full modal submit.
+            window.addEventListener("trustarc-consent-updated", function () {
+                onConsentChanged();
+            });
+        })();
+    </script>
+
+<script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+<script>
+     // Setup a holding place for errors before user accepts
+        TrackJS._cache = [];
+        TrackJS._userConsent = false;
+        TrackJS.install(
+        {
+            token: 'a9d4ff96d6bc47dcab7eb4d6bf57aed5',
+            application: 'ferrellgas_com_vkenprd',
+            sessionId:'69201ebf-6cbb-76e1-47b1-35957d4e7b64',
+            onError: function (payload, err)
+    {
+         if(typeof(err) === 'object' && "metadata" in err){
+            err.metadata.forEach((x, i) => {payload.metadata.push(x)});            
+        }
+
+            /* BEGIN Dynamic user consent injection*/
+            // User has not consented, cache the error payload and wait
+            if (!TrackJS._userConsent) {
+            TrackJS._cache.push(payload);
+            return false;
+            }
+            // We're flushing the cache, ignore the error and take one off the cache
+            else if (err && err.message && err.message.indexOf('cache_flush') === 0 && TrackJS._cache.length) {
+            Object.assign(payload, TrackJS._cache.pop());
+            return true;
+            }
+            // END Dynamic user consent injection
+            return true;
+            }});
+
+        // When the user accepts, trigger errors to flush the cache.
+        function onTrackJSUserConsent()
+        {
+            TrackJS._userConsent = true;
+            for (let i = TrackJS._cache.length; i > 0; i--)
+            {
+                TrackJS.track('cache_flush ' + i);
+            }
+        }
+                TrackJS.configure({
+            version: '9c738b63c467cfc3a4393a2313f5ffc02e9de27d'
+        });
+
+        TrackJS.addMetadata('Git_SHA', '9c738b63c467cfc3a4393a2313f5ffc02e9de27d');
+        
+        TrackJS.addMetadata('Git_Branch', 'HEAD');
+        
+        TrackJS.addMetadata('Git_IsDirty', 'true');
+        
+        TrackJS.addMetadata('Machine', 'pd1sdwk001JFF');
+        
+    window.addEventListener('fg:consent-changed', function () {
+        var trustArc = window.FG && window.FG.TrustArc;
+        if (trustArc && trustArc.hasConsent(trustArc.CATEGORY.FUNCTIONAL)) {
+            onTrackJSUserConsent();
+        }
+    });
+        </script>
+
+        <script>
+            (function monitorResourceLoad() {
+                function listenForLoadError(node) {
+                    if (["SCRIPT", "LINK", "IMG"].indexOf(node.tagName) >= 0) {
+                        var origOnError = node.onerror;
+                        node.onerror = function (evt) {
+                            if (!evt || !evt.srcElement) { return; }
+                            evt.path = evt.path || [];
+                            var path = "";
+                            for (var elIdx = 0; elIdx < evt.path.length; elIdx++) {
+                                var currentEl = evt.path[elIdx];
+                                if (currentEl === window) {
+                                    path += "Window";
+                                    continue;
+                                }
+                                path += currentEl.nodeName;
+                                path += currentEl.id ? "#" + currentEl.id : "";
+                                path += currentEl.className ? "." + currentEl.className.split(" ").join(".") : "";
+                                if (elIdx < evt.path.length) {
+                                    path += " > ";
+                                }
+                            }
+                             var info = {
+                                 tagName: evt.srcElement.tagName,
+                                 asset: (evt.srcElement.src || evt.srcElement.href),
+                                 integrity: evt.srcElement.integrity,
+                                 element: evt.srcElement.outerHTML,
+                                 path: path,
+                                 errorMessage: "Failed to load " + evt.srcElement.tagName + ": " + (evt.srcElement.src || evt.srcElement.href)
+                             };
+
+                             var err = new Error(info.errorMessage);
+                             err.metadata = [];
+
+                             err.metadata.push({
+                                 key: "ErrorType",
+                                 value: "ResourceLoad"
+                             });
+
+                             err.metadata.push({
+                                 key: "TagName",
+                                 value: info.tagName
+                             });
+
+                             err.metadata.push({
+                                 key: "Resource",
+                                 value: info.asset
+                             });
+
+                             err.metadata.push({
+                                 key: "ElementPath",
+                                 value: info.path
+                             });
+
+                             err.metadata.push({
+                                 key: "Element",
+                                 value: info.element
+                             });
+
+                             TrackJS.track(err);
+
+                            if (origOnError) { origOnError.call(node, evt); }
+                        }
+                    }
+                }
+                var Observer = window.MutationObserver || window.WebKitMutationObserver;
+                if (!Observer) { return; }
+                new Observer((function (mutations) {
+                    [].forEach.call(mutations, function (mutation) {
+                        [].forEach.call(mutation.addedNodes, listenForLoadError);
+                    });
+                })).observe(document, { childList: true, subtree: true });
+            })();
+        </script>
+    
+<script type="text/javascript" src="/kentico.resource/webanalytics/logger.js?Culture=en-US&amp;HttpStatus=200&amp;Value=0" async></script>
+
+
+    
+<title>Ferrellgas Propane | Local Delivery &amp; Service for Home &amp; Business</title>
+    <link rel="canonical" href="https://ferrellgas-com-prod-2022.azurewebsites.net/" />
+    <meta name="url" content="https://ferrellgas-com-prod-2022.azurewebsites.net/">
+    <meta name="Description" content="For nearly 85 years, Ferrellgas has been serving local communities as your local propane provider. Trust us to fuel what matters to you and find the location nearest to you.">
+    <meta property="og:title" content="Ferrellgas Propane | Local Delivery &amp; Service for Home &amp; Business">
+    <meta property="og:description" content="For nearly 85 years, Ferrellgas has been serving local communities as your local propane provider. Trust us to fuel what matters to you and find the location nearest to you.">
+    <meta property="og:url" content="https://ferrellgas-com-prod-2022.azurewebsites.net/">
+    <meta property="og:site_name" content="Ferrellgas" />
+    <meta property="twitter:title" content="Ferrellgas Propane | Local Delivery &amp; Service for Home &amp; Business">
+    <meta property="twitter:description" content="For nearly 85 years, Ferrellgas has been serving local communities as your local propane provider. Trust us to fuel what matters to you and find the location nearest to you.">
+    <meta property="twitter:site" content="https://ferrellgas-com-prod-2022.azurewebsites.net/">
+
+    <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7479672/6263752/css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="https://use.typekit.net/lde5odd.js">
+    <link href="https://fonts.googleapis.com/css?family=Material&#x2B;Icons|Material&#x2B;Icons&#x2B;Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="/dist/styles/main.css?v=eYuU6_T7giOGUUFUajTcniZAHRYf2LthmuUDiozYz4o" />
+
+    
+    <link href="/_content/Kentico.Content.Web.Rcl/Content/Bundles/Public/systemPageComponents.min.css" rel="stylesheet" />
+
+
+    
+    
+    
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ItemList","name":"Propane Services","url":null,"itemListElement":[{"@context":"https://schema.org","@type":"ItemList","name":"Delivery & Service Options","url":null,"itemListElement":[{"@context":"https://schema.org","@type":"ItemList","name":"Auto Fill","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Digital Tank Monitoring","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Will Call","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Ferrell Platinum Plus","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Propane Tank Installation","url":null}]},{"@context":"https://schema.org","@type":"ItemList","name":"For Your Home","url":null,"itemListElement":[{"@context":"https://schema.org","@type":"ItemList","name":"Home Heating","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Propane Appliances","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Propane Generators","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Propane Fireplaces","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Propane Space Heating","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Outdoor Living","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Sign Up","url":null}]},{"@context":"https://schema.org","@type":"ItemList","name":"For Your Business","url":null,"itemListElement":[{"@context":"https://schema.org","@type":"ItemList","name":"Industrial","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Forklifts","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Commercial","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Construction","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Autogas Buses & Fleets","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"National Accounts","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Mowing & Landscaping","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Sign Up","url":null}]},{"@context":"https://schema.org","@type":"ItemList","name":"Agriculture","url":null,"itemListElement":[{"@context":"https://schema.org","@type":"ItemList","name":"Drying & Curing","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Irrigation Engines","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Greenhouse Heating","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Tractors & Farm Equipment","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Livestock Heating & Sanitation","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Flame Weeding ","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Sign Up","url":null}]},{"@context":"https://schema.org","@type":"ItemList","name":"Sign Up","url":null}]},{"@type":"ItemList","name":"Refill Locations","url":null,"itemListElement":[{"@context":"https://schema.org","@type":"ItemList","name":"All Locations","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Propane Tank Exchange","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Sign Up","url":null}]},{"@type":"ItemList","name":"Customer Benefits","url":null,"itemListElement":[{"@context":"https://schema.org","@type":"ItemList","name":"Manage My Account","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Payment Options","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Safety","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Promotions","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"FAQs","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Nationwide Supply Network","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Delivery & Service Options","url":null,"itemListElement":[{"@context":"https://schema.org","@type":"ItemList","name":"Auto Fill","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Tank Monitoring","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Will Call","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Ferrell Platinum Plus","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Propane Tank Installation","url":null}]},{"@context":"https://schema.org","@type":"ItemList","name":"Refer A Friend","url":null}]},{"@type":"ItemList","name":"Propane Resources","url":null,"itemListElement":[{"@context":"https://schema.org","@type":"ItemList","name":"Propane Tanks Size Guide","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Propane Tank Installation","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Moving in and Out of Propane Homes","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Safety","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Ferrellgas Blog: Tank Talk","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"FAQs","url":null}]},{"@type":"ItemList","name":"About Us","url":null,"itemListElement":[{"@context":"https://schema.org","@type":"ItemList","name":"Jobs","url":null,"itemListElement":[{"@context":"https://schema.org","@type":"ItemList","name":"Search Current Openings","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Benefits","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Types of Jobs","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Hear from our Employees","url":null}]},{"@context":"https://schema.org","@type":"ItemList","name":"Ferrellgas Century Project","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Hear From Our Customers","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Management Development Program","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Investor Relations","url":null,"itemListElement":[{"@context":"https://schema.org","@type":"ItemList","name":"Press Releases","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"SEC Filings","url":null}]},{"@context":"https://schema.org","@type":"ItemList","name":"Our Leadership","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Selling Your Business","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Ferrellgas Blog: Tank Talk","url":null},{"@context":"https://schema.org","@type":"ItemList","name":"Sign Up","url":null}]},{"@type":"ItemList","name":"Get Today's Propane Price","url":null}]}</script>
+
+
+
+
+
+
+
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Home","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.ferrellgas.com/"},"image":[""],"datePublished":"2026-08-17T13:40:14Z","dateModified":null,"description":"","keywords":null,"author":{"@type":"Person","name":null},"publisher":{"@type":"Organization","name":"FerrellGas","logo":null}}</script>
+
+
+</head>
+<body>
+
+
+    
+    <div class="page">
+        
+
+        <a class="nav-skip" href="#content" aria-label="Skip To Content">Skip To Content</a>
+        <header class="header">
+            <div class="header__inner">
+                    <div class="header__toolbar">
+        <a class="header__toolbar-phone" href="tel:888-337-7355" aria-label="phone number">888-337-7355</a>
+        <nav class="header__toolbar-nav">
+            <ul class="header__toolbar-list">
+                        <li class="header__toolbar-item">
+                            <a class="header__toolbar-link" href="/request-a-fill/"  aria-label="Link Request a Refill">Request a Refill</a>
+                        </li>
+                        <li class="header__toolbar-item">
+                            <a class="header__toolbar-link" href="/contact-us/"  aria-label="Link Contact Us">Contact Us</a>
+                        </li>
+                        <li class="header__toolbar-item">
+                            <a class="header__toolbar-link" href="https://myferrellgas.com/"  target=&#x27;_blank&#x27;  aria-label="Link Log In">Log In</a>
+                        </li>
+            </ul>
+        </nav>
+       <form class="header__toolbar-search" data-search-page-path="/search" data-query-placeholder-text="#site-search">
+            <label class="header__toolbar-label hideVisually" for="site-search">Keywords</label>
+            <input class="header__toolbar-input" id="site-search" type="text" placeholder="Search" required>
+            <button class="header__toolbar-submit" type="submit"></button>
+        </form>
+    </div>
+
+
+                <div class="header__main">
+    <a class="header__logo-link" href="/" aria-label="__title__xqcx1zmw0xsfh9y07ug7s"><img class="header__logo" src="/img/template-images/ferrellgas_logo-white.svg" alt="Ferrellgas Logo"></a>
+    <div class="header__mobile-btns">
+        <a class="header__mobile-call" href="tel:888-337-7355" aria-label="phone number"><i class="header__mobile-call-icon glyph-phone"></i><small class="header__mobile-label">Call</small></a>
+        <button class="header__mobile-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-menu"><i class="header__mobile-toggle-icon"></i><small class="header__mobile-label">Menu</small></button>
+    </div>
+    <nav class="header__nav" style="display:none;">
+            <ul class="header__primary-list">
+                    <li class="header__primary-item ">
+                        <a class="header__primary-link fg-header-nav-0" href=/for-your-home/ aria-label="Link Propane Services" > Propane Services </a>
+                            <button class="header__primary-toggle"> </button>
+                            <ul class="header__secondary-list">
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/customer-support/service-plans/" aria-label="Link Delivery &amp; Service Options" >Delivery &amp; Service Options</a>                                        
+                                                <button class="header__secondary-toggle"> </button>
+                                                <ul class="header__tertiary-list">
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/customer-support/service-plans/auto-fill/" aria-label="Link Auto Fill" >Auto Fill</a>
+                                                        </li>
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/customer-support/service-plans/digital-tank-monitoring/" aria-label="Link Digital Tank Monitoring" >Digital Tank Monitoring</a>
+                                                        </li>
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/customer-support/service-plans/will-call/" aria-label="Link Will Call" >Will Call</a>
+                                                        </li>
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/customer-support/service-plans/platinum-plus/" aria-label="Link Ferrell Platinum Plus" >Ferrell Platinum Plus</a>
+                                                        </li>
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/propane-tank-installation/" aria-label="Link Propane Tank Installation"  target=&#x27;_blank&#x27; >Propane Tank Installation</a>
+                                                        </li>
+                                                </ul>
+                                        </li>
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/for-your-home/" aria-label="Link For Your Home" >For Your Home</a>                                        
+                                                <button class="header__secondary-toggle"> </button>
+                                                <ul class="header__tertiary-list">
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/home-heating/" aria-label="Link Home Heating" >Home Heating</a>
+                                                        </li>
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/propane-appliances/" aria-label="Link Propane Appliances" >Propane Appliances</a>
+                                                        </li>
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/propane-generators/" aria-label="Link Propane Generators" >Propane Generators</a>
+                                                        </li>
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/propane-fireplaces/" aria-label="Link Propane Fireplaces" >Propane Fireplaces</a>
+                                                        </li>
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/propane-space-heating/" aria-label="Link Propane Space Heating" >Propane Space Heating</a>
+                                                        </li>
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/outdoor-living/" aria-label="Link Outdoor Living" >Outdoor Living</a>
+                                                        </li>
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/new-customer-residential/" aria-label="Link Sign Up" >Sign Up</a>
+                                                        </li>
+                                                </ul>
+                                        </li>
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/propane-solutions-for-your-business/" aria-label="Link For Your Business" >For Your Business</a>                                        
+                                                <button class="header__secondary-toggle"> </button>
+                                                <ul class="header__tertiary-list">
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/industrial-propane-programs/" aria-label="Link Industrial" >Industrial</a>
+                                                        </li>
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/propane-for-forklifts/" aria-label="Link Forklifts" >Forklifts</a>
+                                                        </li>
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/commercial-propane/" aria-label="Link Commercial" >Commercial</a>
+                                                        </li>
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/construction/" aria-label="Link Construction" >Construction</a>
+                                                        </li>
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/autogas-buses-fleet-vehicles/" aria-label="Link Autogas Buses &amp; Fleets" >Autogas Buses &amp; Fleets</a>
+                                                        </li>
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/national-accounts/" aria-label="Link National Accounts" >National Accounts</a>
+                                                        </li>
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/propane-lawn-mowers-landscaping/" aria-label="Link Mowing &amp; Landscaping" >Mowing &amp; Landscaping</a>
+                                                        </li>
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/new-customer-business/" aria-label="Link Sign Up" >Sign Up</a>
+                                                        </li>
+                                                </ul>
+                                        </li>
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/propane-farming-agriculture/" aria-label="Link Agriculture" >Agriculture</a>                                        
+                                                <button class="header__secondary-toggle"> </button>
+                                                <ul class="header__tertiary-list">
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/propane-crop-drying-tobacco-curing/" aria-label="Link Drying &amp; Curing" >Drying &amp; Curing</a>
+                                                        </li>
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/propane-for-irrigation-engines/" aria-label="Link Irrigation Engines" >Irrigation Engines</a>
+                                                        </li>
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/greenhouse-heating/" aria-label="Link Greenhouse Heating" >Greenhouse Heating</a>
+                                                        </li>
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/propane-for-tractors-farm-equipment/" aria-label="Link Tractors &amp; Farm Equipment" >Tractors &amp; Farm Equipment</a>
+                                                        </li>
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/livestock-heating-sanitation/" aria-label="Link Livestock Heating &amp; Sanitation" >Livestock Heating &amp; Sanitation</a>
+                                                        </li>
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/propane-flame-weeding/" aria-label="Link Flame Weeding " >Flame Weeding </a>
+                                                        </li>
+                                                        <li class="header__tertiary-item">
+                                                            <a class="header__tertiary-link" href="/new-customer-business/" aria-label="Link Sign Up" >Sign Up</a>
+                                                        </li>
+                                                </ul>
+                                        </li>
+                            </ul>
+                    </li>
+                    <li class="header__primary-item header__primary-item--small">
+                        <a class="header__primary-link fg-header-nav-1" href=/locations/ aria-label="Link Refill Locations" > Refill Locations </a>
+                            <button class="header__primary-toggle"> </button>
+                            <ul class="header__secondary-list">
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/locations/" aria-label="Link All Locations" >All Locations</a>                                        
+                                        </li>
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="https://www.bluerhino.com/propane-finder" aria-label="Link Propane Tank Exchange"  target=&#x27;_blank&#x27; >Propane Tank Exchange</a>                                        
+                                        </li>
+                            </ul>
+                    </li>
+                    <li class="header__primary-item header__primary-item--small">
+                        <a class="header__primary-link fg-header-nav-2" href=/customer-support/ aria-label="Link Customer Benefits" > Customer Benefits </a>
+                            <button class="header__primary-toggle"> </button>
+                            <ul class="header__secondary-list">
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/customer-support/myferrellgas/" aria-label="Link Manage My Account" >Manage My Account</a>                                        
+                                        </li>
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/payment-options/" aria-label="Link Payment Options" >Payment Options</a>                                        
+                                        </li>
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/customer-support/safety/" aria-label="Link Safety" >Safety</a>                                        
+                                        </li>
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/year-round-propane-savings/" aria-label="Link Promotions" >Promotions</a>                                        
+                                        </li>
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/faqs/" aria-label="Link FAQs" >FAQs</a>                                        
+                                        </li>
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/nationwide-supply/" aria-label="Link Nationwide Supply Network" >Nationwide Supply Network</a>                                        
+                                        </li>
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/customer-support/service-plans/" aria-label="Link Delivery &amp; Service Options" >Delivery &amp; Service Options</a>                                        
+                                        </li>
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/refer-a-friend/" aria-label="Link Refer A Friend" >Refer A Friend</a>                                        
+                                        </li>
+                            </ul>
+                    </li>
+                    <li class="header__primary-item header__primary-item--small">
+                        <a class="header__primary-link fg-header-nav-3" aria-label="Link Propane Resources" > Propane Resources </a>
+                            <button class="header__primary-toggle"> </button>
+                            <ul class="header__secondary-list">
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/tank-talk/blog-articles/understanding-the-various-propane-tank-sizes/" aria-label="Link Propane Tanks Size Guide" >Propane Tanks Size Guide</a>                                        
+                                        </li>
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/propane-tank-installation/" aria-label="Link Propane Tank Installation" >Propane Tank Installation</a>                                        
+                                        </li>
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/move-in-and-out/" aria-label="Link Moving in and Out of Propane Homes" >Moving in and Out of Propane Homes</a>                                        
+                                        </li>
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/customer-support/safety/" aria-label="Link Safety" >Safety</a>                                        
+                                        </li>
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/tank-talk/" aria-label="Link Ferrellgas Blog: Tank Talk" >Ferrellgas Blog: Tank Talk</a>                                        
+                                        </li>
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/faqs/" aria-label="Link FAQs" >FAQs</a>                                        
+                                        </li>
+                            </ul>
+                    </li>
+                    <li class="header__primary-item header__primary-item--small">
+                        <a class="header__primary-link fg-header-nav-4" href=/our-company/ aria-label="Link About Us" > About Us </a>
+                            <button class="header__primary-toggle"> </button>
+                            <ul class="header__secondary-list">
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/jobs/" aria-label="Link Jobs" >Jobs</a>                                        
+                                        </li>
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/esg/" aria-label="Link Ferrellgas Century Project" >Ferrellgas Century Project</a>                                        
+                                        </li>
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/customer-testimonials/" aria-label="Link Hear From Our Customers" >Hear From Our Customers</a>                                        
+                                        </li>
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/management-development-program/" aria-label="Link Management Development Program" >Management Development Program</a>                                        
+                                        </li>
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/our-company/investor-information/" aria-label="Link Investor Relations" >Investor Relations</a>                                        
+                                        </li>
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/our-company/leadership/" aria-label="Link Our Leadership" >Our Leadership</a>                                        
+                                        </li>
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/acquisitions/" aria-label="Link Selling Your Business" >Selling Your Business</a>                                        
+                                        </li>
+                                        <li class="header__secondary-item">
+                                            <a class="header__secondary-link" href="/tank-talk/" aria-label="Link Ferrellgas Blog: Tank Talk" >Ferrellgas Blog: Tank Talk</a>                                        
+                                        </li>
+                            </ul>
+                    </li>
+                
+            </ul>
+            <a class="header__cta" href="https://wedeliver.ferrellgas.com/quote" aria-label="Link Get Today&#x27;s Propane Price">Get Today&#x27;s Propane Price</a>
+    </nav>
+</div>
+
+
+                
+
+            </div>
+            <div class="header__mobile-drawer" id="mobile-menu"></div>
+        </header>
+        <main class="content" id="content">
+            
+
+            
+<section>
+    <div class="section__inner">
+        <blue-composition>
+            <blue-component observe="observe">
+                <div class="hero hero--video">
+                    <div class="hero__inner">
+                        <h1 class="hero__heading">Easy Propane Solutions for Homes and Businesses</h1>
+                        <p class="hero__subheading">Ferrellgas makes propane service simple, safe, and dependable. Special offer available for new residential customers.</p>
+                         
+                            <a class="hero__cta btn" id="fg-home-hero-cta-1" href="https://wedeliver.ferrellgas.com/Fall26?s=SAVEHEAT26">Claim Now</a>
+                            <a class="hero__cta btn" id="fg-home-hero-cta-2" href="https://wedeliver.ferrellgas.com/quote">Request a Quote</a>
+                       
+                        <p class="hero__supplemental">
+                            <span class="hero__supplemental-top">Already a customer?</span>
+                            <a class="hero__supplemental-link" href="https://myferrellgas.com/" aria-label="__title__wctomn58bbqotiaft25ju">Log in to MyFerrellgas</a>
+                        </p>
+                    </div>
+                    <div class="hero__media">
+                            <img class="hero__video" src="https://ferrellgas-com-prod-2022.azurewebsites.net:443/getmedia/d5ad5cde-3da9-4ff2-8e0c-f5ed3c583944/MK-54597-OfferProstpecting-Homepage_Image-F1.jpg?width=1600&amp;height=842&amp;ext=.jpg" alt="" title="" />
+                    </div>
+                </div>
+            </blue-component>
+        </blue-composition>
+
+            
+
+
+
+
+
+
+<blue-composition class="composition--padded">
+                <blue-composition>
+                    <div class="g g--centered g--match-height">
+                        <div class="g__c">
+                            <div class="wysiwyg">
+
+                                <h1 class='h1' style='text-align: center;'>
+                                Your Trusted Propane Company
+                                </h1>
+<p class='p' style='text-align: center;'>From heating your home to fueling your business, Ferrellgas provides safe, dependable propane service when and where you need it. With propane delivery, refills, and propane-powered solutions tailored to your needs, our trained professionals make it easy to keep life running.</p>                            </div>
+                        </div>
+                                <div class="g__c g__c--md6">
+                                    <blue-component class="component--fill-offWhiteBlue">
+                                        <div class="feature-list feature-list--card">
+                                            <div class="feature-list__media">
+                                                    <img class="feature-list__image" data-img-lg="https://ferrellgas-com-prod-2022.azurewebsites.net:443/getmedia/4b4541c0-b64a-42fe-be00-fa3f4b1496c0/MK_41357_Home_CTA_1_L.jpg?width=560&amp;height=324&amp;ext=.jpg" data-img-sm="" alt="">
+                                            </div>
+                                            <div class="feature-list__content">
+                                                <h2 class="feature-list__heading">Instant Price Quotes</h2>
+                                                <div class="feature-list__description">Not every propane user is the same, and you deserve the service that fits your unique needs. Get your propane price with our instant online quote tool.</div>
+                                                    <div class="feature-list__cta-wrap">
+                                                        <a class="button feature-list__cta btn" href="https://wedeliver.ferrellgas.com/quote" aria-label="Get Quote Link">Get Quote</a>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </blue-component>
+                                </div>
+                                <div class="g__c g__c--md6">
+                                    <blue-component class="component--fill-offWhiteBlue">
+                                        <div class="feature-list feature-list--card">
+                                            <div class="feature-list__media">
+                                                    <img class="feature-list__image" data-img-lg="https://ferrellgas-com-prod-2022.azurewebsites.net:443/getmedia/d2543f1b-0860-423c-8fad-f74077b63839/MK-41357-560X324-CTA-TankSet_1.jpg?width=560&amp;height=324&amp;ext=.jpg" data-img-sm="" alt="">
+                                            </div>
+                                            <div class="feature-list__content">
+                                                <h2 class="feature-list__heading">Your One-Stop Shop</h2>
+                                                <div class="feature-list__description">From preparation to tank setting to inspection, we make the installation process easy and safe for customers and employees every step of the way.&nbsp;</div>
+                                                    <div class="feature-list__cta-wrap">
+                                                        <a class="button feature-list__cta btn" href="/propane-tank-installation/" aria-label="Learn More Link">Learn More</a>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </blue-component>
+                                </div>
+                    </div>
+                </blue-composition>
+</blue-composition>
+
+    
+
+
+        
+
+
+        <blue-composition class="composition--padded composition--fill-darkGray">
+            <div class="g">
+                <div class="g__c">
+                    <blue-component observe="observe">
+                        <div class="location-finder" data-api-endpoint="/api/locations">
+                            <div class="location-finder__inner">
+                                <h3 class="location-finder__heading">Find a Ferrellgas near you.</h3>
+                                <div class="location-finder__form">
+                                    <div class="location-finder__form-prompt">
+                                        <label for="service-location" class="location-finder__form-text">I need to fuel my</label>
+                                        <div class="location-finder__form-dropdown-container">
+                                            <select class="location-finder__form-dropdown-text" id="service-location">
+                                                <option class="location-finder__form-dropdown-label" id="home" value="home">Home</option>
+                                                <option class="location-finder__form-dropdown-label" id="business" value="business">Business</option>
+                                                <option class="location-finder__form-dropdown-label" id="agribusiness" value="agribusiness">Agribusiness</option>
+                                            </select>
+                                        </div>
+                                        <span class="location-finder__form-text">in </span>
+                                        <label class="location-finder__form-label hideVisually" for="zip-code">Zip Code</label>
+                                        <input class="location-finder__form-input" id="homeLocationSearchZipCode" type="text" name="zip-code" placeholder="ZIP code" required>
+                                    </div>
+                                    <button class="location-finder__form-submit btn--secondary" onclick="homeSearchLocation()">Submit</button>
+                                </div>
+                            </div>
+                            <div class="location-finder__success">
+                                <div class="location-finder__success-heading">We service your area. Your local office is <a href aria-label="__title__ah8pozd3hgg9f8pab1sze"></a>.</div>
+                                <div class="location-finder__success-details">
+                                    <a class="location-finder__success-phone" href aria-label="__title__crzng21lbkjkpb7b3x8kp"> </a>
+                                    <address class="location-finder__success-address"> <span> </span><span> </span></address>
+                                    <div class="location-finder__success-ctas"> <a class="location-finder__success-cta btn--secondary" href aria-label="__title__8qk7xd62c2bi91xgvqdvd">Contact Us</a><a class="location-finder__success-link" href="/locations/" aria-label="__title__d6eu8lazuj5tk6fr211wuo">Search another location</a></div>
+                                </div>
+                            </div>
+                            <!-- Below script tag only needed for FE dev, DO NOT COPY to BE template-->
+                            <!-- Above script tag only needed for FE dev, DO NOT COPY to BE template-->
+                        </div>
+                    </blue-component>
+                </div>
+            </div>
+        </blue-composition>
+
+
+            
+
+
+
+
+
+
+
+<blue-composition class="composition--fill-blue">
+        <blue-composition>
+            <blue-component class="">
+                <figure class="feature-block  feature-block--slant ">
+                    <div class="feature-block__content">
+<h1 class='h1' style='text-align: left;'>Experience You Can Trust</h1>                        <p class="feature-block__copy"><p>Ferrellgas was founded in 1939 as a family-owned business in a small town. The Ferrell family believed in customer service, dependability, and hard work. Now, more than 85 years later, we have transformed into an employee-owned, national company with those same family values. Our passionate professionals never stop pursuing ways to make propane simple and smooth for every customer. Recognized as one of 2025&rsquo;s Most Trustworthy Companies in America by Newsweek, Ferrellgas customers, new and old, can trust our experience and expertise to Fuel Life Simply.</p>
+</p>
+                        <div class="feature-block__ctas">
+                                <a class="feature-block__cta-btn btn--secondary" href="/our-company/" aria-label="About Us" >About Us</a>
+
+                        </div>
+                    </div>
+                    <div class="feature-block__media">
+                                <img data-img-lg="https://ferrellgas-com-prod-2022.azurewebsites.net:443/getmedia/db6d2e5d-c3c7-44bc-a94a-87c20c721071/MK_41357_Home_CTA_3_L.jpg?width=768&amp;height=449&amp;ext=.jpg" data-img-sm="" alt="">
+                    </div>
+                </figure>
+            </blue-component>
+        </blue-composition>
+</blue-composition>
+    
+
+
+
+
+
+
+
+
+<blue-composition class="composition--padded composition--fill-white">
+                <blue-composition>
+                    <div class="g g--centered g--match-height">
+                        <div class="g__c">
+                            <div class="wysiwyg">
+                                <h1 class='h1' style='text-align: center;'>
+                                Propane service so easy, the choice is simple.
+                                </h1>
+                            </div>
+                        </div>
+                                <div class="g__c g__c--md4">
+                                    <blue-component class="">
+                                        <div class="feature-list feature-list--centered">
+                                            <div class="feature-list__media">
+                                                    <img class="feature-list__image feature-list__image--centered" data-img-lg="https://ferrellgas-com-prod-2022.azurewebsites.net:443/getmedia/c01ce836-44c4-410f-a657-de8a18939276/MK-41357-Icons-2022-72-06.png?width=127&amp;height=127&amp;ext=.png" data-img-sm="" alt="">
+
+                                            </div>
+                                            <h2 class="feature-list__heading">Reliable Supply</h2>
+                                            <div class="feature-list__description">When your tank level is low, you need a provider you can trust. Our nationwide supply network has been powering America for more than 85 years and ensures access to propane when and where you need it.</div>
+                                        </div>
+                                    </blue-component>
+                                </div>
+                                <div class="g__c g__c--md4">
+                                    <blue-component class="">
+                                        <div class="feature-list feature-list--centered">
+                                            <div class="feature-list__media">
+                                                    <img class="feature-list__image feature-list__image--centered" data-img-lg="https://ferrellgas-com-prod-2022.azurewebsites.net:443/getmedia/11fa1ea1-b92d-45dc-bfdf-2898e1d1e9da/asset-39.png?width=128&amp;height=128&amp;ext=.png" data-img-sm="" alt="">
+
+                                            </div>
+                                            <h2 class="feature-list__heading">Great Service</h2>
+                                            <div class="feature-list__description">Whenever you have a question or need support, our team of friendly propane experts is ready to assist. Yes, even after hours with a 24/7/365 team dedicated to emergency service.</div>
+                                                <div class="feature-list__cta-wrap">
+                                                    <a class="button button--alt feature-list__cta btn--secondary" href="/new-customer-residential/" aria-label="Sign Up Link">Sign Up</a>
+                                                </div>
+                                        </div>
+                                    </blue-component>
+                                </div>
+                                <div class="g__c g__c--md4">
+                                    <blue-component class="">
+                                        <div class="feature-list feature-list--centered">
+                                            <div class="feature-list__media">
+                                                    <img class="feature-list__image feature-list__image--centered" data-img-lg="https://ferrellgas-com-prod-2022.azurewebsites.net:443/getmedia/d3de81f3-2cae-46d0-a9a7-30415673e29b/MK-41357-Icons-2022-72-01.png?width=127&amp;height=127&amp;ext=.png" data-img-sm="" alt="">
+
+                                            </div>
+                                            <h2 class="feature-list__heading">Quick Delivery Options</h2>
+                                            <div class="feature-list__description">We use local drivers and the latest technology to offer <a href="/customer-support/service-plans/">flexible delivery plans</a> and efficient delivery windows. Interested in automatic deliveries? We have that too with our free <a href="/customer-support/service-plans/auto-fill/">Auto Fill program</a>.</div>
+                                        </div>
+                                    </blue-component>
+                                </div>
+                    </div>
+                </blue-composition>
+</blue-composition>
+
+    
+
+
+
+
+
+
+
+
+
+<blue-composition class="composition--padded composition--fill-offWhiteBlue">
+    <blue-component class="">
+        <div class="testimonial testimonial--carousel ">
+		    <div class="testimonial__container">
+			    <div class="testimonial__inner">
+
+
+
+<figure class="testimonial__slide testimonial__slide--square">
+        <div class="testimonial__stars testimonial__stars--5" aria-label="5 out of 5 stars">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    <div class="testimonial__body">
+        <div class="testimonial__media">
+                    <img data-img-lg="https://ferrellgas-com-prod-2022.azurewebsites.net:443/getmedia/6521a508-c091-4e8b-aab7-2b3f1a1788f1/MK-27132-Jackie-256X256.png?width=256&amp;height=256&amp;ext=.png" data-img-sm="" alt="Woman in striped shirt">
+        </div>
+        <div class="testimonial__content">
+            <blockquote class="testimonial__copy">I love Ferrellgas, my husband and I have been customers for 26 years. Our house is 100% propane, so we need a reliable company. Anytime we have a problem hurricane or ice storm they are always Johnny on the spot. I love Ferrellgas.</blockquote>
+            <figcaption class="testimonial__attribution">
+                <cite>
+                    <span class="testimonial__name">Jackie</span>                   
+                </cite>               
+            </figcaption>
+        </div>
+    </div>
+</figure>
+
+
+
+<figure class="testimonial__slide testimonial__slide--square">
+        <div class="testimonial__stars testimonial__stars--5" aria-label="5 out of 5 stars">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    <div class="testimonial__body">
+        <div class="testimonial__media">
+                    <img data-img-lg="https://ferrellgas-com-prod-2022.azurewebsites.net:443/getmedia/adb25cf0-519f-4a48-b639-37013332ae98/MK-41357-Chuck_256x256.gif?width=256&amp;height=256&amp;ext=.gif" data-img-sm="" alt="Man in warehouse with red shirt">
+        </div>
+        <div class="testimonial__content">
+            <blockquote class="testimonial__copy">It&#39;s been really great to have Ferrellgas, just as a national partner. I&#39;m excited for my next adventure with them, just to see how we can wow a customer . . . and Ferrellgas is that company that can help me do that.</blockquote>
+            <figcaption class="testimonial__attribution">
+                <cite>
+                    <span class="testimonial__name">Chuck</span>                   
+                </cite>               
+            </figcaption>
+        </div>
+    </div>
+</figure>
+
+
+
+<figure class="testimonial__slide testimonial__slide--square">
+        <div class="testimonial__stars testimonial__stars--5" aria-label="5 out of 5 stars">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    <div class="testimonial__body">
+        <div class="testimonial__media">
+                    <img data-img-lg="https://ferrellgas-com-prod-2022.azurewebsites.net:443/getmedia/3cd207ed-760b-48b3-aabc-b82fe4a599a0/MK-41357-Jeff_Cascades_256x256.gif?width=256&amp;height=256&amp;ext=.gif" data-img-sm="" alt="Man in living room">
+        </div>
+        <div class="testimonial__content">
+            <blockquote class="testimonial__copy">I&#39;d recommend Ferrellgas because they&#39;re efficient, professional, and they have a safe track record. And above all, you don&#39;t have to worry about the fuel. It&#39;ll get here without any worries.&nbsp;</blockquote>
+            <figcaption class="testimonial__attribution">
+                <cite>
+                    <span class="testimonial__name">Jeff</span>                   
+                </cite>               
+            </figcaption>
+        </div>
+    </div>
+</figure>
+
+
+
+<figure class="testimonial__slide testimonial__slide--square">
+        <div class="testimonial__stars testimonial__stars--5" aria-label="5 out of 5 stars">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    <div class="testimonial__body">
+        <div class="testimonial__media">
+                    <img data-img-lg="https://ferrellgas-com-prod-2022.azurewebsites.net:443/getmedia/fb94405a-3171-4ad9-9eea-5d9c7035f4e9/MK-27132-Barbra-256X256.png?width=256&amp;height=256&amp;ext=.png" data-img-sm="" alt="Woman with plaid shirt">
+        </div>
+        <div class="testimonial__content">
+            <blockquote class="testimonial__copy">Thank you to my Ferrellgas delivery person. It is so nice to know all I need to do is just place my order and magically my gas tank is filled. Snow or bad weather doesn&rsquo;t stop you and that is appreciated. Thank you again!</blockquote>
+            <figcaption class="testimonial__attribution">
+                <cite>
+                    <span class="testimonial__name">Barbara</span>                   
+                </cite>               
+            </figcaption>
+        </div>
+    </div>
+</figure>
+
+
+
+<figure class="testimonial__slide testimonial__slide--square">
+        <div class="testimonial__stars testimonial__stars--5" aria-label="5 out of 5 stars">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    <div class="testimonial__body">
+        <div class="testimonial__media">
+                    <img data-img-lg="https://ferrellgas-com-prod-2022.azurewebsites.net:443/getmedia/567192fc-78ed-4b2f-a0cb-f2f608257427/MK-41357-Jeff_256x256.gif?width=256&amp;height=256&amp;ext=.gif" data-img-sm="" alt="Man with white beard">
+        </div>
+        <div class="testimonial__content">
+            <blockquote class="testimonial__copy">I enjoy working with Ferrellgas because they&#39;re easy to do business with. So I highly recommend Ferrellgas. Certainly to my family, which is most precious to me&ndash;and I think that in itself says it all.</blockquote>
+            <figcaption class="testimonial__attribution">
+                <cite>
+                    <span class="testimonial__name">Jeff</span>                   
+                </cite>               
+            </figcaption>
+        </div>
+    </div>
+</figure>
+
+
+
+<figure class="testimonial__slide testimonial__slide--square">
+        <div class="testimonial__stars testimonial__stars--5" aria-label="5 out of 5 stars">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    <div class="testimonial__body">
+        <div class="testimonial__media">
+                    <img data-img-lg="https://ferrellgas-com-prod-2022.azurewebsites.net:443/getmedia/761852e5-456c-4921-9859-7159773242f3/MK-41357-Rob_256x256.gif?width=256&amp;height=256&amp;ext=.gif" data-img-sm="" alt="Man with blue shirt">
+        </div>
+        <div class="testimonial__content">
+            <blockquote class="testimonial__copy">I know it&#39;s no further than a phone call away to increase the amount of volume of propane that I have. There&#39;s no issues in your guys&#39; supply chain. It&#39;s just simply something I don&#39;t have to worry about.</blockquote>
+            <figcaption class="testimonial__attribution">
+                <cite>
+                    <span class="testimonial__name">Rob</span>                   
+                </cite>               
+            </figcaption>
+        </div>
+    </div>
+</figure>
+
+
+
+<figure class="testimonial__slide testimonial__slide--square">
+        <div class="testimonial__stars testimonial__stars--5" aria-label="5 out of 5 stars">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    <div class="testimonial__body">
+        <div class="testimonial__media">
+                    <img data-img-lg="https://ferrellgas-com-prod-2022.azurewebsites.net:443/getmedia/3b7da5cf-d9d0-47f1-869a-70527f8902fd/MK-41357-Bill_256x256.gif?width=256&amp;height=256&amp;ext=.gif" data-img-sm="" alt="Man with button down shirt">
+        </div>
+        <div class="testimonial__content">
+            <blockquote class="testimonial__copy">They leave a paper for what they did for the day and sometimes we don&rsquo;t even know they&rsquo;re here. It&rsquo;s just: it got done. It&rsquo;s no hassle to me. Everything is just the smoothest service you can think of.</blockquote>
+            <figcaption class="testimonial__attribution">
+                <cite>
+                    <span class="testimonial__name">Bill</span>                   
+                </cite>               
+            </figcaption>
+        </div>
+    </div>
+</figure>
+			    </div>
+		    </div>
+		    <div class="testimonial__pagination"></div>
+	    </div>
+    </blue-component>
+</blue-composition>
+    
+
+
+
+
+
+
+
+
+<blue-composition class="composition--fill-lightBlue">
+        <blue-composition class=composition--fill-lightBlue >
+            <blue-component >
+                <div class="promo-pod">
+                    <div class="promo-pod__content">
+<p class='h3'>&nbsp;
+<h3 style="color:#404041;padding-top:1em;">Want to fuel your future? Consider joining our growing, energetic team.</h3>
+</p>                                <a class="button promo-pod__button btn--secondary" href="/jobs/"  aria-label ="">View Open Positions </a>
+                    </div>
+                </div>
+            </blue-component>
+        </blue-composition>
+</blue-composition>
+    
+
+
+        
+
+    </div>
+</section>
+
+<script type="text/javascript">
+    function homeSearchLocation() {
+        var zipCode = document.getElementById("homeLocationSearchZipCode").value;
+        window.location.href = `../locations/${zipCode ? '?zipcode=' + zipCode : ''}`;
+    }
+</script>
+
+            
+        </main>
+            <footer class="footer">
+        <div class="footer__main">
+            <nav class="footer__nav">
+                        <div class="footer__nav-section">
+                            <p class="footer__nav-heading">About Us</p>
+                                <ul class="footer__nav-list">
+                                        <li class="footer__nav-item">
+                                            <a class="footer__nav-link" href="/our-company/" aria-label="Our Company" >Our Company</a>
+                                        </li>
+                                        <li class="footer__nav-item">
+                                            <a class="footer__nav-link" href="/our-company/investor-information/" aria-label="Investor Information" >Investor Information</a>
+                                        </li>
+                                        <li class="footer__nav-item">
+                                            <a class="footer__nav-link" href="/tank-talk/" aria-label="Tank Talk Blog" >Tank Talk Blog</a>
+                                        </li>
+                                        <li class="footer__nav-item">
+                                            <a class="footer__nav-link" href="/ferrellgas-jobs/" aria-label="Jobs" >Jobs</a>
+                                        </li>
+                                        <li class="footer__nav-item">
+                                            <a class="footer__nav-link" href="https://newsroom.notified.com/ferrellgas-newsroom?customtoken=KmPkaxFvZT4AYPAp7wES9XdiD0VjOWnku3ihYa%2FPL3Q4fmVdsw79yYMPQiZ8T2ZFm2888RDMMVvo2H%2Bw1S%2FVYBTX495vOYk7nIU%2BsNXtkVXdkPLZtfN5ZkKOIbo6%2FPnz" aria-label="Newsroom" >Newsroom</a>
+                                        </li>
+                                </ul>
+                        </div>
+                        <div class="footer__nav-section">
+                            <p class="footer__nav-heading">Resources</p>
+                                <ul class="footer__nav-list">
+                                        <li class="footer__nav-item">
+                                            <a class="footer__nav-link" href="https://myferrellgas.com/" aria-label="MyFerrellgas" >MyFerrellgas</a>
+                                        </li>
+                                        <li class="footer__nav-item">
+                                            <a class="footer__nav-link" href="/contact-us/" aria-label="Customer Support" >Customer Support</a>
+                                        </li>
+                                        <li class="footer__nav-item">
+                                            <a class="footer__nav-link" href="/request-a-fill/" aria-label="Request a Refill" >Request a Refill</a>
+                                        </li>
+                                        <li class="footer__nav-item">
+                                            <a class="footer__nav-link" href="/new-customer-residential/" aria-label="Sign Up" >Sign Up</a>
+                                        </li>
+                                        <li class="footer__nav-item">
+                                            <a class="footer__nav-link" href="https://www.ferrellgas.com/getmedia/eb9b038c-43cd-4ec1-97d7-1df00f310ec8/mt-30318-master_agreement-2022_02_24-f1.pdf" aria-label="Customer Agreement" >Customer Agreement</a>
+                                        </li>
+                                </ul>
+                        </div>
+            </nav>
+                        <div class="footer__contact">
+                <h3 class="footer__contact-heading">Contact Us Today</h3>
+                <div class="footer__contact-description">
+                    <p>Please fill out the Contact Us form for general questions, customer service, and job inquiries.</p>
+                </div><a class="btn" href="/contact-us/" aria-label="Contact Us" >Contact Us</a>
+            </div>
+
+                    <div class="footer__connect">
+                <a class="footer__connect-link" href="tel:888-337-7355" aria-label=0 >
+                    <span>888-337-7355</span>
+                </a>
+            <ul class="footer__social-media">
+                        <li class="footer__social-media-item">
+                            <a class="footer__social-media-link footer__social-media-link--facebook" href="https://www.facebook.com/Ferrellgas/" aria-label=0  target=&#x27;_blank&#x27; >
+                                <span class="hideVisually">Facebook</span>
+                            </a>
+                        </li>
+                        <li class="footer__social-media-item">
+                            <a class="footer__social-media-link footer__social-media-link--x" href="https://twitter.com/ferrellgas" aria-label=0  target=&#x27;_blank&#x27; >
+                                <span class="hideVisually">X</span>
+                            </a>
+                        </li>
+                        <li class="footer__social-media-item">
+                            <a class="footer__social-media-link footer__social-media-link--linkedin" href="https://www.linkedin.com/company/ferrellgas" aria-label=0  target=&#x27;_blank&#x27; >
+                                <span class="hideVisually">LinkedIn</span>
+                            </a>
+                        </li>
+                        <li class="footer__social-media-item">
+                            <a class="footer__social-media-link footer__social-media-link--youtube" href="https://www.youtube.com/channel/UCVtdl9EGvFTNsklgwhn_X8w" aria-label=0  target=&#x27;_blank&#x27; >
+                                <span class="hideVisually">YouTube</span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+
+
+        </div>
+            <div class="footer__legal">
+        <div class="footer__legal-inner">
+            <small class="footer__legal__copyright">&copy; 2026 Ferrellgas. All Rights
+                Reserved</small>
+
+                <nav class="footer__legal-nav">
+                    <ul class="footer__legal-nav-list">
+                                <li class="footer__legal-nav-item">
+                                    <a class="footer__legal-nav-link" href="/privacy-policy/" aria-label="Privacy Policy"
+                                    >Privacy Policy</a>
+                                </li>
+                                <li class="footer__legal-nav-item">
+                                    <a class="footer__legal-nav-link" href="https://bluerhino.com" aria-label="Blue Rhino"
+                                     target=&#x27;_blank&#x27; >Blue Rhino</a>
+                                </li>
+                            <li class="footer__legal-nav-item footer__legal-nav-item--teconsent">
+        <div id="teconsent"></div>
+    </li>
+    <script type="text/javascript" async="async" src="https://consent.trustarc.com/v2/notice/hkgij8?gtm=1&amp;pcookie&amp;c=consent-banner&amp;js=nj&amp;noticeType=bb&amp;privacypolicylink=https%3A%2F%2Fferrellgas-com-prod-2022.ferrellgas.com%2Fhttps%3A%2F%2Fwww.ferrellgas.com%2Fpolicies%2Fprivacy-policy%2F&amp;cookieLink=https%3A%2F%2Fferrellgas-com-prod-2022.ferrellgas.com%2Fhttps%3A%2F%2Fwww.ferrellgas.com%2Fpolicies%2Fcookie-policy%2F"></script>
+
+                    </ul>
+                </nav>
+                
+            </div>
+        </div>
+    
+
+                <div class="footer__wcag">If you have difficulty accessing or using this website, please contact <a href="/cdn-cgi/l/email-protection#3e7d5153534b50575d5f4a5751504d7a5b4e4a7e785b4c4c5b5252595f4d105d5153" aria-label="CommunicationsDept@Ferrellgas.com"><span class="__cf_email__" data-cfemail="53103c3e3e263d3a3032273a3c3d20173623271315362121363f3f3432207d303c3e">[email&#160;protected]</span></a>.  For all other inquiries, please call your local office or  <a  href="tel:888-337-7355">888-337-7355</a>.</div>
+
+    </footer>
+
+            <div id="consent-banner" data-trustarc-cookie="notice_gdpr_prefs"></div>
+
+
+    </div>
+    
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/_content/Kentico.Content.Web.Rcl/Scripts/jquery-3.5.1.js"></script>
+<script src="/_content/Kentico.Content.Web.Rcl/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script type="text/javascript">
+window.kentico = window.kentico || {};
+window.kentico.builder = {}; 
+window.kentico.builder.useJQuery = true;</script><script src="/_content/Kentico.Content.Web.Rcl/Content/Bundles/Public/systemFormComponents.min.js"></script>
+
+
+    <script src="/dist/js/polyfills.js?v=JfjSSICM9GCuCLHLos196L0zHBUWoFYL8XhGYbo04XQ"></script>
+    <script src="/dist/js/index.js?v=jYMuOlN3iibAZnEDdfoSVO3ELEexPoD7f24lz9SpAFQ"></script>
+  
+    
+
+</body>
+</html>
+

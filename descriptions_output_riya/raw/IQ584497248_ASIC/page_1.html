@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Ategrity</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X0HZZMGEHL"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-X0HZZMGEHL');</script>
+    <style>
+        :root {
+            --primary-color: #FFFFFF;
+            --secondary-color: #003366;
+            --highlight-color: #ADD8E6;
+            --light-gray: #f2f2f2;
+            --light-bg: #F7F9FC;
+            --light-blue: #E6F7FF;
+            --text-color: #333333;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--primary-color);
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+            header img {
+                height: 50px;
+                cursor: pointer; /* Add cursor pointer for logo */
+            }
+
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.8rem;
+            padding: 0.5rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+            nav a {
+                color: var(--secondary-color);
+                text-decoration: none;
+                font-size: 1rem;
+                font-weight: bold;
+                transition: color 0.3s;
+            }
+
+                nav a:hover {
+                    color: var(--highlight-color);
+                }
+
+        /* MOBILE MENU */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+
+            nav {
+                display: none !important; /* Hide nav by default on mobile */
+                flex-direction: column;
+                width: 100%;
+                background: var(--primary-color);
+                position: absolute;
+                top: 68px; /* Set top to 68 */
+                left: 0;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                z-index: 999; /* Ensure nav is above other content */
+            }
+
+                nav.show {
+                    display: flex !important; /* Show nav when toggled */
+                }
+
+                nav a {
+                    padding: 1rem;
+                    text-align: center;
+                    width: 100%;
+                    display: block;
+                }
+
+            footer nav {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                display: contents !important;
+            }
+
+                footer nav a {
+                    margin: 0 !important;
+                }
+        }
+
+        .content {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding-left: 10px; /* Add padding to avoid touching sides */
+            padding-right: 10px; /* Add padding to avoid touching sides */
+            text-align: left;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            line-height: 1.6;
+            flex: 1; /* Ensure content takes up available space */
+        }
+
+        .section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin: 2rem auto;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding-left: 10px; /* Add padding to avoid touching sides */
+                padding-right: 10px; /* Add padding to avoid touching sides */
+            }
+
+            .content {
+                padding-left: 10px; /* Add padding to avoid touching sides */
+                padding-right: 10px; /* Add padding to avoid touching sides */
+            }
+        }
+
+        .focus-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .focus-box {
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            padding: 1rem;
+            flex-basis: 25%;
+            min-width: 280px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .focus-box {
+                flex-basis: 100%;
+            }
+        }
+
+        .focus-box h3 {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 5px 5px 0 0;
+            text-align: center;
+        }
+
+        .focus-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem auto; /* Center align the list */
+            text-align: left; /* Align text to left */
+        }
+
+            .focus-box ul li {
+                margin: 0.5rem auto; /* Center align the list items */
+                font-size: 1rem;
+                line-height: 1.25;
+            }
+
+        footer {
+            text-align: center;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem;
+            width: 100%; /* Ensure footer is flush with bottom */
+            margin-top: auto; /* Push footer to the bottom */
+            box-sizing: border-box; /* Include padding in element's total width and height */
+            overflow: hidden; /* Prevent horizontal scroll caused by footer */
+        }
+
+            footer nav {
+                display: contents; /* Change from flex to contents */
+                justify-content: center;
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+                footer nav a {
+                    color: white;
+                    text-decoration: none;
+                    margin: 0 10px; /* Revert to original spacing */
+                }
+    </style>
+    <script>
+        function toggleMenu() {
+            document.querySelector("nav").classList.toggle("show");
+        }
+
+        function navigateToHome() {
+            window.location.href = 'homepage.html';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="Ategrity_logo.png" alt="Ategrity Logo" onclick="navigateToHome()"> <!-- Add onclick event to navigate to homepage -->
+        <div class="mobile-menu" onclick="toggleMenu()">☰</div>
+        <nav>
+            <a href="homepage.html">Home</a>
+            <a href="about_us.html">About Us</a>
+            <a href="how_to_access_us.html">How to Access Us</a>
+            <a href="products.html">Products</a>
+            <a href="leadership.html">Leadership</a>
+            <a href="innovation.html">Innovation</a>
+            <a href="news.html">News</a>
+            <a href="https://investors.ategrity.com">Investors</a>
+        </nav>
+    </header>
+
+    <section class="content">
+
+        <h1>About Ategrity</h1>
+
+        <p>At Ategrity, we believe that insurance should be fast, intelligent, and effortless for agents and brokers. By leveraging advanced risk analysis and cutting-edge technology, we are making the underwriting process for small to medium-sized businesses smarter and more efficient. This enables us to offer consistent, accurate solutions with minimal hassle.</p>
+
+        <p>Our commitment to data-driven risk-taking and ease of use is matched with financial strength, a cornerstone of our partners’ confidence in Ategrity. We have purposefully maintained a conservatively capitalized balance sheet with no financial leverage, which supports our “A-” (Excellent) financial strength rating from A.M. Best. This strong foundation ensures we can continue to provide innovative solutions and exceptional service to our partners while adapting to the evolving needs of the market.</p>
+    </section>
+
+    <section class="section">
+        <div class="focus-container">
+            <div class="focus-box">
+                <h3>Where We Are Focused</h3>
+                <ul>
+                    <li>100% U.S. E&S market</li>
+                    <li>Property and Casualty for SMBs</li>
+                    <li>Core Verticals: Construction, Daycare, Hotels/Motel, Real Estate, Restaurants, Retail</li>
+                </ul>
+            </div>
+            <div class="focus-box">
+                <h3>How We Do It</h3>
+                <ul>
+                    <li>Risk modeling & quantitative underwriting</li>
+                    <li>Data-driven risk selection</li>
+                    <li>Advanced technology for rapid response</li>
+                </ul>
+            </div>
+            <div class="focus-box">
+                <h3>What We Achieve</h3>
+                <ul>
+                    <li>Commitment to underwriting appetite</li>
+                    <li>Competitive pricing & terms</li>
+                    <li>Long-term relationships with partners</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+        <footer>
+            <nav>
+                <a href="mailto:contactus@ategrity.com">Contact Us</a>
+                <a href="claims.html">File a Claim</a>
+                <a href="https://ategrity.esinsurancecloud.com/" target="_blank">Partner Login</a>
+                <a href="mailto:lossruns@ategrity.com">Loss Runs</a>
+                <a href="https://www.linkedin.com/company/ategrity-specialty-insurance-company/" target="_blank" class="linkedin-link" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24" class="linkedin-icon">
+                        <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 
+                                 2.76 2.24 5 5 5h14c2.76 0 5-2.24 
+                                 5-5v-14c0-2.76-2.24-5-5-5zm-11 
+                                 19h-3v-10h3v10zm-1.5-11.3c-.97 
+                                 0-1.75-.79-1.75-1.75s.78-1.75 
+                                 1.75-1.75 1.75.79 1.75 
+                                 1.75-.78 1.75-1.75 1.75zm13.5 
+                                 11.3h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 
+                                 0-2.16 1.46-2.16 2.96v5.7h-3v-10h2.88v1.36h.04c.4-.76 
+                                 1.38-1.55 2.84-1.55 3.04 
+                                 0 3.6 2 3.6 4.59v5.6z"/>
+                    </svg></a>
+            </nav>
+            <p>© 2025 Ategrity. All Rights Reserved.</p>
+        </footer>
+</body>
+</html>

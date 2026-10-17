@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ategrity - Welcome Homepage</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X0HZZMGEHL"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-X0HZZMGEHL');</script>
+    <style>
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #003366;
+            --highlight-color: #ADD8E6;
+            --light-bg: #F7F9FC;
+            --text-color: #333333;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--primary-color);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+            header img {
+                height: 50px;
+                cursor: pointer; /* Add cursor pointer for logo */
+            }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        footer nav a img.linkedin-icon {
+            height: 24px;
+            width: 24px;
+            vertical-align: middle;
+            filter: invert(100%); /* makes dark SVGs white */
+            transition: transform 0.2s, filter 0.2s;
+        }
+
+        footer nav a img.linkedin-icon:hover {
+            transform: scale(1.2);
+            filter: invert(70%) sepia(50%) saturate(200%) hue-rotate(180deg);
+        } 
+
+        nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+            nav a {
+                color: var(--secondary-color);
+                text-decoration: none;
+                font-size: 1rem;
+                font-weight: bold;
+                transition: color 0.3s;
+                margin-top: 10px; /* Add spacing above nav items on desktop */
+            }
+
+                nav a:hover {
+                    color: var(--highlight-color);
+                }
+
+        /* MOBILE MENU */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+
+            nav {
+                display: none !important; /* Hide nav by default on mobile */
+                flex-direction: column;
+                width: 100%;
+                background: var(--primary-color);
+                position: absolute;
+                top: 68px; /* Set top to 68 */
+                left: 0;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                z-index: 999; /* Ensure nav is above other content */
+            }
+
+                nav.show {
+                    display: flex !important; /* Show nav when toggled */
+                }
+
+                nav a {
+                    padding: 1rem;
+                    text-align: center;
+                    width: 100%;
+                    display: block;
+                }
+
+            footer nav {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                display: contents !important;
+            }
+
+            .content {
+                margin-top: 68px; /* Ensure content is not hidden underneath the nav bar */
+            }
+        }
+
+        .hero {
+            background: url('hero_image.png') no-repeat center center;
+            background-size: cover;
+            height: auto; /* Adjust height to be visible on mobile */
+            min-height: 60vh; /* Ensure minimum height */
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            text-align: left;
+            color: white;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 10px; /* Add padding to avoid touching sides */
+            padding-right: 10px; /* Add padding to avoid touching sides */
+        }
+
+        .hero-content {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 1.5rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 800px;
+        }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+                line-height: 1.5;
+                margin-bottom: 1rem;
+            }
+
+            .hero-content a {
+                display: inline-block;
+                padding: 0.8rem 1.5rem;
+                background: var(--secondary-color);
+                color: white;
+                text-decoration: none;
+                border-radius: 4px;
+                font-weight: bold;
+                transition: background 0.3s, transform 0.2s;
+                margin-bottom: 2rem; /* Add spacing underneath the button */
+                text-align: center; /* Center the button */
+            }
+
+                .hero-content a:hover {
+                    background: var(--highlight-color);
+                    color: var(--secondary-color);
+                }
+
+        .icons-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding-left: 10px; /* Add padding to avoid touching sides */
+            padding-right: 10px; /* Add padding to avoid touching sides */
+        }
+
+        .icon-wrapper {
+            text-align: center;
+            justify-content: center;
+            margin-left: 15px;
+        }
+
+        .icon-label {
+            text-align: center;
+            font-size: 1rem;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .icon {
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+            .icon img {
+                width: 70%;
+                height: 70%;
+            }
+
+            .icon:hover {
+                transform: scale(1.2);
+            }
+
+        footer {
+            text-align: center;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%; /* Ensure footer is flush with bottom */
+            margin-top: auto; /* Push footer to the bottom */
+            box-sizing: border-box; /* Include padding in element's total width and height */
+            overflow: hidden; /* Prevent horizontal scroll caused by footer */
+        }
+
+            footer nav {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+                footer nav a {
+                    color: white;
+                    text-decoration: none;
+                }
+    </style>
+    <script>
+        function toggleMenu() {
+            document.querySelector("nav").classList.toggle("show");
+        }
+
+        function navigateToHome() {
+            window.location.href = 'homepage.html';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="Ategrity_logo.png" alt="Ategrity Logo" onclick="navigateToHome()"> <!-- Add onclick event to navigate to homepage -->
+        <div class="mobile-menu" onclick="toggleMenu()">☰</div>
+        <nav>
+            <a href="homepage.html">Home</a>
+            <a href="about_us.html">About Us</a>
+            <a href="how_to_access_us.html">How to Access Us</a>
+            <a href="products.html">Products</a>
+            <a href="leadership.html">Leadership</a>
+            <a href="innovation.html">Innovation</a>
+            <a href="news.html">News</a>
+            <a href="https://investors.ategrity.com">Investors</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Ategrity: Innovating E&S for Today’s Generation of Agents and Brokers</h1>
+            <p>At Ategrity, we believe that insurance should be fast, intelligent, and effortless for agents and brokers. By leveraging advanced risk analysis and cutting-edge technology, we are making the underwriting process for small to medium-sized businesses smarter and more efficient. We deliver consistent, accurate solutions with minimal hassle.</p>
+            <p>Experience the future of E&S insurance with a carrier designed to make your job easier.</p>
+            <a href="about_us.html">Discover More</a>
+            <div class="icons-container">
+                <div class="icon-wrapper">
+                    <div class="icon-label">Consistent</div>
+                    <div class="icon">
+                        <img src="consistency_icon.svg" alt="Consistent">
+                    </div>
+                </div>
+                <div class="icon-wrapper">
+                    <div class="icon-label">Intelligent</div>
+                    <div class="icon">
+                        <img src="intelligent_icon.svg" alt="Intelligent">
+                    </div>
+                </div>
+                <div class="icon-wrapper">
+                    <div class="icon-label">Efficient</div>
+                    <div class="icon">
+                        <img src="efficient_icon.svg" alt="Efficient">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <nav>
+            <a href="mailto:contactus@ategrity.com">Contact Us</a>
+            <a href="claims.html">File a Claim</a>
+            <a href="https://ategrity.esinsurancecloud.com/" target="_blank">Partner Login</a>
+            <a href="mailto:lossruns@ategrity.com">Loss Runs</a>
+            <a href="https://www.linkedin.com/company/ategrity-specialty-insurance-company/" target="_blank" class="linkedin-link" aria-label="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24" class="linkedin-icon">
+                    <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 
+                             2.76 2.24 5 5 5h14c2.76 0 5-2.24 
+                             5-5v-14c0-2.76-2.24-5-5-5zm-11 
+                             19h-3v-10h3v10zm-1.5-11.3c-.97 
+                             0-1.75-.79-1.75-1.75s.78-1.75 
+                             1.75-1.75 1.75.79 1.75 
+                             1.75-.78 1.75-1.75 1.75zm13.5 
+                             11.3h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 
+                             0-2.16 1.46-2.16 2.96v5.7h-3v-10h2.88v1.36h.04c.4-.76 
+                             1.38-1.55 2.84-1.55 3.04 
+                             0 3.6 2 3.6 4.59v5.6z"/>
+                </svg></a>
+        </nav>
+        <p>© 2025 Ategrity. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
