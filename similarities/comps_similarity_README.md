@@ -1,6 +1,6 @@
 # Text-Based Comparable Company Matching — Proof of Concept (Paylocity / PCTY)
 
-**Author:** Riya · **Notebook:** `comps_similarity_PCTY.ipynb` · **Status:** working proof of concept
+**Author:** Riya · **Notebook:** `comps_similarity_PCTY.ipynb` · **Status:** baseline model (working proof of concept; known issues listed in §8)
 
 ## 1. What this does and why
 
@@ -76,17 +76,29 @@ The score curve drops sharply after ~rank 6: Paylocity has a small, distinct pee
 - **Scrape coverage and artifacts.** 73 companies are unscorable; browser-rendered pages score lower on average (possible artifact, not yet investigated).
 - **Residual leakage.** Phrases like "Fortune 500" can still hint at public status.
 
-## 8. How to run
+## 8. Known issues in the code (read before building on it)
 
-1. Place the notebook in `descriptions_output_riya/` (next to `descriptions.csv` and `text/`), or set `BASE_DIR` / `CSV_PATH` in the config cell.
+These are implementation issues, separate from the method's limitations above. None of them change the PCTY conclusions, but they matter when you reuse the notebook.
+
+| # | Issue | Effect | Fix |
+|---|---|---|---|
+| 1 | **Boilerplate regex has no word boundaries.** `quarter` matches "head**quarter**s"; `investor`, `stock`, `shareholder` also strip sentences that describe the core business of asset managers, brokers, and exchanges; `privacy` / `browser` do the same for data-privacy and web-software firms. | Lower-quality text, and worse comps, for financial and privacy/web companies. Minimal effect on PCTY. | Add `\b` word boundaries; drop or narrow `investor` and `stock` (e.g., keep only "investor relations", "stock price"). |
+| 2 | **Embedding cache can go stale.** `embeddings_mpnet.npy` is reused whenever the company count matches. | Changing `EMBED_MODEL` or the cleaning rules silently reuses old embeddings. | Delete `comps_output/embeddings_mpnet.npy` after any such change, or include the model name and a text hash in the cache filename. |
+| 3 | **Some settings were tuned while looking at PCTY output.** The generic marketing stop-words ("smarter", "seamless", …) were partly chosen from PCTY's shared terms. | Slight optimistic bias in the PCTY peer-label metrics. The universe-wide SIC check is unaffected. `PEER_LABELS` itself was fixed before any rankings were seen. | Freeze settings, then validate on new targets (next step 1). |
+| 4 | **`CSV_PATH` is a relative path** (`"../descriptions_output_riya/descriptions.csv"`). | Breaks if VS Code/Jupyter runs from a different working folder. | Use `CSV_PATH = BASE_DIR / "descriptions.csv"`. |
+
+## 9. How to run
+
+1. Set `BASE_DIR` in the config cell to the folder containing `descriptions.csv` and `text/`, and set `CSV_PATH = BASE_DIR / "descriptions.csv"` (see known issue #4).
 2. `pip install pandas numpy scikit-learn matplotlib ipykernel sentence-transformers` (embeddings are optional; the notebook skips them if not installed).
 3. Set `TARGET` in the config cell, then **Restart → Run All**.
-4. Outputs go to `comps_output/`: `comps_<TICKER>.csv`, `excluded_companies.csv`, score-curve and map PNGs, cached embeddings.
+4. Outputs go to `comps_output/`: `comps_<TICKER>.csv`, `excluded_companies.csv`, score-curve and map PNGs, cached embeddings. Delete the cached embeddings file if you change the model or cleaning rules (known issue #2).
 
 To change the peer answer key, edit `PEER_LABELS` (2 = direct competitor, 1 = adjacent). Write it **before** looking at results.
 
-## 9. Suggested next steps
+## 10. Suggested next steps
 
+0. **Fix known issues #1 and #4** (one-line changes each) before using `find_comps` on non-HR targets, so later improvements are measured against a clean baseline.
 1. **Broaden validation:** write peer labels for 3–5 more targets in different industries (e.g., healthcare, industrials, insurance); report average metrics across targets.
 2. **Re-weight the ensemble** (e.g., embeddings 0.5, TF-IDF 0.25, LSA 0.25), choosing weights on the multi-target labels from step 1, not on PCTY.
 3. **LLM-standardized profiles:** have an LLM write a fixed-format profile per company (what they sell, who buys it, how they charge, value-chain position) from the text only, and embed that instead of raw marketing copy. This is the most likely fix for the customer-segment and business-model gaps.
