@@ -31,7 +31,7 @@
 
 ## Checks
 
-- 15 direct test functions passed using the available Anaconda environment.
+- 29 direct test functions passed using the available Anaconda environment.
 - Python compilation passed for all new modules and tests.
 - `git diff --check` passed.
 - The machine's normal pytest entry point is currently affected by a broken
@@ -52,14 +52,21 @@
   dates stated in their anchor text without guessing, and fetches a bounded
   number of recent articles. A live PCTY run saved three dated articles with
   rendered HTML, complete text, source URLs, and raw provenance.
+- Added a high-precision rule extractor with exact evidence and one audit row
+  per article. Positive, negative, duplicate, undated, non-article, and
+  marketing-language controls are covered. A nine-article live PCTY review
+  exposed and fixed a false layoff match caused by "reducing repetitive data
+  entry ... for employees." The final output contains one supported product
+  launch ("Introducing Paylocity Ignite AI," 2026-07-21) and eight explicit
+  abstentions.
 
 ## Unresolved
 
 - The first collector discovers only same-site and company-subdomain links.
   Third-party job boards such as Workday or Greenhouse need an attribution and
   allow-list policy before collection.
-- Event-date extraction needs a clear policy for page dates, article metadata,
-  archive dates, and undated Careers pages.
+- Event-date extraction currently trusts explicit dates on article listing
+  links; metadata, archive dates, and undated Careers pages still need policy.
 - Historical revenue outcomes and cutoff dates have not been added.
 - The repository's existing rule against 10-K and financial matching inputs
   may need revision after the mentor's latest clarification that private-target

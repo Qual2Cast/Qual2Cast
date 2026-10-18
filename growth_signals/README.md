@@ -58,6 +58,9 @@ time-split model evaluation
   writes a company-level page record without overwriting prior records.
 - `build_features.py`: converts dated event records into company features for
   a specified cutoff date without using future events.
+- `extract_events.py`: high-precision rule extraction from article pages with
+  exact source evidence and a per-article audit trail. It abstains when no
+  explicit event phrase is present.
 - `tests/`: schema, link-discovery, and look-ahead tests.
 
 ## Event JSONL format
@@ -144,6 +147,22 @@ moves its previous page record to history.
 Cloudflare and browser-verification shells are rejected and trigger the next
 configured fetch method. Event pages that redirect to the same final URL are
 saved only once.
+
+## Extract events
+
+Extract candidate events and retain an audit row for every article:
+
+```bash
+python extract_events.py \
+  --page-record ../outputs-local/growth_signals/page_records/IQ254957567.json \
+  --events ../outputs-local/growth_signals/events/IQ254957567.jsonl \
+  --audit ../outputs-local/growth_signals/audit/IQ254957567.json
+```
+
+Only specific article pages are eligible. Generic Careers pages and broad
+marketing phrases do not create events. The first rule set favors precision
+and abstention; its output remains candidate evidence for human review, not a
+claim that the event is automatically validated.
 
 ## Build features
 
