@@ -17,7 +17,7 @@ from schema import Event, write_events_jsonl
 
 RULES = {
     "new_contract": re.compile(
-        r"\b(?:awarded|secured|signed|won|entered into)\b[^.!?]{0,100}"
+        r"\b(?:awarded|secured|signed|signs|won|entered into)\b[^.!?]{0,100}"
         r"\b(?:contract|agreement|deal)\b"
         r"|\bselected\b[^.!?]{0,80}\b(?:provider|partner|platform)\b",
         re.I,
@@ -97,8 +97,12 @@ def extract_page_events(record: dict, page: dict) -> list[Event]:
     unknown_reason = None if event_date else "No explicit publication date was found in the listing link."
     found: list[Event] = []
     seen: set[tuple[str, str]] = set()
-    evidence_blocks = [page.get("raw_title", ""), page.get("raw_meta", "")]
-    evidence_blocks.extend(page.get("raw_blocks", []))
+    raw_blocks = page.get("raw_blocks", [])
+    raw_title = page.get("raw_title", "")
+    evidence_blocks = [page.get("raw_meta", "")]
+    if not raw_blocks or not raw_title.casefold().startswith(raw_blocks[0].casefold()):
+        evidence_blocks.insert(0, raw_title)
+    evidence_blocks.extend(raw_blocks)
     for block in evidence_blocks:
         for sentence in sentences(block):
             for event_type, pattern in RULES.items():

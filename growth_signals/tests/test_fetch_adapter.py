@@ -74,6 +74,23 @@ def test_cloudflare_script_marker_does_not_reject_real_content():
     assert page.method == "rendered"
 
 
+def test_content_validator_can_reject_dynamic_shell_and_fallback():
+    shell = "<html><body><div id='news-items'></div></body></html>"
+    rendered = "<html><body><a href='/news/item'>Company news</a></body></html>"
+    page = fetch_page(
+        "https://example.com/news",
+        [
+            FakeClient("html", ("https://example.com/news", shell)),
+            FakeClient("rendered", ("https://example.com/news", rendered)),
+        ],
+        content_validator=lambda html, final_url: "Company news" in html,
+    )
+    assert page.method == "rendered"
+    assert [attempt["status"] for attempt in page.attempts] == [
+        "error:ContentRejected", "ok"
+    ]
+
+
 def test_robots_disallow_stops_all_methods():
     with pytest.raises(FetchFailed) as caught:
         fetch_page("https://example.com/careers", [

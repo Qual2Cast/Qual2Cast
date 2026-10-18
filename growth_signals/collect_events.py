@@ -24,7 +24,8 @@ PAGE_PATTERNS = {
 EXCLUDED_SCHEMES = {"mailto", "tel", "javascript"}
 ARTICLE_PATH = re.compile(
     r"/(?:news|newsroom|press(?:-releases?)?|media|updates?|blogs?|articles?)/.+"
-    r"|/news-releases/news-release-details/[^/?#]+/?$",
+    r"|/news-releases/news-release-details/[^/?#]+/?$"
+    r"|/news/news-details/\d{4}/.+/default\.aspx$",
     re.I,
 )
 MONTH_DATE = re.compile(
@@ -58,6 +59,14 @@ def same_registered_host(candidate: str, base_url: str) -> bool:
 
 def classify_event_page(url: str, anchor_text: str = "") -> str | None:
     parsed = urlparse(url)
+    if re.search(r"(?:^|/)lien-release(?:\.|/|$)", parsed.path, re.I):
+        return None
+    if re.search(
+        r"(?:^|/)(?:media-assets?|media-library|events-and-presentations)(?:/|$)",
+        parsed.path,
+        re.I,
+    ):
+        return None
     haystack = f"{parsed.netloc} {parsed.path} {anchor_text}".replace("/", " ").replace("-", " ")
     for category in ("careers", "jobs", "press", "news"):
         if PAGE_PATTERNS[category].search(haystack):
@@ -78,7 +87,9 @@ def discover_event_pages(html: str, base_url: str) -> list[dict[str, str]]:
         absolute = canonical_url(urljoin(base_url, href))
         if not same_registered_host(absolute, base_url):
             continue
-        anchor_text = " ".join(anchor.stripped_strings)
+        visible_text = " ".join(anchor.stripped_strings)
+        aria_label = anchor.get("aria-label", "")
+        anchor_text = " ".join(part for part in (visible_text, aria_label) if part)
         category = classify_event_page(absolute, anchor_text)
         if category is None:
             continue
@@ -134,6 +145,8 @@ def publication_date_from_html(html: str) -> tuple[str | None, str]:
 def is_article_url(url: str) -> bool:
     """Return whether a URL has the shape of a specific article, not a listing."""
     path = urlparse(url).path.rstrip("/")
+    if re.search(r"/news/news-details/\d{4}/.+/default\.aspx$", path, re.I):
+        return True
     basename = path.rsplit("/", 1)[-1].lower()
     if basename in {"default.aspx", "index.html", "index.htm", "news", "press", "blog", "blogs"}:
         return False
@@ -156,7 +169,9 @@ def discover_article_links(html: str, base_url: str,
         if (absolute == base_key or not same_registered_host(absolute, base_url)
                 or not is_article_url(absolute)):
             continue
-        anchor_text = " ".join(anchor.stripped_strings)
+        visible_text = " ".join(anchor.stripped_strings)
+        aria_label = anchor.get("aria-label", "")
+        anchor_text = " ".join(part for part in (visible_text, aria_label) if part)
         published_date, precision = date_from_text(anchor_text)
         discovered.setdefault(absolute, {
             "url": absolute,

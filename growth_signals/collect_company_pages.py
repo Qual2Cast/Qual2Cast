@@ -22,6 +22,7 @@ from collect_events import (
     date_from_text,
     is_article_url,
     publication_date_from_html,
+    same_registered_host,
 )
 from fetch_adapter import (
     FetchFailed,
@@ -41,6 +42,13 @@ def canonical_url(url: str) -> str:
     parts = urlsplit(url)
     path = parts.path.rstrip("/") or "/"
     return urlunsplit((parts.scheme.lower(), parts.netloc.lower(), path, "", ""))
+
+
+def official_ir_url(url: str) -> str:
+    """Return the conventional official IR subdomain for a company website."""
+    parts = urlsplit(url)
+    host = (parts.hostname or "").lower().removeprefix("www.")
+    return f"https://ir.{host}/"
 
 
 def now_iso() -> str:
@@ -120,6 +128,31 @@ def collect_company(company: dict, clients: list, output_root: Path,
     record["pages"].append(page_record(home, home_metadata, "P1", "home"))
     seen_final_urls = {canonical_url(home.final_url)}
     discovered = discover_event_pages(home.html, home.final_url)
+    if not any(item["category"] in {"news", "press"} for item in discovered):
+        ir_url = official_ir_url(home.final_url)
+        try:
+            ir_home = fetch_page(
+                ir_url,
+                clients,
+                content_validator=lambda html, final_url: (
+                    same_registered_host(final_url, home.final_url)
+                    and bool(discover_event_pages(html, final_url))),
+            )
+        except FetchFailed:
+            ir_home = None
+        if ir_home is not None:
+            page_id = f"P{len(record['pages']) + 1}"
+            ir_metadata = save_raw_page(ir_home, output_root, company_id, page_id)
+            record["pages"].append(page_record(
+                ir_home, ir_metadata, page_id, "ir_home"))
+            seen_final_urls.add(canonical_url(ir_home.final_url))
+            for item in discover_event_pages(ir_home.html, ir_home.final_url):
+                if item not in discovered:
+                    discovered.append(item)
+            record["ir_fallback"] = {
+                "url": ir_home.final_url,
+                "status": "used",
+            }
     record["discovered_event_pages"] = discovered
     selected = choose_event_pages(discovered, max_event_pages)
     article_candidates: dict[str, dict] = {}
@@ -127,7 +160,18 @@ def collect_company(company: dict, clients: list, output_root: Path,
     for selected_page in selected:
         page_id = f"P{len(record['pages']) + 1}"
         try:
-            page = fetch_page(selected_page["url"], clients)
+            validator = None
+            if selected_page["category"] in {"news", "press"}:
+                def validator(html, final_url, category=selected_page["category"],
+                              anchor_text=selected_page.get("anchor_text", "")):
+                    return (
+                        is_article_url(final_url)
+                        or (anchor_text.strip().lower() == "press release"
+                            and publication_date_from_html(html)[0] is not None)
+                        or bool(discover_article_links(html, final_url, category))
+                    )
+            page = fetch_page(
+                selected_page["url"], clients, content_validator=validator)
         except FetchFailed as exc:
             record["errors"].append({
                 "url": selected_page["url"],
@@ -140,12 +184,15 @@ def collect_company(company: dict, clients: list, output_root: Path,
             continue
         seen_final_urls.add(final_key)
         metadata = save_raw_page(page, output_root, company_id, page_id)
+        published_date, precision = publication_date_from_html(page.html)
         direct_article = (
             selected_page["category"] in {"news", "press"}
-            and is_article_url(page.final_url)
+            and (is_article_url(page.final_url) or (
+                selected_page.get("anchor_text", "").strip().lower() == "press release"
+                and published_date is not None
+            ))
         )
         if direct_article:
-            published_date, precision = publication_date_from_html(page.html)
             if not published_date:
                 raw = raw_text_fields(page.html)
                 published_date, precision = date_from_text(
@@ -187,14 +234,17 @@ def collect_company(company: dict, clients: list, output_root: Path,
             continue
         seen_final_urls.add(final_key)
         metadata = save_raw_page(page, output_root, company_id, page_id)
+        article_date, article_precision = publication_date_from_html(page.html)
         record["pages"].append(page_record(page, metadata, page_id, "article", {
             "article_source_category": article["source_category"],
-            "published_date": article["published_date"],
-            "published_date_precision": article["published_date_precision"],
+            "published_date": article_date or article["published_date"],
+            "published_date_precision": (
+                article_precision if article_date else article["published_date_precision"]),
             "discovered_from": article["discovered_from"],
         }))
 
-    event_page_count = sum(page["category"] != "home" for page in record["pages"])
+    event_page_count = sum(
+        page["category"] not in {"home", "ir_home"} for page in record["pages"])
     record["article_count"] = sum(
         page["category"] == "article" for page in record["pages"])
     if event_page_count:

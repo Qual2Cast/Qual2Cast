@@ -86,6 +86,15 @@ def test_undated_match_is_retained_with_reason():
     assert events[0].unknown_reason
 
 
+def test_headline_present_tense_signs_agreement_is_a_contract_event():
+    record = record_with([
+        "Wingstop Inc. Signs 35 Unit Franchise Development Agreement With Sizzling Platter"
+    ])
+    events, _ = extract_record(record)
+    assert len(events) == 1
+    assert events[0].event_type == "new_contract"
+
+
 def test_non_article_pages_are_not_extracted():
     record = record_with(["The company launched a new platform."])
     page = {**record["pages"][0], "category": "careers"}
@@ -97,3 +106,12 @@ def test_duplicate_evidence_is_deduplicated():
     record = record_with([sentence, sentence])
     events, _ = extract_record(record)
     assert len(events) == 1
+
+
+def test_site_suffix_in_html_title_does_not_duplicate_body_headline():
+    headline = "Wingstop Inc. Signs 35 Unit Franchise Development Agreement"
+    record = record_with([headline])
+    record["pages"][0]["raw_title"] = headline + " – Investor Relations"
+    events, _ = extract_record(record)
+    assert len(events) == 1
+    assert events[0].source_text == headline

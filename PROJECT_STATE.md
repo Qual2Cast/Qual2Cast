@@ -18,8 +18,10 @@ conversations/growth-signals.md)_
 
 ## Agreed methodology
 
-- Aziz's rule: company inputs are name + website only (methods must work for
-  private companies). No 10-Ks, investor pages, or stock data.
+- Aziz's rule for similarity inputs: company inputs are name + website only
+  (methods must work for private companies). No 10-Ks or stock data. The
+  separate growth-signals collector may use official company IR News/Press
+  pages as dated first-party event sources, but not as similarity features.
 - All collection is programmatic; nothing written by hand. Unknown
   information is marked unknown, and every extracted fact cites a source URL.
 - Financial fields are never matching inputs; they live in separate columns
@@ -37,7 +39,7 @@ conversations/growth-signals.md)_
 | part | status | where |
 |---|---|---|
 | Website scrape | **Done for all 560** (3 pages per site, re-parsed 2026-10-18): 532 ok, 15 thin, 4 investor_site, 4 robots_disallowed, 4 http_403, 1 blocked. 26 tests. | website_scrape/, outputs-local/website_scrape/ |
-| Growth signals | **Five-company pilot complete.** News/Press/Careers/Jobs and dated article collection, high-precision audited rule extraction, event schema, and cutoff-safe feature aggregation. Pilot: 15 articles, 14 dated, 3 reviewed candidate events; HRI/WING article discovery gaps remain. | growth_signals/ |
+| Growth signals | **Five-company pilot complete.** News/Press/Careers/Jobs and dated article collection, high-precision audited rule extraction, event schema, and cutoff-safe feature aggregation. Dynamic-page and constrained official-IR fallbacks now cover all five: 22 articles, 21 dated, 4 reviewed candidate events. | growth_signals/ |
 | Matching method | **Not started** in the main pipeline. The first pass (embeddings of page text, PCTY NDCG@20 0.90) is in scraps as a baseline. | n/a |
 | Results, sanity check, valuation, definitions / limitations | **Not started.** | n/a |
 | Earlier attempts | Set aside 2026-10-18, kept runnable for reference: Codex profiles (219/560 done), first matching pass, first collection script. | scraps/, outputs-local/scraps/ |
@@ -60,18 +62,16 @@ conversations/growth-signals.md)_
 
 ## Next steps
 
-1. Reuse the existing fetch layer from `website_scrape/` in the separate
-   `growth_signals/` collector, without changing existing scrape outputs.
-2. Define extraction prompts/rules for the first event taxonomy and retain
-   dated evidence, confidence, abstentions, and source URLs.
-3. Define historical cutoff dates and future 3-year revenue-growth outcomes;
+1. Define historical cutoff dates and future 3-year revenue-growth outcomes;
    keep outcomes isolated from event extraction.
-4. Design the matching method on `outputs-local/website_scrape/page_text/`.
-5. Results obtained, and how they are checked (peer labels for more targets
+2. Add archive pagination/order handling so News pages consistently return
+   recent rather than merely first-listed articles.
+3. Design the matching method on `outputs-local/website_scrape/page_text/`.
+4. Results obtained, and how they are checked (peer labels for more targets
    than PCTY, written before running them; `scraps/comps_first_pass/` results
    as the baseline to beat).
-6. Human sanity check of the top comps against their source pages.
-7. Valuation calculation from the comps' multiples (financial fields enter
+5. Human sanity check of the top comps against their source pages.
+6. Valuation calculation from the comps' multiples (financial fields enter
    only here, never in matching).
-8. Definitions and limitations.
-9. Supply websites for the 4 IR-only companies (or accept "unknown").
+7. Definitions and limitations.
+8. Supply websites for the 4 IR-only companies (or accept "unknown").

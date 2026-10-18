@@ -30,6 +30,30 @@ def test_anchor_text_can_identify_a_generic_link():
     assert pages[0]["category"] == "press"
 
 
+def test_lien_release_service_is_not_a_press_release():
+    pages = discover_event_pages(
+        '<a href="/services/lien-release.html">Lien Release</a>',
+        "https://example.com",
+    )
+    assert pages == []
+
+
+def test_media_assets_page_is_not_a_press_page():
+    pages = discover_event_pages(
+        '<a href="/news-and-events/media-assets">Media Assets</a>',
+        "https://ir.example.com",
+    )
+    assert pages == []
+
+
+def test_investor_events_page_is_not_a_news_page():
+    pages = discover_event_pages(
+        '<a href="/news-and-events/events-and-presentations">Events &amp; Presentations</a>',
+        "https://ir.example.com",
+    )
+    assert pages == []
+
+
 def test_discovers_dated_same_site_articles():
     html = '''
     <a href="/resources/learn/blogs/new-product/">New product launch blog September 22, 2026</a>
@@ -70,3 +94,12 @@ def test_specific_press_release_url_is_an_article_but_listing_is_not():
     assert is_article_url(
         "https://example.com/news-releases/news-release-details/new-product")
     assert not is_article_url("https://example.com/news/default.aspx")
+    assert is_article_url(
+        "https://ir.example.com/news/news-details/2026/new-product/default.aspx")
+
+
+def test_aria_label_supplies_q4_article_date():
+    html = '''<a href="/news/news-details/2026/new-product/default.aspx"
+      aria-label="New product, August 20, 2026">New product</a>'''
+    articles = discover_article_links(html, "https://ir.example.com/news/default.aspx", "news")
+    assert articles[0]["published_date"] == "2026-08-20"

@@ -10,16 +10,16 @@ the company had no growth events.
 |---|---|---:|---:|---:|---:|---|
 | PCTY | HCM software | ok | 9 | 9 | 1 | Supported product launch; eight abstentions |
 | BV | landscape services | ok | 3 | 2 | 0 | Three abstentions; one article date unknown |
-| HRI | equipment rental | ok | 0 | 0 | 0 | News listing found, but no specific articles discovered |
+| HRI | equipment rental | ok | 3 | 3 | 0 | Three legitimate abstentions: earnings call, CSR report, and dividend |
 | PRGS | infrastructure software | ok | 3 | 3 | 2 | Two supported product releases; acquisition article abstained |
-| WING | restaurants | ok | 0 | 0 | 0 | Careers found; no News/Press entry discovered from homepage |
+| WING | restaurants | ok | 4 | 4 | 1 | Official IR fallback found one supported franchise development agreement; three abstentions |
 
 ## Aggregate checks
 
 - 5/5 homepages and at least one event-related page were collected.
-- 3/5 companies yielded specific articles.
-- 15 articles were saved; 14 had an explicit publication date.
-- Three events survived rule extraction and manual evidence review.
+- 5/5 companies yielded specific articles.
+- 22 articles were saved; 21 had an explicit publication date.
+- Four events survived rule extraction and manual evidence review.
 - Every non-match is retained in the audit as an abstention.
 
 ## Defects exposed and fixed
@@ -34,14 +34,20 @@ the company had no growth events.
    are now article records and receive the same evidence audit.
 4. Dates such as `Sept. 30, 2026` and `Oct. 01, 2026` are now parsed from the
    top article blocks when standard metadata is absent.
+5. Empty dynamic shells now trigger the rendered-browser fallback. This made
+   HRI's JavaScript-rendered news listing collectible.
+6. When a homepage exposes no News/Press entry, the collector may try only the
+   conventional same-company `ir.<domain>` host, still subject to robots.txt,
+   same-host validation, and event-link validation. This recovered WING.
+7. Media-asset and investor-event pages are excluded from News/Press discovery,
+   article-body dates override dates embedded in link titles, and duplicated
+   HTML-title/site-suffix evidence is collapsed.
 
 ## Remaining coverage gaps
 
-- HRI uses an investor-relations news listing structure that the current
-  article-link patterns do not yet traverse.
-- WING exposes no News/Press link from its homepage; sitemap or a documented
-  same-site discovery fallback is needed.
 - Careers landing pages are collected but do not yet follow third-party job
   boards. Those sources require an allow-list and attribution policy.
+- WING's News archive currently surfaces old 2015 items before recent items;
+  archive pagination/order handling is still needed for better recency recall.
 - The rule extractor is intentionally low-recall. It is candidate generation
   for human review, not automatic validation.

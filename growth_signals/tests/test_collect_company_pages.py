@@ -1,7 +1,12 @@
 import json
 
 from fetch_adapter import FetchFailed, FetchedPage
-from collect_company_pages import collect_company, choose_event_pages, write_company_record
+from collect_company_pages import (
+    collect_company,
+    choose_event_pages,
+    official_ir_url,
+    write_company_record,
+)
 
 
 def fetched(url, html, method="html", final_url=None):
@@ -27,6 +32,10 @@ def test_choose_event_pages_prefers_category_coverage():
     assert {page["category"] for page in chosen} == {"news", "careers"}
 
 
+def test_official_ir_url_uses_same_company_domain():
+    assert official_ir_url("https://www.example.com/") == "https://ir.example.com/"
+
+
 def test_collect_company_saves_home_and_event_pages(tmp_path, monkeypatch):
     homepage = """
     <html><head><title>Example</title></head><body>
@@ -35,7 +44,7 @@ def test_collect_company_saves_home_and_event_pages(tmp_path, monkeypatch):
     """
     event_html = "<html><head><title>News</title></head><body><p>New contract announced for hospital software.</p></body></html>"
 
-    def fake_fetch(url, clients):
+    def fake_fetch(url, clients, **kwargs):
         if url == "https://example.com":
             return fetched(url, homepage)
         return fetched(url, event_html)
@@ -59,7 +68,7 @@ def test_collect_company_fetches_dated_articles(tmp_path, monkeypatch):
     New contract announced September 22, 2026</a></body></html>'''
     article = "<html><body><p>The company signed a new hospital contract.</p></body></html>"
 
-    def fake_fetch(url, clients):
+    def fake_fetch(url, clients, **kwargs):
         if url == "https://example.com":
             return fetched(url, homepage)
         if url == "https://example.com/news":
@@ -79,13 +88,36 @@ def test_collect_company_fetches_dated_articles(tmp_path, monkeypatch):
     assert saved["published_date"] == "2026-09-22"
 
 
+def test_article_body_date_overrides_future_date_in_link_text(tmp_path, monkeypatch):
+    homepage = '<html><body><a href="/news">News</a></body></html>'
+    landing = '''<html><body><a href="/news/results-call">
+    Results call November 5, 2026</a></body></html>'''
+    article = "<html><body><p>DALLAS, Oct. 12, 2026 (NEWSWIRE) — The call was announced.</p></body></html>"
+
+    def fake_fetch(url, clients, **kwargs):
+        if url == "https://example.com":
+            return fetched(url, homepage)
+        if url == "https://example.com/news":
+            return fetched(url, landing)
+        return fetched(url, article)
+
+    monkeypatch.setattr("collect_company_pages.fetch_page", fake_fetch)
+    company = {
+        "IQ_COMPANY_ID": "IQ1",
+        "target_company_name": "Example Co.",
+        "target_ciq_website": "https://example.com",
+    }
+    record = collect_company(company, [], tmp_path, max_event_pages=1, max_articles=1)
+    assert record["pages"][-1]["published_date"] == "2026-10-12"
+
+
 def test_direct_press_release_is_saved_as_article(tmp_path, monkeypatch):
     homepage = '<html><body><a href="/press-releases/new-product">Press release</a></body></html>'
     article = '''<html><head>
     <meta property="article:published_time" content="2026-08-14T09:30:00Z">
     </head><body><p>The company launched a new platform.</p></body></html>'''
 
-    def fake_fetch(url, clients):
+    def fake_fetch(url, clients, **kwargs):
         if url == "https://example.com":
             return fetched(url, homepage)
         return fetched(url, article)
@@ -122,7 +154,7 @@ def test_redirected_event_pages_are_deduplicated(tmp_path, monkeypatch):
     </body></html>'''
     event_html = "<html><body><p>New customer contract announced.</p></body></html>"
 
-    def fake_fetch(url, clients):
+    def fake_fetch(url, clients, **kwargs):
         if url == "https://example.com":
             return fetched(url, homepage)
         return fetched(

@@ -14,7 +14,7 @@ import sys
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Iterable
+from typing import Callable, Iterable
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 WEBSITE_SCRAPE_DIR = REPO_ROOT / "website_scrape"
@@ -54,6 +54,10 @@ class FetchFailed(RuntimeError):
         self.attempts = attempts
         summary = " | ".join(f"{a['method']}:{a['status']}" for a in attempts)
         super().__init__(f"could not fetch {url}: {summary}")
+
+
+class ContentRejected(RuntimeError):
+    """Fetched HTML did not contain the content required by this page role."""
 
 
 @dataclass(frozen=True)
@@ -104,7 +108,8 @@ def build_clients(
     return clients
 
 
-def fetch_page(url: str, clients: Iterable) -> FetchedPage:
+def fetch_page(url: str, clients: Iterable,
+               content_validator: Callable[[str, str], bool] | None = None) -> FetchedPage:
     """Fetch one event page, trying each client and rejecting bot pages."""
     fetch_url = normalize_url(url)
     attempts = []
@@ -125,6 +130,8 @@ def fetch_page(url: str, clients: Iterable) -> FetchedPage:
                 raise BlockedError("Cloudflare or browser verification page")
             if is_block_page(parsed):
                 raise BlockedError("bot check or error page")
+            if content_validator and not content_validator(html, final_url):
+                raise ContentRejected("page is an empty or incomplete dynamic shell")
             source_url, snapshot = (
                 client.source_for(final_url)
                 if hasattr(client, "source_for")

@@ -31,7 +31,7 @@
 
 ## Checks
 
-- 36 direct test functions passed using the available Anaconda environment.
+- 45 direct test functions passed using the available Anaconda environment.
 - Python compilation passed for all new modules and tests.
 - `git diff --check` passed.
 - The machine's normal pytest entry point is currently affected by a broken
@@ -59,20 +59,20 @@
   entry ... for employees." The final output contains one supported product
   launch ("Introducing Paylocity Ignite AI," 2026-07-21) and eight explicit
   abstentions.
-- Completed a five-company pilot (PCTY, BV, HRI, PRGS, WING): all five
-  collected a homepage and event-related page; three yielded 15 specific
-  articles, 14 with explicit dates. Manual evidence review retained three
-  product events. Direct press-release recognition and abbreviated article
-  dates were added. A false acquisition-as-launch match was fixed and retained
-  as a regression test. See `growth_signals/sample_evaluation.md`.
+- Completed a five-company pilot (PCTY, BV, HRI, PRGS, WING): all five yielded
+  specific articles, for 22 total and 21 with explicit dates. Manual evidence
+  review retained four events. Dynamic-shell rejection enables rendered
+  fallback for HRI; a constrained, same-company official-IR fallback recovers
+  WING when its homepage has no News/Press entry. Media assets and investor
+  calendars are excluded, article-body dates override link-text dates, and
+  duplicated title evidence is collapsed. See `growth_signals/sample_evaluation.md`.
 
 ## Unresolved
 
 - The first collector discovers only same-site and company-subdomain links.
   Third-party job boards such as Workday or Greenhouse need an attribution and
   allow-list policy before collection.
-- Event-date extraction currently trusts explicit dates on article listing
-  links; metadata, archive dates, and undated Careers pages still need policy.
+- Archive pagination/order and undated Careers pages still need policy.
 - Historical revenue outcomes and cutoff dates have not been added.
 - The repository's existing rule against 10-K and financial matching inputs
   may need revision after the mentor's latest clarification that private-target
