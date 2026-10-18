@@ -54,8 +54,8 @@ time-split model evaluation
 - `collect_events.py`: deterministic discovery of News, Press, Careers, and
   Jobs links from saved HTML.
 - `collect_company_pages.py`: reads the company snapshot, fetches each
-  homepage, discovers event pages, saves raw HTML, and writes a company-level
-  page record without overwriting prior records.
+  homepage, discovers event pages and dated article links, saves raw HTML, and
+  writes a company-level page record without overwriting prior records.
 - `build_features.py`: converts dated event records into company features for
   a specified cutoff date without using future events.
 - `tests/`: schema, link-discovery, and look-ahead tests.
@@ -124,7 +124,8 @@ dated hiring, financial stress, and other growth signals.
 Run one company first:
 
 ```bash
-python collect_company_pages.py --tickers PCTY --methods html rendered wayback
+python collect_company_pages.py --tickers PCTY --methods html rendered wayback \
+  --max-articles 3
 ```
 
 Outputs are written under `outputs-local/growth_signals/`:
@@ -136,7 +137,10 @@ page_records_history/<IQ_ID>_<timestamp>.json
 ```
 
 The homepage is `P1`; later pages are discovered News, Press, Careers, or
-Jobs pages. Re-running a company moves its previous page record to history.
+Jobs pages followed by specific articles discovered from News or Press landing
+pages. Article records retain the publication date found in the listing link;
+missing dates remain unknown rather than being guessed. Re-running a company
+moves its previous page record to history.
 Cloudflare and browser-verification shells are rejected and trigger the next
 configured fetch method. Event pages that redirect to the same final URL are
 saved only once.

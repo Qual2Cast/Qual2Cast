@@ -16,7 +16,7 @@ if str(WEBSITE_SCRAPE_DIR) not in sys.path:
 
 from fetch_and_clean import find_input, load_companies  # noqa: E402
 
-from collect_events import discover_event_pages
+from collect_events import discover_article_links, discover_event_pages
 from fetch_adapter import (
     FetchFailed,
     build_clients,
@@ -70,17 +70,21 @@ def choose_event_pages(discovered: list[dict], max_event_pages: int) -> list[dic
     return chosen
 
 
-def page_record(page, metadata: dict, page_id: str, category: str) -> dict:
-    return {
+def page_record(page, metadata: dict, page_id: str, category: str,
+                extra: dict | None = None) -> dict:
+    record = {
         "page_id": page_id,
         "category": category,
         **metadata,
         **raw_text_fields(page.html),
     }
+    if extra:
+        record.update(extra)
+    return record
 
 
 def collect_company(company: dict, clients: list, output_root: Path,
-                    max_event_pages: int = 4) -> dict:
+                    max_event_pages: int = 4, max_articles: int = 5) -> dict:
     """Collect a homepage plus selected growth-signal pages for one company."""
     company_id = company["IQ_COMPANY_ID"]
     name = company["target_company_name"]
@@ -94,6 +98,7 @@ def collect_company(company: dict, clients: list, output_root: Path,
         "collected_at": collected_at,
         "status": "error",
         "discovered_event_pages": [],
+        "discovered_articles": [],
         "pages": [],
         "errors": [],
     }
@@ -111,6 +116,7 @@ def collect_company(company: dict, clients: list, output_root: Path,
     discovered = discover_event_pages(home.html, home.final_url)
     record["discovered_event_pages"] = discovered
     selected = choose_event_pages(discovered, max_event_pages)
+    article_candidates: dict[str, dict] = {}
 
     for selected_page in selected:
         page_id = f"P{len(record['pages']) + 1}"
@@ -130,8 +136,44 @@ def collect_company(company: dict, clients: list, output_root: Path,
         metadata = save_raw_page(page, output_root, company_id, page_id)
         record["pages"].append(page_record(
             page, metadata, page_id, selected_page["category"]))
+        if selected_page["category"] in {"news", "press"}:
+            for article in discover_article_links(
+                    page.html, page.final_url, selected_page["category"]):
+                article_candidates.setdefault(article["url"], article)
 
-    event_page_count = len(record["pages"]) - 1
+    articles = sorted(
+        article_candidates.values(),
+        key=lambda item: (item["published_date"] is not None,
+                          item["published_date"] or "", item["url"]),
+        reverse=True,
+    )[:max_articles]
+    record["discovered_articles"] = articles
+    for article in articles:
+        page_id = f"P{len(record['pages']) + 1}"
+        try:
+            page = fetch_page(article["url"], clients)
+        except FetchFailed as exc:
+            record["errors"].append({
+                "url": article["url"],
+                "category": "article",
+                "attempts": exc.attempts,
+            })
+            continue
+        final_key = canonical_url(page.final_url)
+        if final_key in seen_final_urls:
+            continue
+        seen_final_urls.add(final_key)
+        metadata = save_raw_page(page, output_root, company_id, page_id)
+        record["pages"].append(page_record(page, metadata, page_id, "article", {
+            "article_source_category": article["source_category"],
+            "published_date": article["published_date"],
+            "published_date_precision": article["published_date_precision"],
+            "discovered_from": article["discovered_from"],
+        }))
+
+    event_page_count = sum(page["category"] != "home" for page in record["pages"])
+    record["article_count"] = sum(
+        page["category"] == "article" for page in record["pages"])
     if event_page_count:
         record["status"] = "ok" if not record["errors"] else "partial"
     else:
@@ -165,6 +207,7 @@ def main() -> None:
     parser.add_argument("--tickers", nargs="*", help="only these tickers")
     parser.add_argument("--limit", type=int)
     parser.add_argument("--max-event-pages", type=int, default=4)
+    parser.add_argument("--max-articles", type=int, default=5)
     parser.add_argument(
         "--methods",
         nargs="*",
@@ -193,7 +236,8 @@ def main() -> None:
         total = len(companies)
         for index, company in enumerate(companies.to_dict("records"), start=1):
             label = f"[{index}/{total}] {company['target_ciq_ticker']:<6} {company['target_company_name']}"
-            record = collect_company(company, clients, args.out, args.max_event_pages)
+            record = collect_company(
+                company, clients, args.out, args.max_event_pages, args.max_articles)
             path = write_company_record(record, args.out)
             print(f"{label}  {record['status']} ({record.get('event_page_count', 0)} event pages) -> {path}")
     finally:

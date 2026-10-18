@@ -53,6 +53,32 @@ def test_collect_company_saves_home_and_event_pages(tmp_path, monkeypatch):
     assert all(page["raw_html_sha256"] for page in record["pages"])
 
 
+def test_collect_company_fetches_dated_articles(tmp_path, monkeypatch):
+    homepage = '<html><body><a href="/news">News</a></body></html>'
+    landing = '''<html><body><a href="/news/new-contract">
+    New contract announced September 22, 2026</a></body></html>'''
+    article = "<html><body><p>The company signed a new hospital contract.</p></body></html>"
+
+    def fake_fetch(url, clients):
+        if url == "https://example.com":
+            return fetched(url, homepage)
+        if url == "https://example.com/news":
+            return fetched(url, landing)
+        return fetched(url, article)
+
+    monkeypatch.setattr("collect_company_pages.fetch_page", fake_fetch)
+    company = {
+        "IQ_COMPANY_ID": "IQ1",
+        "target_company_name": "Example Co.",
+        "target_ciq_website": "https://example.com",
+    }
+    record = collect_company(company, [], tmp_path, max_event_pages=1, max_articles=2)
+    assert record["article_count"] == 1
+    saved = record["pages"][-1]
+    assert saved["category"] == "article"
+    assert saved["published_date"] == "2026-09-22"
+
+
 def test_homepage_failure_is_recorded(tmp_path, monkeypatch):
     failure = FetchFailed("https://example.com", [{"method": "html", "status": "http_403"}])
     monkeypatch.setattr("collect_company_pages.fetch_page", lambda url, clients: (_ for _ in ()).throw(failure))

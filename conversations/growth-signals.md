@@ -48,6 +48,10 @@
   homepage, blog landing page, and Careers page. Challenge detection now
   requires both a challenge marker and sparse visible content, so embedded
   Cloudflare scripts on a real page do not cause a false rejection.
+- Article discovery now follows same-site News/Press listing links, retains
+  dates stated in their anchor text without guessing, and fetches a bounded
+  number of recent articles. A live PCTY run saved three dated articles with
+  rendered HTML, complete text, source URLs, and raw provenance.
 
 ## Unresolved
 

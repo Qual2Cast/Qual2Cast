@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+from datetime import datetime
 from pathlib import Path
 from urllib.parse import urljoin, urlparse, urlunparse
 
@@ -21,6 +22,15 @@ PAGE_PATTERNS = {
     "jobs": re.compile(r"(?:^|[\W_])(?:jobs?|open[-_ ]?positions?|vacancies)(?:$|[\W_])", re.I),
 }
 EXCLUDED_SCHEMES = {"mailto", "tel", "javascript"}
+ARTICLE_PATH = re.compile(
+    r"/(?:news|newsroom|press(?:-releases?)?|media|updates?|blogs?|articles?)/[^/?#]+/?$",
+    re.I,
+)
+MONTH_DATE = re.compile(
+    r"\b(January|February|March|April|May|June|July|August|September|October|November|December)"
+    r"\s+(\d{1,2}),\s+(\d{4})\b",
+    re.I,
+)
 
 
 def canonical_url(url: str) -> str:
@@ -73,6 +83,47 @@ def discover_event_pages(html: str, base_url: str) -> list[dict[str, str]]:
             "anchor_text": anchor_text,
         })
     return sorted(discovered.values(), key=lambda item: (item["category"], item["url"]))
+
+
+def date_from_text(text: str) -> tuple[str | None, str]:
+    """Return an ISO publication date found in link text, without guessing."""
+    match = MONTH_DATE.search(text)
+    if not match:
+        return None, "unknown"
+    parsed = datetime.strptime(match.group(0), "%B %d, %Y").date()
+    return parsed.isoformat(), "day"
+
+
+def discover_article_links(html: str, base_url: str,
+                           source_category: str) -> list[dict[str, str | None]]:
+    """Discover dated, same-site article links from a News or Press landing page."""
+    soup = BeautifulSoup(html, "html.parser")
+    discovered: dict[str, dict[str, str | None]] = {}
+    base_key = canonical_url(base_url)
+    for anchor in soup.find_all("a", href=True):
+        href = anchor.get("href", "").strip()
+        if not href or urlparse(href).scheme.lower() in EXCLUDED_SCHEMES:
+            continue
+        absolute = canonical_url(urljoin(base_url, href))
+        if (absolute == base_key or not same_registered_host(absolute, base_url)
+                or not ARTICLE_PATH.search(urlparse(absolute).path)):
+            continue
+        anchor_text = " ".join(anchor.stripped_strings)
+        published_date, precision = date_from_text(anchor_text)
+        discovered.setdefault(absolute, {
+            "url": absolute,
+            "source_category": source_category,
+            "anchor_text": anchor_text,
+            "published_date": published_date,
+            "published_date_precision": precision,
+            "discovered_from": base_url,
+        })
+    return sorted(
+        discovered.values(),
+        key=lambda item: (item["published_date"] is None,
+                          item["published_date"] or "", item["url"]),
+        reverse=False,
+    )
 
 
 def main() -> None:
