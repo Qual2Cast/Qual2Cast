@@ -137,6 +137,9 @@ page_records_history/<IQ_ID>_<timestamp>.json
 
 The homepage is `P1`; later pages are discovered News, Press, Careers, or
 Jobs pages. Re-running a company moves its previous page record to history.
+Cloudflare and browser-verification shells are rejected and trigger the next
+configured fetch method. Event pages that redirect to the same final URL are
+saved only once.
 
 ## Build features
 

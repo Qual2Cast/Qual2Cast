@@ -21,6 +21,12 @@ class FakeClient:
         return self.result
 
 
+class RecordingClient(FakeClient):
+    def get_html(self, url):
+        self.received_url = url
+        return super().get_html(url)
+
+
 def test_fetch_falls_back_and_records_attempts():
     html = "<html><head><title>Company news</title></head><body><p>New contract announced today.</p></body></html>"
     page = fetch_page("https://example.com/news", [
@@ -29,6 +35,30 @@ def test_fetch_falls_back_and_records_attempts():
     ])
     assert page.method == "rendered"
     assert [attempt["status"] for attempt in page.attempts] == ["error:RuntimeError", "ok"]
+
+
+def test_cloudflare_cookie_challenge_triggers_fallback():
+    challenge = '''<html><body><script>document.cookie = "cf_bypass=1; Path=/";</script>
+    <p>For the best experience, enable JavaScript.</p></body></html>'''
+    content = "<html><body><p>We are hiring implementation consultants.</p></body></html>"
+    page = fetch_page("https://example.com/careers", [
+        FakeClient("html", ("https://example.com/careers/", challenge)),
+        FakeClient("rendered", ("https://example.com/careers/", content)),
+    ])
+    assert page.method == "rendered"
+    assert [attempt["status"] for attempt in page.attempts] == [
+        "error:BlockedError", "ok"
+    ]
+
+
+def test_fetch_normalizes_a_domain_without_a_scheme():
+    client = RecordingClient(
+        "html",
+        ("https://www.example.com/", "<html><body><p>Company news.</p></body></html>"),
+    )
+    page = fetch_page("www.example.com", [client])
+    assert client.received_url == "https://www.example.com"
+    assert page.requested_url == "www.example.com"
 
 
 def test_robots_disallow_stops_all_methods():

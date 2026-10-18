@@ -46,6 +46,11 @@
 
 ## Unresolved
 
+- A live PCTY trial on 2026-10-18 found Cloudflare cookie/JavaScript
+  verification pages. The collector now rejects these pages and continues
+  through configured fallbacks instead of reporting empty pages as success.
+  PCTY remained `homepage_failed` because every locally available method was
+  challenged; this is an explicit unknown/failure, not fabricated content.
 - The first collector discovers only same-site and company-subdomain links.
   Third-party job boards such as Workday or Greenhouse need an attribution and
   allow-list policy before collection.

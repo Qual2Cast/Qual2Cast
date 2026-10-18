@@ -4,10 +4,10 @@ from fetch_adapter import FetchFailed, FetchedPage
 from collect_company_pages import collect_company, choose_event_pages, write_company_record
 
 
-def fetched(url, html, method="html"):
+def fetched(url, html, method="html", final_url=None):
     return FetchedPage(
         requested_url=url,
-        final_url=url,
+        final_url=final_url or url,
         source_url=url,
         snapshot="",
         fetched_at="2026-10-18T19:00:00Z",
@@ -65,6 +65,33 @@ def test_homepage_failure_is_recorded(tmp_path, monkeypatch):
     assert record["status"] == "homepage_failed"
     assert record["pages"] == []
     assert record["errors"][0]["attempts"][0]["status"] == "http_403"
+
+
+def test_redirected_event_pages_are_deduplicated(tmp_path, monkeypatch):
+    homepage = '''<html><body>
+    <a href="/news">News</a><a href="/content/news">More news</a>
+    </body></html>'''
+    event_html = "<html><body><p>New customer contract announced.</p></body></html>"
+
+    def fake_fetch(url, clients):
+        if url == "https://example.com":
+            return fetched(url, homepage)
+        return fetched(
+            url,
+            event_html,
+            final_url="https://example.com/company/news/",
+        )
+
+    monkeypatch.setattr("collect_company_pages.fetch_page", fake_fetch)
+    company = {
+        "IQ_COMPANY_ID": "IQ1",
+        "target_company_name": "Example Co.",
+        "target_ciq_website": "https://example.com",
+    }
+    record = collect_company(company, [], tmp_path, max_event_pages=2)
+    assert record["status"] == "ok"
+    assert record["event_page_count"] == 1
+    assert [page["category"] for page in record["pages"]] == ["home", "news"]
 
 
 def test_previous_company_record_moves_to_history(tmp_path):

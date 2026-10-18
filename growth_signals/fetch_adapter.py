@@ -21,12 +21,28 @@ WEBSITE_SCRAPE_DIR = REPO_ROOT / "website_scrape"
 if str(WEBSITE_SCRAPE_DIR) not in sys.path:
     sys.path.insert(0, str(WEBSITE_SCRAPE_DIR))
 
-from fetch_and_clean import Fetcher, Renderer, USER_AGENT, extract_page  # noqa: E402
+from fetch_and_clean import (  # noqa: E402
+    Fetcher,
+    Renderer,
+    USER_AGENT,
+    extract_page,
+    normalize_url,
+)
 from scrape_websites import (  # noqa: E402
     BlockedError,
     StealthBrowser,
     WaybackFetcher,
     is_block_page,
+)
+
+
+CHALLENGE_MARKERS = (
+    'document.cookie = "cf_bypass=1',
+    "cf-chl-",
+    "__cf_chl_",
+    "challenge-platform",
+    "checking your browser",
+    "verify you are human",
 )
 
 
@@ -90,14 +106,18 @@ def build_clients(
 
 def fetch_page(url: str, clients: Iterable) -> FetchedPage:
     """Fetch one event page, trying each client and rejecting bot pages."""
+    fetch_url = normalize_url(url)
     attempts = []
     for client in clients:
         method = getattr(client, "method", type(client).__name__)
         try:
-            if not client.allowed(url):
+            if not client.allowed(fetch_url):
                 attempts.append({"method": method, "status": "robots_disallowed"})
                 break
-            final_url, html = client.get_html(url)
+            final_url, html = client.get_html(fetch_url)
+            lowered_html = html.lower()
+            if any(marker in lowered_html for marker in CHALLENGE_MARKERS):
+                raise BlockedError("Cloudflare or browser verification page")
             if is_block_page(extract_page(html)):
                 raise BlockedError("bot check or error page")
             source_url, snapshot = (

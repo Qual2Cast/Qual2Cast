@@ -7,6 +7,7 @@ import json
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlsplit, urlunsplit
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 WEBSITE_SCRAPE_DIR = REPO_ROOT / "website_scrape"
@@ -27,6 +28,13 @@ from fetch_adapter import (
 
 DEFAULT_OUT = REPO_ROOT / "outputs-local" / "growth_signals"
 CATEGORY_PRIORITY = {"press": 0, "news": 1, "careers": 2, "jobs": 3}
+
+
+def canonical_url(url: str) -> str:
+    """Normalize a final URL so redirects to the same page are saved once."""
+    parts = urlsplit(url)
+    path = parts.path.rstrip("/") or "/"
+    return urlunsplit((parts.scheme.lower(), parts.netloc.lower(), path, "", ""))
 
 
 def now_iso() -> str:
@@ -99,6 +107,7 @@ def collect_company(company: dict, clients: list, output_root: Path,
 
     home_metadata = save_raw_page(home, output_root, company_id, "P1")
     record["pages"].append(page_record(home, home_metadata, "P1", "home"))
+    seen_final_urls = {canonical_url(home.final_url)}
     discovered = discover_event_pages(home.html, home.final_url)
     record["discovered_event_pages"] = discovered
     selected = choose_event_pages(discovered, max_event_pages)
@@ -114,6 +123,10 @@ def collect_company(company: dict, clients: list, output_root: Path,
                 "attempts": exc.attempts,
             })
             continue
+        final_key = canonical_url(page.final_url)
+        if final_key in seen_final_urls:
+            continue
+        seen_final_urls.add(final_key)
         metadata = save_raw_page(page, output_root, company_id, page_id)
         record["pages"].append(page_record(
             page, metadata, page_id, selected_page["category"]))
