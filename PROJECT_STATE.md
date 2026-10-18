@@ -3,8 +3,8 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
-_Last updated: 2026-10-18 (repository reorganized: see
-conversations/2026-10-18-repo-cleanup.md)_
+_Last updated: 2026-10-18 (growth-signals foundation: see
+conversations/growth-signals.md)_
 
 ## Data
 
@@ -37,6 +37,7 @@ conversations/2026-10-18-repo-cleanup.md)_
 | part | status | where |
 |---|---|---|
 | Website scrape | **Done for all 560** (3 pages per site, re-parsed 2026-10-18): 532 ok, 15 thin, 4 investor_site, 4 robots_disallowed, 4 http_403, 1 blocked. 26 tests. | website_scrape/, outputs-local/website_scrape/ |
+| Growth signals | **Foundation implemented.** Separate event schema, News/Press/Careers/Jobs page discovery, and cutoff-safe event feature aggregation. Network collection and event extraction are next. | growth_signals/ |
 | Matching method | **Not started** in the main pipeline. The first pass (embeddings of page text, PCTY NDCG@20 0.90) is in scraps as a baseline. | n/a |
 | Results, sanity check, valuation, definitions / limitations | **Not started.** | n/a |
 | Earlier attempts | Set aside 2026-10-18, kept runnable for reference: Codex profiles (219/560 done), first matching pass, first collection script. | scraps/, outputs-local/scraps/ |
@@ -59,12 +60,18 @@ conversations/2026-10-18-repo-cleanup.md)_
 
 ## Next steps
 
-1. Design the matching method on `outputs-local/website_scrape/page_text/`.
-2. Results obtained, and how they are checked (peer labels for more targets
+1. Reuse the existing fetch layer from `website_scrape/` in the separate
+   `growth_signals/` collector, without changing existing scrape outputs.
+2. Define extraction prompts/rules for the first event taxonomy and retain
+   dated evidence, confidence, abstentions, and source URLs.
+3. Define historical cutoff dates and future 3-year revenue-growth outcomes;
+   keep outcomes isolated from event extraction.
+4. Design the matching method on `outputs-local/website_scrape/page_text/`.
+5. Results obtained, and how they are checked (peer labels for more targets
    than PCTY, written before running them; `scraps/comps_first_pass/` results
    as the baseline to beat).
-3. Human sanity check of the top comps against their source pages.
-4. Valuation calculation from the comps' multiples (financial fields enter
+6. Human sanity check of the top comps against their source pages.
+7. Valuation calculation from the comps' multiples (financial fields enter
    only here, never in matching).
-5. Definitions and limitations.
-6. Supply websites for the 4 IR-only companies (or accept "unknown").
+8. Definitions and limitations.
+9. Supply websites for the 4 IR-only companies (or accept "unknown").
