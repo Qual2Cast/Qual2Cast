@@ -44,11 +44,6 @@ conversations/growth-signals.md)_
 
 ## Open questions
 
-- The three committed `data-local/snapshots/company_list_v*.csv` files do not
-  match the SHA-256 values currently recorded in `data_manifest.json` after
-  main commit `be2bb3a`. Confirm whether the snapshots or manifest checksums
-  are authoritative before using the official snapshot loader; do not bypass
-  its integrity check.
 - Websites needed for 4 companies whose main domain redirects to an
   investor-relations site (docs/data_issues.md #3): Avista, Black Hills,
   Simpson Manufacturing, IAC.

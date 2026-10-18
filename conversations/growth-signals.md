@@ -46,12 +46,6 @@
 
 ## Unresolved
 
-- After merging `main` commit `be2bb3a`, the newly committed snapshot files do
-  not match the SHA256 values in `data_manifest.json`. The required v3 file is
-  `d4d6cc109cda...`, while the manifest expects `3ab9a43e7426...`.
-  `snapshot_path()` correctly refuses to load it. Do not bypass the check;
-  the team should confirm whether the committed files changed through line
-  endings/export and then publish matching authoritative files or checksums.
 - The first collector discovers only same-site and company-subdomain links.
   Third-party job boards such as Workday or Greenhouse need an attribution and
   allow-list policy before collection.
