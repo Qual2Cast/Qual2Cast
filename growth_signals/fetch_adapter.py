@@ -116,9 +116,14 @@ def fetch_page(url: str, clients: Iterable) -> FetchedPage:
                 break
             final_url, html = client.get_html(fetch_url)
             lowered_html = html.lower()
-            if any(marker in lowered_html for marker in CHALLENGE_MARKERS):
+            parsed = extract_page(html)
+            visible_text = " ".join([
+                parsed["raw_title"], parsed["raw_meta"], *parsed["raw_blocks"]
+            ])
+            if (any(marker in lowered_html for marker in CHALLENGE_MARKERS)
+                    and len(visible_text.strip()) < 200):
                 raise BlockedError("Cloudflare or browser verification page")
-            if is_block_page(extract_page(html)):
+            if is_block_page(parsed):
                 raise BlockedError("bot check or error page")
             source_url, snapshot = (
                 client.source_for(final_url)

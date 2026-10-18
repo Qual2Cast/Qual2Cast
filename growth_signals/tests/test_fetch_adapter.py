@@ -61,6 +61,19 @@ def test_fetch_normalizes_a_domain_without_a_scheme():
     assert page.requested_url == "www.example.com"
 
 
+def test_cloudflare_script_marker_does_not_reject_real_content():
+    content = '''<html><head><title>Company newsroom</title></head><body>
+    <script src="/cdn-cgi/challenge-platform/script.js"></script>
+    <p>The company announced a new customer contract for its software platform.</p>
+    <p>The agreement expands service into additional healthcare markets.</p>
+    <p>Implementation work begins this quarter with a broader launch next year.</p>
+    </body></html>'''
+    page = fetch_page("https://example.com/news", [
+        FakeClient("rendered", ("https://example.com/news", content)),
+    ])
+    assert page.method == "rendered"
+
+
 def test_robots_disallow_stops_all_methods():
     with pytest.raises(FetchFailed) as caught:
         fetch_page("https://example.com/careers", [

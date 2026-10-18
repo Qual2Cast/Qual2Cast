@@ -43,14 +43,14 @@
 - No source data was read or modified in this milestone.
 - The repository still requires `company_list_v3` when company collection is
   connected.
+- Live PCTY validation on 2026-10-18 confirmed the plain HTML response is a
+  Cloudflare verification shell while rendered Chromium retrieves the real
+  homepage, blog landing page, and Careers page. Challenge detection now
+  requires both a challenge marker and sparse visible content, so embedded
+  Cloudflare scripts on a real page do not cause a false rejection.
 
 ## Unresolved
 
-- A live PCTY trial on 2026-10-18 found Cloudflare cookie/JavaScript
-  verification pages. The collector now rejects these pages and continues
-  through configured fallbacks instead of reporting empty pages as success.
-  PCTY remained `homepage_failed` because every locally available method was
-  challenged; this is an explicit unknown/failure, not fabricated content.
 - The first collector discovers only same-site and company-subdomain links.
   Third-party job boards such as Workday or Greenhouse need an attribution and
   allow-list policy before collection.
