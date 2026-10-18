@@ -79,6 +79,29 @@ def test_collect_company_fetches_dated_articles(tmp_path, monkeypatch):
     assert saved["published_date"] == "2026-09-22"
 
 
+def test_direct_press_release_is_saved_as_article(tmp_path, monkeypatch):
+    homepage = '<html><body><a href="/press-releases/new-product">Press release</a></body></html>'
+    article = '''<html><head>
+    <meta property="article:published_time" content="2026-08-14T09:30:00Z">
+    </head><body><p>The company launched a new platform.</p></body></html>'''
+
+    def fake_fetch(url, clients):
+        if url == "https://example.com":
+            return fetched(url, homepage)
+        return fetched(url, article)
+
+    monkeypatch.setattr("collect_company_pages.fetch_page", fake_fetch)
+    company = {
+        "IQ_COMPANY_ID": "IQ1",
+        "target_company_name": "Example Co.",
+        "target_ciq_website": "https://example.com",
+    }
+    record = collect_company(company, [], tmp_path, max_event_pages=1, max_articles=0)
+    assert record["article_count"] == 1
+    assert record["pages"][1]["category"] == "article"
+    assert record["pages"][1]["published_date"] == "2026-08-14"
+
+
 def test_homepage_failure_is_recorded(tmp_path, monkeypatch):
     failure = FetchFailed("https://example.com", [{"method": "html", "status": "http_403"}])
     monkeypatch.setattr("collect_company_pages.fetch_page", lambda url, clients: (_ for _ in ()).throw(failure))

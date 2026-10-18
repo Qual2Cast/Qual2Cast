@@ -61,6 +61,8 @@ time-split model evaluation
 - `extract_events.py`: high-precision rule extraction from article pages with
   exact source evidence and a per-article audit trail. It abstains when no
   explicit event phrase is present.
+- `sample_evaluation.md`: evidence and remaining coverage gaps from the first
+  five-company live pilot.
 - `tests/`: schema, link-discovery, and look-ahead tests.
 
 ## Event JSONL format

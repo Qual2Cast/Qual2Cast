@@ -37,7 +37,7 @@ conversations/growth-signals.md)_
 | part | status | where |
 |---|---|---|
 | Website scrape | **Done for all 560** (3 pages per site, re-parsed 2026-10-18): 532 ok, 15 thin, 4 investor_site, 4 robots_disallowed, 4 http_403, 1 blocked. 26 tests. | website_scrape/, outputs-local/website_scrape/ |
-| Growth signals | **First end-to-end candidate pipeline implemented.** News/Press/Careers/Jobs and dated article collection, high-precision audited rule extraction, event schema, and cutoff-safe feature aggregation. Broader-company evaluation and human review are next. | growth_signals/ |
+| Growth signals | **Five-company pilot complete.** News/Press/Careers/Jobs and dated article collection, high-precision audited rule extraction, event schema, and cutoff-safe feature aggregation. Pilot: 15 articles, 14 dated, 3 reviewed candidate events; HRI/WING article discovery gaps remain. | growth_signals/ |
 | Matching method | **Not started** in the main pipeline. The first pass (embeddings of page text, PCTY NDCG@20 0.90) is in scraps as a baseline. | n/a |
 | Results, sanity check, valuation, definitions / limitations | **Not started.** | n/a |
 | Earlier attempts | Set aside 2026-10-18, kept runnable for reference: Codex profiles (219/560 done), first matching pass, first collection script. | scraps/, outputs-local/scraps/ |

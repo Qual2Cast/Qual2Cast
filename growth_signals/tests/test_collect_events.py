@@ -1,4 +1,10 @@
-from collect_events import date_from_text, discover_article_links, discover_event_pages
+from collect_events import (
+    date_from_text,
+    discover_article_links,
+    discover_event_pages,
+    is_article_url,
+    publication_date_from_html,
+)
 
 
 def test_discovers_deduplicated_same_site_event_pages():
@@ -44,3 +50,23 @@ def test_discovers_dated_same_site_articles():
 
 def test_date_from_text_does_not_guess_when_missing():
     assert date_from_text("Company launches a product") == (None, "unknown")
+
+
+def test_reads_explicit_publication_date_metadata():
+    html = '<meta property="article:published_time" content="2026-08-14T09:30:00Z">'
+    assert publication_date_from_html(html) == ("2026-08-14", "day")
+
+
+def test_reads_abbreviated_date_from_top_of_article():
+    html = '<html><body><p>BURLINGTON, Mass., Sept. 30, 2026 (NEWSWIRE)</p></body></html>'
+    assert publication_date_from_html(html) == ("2026-09-30", "day")
+
+
+def test_reads_other_month_abbreviations():
+    assert date_from_text("Oct. 01, 2026") == ("2026-10-01", "day")
+
+
+def test_specific_press_release_url_is_an_article_but_listing_is_not():
+    assert is_article_url(
+        "https://example.com/news-releases/news-release-details/new-product")
+    assert not is_article_url("https://example.com/news/default.aspx")

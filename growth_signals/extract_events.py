@@ -28,7 +28,8 @@ RULES = {
         re.I,
     ),
     "product_launch": re.compile(
-        r"\b(?:announced|introduced|launched|unveiled|released)\b[^.!?]{0,100}"
+        r"\bannounced\b[^.!?]{0,50}\b(?:product release|new capabilities|new product|new platform|new solution|new service|new feature|new agent|new module|new offering)\b"
+        r"|\b(?:introduced|launched|unveiled|released)\b[^.!?]{0,100}"
         r"\b(?:new|product|platform|solution|service|feature|agent|module|offering)\b"
         r"|\bintroducing\b[^.!?]{0,100}\b(?:product|platform|solution|service|feature|agent|module)\b"
         r"|^(?-i:Introducing\s+[A-Z])[\w-]+(?:\s+[A-Z][\w-]+){0,5}",
@@ -78,12 +79,12 @@ DIRECTIONS = {
 def sentences(text: str) -> list[str]:
     """Split source blocks conservatively while retaining evidence text."""
     protected = re.sub(
-        r"\b(Co|Inc|Corp|Ltd|LLC|U\.S)\.",
+        r"\b(Co|Inc|Corp|Ltd|LLC|U\.S|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\.",
         lambda match: match.group(0).replace(".", "<DOT>"),
         text,
         flags=re.I,
     )
-    parts = re.split(r"(?<=[.!?])\s+", protected)
+    parts = re.split(r'(?<=[.!?])\s+(?=[A-Z0-9“"])', protected)
     return [part.replace("<DOT>", ".").strip() for part in parts if part.strip()]
 
 

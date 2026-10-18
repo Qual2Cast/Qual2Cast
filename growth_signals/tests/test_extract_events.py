@@ -50,6 +50,24 @@ def test_reducing_data_entry_for_employees_is_not_a_layoff():
     assert events == []
 
 
+def test_announced_completed_acquisition_is_not_a_product_launch():
+    record = record_with([
+        "Progress today announced it completed its acquisition of a data platform business."
+    ])
+    events, _ = extract_record(record)
+    assert events == []
+
+
+def test_month_abbreviation_stays_with_evidence_sentence():
+    evidence = (
+        "BURLINGTON, Mass., Sept. 30, 2026 -- The company announced a new platform."
+    )
+    record = record_with([evidence])
+    events, _ = extract_record(record)
+    assert len(events) == 1
+    assert events[0].source_text == evidence
+
+
 def test_explicit_introducing_product_title_is_a_launch():
     record = record_with([])
     record["pages"][0]["raw_title"] = "Introducing Paylocity Ignite AI"

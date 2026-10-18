@@ -16,7 +16,13 @@ if str(WEBSITE_SCRAPE_DIR) not in sys.path:
 
 from fetch_and_clean import find_input, load_companies  # noqa: E402
 
-from collect_events import discover_article_links, discover_event_pages
+from collect_events import (
+    discover_article_links,
+    discover_event_pages,
+    date_from_text,
+    is_article_url,
+    publication_date_from_html,
+)
 from fetch_adapter import (
     FetchFailed,
     build_clients,
@@ -134,9 +140,26 @@ def collect_company(company: dict, clients: list, output_root: Path,
             continue
         seen_final_urls.add(final_key)
         metadata = save_raw_page(page, output_root, company_id, page_id)
-        record["pages"].append(page_record(
-            page, metadata, page_id, selected_page["category"]))
-        if selected_page["category"] in {"news", "press"}:
+        direct_article = (
+            selected_page["category"] in {"news", "press"}
+            and is_article_url(page.final_url)
+        )
+        if direct_article:
+            published_date, precision = publication_date_from_html(page.html)
+            if not published_date:
+                raw = raw_text_fields(page.html)
+                published_date, precision = date_from_text(
+                    " ".join(raw["raw_blocks"][:5]))
+            record["pages"].append(page_record(page, metadata, page_id, "article", {
+                "article_source_category": selected_page["category"],
+                "published_date": published_date,
+                "published_date_precision": precision,
+                "discovered_from": home.final_url,
+            }))
+        else:
+            record["pages"].append(page_record(
+                page, metadata, page_id, selected_page["category"]))
+        if selected_page["category"] in {"news", "press"} and not direct_article:
             for article in discover_article_links(
                     page.html, page.final_url, selected_page["category"]):
                 article_candidates.setdefault(article["url"], article)

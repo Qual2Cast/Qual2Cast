@@ -23,14 +23,19 @@ PAGE_PATTERNS = {
 }
 EXCLUDED_SCHEMES = {"mailto", "tel", "javascript"}
 ARTICLE_PATH = re.compile(
-    r"/(?:news|newsroom|press(?:-releases?)?|media|updates?|blogs?|articles?)/[^/?#]+/?$",
+    r"/(?:news|newsroom|press(?:-releases?)?|media|updates?|blogs?|articles?)/.+"
+    r"|/news-releases/news-release-details/[^/?#]+/?$",
     re.I,
 )
 MONTH_DATE = re.compile(
-    r"\b(January|February|March|April|May|June|July|August|September|October|November|December)"
+    r"\b(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)(?:\.)?"
     r"\s+(\d{1,2}),\s+(\d{4})\b",
     re.I,
 )
+MONTH_NUMBERS = {
+    "jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
+    "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12,
+}
 
 
 def canonical_url(url: str) -> str:
@@ -90,8 +95,51 @@ def date_from_text(text: str) -> tuple[str | None, str]:
     match = MONTH_DATE.search(text)
     if not match:
         return None, "unknown"
-    parsed = datetime.strptime(match.group(0), "%B %d, %Y").date()
+    parsed = datetime(
+        int(match.group(3)), MONTH_NUMBERS[match.group(1).lower()[:3]], int(match.group(2))
+    ).date()
     return parsed.isoformat(), "day"
+
+
+def publication_date_from_html(html: str) -> tuple[str | None, str]:
+    """Read an explicit article date from standard metadata or time markup."""
+    soup = BeautifulSoup(html, "html.parser")
+    candidates = []
+    for key, value in (
+        ("property", "article:published_time"),
+        ("name", "date"),
+        ("name", "publish-date"),
+        ("itemprop", "datePublished"),
+    ):
+        tag = soup.find("meta", attrs={key: re.compile(f"^{re.escape(value)}$", re.I)})
+        if tag and tag.get("content"):
+            candidates.append(tag["content"])
+    for tag in soup.find_all("time"):
+        candidates.append(tag.get("datetime") or " ".join(tag.stripped_strings))
+    for value in candidates:
+        value = value.strip()
+        iso = re.match(r"^(\d{4}-\d{2}-\d{2})", value)
+        if iso:
+            return iso.group(1), "day"
+        parsed, precision = date_from_text(value)
+        if parsed:
+            return parsed, precision
+    visible_text = " ".join(soup.stripped_strings)
+    parsed, precision = date_from_text(visible_text[:2500])
+    if parsed:
+        return parsed, precision
+    return None, "unknown"
+
+
+def is_article_url(url: str) -> bool:
+    """Return whether a URL has the shape of a specific article, not a listing."""
+    path = urlparse(url).path.rstrip("/")
+    basename = path.rsplit("/", 1)[-1].lower()
+    if basename in {"default.aspx", "index.html", "index.htm", "news", "press", "blog", "blogs"}:
+        return False
+    if re.search(r"/news-releases/news-release-details/[^/]+$", path, re.I):
+        return True
+    return bool(ARTICLE_PATH.search(path))
 
 
 def discover_article_links(html: str, base_url: str,
@@ -106,7 +154,7 @@ def discover_article_links(html: str, base_url: str,
             continue
         absolute = canonical_url(urljoin(base_url, href))
         if (absolute == base_key or not same_registered_host(absolute, base_url)
-                or not ARTICLE_PATH.search(urlparse(absolute).path)):
+                or not is_article_url(absolute)):
             continue
         anchor_text = " ".join(anchor.stripped_strings)
         published_date, precision = date_from_text(anchor_text)
