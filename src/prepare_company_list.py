@@ -82,10 +82,12 @@ def main() -> None:
                             "target_company_name": raw.at[i, "target_company_name"],
                             "column": col, "old": raw.at[i, col], "new": fixed.at[i, col],
                             "reason": reason})
-    fixed.to_csv(out_path, index=False)
+    # CRLF on every OS, matching the raw export and the manifest checksums
+    fixed.to_csv(out_path, index=False, lineterminator="\r\n")
     changes_path = out_path.with_name(out_path.stem + "_changes.csv")
     pd.DataFrame(changes, columns=["IQ_COMPANY_ID", "target_company_name", "column",
-                                   "old", "new", "reason"]).to_csv(changes_path, index=False)
+                                   "old", "new", "reason"]).to_csv(
+        changes_path, index=False, lineterminator="\r\n")
 
     print(f"Wrote {out_path.relative_to(REPO_ROOT)} ({len(fixed)} rows), "
           f"{len(changes)} cells changed:")
