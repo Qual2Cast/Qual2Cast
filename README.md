@@ -54,8 +54,9 @@ The LLM components are treated as a system under test:
 | `data_manifest.json` | which data snapshot the code needs, with checksums |
 | `website_scrape/` | collects each company's website text (name + website only), with financial and public-company information filtered out |
 | `growth_signals/` | pipeline for dated growth events and leakage-safe features; separate from the company-description scrape |
+| `matching/` | comparable-company matching (starter notebook; method to come) |
 | `scraps/` | earlier attempts kept for reference (Codex profiles, first matching pass, first collection script); not part of the pipeline |
-| `data-local/`, `outputs-local/` | local data and outputs, **not in Git** |
+| `data-local/`, `outputs-local/` | data and outputs; only the input snapshots and current website text (`page_text/`) are in Git |
 
 ## Status
 
