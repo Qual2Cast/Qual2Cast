@@ -49,9 +49,10 @@ time-split model evaluation
 ## Implemented in this first milestone
 
 - `schema.py`: validated event record and JSONL helpers.
+- `fetch_adapter.py`: reuses the existing HTTP, rendered-browser, stealth,
+  Wayback, robots.txt, and bot-page handling while saving separate raw pages.
 - `collect_events.py`: deterministic discovery of News, Press, Careers, and
-  Jobs links from saved HTML. Network fetching will reuse the existing fetch
-  layer in the next milestone.
+  Jobs links from saved HTML.
 - `build_features.py`: converts dated event records into company features for
   a specified cutoff date without using future events.
 - `tests/`: schema, link-discovery, and look-ahead tests.
@@ -89,6 +90,31 @@ cutoff-based features.
 cd growth_signals
 python -m pytest tests -q
 ```
+
+## Fetch adapter
+
+```python
+from pathlib import Path
+
+from fetch_adapter import build_clients, close_clients, fetch_page, raw_text_fields, save_raw_page
+
+clients = build_clients(["html", "rendered", "wayback"])
+try:
+    page = fetch_page("https://example.com/news", clients)
+    provenance = save_raw_page(
+        page,
+        Path("outputs-local/growth_signals"),
+        company_id="IQ1",
+        page_id="P1",
+    )
+    text = raw_text_fields(page.html)
+finally:
+    close_clients(clients)
+```
+
+Use `raw_title`, `raw_meta`, and `raw_blocks` for event extraction. The
+existing cleaned fields are designed for company descriptions and may remove
+dated hiring, financial stress, and other growth signals.
 
 ## Build features
 

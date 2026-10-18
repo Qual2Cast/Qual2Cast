@@ -16,6 +16,11 @@
 - Added `growth_signals/schema.py` with a strict, source-backed event record.
 - Added deterministic discovery of same-site News, Press, Careers, and Jobs
   links from saved HTML.
+- Added a fetch adapter that reuses HTTP, rendered-browser, stealth, Wayback,
+  robots.txt, and bot-page handling without changing the current scraper or
+  writing to its output directory.
+- Growth-signal extraction reads unfiltered source text so hiring, dates, and
+  credit-stress evidence are retained.
 - Added cutoff-safe feature aggregation for 365-, 730-, and 1,095-day windows.
 - Added tests for schema validation, link discovery, event windows, undated
   records, and exclusion of post-cutoff events.
@@ -23,7 +28,7 @@
 
 ## Checks
 
-- 7 direct test functions passed using the available Anaconda environment.
+- 11 direct test functions passed using the available Anaconda environment.
 - Python compilation passed for all new modules and tests.
 - `git diff --check` passed.
 - The machine's normal pytest entry point is currently affected by a broken
@@ -38,8 +43,9 @@
 
 ## Unresolved
 
-- Network collection is not connected yet. The next collector should import
-  or extract the stable fetch interface without changing `website_scrape/`.
+- The fetch adapter is connected, but the company-level collection command
+  still needs to combine homepage discovery, event-page fetching, and a saved
+  page manifest.
 - Event-date extraction needs a clear policy for page dates, article metadata,
   archive dates, and undated Careers pages.
 - Historical revenue outcomes and cutoff dates have not been added.
@@ -51,6 +57,6 @@
 
 ## Next recommended action
 
-Connect a read-only growth-signals collector to the existing fetch methods, save raw
-News/Press/Careers pages under `outputs-local/growth_signals/`, and test the
-page/date schema on saved HTML before any full-company run.
+Add a company-level collection command that discovers and saves News, Press,
+and Careers pages under `outputs-local/growth_signals/`, then finalize the
+page/date schema before any full-company run.
