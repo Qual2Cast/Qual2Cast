@@ -32,7 +32,13 @@ RULES = {
         r"|\b(?:introduced|launched|unveiled|released)\b[^.!?]{0,100}"
         r"\b(?:new|product|platform|solution|service|feature|agent|module|offering)\b"
         r"|\bintroducing\b[^.!?]{0,100}\b(?:product|platform|solution|service|feature|agent|module)\b"
-        r"|^(?-i:Introducing\s+[A-Z])[\w-]+(?:\s+[A-Z][\w-]+){0,5}",
+        r"|\b(?:announces?|launches?|introduces?)\b[^.!?]{0,80}"
+        r"\b(?:pass|card|program|offering)\b"
+        r"|\b(?:flavor|product|service|offering|program|pass|card)\b[^.!?]{0,60}"
+        r"\barrives\s+nationwide\b"
+        r"|(?-i:\bnew\s+[A-Z][\w-]+(?:\s+(?:[A-Z][\w-]+|and)){0,8},?\s+"
+        r"(?:launching|available)\s+(?:nationwide|globally)\b)"
+        r"|^(?-i:Introducing\s+(?:the\s+)?[A-Z])[\w-]+(?:\s+[A-Z][\w-]+){0,5}",
         re.I,
     ),
     "market_expansion": re.compile(
@@ -105,6 +111,8 @@ def extract_page_events(record: dict, page: dict) -> list[Event]:
     evidence_blocks.extend(raw_blocks)
     for block in evidence_blocks:
         for sentence in sentences(block):
+            if sentence.casefold().startswith("view original content to download multimedia:"):
+                continue
             for event_type, pattern in RULES.items():
                 if not pattern.search(sentence):
                     continue

@@ -12,14 +12,14 @@ the company had no growth events.
 | BV | landscape services | ok | 3 | 2 | 0 | Three abstentions; one article date unknown |
 | HRI | equipment rental | ok | 3 | 3 | 0 | Three legitimate abstentions: earnings call, CSR report, and dividend |
 | PRGS | infrastructure software | ok | 3 | 3 | 2 | Two supported product releases; acquisition article abstained |
-| WING | restaurants | ok | 6 | 6 | 0 | Latest 2026 archive recovered; six conservative abstentions after review |
+| WING | restaurants | ok | 6 | 6 | 4 | Four supported launches/offers; earnings release and call announcement abstained |
 
 ## Aggregate checks
 
 - 5/5 homepages and at least one event-related page were collected.
 - 5/5 companies yielded specific articles.
 - 24 articles were saved; 23 had an explicit publication date.
-- Three events survived rule extraction and manual evidence review.
+- Seven events survived rule extraction and manual evidence review.
 - Every non-match is retained in the audit as an abstention.
 
 ## Defects exposed and fixed
@@ -47,14 +47,19 @@ the company had no growth events.
    returns five recent 2026 articles instead of the first-listed 2015 archive
    entries. API JSON is saved with its own provenance record, and robots.txt
    is still enforced.
+9. Guarded product patterns now cover a named pass/card announcement, a named
+   offering introduced with `Introducing the ...`, a product/flavor that
+   `arrives nationwide`, and named new products `launching nationwide`.
+   Generic staff availability, tentative future products, and PRNewswire
+   source-link boilerplate are negative controls.
 
 ## Remaining coverage gaps
 
 - Careers landing pages are collected but do not yet follow third-party job
   boards. Those sources require an allow-list and attribution policy.
-- The current high-precision product rule misses some reviewed launch language
-  such as `arrives nationwide`, `new ... available`, and `first-ever`. These
-  WING items remain abstentions until guarded rules and negative controls are
-  defined.
+- Several WING events are limited-time flavors or promotional offers. They are
+  valid product/offer launches, but the feature model should distinguish them
+  from durable platform, service, or geographic expansion rather than weight
+  every `product_launch` equally.
 - The rule extractor is intentionally low-recall. It is candidate generation
   for human review, not automatic validation.

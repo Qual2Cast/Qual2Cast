@@ -77,6 +77,59 @@ def test_explicit_introducing_product_title_is_a_launch():
     assert events[0].source_text == "Introducing Paylocity Ignite AI"
 
 
+def test_introducing_the_named_pass_is_a_launch():
+    evidence = "Introducing the Wingstop Wing Pass"
+    events, _ = extract_record(record_with([evidence]))
+    assert len(events) == 1
+    assert events[0].event_type == "product_launch"
+
+
+def test_announces_named_rewards_card_is_a_launch():
+    evidence = "Wingstop Announces the Game Day Punch Card"
+    events, _ = extract_record(record_with([evidence]))
+    assert len(events) == 1
+    assert events[0].event_type == "product_launch"
+
+
+def test_flavor_arrives_nationwide_is_a_launch():
+    evidence = "The unexpected SOUR THEN SWEET wing flavor arrives nationwide Oct. 27."
+    events, _ = extract_record(record_with([evidence]))
+    assert len(events) == 1
+    assert events[0].event_type == "product_launch"
+
+
+def test_named_new_products_launching_nationwide_are_a_launch():
+    evidence = (
+        "Original Lemon Pepper is joined by new Lemon Pepper Chili Crunch and "
+        "Lemon Pepper Chili Glaze, launching nationwide Sept. 15."
+    )
+    events, _ = extract_record(record_with([evidence]))
+    assert len(events) == 1
+    assert events[0].event_type == "product_launch"
+
+
+def test_nationwide_staff_availability_is_not_a_product_launch():
+    events, _ = extract_record(record_with([
+        "New leadership positions are available nationwide."
+    ]))
+    assert events == []
+
+
+def test_future_product_plan_without_launch_action_is_not_a_launch():
+    events, _ = extract_record(record_with([
+        "The company is considering a new rewards card for next year."
+    ]))
+    assert events == []
+
+
+def test_prnewswire_original_content_url_is_not_event_evidence():
+    events, _ = extract_record(record_with([
+        "View original content to download multimedia: "
+        "https://www.prnewswire.com/news-releases/company-announces-the-rewards-card.html"
+    ]))
+    assert events == []
+
+
 def test_undated_match_is_retained_with_reason():
     record = record_with(["The company is hiring 25 engineers."], date=None)
     events = extract_page_events(record, record["pages"][0])
