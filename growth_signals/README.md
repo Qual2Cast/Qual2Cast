@@ -53,6 +53,9 @@ time-split model evaluation
   Wayback, robots.txt, and bot-page handling while saving separate raw pages.
 - `collect_events.py`: deterministic discovery of News, Press, Careers, and
   Jobs links from saved HTML.
+- `collect_company_pages.py`: reads the company snapshot, fetches each
+  homepage, discovers event pages, saves raw HTML, and writes a company-level
+  page record without overwriting prior records.
 - `build_features.py`: converts dated event records into company features for
   a specified cutoff date without using future events.
 - `tests/`: schema, link-discovery, and look-ahead tests.
@@ -115,6 +118,25 @@ finally:
 Use `raw_title`, `raw_meta`, and `raw_blocks` for event extraction. The
 existing cleaned fields are designed for company descriptions and may remove
 dated hiring, financial stress, and other growth signals.
+
+## Collect company pages
+
+Run one company first:
+
+```bash
+python collect_company_pages.py --tickers PCTY --methods html rendered wayback
+```
+
+Outputs are written under `outputs-local/growth_signals/`:
+
+```text
+raw_html/<IQ_ID>/<timestamp>/<method>/P<n>.html.gz
+page_records/<IQ_ID>.json
+page_records_history/<IQ_ID>_<timestamp>.json
+```
+
+The homepage is `P1`; later pages are discovered News, Press, Careers, or
+Jobs pages. Re-running a company moves its previous page record to history.
 
 ## Build features
 
