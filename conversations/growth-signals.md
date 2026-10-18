@@ -31,7 +31,7 @@
 
 ## Checks
 
-- 45 direct test functions passed using the available Anaconda environment.
+- 51 direct test functions passed using the available Anaconda environment.
 - Python compilation passed for all new modules and tests.
 - `git diff --check` passed.
 - The machine's normal pytest entry point is currently affected by a broken
@@ -66,13 +66,23 @@
   WING when its homepage has no News/Press entry. Media assets and investor
   calendars are excluded, article-body dates override link-text dates, and
   duplicated title evidence is collapsed. See `growth_signals/sample_evaluation.md`.
+- WING's HTML News archive lists 2015 entries first and exposes no HTML
+  pagination. Its page does explicitly declare a same-company WordPress API;
+  a bounded, date-descending API request now supplies five latest 2026 article
+  URLs and dates while each article's official HTML remains the evidence
+  source. The API response is retained with raw provenance and robots.txt is
+  honored. The revised pilot contains 24 articles, 23 dated, and three accepted
+  events; reviewed WING product/promotional language remains conservatively
+  abstained pending guarded recall rules.
 
 ## Unresolved
 
 - The first collector discovers only same-site and company-subdomain links.
   Third-party job boards such as Workday or Greenhouse need an attribution and
   allow-list policy before collection.
-- Archive pagination/order and undated Careers pages still need policy.
+- Product-launch recall for `arrives nationwide`, `new ... available`, and
+  `first-ever` needs guarded rules and negative controls. Undated Careers pages
+  still need policy.
 - Historical revenue outcomes and cutoff dates have not been added.
 - The repository's existing rule against 10-K and financial matching inputs
   may need revision after the mentor's latest clarification that private-target

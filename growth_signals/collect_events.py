@@ -7,6 +7,7 @@ reusing the existing fetching layer without changing `website_scrape/`.
 from __future__ import annotations
 
 import argparse
+import html as html_lib
 import json
 import re
 from datetime import datetime
@@ -186,6 +187,65 @@ def discover_article_links(html: str, base_url: str,
         key=lambda item: (item["published_date"] is None,
                           item["published_date"] or "", item["url"]),
         reverse=False,
+    )
+
+
+def wordpress_posts_api_url(html: str, base_url: str, limit: int) -> str | None:
+    """Return a bounded latest-posts endpoint only when the page declares WP API."""
+    soup = BeautifulSoup(html, "html.parser")
+    for link in soup.find_all("link", href=True):
+        rel = link.get("rel", [])
+        if isinstance(rel, str):
+            rel = rel.split()
+        if "https://api.w.org/" not in rel:
+            continue
+        api_root = urljoin(base_url, link["href"])
+        if not same_registered_host(api_root, base_url):
+            continue
+        return urljoin(api_root.rstrip("/") + "/", "wp/v2/posts") + (
+            f"?per_page={max(1, min(limit, 20))}&orderby=date&order=desc"
+            "&_fields=date,link,title"
+        )
+    return None
+
+
+def articles_from_wordpress_api(payload: str, api_url: str,
+                                source_category: str) -> list[dict[str, str | None]]:
+    """Parse first-party WordPress latest-post metadata into article candidates."""
+    try:
+        rows = json.loads(payload)
+    except (TypeError, json.JSONDecodeError):
+        return []
+    if not isinstance(rows, list):
+        return []
+    articles: dict[str, dict[str, str | None]] = {}
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        link = row.get("link")
+        date = row.get("date")
+        title = row.get("title", {})
+        if not isinstance(link, str) or not same_registered_host(link, api_url):
+            continue
+        iso = re.match(r"^(\d{4}-\d{2}-\d{2})", date or "")
+        if not iso:
+            continue
+        rendered = title.get("rendered", "") if isinstance(title, dict) else ""
+        anchor_text = BeautifulSoup(html_lib.unescape(rendered), "html.parser").get_text(
+            " ", strip=True)
+        canonical = canonical_url(link)
+        articles.setdefault(canonical, {
+            "url": canonical,
+            "source_category": source_category,
+            "anchor_text": anchor_text,
+            "published_date": iso.group(1),
+            "published_date_precision": "day",
+            "discovered_from": api_url,
+        })
+    return sorted(
+        articles.values(),
+        key=lambda item: (item["published_date"] or "", item["url"]),
+        reverse=True,
     )
 
 

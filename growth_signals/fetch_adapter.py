@@ -11,6 +11,7 @@ from __future__ import annotations
 import gzip
 import hashlib
 import sys
+import time
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -24,6 +25,8 @@ if str(WEBSITE_SCRAPE_DIR) not in sys.path:
 from fetch_and_clean import (  # noqa: E402
     Fetcher,
     Renderer,
+    REQUEST_PAUSE_SECONDS,
+    TIMEOUT_SECONDS,
     USER_AGENT,
     extract_page,
     normalize_url,
@@ -146,6 +149,49 @@ def fetch_page(url: str, clients: Iterable,
                 fetched_at=now_iso(),
                 method=method,
                 html=html,
+                attempts=tuple(attempts),
+            )
+        except Exception as exc:
+            attempts.append({
+                "method": method,
+                "status": f"error:{type(exc).__name__}",
+                "message": str(exc).splitlines()[0][:200],
+            })
+    raise FetchFailed(url, attempts)
+
+
+def fetch_text_payload(url: str, clients: Iterable,
+                       content_validator: Callable[[str, str], bool]) -> FetchedPage:
+    """Fetch a first-party text/JSON endpoint while preserving robots behavior."""
+    fetch_url = normalize_url(url)
+    attempts = []
+    for client in clients:
+        method = getattr(client, "method", type(client).__name__)
+        if method != "html" and not hasattr(client, "get_payload"):
+            continue
+        try:
+            if not client.allowed(fetch_url):
+                attempts.append({"method": method, "status": "robots_disallowed"})
+                break
+            if hasattr(client, "get_payload"):
+                final_url, payload = client.get_payload(fetch_url)
+            else:
+                time.sleep(REQUEST_PAUSE_SECONDS)
+                response = client.session.get(
+                    fetch_url, timeout=TIMEOUT_SECONDS, allow_redirects=True)
+                response.raise_for_status()
+                final_url, payload = response.url, response.text
+            if not content_validator(payload, final_url):
+                raise ContentRejected("payload did not contain valid first-party articles")
+            attempts.append({"method": method, "status": "ok"})
+            return FetchedPage(
+                requested_url=url,
+                final_url=final_url,
+                source_url=final_url,
+                snapshot="",
+                fetched_at=now_iso(),
+                method=method,
+                html=payload,
                 attempts=tuple(attempts),
             )
         except Exception as exc:

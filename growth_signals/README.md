@@ -52,7 +52,8 @@ time-split model evaluation
 - `fetch_adapter.py`: reuses the existing HTTP, rendered-browser, stealth,
   Wayback, robots.txt, and bot-page handling while saving separate raw pages.
 - `collect_events.py`: deterministic discovery of News, Press, Careers, and
-  Jobs links from saved HTML.
+  Jobs links from saved HTML, plus latest-article metadata from a same-company
+  WordPress API only when the page explicitly declares that endpoint.
 - `collect_company_pages.py`: reads the company snapshot, fetches each
   homepage, discovers event pages and dated article links, saves raw HTML, and
   writes a company-level page record without overwriting prior records.
@@ -143,9 +144,11 @@ page_records_history/<IQ_ID>_<timestamp>.json
 
 The homepage is `P1`; later pages are discovered News, Press, Careers, or
 Jobs pages followed by specific articles discovered from News or Press landing
-pages. Article records retain the publication date found in the listing link;
-missing dates remain unknown rather than being guessed. Re-running a company
-moves its previous page record to history.
+pages. When a page declares a same-company WordPress API, a bounded request for
+latest posts supplies URLs and dates; article evidence is still fetched from
+the official HTML page. Article-body dates take priority over listing dates,
+and missing dates remain unknown rather than being guessed. Re-running a
+company moves its previous page record to history.
 Cloudflare and browser-verification shells are rejected and trigger the next
 configured fetch method. Event pages that redirect to the same final URL are
 saved only once.

@@ -50,6 +50,7 @@ def test_collect_company_saves_home_and_event_pages(tmp_path, monkeypatch):
         return fetched(url, event_html)
 
     monkeypatch.setattr("collect_company_pages.fetch_page", fake_fetch)
+    monkeypatch.setattr("collect_company_pages.fetch_text_payload", fake_fetch)
     company = {
         "IQ_COMPANY_ID": "IQ1",
         "target_company_name": "Example Co.",
@@ -76,6 +77,7 @@ def test_collect_company_fetches_dated_articles(tmp_path, monkeypatch):
         return fetched(url, article)
 
     monkeypatch.setattr("collect_company_pages.fetch_page", fake_fetch)
+    monkeypatch.setattr("collect_company_pages.fetch_text_payload", fake_fetch)
     company = {
         "IQ_COMPANY_ID": "IQ1",
         "target_company_name": "Example Co.",
@@ -109,6 +111,44 @@ def test_article_body_date_overrides_future_date_in_link_text(tmp_path, monkeypa
     }
     record = collect_company(company, [], tmp_path, max_event_pages=1, max_articles=1)
     assert record["pages"][-1]["published_date"] == "2026-10-12"
+
+
+def test_collect_company_uses_declared_wordpress_api_for_latest_articles(
+        tmp_path, monkeypatch):
+    homepage = '<html><body><a href="/news">News</a></body></html>'
+    landing = '''<html><head>
+      <link rel="https://api.w.org/" href="https://example.com/wp-json/">
+      </head><body></body></html>'''
+    api_payload = '''[{"date":"2026-10-13T05:30:52",
+      "link":"https://example.com/latest-release/",
+      "title":{"rendered":"Latest release"}}]'''
+    article = '''<html><head>
+      <meta property="article:published_time" content="2026-10-13T05:30:52Z">
+      </head><body><p>The company launched a new service.</p></body></html>'''
+
+    def fake_fetch(url, clients, **kwargs):
+        if url == "https://example.com":
+            return fetched(url, homepage)
+        if url == "https://example.com/news":
+            return fetched(url, landing)
+        if "/wp-json/wp/v2/posts" in url:
+            return fetched(url, api_payload)
+        return fetched(url, article)
+
+    monkeypatch.setattr("collect_company_pages.fetch_page", fake_fetch)
+    monkeypatch.setattr("collect_company_pages.fetch_text_payload", fake_fetch)
+    company = {
+        "IQ_COMPANY_ID": "IQ1",
+        "target_company_name": "Example Co.",
+        "target_ciq_website": "https://example.com",
+    }
+    record = collect_company(company, [], tmp_path, max_event_pages=1, max_articles=1)
+    assert record["status"] == "ok"
+    assert record["event_page_count"] == 2
+    assert record["article_count"] == 1
+    assert [page["category"] for page in record["pages"]] == [
+        "home", "news", "archive_api", "article"]
+    assert record["pages"][-1]["published_date"] == "2026-10-13"
 
 
 def test_direct_press_release_is_saved_as_article(tmp_path, monkeypatch):

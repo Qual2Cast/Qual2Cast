@@ -3,7 +3,14 @@ import hashlib
 
 import pytest
 
-from fetch_adapter import FetchFailed, FetchedPage, fetch_page, raw_text_fields, save_raw_page
+from fetch_adapter import (
+    FetchFailed,
+    FetchedPage,
+    fetch_page,
+    fetch_text_payload,
+    raw_text_fields,
+    save_raw_page,
+)
 
 
 class FakeClient:
@@ -25,6 +32,11 @@ class RecordingClient(FakeClient):
     def get_html(self, url):
         self.received_url = url
         return super().get_html(url)
+
+
+class PayloadClient(FakeClient):
+    def get_payload(self, url):
+        return self.result
 
 
 def test_fetch_falls_back_and_records_attempts():
@@ -89,6 +101,27 @@ def test_content_validator_can_reject_dynamic_shell_and_fallback():
     assert [attempt["status"] for attempt in page.attempts] == [
         "error:ContentRejected", "ok"
     ]
+
+
+def test_text_payload_accepts_valid_json_without_html_parsing():
+    payload = '[{"date":"2026-10-13","link":"https://example.com/item"}]'
+    page = fetch_text_payload(
+        "https://example.com/wp-json/posts",
+        [PayloadClient("html", ("https://example.com/wp-json/posts", payload))],
+        content_validator=lambda text, final_url: text.startswith("["),
+    )
+    assert page.html == payload
+    assert page.method == "html"
+
+
+def test_text_payload_honors_robots_disallow():
+    with pytest.raises(FetchFailed) as caught:
+        fetch_text_payload(
+            "https://example.com/wp-json/posts",
+            [PayloadClient("html", allowed=False)],
+            content_validator=lambda text, final_url: True,
+        )
+    assert caught.value.attempts == [{"method": "html", "status": "robots_disallowed"}]
 
 
 def test_robots_disallow_stops_all_methods():

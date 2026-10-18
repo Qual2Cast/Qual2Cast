@@ -17,18 +17,21 @@ if str(WEBSITE_SCRAPE_DIR) not in sys.path:
 from fetch_and_clean import find_input, load_companies  # noqa: E402
 
 from collect_events import (
+    articles_from_wordpress_api,
     discover_article_links,
     discover_event_pages,
     date_from_text,
     is_article_url,
     publication_date_from_html,
     same_registered_host,
+    wordpress_posts_api_url,
 )
 from fetch_adapter import (
     FetchFailed,
     build_clients,
     close_clients,
     fetch_page,
+    fetch_text_payload,
     raw_text_fields,
     save_raw_page,
 )
@@ -210,6 +213,35 @@ def collect_company(company: dict, clients: list, output_root: Path,
             for article in discover_article_links(
                     page.html, page.final_url, selected_page["category"]):
                 article_candidates.setdefault(article["url"], article)
+            api_url = wordpress_posts_api_url(
+                page.html, page.final_url, max_articles)
+            if api_url:
+                try:
+                    api_page = fetch_text_payload(
+                        api_url,
+                        clients,
+                        content_validator=lambda payload, final_url: bool(
+                            articles_from_wordpress_api(
+                                payload, final_url, selected_page["category"])),
+                    )
+                except FetchFailed:
+                    api_page = None
+                if api_page is not None:
+                    api_page_id = f"P{len(record['pages']) + 1}"
+                    api_metadata = save_raw_page(
+                        api_page, output_root, company_id, api_page_id)
+                    record["pages"].append({
+                        "page_id": api_page_id,
+                        "category": "archive_api",
+                        **api_metadata,
+                        "raw_title": "",
+                        "raw_meta": "",
+                        "raw_blocks": [],
+                    })
+                    for article in articles_from_wordpress_api(
+                            api_page.html, api_page.final_url,
+                            selected_page["category"]):
+                        article_candidates[article["url"]] = article
 
     articles = sorted(
         article_candidates.values(),
@@ -244,7 +276,8 @@ def collect_company(company: dict, clients: list, output_root: Path,
         }))
 
     event_page_count = sum(
-        page["category"] not in {"home", "ir_home"} for page in record["pages"])
+        page["category"] not in {"home", "ir_home", "archive_api"}
+        for page in record["pages"])
     record["article_count"] = sum(
         page["category"] == "article" for page in record["pages"])
     if event_page_count:

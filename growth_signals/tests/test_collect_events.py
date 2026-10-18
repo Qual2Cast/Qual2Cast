@@ -1,9 +1,11 @@
 from collect_events import (
+    articles_from_wordpress_api,
     date_from_text,
     discover_article_links,
     discover_event_pages,
     is_article_url,
     publication_date_from_html,
+    wordpress_posts_api_url,
 )
 
 
@@ -103,3 +105,30 @@ def test_aria_label_supplies_q4_article_date():
       aria-label="New product, August 20, 2026">New product</a>'''
     articles = discover_article_links(html, "https://ir.example.com/news/default.aspx", "news")
     assert articles[0]["published_date"] == "2026-08-20"
+
+
+def test_declared_wordpress_api_builds_bounded_latest_posts_url():
+    html = '<link rel="https://api.w.org/" href="https://ir.example.com/wp-json/">'
+    assert wordpress_posts_api_url(html, "https://ir.example.com/news", 5) == (
+        "https://ir.example.com/wp-json/wp/v2/posts?per_page=5&orderby=date&order=desc"
+        "&_fields=date,link,title"
+    )
+
+
+def test_external_wordpress_api_declaration_is_rejected():
+    html = '<link rel="https://api.w.org/" href="https://unrelated.example/wp-json/">'
+    assert wordpress_posts_api_url(html, "https://ir.example.com/news", 5) is None
+
+
+def test_wordpress_api_articles_are_sorted_newest_first():
+    payload = '''[
+      {"date":"2026-09-01T09:00:00","link":"https://ir.example.com/older/",
+       "title":{"rendered":"Older &amp; item"}},
+      {"date":"2026-10-13T09:00:00","link":"https://ir.example.com/newer/",
+       "title":{"rendered":"<b>Newer</b> item"}}
+    ]'''
+    articles = articles_from_wordpress_api(
+        payload, "https://ir.example.com/wp-json/wp/v2/posts", "news")
+    assert [article["published_date"] for article in articles] == [
+        "2026-10-13", "2026-09-01"]
+    assert articles[0]["anchor_text"] == "Newer item"

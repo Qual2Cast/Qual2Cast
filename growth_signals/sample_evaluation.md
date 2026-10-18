@@ -12,14 +12,14 @@ the company had no growth events.
 | BV | landscape services | ok | 3 | 2 | 0 | Three abstentions; one article date unknown |
 | HRI | equipment rental | ok | 3 | 3 | 0 | Three legitimate abstentions: earnings call, CSR report, and dividend |
 | PRGS | infrastructure software | ok | 3 | 3 | 2 | Two supported product releases; acquisition article abstained |
-| WING | restaurants | ok | 4 | 4 | 1 | Official IR fallback found one supported franchise development agreement; three abstentions |
+| WING | restaurants | ok | 6 | 6 | 0 | Latest 2026 archive recovered; six conservative abstentions after review |
 
 ## Aggregate checks
 
 - 5/5 homepages and at least one event-related page were collected.
 - 5/5 companies yielded specific articles.
-- 22 articles were saved; 21 had an explicit publication date.
-- Four events survived rule extraction and manual evidence review.
+- 24 articles were saved; 23 had an explicit publication date.
+- Three events survived rule extraction and manual evidence review.
 - Every non-match is retained in the audit as an abstention.
 
 ## Defects exposed and fixed
@@ -42,12 +42,19 @@ the company had no growth events.
 7. Media-asset and investor-event pages are excluded from News/Press discovery,
    article-body dates override dates embedded in link titles, and duplicated
    HTML-title/site-suffix evidence is collapsed.
+8. If a News page explicitly declares a same-company WordPress API, the
+   collector requests a bounded, date-descending latest-post list. WING now
+   returns five recent 2026 articles instead of the first-listed 2015 archive
+   entries. API JSON is saved with its own provenance record, and robots.txt
+   is still enforced.
 
 ## Remaining coverage gaps
 
 - Careers landing pages are collected but do not yet follow third-party job
   boards. Those sources require an allow-list and attribution policy.
-- WING's News archive currently surfaces old 2015 items before recent items;
-  archive pagination/order handling is still needed for better recency recall.
+- The current high-precision product rule misses some reviewed launch language
+  such as `arrives nationwide`, `new ... available`, and `first-ever`. These
+  WING items remain abstentions until guarded rules and negative controls are
+  defined.
 - The rule extractor is intentionally low-recall. It is candidate generation
   for human review, not automatic validation.
