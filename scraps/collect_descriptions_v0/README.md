@@ -1,11 +1,15 @@
-# Company description collection (Task 3)
+# First collection script (scraps)
 
-Builds a business description for each company **from its own website only**.
+`collect_descriptions.py` was the first attempt: a single script that
+collected one block of description text per company (no per-page sources),
+tried on the 38 SIC 35 companies. `descriptions.csv` and `text/` are its
+outputs, including 12 descriptions written by hand. The project has since
+ruled out hand-written data.
 
-Why websites: Aziz's rule is that the method has to work for a *private*
-target, where all you have is the company name and URL. So no 10-Ks, annual
-reports, or stock prices. Public companies in the list are only stand-ins for
-testing.
+Its fetching and filters were split out into
+`website_scrape/fetch_and_clean.py` and improved there. This copy is kept as
+it was, so its outputs can be reproduced. It is superseded by
+`website_scrape/`.
 
 ## What it does
 
@@ -47,9 +51,8 @@ pip install requests beautifulsoup4 pandas
 pip install playwright && playwright install chromium   # optional, for JavaScript sites
 ```
 
-The Google Sheet needs a Columbia sign-in, so download it first:
-open the sheet, then File → Download → Comma-separated values (.csv), and put
-the file in the same folder as the script. The script finds it automatically.
+The script reads the company-list snapshot named in `data_manifest.json`
+(`data-local/snapshots/`), or a file passed with `--input`.
 
 ## Run
 

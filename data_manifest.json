@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "required_snapshot": "company_list_v3",
+  "snapshots": {
+    "company_list_v1_raw": {
+      "file": "data-local/snapshots/company_list_v1_raw.csv",
+      "description": "Company list as received from Rational AI (Google Sheet export, file dated 2026-10-17). Never edited.",
+      "known_issues": "BrightView Holdings SIC stored as 700 (should be 0700), so its 2/3-digit codes read 70/700.",
+      "sha256": "2e0d0354a457b9582fc5aeb4ccaeac18fb620cedd67bc89f690ed694dcf64052",
+      "rows": 560
+    },
+    "company_list_v2": {
+      "file": "data-local/snapshots/company_list_v2_sic_fixed.csv",
+      "description": "v1 with SIC codes zero-padded to 4 characters and 2/3-digit codes re-derived. Superseded by v3.",
+      "derived_from": "company_list_v1_raw",
+      "transform": "src/prepare_company_list.py",
+      "sha256": "3066d54aff9a96ff88e4b25e5aca5719a53768b1876c8afa3da466087a5ab0ef",
+      "rows": 560
+    },
+    "company_list_v3": {
+      "file": "data-local/snapshots/company_list_v3_websites_fixed.csv",
+      "description": "v2 plus website fixes: investor-relations hosts replaced by main domains (Avista, Black Hills, Herc, Wingstop); Smith Douglas website supplied (was '0').",
+      "derived_from": "company_list_v1_raw",
+      "transform": "src/prepare_company_list.py",
+      "sha256": "3ab9a43e7426c1f41a77055a6d3ca9553845cb3046a954e28dc5c2a82c934eae",
+      "rows": 560
+    }
+  }
+}

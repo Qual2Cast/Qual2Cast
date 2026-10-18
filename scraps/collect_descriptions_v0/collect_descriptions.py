@@ -1,6 +1,10 @@
 """
 Collect business descriptions from company websites.
 
+SCRAPS: the first collection script, kept as it was for reference. The
+scrape now lives in website_scrape/ (its fetching and filters were split
+out of this file into website_scrape/fetch_and_clean.py).
+
 Aziz's rule for this project: the method must work for a PRIVATE target, so the
 only inputs allowed are the company's name and its website. No 10-Ks, annual
 reports, or stock prices. This script therefore builds each company's
@@ -57,6 +61,10 @@ from urllib.parse import urljoin, urlparse
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
+from bs4.dammit import UnicodeDammit
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
+from project_data import normalize_sic_codes, snapshot_path  # noqa: E402
 
 SHEET_CSV_URL = (
     "https://docs.google.com/spreadsheets/d/"
@@ -111,22 +119,32 @@ BOILERPLATE_ATTR = re.compile(
     r"|(?<![a-z])search",
     re.I,
 )
+CONTENT_CONTAINERS = {"html", "body", "main", "article"}
 TEXT_TAGS = ["h1", "h2", "h3", "h4", "p", "li"]
+# Containers read only when they hold text but no other blocks (see extract_page)
+LEAF_TAGS = ["div", "section", "td", "th", "dd", "dt", "blockquote", "figcaption"]
 
 # Sentences that are filler rather than a description of the business
 # (values statements, careers, charity, site chrome). Matched per sentence,
 # so a good paragraph only loses its "Contact us today." ending.
 FILLER = re.compile(
     r"(?:\b(?:core values|our values|guiding (?:behaviou?rs|principles)"
-    r"|ethical standards|work ethic|diversity|inclusion|respectful"
+    # workplace diversity statements only: "financial inclusion" describes a product
+    r"|ethical standards|work ethic|respectful|\bDEI\b|diverse workforce"
+    r"|diversity(?:,| and| &) (?:equity|inclusion)|equity(?:,| and| &) inclusion"
+    r"|inclusive (?:workplace|culture)"
     r"|our (?:people|employees|culture)|employees? (?:live|work)|team members?"
     r"|careers?|join (?:our|the) team|we(?:'| a)re hiring"
     r"|charit\w*|donat\w*|volunteer\w*|give back|giving back|grants? to fund"
     r"|cookies?|all rights reserved|copyright"
-    r"|subscribe|newsletter|sign up|contact (?:us|a representative|our team)"
+    # newsletter sign-ups only: "subscribe to our software" is a business model
+    r"|subscribe to (?:our |the )?(?:newsletter|blog|updates|mailing list|emails?)"
+    r"|newsletter|sign up for (?:our |the )?(?:newsletter|updates|emails?)"
+    r"|contact (?:us|a representative|our team)"
     r"|couldn.t find what you|try again with|search terms"
     r"|leadership team|our leaders|board of directors"
-    r"|press releases?|read more|learn more about|click here)\b|©)",
+    r"|press releases?|read more|learn more about|click here"
+    r"|opens in a new (?:window|tab)|opens an external (?:website|site))\b|©)",   # screen-reader link text
     re.I,
 )
 # Mentions that reveal a company is publicly traded. Sentences containing
@@ -152,6 +170,114 @@ FINANCIAL_FIGURE = re.compile(
     re.I,
 )
 
+# Size and growth figures (adapted from Riya's collect_descriptions_2.py):
+# market share, growth rates, the company's own revenue, deal values, and
+# "90% of Fortune 100 companies". Sentences containing these are dropped.
+# Revenue only counts as the company's own ("grow revenue with prepaid
+# cards" is product copy), and bare "million" is left alone ("analyzes over
+# 5 million data points" is a product spec).
+SCALE_FIGURE = re.compile(
+    r"\b(?:our|annual|total|record|net) revenues?\b"
+    # "service bookings" and employee "turnover" are not finances
+    r"|\b(?:net|annual|total) sales\b|\b(?:annual|our|total) turnover\b"
+    r"|\b(?:our|record|total) (?:backlog|bookings)\b"
+    r"|\bmarket share\b|\bmarket cap\w*|\bfree cash\b"
+    # the company's own growth; customer results ("54% increase in online
+    # visibility") are product claims and stay
+    r"|\b(?:grew|growth of|increased|increase of|declined?|decrease of)\s+(?:by\s+)?"
+    r"\d[\d.,]*\s*(?:%|percent)"
+    r"|\d[\d.,]*\s*(?:%|percent)\s+of (?:our|total) (?:revenue|sales)"
+    r"|year[- ]over[- ]year|\bCAGR\b|organic growth|record (?:year|quarter|results)"
+    r"|\d[\d.,]*\s*(?:%|percent)\s+of\s+(?:the\s+|all\s+|our\s+)?(?:[\w-]+\s+){0,3}"
+    r"(?:industry|market|customers|companies|clients|banks|hospitals|airlines"
+    r"|utilities|manufacturers|operators)\b"
+    r"|undisclosed (?:amount|sum|terms|price)|purchase price"
+    r"|(?:transaction|deal|enterprise) value",
+    re.I,
+)
+# Counts that show how big the company is ("45 manufacturing plants", "more
+# than 125 countries", "thousands of customers") become "multiple ...", so
+# the rest of the sentence (who it sells through, where) is kept. Product
+# facts (patents, units, square feet) stay, as before.
+_WRITTEN = (r"(?:two|three|four|five|six|seven|eight|nine|ten|eleven|twelve"
+            r"|fifteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety"
+            r"|dozens of|hundreds of|thousands of|millions of|a dozen|a hundred|a thousand)")
+SIZE_COUNT = re.compile(
+    r"\b(?:(?:more than|over|nearly|almost|approximately|about|around|some|up to)\s+)?"
+    r"(?:\d[\d,.]*\s*\+?|" + _WRITTEN + r")\s+"
+    r"((?:[a-z-]+\s+){0,2}?(?:facilities|plants|factories|locations|offices|branches"
+    r"|stores|sites|warehouses|countries|customers|clients|subsidiaries"
+    r"|operating companies|divisions)\b)",
+    re.I,
+)
+# Ownership and deal history ("acquired by Capital Southwest", "[the
+# company] acquires UniMac", "a subsidiary of Parent Corp"): it names parents
+# and targets, which identifies the company. A proper name must follow, so
+# "sold to industries worldwide" and "customer acquisition" are kept.
+_CAP = r"(?-i:[A-Z\[])"
+DEAL_EVENT = re.compile(
+    r"\b(?:acquired|purchased) by\s+(?:the\s+)?" + _CAP
+    + r"|\bmerged? with\b|\bmerger\b"
+    # "buys" is left out: headlines like "Your CTV Buys Might Be Fake"
+    r"|\b(?:officially\s+)?(?:acquires|acquired)\s+(?:the\s+)?" + _CAP
+    + r"|\b(?:acquires|acquired|acquisition of)\s+(?:the\s+)?(?:\w+\s+)?"
+      r"(?:assets|business|operations|stake|interest|shares) (?:of|in)\b"
+    r"|\bacquisitions? of\s+(?:the\s+)?" + _CAP
+    + r"|\b(?:division|subsidiary|unit|portfolio company) of\s+(?:the\s+)?" + _CAP
+    + r"|\bjoin(?:s|ed)? the " + _CAP + r"[\w-]* (?:family|group)\b"
+    r"|\bowned by\s+(?:the\s+)?" + _CAP,
+    re.I,
+)
+# Founding years and history dates identify a company too. They are cut
+# inline ("Founded in 1919, the company makes ..." -> "the company makes
+# ...", "In 1895, ..."), keeping the rest of the sentence.
+FOUNDING_YEAR = re.compile(
+    r"(?:,\s*)?\b(?:founded|established|incorporated|formed|started)\s+(?:in\s+)?"
+    r"(?:1[5-9]|20)\d\d\b,?"
+    r"|(?:,\s*)?\bsince\s+(?:1[5-9]|20)\d\d\b,?"
+    r"|\bdating back to\s+(?:the\s+)?(?:1[5-9]|20)\d\d'?s?\b,?",
+    re.I,
+)
+_MONTH = (r"(?:January|February|March|April|May|June|July|August|September"
+          r"|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\.?")
+HISTORY_DATE = re.compile(
+    r"\b" + _MONTH + r"\s+(?:\d{1,2},?\s+)?(?:1[5-9]|20)\d\d\b\s*[–—-]?"
+    r"|\b(?:in|during|by|from|until|through)\s+(?:the\s+)?(?:early\s+|late\s+|mid-?)?"
+    r"(?:1[5-9]|20)\d\d'?s?\b,?",
+    re.I,
+)
+
+# Tickers of every company in the list (filled in by load_companies). One in
+# parentheses, "(CSWC)", is cut unless it abbreviates the words just before
+# it ("information technology (IT)", "Space Alternated Phase Shift (SAPS)").
+KNOWN_TICKERS: set[str] = set()
+PAREN_CAPS = re.compile(r"\(\s*([A-Z]{2,5})\s*\)")
+
+
+def _is_acronym(token: str, words: list[str]) -> bool:
+    """Is `token` an abbreviation of the words just before it?
+    "Dedicated Outdoor Air Systems (DOAS)" -> True,
+    "Capital Southwest (CSWC)" -> False."""
+    t = token.lower()
+    for i, w in enumerate(words):
+        if w[0].lower() != t[0]:
+            continue
+        letters = iter("".join(words[i:]).lower())
+        if all(ch in letters for ch in t):  # t is a subsequence
+            return True
+    return False
+
+
+def bare_tickers(text: str) -> list[re.Match]:
+    """"(ABCD)" matches that are known tickers, not abbreviations."""
+    found = []
+    for m in PAREN_CAPS.finditer(text):
+        words = re.findall(r"[A-Za-z]+", text[max(0, m.start() - 100):m.start()])[-6:]
+        if m.group(1) in KNOWN_TICKERS and not _is_acronym(m.group(1), words):
+            found.append(m)
+    return found
+
+
 # Phrases cut out inline ("a publicly traded management company" ->
 # "a management company"), keeping the rest of the sentence.
 PUBLIC_PHRASE = re.compile(r",?\s*\bpublicly[ -]traded\b", re.I)
@@ -159,9 +285,13 @@ PUBLIC_PHRASE = re.compile(r",?\s*\bpublicly[ -]traded\b", re.I)
 PUBLIC_COMPANY = re.compile(
     r"stock exchange|stock ticker|ticker symbol|stock symbol|trading symbol"
     r"|under the symbol|listed on (?:the )?(?:NYSE|NASDAQ|Nasdaq|New York)"
-    r"|became a public company|public compan(?:y|ies)|shareholders?|stockholders?"
+    # The company's own listing and investors only. Investors as customers
+    # ("customize investor experiences") and public companies as clients stay.
+    r"|(?:became|is|as|is now) a public company|shareholders?|stockholders?"
     r"|share price|began trading|initial public offering|\bIPO\b"
-    r"|market capitali[sz]ation|(?<!institutional )\binvestors?\b"
+    r"|market capitali[sz]ation|our investors"
+    r"|investor (?:relations|day|presentations?|events?|news|cent(?:er|re)s?|kit"
+    r"|resources|information|overview|contacts?|updates)"
     r"|financial (?:results|reports?|information|statements|highlights)"
     r"|\bfinancials\b|dividends?|earnings|conference call|quarterly results"
     r"|fiscal (?:year|quarter)|succession plan|\bCFO\b"
@@ -170,7 +300,7 @@ PUBLIC_COMPANY = re.compile(
 )
 # Statements about the company's own finances rather than its business.
 FINANCE_TALK = re.compile(
-    r"\bprofits?\b|profitab(?:le growth|ility)|cash flow|balance sheet"
+    r"(?<!non-)(?<!not-for-)\bprofits?\b|profitab(?:le growth|ility)|cash flow|balance sheet"
     r"|liquidity position|stakeholder value|\bmargins?\b"
     r"|maximi[sz]e (?:their |our )?returns",
     re.I,
@@ -209,6 +339,27 @@ def normalize_url(website: str) -> str:
     return website
 
 
+def url_candidates(website: str) -> list[str]:
+    """The given site first, then a www. version, then plain http, for sites
+    whose certificate or https setup is broken (from Riya's scraper)."""
+    first = normalize_url(website)
+    bare = re.sub(r"^https?://", "", first, flags=re.I)
+    candidates = [first]
+    if not bare.lower().startswith("www."):
+        candidates.append("https://www." + bare)
+    candidates.append("http://" + bare)
+    return list(dict.fromkeys(candidates))
+
+
+def decode_html(resp: requests.Response) -> str:
+    """Page text decoded from its bytes. requests assumes ISO-8859-1 when the
+    header names no charset, which garbles UTF-8 pages; UnicodeDammit also
+    reads the page's own <meta charset>."""
+    ctype = resp.headers.get("Content-Type", "")
+    declared = [resp.encoding] if "charset" in ctype.lower() and resp.encoding else []
+    return UnicodeDammit(resp.content, declared, is_html=True).unicode_markup or ""
+
+
 def _host(url: str) -> str:
     host = urlparse(url).netloc.lower()
     return host[4:] if host.startswith("www.") else host
@@ -220,9 +371,18 @@ def same_site(url: str, base: str) -> bool:
 
 
 def _is_boilerplate(tag) -> bool:
+    # Page-level containers are never boilerplate: many themes put words like
+    # "menu" or "header" in <body>'s classes ("mobile-menu-design-classic"),
+    # which would otherwise delete the whole page.
+    if tag.name in CONTENT_CONTAINERS or tag.get("role") == "main":
+        return False
     attrs = " ".join([tag.get("id") or "", " ".join(tag.get("class") or []),
                       tag.get("role") or ""])
-    return bool(attrs.strip()) and bool(BOILERPLATE_ATTR.search(attrs))
+    if not attrs.strip() or not BOILERPLATE_ATTR.search(attrs):
+        return False
+    # Same for app wrappers like <div id="root" class="search-bar-rendered">:
+    # anything holding the page's main content is not boilerplate.
+    return not tag.find(["main", "article", "h1"])
 
 
 # Split on sentence ends, but not after abbreviations like "U.S." or "U.K."
@@ -235,19 +395,54 @@ def _is_cta_question(sentence: str) -> bool:
     return sentence.rstrip().endswith("?") and len(sentence.split()) <= 15
 
 
-def clean_block(text: str, min_words: int = MIN_BLOCK_WORDS) -> str:
-    """Drop filler and public-company sentences; return '' if too little is left."""
+SENTENCE_RULES = [
+    ("public_company", PUBLIC_COMPANY.search),
+    ("filler", FILLER.search),
+    ("financial_figure", FINANCIAL_FIGURE.search),
+    ("finance_talk", FINANCE_TALK.search),
+    ("scale_figure", SCALE_FIGURE.search),
+    ("deal_event", DEAL_EVENT.search),
+    ("site_chrome", SITE_CHROME.search),
+    ("cta_question", _is_cta_question),
+]
+
+
+def clean_block_logged(text: str, min_words: int = MIN_BLOCK_WORDS) -> tuple[str, list[dict]]:
+    """clean_block, plus a record of everything removed and the rule that
+    removed it: [{"text": ..., "reason": ...}]."""
+    removed = [{"text": m.group(0).strip(), "reason": "ticker_tag"}
+               for m in TICKER_TAG.finditer(text)]
     text = TICKER_TAG.sub(" ", text)
-    text = PUBLIC_PHRASE.sub("", text)
-    sentences = SENTENCE_SPLIT.split(text)
-    kept = [s for s in sentences
-            if not PUBLIC_COMPANY.search(s) and not FILLER.search(s)
-            and not FINANCIAL_FIGURE.search(s) and not FINANCE_TALK.search(s)
-            and not SITE_CHROME.search(s) and not _is_cta_question(s)]
+    for m in reversed(bare_tickers(text)):
+        removed.append({"text": m.group(0), "reason": "bare_ticker"})
+        text = text[:m.start()] + " " + text[m.end():]
+    # cut inline, keeping the rest of the sentence
+    for reason, rule, repl in [("public_phrase", PUBLIC_PHRASE, ""),
+                               ("founding_year", FOUNDING_YEAR, " "),
+                               ("history_date", HISTORY_DATE, " "),
+                               ("size_count", SIZE_COUNT, r"multiple \1")]:
+        removed += [{"text": m.group(0).strip(" ,"), "reason": reason}
+                    for m in rule.finditer(text)]
+        text = rule.sub(repl, text)
+    kept = []
+    for s in SENTENCE_SPLIT.split(text):
+        reason = next((name for name, rule in SENTENCE_RULES if rule(s)), None)
+        if reason:
+            removed.append({"text": s.strip(), "reason": reason})
+        else:
+            kept.append(s)
     text = re.sub(r"\s+", " ", " ".join(kept)).strip()
     text = re.sub(r"\s+([,.;:)])", r"\1", text)
     text = re.sub(r"\(\s*\)", "", text).strip()
-    return text if len(text.split()) >= min_words else ""
+    if text and len(text.split()) < min_words:
+        removed.append({"text": text, "reason": "too_short_after_cleaning"})
+        text = ""
+    return text, removed
+
+
+def clean_block(text: str, min_words: int = MIN_BLOCK_WORDS) -> str:
+    """Drop filler and public-company sentences; return '' if too little is left."""
+    return clean_block_logged(text, min_words)[0]
 
 
 def clean_title(title: str) -> str:
@@ -262,32 +457,50 @@ def extract_page(html: str) -> dict:
     soup = BeautifulSoup(html, "html.parser")
     links = [(a.get_text(" ", strip=True), a["href"])
              for a in soup.find_all("a", href=True)]
-    title = clean_title(soup.title.get_text(" ", strip=True)) if soup.title else ""
-    meta = ""
+    raw_title = soup.title.get_text(" ", strip=True) if soup.title else ""
+    title = clean_title(raw_title)
+    raw_meta, meta, removed = "", "", []
     for attrs in ({"name": "description"}, {"property": "og:description"}):
         tag = soup.find("meta", attrs=attrs)
         if tag and tag.get("content"):
-            meta = clean_block(tag["content"].strip(), min_words=3)
+            raw_meta = tag["content"].strip()
+            meta, removed = clean_block_logged(raw_meta, min_words=3)
             break
 
     for tag in soup(BOILERPLATE_TAGS):
+        # ASP.NET sites wrap the whole page in one <form>; keep any
+        # "boilerplate" element that holds the page's main content.
+        if tag.decomposed or tag.find(["main", "article", "h1"]):
+            continue
         tag.decompose()
     for tag in soup.find_all(_is_boilerplate):
         if not tag.decomposed:
             tag.decompose()
 
-    blocks = []
-    for tag in soup.find_all(TEXT_TAGS):
-        # skip containers whose text is already captured by a child block
-        if tag.find(TEXT_TAGS):
+    blocks, raw_blocks, seen = [], [], set()
+    for tag in soup.find_all(TEXT_TAGS + LEAF_TAGS):
+        if tag.name in TEXT_TAGS:
+            # skip containers whose text is already captured by a child block
+            if tag.find(TEXT_TAGS):
+                continue
+        # Text in other containers (card layouts built from <div>/<span>):
+        # only "leaf" containers, with no block elements inside, that aren't
+        # already part of a heading, paragraph or list item.
+        elif tag.find(TEXT_TAGS + LEAF_TAGS) or tag.find_parent(TEXT_TAGS):
             continue
         text = re.sub(r"\s+", " ", tag.get_text(" ", strip=True))
-        if len(text.split()) < MIN_BLOCK_WORDS:
+        if len(text.split()) < MIN_BLOCK_WORDS or text.lower() in seen:
             continue
-        text = clean_block(text)
+        seen.add(text.lower())
+        raw_blocks.append(text)
+        text, dropped = clean_block_logged(text)
+        removed += dropped
         if text:
             blocks.append(text)
-    return {"title": title, "meta": meta, "blocks": blocks, "links": links}
+    # raw_* and removed record the text before cleaning and what the filters took out
+    return {"title": title, "meta": meta, "blocks": blocks, "links": links,
+            "raw_title": raw_title, "raw_meta": raw_meta, "raw_blocks": raw_blocks,
+            "removed": removed}
 
 
 def pick_extra_pages(links, base_url: str, limit: int) -> list[str]:
@@ -371,10 +584,10 @@ class Fetcher:
         resp = self.session.get(url, timeout=TIMEOUT_SECONDS, allow_redirects=True)
         resp.raise_for_status()
         ctype = resp.headers.get("Content-Type", "")
-        looks_like_html = resp.text.lstrip()[:200].lower().startswith(("<!doctype", "<html"))
+        looks_like_html = resp.content[:200].lstrip().lower().startswith((b"<!doctype", b"<html"))
         if "html" not in ctype.lower() and not (not ctype and looks_like_html):
             raise ValueError(f"not an HTML page ({ctype or 'no content type'})")
-        return resp.url, resp.text
+        return resp.url, decode_html(resp)
 
 
 class RenderError(Exception):
@@ -485,15 +698,11 @@ def collect_with_fallback(fetcher, renderer, website: str, max_extra: int) -> di
 
 
 def find_input(given: str | None) -> str:
-    """Use --input if given, else a downloaded copy of the sheet in this folder."""
+    """Use --input if given, else the snapshot named in data_manifest.json
+    (data-local/snapshots/...), checked against its checksum."""
     if given:
         return given
-    for pattern in ("company list for interns*.csv", "company_list*.csv"):
-        matches = sorted(Path(".").glob(pattern))
-        if matches:
-            print(f"Using company list: {matches[0]}")
-            return str(matches[0])
-    return SHEET_CSV_URL
+    return str(snapshot_path())
 
 
 def load_companies(source: str) -> pd.DataFrame:
@@ -511,7 +720,10 @@ def load_companies(source: str) -> pd.DataFrame:
     missing = [c for c in NON_FINANCIAL_COLUMNS if c not in df.columns]
     if missing:
         sys.exit(f"Input is missing expected columns: {missing}")
-    return df[NON_FINANCIAL_COLUMNS]
+    KNOWN_TICKERS.update(t.strip().upper() for t in df["target_ciq_ticker"].dropna()
+                         if 2 <= len(t.strip()) <= 5)
+    # zero-padded 4-digit SIC, 2/3-digit derived from it (BrightView: 0700, not 700)
+    return normalize_sic_codes(df[NON_FINANCIAL_COLUMNS])
 
 
 def safe_name(ticker: str) -> str:
@@ -521,8 +733,7 @@ def safe_name(ticker: str) -> str:
 def main() -> None:
     p = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     p.add_argument("--input",
-                   help="CSV path or URL (default: a downloaded 'company list for "
-                        "interns*.csv' in this folder, else the Google Sheet link)")
+                   help="CSV path or URL (default: the snapshot in data_manifest.json)")
     p.add_argument("--out", default="descriptions_output")
     p.add_argument("--sic2", nargs="*", help="only these 2-digit SIC codes")
     p.add_argument("--tickers", nargs="*", help="only these tickers")

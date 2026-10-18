@@ -42,6 +42,20 @@ The LLM components are treated as a system under test:
 - Abstention rules for low-evidence cases
 - Human review of a sampled audit set
 
+## Repository layout
+
+| path | contents |
+|---|---|
+| `AGENTS.md` | working rules for Codex / Claude Code sessions (and people) |
+| `PROJECT_STATE.md` | current decisions, status, next steps |
+| `conversations/` | handoff notes and exported AI conversations, per task |
+| `docs/` | data dictionary, data issues log |
+| `src/` | shared code (data snapshot loading and corrections) |
+| `data_manifest.json` | which data snapshot the code needs, with checksums |
+| `website_scrape/` | collects each company's website text (name + website only), with financial and public-company information filtered out |
+| `scraps/` | earlier attempts kept for reference (Codex profiles, first matching pass, first collection script); not part of the pipeline |
+| `data-local/`, `outputs-local/` | local data and outputs, **not in Git** |
+
 ## Status
 
 🚧 Early development. Structure, data sources, and methodology are being defined.
