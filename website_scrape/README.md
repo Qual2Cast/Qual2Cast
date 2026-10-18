@@ -16,7 +16,7 @@ logged with its reason, and the raw text is kept next to the cleaned text.
 | `fetch_and_clean.py` | downloads (plain and headless browser), HTML parsing, text filters, company-list loading |
 | `tests/` | one test per filter problem found so far (`python -m pytest tests -q`) |
 
-## Output (`outputs-local/website_scrape/`, not in Git)
+## Output (`outputs-local/website_scrape/`; only `page_text/` and `scrape_log.csv` are in Git)
 
 ```
 data-local/snapshots/company_list_v3_websites_fixed.csv   (name + website)

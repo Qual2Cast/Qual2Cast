@@ -1,9 +1,10 @@
 """
 Shared paths and data-snapshot checks for every task.
 
-Large data lives outside Git, in the same relative place on every laptop:
-  data-local/     read-only input snapshots (distributed by the data maintainer)
-  outputs-local/  derived tables and experiment outputs
+Data lives in the same relative place on every laptop:
+  data-local/     read-only input snapshots (committed)
+  outputs-local/  derived tables and experiment outputs (mostly local; the
+                  current website text is committed, see .gitignore)
 data_manifest.json (committed) names the snapshot the current code expects and
 its checksum, so every laptop runs the same code on the same data.
 """

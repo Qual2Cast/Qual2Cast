@@ -35,5 +35,5 @@ PROJECT_STATE.md and a handoff file in conversations/.
   responses, and processed tables are all saved, not overwritten.
 - Load SIC codes as 4-character, zero-padded strings and derive 2/3-digit
   codes from them (src/project_data.normalize_sic_codes).
-- Never commit data-local/, outputs-local/, .env, or Codex credentials
+- Never commit .env, or Codex credentials
   (~/.codex/auth.json).

@@ -5,12 +5,12 @@
 | location | in Git? | contents |
 |---|---|---|
 | `data_manifest.json` | yes | which snapshot the code needs, with checksums |
-| `data-local/snapshots/` | no | read-only input snapshots from the data maintainer |
-| `outputs-local/` | no | everything the code produces (raw scrapes, profiles, tables) |
+| `data-local/snapshots/` | yes | read-only input snapshots |
+| `outputs-local/website_scrape/page_text/`, `scrape_log.csv` | yes | current website text, one JSON per company |
+| rest of `outputs-local/` | no | other outputs (raw HTML, page_text history, logs, profiles, tables) |
 
-Get the current snapshot from the data maintainer and put it at the path
-listed in data_manifest.json. Code checks the checksum and stops if it
-doesn't match. If you only have the raw list, `python src/prepare_company_list.py`
+The snapshots come with the repo at the paths listed in data_manifest.json.
+Code checks the checksum and stops if it doesn't match. If you only have the raw list, `python src/prepare_company_list.py`
 rebuilds the required snapshot (v3) from it.
 
 ## Company list (`company_list_v3_websites_fixed.csv`, the required snapshot)

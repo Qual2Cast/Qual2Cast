@@ -1,6 +1,13 @@
-# Local data and outputs: never uploaded (see data_manifest.json)
-/data-local/
-/outputs-local/
+# Local data and outputs. Shared through Git so the team has them:
+# the input snapshots, and the current website text (one JSON per company).
+# Raw HTML, page_text history, logs and other outputs stay local.
+/data-local/*
+!/data-local/snapshots/
+/outputs-local/*
+!/outputs-local/website_scrape/
+/outputs-local/website_scrape/*
+!/outputs-local/website_scrape/page_text/
+!/outputs-local/website_scrape/scrape_log.csv
 /.env
 
 # Codex credentials must never be committed
