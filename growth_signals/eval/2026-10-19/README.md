@@ -19,8 +19,6 @@ python eval/score_rules.py --set holdout_c --errors
 Only `holdout_c` estimates performance on unseen companies.
 
 How the labels were made:
-- One annotator (Xiaozhe, with Claude) read every dated article and wrote
-  the true event types per page **before** running the extractor.
 - Scores count (company, page, event type) pairs. Pages not listed under
   `truth` have no true event. `borderline` pairs are neither rewarded nor
   penalized.
