@@ -99,6 +99,13 @@ estimated from theirs. Its actual multiple is the answer key. This gives
   recorded in `conversations/`, so the number of looks at the answer key is
   known.
 - Financial fields are never matching inputs.
+- These rules are stricter than the project's current ones. The methods
+  were built under the original name + website rule. Since 2026-10-19
+  (Aziz's reply, see PROJECT_STATE.md) the target's LTM revenue, LTM
+  EBITDA and debt may be compared with the comps' to favor similar scale,
+  as a secondary criterion after same business, and the comps' 10-K detail
+  may be used as similarity input. Neither is used here yet. EV/EBITDA
+  stays the answer key and is never a matching input.
 - Each run saves its settings, comps, estimates and scores to its own
   folder; embeddings are cached by a hash of the input text.
 

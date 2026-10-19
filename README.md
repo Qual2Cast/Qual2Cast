@@ -7,6 +7,12 @@ Qual2Cast estimates the 3-year cumulative revenue growth of private companies by
 
 ---
 
+## Ten-company research pilot
+
+[Results and charts](reports/whole_company_pilot/README.md) · [Self-contained notebook](notebooks/whole_company_pilot.ipynb) · [Code and reproduction](experiments/whole_company_pilot/README.md)
+
+The pilot compares 31 ranking variants and peer-valuation alternatives on ten development companies. Default replay uses embedded saved model outputs. It is an independent research contribution; comparison with the latest matching branch and independent human validation remain pending. See the [handoff](conversations/2026-10-19-whole-company-pilot.md) for scope and verification.
+
 ## Why
 
 Private companies don't publish audited financials, so investors often have little hard data to forecast their growth. They do leave a trail of qualitative evidence:
@@ -54,7 +60,7 @@ The LLM components are treated as a system under test:
 | `data_manifest.json` | which data snapshot the code needs, with checksums |
 | `website_scrape/` | collects each company's website text (name + website only), with financial and public-company information filtered out |
 | `growth_signals/` | pipeline for dated growth events and leakage-safe features; separate from the company-description scrape |
-| `matching/` | comparable-company matching: one notebook, one section per method (method 1, website-text embeddings, done; see `matching/README.md`) |
+| `matching/` | comparable-company matching: three methods (embedding similarity, mutual kNN / clusters, agglomerative tree) in `matching_methods.ipynb`, scored in `matching_evaluation.ipynb`; see `matching/README.md` |
 | `scraps/` | earlier attempts kept for reference (Codex profiles, first matching pass, first collection script); not part of the pipeline |
 | `data-local/`, `outputs-local/` | data and outputs; only the input snapshots and current website text (`page_text/`) are in Git |
 
