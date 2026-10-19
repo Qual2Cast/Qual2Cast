@@ -4,8 +4,8 @@ Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
 _Last updated: 2026-10-19 (methodology rules updated after Aziz's reply on
-10-Ks and financial inputs; growth-signal recall: see
-conversations/2026-10-18-growth-signals-recall.md)_
+10-Ks and financial inputs; growth-signal rule and collection fixes: see
+conversations/2026-10-19-growth-signals-rule-fixes.md)_
 
 ## Data
 
@@ -48,7 +48,7 @@ conversations/2026-10-18-growth-signals-recall.md)_
 | part | status | where |
 |---|---|---|
 | Website scrape | **Done for all 560** (3 pages per site, re-parsed 2026-10-18): 532 ok, 15 thin, 4 investor_site, 4 robots_disallowed, 4 http_403, 1 blocked. 26 tests. | website_scrape/, outputs-local/website_scrape/ |
-| Growth signals | **First collector + rules in place.** Recall widened 2026-10-18 for contracts, hiring, layoffs, expansion, and credit phrasing; Careers/Jobs yield only hiring/layoff. Live coverage still untested beyond the earlier 5-company pilot. 84 tests. | growth_signals/ |
+| Growth signals | **Extraction revised 2026-10-19 (uncommitted, branch growth-signals-recall).** One event per article and type, actor check, 5 new event types (schema v2). Blind held-out scores: 60% precision / 39% recall on 10 new companies, 60% / 32% on older BV/WING articles (pilot 18/18 is in-sample). Known next fixes listed in conversations/2026-10-19-growth-signals-rule-fixes.md. History still covers only months. 169 tests. | growth_signals/ |
 | Matching method | **Not started** in the main pipeline. The first pass (embeddings of page text, PCTY NDCG@20 0.90) is in scraps as a baseline. | n/a |
 | Results, sanity check, valuation, definitions / limitations | **Not started.** | n/a |
 | Earlier attempts | Set aside 2026-10-18, kept runnable for reference: Codex profiles (219/560 done), first matching pass, first collection script. | scraps/, outputs-local/scraps/ |
