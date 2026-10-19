@@ -60,7 +60,7 @@ The LLM components are treated as a system under test:
 | `data_manifest.json` | which data snapshot the code needs, with checksums |
 | `website_scrape/` | collects each company's website text (name + website only), with financial and public-company information filtered out |
 | `growth_signals/` | pipeline for dated growth events and leakage-safe features; separate from the company-description scrape |
-| `matching/` | comparable-company matching (starter notebook; method to come) |
+| `matching/` | comparable-company matching: three methods (embedding similarity, mutual kNN / clusters, agglomerative tree) in `matching_methods.ipynb`, scored in `matching_evaluation.ipynb`; see `matching/README.md` |
 | `scraps/` | earlier attempts kept for reference (Codex profiles, first matching pass, first collection script); not part of the pipeline |
 | `data-local/`, `outputs-local/` | data and outputs; only the input snapshots and current website text (`page_text/`) are in Git |
 

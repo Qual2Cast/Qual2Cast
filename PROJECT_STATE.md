@@ -3,8 +3,11 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
-_Last updated: 2026-10-19 (methodology rules updated after Aziz's reply on
-10-Ks and financial inputs; growth-signal recall: see
+_Last updated: 2026-10-19 (`michael/wip` merged with main: see
+conversations/2026-10-19-merge-main.md. Matching: three methods and an
+evaluation notebook; methodology in matching/README.md; history in
+conversations/2026-10-19-method2-mutual-knn.md. Methodology rules updated
+after Aziz's reply on 10-Ks and financial inputs; growth-signal recall: see
 conversations/2026-10-18-growth-signals-recall.md)_
 
 ## Data
@@ -15,6 +18,11 @@ conversations/2026-10-18-growth-signals-recall.md)_
   domain; Smith Douglas website supplied). Built by src/prepare_company_list.py.
   BrightView Holdings was SIC 700 → 0700, Agricultural Services (it had been
   grouped with hotels under SIC 70). Only row affected. See docs/data_issues.md.
+- Snapshot CSVs are CRLF and stored byte-for-byte (.gitattributes `-text`),
+  so the manifest checksums match on every OS. Before 2026-10-18 (commit
+  3a50a32) git stored them as LF and non-Windows checkouts failed the
+  checksum check; anyone who cloned earlier should pull, then run
+  `git checkout -- data-local/snapshots`.
 - Data maintainer distributes snapshots outside GitHub: _TBD (name)_.
 
 ## Agreed methodology
@@ -43,14 +51,35 @@ conversations/2026-10-18-growth-signals-recall.md)_
 - robots.txt: honored. One that answers 401/403 counts as no restrictions
   (RFC 9309), decided 2026-10-18.
 
+## Matching methodology (working approach)
+
+On branch `michael/wip`, not yet reviewed by the team. Full write-up:
+matching/README.md, "Methodology".
+
+- Every public company takes a turn as the private target: comps are found
+  among the other 534 from website text only, the estimate is the comps'
+  median EV/EBITDA, and the actual multiple is the answer key.
+- Benchmark: no matching (the median of all other companies). Measures:
+  median absolute % error and Spearman(estimate, actual); differences from
+  method 1 by paired bootstrap; methods also compared at equal comp counts
+  (3-10) and on ten chosen targets.
+- Settings are fixed before scoring, on the shape of the comp sets, never
+  tuned on valuation error. SIC codes are a check only.
+- Stricter than the current rules: the methods were built under the
+  original name + website rule, so they use website text only on both
+  sides. Since 2026-10-19 the target's LTM revenue, LTM EBITDA and debt may
+  be compared for scale, and comps' 10-K detail may be used. Neither is in
+  the methods yet. EV/EBITDA is still only the answer key.
+
 ## Status
 
 | part | status | where |
 |---|---|---|
 | Website scrape | **Done for all 560** (3 pages per site, re-parsed 2026-10-18): 532 ok, 15 thin, 4 investor_site, 4 robots_disallowed, 4 http_403, 1 blocked. 26 tests. | website_scrape/, outputs-local/website_scrape/ |
 | Growth signals | **First collector + rules in place.** Recall widened 2026-10-18 for contracts, hiring, layoffs, expansion, and credit phrasing; Careers/Jobs yield only hiring/layoff. Live coverage still untested beyond the earlier 5-company pilot. 84 tests. | growth_signals/ |
-| Matching method | **Not started** in the main pipeline. The first pass (embeddings of page text, PCTY NDCG@20 0.90) is in scraps as a baseline. | n/a |
-| Results, sanity check, valuation, definitions / limitations | **Frozen ten-company research comparison available.** Independent human review and financial alignment remain pending; not integrated into the main matching workflow. | reports/whole_company_pilot/, notebooks/whole_company_pilot.ipynb |
+| Matching method | **Three methods and an evaluation, on branch `michael/wip`.** `matching/matching_methods.ipynb`: website text → `all-mpnet-base-v2` embeddings (535 matchable, 25 excluded) → comps by method 1 (embedding similarity, cosine z ≥ 2 / 2.5), method 2 (mutual kNN, k = 10 / 20; then UMAP + HDBSCAN clusters), or method 3 (agglomerative tree, complete / ward linkage) → estimate = comps' median EV/EBITDA (financials read only there). Each method is shown on PCTY and then values every company from its own comps. `matching/matching_evaluation.ipynb` (runs the methods notebook first): every method at 3-10 comps, and ten targets (PCTY, BV, ROAD, FIX, BRO, ADUS, LOPE, ODFL, WING, DXPE). **Results:** median absolute error ≈ 35% for every method, the same as no matching (34.6%); method 1 ranks companies best (Spearman 0.31 vs 0.21-0.24 for the others and 0.22-0.24 for SIC peer groups); at equal comp counts no method beats method 1; targets with clear peers get them (ROAD, BRO, LOPE, ADUS), finer distinctions fail (truckload types, contractors vs HVAC makers, distributors), BV gets comps though it has no real peer, and right peers still miss by 29-43%. Latest runs `20261019T080322Z` (methods) and `20261019T080416Z` (evaluation). `umap-learn` and `hdbscan` 0.8.44 are installed in the kernel's Python 3.14. | matching/, outputs-local/matching/ |
+| Results across targets, sanity check, definitions / limitations | **Started:** valuation error for all 535 matchable companies, every method at 3-10 comps, and ten targets (`matching/matching_evaluation.ipynb`). Human check of comps against source pages, and definitions / limitations, not started. | matching/ |
+| Ten-company research pilot | **Frozen ten-company research comparison available.** Independent human review and financial alignment remain pending; not integrated into the main matching workflow. | reports/whole_company_pilot/, notebooks/whole_company_pilot.ipynb |
 | Earlier attempts | Set aside 2026-10-18, kept runnable for reference: Codex profiles (219/560 done), first matching pass, first collection script. | scraps/, outputs-local/scraps/ |
 
 ## Ten-company pilot contribution (2026-10-19)
@@ -80,12 +109,18 @@ conversations/2026-10-18-growth-signals-recall.md)_
 
 ## Next steps
 
-1. Design the matching method on `outputs-local/website_scrape/page_text/`.
-2. Results obtained, and how they are checked (peer labels for more targets
-   than PCTY, written before running them; `scraps/comps_first_pass/` results
-   as the baseline to beat).
-3. Human sanity check of the top comps against their source pages.
-4. Valuation calculation from the comps' multiples (financial fields enter
-   only here, never in matching).
+1. Picking peers doesn't look like the bottleneck: no comp rule beats method 1,
+   even at equal comp counts, and right peers still give large errors. Next:
+   change the estimate (shrink the comps' median toward the all-company
+   median; weight comps by similarity) and try a "no good match" rule from
+   absolute similarity (BV). Judge with `versus()` (bootstrap vs method 1)
+   and the ten targets, settings fixed before scoring.
+2. Under the updated rules: use scale (target LTM revenue, EBITDA, debt
+   against the comps') as a secondary filter or weight after the
+   same-business match, and consider 10-K business descriptions on the
+   comp side. Fix settings before scoring, as above.
+3. Results obtained, and how they are checked (peer labels for more targets
+   than PCTY, written before running them).
+4. Human sanity check of the top comps against their source pages.
 5. Definitions and limitations.
 6. Supply websites for the 4 IR-only companies (or accept "unknown").
