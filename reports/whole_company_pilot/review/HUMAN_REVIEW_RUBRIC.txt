@@ -1,0 +1,57 @@
+Independent whole-company comparability review
+
+Purpose: assess business comparability for explaining a proposed peer set. This
+does not approve a valuation multiple, investment, forecast, or causal model.
+
+Two actual named reviewers independently complete their separate CSVs. Names
+are initially blank, not fictional. Each reviewer sees company names, official
+source URLs, full available business evidence and the same rubric. Method,
+rank, similarity score, valuation estimate and outcome must remain hidden.
+Do not open the configuration/error tables or the other reviewer's responses
+before submitting an initial review. Preserve original reviews; adjudicate
+disagreements separately, with a new reason and without replacing the originals.
+
+Grade 3: strong whole-company business comparability. The principal supported
+activities, operating role, customers and product/commercialization setting
+align; remaining material differences are explicitly described.
+Grade 2: plausible business comparable with material differences. Describe all
+matched and unmatched activities and why the company could still inform review.
+Grade 1: partial activity/product overlap with important whole-company mismatch;
+insufficient as a strong company comparable without a specific justification.
+Grade 0: sources support a fundamental business mismatch, even if vocabulary or
+industry labels overlap. This is an observed mismatch, not missing information.
+U: evidence is insufficient, outdated, conflicting or does not support a
+whole-company assessment. U remains unknown and never becomes grade zero.
+Blank grade: review not yet submitted. U: reviewed but still unknown.
+
+For every submitted review record your actual name, independent_review=true,
+and reason. For grades 0-3, cite the HTTP(S) URLs checked and account explicitly
+for material_unmatched_businesses (state 'none identified in checked evidence'
+only when that is supported). Include supported activities, unknown scope and
+source access dates where possible. Weighting a business by revenue requires
+validated business weights; product list length is not a revenue weight. Do not
+discard a subsidiary/activity simply to improve the match. Missing disclosure
+does not establish that a company lacks an activity. An activity extraction is
+provisional until checked against its source, and source support does not prove
+complete coverage or historical truth. Current pages must be marked current,
+not silently treated as the archived snapshot.
+
+The review pool is the common union of methods' top ten plus seeded random
+controls, not an exhaustive universe or random representative accuracy sample.
+Precision@k uses grade >=2 for this declared rubric and fixed k. Unknown grades
+withhold point precision where needed; common-pool nDCG needs a known common
+ideal and cannot imply full-universe recall. Agreement uses separately named
+human raters, quadratic weighted Cohen kappa (separate marginal distributions),
+raw agreement and coverage; unknown pairs are excluded and counted, not zeroed.
+No universal kappa pass mark is imposed. Agreement is not correctness. The IR
+text's pooled-marginal worked kappa example is not our separate-marginal formula.
+
+AI/source challenge audits, local LLM ranking grades, independent human reviews,
+and financial snapshot errors are distinct evidence layers. AI assessments must
+use actor_type=ai and cannot be imported as human truth. Challenge cases selected
+for known mismatches are purposive diagnostics, not representative accuracy.
+
+Sources:
+https://nlp.stanford.edu/IR-book/html/htmledition/assessing-relevance-1.html
+https://www.jmlr.org/papers/v11/cawley10a.html
+https://www.itl.nist.gov/div898/handbook/pri/section3/pri334.htm

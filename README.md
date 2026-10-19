@@ -7,6 +7,12 @@ Qual2Cast estimates the 3-year cumulative revenue growth of private companies by
 
 ---
 
+## Ten-company research pilot
+
+[Results and charts](reports/whole_company_pilot/README.md) · [Self-contained notebook](notebooks/whole_company_pilot.ipynb) · [Code and reproduction](experiments/whole_company_pilot/README.md)
+
+The pilot compares 31 ranking variants and peer-valuation alternatives on ten development companies. Default replay uses embedded saved model outputs. It is an independent research contribution; comparison with the latest matching branch and independent human validation remain pending. See the [handoff](conversations/2026-10-19-whole-company-pilot.md) for scope and verification.
+
 ## Why
 
 Private companies don't publish audited financials, so investors often have little hard data to forecast their growth. They do leave a trail of qualitative evidence:

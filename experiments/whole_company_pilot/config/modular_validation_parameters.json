@@ -1,0 +1,24 @@
+{
+  "version": "2026-10-18-pilot-1",
+  "status": "Frozen before company rankings or target valuation outcomes are inspected",
+  "feature_seed": 4511,
+  "baseline_seed": 0,
+  "candidate_universe": "The team's 534 website-eligible companies, excluding self; failures are retained and not replaced",
+  "doc2vec": {"vector_size": 300, "dm": 0, "epochs": 100, "min_count": 2, "seed": 4511, "workers": 1},
+  "mpnet": {"model": "sentence-transformers/all-mpnet-base-v2", "revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130", "chunk_words": 200},
+  "activity_transport": {"mass": "uniform over independently extracted supported activities; textual scope, not revenue weights", "cost": "1-cosine", "balanced": "exact EMD", "unbalanced_entropy": 0.05, "unbalanced_marginal_penalty": 1.0, "penalty_sensitivity": [0.25, 4.0], "report": "transport cost, regularized full objective, transported mass and unmatched mass"},
+  "financial_rank": {"features": ["target_revenue", "target_margin", "target_debt_to_revenue"], "distance": "mean absolute percentile-rank difference", "minimum_complete_features": 3, "information_regime": "mentor-permitted financial augmentation; definition/date quality unresolved"},
+  "hybrid": {"method": "reciprocal rank fusion", "constant": 60, "weights": [0.5, 0.5], "components": ["team_mpnet_cosine", "financial_rank_adapted"]},
+  "sector_profiles": {"7370": ["product_function", "customer_industry", "operating_role", "delivery_model", "revenue_model"], "2834": ["product_type", "use_case_or_therapeutic_area", "customer", "commercialization_stage", "operating_role"], "weights": "equal known facets; report target and candidate evidence coverage; missing is unknown, not disagreement", "retain_all_activities": true, "filter_candidates": "same SIC4 for sector extension; retain the general all-universe arm separately"},
+  "local_llm": {"model": "Qwen/Qwen2.5-3B-Instruct", "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1", "temperature": 0, "role": "source-constrained extraction and provisional comparison, never independent human truth", "shortlist": "union top10 independently retrieved by lexical, dense, Doc2Vec, OT, financial and profile methods; max60 per target plus deterministic random controls", "position_bias_check": "reverse presentation order for fixed comparison pairs"},
+  "peer_policies": {"required_k": 5, "sensitivity_k": [3, 10], "abstention": "require supported activity evidence in target and all five selected peers; coverage guard, not a calibrated relevance threshold", "financial_refill": false},
+  "valuation": {"aggregations": ["median", "positive_harmonic", "reciprocal_rank_weighted_mean"], "minimum_valid_peers": 3, "target_outcomes": "opened only after rank artifacts are hashed", "strict_aligned_mode": "unavailable until dates and definitions are confirmed", "snapshot_proxy_mode": "explicitly labeled exploratory supplied-snapshot error"},
+  "direct_valuation_challengers": {"status": "Predeclared additional predictive arms; do not rank business relevance", "models": ["Ridge(alpha=10)", "HistGradientBoostingRegressor(max_iter=100,max_leaf_nodes=15,l2_regularization=1,early_stopping=False)"], "inputs": "permitted financial predictors plus 20-dimensional website TF-IDF SVD; no company name, ticker, target outcome or market price", "training": "all non-target eligible companies with positive finite multiples; ten targets excluded as a group", "outcome": "log supplied EV/EBITDA", "seed": 4511, "limits": "Small undated cross-section, no temporal backtest or calibrated prediction interval"},
+  "blocked_comparisons": {
+    "DOM_main_content_extractors": "The source archive includes raw text blocks but no raw HTML. Do not reconstruct fake HTML and call it a real cleaner comparison.",
+    "typed_relation_graph": "No attributable, joinable company relationship edges in the supplied data.",
+    "three_year_growth_and_intervals": "No point-in-time revenue panel with observable three-year outcomes and dated predictors.",
+    "full_public_candidate_universe": "The Monday pilot explicitly uses the approved supplied universe; broader collection needs additional entity/evidence coverage.",
+    "candidate_filing_enrichment": "Allowed as a separate future information arm; currently assigned to the teammate's enrichment route, no archived filing corpus available."
+  }
+}
