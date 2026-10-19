@@ -1,102 +1,157 @@
-# Handoff: growth-signals foundation
+# Handoff: growth signals (Xiaozhe)
 
-## What was agreed
+One record of the growth-signals work, 2026-10-18 to 2026-10-19.
 
-- Keep `website_scrape/` focused on company descriptions and similarity.
-- Build growth signals as a separate pipeline and branch so News/Press/Careers page
-  rules cannot alter the current scraper or its saved outputs.
-- Reuse stable fetching, robots.txt, fallback, source logging, and company-ID
-  conventions where possible.
-- Treat the growth model as a separate or complementary way to identify
+## Current status
+
+- Branch `growth-signals-recall`; `cd growth_signals && python -m pytest
+  tests -q` passes 211 tests.
+- Pipeline: collect News/Press/Careers pages per company, extract dated
+  events with source quotes, build cutoff-safe features. Revenue-growth
+  outcomes need a separate multi-year revenue file (not in the snapshot).
+- Extraction is rule-based: one event per article and event type, an
+  other-company actor check, 13 event types (schema version 2).
+- On unseen companies the rules reach about 58-61% precision and 43% recall
+  (held-out C below). Each round of rule fixes moved the unseen-data score
+  only a few points.
+- History covers only months, not the 3 years the outcome model needs.
+- Next: decide the extraction approach (an LLM pass is in progress, not
+  committed), then add years of history from sitemaps.
+
+## 2026-10-18: foundation
+
+Agreed:
+
+- Keep `website_scrape/` focused on company descriptions and similarity;
+  growth signals is a separate pipeline so News/Press/Careers rules cannot
+  change the scraper or its outputs.
+- Reuse the fetching, robots.txt, fallback, source logging and company-ID
+  conventions.
+- Treat the growth model as a separate or complementary way to find
   comparable companies.
 
-## Completed
+Built:
 
-- Created branch `growth-signals` in an isolated worktree.
-- Added `growth_signals/schema.py` with a strict, source-backed event record.
-- Added deterministic discovery of same-site News, Press, Careers, and Jobs
-  links from saved HTML.
-- Added a fetch adapter that reuses HTTP, rendered-browser, stealth, Wayback,
-  robots.txt, and bot-page handling without changing the current scraper or
-  writing to its output directory.
-- Growth-signal extraction reads unfiltered source text so hiring, dates, and
-  credit-stress evidence are retained.
-- Added a company-level collection command that loads the approved snapshot,
-  discovers event pages from each homepage, saves raw HTML, and archives prior
-  company records rather than overwriting them.
-- Added cutoff-safe feature aggregation for 365-, 730-, and 1,095-day windows.
-- Added tests for schema validation, link discovery, event windows, undated
-  records, and exclusion of post-cutoff events.
-- Documented the pipeline boundary, event taxonomy, output schema, and usage.
+- `schema.py`: strict, source-backed event record.
+- Same-site News/Press/Careers/Jobs link discovery from saved HTML.
+- Fetch adapter reusing HTTP, rendered browser, stealth, Wayback, robots.txt
+  and bot-page handling, writing only under `outputs-local/growth_signals/`.
+- Extraction reads unfiltered source text, so hiring, dates and
+  credit-stress evidence are kept.
+- Company collection command: loads the approved snapshot, discovers event
+  pages, saves raw HTML, archives earlier records instead of overwriting.
+- Cutoff-safe features for 365/730/1,095-day windows.
+- Plain HTML for PCTY was a Cloudflare shell; rendered Chromium gets the real
+  pages. Challenge detection needs both a challenge marker and sparse text, so
+  real pages that embed Cloudflare scripts are not rejected.
+- High-precision rule extractor with exact evidence and an audit row per
+  article. A false layoff match ("reducing repetitive data entry ... for
+  employees") was fixed.
+- Five-company pilot (PCTY, BV, HRI, PRGS, WING): 24 articles, 23 dated,
+  seven reviewed events (`growth_signals/sample_evaluation.md`). Rendered
+  fallback recovers HRI; a same-company `ir.<domain>` fallback recovers WING
+  (useful for public companies only).
+- WING's archive lists 2015 first; when a page declares a same-company
+  WordPress API, a bounded latest-posts request supplies 2026 article URLs,
+  while the article HTML stays the evidence.
+- `signal_duration`: explicit limited-time wording marks a launch
+  temporary; explicit platform/service objects mark it durable. Feature
+  windows keep the counts separate; no fixed weight.
 
-## Checks
+Settled since: the 10-K / financial-input question is decided in
+PROJECT_STATE.md (Aziz's reply, 2026-10-19).
 
-- 64 direct test functions passed using the available Anaconda environment.
-- Python compilation passed for all new modules and tests.
-- `git diff --check` passed.
-- The machine's normal pytest entry point is currently affected by a broken
-  Anaconda `conda-libmamba-solver` shared-library installation; the code itself
-  imports and the direct tests run successfully.
+## 2026-10-18: recall widening
+
+The first rules missed common press-release wording.
+
+- Wider action + object rules for contracts, hiring, layoffs, expansion and
+  credit, still abstaining on marketing language and job-board boilerplate.
+- Careers/Jobs pages may yield only `hiring` or `layoff`.
+- Article paths include `/stories/` and `/media-center/`; one listing
+  continuation (`rel=next`, Next/Older) is followed; `--max-articles` 10.
+
+## 2026-10-19: rule fixes (round 1)
+
+A hand-labeled check of the pilot (36 articles, 6 careers/jobs pages) found
+7 of 16 true events, with 2 false positives (an award article read as
+hiring; an AUV definition read as expansion).
+
+- Extractor: numbered or job-object hiring; more layoff forms; base-form
+  "expand" and "N net new openings"; launch noun forms; credit rating
+  verbs, outlooks, forbearance, Chapter 11; financing/legal agreements are
+  not contracts; text that is not the article's own is dropped (blocks on
+  3+ pages, partner "About" blocks, metric definitions, forward-looking
+  statements); undated `/insights/` and `/resources/` pages skipped.
+- `event_status` (planned/completed/unknown) and `via_ir_fallback`, with
+  backward-compatible defaults; `quarter` date precision.
+- Collector: day-first and ISO dates; month/quarter dates only from markup or
+  link text, stored as the period's last day (no counting an event early);
+  wider article paths; short link labels only; industry/product/job-site
+  pages excluded; `--max-articles` 25, `--max-listing-pages` 3.
+- A held-out live run (CSGS, GEF, WMK) exposed mega-menu misclassification;
+  fixed.
+
+## 2026-10-19: extraction (round 2)
+
+The user asked to get extraction right before collection or history work.
+
+- One event per (article, event type); other sentences go to
+  `supporting_text`, so feature counts are article counts.
+- Actor check: a named actor before the matched action that is not the
+  company rejects the sentence (logged under `rejected`); credit events are
+  exempt because rating agencies act on the company.
+- Schema version 2 adds `acquisition`, `divestiture`, `funding_round`,
+  `guidance_raised`, `guidance_lowered`; version 1 records still load.
+
+## 2026-10-19: rule generalization (round 3)
+
+- Rule windows no longer stop at decimals or abbreviations ("$2.2 million",
+  "Inc.", "U.S."): matching runs on a same-length copy with those periods
+  masked, so evidence text is unchanged.
+- Broader patterns: present-tense awards and partnerships, noun forms of
+  launches/acquisitions/divestitures, openings and footprint expansion with a
+  destination, repricing and credit-agreement amendments, passive "Acquired
+  by <the company>". Exclusions: plan of merger, share repurchase, securities
+  offerings, taglines, credit facilities, "expand access", capabilities,
+  third-party statistics ("according to ..."), company About/Founded blocks.
+
+## Evaluation
+
+Labels were written before running the extractor, and the rules were frozen
+for each held-out run; misses were fixed only in the next round. Scores
+count (article, event type) pairs.
+
+| set | when scored | precision | recall |
+|---|---|---:|---:|
+| Pilot, 5 companies | round 1, in-sample | 16/16 | 16/16 |
+| Held-out B: older BV/WING sitemap articles | round 2, unseen | 60% | 32% |
+| Held-out A: 10 new companies | round 2, unseen | 60% | 39% |
+| Held-out C: 10 more new companies | round 3, unseen | 58% (61% adjudicated) | 43% |
+
+After round 3, the pilot and held-outs A and B were used for tuning (100%,
+88% and 95% precision in-sample), so held-out C is the honest number.
+Only 13 of 32 and 15 of 32 sampled companies had 7+ dated own-site articles.
+Labels, page records, miss lists and scorers are in
+`outputs-local/growth_signals/eval_2026-10-19/` (not committed).
 
 ## Data version
 
-- No source data was read or modified in this milestone.
-- The repository still requires `company_list_v3` when company collection is
-  connected.
-- Live PCTY validation on 2026-10-18 confirmed the plain HTML response is a
-  Cloudflare verification shell while rendered Chromium retrieves the real
-  homepage, blog landing page, and Careers page. Challenge detection now
-  requires both a challenge marker and sparse visible content, so embedded
-  Cloudflare scripts on a real page do not cause a false rejection.
-- Article discovery now follows same-site News/Press listing links, retains
-  dates stated in their anchor text without guessing, and fetches a bounded
-  number of recent articles. A live PCTY run saved three dated articles with
-  rendered HTML, complete text, source URLs, and raw provenance.
-- Added a high-precision rule extractor with exact evidence and one audit row
-  per article. Positive, negative, duplicate, undated, non-article, and
-  marketing-language controls are covered. A nine-article live PCTY review
-  exposed and fixed a false layoff match caused by "reducing repetitive data
-  entry ... for employees." The final output contains one supported product
-  launch ("Introducing Paylocity Ignite AI," 2026-07-21) and eight explicit
-  abstentions.
-- Completed a five-company pilot (PCTY, BV, HRI, PRGS, WING): all five yielded
-  specific articles, for 22 total and 21 with explicit dates. Manual evidence
-  review retained four events. Dynamic-shell rejection enables rendered
-  fallback for HRI; a constrained, same-company official-IR fallback recovers
-  WING when its homepage has no News/Press entry. Media assets and investor
-  calendars are excluded, article-body dates override link-text dates, and
-  duplicated title evidence is collapsed. See `growth_signals/sample_evaluation.md`.
-- WING's HTML News archive lists 2015 entries first and exposes no HTML
-  pagination. Its page does explicitly declare a same-company WordPress API;
-  a bounded, date-descending API request now supplies five latest 2026 article
-  URLs and dates while each article's official HTML remains the evidence
-  source. The API response is retained with raw provenance and robots.txt is
-  honored. Guarded product patterns and negative controls now retain four
-  reviewed WING launches/offers without treating staff availability, tentative
-  product plans, or PRNewswire source-link boilerplate as events. The revised
-  pilot contains 24 articles, 23 dated, and seven accepted events.
-- Added backward-compatible `signal_duration` classification and separate
-  cutoff-safe feature counts for temporary, durable, and unknown-duration
-  launches. Explicit scarcity/limited-time evidence marks temporary; explicit
-  platform/service objects or platform integration marks durable. Validation
-  classified all four WING launches temporary and all three Paylocity/Progress
-  software launches durable. No fixed feature weight was imposed.
+`company_list_v3`; no source data modified.
 
 ## Unresolved
 
-- The first collector discovers only same-site and company-subdomain links.
-  Third-party job boards such as Workday or Greenhouse need an attribution and
-  allow-list policy before collection.
-- Temporary-launch predictive value and finer durable launch subtypes still
-  need evaluation. Undated Careers pages still need policy.
-- Historical revenue outcomes and cutoff dates have not been added.
-- The repository's existing rule against 10-K and financial matching inputs
-  may need revision after the mentor's latest clarification that private-target
-  LTM revenue, LTM EBITDA, and debt may be used for scale matching and that
-  public-comparable details may be used in similarity scoring. That decision
-  should be recorded separately from the growth-signal feature rules.
+- History depth: dates reach back only months. Sitemaps hold years (BV 180
+  press releases from 2020, Wingstop IR 390 from 2016) but are not used yet.
+- Third-party job boards, rating agencies and Wayback history need an
+  attribution/allow-list policy.
+- Temporary-launch predictive value and finer durable launch subtypes.
+- Historical revenue outcomes and cutoff dates.
+- Capex increase as an event type.
+- Collection defects: monthly archive listing pages and an RSS feed were
+  saved as articles (held-out C).
 
 ## Next recommended action
 
-Run the collector for one company, inspect its page record and raw files, then
-finalize the page/date schema before any full-company run.
+Choose the extraction approach (rules alone, or the LLM pass in progress)
+using held-out C and a fresh held-out sample, then add sitemap history.

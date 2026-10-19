@@ -5,7 +5,7 @@ for the scrape is in website_scrape/README.md.
 
 _Last updated: 2026-10-19 (methodology rules updated after Aziz's reply on
 10-Ks and financial inputs; growth-signal rule and collection fixes: see
-conversations/2026-10-19-growth-signals-rule-fixes.md)_
+conversations/2026-10-18-Xiaozhe-growth-signals.md)_
 
 ## Data
 
@@ -48,7 +48,7 @@ conversations/2026-10-19-growth-signals-rule-fixes.md)_
 | part | status | where |
 |---|---|---|
 | Website scrape | **Done for all 560** (3 pages per site, re-parsed 2026-10-18): 532 ok, 15 thin, 4 investor_site, 4 robots_disallowed, 4 http_403, 1 blocked. 26 tests. | website_scrape/, outputs-local/website_scrape/ |
-| Growth signals | **Extraction revised 2026-10-19 (branch growth-signals-recall).** One event per article and type, actor check, schema v2 types, decimal/abbreviation window fix. Fresh blind held-out (10 new companies): 58-61% precision, 43% recall; earlier fresh holdouts ~60% / 32-39%. Rule fixes generalize only slightly; see conversations/2026-10-19-growth-signals-rule-fixes.md. History still covers only months. 211 tests. | growth_signals/ |
+| Growth signals | **Extraction revised 2026-10-19 (branch growth-signals-recall).** One event per article and type, actor check, schema v2 types, decimal/abbreviation window fix. Fresh blind held-out (10 new companies): 58-61% precision, 43% recall; earlier fresh holdouts ~60% / 32-39%. Rule fixes generalize only slightly; see conversations/2026-10-18-Xiaozhe-growth-signals.md. History still covers only months. 211 tests. | growth_signals/ |
 | Matching method | **Not started** in the main pipeline. The first pass (embeddings of page text, PCTY NDCG@20 0.90) is in scraps as a baseline. | n/a |
 | Results, sanity check, valuation, definitions / limitations | **Not started.** | n/a |
 | Earlier attempts | Set aside 2026-10-18, kept runnable for reference: Codex profiles (219/560 done), first matching pass, first collection script. | scraps/, outputs-local/scraps/ |
