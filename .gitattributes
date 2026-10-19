@@ -1,3 +1,8 @@
 # Snapshots are checksummed in data_manifest.json, so git must store and check
 # out their exact bytes (CRLF, as exported) instead of converting line endings.
 data-local/snapshots/*.csv -text
+
+# The frozen research package verifies these files by their exact byte hashes.
+notebooks/whole_company_pilot.ipynb -text
+experiments/whole_company_pilot/** -text
+reports/whole_company_pilot/** -text
