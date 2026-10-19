@@ -183,3 +183,15 @@ Results:
 Unresolved: at z >= 2.5 a company with no comps gets no estimate (median of
 nothing = unknown). When valuing every company, report how many have no
 estimate at each level next to the error.
+
+## Committed and pushed
+
+- Added `matching/README.md` for the other engineers: how to run the
+  notebook, what changed from Riya's notebook (text source, no masking,
+  embeddings only, z levels instead of top 25, peer labels dropped, SIC and
+  length checks, valuation), outputs, and open issues. Numbers are from run
+  `20261019T013344Z`, the outputs saved in the notebook.
+- Root `README.md`: the `matching/` row now points to it.
+- Branch `michael/wip`, based on `main` at 41aa007 (includes the growth
+  signals work). Not merged to `main`. Run outputs in
+  `outputs-local/matching/` are git-ignored and not pushed.
