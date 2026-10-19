@@ -109,3 +109,29 @@ Labels, held-out page records, miss lists and scorers are in
 
 Fix the decimal-window bug and the listed misses, then score on a NEW
 held-out sample (not the two used here) to check the fixes generalize.
+
+## Round 3 (same day): generalization fixes and a fresh held-out
+
+- Rule windows no longer stop at decimals or abbreviations ("$2.2 million",
+  "Inc.", "U.S."): matching runs on a same-length copy with those periods
+  masked, so evidence text is unchanged.
+- Broader patterns: present-tense awards and partnerships, noun forms of
+  launches/acquisitions/divestitures, openings and footprint expansion with a
+  destination, repricing and credit-agreement amendments, passive "Acquired
+  by <the company>". Exclusions: plan of merger, share repurchase, securities
+  offerings, taglines, credit facilities, "expand access", capabilities,
+  third-party statistics ("according to ..."), company About/Founded blocks.
+- 211 tests pass.
+
+| set | role | precision | recall |
+|---|---|---:|---:|
+| Pilot, held-out A, held-out B | now training (in-sample) | 100%, 88%, 95% | 100%, 97%, 100% |
+| Held-out C: 10 fresh companies | blind, rules frozen | 58% (61% adjudicated) | 43% |
+
+The in-sample gains generalized only slightly. Misses and the options for
+the next round are in
+`outputs-local/growth_signals/eval_2026-10-19/holdout_c_misses.md`.
+
+## Round 4: LLM extraction
+
+In progress, not in this commit.

@@ -451,14 +451,15 @@ def test_block_on_two_pages_is_still_evidence():
     assert [event.event_type for event in events] == ["product_launch", "product_launch"]
 
 
-def test_about_block_for_partner_company_is_skipped_but_own_is_kept():
+def test_about_and_founded_boilerplate_blocks_are_skipped():
     record = record_with([
         "About Mondelez International: The company launched a new snack platform.",
-        "About Example Co.: Example Co. launched a new payroll platform.",
+        "About Example Co.: In 2019 the Company launched its new payroll platform.",
+        "Founded in 1994, Example Co. opened 60 net new restaurants last quarter.",
+        "Example Co. launched a new expense module.",
     ])
     events, _ = extract_record(record)
-    assert [event.source_text for event in events] == [
-        "About Example Co.: Example Co. launched a new payroll platform."]
+    assert [event.source_text for event in events] == ["Example Co. launched a new expense module."]
 
 
 def test_event_status_marks_planned_completed_and_unknown():
@@ -629,3 +630,122 @@ def test_rating_outlook_and_reiterated_guidance_are_not_guidance_events():
 def test_new_events_are_written_as_schema_version_2():
     events, _ = extract_record(record_with(["Example Co. acquired Acme Corp."]))
     assert events[0].to_dict()["schema_version"] == 2
+
+
+@pytest.mark.parametrize("sentence", [
+    "Example Co. has been awarded a $4.5 million contract to supply barrier walls.",
+    "Example Co. Inc. signed a 3.5-year agreement with the U.S. Navy.",
+    "Example Co. secured approx. $12.75 million in new contracts across Texas.",
+])
+def test_decimals_and_abbreviations_do_not_end_a_rule_window(sentence):
+    assert types_for([sentence]) == ["new_contract"]
+
+
+def test_window_still_stops_at_a_real_sentence_end():
+    assert types_for(["Example Co. signed the papers. A contract was not discussed."]) == []
+
+
+@pytest.mark.parametrize("sentence", [
+    "Example Co. Secures $8 Million Contract for Highway Project",
+    "Example Co. wins two hospital projects in Ohio.",
+    "Example Co. Partners with Acme to Bring Data into Retail Media",
+    "Example Co. today announced a new content partnership with Acme.",
+    "Example Co. has been selected by the county to maintain its parks.",
+    "Example Co. was named the Official Turf Consultant of the league.",
+    "Example Co. amended its supply agreements with two customers, extending terms to 2035.",
+])
+def test_contract_present_tense_partnership_and_selection_forms(sentence):
+    assert types_for([sentence]) == ["new_contract"]
+
+
+@pytest.mark.parametrize("sentence", [
+    "Example Co. entered into an agreement and plan of merger with Acme.",
+    "Example Co. entered into an agreement to repurchase 2 million shares.",
+    "We partner with clients to solve their hardest problems.",
+])
+def test_merger_buyback_and_generic_partnering_are_not_contracts(sentence):
+    assert "new_contract" not in types_for([sentence])
+
+
+@pytest.mark.parametrize("sentence", [
+    "Example Co. announced today the launch of an expanded suite of analytics tools.",
+    "Example Co. opens its marketplace to developers with new partner program.",
+    "Example Co. will offer guests new limited menu items this fall.",
+    "Example Co.'s new Smoky Maple Rub is available in all stores.",
+    "Example Co. expanded its Measurement solution to include connected TV.",
+    "Example Co. today announced Builder Hub, a new program for developers.",
+])
+def test_additional_product_launch_forms(sentence):
+    assert types_for([sentence]) == ["product_launch"]
+
+
+@pytest.mark.parametrize("sentence", [
+    "Example Co. Announces Pricing of Secondary Offering",
+    "In 2019, the Company launched its new tagline and creative campaign.",
+])
+def test_securities_offerings_and_taglines_are_not_launches(sentence):
+    assert "product_launch" not in types_for([sentence])
+
+
+@pytest.mark.parametrize("sentence", [
+    "Example Co. reported 45 net openings in the quarter.",
+    "Example Co. will open its first location in Portugal by year-end.",
+    "Example Co. plans to open 16 restaurants this year.",
+    "The agreement includes the build-out of 80 additional restaurants.",
+    "Example Co. is expanding its footprint into Tennessee.",
+    "The deal marks the company's first geographic expansion beyond Ohio.",
+    "Example Co. reached a final investment decision on a new processing plant.",
+])
+def test_additional_market_expansion_forms(sentence):
+    assert types_for([sentence]) == ["market_expansion"]
+
+
+@pytest.mark.parametrize("sentence", [
+    "Example Co. Completes Syndication of Expanded Credit Facility",
+    "We support solutions that expand access across the countries where we work.",
+    "The acquisition expands our capabilities in the Denver market.",
+])
+def test_credit_facilities_access_and_capabilities_are_not_market_expansion(sentence):
+    assert "market_expansion" not in types_for([sentence])
+
+
+def test_industry_statistics_are_not_company_events():
+    assert types_for([
+        "Total staffing employment rose 0.6%, adding approximately 12,000 jobs, "
+        "according to data released by the trade association."
+    ]) == []
+
+
+def test_generic_wish_to_hire_people_is_not_hiring():
+    assert types_for(["We strive to hire talented and dedicated people."]) == []
+
+
+def test_expanded_sales_teams_is_hiring():
+    assert types_for(["Results reflect investments in our expanded sales teams."]) == ["hiring"]
+
+
+@pytest.mark.parametrize("sentence", [
+    "Example Co. completed a repricing of its $700 million term loan.",
+    "Example Co. entered into a second amendment to its credit agreement.",
+    "The amendment raises the revolving credit facility to $100 million.",
+])
+def test_repricing_amendment_and_upsized_revolver_are_credit_positive(sentence):
+    assert types_for([sentence]) == ["credit_positive"]
+
+
+@pytest.mark.parametrize("sentence", [
+    "Example Co. announced the closing of its acquisition of Acme Paving.",
+    "Example Co. today announced the acquisition of Green Lawn, LLC.",
+])
+def test_acquisition_noun_forms(sentence):
+    assert types_for([sentence]) == ["acquisition"]
+
+
+def test_passive_acquisition_by_the_company_counts_but_by_another_does_not():
+    assert types_for(["Green Lawn, LLC Acquired by Example"]) == ["acquisition"]
+    assert "acquisition" not in types_for(["Example Co. was acquired by Acme in 2021."])
+
+
+def test_sale_of_equity_interest_is_divestiture():
+    assert types_for(["Results reflect the sale of its equity interest in Acme Pipeline."]) == [
+        "divestiture"]

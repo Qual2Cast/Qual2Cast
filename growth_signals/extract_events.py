@@ -26,9 +26,17 @@ HEADCOUNT_OBJECTS = (
     rf"{WORKFORCE_OBJECTS}|consultants|associates|technicians|drivers|nurses|"
     r"representatives|reps|specialists|developers|analysts|managers|salespeople|"
     r"sales professionals|team members|professionals|operators|mechanics|"
-    r"scientists|agents|people|hires"
+    r"scientists|agents|hires"
 )
-NUMBER = r"(?:(?:about|approximately|roughly|nearly|some|more than|over|up to)\s+)?\d[\d,.]*%?"
+# Matching runs on a copy of the sentence where non-final periods (decimals,
+# "Inc.", "U.S.") are replaced by DOT_MARK, so "$2.2 million" does not end a
+# [^.!?] window. Evidence text keeps the original characters.
+DOT_MARK = "\u2024"
+NUMBER = (
+    r"(?:(?:about|approximately|roughly|nearly|some|more than|over|up to)\s+)?"
+    r"\$?\d[\d,.\u2024]*%?(?:\s+(?:million|billion))?"
+)
+CONTRACT_OBJECTS = r"contracts?|agreements?|deals?"
 SITE_OBJECTS = (
     r"markets?|regions?|countr(?:y|ies)|states?|locations?|offices?|facilit(?:y|ies)|"
     r"operations|stores?|restaurants?|plants?|warehouses?|factor(?:y|ies)|branch(?:es)?|"
@@ -40,12 +48,27 @@ PROPER = r"(?-i:[A-Z])"
 
 RULES = {
     "new_contract": re.compile(
-        r"\b(?:awarded|secured|signed|signs|won|entered into)\b[^.!?]{0,100}"
-        r"\b(?:contract|agreement|deal)\b"
-        r"|\b(?:executed|extended|renewed)\b[^.!?]{0,80}\b(?:contract|agreement|deal)\b"
-        r"|\b(?:announced|signed|formed)\b[^.!?]{0,80}\b(?:partnership|strategic partnership)\b"
-        r"|\b(?:received|won)\b[^.!?]{0,60}\bpurchase orders?\b"
-        r"|\bselected\b[^.!?]{0,80}\b(?:provider|partner|platform)\b",
+        r"\b(?:awarded|awards|secured|secures|signed|signs|won|wins|entered into|enters into)\b"
+        rf"[^.!?]{{0,100}}\b(?:{CONTRACT_OBJECTS})\b"
+        # "has been awarded three ... projects", "secures $10 Million Contract"
+        r"|\b(?:awarded|secured|secures|won|wins)\s+(?:a\s+|an\s+|the\s+)?(?:\w+\s+){0,6}?"
+        r"(?:projects?|orders?|tenders?)\b"
+        r"|\b(?:executed|extended|extends|extend|renewed|renews|amended|amends|expanded|expands)\b"
+        rf"[^.!?]{{0,80}}\b(?:{CONTRACT_OBJECTS})\b"
+        r"|\b(?:announced|announces|announce|signed|signs|formed|forms|entered into|enters into|"
+        r"launched|expanded|expands|expanding)\b[^.!?]{0,80}\b(?:partnership|(?-i:alliance))\b"
+        r"|\bnew\s+(?:\w+\s+){0,2}?partnership\b"
+        r"|(?-i:\b[Pp]artners [Ww]ith\b)|\b(?:today|now|recently)\s+partnered with\b"
+        r"|\bteam(?:s|ed)? up with\b"
+        r"|\b(?:received|won|secured)\b[^.!?]{0,60}\bpurchase orders?\b"
+        r"|\b(?:selected|chosen)\b[^.!?]{0,80}\b(?:provider|partner|platform|vendor|supplier|"
+        r"to (?:provide|maintain|supply|manage|deliver|build|install|serve|support))\b"
+        r"|\b(?:named|selected|chosen|appointed)\b[^.!?]{0,60}\b(?:official|exclusive|preferred)\s+"
+        r"(?:\w+\s+){0,2}(?:consultant|partner|provider|supplier|vendor)\b"
+        # A new designation, not a standing one ("is the Official Chicken Partner of").
+        r"|\b(?:serve|serves|will serve|become|becomes|became)\s+as\s+(?:\w+['\u2019]s\s+)?"
+        r"(?:first|official|exclusive|preferred)\s+(?:\w+\s+){0,2}(?:partner|provider|supplier)\b"
+        r"|\bfirst\s+(?:\w+\s+){0,2}partner in\s+(?-i:[A-Z])",
         re.I,
     ),
     "customer_loss": re.compile(
@@ -58,7 +81,9 @@ RULES = {
         re.I,
     ),
     "product_launch": re.compile(
-        r"\bannounced\b[^.!?]{0,50}\b(?:product release|new capabilities|new product|new platform|new solution|new service|new feature|new agent|new module|new offering)\b"
+        r"\b(?:announced|announces|unveiled|unveils)\b[^.!?]{0,50}\b(?:product release|new capabilities|"
+        r"new product|new platform|new solution|new service|new feature|new agent|new module|"
+        r"new offering|new integration|new program|new app|new tool|new line)\b"
         r"|\b(?:introduced|launched|unveiled|released)\b[^.!?]{0,100}"
         r"\b(?:new|product|platform|solution|service|feature|agent|module|offering)\b"
         r"|\b(?:rolled out|debuted|began shipping)\b[^.!?]{0,80}"
@@ -75,6 +100,21 @@ RULES = {
         # "the national launch of Club Wingstop" (not "release of Q2 results").
         rf"|\b(?:launch|introduction|debut|rollout|roll-out)\s+of\s+(?:the\s+)?(?:new\s+)?"
         rf"(?!(?-i:Q[1-4]\b|First|Second|Third|Fourth|Fiscal))(?:{PROPER}|new\b)"
+        # "the launch of an expansive suite of AI-powered solutions"
+        r"|\b(?:launch|introduction|debut|rollout|roll-out)\s+of\s+(?:an?|its|their|the)\s+"
+        r"(?:\w+\s+){0,4}?(?:suite|products?|platform|solutions?|services?|app|program|"
+        r"features?|tools?|offering|line|menu)\b"
+        r"|\bwith\s+(?:a\s+|its\s+)?new\s+(?:[\w-]+\s+){0,3}?(?:program|product|platform|app|"
+        r"feature|service|integration)\b"
+        r"|\b(?:offer|offers|introduce|introduces|add|adds|added)\s+(?:\w+\s+){0,3}?new\s+"
+        r"(?:[\w-]+\s+){0,3}?(?:menu items?|items|sides|flavors?|products?|options|dips?)\b"
+        r"|\bnew\s+(?:[\w-]+\s+){0,3}?(?:sides?|menu items?|flavors?|products?)\b[^.!?]{0,40}"
+        r"\b(?:now available|available now)\b"
+        r"|(?-i:['\u2019]s new [A-Z])"
+        r"|\b(?:expand|expands|expanded)\s+(?:its|the|our)\s+(?:[\w-]+\s+){0,4}?"
+        r"(?:solution|platform|product|offering)\s+to\b"
+        r"|\bexpands?\b[^.!?]{0,60}\bportfolio of\b[^.!?]{0,40}\bproducts\b"
+        r"|\b(?:upgraded|relaunched)\s+(?:its\s+|the\s+)?(?-i:[A-Z])"
         rf"|\bnew additions?\s*[:,]\s*{PROPER}"
         rf"|\b(?:is|are|now)\s+introducing\s+(?:the\s+)?(?:new\s+)?{PROPER}"
         r"|\bnewest\s+(?:limited[- ]time\s+)?(?:flavor|product|platform|feature|service|"
@@ -89,8 +129,20 @@ RULES = {
         r"\b(?:expand|expands|expanded|expanding|entered|entering|opened|opening)\b"
         rf"[^.!?]{{0,100}}\b(?:{SITE_OBJECTS})\b"
         r"|\b(?:expanded|expanding|expands|expand)\s+into\b"
-        rf"|\b\d[\d,]*\s+(?:net\s+)?new\s+(?:\w+\s+)?openings\b"
-        r"|\bnet new (?:\w+ )?openings\b",
+        r"|\b\d[\d,]*\s+(?:net\s+)?(?:new\s+)?(?:\w+\s+)?openings\b"
+        r"|\bnet (?:new )?(?:\w+ )?openings\b"
+        # "will open its first location in France", "plans to open 16 restaurants"
+        r"|\bopen\s+(?:its\s+|their\s+|our\s+|a\s+|an\s+|the\s+|\d[\d,]*\s+)"
+        r"(?:(?:first|new|additional|second|third)\s+)*(?:\w+\s+){0,2}?"
+        r"(?:locations?|stores?|restaurants?|offices?|plants?|facilit(?:y|ies)|branch(?:es)?|"
+        r"warehouses?|clinics?|hospitals?|cent(?:er|re)s?)\b"
+        r"|\b(?:build-out|buildout|development|addition) of\s+\d[\d,]*\s+(?:additional\s+|new\s+)?"
+        r"(?:restaurants|stores|locations|units|branches|clinics)\b"
+        r"|\b(?:expand(?:s|ed|ing)?|extend(?:s|ed|ing)?|grow(?:s|ing)?|grew)\s+(?:its|our|the)\s+"
+        r"(?:geographic\s+)?(?:footprint|presence|reach)\s+(?:into|across|in|to)\s+"
+        r"(?:the\s+)?(?:\d[\d,]*\s+)?(?-i:[A-Z])"
+        r"|\b(?:geographic\s+)?expansion (?:into|beyond|across)\b|\bgeographic expansion\b"
+        r"|\bfinal investment decision\b[^.!?]{0,120}\b(?:plant|facility|pipeline|expansion)\b",
         re.I,
     ),
     "hiring": re.compile(
@@ -104,7 +156,7 @@ RULES = {
         r"|\b(?:add|adds|added|adding|create|creates|created|creating)\s+(?:\w+\s+){0,3}?"
         r"(?:new|additional)\s+(?:jobs|positions|roles)\b"
         r"|\b(?:expand|expanded|expanding|grow|grew|growing|doubled|doubling|increased|increasing)"
-        r"\s+(?:its\s+|our\s+|the\s+)?(?:\w+\s+)?(?:workforce|headcount|sales\s?force|sales team)\b",
+        r"\s+(?:its\s+|our\s+|the\s+)?(?:\w+\s+)?(?:workforce|headcount|sales\s?forces?|sales teams?)\b",
         re.I,
     ),
     "layoff": re.compile(
@@ -135,7 +187,12 @@ RULES = {
         r"|\b(?:amended|extended)\b[^.!?]{0,80}\b(?:credit facility|credit agreement|loan facility)\b"
         r"|\b(?:credit rating|rating)\b[^.!?]{0,60}\b(?:upgraded|upgrade|raised)\b"
         r"|\b(?:upgraded|upgrade|raised)\b[^.!?]{0,60}\b(?:credit rating|rating)\b"
-        r"|\boutlook\b[^.!?]{0,40}\b(?:to|as)\s+positive\b",
+        r"|\boutlook\b[^.!?]{0,40}\b(?:to|as)\s+positive\b"
+        r"|\brepric(?:ed|ing|es)\b[^.!?]{0,60}\b(?:term loan|loan|debt|facility|notes)\b"
+        r"|\bamendment to\b[^.!?]{0,60}\bcredit (?:agreement|facility)\b"
+        r"|\b(?:raises|raised|increases|increased|upsized|upsizes)\b[^.!?]{0,40}"
+        r"\b(?:revolving credit facility|credit facility|revolver)\b"
+        r"|\bexpanded credit facility\b",
         re.I,
     ),
     "acquisition": re.compile(
@@ -145,14 +202,18 @@ RULES = {
         rf"(?:substantially all (?:of )?the assets of\s+|(?:a\s+)?(?:majority|minority|controlling) "
         rf"stake in\s+|all (?:of )?the (?:outstanding )?(?:shares|stock) of\s+)?(?:the\s+|an?\s+)?"
         rf"(?:{PROPER}|(?:\w+\s+){{1,3}}?(?:business|company|provider|maker|operator|firm|brand)\b)"
-        r"|\bdefinitive agreement to acquire\b",
+        r"|\bdefinitive agreement to acquire\b"
+        r"|\b(?:closing|completion)\s+of\s+(?:its|the|our)\s+(?:previously announced\s+)?acquisition of\b"
+        r"|\bannounced\s+(?:today\s+)?(?:the|its)\s+acquisition of\b",
         re.I,
     ),
     "divestiture": re.compile(
         r"\b(?:sold|sells|divested|divests|agreed to sell|spun off|spins off|"
         r"complet(?:ed|es) (?:the |its )?(?:sale|divestiture|spin-off) of)\s+"
         r"(?:its\s+|the\s+|our\s+)?(?:\w+\s+){0,4}?"
-        r"(?:business|division|unit|segment|subsidiary|operations|portfolio)\b",
+        r"(?:business|division|unit|segment|subsidiary|operations|portfolio)\b"
+        r"|\b(?:sale|divestiture|disposition) of\s+(?:its|our|the Company['\u2019]s|the)\s+"
+        r"(?:\w+\s+){0,3}?(?:equity interest|stake|business|division|unit|segment|subsidiary)\b",
         re.I,
     ),
     "funding_round": re.compile(
@@ -185,7 +246,8 @@ RULE_EXCLUSIONS = {
     "new_contract": re.compile(
         r"\b(?:forbearance|credit|loan|waiver|merger|settlement|separation|"
         r"purchase and sale|underwriting)\s+agreements?\b|\bindenture\b"
-        r"|\bdefinitive agreement\b|\bagreement to (?:acquire|sell|merge|be acquired)\b",
+        r"|\bdefinitive agreement\b|\bagreement to (?:acquire|sell|merge|be acquired|repurchase)\b"
+        r"|\bplan of merger\b|\brepurchase\b",
         re.I,
     ),
     # "was acquired by" is the company being bought, not buying.
@@ -202,6 +264,16 @@ RULE_EXCLUSIONS = {
         r"|\b(?:helps?|helped|helping)\b[^.!?]{0,40}\braise\b",
         re.I,
     ),
+    "market_expansion": re.compile(
+        r"\b(?:credit|loan|revolving)\s+facilit(?:y|ies)\b|\bexpand(?:s|ed|ing)?\s+access\b"
+        r"|\bcapabilit(?:y|ies)\b",
+        re.I,
+    ),
+    "product_launch": re.compile(
+        r"\b(?:secondary|public|registered|underwritten|notes|debt|equity|stock)\s+offering\b"
+        r"|\bpricing of\b|\b(?:tagline|ad campaign|creative campaign|marketing campaign)\b",
+        re.I,
+    ),
     # Rating-agency outlooks are credit events, not company guidance.
     "guidance_raised": re.compile(r"\b(?:rating|S&P|Moody's|Fitch)\b", re.I),
     "guidance_lowered": re.compile(r"\b(?:rating|S&P|Moody's|Fitch)\b", re.I),
@@ -212,9 +284,14 @@ RULE_EXCLUSIONS = {
 DEFINITION_SENTENCE = re.compile(
     r"\b(?:is|are) (?:defined|calculated) as\b|\bconsists? of\b|\bwe define\b"
     r"|\b(?:is|are) (?:primarily |also |generally )?(?:driven|influenced) by\b"
-    r"|\bforward-looking statements?\b",
+    r"|\bforward-looking statements?\b"
+    # Third-party statistics ("..., according to data released by ...").
+    r"|\baccording to (?!the company\b|company\b)",
     re.I,
 )
+# Company boilerplate blocks ("About Wingstop ...", "Founded in 1994 ...")
+# repeat history, not news from this article.
+OWN_BOILERPLATE_BLOCK = re.compile(r"^\s*(?:about\s+\S|founded in \d{4})", re.I)
 ABOUT_BLOCK = re.compile(r"^\s*about\s+(?:the\s+)?([^\s:,.]+)", re.I)
 REPEATED_BLOCK_MIN_PAGES = 3
 # Undated pages under these paths are evergreen marketing or advice content
@@ -278,6 +355,30 @@ def sentences(text: str) -> list[str]:
     )
     parts = re.split(r'(?<=[.!?])\s+(?=[A-Z0-9“"])', protected)
     return [part.replace("<DOT>", ".").strip() for part in parts if part.strip()]
+
+
+ABBREVIATION_DOT = re.compile(
+    r"\b(?:Inc|Corp|Co|Ltd|LLC|Bros|No|Nos|St|Jr|Sr|Mr|Ms|Dr|vs|approx|est|Jan|Feb|Mar|Apr|"
+    r"Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec|Mass|Calif|Fla|Va|Ga|Pa|Tex)\.(?=\s|,|$)"
+)
+INITIALISM = re.compile(r"\b(?:[A-Z]\.){2,}")
+
+
+def matching_text(sentence: str) -> str:
+    """Same-length copy of a sentence whose non-final periods cannot end a window.
+
+    Decimals ("$2.2 million"), abbreviations ("Inc.", "Sept.") and initialisms
+    ("U.S.") get DOT_MARK instead of ".", so a rule window such as
+    ``[^.!?]{0,100}`` spans them. Positions are unchanged, so match offsets
+    still index the original sentence.
+    """
+    text = re.sub(r"(?<=\d)\.(?=\d)", DOT_MARK, sentence)
+    text = INITIALISM.sub(lambda m: m.group(0).replace(".", DOT_MARK), text)
+    text = ABBREVIATION_DOT.sub(lambda m: m.group(0)[:-1] + DOT_MARK, text)
+    return text
+
+
+OWN_PASSIVE_ACQUISITION = re.compile(r"\bacquired by\s+(?:the\s+)?([\w&'\u2019-]+)", re.I)
 
 
 def signal_duration(event_type: str, evidence: str, page_text: str) -> str:
@@ -401,6 +502,27 @@ def other_actor(sentence: str, match_start: int, own_tokens: set[str]) -> str | 
     return " ".join(subject)
 
 
+def article_blocks(record: dict, page: dict, excluded_blocks: set[str]) -> list[str]:
+    """The article's own text in reading order: title, summary, then body blocks.
+
+    Drops blocks repeated across the company's pages, partner "About" blocks
+    and the company's own About/Founded boilerplate. Shared so that every
+    reader of an article works from exactly these blocks.
+    """
+    raw_blocks = [
+        block for block in page.get("raw_blocks", [])
+        if _block_key(block) not in excluded_blocks
+        and not is_other_company_about(block, record["company_name"])
+        and not OWN_BOILERPLATE_BLOCK.match(block)
+    ]
+    raw_title = page.get("raw_title", "")
+    blocks = [page.get("raw_meta", "")]
+    if not raw_blocks or not raw_title.casefold().startswith(raw_blocks[0].casefold()):
+        blocks.insert(0, raw_title)
+    blocks.extend(raw_blocks)
+    return [block for block in blocks if block.strip()]
+
+
 def extract_page_events(record: dict, page: dict,
                         excluded_blocks: set[str] | None = None,
                         rejections: list[dict] | None = None) -> list[Event]:
@@ -420,32 +542,32 @@ def extract_page_events(record: dict, page: dict,
     precision = page.get("published_date_precision", "unknown")
     unknown_reason = None if event_date else "No explicit publication date was found on the page."
     via_ir_fallback = bool(page.get("via_ir_fallback", False))
-    raw_blocks = [
-        block for block in page.get("raw_blocks", [])
-        if _block_key(block) not in excluded_blocks
-        and not is_other_company_about(block, record["company_name"])
-    ]
-    raw_title = page.get("raw_title", "")
-    evidence_blocks = [page.get("raw_meta", "")]
-    if not raw_blocks or not raw_title.casefold().startswith(raw_blocks[0].casefold()):
-        evidence_blocks.insert(0, raw_title)
-    evidence_blocks.extend(raw_blocks)
+    evidence_blocks = article_blocks(record, page, excluded_blocks)
     page_text = " ".join(evidence_blocks)
     by_type: dict[str, list[str]] = {}
     for block in evidence_blocks:
         for sentence in sentences(block):
             if sentence.casefold().startswith("view original content to download multimedia:"):
                 continue
-            if DEFINITION_SENTENCE.search(sentence):
+            if DEFINITION_SENTENCE.search(matching_text(sentence)):
                 continue
+            text = matching_text(sentence)
             for event_type, pattern in RULES.items():
                 if category in {"careers", "jobs"} and event_type not in CAREERS_EVENT_TYPES:
                     continue
-                match = pattern.search(sentence)
+                match = pattern.search(text)
+                if event_type == "acquisition":
+                    # "Green Image, LLC Acquired by BrightView": the company is the buyer.
+                    passive = OWN_PASSIVE_ACQUISITION.search(text)
+                    if passive and _plain(passive.group(1)) in own_tokens:
+                        matched = by_type.setdefault(event_type, [])
+                        if sentence.casefold() not in {item.casefold() for item in matched}:
+                            matched.append(sentence)
+                        continue
                 if not match:
                     continue
                 exclusion = RULE_EXCLUSIONS.get(event_type)
-                if exclusion and exclusion.search(sentence):
+                if exclusion and exclusion.search(text):
                     continue
                 actor = (None if event_type in AGENCY_ACTOR_TYPES
                          else other_actor(sentence, match.start(), own_tokens))
