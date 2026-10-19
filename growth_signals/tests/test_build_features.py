@@ -4,7 +4,8 @@ from build_features import build_company_features
 from schema import Event
 
 
-def event(event_date, event_type="hiring", direction="positive", confidence=0.8):
+def event(event_date, event_type="hiring", direction="positive", confidence=0.8,
+          signal_duration="unknown"):
     precision = "day" if event_date else "unknown"
     return Event(
         IQ_COMPANY_ID="IQ1",
@@ -19,6 +20,7 @@ def event(event_date, event_type="hiring", direction="positive", confidence=0.8)
         confidence=confidence,
         extraction_method="rule",
         unknown_reason="No date on source" if not event_date else None,
+        signal_duration=signal_duration,
     )
 
 
@@ -50,3 +52,16 @@ def test_rejects_conflicting_company_names_for_same_id():
         assert "conflicting company names" in str(exc)
     else:
         raise AssertionError("expected conflicting names to fail")
+
+
+def test_product_launch_duration_counts_remain_separate():
+    rows = build_company_features([
+        event("2024-12-01", "product_launch", signal_duration="temporary"),
+        event("2024-11-01", "product_launch", signal_duration="durable"),
+        event("2024-10-01", "product_launch"),
+    ], date(2024, 12, 31))
+    row = rows[0]
+    assert row["product_launch_365d_count"] == 3
+    assert row["product_launch_temporary_365d_count"] == 1
+    assert row["product_launch_durable_365d_count"] == 1
+    assert row["product_launch_unknown_duration_365d_count"] == 1

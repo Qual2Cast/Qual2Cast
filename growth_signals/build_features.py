@@ -19,6 +19,11 @@ def _feature_names() -> list[str]:
         for event_type in sorted(EVENT_TYPES):
             names.append(f"{event_type}_{days}d_count")
         names.extend([
+            f"product_launch_temporary_{days}d_count",
+            f"product_launch_durable_{days}d_count",
+            f"product_launch_unknown_duration_{days}d_count",
+        ])
+        names.extend([
             f"positive_{days}d_count",
             f"negative_{days}d_count",
             f"evidence_{days}d_count",
@@ -57,6 +62,12 @@ def build_company_features(events: list[Event], cutoff_date: date) -> list[dict]
             for event_type in sorted(EVENT_TYPES):
                 row[f"{event_type}_{days}d_count"] = sum(
                     event.event_type == event_type for event in eligible)
+            for duration in ("temporary", "durable", "unknown"):
+                label = "unknown_duration" if duration == "unknown" else duration
+                row[f"product_launch_{label}_{days}d_count"] = sum(
+                    event.event_type == "product_launch"
+                    and event.signal_duration == duration
+                    for event in eligible)
             row[f"positive_{days}d_count"] = sum(event.direction == "positive" for event in eligible)
             row[f"negative_{days}d_count"] = sum(event.direction == "negative" for event in eligible)
             row[f"evidence_{days}d_count"] = len(eligible)

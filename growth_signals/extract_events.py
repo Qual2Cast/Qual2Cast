@@ -81,6 +81,21 @@ DIRECTIONS = {
     "credit_stress": "negative",
 }
 
+TEMPORARY_MARKERS = re.compile(
+    r"\b(?:limited[- ]time|while supplies last|promotional period|"
+    r"disappears after|only \d+ [^.!?]{0,30}available|before (?:they(?:'re| are) )?sold out)\b",
+    re.I,
+)
+DURABLE_PRODUCT_MARKERS = re.compile(
+    r"\b(?:platform|solution|service|feature|agent|module|capabilit(?:y|ies))\b",
+    re.I,
+)
+DURABLE_CONTEXT_MARKERS = re.compile(
+    r"\b(?:embedded throughout|integrated (?:throughout|into)|built into)\s+"
+    r"(?:the\s+|its\s+)?(?:platform|service|product)\b",
+    re.I,
+)
+
 
 def sentences(text: str) -> list[str]:
     """Split source blocks conservatively while retaining evidence text."""
@@ -92,6 +107,18 @@ def sentences(text: str) -> list[str]:
     )
     parts = re.split(r'(?<=[.!?])\s+(?=[A-Z0-9“"])', protected)
     return [part.replace("<DOT>", ".").strip() for part in parts if part.strip()]
+
+
+def signal_duration(event_type: str, evidence: str, page_text: str) -> str:
+    """Classify launch duration only when the article provides explicit cues."""
+    if event_type != "product_launch":
+        return "unknown"
+    if TEMPORARY_MARKERS.search(page_text):
+        return "temporary"
+    if (DURABLE_PRODUCT_MARKERS.search(evidence)
+            or DURABLE_CONTEXT_MARKERS.search(page_text)):
+        return "durable"
+    return "unknown"
 
 
 def extract_page_events(record: dict, page: dict) -> list[Event]:
@@ -109,6 +136,7 @@ def extract_page_events(record: dict, page: dict) -> list[Event]:
     if not raw_blocks or not raw_title.casefold().startswith(raw_blocks[0].casefold()):
         evidence_blocks.insert(0, raw_title)
     evidence_blocks.extend(raw_blocks)
+    page_text = " ".join(evidence_blocks)
     for block in evidence_blocks:
         for sentence in sentences(block):
             if sentence.casefold().startswith("view original content to download multimedia:"):
@@ -133,6 +161,7 @@ def extract_page_events(record: dict, page: dict) -> list[Event]:
                     confidence=0.80,
                     extraction_method="rule",
                     unknown_reason=unknown_reason,
+                    signal_duration=signal_duration(event_type, sentence, page_text),
                 ).validate())
     return found
 

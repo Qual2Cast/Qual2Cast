@@ -14,6 +14,7 @@ SCHEMA_VERSION = 1
 EVENT_DIRECTIONS = {"positive", "negative", "neutral", "unknown"}
 EVENT_DATE_PRECISIONS = {"day", "month", "year", "unknown"}
 EXTRACTION_METHODS = {"rule", "llm", "human_review", "unknown"}
+SIGNAL_DURATIONS = {"temporary", "durable", "unknown"}
 EVENT_TYPES = {
     "new_contract",
     "customer_loss",
@@ -59,6 +60,7 @@ class Event:
     confidence: float
     extraction_method: str
     unknown_reason: str | None = None
+    signal_duration: str = "unknown"
     schema_version: int = SCHEMA_VERSION
 
     def validate(self) -> "Event":
@@ -76,6 +78,8 @@ class Event:
             raise ValueError(f"unknown event_date_precision: {self.event_date_precision}")
         if self.extraction_method not in EXTRACTION_METHODS:
             raise ValueError(f"unknown extraction_method: {self.extraction_method}")
+        if self.signal_duration not in SIGNAL_DURATIONS:
+            raise ValueError(f"unknown signal_duration: {self.signal_duration}")
         if not 0 <= self.confidence <= 1:
             raise ValueError("confidence must be between 0 and 1")
         if not self.source_text.strip():

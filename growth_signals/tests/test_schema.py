@@ -24,6 +24,7 @@ def valid_record(**overrides):
 def test_valid_event_round_trip():
     event = Event.from_dict(valid_record())
     assert event.to_dict()["event_type"] == "new_contract"
+    assert event.signal_duration == "unknown"
 
 
 def test_undated_event_requires_reason():
@@ -36,3 +37,8 @@ def test_rejects_invalid_confidence_and_url():
         Event.from_dict(valid_record(confidence=1.1))
     with pytest.raises(ValueError, match="absolute"):
         Event.from_dict(valid_record(source_url="/news/contract"))
+
+
+def test_rejects_invalid_signal_duration():
+    with pytest.raises(ValueError, match="signal_duration"):
+        Event.from_dict(valid_record(signal_duration="permanent"))

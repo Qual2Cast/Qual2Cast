@@ -20,6 +20,8 @@ the company had no growth events.
 - 5/5 companies yielded specific articles.
 - 24 articles were saved; 23 had an explicit publication date.
 - Seven events survived rule extraction and manual evidence review.
+- Duration review classified four WING launches as temporary and the three
+  Paylocity/Progress software launches as durable.
 - Every non-match is retained in the audit as an abstention.
 
 ## Defects exposed and fixed
@@ -52,14 +54,18 @@ the company had no growth events.
    `arrives nationwide`, and named new products `launching nationwide`.
    Generic staff availability, tentative future products, and PRNewswire
    source-link boilerplate are negative controls.
+10. Product launches now carry a backward-compatible `signal_duration` field.
+    Explicit limited-time or scarcity language produces `temporary`; explicit
+    platform/service objects or integration produce `durable`; ambiguous cases
+    remain `unknown`. Feature windows keep all three counts separate rather
+    than applying an unvalidated fixed weight.
 
 ## Remaining coverage gaps
 
 - Careers landing pages are collected but do not yet follow third-party job
   boards. Those sources require an allow-list and attribution policy.
-- Several WING events are limited-time flavors or promotional offers. They are
-  valid product/offer launches, but the feature model should distinguish them
-  from durable platform, service, or geographic expansion rather than weight
-  every `product_launch` equally.
+- Duration is still a coarse label. Future human evaluation should check
+  whether temporary launches predict growth at all and whether durable product
+  releases need finer platform/service/capability subtypes.
 - The rule extractor is intentionally low-recall. It is candidate generation
   for human review, not automatic validation.

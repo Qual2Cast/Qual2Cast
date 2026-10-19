@@ -84,6 +84,7 @@ One event per line:
   "source_text": "The company is hiring implementation consultants.",
   "confidence": 0.86,
   "extraction_method": "llm",
+  "signal_duration": "durable",
   "unknown_reason": null
 }
 ```
@@ -92,6 +93,12 @@ One event per line:
 or year. Records with no usable event date should be retained with
 `event_date` set to null and an `unknown_reason`, but they are excluded from
 cutoff-based features.
+
+`signal_duration` is `temporary`, `durable`, or `unknown`. The extractor uses
+only explicit article evidence: limited-time/sold-out language marks a launch
+temporary, while product objects such as platforms and services or explicit
+integration into a platform mark it durable. Older records without this field
+remain valid and default to `unknown`.
 
 ## Run tests
 
@@ -179,4 +186,7 @@ python build_features.py \
 ```
 
 The feature builder uses only events on or before the cutoff date and reports
-the number of undated records separately.
+the number of undated records separately. Each window retains the total
+`product_launch` count plus separate temporary, durable, and unknown-duration
+counts. No arbitrary fixed weight is imposed; downstream validation can learn
+or select the appropriate weighting.

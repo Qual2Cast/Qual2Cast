@@ -1,4 +1,4 @@
-from extract_events import extract_page_events, extract_record
+from extract_events import extract_page_events, extract_record, signal_duration
 
 
 def record_with(blocks, date="2026-09-22"):
@@ -128,6 +128,40 @@ def test_prnewswire_original_content_url_is_not_event_evidence():
         "https://www.prnewswire.com/news-releases/company-announces-the-rewards-card.html"
     ]))
     assert events == []
+
+
+def test_limited_time_article_marks_launch_temporary():
+    record = record_with([
+        "The new flavor arrives nationwide Oct. 27.",
+        "Available for a limited time only at participating locations.",
+    ])
+    events, _ = extract_record(record)
+    assert len(events) == 1
+    assert events[0].signal_duration == "temporary"
+
+
+def test_platform_launch_is_durable_without_temporary_marker():
+    events, _ = extract_record(record_with([
+        "The company launched a new payroll platform for hospitals."
+    ]))
+    assert len(events) == 1
+    assert events[0].signal_duration == "durable"
+
+
+def test_named_ai_launch_embedded_throughout_platform_is_durable():
+    record = record_with([
+        "Introducing Paylocity Ignite AI",
+        "It is embedded throughout the platform, bringing data and automation into work.",
+    ])
+    events, _ = extract_record(record)
+    assert len(events) == 1
+    assert events[0].signal_duration == "durable"
+
+
+def test_non_product_event_duration_is_unknown():
+    assert signal_duration(
+        "new_contract", "Signed a service agreement.", "Limited-time wording."
+    ) == "unknown"
 
 
 def test_undated_match_is_retained_with_reason():

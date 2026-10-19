@@ -31,7 +31,7 @@
 
 ## Checks
 
-- 58 direct test functions passed using the available Anaconda environment.
+- 64 direct test functions passed using the available Anaconda environment.
 - Python compilation passed for all new modules and tests.
 - `git diff --check` passed.
 - The machine's normal pytest entry point is currently affected by a broken
@@ -75,15 +75,20 @@
   reviewed WING launches/offers without treating staff availability, tentative
   product plans, or PRNewswire source-link boilerplate as events. The revised
   pilot contains 24 articles, 23 dated, and seven accepted events.
+- Added backward-compatible `signal_duration` classification and separate
+  cutoff-safe feature counts for temporary, durable, and unknown-duration
+  launches. Explicit scarcity/limited-time evidence marks temporary; explicit
+  platform/service objects or platform integration marks durable. Validation
+  classified all four WING launches temporary and all three Paylocity/Progress
+  software launches durable. No fixed feature weight was imposed.
 
 ## Unresolved
 
 - The first collector discovers only same-site and company-subdomain links.
   Third-party job boards such as Workday or Greenhouse need an attribution and
   allow-list policy before collection.
-- Limited-time promotional launches should be split or weighted separately
-  from durable product/platform/service expansion. Undated Careers pages still
-  need policy.
+- Temporary-launch predictive value and finer durable launch subtypes still
+  need evaluation. Undated Careers pages still need policy.
 - Historical revenue outcomes and cutoff dates have not been added.
 - The repository's existing rule against 10-K and financial matching inputs
   may need revision after the mentor's latest clarification that private-target
