@@ -133,7 +133,7 @@ After round 3, the pilot and held-outs A and B were used for tuning (100%,
 88% and 95% precision in-sample), so held-out C is the honest number.
 Only 13 of 32 and 15 of 32 sampled companies had 7+ dated own-site articles.
 Labels, page records, miss lists and scorers are in
-`outputs-local/growth_signals/eval_2026-10-19/` (not committed).
+`growth_signals/eval/2026-10-19/` (re-score with `python eval/score_rules.py`).
 
 ## Data version
 
