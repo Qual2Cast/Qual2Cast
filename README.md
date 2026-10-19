@@ -140,6 +140,8 @@ Merged into `main` so far:
 | 2026-10-18 23:36 | direct commit | Input rules updated after Aziz's reply on 10-Ks and financials |
 | 2026-10-19 02:17 | [#2](https://github.com/Qual2Cast/Qual2Cast/pull/2) `research/company-analysis-pipeline` | Ten-company research pilot |
 | 2026-10-19 04:37 | [#3](https://github.com/Qual2Cast/Qual2Cast/pull/3) `michael/wip` | Matching methods 1-3 and the evaluation notebook |
+| 2026-10-19 04:47 | [#4](https://github.com/Qual2Cast/Qual2Cast/pull/4) `michael/wip` | README rewritten to show what is on main and what is on branches |
+| 2026-10-19 16:23 | direct commit | Growth-signals handoffs merged into `conversations/2026-10-19-growth-signals.md` |
 
 Earlier attempts that aren't part of the pipeline (structured profiles written by Codex, the first matching pass, the first collection script) are in [`scraps/`](scraps/README.md), with notes on why each was set aside.
 
