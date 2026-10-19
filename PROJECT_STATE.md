@@ -8,7 +8,7 @@ conversations/2026-10-19-merge-main.md. Matching: three methods and an
 evaluation notebook; methodology in matching/README.md; history in
 conversations/2026-10-19-method2-mutual-knn.md. Methodology rules updated
 after Aziz's reply on 10-Ks and financial inputs; growth-signal recall: see
-conversations/2026-10-18-growth-signals-recall.md)_
+conversations/2026-10-19-growth-signals.md)_
 
 ## Data
 
