@@ -3,9 +3,9 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
-_Last updated: 2026-10-18 (matching notebook: method 1 now ends in a
-valuation, comps = cosine z ≥ 2 and z ≥ 2.5; embedding baseline added:
-see conversations/2026-10-18-matching-baseline.md; repository reorganized: see
+_Last updated: 2026-10-19 (matching: three methods and an evaluation notebook, committed to
+`michael/wip`; methodology in matching/README.md; history in
+conversations/2026-10-19-method2-mutual-knn.md. Earlier: conversations/2026-10-18-matching-baseline.md,
 conversations/2026-10-18-repo-cleanup.md)_
 
 ## Data
@@ -39,13 +39,28 @@ conversations/2026-10-18-repo-cleanup.md)_
 - robots.txt: honored. One that answers 401/403 counts as no restrictions
   (RFC 9309), decided 2026-10-18.
 
+## Matching methodology (working approach)
+
+On branch `michael/wip`, not yet reviewed by the team. Full write-up:
+matching/README.md, "Methodology".
+
+- Every public company takes a turn as the private target: comps are found
+  among the other 534 from website text only, the estimate is the comps'
+  median EV/EBITDA, and the actual multiple is the answer key.
+- Benchmark: no matching (the median of all other companies). Measures:
+  median absolute % error and Spearman(estimate, actual); differences from
+  method 1 by paired bootstrap; methods also compared at equal comp counts
+  (3-10) and on ten chosen targets.
+- Settings are fixed before scoring, on the shape of the comp sets, never
+  tuned on valuation error. SIC codes are a check only.
+
 ## Status
 
 | part | status | where |
 |---|---|---|
 | Website scrape | **Done for all 560** (3 pages per site, re-parsed 2026-10-18): 532 ok, 15 thin, 4 investor_site, 4 robots_disallowed, 4 http_403, 1 blocked. 26 tests. | website_scrape/, outputs-local/website_scrape/ |
-| Matching method | **Method 1 (section 3) complete end to end:** `matching/matching_methods.ipynb` loads the snapshot (non-financial columns) and the scraped page text, then runs the embedding method from Riya's branch (all-mpnet-base-v2, 200-word chunks averaged, cosine similarity; no name masking or template removal). 535 matchable, 25 excluded. Comps: no fixed number; companies whose cosine is ≥ 2 or ≥ 2.5 SDs above the target's mean cosine (z levels, both run through the whole section). Comps per company: z ≥ 2 median 17, range 2-41; z ≥ 2.5 median 7, range 0-23 (13 companies get none). PCTY: 14 / 6. Check: top-5 neighbours share SIC4 24% vs 1.7% by chance (14× lift). Valuation (EV/EBITDA loaded only there): PCTY actual 22.13; comps median 13.54 (−39%) at z ≥ 2, 14.87 (−33%) at z ≥ 2.5, vs 10.84 (−51%) with no matching. Section 4 (method 2) is an empty placeholder. `matching/README.md` explains the method and what changed from Riya's notebook. Pushed to branch `michael/wip`, not merged to main. | matching/, outputs-local/matching/ |
-| Results across targets, sanity check, definitions / limitations | **Not started.** Valuation so far is PCTY only. | n/a |
+| Matching method | **Three methods and an evaluation, on branch `michael/wip`.** `matching/matching_methods.ipynb`: website text → `all-mpnet-base-v2` embeddings (535 matchable, 25 excluded) → comps by method 1 (embedding similarity, cosine z ≥ 2 / 2.5), method 2 (mutual kNN, k = 10 / 20; then UMAP + HDBSCAN clusters), or method 3 (agglomerative tree, complete / ward linkage) → estimate = comps' median EV/EBITDA (financials read only there). Each method is shown on PCTY and then values every company from its own comps. `matching/matching_evaluation.ipynb` (runs the methods notebook first): every method at 3-10 comps, and ten targets (PCTY, BV, ROAD, FIX, BRO, ADUS, LOPE, ODFL, WING, DXPE). **Results:** median absolute error ≈ 35% for every method, the same as no matching (34.6%); method 1 ranks companies best (Spearman 0.31 vs 0.21-0.24 for the others and 0.22-0.24 for SIC peer groups); at equal comp counts no method beats method 1; targets with clear peers get them (ROAD, BRO, LOPE, ADUS), finer distinctions fail (truckload types, contractors vs HVAC makers, distributors), BV gets comps though it has no real peer, and right peers still miss by 29-43%. Latest runs `20261019T080322Z` (methods) and `20261019T080416Z` (evaluation). `umap-learn` and `hdbscan` 0.8.44 are installed in the kernel's Python 3.14. | matching/, outputs-local/matching/ |
+| Results across targets, sanity check, definitions / limitations | **Started:** valuation error for all 535 matchable companies, every method at 3-10 comps, and ten targets (`matching/matching_evaluation.ipynb`). Human check of comps against source pages, and definitions / limitations, not started. | matching/ |
 | Earlier attempts | Set aside 2026-10-18, kept runnable for reference: Codex profiles (219/560 done), first matching pass, first collection script. | scraps/, outputs-local/scraps/ |
 
 ## Open questions
@@ -66,12 +81,14 @@ conversations/2026-10-18-repo-cleanup.md)_
 
 ## Next steps
 
-1. Method 2 (notebook section 4), compared with method 1 on the same
-   targets and the same valuation step.
-2. Run the valuation for every matchable company, not only PCTY, so the
-   methods are compared on valuation error across the whole list.
-3. Results obtained, and how they are checked (peer labels for more targets
+1. Picking peers doesn't look like the bottleneck: no comp rule beats method 1,
+   even at equal comp counts, and right peers still give large errors. Next:
+   change the estimate (shrink the comps' median toward the all-company
+   median; weight comps by similarity) and try a "no good match" rule from
+   absolute similarity (BV). Judge with `versus()` (bootstrap vs method 1)
+   and the ten targets, settings fixed before scoring.
+2. Results obtained, and how they are checked (peer labels for more targets
    than PCTY, written before running them).
-4. Human sanity check of the top comps against their source pages.
-5. Definitions and limitations.
-6. Supply websites for the 4 IR-only companies (or accept "unknown").
+3. Human sanity check of the top comps against their source pages.
+4. Definitions and limitations.
+5. Supply websites for the 4 IR-only companies (or accept "unknown").

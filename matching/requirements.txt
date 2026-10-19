@@ -4,4 +4,8 @@ requests                  # imported by website_scrape/fetch_and_clean.py, which
 beautifulsoup4            # same
 sentence-transformers     # the embedding baseline (downloads all-mpnet-base-v2, ~420 MB, on first run)
 matplotlib                # the cosine fall-off plot
+scikit-learn              # HDBSCAN (method 2, step 2)
+umap-learn                # reduces the embeddings before HDBSCAN
+hdbscan                   # rebuilds HDBSCAN's cluster tree for the plot (scikit-learn's doesn't expose it)
+scipy                     # the agglomerative tree (method 3) and bootstrap ranks
 ipykernel                 # to run the notebook: python -m ipykernel install --user --name qual2cast
