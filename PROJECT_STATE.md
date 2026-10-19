@@ -3,6 +3,22 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
+## Integrated 19-company experiment (2026-10-19)
+
+New entry point: `notebooks/integrated_company_analysis.ipynb`; summary and
+review queues: `reports/integrated_company_analysis/`. It combines the two
+ten-company lists (PCTY overlaps), current team matching families, earlier
+representation/activity alternatives, financial reranking and growth extraction.
+The original ten-company notebook remains unchanged.
+
+Validation: 33 code cells, zero errors, five figures; 14 new regression tests,
+96 main website/growth tests and 169 recall tests passed. Independent relevance
+labels, dated valuation definitions and historical growth panels are still
+missing; lower development error is not evidence of approved business matches.
+See `conversations/2026-10-19-integrated-company-analysis.md` for exact scope,
+data version and next steps. Baseline code is unchanged; recall is pinned
+separately rather than merged.
+
 _Last updated: 2026-10-19 (`michael/wip` merged with main: see
 conversations/2026-10-19-merge-main.md. Matching: three methods and an
 evaluation notebook; methodology in matching/README.md; history in
