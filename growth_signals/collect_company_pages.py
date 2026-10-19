@@ -20,6 +20,7 @@ from collect_events import (
     articles_from_wordpress_api,
     discover_article_links,
     discover_event_pages,
+    discover_listing_next_url,
     date_from_text,
     is_article_url,
     publication_date_from_html,
@@ -101,7 +102,7 @@ def page_record(page, metadata: dict, page_id: str, category: str,
 
 
 def collect_company(company: dict, clients: list, output_root: Path,
-                    max_event_pages: int = 4, max_articles: int = 5) -> dict:
+                    max_event_pages: int = 4, max_articles: int = 10) -> dict:
     """Collect a homepage plus selected growth-signal pages for one company."""
     company_id = company["IQ_COMPANY_ID"]
     name = company["target_company_name"]
@@ -213,6 +214,32 @@ def collect_company(company: dict, clients: list, output_root: Path,
             for article in discover_article_links(
                     page.html, page.final_url, selected_page["category"]):
                 article_candidates.setdefault(article["url"], article)
+            next_url = discover_listing_next_url(page.html, page.final_url)
+            if (next_url and next_url not in seen_final_urls
+                    and len(article_candidates) < max_articles):
+                try:
+                    next_page = fetch_page(next_url, clients, content_validator=validator)
+                except FetchFailed as exc:
+                    record["errors"].append({
+                        "url": next_url,
+                        "category": selected_page["category"],
+                        "attempts": exc.attempts,
+                    })
+                    next_page = None
+                if next_page is not None:
+                    next_key = canonical_url(next_page.final_url)
+                    if next_key not in seen_final_urls:
+                        seen_final_urls.add(next_key)
+                        next_page_id = f"P{len(record['pages']) + 1}"
+                        next_metadata = save_raw_page(
+                            next_page, output_root, company_id, next_page_id)
+                        record["pages"].append(page_record(
+                            next_page, next_metadata, next_page_id,
+                            selected_page["category"]))
+                        for article in discover_article_links(
+                                next_page.html, next_page.final_url,
+                                selected_page["category"]):
+                            article_candidates.setdefault(article["url"], article)
             api_url = wordpress_posts_api_url(
                 page.html, page.final_url, max_articles)
             if api_url:
@@ -313,7 +340,7 @@ def main() -> None:
     parser.add_argument("--tickers", nargs="*", help="only these tickers")
     parser.add_argument("--limit", type=int)
     parser.add_argument("--max-event-pages", type=int, default=4)
-    parser.add_argument("--max-articles", type=int, default=5)
+    parser.add_argument("--max-articles", type=int, default=10)
     parser.add_argument(
         "--methods",
         nargs="*",

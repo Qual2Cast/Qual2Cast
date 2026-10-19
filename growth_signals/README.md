@@ -62,9 +62,10 @@ time-split model evaluation
 - `build_outcomes.py`: computes exact one-, two-, and three-year revenue
   growth outcomes from a separate long-form annual revenue file. Missing years
   remain missing and are never replaced by a later observation.
-- `extract_events.py`: high-precision rule extraction from article pages with
-  exact source evidence and a per-article audit trail. It abstains when no
-  explicit event phrase is present.
+- `extract_events.py`: high-precision rule extraction from article pages, plus
+  hiring and layoff phrases on Careers/Jobs pages, with exact source evidence
+  and a per-page audit trail. It abstains when no explicit event phrase is
+  present.
 - `sample_evaluation.md`: evidence and remaining coverage gaps from the first
   five-company live pilot.
 - `tests/`: schema, link-discovery, and look-ahead tests.
@@ -141,7 +142,7 @@ Run one company first:
 
 ```bash
 python collect_company_pages.py --tickers PCTY --methods html rendered wayback \
-  --max-articles 3
+  --max-articles 10
 ```
 
 Outputs are written under `outputs-local/growth_signals/`:
@@ -154,11 +155,13 @@ page_records_history/<IQ_ID>_<timestamp>.json
 
 The homepage is `P1`; later pages are discovered News, Press, Careers, or
 Jobs pages followed by specific articles discovered from News or Press landing
-pages. When a page declares a same-company WordPress API, a bounded request for
-latest posts supplies URLs and dates; article evidence is still fetched from
-the official HTML page. Article-body dates take priority over listing dates,
-and missing dates remain unknown rather than being guessed. Re-running a
-company moves its previous page record to history.
+pages. Same-site `/stories/` and `/media-center/` article paths are included,
+and one explicit listing `rel=next` or Next/Older continuation may be fetched
+when more articles are needed. When a page declares a same-company WordPress
+API, a bounded request for latest posts supplies URLs and dates; article
+evidence is still fetched from the official HTML page. Article-body dates take
+priority over listing dates, and missing dates remain unknown rather than
+being guessed. Re-running a company moves its previous page record to history.
 Cloudflare and browser-verification shells are rejected and trigger the next
 configured fetch method. Event pages that redirect to the same final URL are
 saved only once.
@@ -174,10 +177,12 @@ python extract_events.py \
   --audit ../outputs-local/growth_signals/audit/IQ254957567.json
 ```
 
-Only specific article pages are eligible. Generic Careers pages and broad
-marketing phrases do not create events. The first rule set favors precision
-and abstention; its output remains candidate evidence for human review, not a
-claim that the event is automatically validated.
+Specific article pages are eligible for the full taxonomy. Careers and Jobs
+pages may yield only `hiring` or `layoff` events when an explicit workforce
+action is present. Generic marketing phrases and undated job-board boilerplate
+do not create events. The rule set still favors precision and abstention; its
+output remains candidate evidence for human review, not a claim that the event
+is automatically validated.
 
 ## Build features
 

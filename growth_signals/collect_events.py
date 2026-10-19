@@ -24,11 +24,13 @@ PAGE_PATTERNS = {
 }
 EXCLUDED_SCHEMES = {"mailto", "tel", "javascript"}
 ARTICLE_PATH = re.compile(
-    r"/(?:news|newsroom|press(?:-releases?)?|media|updates?|blogs?|articles?)/.+"
+    r"/(?:news|newsroom|press(?:-releases?)?|media|media-center|press-center|"
+    r"updates?|blogs?|articles?|stories)/.+"
     r"|/news-releases/news-release-details/[^/?#]+/?$"
     r"|/news/news-details/\d{4}/.+/default\.aspx$",
     re.I,
 )
+NEXT_LINK_TEXT = re.compile(r"^(?:next|older|more news|next page|»|>)$", re.I)
 MONTH_DATE = re.compile(
     r"\b(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)(?:\.)?"
     r"\s+(\d{1,2}),\s+(\d{4})\b",
@@ -141,6 +143,40 @@ def publication_date_from_html(html: str) -> tuple[str | None, str]:
     if parsed:
         return parsed, precision
     return None, "unknown"
+
+
+def discover_listing_next_url(html: str, base_url: str) -> str | None:
+    """Return one same-site listing continuation URL, without guessing pagination."""
+    soup = BeautifulSoup(html, "html.parser")
+    base_key = canonical_url(base_url)
+
+    def _usable(href: str | None) -> str | None:
+        if not href or urlparse(href).scheme.lower() in EXCLUDED_SCHEMES:
+            return None
+        absolute = canonical_url(urljoin(base_url, href))
+        if absolute == base_key or not same_registered_host(absolute, base_url):
+            return None
+        return absolute
+
+    for tag in soup.find_all("link", href=True):
+        rel = tag.get("rel", [])
+        if isinstance(rel, str):
+            rel = rel.split()
+        if "next" in {item.lower() for item in rel}:
+            usable = _usable(tag.get("href"))
+            if usable:
+                return usable
+    for anchor in soup.find_all("a", href=True):
+        rel = anchor.get("rel", [])
+        if isinstance(rel, str):
+            rel = rel.split()
+        text = " ".join(anchor.stripped_strings).strip()
+        if "next" not in {item.lower() for item in rel} and not NEXT_LINK_TEXT.match(text):
+            continue
+        usable = _usable(anchor.get("href"))
+        if usable:
+            return usable
+    return None
 
 
 def is_article_url(url: str) -> bool:

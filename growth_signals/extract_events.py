@@ -15,22 +15,36 @@ from pathlib import Path
 from schema import Event, write_events_jsonl
 
 
+ELIGIBLE_PAGE_CATEGORIES = {"article", "careers", "jobs"}
+CAREERS_EVENT_TYPES = {"hiring", "layoff"}
+WORKFORCE_OBJECTS = (
+    r"workforce|employees|workers|engineers|staff|roles|positions|jobs"
+)
+HEADCOUNT_OBJECTS = rf"{WORKFORCE_OBJECTS}|consultants"
+
 RULES = {
     "new_contract": re.compile(
         r"\b(?:awarded|secured|signed|signs|won|entered into)\b[^.!?]{0,100}"
         r"\b(?:contract|agreement|deal)\b"
+        r"|\b(?:executed|extended|renewed)\b[^.!?]{0,80}\b(?:contract|agreement|deal)\b"
+        r"|\b(?:announced|signed|formed)\b[^.!?]{0,80}\b(?:partnership|strategic partnership)\b"
+        r"|\b(?:received|won)\b[^.!?]{0,60}\bpurchase orders?\b"
         r"|\bselected\b[^.!?]{0,80}\b(?:provider|partner|platform)\b",
         re.I,
     ),
     "customer_loss": re.compile(
         r"\b(?:lost|terminated|did not renew|nonrenewal|non-renewal)\b[^.!?]{0,100}"
-        r"\b(?:customer|client|contract|agreement)\b",
+        r"\b(?:customer|client|contract|agreement)\b"
+        r"|\b(?:canceled|cancelled)\b[^.!?]{0,80}\b(?:subscription|contract|agreement|account)\b"
+        r"|\bcustomer churn\b",
         re.I,
     ),
     "product_launch": re.compile(
         r"\bannounced\b[^.!?]{0,50}\b(?:product release|new capabilities|new product|new platform|new solution|new service|new feature|new agent|new module|new offering)\b"
         r"|\b(?:introduced|launched|unveiled|released)\b[^.!?]{0,100}"
         r"\b(?:new|product|platform|solution|service|feature|agent|module|offering)\b"
+        r"|\b(?:rolled out|debuted|began shipping)\b[^.!?]{0,80}"
+        r"\b(?:new|product|platform|solution|service|app|device|dashboard)\b"
         r"|\bintroducing\b[^.!?]{0,100}\b(?:product|platform|solution|service|feature|agent|module)\b"
         r"|\b(?:announces?|launches?|introduces?)\b[^.!?]{0,80}"
         r"\b(?:pass|card|program|offering)\b"
@@ -43,29 +57,41 @@ RULES = {
     ),
     "market_expansion": re.compile(
         r"\b(?:expanded|expanding|entered|entering|opened|opening)\b[^.!?]{0,100}"
-        r"\b(?:market|region|country|countries|location|office|facility|operations)\b",
+        r"\b(?:market|region|country|countries|locations?|offices?|facilit(?:y|ies)|"
+        r"operations|stores?|restaurants?|plants?|warehouses?|factor(?:y|ies))\b"
+        r"|\b(?:expanded|expanding)\s+into\b",
         re.I,
     ),
     "hiring": re.compile(
-        r"\b(?:is hiring|are hiring|plans? to hire|will hire|adding)\b[^.!?]{0,80}"
-        r"\b(?:employees|workers|engineers|staff|roles|positions|jobs)\b",
+        rf"\b(?:is hiring|are hiring|now hiring|plans? to hire|will hire)\b[^.!?]{{0,80}}"
+        rf"\b(?:{HEADCOUNT_OBJECTS})\b"
+        rf"|\b(?:added|adding|created|creating)\b[^.!?]{{0,40}}\b(?:{WORKFORCE_OBJECTS})\b"
+        r"|\bexpanding (?:its |the |our )?workforce\b",
         re.I,
     ),
     "layoff": re.compile(
-        r"\b(?:laid off|layoffs?)\b[^.!?]{0,40}"
-        r"\b(?:workforce|employees|workers|staff|roles|positions|jobs)\b"
-        r"|\b(?:reducing|cutting|eliminating)\b\s+(?:its\s+|the\s+)?"
-        r"(?:workforce|employees|workers|staff|roles|positions|jobs)\b",
+        rf"\b(?:laid off|layoffs?)\b[^.!?]{{0,40}}\b(?:{WORKFORCE_OBJECTS})\b"
+        rf"|\b(?:reducing|cutting|eliminating|reduced|cut|eliminated)\b\s+"
+        rf"(?:its\s+|the\s+)?(?:\d+\s+)?(?:{WORKFORCE_OBJECTS})\b"
+        r"|\breduction in force\b"
+        rf"|\bfurloughed?\b[^.!?]{{0,40}}\b(?:{WORKFORCE_OBJECTS})\b",
         re.I,
     ),
     "credit_stress": re.compile(
         r"\b(?:defaulted|default|breached)\b[^.!?]{0,80}\b(?:debt|loan|covenant)\b"
-        r"|\b(?:liquidity crisis|difficulty servicing (?:its )?debt|credit stress)\b",
+        r"|\bcovenant breach\b"
+        r"|\b(?:liquidity crisis|difficulty servicing (?:its )?debt|credit stress)\b"
+        r"|\b(?:credit rating|rating)\b[^.!?]{0,60}\b(?:downgraded|downgrade)\b"
+        r"|\b(?:downgraded|downgrade)\b[^.!?]{0,60}\b(?:credit rating|rating)\b"
+        r"|\bgoing concern\b"
+        r"|\bmissed\b[^.!?]{0,40}\b(?:interest payment|debt payment|payment)\b",
         re.I,
     ),
     "credit_positive": re.compile(
         r"\b(?:refinanced|repaid|paid down)\b[^.!?]{0,80}\b(?:debt|loan|facility)\b"
-        r"|\b(?:credit rating|rating)\b[^.!?]{0,60}\b(?:upgraded|upgrade)\b",
+        r"|\b(?:amended|extended)\b[^.!?]{0,80}\b(?:credit facility|credit agreement|loan facility)\b"
+        r"|\b(?:credit rating|rating)\b[^.!?]{0,60}\b(?:upgraded|upgrade)\b"
+        r"|\b(?:upgraded|upgrade)\b[^.!?]{0,60}\b(?:credit rating|rating)\b",
         re.I,
     ),
 }
@@ -122,12 +148,13 @@ def signal_duration(event_type: str, evidence: str, page_text: str) -> str:
 
 
 def extract_page_events(record: dict, page: dict) -> list[Event]:
-    """Extract validated events from one dated article page."""
-    if page.get("category") != "article":
+    """Extract validated events from one dated article or careers/jobs page."""
+    category = page.get("category")
+    if category not in ELIGIBLE_PAGE_CATEGORIES:
         return []
     event_date = page.get("published_date")
     precision = page.get("published_date_precision", "unknown")
-    unknown_reason = None if event_date else "No explicit publication date was found in the listing link."
+    unknown_reason = None if event_date else "No explicit publication date was found on the page."
     found: list[Event] = []
     seen: set[tuple[str, str]] = set()
     raw_blocks = page.get("raw_blocks", [])
@@ -142,6 +169,8 @@ def extract_page_events(record: dict, page: dict) -> list[Event]:
             if sentence.casefold().startswith("view original content to download multimedia:"):
                 continue
             for event_type, pattern in RULES.items():
+                if category in {"careers", "jobs"} and event_type not in CAREERS_EVENT_TYPES:
+                    continue
                 if not pattern.search(sentence):
                     continue
                 key = (event_type, sentence.casefold())
@@ -171,7 +200,7 @@ def extract_record(record: dict) -> tuple[list[Event], dict]:
     events: list[Event] = []
     page_audit = []
     for page in record.get("pages", []):
-        if page.get("category") != "article":
+        if page.get("category") not in ELIGIBLE_PAGE_CATEGORIES:
             continue
         page_events = extract_page_events(record, page)
         events.extend(page_events)

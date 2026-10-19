@@ -202,3 +202,124 @@ def test_site_suffix_in_html_title_does_not_duplicate_body_headline():
     events, _ = extract_record(record)
     assert len(events) == 1
     assert events[0].source_text == headline
+
+
+def test_partnership_purchase_order_and_contract_extension_are_contracts():
+    phrases = [
+        "The company announced a new partnership with Walmart.",
+        "Example Co. received a purchase order from the Department of Defense.",
+        "The parties executed a master services agreement.",
+        "The company extended its existing contract with the customer.",
+    ]
+    for phrase in phrases:
+        events, _ = extract_record(record_with([phrase]))
+        assert [event.event_type for event in events] == ["new_contract"], phrase
+
+
+def test_canceled_subscription_and_churn_are_customer_loss():
+    events, _ = extract_record(record_with([
+        "A key account canceled its subscription.",
+        "The company experienced elevated customer churn in the period.",
+    ]))
+    assert [event.event_type for event in events] == ["customer_loss", "customer_loss"]
+
+
+def test_rollout_shipping_and_debut_are_product_launches():
+    phrases = [
+        "Example Co. today rolled out a new mobile app.",
+        "The company began shipping its next-generation device.",
+        "Example Co. debuted a new analytics dashboard.",
+    ]
+    for phrase in phrases:
+        events, _ = extract_record(record_with([phrase]))
+        assert [event.event_type for event in events] == ["product_launch"], phrase
+
+
+def test_store_plant_and_expanded_into_are_market_expansion():
+    phrases = [
+        "Example Co. opened 50 new restaurants this year.",
+        "The company opened a new store in Austin.",
+        "Example Co. expanded into Europe.",
+        "The company is opening a manufacturing plant in Ohio.",
+    ]
+    for phrase in phrases:
+        events, _ = extract_record(record_with([phrase]))
+        assert [event.event_type for event in events] == ["market_expansion"], phrase
+
+
+def test_acquisition_to_expand_footprint_is_not_market_expansion():
+    events, _ = extract_record(record_with([
+        "Example Co. acquired a competitor to expand its footprint."
+    ]))
+    assert events == []
+
+
+def test_headcount_additions_and_consultant_hiring_are_hiring():
+    phrases = [
+        "We are hiring implementation consultants.",
+        "Example Co. added 150 employees in the first half.",
+        "We are now hiring for multiple open roles.",
+        "The company created 40 new jobs in Tennessee.",
+        "The company is expanding its workforce by 10 percent.",
+    ]
+    for phrase in phrases:
+        events, _ = extract_record(record_with([phrase]))
+        assert [event.event_type for event in events] == ["hiring"], phrase
+
+
+def test_generic_open_positions_line_is_not_hiring():
+    events, _ = extract_record(record_with([
+        "Join our team: 12 open positions on the careers page."
+    ]))
+    assert events == []
+
+
+def test_past_tense_cuts_rif_and_furlough_are_layoffs():
+    phrases = [
+        "Example Co. cut 120 jobs at its Midwest plant.",
+        "The company eliminated 50 positions.",
+        "Example Co. announced a reduction in force.",
+        "The firm furloughed hundreds of workers.",
+    ]
+    for phrase in phrases:
+        events, _ = extract_record(record_with([phrase]))
+        assert [event.event_type for event in events] == ["layoff"], phrase
+
+
+def test_rating_upgrade_and_credit_facility_amendment_are_credit_positive():
+    phrases = [
+        "S&P upgraded the company's credit rating to BBB.",
+        "Example Co. amended and extended its credit facility.",
+    ]
+    for phrase in phrases:
+        events, _ = extract_record(record_with([phrase]))
+        assert [event.event_type for event in events] == ["credit_positive"], phrase
+
+
+def test_note_issuance_without_rating_action_is_not_credit_positive():
+    events, _ = extract_record(record_with([
+        "The company issued $500 million of senior notes."
+    ]))
+    assert events == []
+
+
+def test_downgrade_going_concern_and_missed_payment_are_credit_stress():
+    phrases = [
+        "Moody's downgraded the company's credit rating to B2.",
+        "The auditor raised substantial doubt about going concern.",
+        "The company missed an interest payment.",
+        "Lenders waived the covenant breach.",
+    ]
+    for phrase in phrases:
+        events, _ = extract_record(record_with([phrase]))
+        assert [event.event_type for event in events] == ["credit_stress"], phrase
+
+
+def test_careers_page_extracts_hiring_but_not_product_language():
+    record = record_with(["The company is hiring 25 engineers."])
+    record["pages"][0]["category"] = "careers"
+    events, _ = extract_record(record)
+    assert [event.event_type for event in events] == ["hiring"]
+    launch_record = record_with(["The company launched a new payroll platform."])
+    launch_record["pages"][0]["category"] = "careers"
+    assert extract_record(launch_record)[0] == []

@@ -215,6 +215,40 @@ def test_redirected_event_pages_are_deduplicated(tmp_path, monkeypatch):
     assert [page["category"] for page in record["pages"]] == ["home", "news"]
 
 
+def test_collect_company_follows_one_listing_next_page(tmp_path, monkeypatch):
+    homepage = '<html><body><a href="/news">News</a></body></html>'
+    landing = '''<html><body>
+    <a href="/news/older-item">Older item September 1, 2026</a>
+    <link rel="next" href="/news/page/2">
+    </body></html>'''
+    page_two = '''<html><body>
+    <a href="/news/newer-item">Newer item October 1, 2026</a>
+    </body></html>'''
+    article = "<html><body><p>The company signed a new hospital contract.</p></body></html>"
+
+    def fake_fetch(url, clients, **kwargs):
+        if url == "https://example.com":
+            return fetched(url, homepage)
+        if url == "https://example.com/news":
+            return fetched(url, landing)
+        if url == "https://example.com/news/page/2":
+            return fetched(url, page_two)
+        return fetched(url, article)
+
+    monkeypatch.setattr("collect_company_pages.fetch_page", fake_fetch)
+    company = {
+        "IQ_COMPANY_ID": "IQ1",
+        "target_company_name": "Example Co.",
+        "target_ciq_website": "https://example.com",
+    }
+    record = collect_company(company, [], tmp_path, max_event_pages=1, max_articles=2)
+    assert {item["url"] for item in record["discovered_articles"]} == {
+        "https://example.com/news/older-item",
+        "https://example.com/news/newer-item",
+    }
+    assert record["article_count"] == 2
+
+
 def test_previous_company_record_moves_to_history(tmp_path):
     original = {"IQ_COMPANY_ID": "IQ1", "collected_at": "2026-10-18T18:00:00Z", "status": "ok"}
     updated = {"IQ_COMPANY_ID": "IQ1", "collected_at": "2026-10-18T19:00:00Z", "status": "partial"}

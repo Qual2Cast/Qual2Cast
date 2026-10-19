@@ -3,6 +3,7 @@ from collect_events import (
     date_from_text,
     discover_article_links,
     discover_event_pages,
+    discover_listing_next_url,
     is_article_url,
     publication_date_from_html,
     wordpress_posts_api_url,
@@ -98,6 +99,21 @@ def test_specific_press_release_url_is_an_article_but_listing_is_not():
     assert not is_article_url("https://example.com/news/default.aspx")
     assert is_article_url(
         "https://ir.example.com/news/news-details/2026/new-product/default.aspx")
+    assert is_article_url("https://example.com/stories/new-store-opening")
+    assert is_article_url("https://example.com/media-center/q3-update")
+
+
+def test_listing_next_link_is_same_site_only():
+    html = '''
+    <link rel="next" href="/news/page/2">
+    <a href="https://other.example/news?page=2">Next</a>
+    '''
+    assert discover_listing_next_url(html, "https://example.com/news") == (
+        "https://example.com/news/page/2")
+    assert discover_listing_next_url(
+        '<a href="https://other.example/news?page=2">Next</a>',
+        "https://example.com/news",
+    ) is None
 
 
 def test_aria_label_supplies_q4_article_date():
