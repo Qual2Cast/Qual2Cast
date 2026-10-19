@@ -44,3 +44,14 @@ main by pull request.
 Open a pull request from `michael/wip` to main for team review of the
 matching approach. Then: scale as a secondary criterion (PROJECT_STATE.md,
 next step 2).
+
+## Follow-up: README rewrite (after PR #3 merged)
+
+`michael/wip` fast-forwarded to main (`29ad37c`). README.md rewritten to
+match main: status table, a diagram of the two tracks (valuation and
+growth), the project rules as updated 2026-10-19, a plain-language section
+per part with current results, branches not yet in main
+(`growth-signals-recall`, `riya/wip`) and merged pull requests with
+timestamps (US Eastern), next steps, and a glossary. Facts are taken from
+each part's README, PROJECT_STATE.md and the branch handoffs; no new
+results.
