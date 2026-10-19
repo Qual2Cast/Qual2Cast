@@ -90,6 +90,24 @@ scrape or re-parse was run in this session.
 - The filters still let some event/news lines through (e.g. Toro's homepage
   keeps "More events are coming soon." and a conference fireside chat).
 
+## After the cleanup
+
+- **Pushed:** commit 8ec080f to `main` on GitHub. Checked first: no data or
+  output files, no credentials, and no financial columns in the notebook's
+  saved outputs.
+- **New notebook:** `matching/matching_methods.ipynb` (kernel "Python 3.14
+  (Qual2Cast)").
+  - Loads the snapshot's non-financial columns, and asserts no financial
+    column is present.
+  - Loads every scraped page with its cleaned text and source, and builds
+    one row per company with status, pages, words and text.
+  - Shows the scrape overview and the target's pages (`TARGET = "PCTY"`).
+  - Sections 3-7 (matching method, results, sanity checks, valuation,
+    definitions/limitations) are placeholders for the user's plan.
+  - Runs top to bottom. 13 companies have no usable pages here: the 12
+    with none, plus MSC Industrial, whose only page is a bot check.
+  - Not committed yet.
+
 ## Next recommended action
 
 Commit this layout, then start the matching method on
