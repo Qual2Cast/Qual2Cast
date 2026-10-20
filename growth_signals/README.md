@@ -309,3 +309,4 @@ horizon only from the exact future fiscal year. It rejects duplicate
 company-year rows, conflicting company names, negative revenue, and a zero
 cutoff revenue. Build features and outcomes independently, then join them by
 `IQ_COMPANY_ID` for modeling.
+
