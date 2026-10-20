@@ -3,6 +3,25 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
+## Team research memo (2026-10-20)
+
+PR #6's integrated workflow is on main. A four-page memo now consolidates the
+team's evidence under research question, data/assumptions, approach/rationale,
+results/interpretation and limitations/next test. Individual contributions and
+implementation records are in a linked appendix. The same material opens
+`notebooks/team_company_workflow.ipynb`; its technical workflow follows unchanged.
+
+The memo distinguishes the original 535-company matching study from the
+538-company integrated evidence universe and the ten development targets.
+The default integrated estimate covers 2/10 targets; its 53.6% median APE is
+compared only with baselines on those same two cases. No new private-company
+accuracy, independent peer review or growth forecast is claimed.
+
+Validation of this revision is editorial: all 17 code cells, saved outputs,
+embedded inputs and eight figures match the previously executed notebook.
+See `reports/team_company_workflow/VALIDATION.json` and
+`conversations/2026-10-20-team-research-memo.md`.
+
 ## Integrated 19-company experiment (2026-10-19)
 
 New entry point: `notebooks/integrated_company_analysis.ipynb`; summary and
