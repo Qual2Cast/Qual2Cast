@@ -9,12 +9,15 @@ from pathlib import Path
 from typing import Iterable
 from urllib.parse import urlparse
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
+# Version 1 records (eight event types, no supporting_text) remain readable.
+SUPPORTED_SCHEMA_VERSIONS = {1, 2}
 
 EVENT_DIRECTIONS = {"positive", "negative", "neutral", "unknown"}
-EVENT_DATE_PRECISIONS = {"day", "month", "year", "unknown"}
+EVENT_DATE_PRECISIONS = {"day", "month", "quarter", "year", "unknown"}
 EXTRACTION_METHODS = {"rule", "llm", "human_review", "unknown"}
 SIGNAL_DURATIONS = {"temporary", "durable", "unknown"}
+EVENT_STATUSES = {"completed", "planned", "unknown"}
 EVENT_TYPES = {
     "new_contract",
     "customer_loss",
@@ -25,6 +28,15 @@ EVENT_TYPES = {
     "credit_positive",
     "credit_stress",
 }
+# Added in schema version 2.
+EVENT_TYPES_V2 = {
+    "acquisition",
+    "divestiture",
+    "funding_round",
+    "guidance_raised",
+    "guidance_lowered",
+}
+EVENT_TYPES = EVENT_TYPES | EVENT_TYPES_V2
 
 
 def _parse_date(value: str | None) -> date | None:
@@ -61,11 +73,19 @@ class Event:
     extraction_method: str
     unknown_reason: str | None = None
     signal_duration: str = "unknown"
+    event_status: str = "unknown"
+    via_ir_fallback: bool = False
+    # Other sentences from the same article that support the same event.
+    supporting_text: tuple[str, ...] = ()
     schema_version: int = SCHEMA_VERSION
 
     def validate(self) -> "Event":
-        if self.schema_version != SCHEMA_VERSION:
+        if self.schema_version not in SUPPORTED_SCHEMA_VERSIONS:
             raise ValueError(f"unsupported schema_version: {self.schema_version}")
+        if self.schema_version == 1 and self.event_type in EVENT_TYPES_V2:
+            raise ValueError(f"event_type {self.event_type} requires schema_version 2")
+        if not all(isinstance(text, str) and text.strip() for text in self.supporting_text):
+            raise ValueError("supporting_text must contain non-empty strings")
         if not self.IQ_COMPANY_ID.strip():
             raise ValueError("IQ_COMPANY_ID is required")
         if not self.company_name.strip():
@@ -80,6 +100,10 @@ class Event:
             raise ValueError(f"unknown extraction_method: {self.extraction_method}")
         if self.signal_duration not in SIGNAL_DURATIONS:
             raise ValueError(f"unknown signal_duration: {self.signal_duration}")
+        if self.event_status not in EVENT_STATUSES:
+            raise ValueError(f"unknown event_status: {self.event_status}")
+        if not isinstance(self.via_ir_fallback, bool):
+            raise ValueError("via_ir_fallback must be true or false")
         if not 0 <= self.confidence <= 1:
             raise ValueError("confidence must be between 0 and 1")
         if not self.source_text.strip():
@@ -95,7 +119,7 @@ class Event:
             if not (self.unknown_reason or "").strip():
                 raise ValueError("an undated event requires unknown_reason")
         elif self.event_date_precision == "unknown":
-            raise ValueError("a dated event must state day, month, or year precision")
+            raise ValueError("a dated event must state day, month, quarter, or year precision")
         return self
 
     @property
@@ -108,6 +132,8 @@ class Event:
         extra = set(record) - allowed
         if extra:
             raise ValueError(f"unexpected event fields: {sorted(extra)}")
+        if isinstance(record.get("supporting_text"), list):
+            record = {**record, "supporting_text": tuple(record["supporting_text"])}
         try:
             event = cls(**record)
         except TypeError as exc:
@@ -116,7 +142,9 @@ class Event:
 
     def to_dict(self) -> dict:
         self.validate()
-        return asdict(self)
+        record = asdict(self)
+        record["supporting_text"] = list(self.supporting_text)
+        return record
 
 
 def read_events_jsonl(path: Path) -> list[Event]:

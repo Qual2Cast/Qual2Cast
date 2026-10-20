@@ -215,6 +215,101 @@ def test_redirected_event_pages_are_deduplicated(tmp_path, monkeypatch):
     assert [page["category"] for page in record["pages"]] == ["home", "news"]
 
 
+def test_collect_company_follows_one_listing_next_page(tmp_path, monkeypatch):
+    homepage = '<html><body><a href="/news">News</a></body></html>'
+    landing = '''<html><body>
+    <a href="/news/older-item">Older item September 1, 2026</a>
+    <link rel="next" href="/news/page/2">
+    </body></html>'''
+    page_two = '''<html><body>
+    <a href="/news/newer-item">Newer item October 1, 2026</a>
+    </body></html>'''
+    article = "<html><body><p>The company signed a new hospital contract.</p></body></html>"
+
+    def fake_fetch(url, clients, **kwargs):
+        if url == "https://example.com":
+            return fetched(url, homepage)
+        if url == "https://example.com/news":
+            return fetched(url, landing)
+        if url == "https://example.com/news/page/2":
+            return fetched(url, page_two)
+        return fetched(url, article)
+
+    monkeypatch.setattr("collect_company_pages.fetch_page", fake_fetch)
+    company = {
+        "IQ_COMPANY_ID": "IQ1",
+        "target_company_name": "Example Co.",
+        "target_ciq_website": "https://example.com",
+    }
+    record = collect_company(company, [], tmp_path, max_event_pages=1, max_articles=2)
+    assert {item["url"] for item in record["discovered_articles"]} == {
+        "https://example.com/news/older-item",
+        "https://example.com/news/newer-item",
+    }
+    assert record["article_count"] == 2
+
+
+def test_collect_company_follows_listing_pages_up_to_limit(tmp_path, monkeypatch):
+    homepage = '<html><body><a href="/news">News</a></body></html>'
+    listings = {
+        "https://example.com/news": '<a href="/news/item-1">One September 1, 2026</a>'
+                                    '<link rel="next" href="/news/archive/2">',
+        "https://example.com/news/archive/2": '<a href="/news/item-2">Two August 1, 2026</a>'
+                                              '<link rel="next" href="/news/archive/3">',
+        "https://example.com/news/archive/3": '<a href="/news/item-3">Three July 1, 2026</a>'
+                                              '<link rel="next" href="/news/archive/4">',
+    }
+    requested = []
+
+    def fake_fetch(url, clients, **kwargs):
+        requested.append(url)
+        if url == "https://example.com":
+            return fetched(url, homepage)
+        if url in listings:
+            return fetched(url, f"<html><body>{listings[url]}</body></html>")
+        return fetched(url, "<html><body><p>Article.</p></body></html>")
+
+    monkeypatch.setattr("collect_company_pages.fetch_page", fake_fetch)
+    company = {
+        "IQ_COMPANY_ID": "IQ1",
+        "target_company_name": "Example Co.",
+        "target_ciq_website": "https://example.com",
+    }
+    record = collect_company(company, [], tmp_path, max_event_pages=1,
+                             max_articles=10, max_listing_pages=3)
+    assert len(record["discovered_articles"]) == 3
+    assert "https://example.com/news/archive/4" not in requested
+
+
+def test_pages_found_through_ir_fallback_are_tagged(tmp_path, monkeypatch):
+    homepage = '<html><body><a href="/careers">Careers</a></body></html>'
+    ir_home = '<html><body><a href="/news">News</a></body></html>'
+    landing = '<html><body><a href="/news/new-plant">New plant October 1, 2026</a></body></html>'
+
+    def fake_fetch(url, clients, content_validator=None, **kwargs):
+        pages = {
+            "https://example.com": homepage,
+            "https://ir.example.com/": ir_home,
+            "https://ir.example.com/news": landing,
+        }
+        html = pages.get(url, "<html><body><p>Article.</p></body></html>")
+        if content_validator and not content_validator(html, url):
+            raise FetchFailed(url, [])
+        return fetched(url, html)
+
+    monkeypatch.setattr("collect_company_pages.fetch_page", fake_fetch)
+    company = {
+        "IQ_COMPANY_ID": "IQ1",
+        "target_company_name": "Example Co.",
+        "target_ciq_website": "https://example.com",
+    }
+    record = collect_company(company, [], tmp_path, max_event_pages=2)
+    flags = {page["category"]: page["via_ir_fallback"] for page in record["pages"]}
+    assert flags == {"home": False, "ir_home": True, "careers": False,
+                     "news": True, "article": True}
+    assert record["ir_fallback_article_count"] == 1
+
+
 def test_previous_company_record_moves_to_history(tmp_path):
     original = {"IQ_COMPANY_ID": "IQ1", "collected_at": "2026-10-18T18:00:00Z", "status": "ok"}
     updated = {"IQ_COMPANY_ID": "IQ1", "collected_at": "2026-10-18T19:00:00Z", "status": "partial"}

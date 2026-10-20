@@ -12,6 +12,13 @@ Every automated step, including any language model, is treated as a system under
 
 _README last updated 2026-10-19. Times below are US Eastern (UTC−4)._
 
+**Integrated workflow:** start with the [standalone notebook](notebooks/team_company_workflow.ipynb)
+or the [results and figures](reports/team_company_workflow/README.md).
+The [module guide](pipeline/TEAM_WORKFLOW.md) explains setup, method selection and
+integration with the existing website, matching and growth modules. Default execution
+replays recorded inference and recomputes downstream results. Business review is
+mandatory before financial ranking; independent human validation remains pending.
+
 ---
 
 ## Where things stand
@@ -129,7 +136,7 @@ Records *what changed at a company and when*, from its own News, Press, Careers 
 
 | branch | author | last commit | what's there | state |
 |---|---|---|---|---|
-| `growth-signals-recall` | Xiaozhe | 2026-10-19 00:16 | Revised growth-signal extractor. Catches more phrasings (noun forms like "the launch of", "N new openings"); rejects sentences where another company is acting; adds five event types (acquisition, divestiture, funding round, guidance raised, guidance lowered); counts one event per article rather than per sentence; tags pages found only through an investor-relations site. | Not merged; 3 commits ahead of main, 7 behind. On new, unseen articles it's right 60% of the time and finds 32-39% of true events. Known next fix: a bug that cuts sentences at decimal points ("$2.2 million"). Handoff on the branch: `conversations/2026-10-19-growth-signals-rule-fixes.md`. |
+| `growth-signals-recall` | Xiaozhe | 2026-10-19 16:26 | Revised growth-signal extractor. Catches more phrasings (noun forms like "the launch of", "N new openings"); rule windows no longer stop at decimals or abbreviations ("$2.2 million", "Inc."); rejects sentences where another company is acting; adds five event types (acquisition, divestiture, funding round, guidance raised, guidance lowered); counts one event per article rather than per sentence; tags pages found only through an investor-relations site. | Not merged; 6 commits ahead of main, 10 behind. On new, unseen companies (held-out C) the rules are right 58-61% of the time and find 43% of true events. An LLM pass is in progress, not yet on the branch. Handoff: `conversations/2026-10-19-growth-signals.md` (also on main). |
 | `riya/wip` | Riya | 2026-10-17 17:12 | Scraper v2 (leak filters, company-name masking, all 560 companies) and the first Paylocity comps notebook (TF-IDF, LSA and embeddings, combined). | Superseded but still useful: its ideas seeded matching method 1 and `scraps/comps_first_pass/`. The branch also carries large data folders, so pieces are copied over as code rather than merging the branch. |
 
 Merged into `main` so far:
@@ -140,6 +147,8 @@ Merged into `main` so far:
 | 2026-10-18 23:36 | direct commit | Input rules updated after Aziz's reply on 10-Ks and financials |
 | 2026-10-19 02:17 | [#2](https://github.com/Qual2Cast/Qual2Cast/pull/2) `research/company-analysis-pipeline` | Ten-company research pilot |
 | 2026-10-19 04:37 | [#3](https://github.com/Qual2Cast/Qual2Cast/pull/3) `michael/wip` | Matching methods 1-3 and the evaluation notebook |
+| 2026-10-19 04:47 | [#4](https://github.com/Qual2Cast/Qual2Cast/pull/4) `michael/wip` | README rewritten to show what is on main and what is on branches |
+| 2026-10-19 16:23 | direct commit | Growth-signals handoffs merged into `conversations/2026-10-19-growth-signals.md` |
 
 Earlier attempts that aren't part of the pipeline (structured profiles written by Codex, the first matching pass, the first collection script) are in [`scraps/`](scraps/README.md), with notes on why each was set aside.
 

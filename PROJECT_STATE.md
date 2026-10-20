@@ -24,7 +24,7 @@ conversations/2026-10-19-merge-main.md. Matching: three methods and an
 evaluation notebook; methodology in matching/README.md; history in
 conversations/2026-10-19-method2-mutual-knn.md. Methodology rules updated
 after Aziz's reply on 10-Ks and financial inputs; growth-signal recall: see
-conversations/2026-10-18-growth-signals-recall.md)_
+conversations/2026-10-19-growth-signals.md)_
 
 ## Data
 
@@ -92,7 +92,7 @@ matching/README.md, "Methodology".
 | part | status | where |
 |---|---|---|
 | Website scrape | **Done for all 560** (3 pages per site, re-parsed 2026-10-18): 532 ok, 15 thin, 4 investor_site, 4 robots_disallowed, 4 http_403, 1 blocked. 26 tests. | website_scrape/, outputs-local/website_scrape/ |
-| Growth signals | **First collector + rules in place.** Recall widened 2026-10-18 for contracts, hiring, layoffs, expansion, and credit phrasing; Careers/Jobs yield only hiring/layoff. Live coverage still untested beyond the earlier 5-company pilot. 84 tests. | growth_signals/ |
+| Growth signals | **On main: first collector + rule extractor** (2026-10-18), 5-company pilot, 70 tests. **Improved rules are on branch `growth-signals-recall`, not yet merged:** recall widening, sentence-boundary fix, one event per article, other-company actor check, five new event types; 211 tests; about 58-61% precision / 43% recall on unseen companies. See conversations/2026-10-19-growth-signals.md. | growth_signals/ |
 | Matching method | **Three methods and an evaluation, on branch `michael/wip`.** `matching/matching_methods.ipynb`: website text → `all-mpnet-base-v2` embeddings (535 matchable, 25 excluded) → comps by method 1 (embedding similarity, cosine z ≥ 2 / 2.5), method 2 (mutual kNN, k = 10 / 20; then UMAP + HDBSCAN clusters), or method 3 (agglomerative tree, complete / ward linkage) → estimate = comps' median EV/EBITDA (financials read only there). Each method is shown on PCTY and then values every company from its own comps. `matching/matching_evaluation.ipynb` (runs the methods notebook first): every method at 3-10 comps, and ten targets (PCTY, BV, ROAD, FIX, BRO, ADUS, LOPE, ODFL, WING, DXPE). **Results:** median absolute error ≈ 35% for every method, the same as no matching (34.6%); method 1 ranks companies best (Spearman 0.31 vs 0.21-0.24 for the others and 0.22-0.24 for SIC peer groups); at equal comp counts no method beats method 1; targets with clear peers get them (ROAD, BRO, LOPE, ADUS), finer distinctions fail (truckload types, contractors vs HVAC makers, distributors), BV gets comps though it has no real peer, and right peers still miss by 29-43%. Latest runs `20261019T080322Z` (methods) and `20261019T080416Z` (evaluation). `umap-learn` and `hdbscan` 0.8.44 are installed in the kernel's Python 3.14. | matching/, outputs-local/matching/ |
 | Results across targets, sanity check, definitions / limitations | **Started:** valuation error for all 535 matchable companies, every method at 3-10 comps, and ten targets (`matching/matching_evaluation.ipynb`). Human check of comps against source pages, and definitions / limitations, not started. | matching/ |
 | Ten-company research pilot | **Frozen ten-company research comparison available.** Independent human review and financial alignment remain pending; not integrated into the main matching workflow. | reports/whole_company_pilot/, notebooks/whole_company_pilot.ipynb |
@@ -140,3 +140,25 @@ matching/README.md, "Methodology".
 4. Human sanity check of the top comps against their source pages.
 5. Definitions and limitations.
 6. Supply websites for the 4 IR-only companies (or accept "unknown").
+
+
+## Integrated company workflow — 19 October 2026
+
+Entry point: [notebook](notebooks/team_company_workflow.ipynb),
+[module guide](pipeline/TEAM_WORKFLOW.md), and
+[results](reports/team_company_workflow/README.md).
+The workflow integrates the existing website and matching work with
+`growth-signals-recall` at `793cf63`; the source snapshot remains unchanged.
+It adds interchangeable stages, mandatory business review, explicit private-target
+financial inputs, progressive peer search, EBITDA measurement and evaluation.
+
+The 538-company evidence bundle supports a ten-target development comparison:
+672 configurations and 6,720 target/configuration rows. The default fixed-budget
+route estimates only 2/10 targets. The separate progressive PCTY run reviews 50
+of 537 ranked candidates and accepts three; 487 remain unreviewed. Independent
+human labels, aligned financial periods and private-company validation remain
+outstanding. Growth extraction is evaluated; a growth forecast is not validated.
+
+Validation: 294 tests passed; standalone cached replay completed 17 code cells,
+zero errors and eight figures, reproducing all reference configuration outputs.
+See [handoff](conversations/2026-10-19-hosted-team-workflow.md) for scope and next work.
