@@ -12,6 +12,11 @@ Every automated step, including any language model, is treated as a system under
 
 _README last updated 2026-10-19. Times below are US Eastern (UTC−4)._
 
+**Current team report:** read the [four-page research memo](reports/team_company_workflow/team_research_memo.pdf)
+and [contribution/evidence appendix](reports/team_company_workflow/team_research_appendix.html).
+The memo reports the original team experiments alongside the newer integrated
+workflow, with matching samples and explicit evaluation limits.
+
 **Integrated workflow:** start with the [standalone notebook](notebooks/team_company_workflow.ipynb)
 or the [results and figures](reports/team_company_workflow/README.md).
 The [module guide](pipeline/TEAM_WORKFLOW.md) explains setup, method selection and
@@ -29,9 +34,9 @@ mandatory before financial ranking; independent human validation remains pending
 | Website scrape | **Done for all 560.** 532 sites gave usable text. | `website_scrape/` |
 | Comparable-company matching | **Three methods built and scored on all 535 usable companies.** Picking comps from website text finds real peers but doesn't yet beat a no-matching estimate on valuation error. | `matching/` |
 | Ten-company research pilot | **Frozen comparison** of 31 ways to rank peers, on ten companies. Human review still pending. | `notebooks/`, `experiments/`, `reports/` |
-| Growth signals | **First collector and rule-based event extractor**, tested on five companies. A revised version is on a branch (see below). | `growth_signals/` |
+| Growth signals | **Revised 13-type extraction and SEC revenue outcomes integrated.** Rules/LLM/agreement comparison is exploratory; historical coverage and label review remain incomplete. | `growth_signals/`, `reports/team_company_workflow/` |
 | Growth forecasting model | **Not started.** Needs past revenue for the outcome and point-in-time event history. | n/a |
-| Report, definitions and limitations | **Not started.** | n/a |
+| Report, definitions and limitations | **Four-page team memo complete.** Detailed contributions, sources and reproducible workflow are in the appendix and notebook. | `reports/team_company_workflow/`, `notebooks/team_company_workflow.ipynb` |
 
 ## How it fits together
 

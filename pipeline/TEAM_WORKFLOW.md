@@ -2,6 +2,11 @@
 
 `TeamPipeline` joins the existing website, matching and growth-signal modules. It uses one input contract and saves every stage's result and evaluation. The notebook follows the execution sequence: sample, evidence, profiles, matching, business review, financial factors, growth evidence, EBITDA, valuation and final evaluation.
 
+The notebook opens with a five-part analytical memo and a team contribution
+appendix. Start with the [four-page memo](../reports/team_company_workflow/team_research_memo.pdf)
+for the financial question and findings, then use the technical appendix for
+the sequential implementation. The original code and recorded results are unchanged.
+
 ## Setup and reproduction
 
 Use Python 3.12+ in a virtual environment for the recorded dependency versions.

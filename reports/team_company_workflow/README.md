@@ -1,10 +1,24 @@
 # Integrated company workflow: results
 
+Start with the four-page [team research memo (PDF)](team_research_memo.pdf)
+or its [HTML version](team_research_memo.html). It combines the team's original
+matching results, collection and label work, growth research, SIC experiment
+and the integrated workflow under five analytical sections. The
+[appendix](team_research_appendix.html) records contributions, evidence sources,
+integration status and reproduction instructions.
+
 The [notebook](../../notebooks/team_company_workflow.ipynb) follows the full workflow
 and includes each method's procedure, citations, code and results. It is about
 21 MB because it embeds evidence, source modules and recorded model responses.
 Download it if GitHub cannot render the preview. The [module guide](../../pipeline/TEAM_WORKFLOW.md)
 provides setup and extension instructions.
+
+The notebook now opens with the same memo and team appendix; its original
+sequential technical workflow follows. The editorial revision preserves every
+code cell, recorded output, embedded input and figure. `memo_comparison.csv`
+contains the compact table; `memo_evidence.json` records its text, sources and
+comparison scope. Original all-company results are attributed to the team's
+matching notebook; they are not claimed as a new rerun.
 
 ## Scope and findings
 
