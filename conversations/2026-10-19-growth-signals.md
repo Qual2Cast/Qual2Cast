@@ -5,10 +5,11 @@ One record of the growth-signals work, 2026-10-18 to 2026-10-19.
 ## Current status
 
 - Branch `growth-signals-recall`; `cd growth_signals && python -m pytest
-  tests -q` passes 211 tests.
+  tests -q` passes 218 tests (excluding the uncommitted LLM tests).
 - Pipeline: collect News/Press/Careers pages per company, extract dated
   events with source quotes, build cutoff-safe features. Revenue-growth
-  outcomes need a separate multi-year revenue file (not in the snapshot).
+  outcomes use multi-year 10-K revenue from SEC EDGAR
+  (`edgar_revenue.py`), as labels only.
 - Extraction is rule-based: one event per article and event type, an
   other-company actor check, 13 event types (schema version 2).
 - On unseen companies the rules reach about 58-61% precision and 43% recall
@@ -116,6 +117,31 @@ The user asked to get extraction right before collection or history work.
   offerings, taglines, credit facilities, "expand access", capabilities,
   third-party statistics ("according to ..."), company About/Founded blocks.
 
+## 2026-10-19: revenue outcomes from SEC EDGAR
+
+10-K filings may be used. The snapshot has one revenue figure per company,
+so `edgar_revenue.py` builds the multi-year revenue that `build_outcomes.py`
+turns into growth labels. It is the answer the model is scored against,
+never a feature or a target input.
+
+- Ticker -> CIK from SEC `company_tickers.json` (class shares such as
+  `ARTN.A` also tried as `ARTNA`/`ARTN-A`); one XBRL company-facts JSON per
+  company, saved raw.
+- Annual 10-K facts covering 330-400 days; fiscal year = calendar year the
+  period ends; a changed fiscal year end keeps the later-ending period.
+- Revenue is the largest of seven total-revenue concepts per year, because
+  `RevenueFromContractWithCustomer...` can exclude rental or interest income
+  (Herc 2023: $600M contract revenue vs $3.3B total).
+- First-filed value used; the latest restatement is kept alongside. Every
+  row has concept, form, filing date, accession and filing link.
+- Year-over-year changes beyond +/-50% are flagged for review, not corrected.
+- The SEC contact is passed at run time and not stored in the repository.
+- Run `20261019T220622Z`: 518 of 560 companies with 10-K revenue (36
+  tickers not in SEC's list, 6 with no 10-K revenue). With a 2022 cutoff,
+  500 have the cutoff year and 488 a three-year growth label; 438 rows
+  across 211 companies are flagged.
+- `tests/test_edgar_revenue.py`: six offline tests.
+
 ## Evaluation
 
 Labels were written before running the extractor, and the rules were frozen
@@ -146,7 +172,8 @@ Labels, page records, miss lists and scorers are in
 - Third-party job boards, rating agencies and Wayback history need an
   attribution/allow-list policy.
 - Temporary-launch predictive value and finer durable launch subtypes.
-- Historical revenue outcomes and cutoff dates.
+- EDGAR revenue: review the 438 flagged rows (211 companies), and the 42
+  companies with no 10-K revenue; choose the cutoff fiscal year(s).
 - Capex increase as an event type.
 - Collection defects: monthly archive listing pages and an RSS feed were
   saved as articles (held-out C).
@@ -154,4 +181,6 @@ Labels, page records, miss lists and scorers are in
 ## Next recommended action
 
 Choose the extraction approach (rules alone, or the LLM pass in progress)
-using held-out C and a fresh held-out sample, then add sitemap history.
+using held-out C and a fresh held-out sample, then add sitemap history so
+event features reach back to the EDGAR outcome cutoff. Review the flagged
+EDGAR years before using them as labels.
