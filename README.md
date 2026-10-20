@@ -12,6 +12,13 @@ Every automated step, including any language model, is treated as a system under
 
 _README last updated 2026-10-19. Times below are US Eastern (UTC−4)._
 
+**Integrated workflow:** start with the [standalone notebook](notebooks/team_company_workflow.ipynb)
+or the [results and figures](reports/team_company_workflow/README.md).
+The [module guide](pipeline/TEAM_WORKFLOW.md) explains setup, method selection and
+integration with the existing website, matching and growth modules. Default execution
+replays recorded inference and recomputes downstream results. Business review is
+mandatory before financial ranking; independent human validation remains pending.
+
 ---
 
 ## Where things stand

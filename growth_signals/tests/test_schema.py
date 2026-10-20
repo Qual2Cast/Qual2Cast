@@ -42,3 +42,39 @@ def test_rejects_invalid_confidence_and_url():
 def test_rejects_invalid_signal_duration():
     with pytest.raises(ValueError, match="signal_duration"):
         Event.from_dict(valid_record(signal_duration="permanent"))
+
+
+def test_quarter_precision_and_new_fields_validate():
+    event = Event.from_dict(valid_record(
+        event_date="2026-09-30", event_date_precision="quarter",
+        event_status="planned", via_ir_fallback=True))
+    assert event.event_status == "planned"
+
+
+def test_older_records_default_new_fields():
+    event = Event.from_dict(valid_record())
+    assert event.event_status == "unknown"
+    assert event.via_ir_fallback is False
+
+
+def test_rejects_unknown_event_status():
+    with pytest.raises(ValueError, match="event_status"):
+        Event.from_dict(valid_record(event_status="rumored"))
+
+
+def test_version_1_records_still_load():
+    event = Event.from_dict(valid_record(schema_version=1))
+    assert event.supporting_text == ()
+
+
+def test_new_event_types_require_schema_version_2():
+    with pytest.raises(ValueError, match="schema_version 2"):
+        Event.from_dict(valid_record(schema_version=1, event_type="acquisition"))
+    assert Event.from_dict(valid_record(event_type="acquisition")).schema_version == 2
+
+
+def test_supporting_text_round_trips_through_json_lists():
+    event = Event.from_dict(valid_record(supporting_text=["Second sentence."]))
+    assert event.to_dict()["supporting_text"] == ["Second sentence."]
+    with pytest.raises(ValueError, match="supporting_text"):
+        Event.from_dict(valid_record(supporting_text=[" "]))

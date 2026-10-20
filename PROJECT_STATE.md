@@ -140,3 +140,25 @@ matching/README.md, "Methodology".
 4. Human sanity check of the top comps against their source pages.
 5. Definitions and limitations.
 6. Supply websites for the 4 IR-only companies (or accept "unknown").
+
+
+## Integrated company workflow — 19 October 2026
+
+Entry point: [notebook](notebooks/team_company_workflow.ipynb),
+[module guide](pipeline/TEAM_WORKFLOW.md), and
+[results](reports/team_company_workflow/README.md).
+The workflow integrates the existing website and matching work with
+`growth-signals-recall` at `793cf63`; the source snapshot remains unchanged.
+It adds interchangeable stages, mandatory business review, explicit private-target
+financial inputs, progressive peer search, EBITDA measurement and evaluation.
+
+The 538-company evidence bundle supports a ten-target development comparison:
+672 configurations and 6,720 target/configuration rows. The default fixed-budget
+route estimates only 2/10 targets. The separate progressive PCTY run reviews 50
+of 537 ranked candidates and accepts three; 487 remain unreviewed. Independent
+human labels, aligned financial periods and private-company validation remain
+outstanding. Growth extraction is evaluated; a growth forecast is not validated.
+
+Validation: 294 tests passed; standalone cached replay completed 17 code cells,
+zero errors and eight figures, reproducing all reference configuration outputs.
+See [handoff](conversations/2026-10-19-hosted-team-workflow.md) for scope and next work.

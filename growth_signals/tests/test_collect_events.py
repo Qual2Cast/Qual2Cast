@@ -3,6 +3,7 @@ from collect_events import (
     date_from_text,
     discover_article_links,
     discover_event_pages,
+    discover_listing_next_url,
     is_article_url,
     publication_date_from_html,
     wordpress_posts_api_url,
@@ -98,6 +99,21 @@ def test_specific_press_release_url_is_an_article_but_listing_is_not():
     assert not is_article_url("https://example.com/news/default.aspx")
     assert is_article_url(
         "https://ir.example.com/news/news-details/2026/new-product/default.aspx")
+    assert is_article_url("https://example.com/stories/new-store-opening")
+    assert is_article_url("https://example.com/media-center/q3-update")
+
+
+def test_listing_next_link_is_same_site_only():
+    html = '''
+    <link rel="next" href="/news/page/2">
+    <a href="https://other.example/news?page=2">Next</a>
+    '''
+    assert discover_listing_next_url(html, "https://example.com/news") == (
+        "https://example.com/news/page/2")
+    assert discover_listing_next_url(
+        '<a href="https://other.example/news?page=2">Next</a>',
+        "https://example.com/news",
+    ) is None
 
 
 def test_aria_label_supplies_q4_article_date():
@@ -132,3 +148,52 @@ def test_wordpress_api_articles_are_sorted_newest_first():
     assert [article["published_date"] for article in articles] == [
         "2026-10-13", "2026-09-01"]
     assert articles[0]["anchor_text"] == "Newer item"
+
+
+def test_day_first_and_iso_dates_have_day_precision():
+    assert date_from_text("Published 18 October 2026") == ("2026-10-18", "day")
+    assert date_from_text("Posted 2026-10-18 by the team") == ("2026-10-18", "day")
+
+
+def test_coarse_dates_use_period_end_only_when_allowed():
+    assert date_from_text("October 2026 update") == (None, "unknown")
+    assert date_from_text("October 2026 update", allow_coarse=True) == ("2026-10-31", "month")
+    assert date_from_text("Q3 2026 newsletter", allow_coarse=True) == ("2026-09-30", "quarter")
+
+
+def test_ambiguous_or_invalid_dates_stay_unknown():
+    assert date_from_text("10/11/2026", allow_coarse=True) == (None, "unknown")
+    assert date_from_text("February 30, 2026") == (None, "unknown")
+
+
+def test_time_tag_month_is_used_but_body_quarter_is_not():
+    assert publication_date_from_html("<time>October 2026</time>") == ("2026-10-31", "month")
+    assert publication_date_from_html("<p>Results for Q3 2026</p>") == (None, "unknown")
+
+
+def test_job_site_equipment_page_is_not_a_jobs_page():
+    pages = discover_event_pages(
+        '<a href="/equipment/job-site-solutions.html">Job Site Solutions</a>'
+        '<a href="/jobs">Open jobs</a>',
+        "https://example.com",
+    )
+    assert [page["category"] for page in pages] == ["jobs"]
+
+
+def test_insights_and_resources_article_paths_are_articles_but_listings_are_not():
+    assert is_article_url("https://example.com/insights/new-plant-opens")
+    assert is_article_url("https://example.com/resources/press-release/new-contract")
+    assert not is_article_url("https://example.com/insights")
+    assert not is_article_url("https://example.com/newsroom")
+
+
+def test_mega_menu_descriptions_and_industry_pages_are_not_event_pages():
+    pages = discover_event_pages(
+        '<a href="/solutions/workforce">Workforce Automation Get the right crew to the right job</a>'
+        '<a href="/field-service">Field Service Real-time customer updates from onsite techs</a>'
+        '<a href="/industries/media-and-technology">Media &amp; Technology</a>'
+        '<a href="/insights">News &amp; Media</a>',
+        "https://example.com",
+    )
+    assert [(page["url"], page["category"]) for page in pages] == [
+        ("https://example.com/insights", "press")]
