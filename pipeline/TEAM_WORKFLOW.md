@@ -4,7 +4,8 @@
 
 ## Setup and reproduction
 
-Use Python 3.11+ in a virtual environment. From the repository root:
+Use Python 3.12+ in a virtual environment for the recorded dependency versions.
+Validation used Python 3.12.14. From the repository root:
 
 ```bash
 python -m pip install -r pipeline/requirements-replay.txt
