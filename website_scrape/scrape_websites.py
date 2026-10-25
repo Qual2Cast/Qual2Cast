@@ -560,7 +560,7 @@ def collect(clients: list, website: str, max_pages: int, raw_root: Path) -> dict
         details.append({
             "method": client.method, "status": result["status"],
             "word_count": result.get("word_count", 0),
-            "raw_html_dir": raw_dir.relative_to(REPO_ROOT).as_posix() if raw_dir.exists() else "",
+            "raw_html_dir": (raw_dir.relative_to(REPO_ROOT).as_posix() if raw_dir.is_relative_to(REPO_ROOT) else str(raw_dir.resolve())) if raw_dir.exists() else "",
         })
         if result["status"] in ("robots_disallowed", "investor_site"):
             best = result   # other methods would land on the same page

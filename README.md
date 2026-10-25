@@ -12,6 +12,21 @@ Every automated step, including any language model, is treated as a system under
 
 _README last updated 2026-10-24: work from before v0 moved into `pre-v0/`. Times below are US Eastern (UTC−4)._
 
+**Current method (v0):** the mentor's recipe for comps, in [`v0/`](v0/README.md); start with
+[`v0/notebooks/comps_and_valuation.ipynb`](v0/notebooks/comps_and_valuation.ipynb).
+
+**Team report (2026-10-20, before v0):** read the [four-page research memo](pre-v0/reports/team_company_workflow/team_research_memo.pdf)
+and [contribution/evidence appendix](pre-v0/reports/team_company_workflow/team_research_appendix.html).
+The memo reports the original team experiments alongside the newer integrated
+workflow, with matching samples and explicit evaluation limits.
+
+**Integrated workflow (before v0):** start with the [standalone notebook](pre-v0/notebooks/team_company_workflow.ipynb)
+or the [results and figures](pre-v0/reports/team_company_workflow/README.md).
+The [module guide](pre-v0/pipeline/TEAM_WORKFLOW.md) explains setup, method selection and
+integration with the existing website, matching and growth modules. Default execution
+replays recorded inference and recomputes downstream results. Business review is
+mandatory before financial ranking; independent human validation remains pending.
+
 ---
 
 ## Where things stand
@@ -20,12 +35,13 @@ _README last updated 2026-10-24: work from before v0 moved into `pre-v0/`. Times
 |---|---|---|
 | Company list | **Done.** 560 US public companies, used as stand-ins for private targets. | `data-local/snapshots/`, `data_manifest.json` |
 | Website scrape | **Done for all 560.** 532 sites gave usable text. | `website_scrape/` |
-| Comps recipe (v0) | **In progress.** The mentor's recipe for picking comps (2026-10-24): universe, EV/EBITDA 3-30 range and facets done; scoring and valuation next. | `v0/` |
+| Comps recipe (v0) | **Steps 1-7 built (2026-10-25).** The mentor's recipe: universe and EV/EBITDA 3-30 range (533 firms), twelve facets filled by Claude Haiku 5.5, a 70/30 training/holdout split, candidates by facet embeddings, an LLM good/bad step and an LLM that picks comps directly, and estimates against the actual multiples. Every way of choosing comps lands at about 30-33% median error on the training targets (no matching: 32.7%). Holdout not scored yet; evals next. | `v0/` |
 | Comparable-company matching | **Three methods built and scored on all 535 usable companies.** Picking comps from website text finds real peers but doesn't yet beat a no-matching estimate on valuation error. | `pre-v0/matching/` |
 | Ten-company research pilot | **Frozen comparison** of 31 ways to rank peers, on ten companies. Human review still pending. | `pre-v0/notebooks/`, `pre-v0/experiments/`, `pre-v0/reports/` |
-| Growth signals | **First collector and rule-based event extractor**, tested on five companies. A revised version is on a branch (see below). | `pre-v0/growth_signals/` |
+| Integrated team workflow | **Staged company workflow and team memo** (Yikai, on main 2026-10-20). | `pre-v0/pipeline/`, `pre-v0/valuation/`, `pre-v0/notebooks/team_company_workflow.ipynb`, `pre-v0/reports/team_company_workflow/` |
+| Growth signals | **Revised 13-type extraction and SEC revenue outcomes integrated.** Rules/LLM/agreement comparison is exploratory; historical coverage and label review remain incomplete. | `pre-v0/growth_signals/`, `pre-v0/reports/team_company_workflow/` |
 | Growth forecasting model | **Not started.** Needs past revenue for the outcome and point-in-time event history. | n/a |
-| Report, definitions and limitations | **Not started.** | n/a |
+| Report, definitions and limitations | **Four-page team memo complete (2026-10-20, before v0).** Detailed contributions, sources and reproducible workflow are in the appendix and notebook. | `pre-v0/reports/team_company_workflow/`, `pre-v0/notebooks/team_company_workflow.ipynb` |
 
 ## How it fits together
 
@@ -130,7 +146,7 @@ Records *what changed at a company and when*, from its own News, Press, Careers 
 
 | branch | author | last commit | what's there | state |
 |---|---|---|---|---|
-| `growth-signals-recall` | Xiaozhe | 2026-10-19 00:16 | Revised growth-signal extractor. Catches more phrasings (noun forms like "the launch of", "N new openings"); rejects sentences where another company is acting; adds five event types (acquisition, divestiture, funding round, guidance raised, guidance lowered); counts one event per article rather than per sentence; tags pages found only through an investor-relations site. | Not merged; 3 commits ahead of main, 7 behind. On new, unseen articles it's right 60% of the time and finds 32-39% of true events. Known next fix: a bug that cuts sentences at decimal points ("$2.2 million"). Handoff on the branch: `conversations/2026-10-19-growth-signals-rule-fixes.md`. |
+| `growth-signals-recall` | Xiaozhe | 2026-10-19 16:26 | Revised growth-signal extractor. Catches more phrasings (noun forms like "the launch of", "N new openings"); rule windows no longer stop at decimals or abbreviations ("$2.2 million", "Inc."); rejects sentences where another company is acting; adds five event types (acquisition, divestiture, funding round, guidance raised, guidance lowered); counts one event per article rather than per sentence; tags pages found only through an investor-relations site. | Not merged; 6 commits ahead of main, 10 behind. On new, unseen companies (held-out C) the rules are right 58-61% of the time and find 43% of true events. An LLM pass is in progress, not yet on the branch. Handoff: `conversations/2026-10-19-growth-signals.md` (also on main). Its files are under `pre-v0/growth_signals/` on main now. |
 | `riya/wip` | Riya | 2026-10-17 17:12 | Scraper v2 (leak filters, company-name masking, all 560 companies) and the first Paylocity comps notebook (TF-IDF, LSA and embeddings, combined). | Superseded but still useful: its ideas seeded matching method 1 and `pre-v0/scraps/comps_first_pass/`. The branch also carries large data folders, so pieces are copied over as code rather than merging the branch. |
 
 Merged into `main` so far:
@@ -141,6 +157,11 @@ Merged into `main` so far:
 | 2026-10-18 23:36 | direct commit | Input rules updated after Aziz's reply on 10-Ks and financials |
 | 2026-10-19 02:17 | [#2](https://github.com/Qual2Cast/Qual2Cast/pull/2) `research/company-analysis-pipeline` | Ten-company research pilot |
 | 2026-10-19 04:37 | [#3](https://github.com/Qual2Cast/Qual2Cast/pull/3) `michael/wip` | Matching methods 1-3 and the evaluation notebook |
+| 2026-10-19 04:47 | [#4](https://github.com/Qual2Cast/Qual2Cast/pull/4) `michael/wip` | README rewritten to show what is on main and what is on branches |
+| 2026-10-19 16:23 | direct commit | Growth-signals handoffs merged into `conversations/2026-10-19-growth-signals.md` |
+| 2026-10-19 19:46 | [#5](https://github.com/Qual2Cast/Qual2Cast/pull/5) `research/company-analysis-pipeline` | Integrated company analysis pipeline |
+| 2026-10-20 00:23 | [#6](https://github.com/Qual2Cast/Qual2Cast/pull/6) `research/company-analysis-pipeline` | Staged company workflow, growth-signal methods and SEC revenue outcomes |
+| 2026-10-20 11:46 | [#7](https://github.com/Qual2Cast/Qual2Cast/pull/7) `research/company-analysis-pipeline` | Consolidated team research memo |
 
 Earlier attempts that aren't part of the pipeline (structured profiles written by Codex, the first matching pass, the first collection script) are in [`pre-v0/scraps/`](pre-v0/scraps/README.md), with notes on why each was set aside.
 
@@ -180,12 +201,13 @@ Day-to-day status and open questions are in [`PROJECT_STATE.md`](PROJECT_STATE.m
 | `src/` | shared code: loading the data snapshot, list corrections |
 | `data_manifest.json` | which data snapshot the code needs, with checksums |
 | `website_scrape/` | collects each company's website text |
-| `v0/` | **v0:** comparable-company selection following the mentor's recipe (universe, multiple range, facets). Modules (`.py`) at the top; pipeline notebooks in `v0/notebooks/` |
+| `v0/` | **v0:** comparable-company selection following the mentor's recipe (universe, multiple range, facets, split, candidates, LLM comp steps, valuation). Modules (`.py`) at the top; pipeline notebooks in `v0/notebooks/` |
 | `data-local/`, `outputs-local/` | data and outputs; only the input snapshots and current website text (`page_text/`) are in Git |
 | `pre-v0/` | work from before v0 (before 2026-10-21), kept for reference and still runnable; see [`pre-v0/README.md`](pre-v0/README.md) |
 | `pre-v0/matching/` | comparable-company matching: methods notebook, evaluation notebook, write-up |
 | `pre-v0/growth_signals/` | dated growth events and cutoff-safe features |
 | `pre-v0/notebooks/`, `pre-v0/experiments/whole_company_pilot/`, `pre-v0/reports/whole_company_pilot/` | ten-company research pilot: notebook, code, results |
+| `pre-v0/pipeline/`, `pre-v0/valuation/`, `pre-v0/experiments/integrated_company_analysis/`, `pre-v0/reports/team_company_workflow/`, `pre-v0/reports/integrated_company_analysis/` | integrated team workflow and memo (on main 2026-10-19/20, moved with the rest of pre-v0) |
 | `pre-v0/scraps/` | earlier attempts set aside before the pre-v0 work above |
 
 Each part has its own README with setup and run instructions.

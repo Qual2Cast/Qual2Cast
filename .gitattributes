@@ -2,7 +2,13 @@
 # out their exact bytes (CRLF, as exported) instead of converting line endings.
 data-local/snapshots/*.csv -text
 
-# The frozen research package verifies these files by their exact byte hashes.
+# The frozen research packages verify these files by their exact byte hashes.
 pre-v0/notebooks/whole_company_pilot.ipynb -text
 pre-v0/experiments/whole_company_pilot/** -text
 pre-v0/reports/whole_company_pilot/** -text
+pre-v0/notebooks/integrated_company_analysis.ipynb -text
+pre-v0/experiments/integrated_company_analysis/** -text
+pre-v0/reports/integrated_company_analysis/** -text
+pre-v0/notebooks/team_company_workflow.ipynb -text
+pre-v0/reports/team_company_workflow/** -text
+pre-v0/reports/team_company_workflow/*.pdf binary

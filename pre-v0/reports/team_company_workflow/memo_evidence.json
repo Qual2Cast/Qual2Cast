@@ -1,0 +1,403 @@
+{
+  "title": "Private-company comparables and valuation",
+  "metadata": "Qual2Cast | Rational AI | 20 October 2026 | Preliminary research memo",
+  "pages": [
+    [
+      {
+        "kind": "heading",
+        "text": "1. Research question and main finding"
+      },
+      {
+        "kind": "paragraph",
+        "text": "Can company websites and a small set of supplied financials identify defensible public comparables and support an initial valuation of a private business? We built and tested a workflow that retrieves candidates, checks business compatibility, compares permitted financial factors and estimates an EV/EBITDA multiple. <b>Text matching has not yet improved valuation over a simple baseline:</b> on 535 public-company stand-ins, MPNet cosine matching produced 34.7% median absolute percentage error, versus 34.6% for the median of all other companies. Our newer business-review stage makes peer selection traceable and can abstain, but its default pilot valued only two of ten targets. These are preliminary public-company experiments, not validation of private-company fair value. [1,3]"
+      },
+      {
+        "kind": "heading",
+        "text": "2. Data and assumptions"
+      },
+      {
+        "kind": "paragraph",
+        "text": "<b>Sources and populations.</b> The sponsor supplied 560 US public companies with Capital IQ identifiers, websites, SIC codes and financial fields. The fixed <i>company_list_v3</i> snapshot corrects website addresses and SIC zero-padding; the source financials are unchanged. The original matching run used 535 companies with eligible text, re-parsed on 18 October 2026. The integrated evidence policy dated 19 October retains 538. These populations differ because their preparation policies differ; we report them separately. Website text is partial coverage of each company, not a complete business census. [1,3]"
+      },
+      {
+        "kind": "paragraph",
+        "text": "<b>Development cases.</b> The integrated run uses PCTY, BV, ROAD, FIX, BRO, ADUS, LOPE, ODFL, WING and DXPE. These were chosen to expose differences in business model, sparse peer coverage and unusual multiples; they are not a random sample. Earlier work also used a combined 19-company pilot. Neither set is held out. Riya supplied pre-output Paylocity peer labels; those labels do not cover all ten companies or validate the newer review stage. [1-3]"
+      },
+      {
+        "kind": "paragraph",
+        "text": "<b>Permitted inputs.</b> A private target supplies its name and website and, when available, LTM revenue, LTM EBITDA and debt. LTM means the latest twelve months. Revenue, EBITDA margin and debt/revenue are optional secondary factors after business compatibility, not assumed publicly observable for a private company. Target stock data, investor-relations pages and observed EV/EBITDA are excluded from matching. Public-peer multiples enter only after peer selection; the public target's multiple is revealed only for scoring. Company names may remain in text, so the integrated experiment is not fully identity-blind. [3,6]"
+      },
+      {
+        "kind": "paragraph",
+        "text": "<b>Time and measurement.</b> The supplied multiples' valuation dates and EBITDA definitions remain unconfirmed. Recent website captures are not point-in-time historical inputs. The current scores therefore describe a snapshot exercise, not a historical backtest. Public-comp 10-K enrichment and cross-vendor Orbis/Preqin joins are permitted future inputs but are not part of this frozen matching experiment. [3,6]"
+      }
+    ],
+    [
+      {
+        "kind": "heading",
+        "text": "3. Analytical approach and rationale"
+      },
+      {
+        "kind": "paragraph",
+        "text": "<b>Collect and represent the whole observed business.</b> The website pipeline retains URLs, capture times and filtering records. The team's collection work includes financial/ticker filters, blocked-page checks and name-masking experiments. The integrated workflow extracts source-backed activities, customers and operating roles without selecting only a convenient business line. Sentence evidence is a non-LLM alternative. Quotes establish where a claim came from; they do not establish that the interpretation is correct. Missing activities or segment weights remain unknown. [2,3]"
+      },
+      {
+        "kind": "paragraph",
+        "text": "<b>Retrieve candidates.</b> The baseline splits text into 200-word chunks, averages MPNet embeddings and ranks by cosine similarity. A within-target z-score cutoff selects unusually similar candidates. It can still select a wrong business when the entire pool is weak. Mutual nearest neighbours, UMAP/HDBSCAN and hierarchical clustering test whether reciprocal or group structure helps. TF-IDF, LSA and reciprocal rank fusion (RRF) provide lexical, reduced-dimension and combined alternatives. RRF sums 1/(60 + rank) across rankings; it is not a probability. Kethan's separate SIC experiment expands industry groups and constructs candidate pools; its subsequent ranking and comparative evaluation are unfinished. SIC is a diagnostic alternative, not sufficient evidence of the same business. [1,3,5]"
+      },
+      {
+        "kind": "paragraph",
+        "text": "<b>Review business fit before scale.</b> Source-bounded LLM review checks function, operating role, customer use and the full observed business scope. Direct, staged, few-shot and retrieved-evidence prompts are compared; all four criteria need support. This addresses recurring mismatches such as contractor versus equipment maker, broker versus insurer, and distributor versus manufacturer. It assumes the website contains enough evidence and the reviewer interprets it correctly. Independent human review is the reference alternative. Current automatic pass decisions are provisional. Retrieval-augmented review uses saved source sentences; it is not autonomous new 10-K collection. Fine-tuning is proposed, not completed. [3]"
+      },
+      {
+        "kind": "paragraph",
+        "text": "<b>Compare factors and calculate a multiple.</b> After business review, compare revenue, EBITDA margin and debt/revenue individually and in combinations, against business-only ordering. Equal-weight percentile distances test factor subsets without fitting weights to ten known outcomes. Scale and profitability may matter economically, but periods, accounting definitions and leverage conventions must align. Median, harmonic, geometric and rank-weighted peer multiples are sensitivity alternatives; no universal winner is established. [3,6]"
+      },
+      {
+        "kind": "paragraph",
+        "text": "<b>Valuation calculation.</b> For target <i>i</i>, let <i>C</i><sub>i</sub> contain selected public peers and let <i>M</i><sub>j</sub> be peer <i>j</i>'s positive EV/EBITDA multiple. The default is <b>M-hat<sub>i</sub> = median(M<sub>j</sub>: j in C<sub>i</sub>)</b>. Indicative enterprise value is <b>EV-hat<sub>i</sub> = M-hat<sub>i</sub> x supplied LTM EBITDA<sub>i</sub></b>. At least three eligible peers are required. Enterprise value is not equity value; a defensible equity bridge also needs cash, debt and other relevant claims. [3]"
+      },
+      {
+        "kind": "paragraph",
+        "text": "<b>Keep growth evidence separate from a forecast.</b> The team collector extracts 13 event types from news, press and careers pages, including contracts, launches, hiring, layoffs, acquisitions and credit events. Rules, an LLM and their intersection are evaluated on the same articles. SEC EDGAR provides annual revenue for 518 companies and three-year outcome labels for 488 at a 2022 cutoff. Event history is too shallow to support that historical prediction exercise yet; events are not converted into an unsupported growth premium. [3,4]"
+      }
+    ],
+    [
+      {
+        "kind": "heading",
+        "text": "4. Results and interpretation"
+      },
+      {
+        "kind": "paragraph",
+        "text": "Comparisons below keep the evaluation cases fixed within each row. The 535-company study, ten-company pilot and event-extraction study are separate experiments. The integrated pilot uses five reviewed candidates per target and selects three when enough pass. Its 672 configurations are repeated measurements on ten companies, not 6,720 independent tests. [1,3]"
+      },
+      {
+        "kind": "table",
+        "headers": [
+          "Evaluation cases",
+          "Metric",
+          "Baseline",
+          "Compared method",
+          "Status"
+        ],
+        "rows": [
+          [
+            "535 targets [1]",
+            "Median APE",
+            "No matching: 34.6%",
+            "MPNet z >= 2: 34.7%",
+            "Reused snapshot; 535 estimates each"
+          ],
+          [
+            "10 pilot targets [3]",
+            "Estimate coverage",
+            "No matching: 10/10",
+            "RRF + staged review: 2/10",
+            "Five candidates reviewed per target"
+          ],
+          [
+            "PCTY + WING [3]",
+            "Median APE",
+            "No matching: 61.1%",
+            "RRF + staged review: 53.6%",
+            "Same 2 cases; selected by method"
+          ],
+          [
+            "Same 2 cases [3]",
+            "Median APE",
+            "MPNet, no review: 41.9%",
+            "RRF + staged review: 53.6%",
+            "Not evidence that review improves error"
+          ],
+          [
+            "145 pages / 10 firms [3,4]",
+            "Precision / recall",
+            "Rules: 58.1% / 42.9%",
+            "LLM: 56.7% / 90.5%",
+            "Reused single-annotator labels"
+          ],
+          [
+            "Same 145 pages [3,4]",
+            "Precision / recall",
+            "Rules: 58.1% / 42.9%",
+            "Rules AND LLM: 81.8% / 42.9%",
+            "Same labels; agreement filter"
+          ]
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "text": "<b>Metrics.</b> APE = 100 x |estimated multiple - observed multiple| / observed multiple; median APE is calculated only where an estimate exists. Coverage is estimated targets divided by attempted targets. Event precision = correct predicted article/type pairs divided by all predicted pairs; recall = correct pairs divided by the 42 labeled positive pairs. The 145 pages belong to ten companies, so they are not 145 independent company observations."
+      },
+      {
+        "kind": "paragraph",
+        "text": "<b>Valuation remains unresolved.</b> The original study's 0.1 percentage-point difference does not support a matching advantage. Its equal-count comparisons (3-10 peers) also failed to establish a consistently better alternative. In the new pilot, PCTY's error is 22.9%, but WING's is 84.4%. Their conditional median is 53.6%; using the same two cases, it is better than no matching but worse than unreviewed MPNet. Eight abstentions and two selected observations cannot establish superiority, reliability or private-company accuracy. [1,3]"
+      },
+      {
+        "kind": "paragraph",
+        "text": "<b>Review depth and financial measurement matter.</b> A separate PCTY search reviewed 50 of 537 ranked candidates and automatically accepted PAYC, ASUR and ADP; 487 remained unreviewed. This demonstrates resumable search, not ten validated peers. For BrightView, a separate sourced EBITDA example produces $289.7m from four quarters and $289.8m from FY plus current YTD less prior YTD. Their $0.1m difference is consistent with reported rounding, but does not resolve issuer add-backs or validate every company's financial definition. [3]"
+      },
+      {
+        "kind": "paragraph",
+        "text": "<b>Event extraction shows a measurable trade-off.</b> The LLM recovered 38 of 42 labeled positives versus 18 for rules: recall rose 47.6 percentage points, with precision down 1.3 points. Requiring agreement raised precision to 81.8% while retaining only 18 positives. False positives included board appointments treated as hiring and share sales treated as funding. These labels were originally held out for the team's rules, then reused in our LLM development; this comparison is not a fresh test and does not measure revenue prediction. [3,4]"
+      }
+    ],
+    [
+      {
+        "kind": "heading",
+        "text": "5. Limitations and next step"
+      },
+      {
+        "kind": "paragraph",
+        "text": "<b>Three limitations could change the conclusion.</b> First, peer relevance has not been independently validated across the new workflow. Existing Paylocity labels and historical profile audits are useful, but they are not labels for the new 112-pair comparison. All 324 recorded model judgments have provenance checks; they do not have independent correctness labels. Second, the candidate universe omits genuine competitors, and incomplete websites can conceal whole business lines. Low coverage may reflect retrieval depth, pool composition or review errors; the current experiment cannot separate these explanations. Third, unverified financial dates/definitions and short event histories prevent a credible historical valuation or three-year growth test. The EDGAR collection also flags 438 revenue observations across 211 companies for review. [2-4]"
+      },
+      {
+        "kind": "paragraph",
+        "text": "<b>Next test: isolate the value of business review.</b> Select 20 additional public targets outside the 560-company development universe using a recorded sector sampling rule and seed, before viewing their valuation outcomes. This requires new collection and identity alignment; the current cached notebook cannot accept arbitrary new companies without that preparation. Freeze one dated source snapshot, the candidate universe, representation settings, prompt, review budget and minimum of three selected peers. Align the supplied target financials and public-peer financials to a documented valuation date and accounting basis before scoring."
+      },
+      {
+        "kind": "paragraph",
+        "text": "For each new target, form one fixed candidate pool from the union of the top 20 MPNet and top 20 RRF candidates. Compare three arms on that same pool: MPNet ordering, RRF ordering, and RRF followed by staged business review. Keep financial reranking off and use the same median estimator, so changes can be attributed to retrieval order or business review. Two reviewers independently label the pooled pairs without seeing model decisions, scores or valuation errors, then adjudicate disagreements using source evidence."
+      },
+      {
+        "kind": "paragraph",
+        "text": "<b>Decision rule.</b> The primary endpoint is relevant peers among the three requested slots per target, with unfilled slots counted as zero; also report conditional precision and the number of targets with three defensible peers. Use paired target-level bootstrap intervals and show all company results. Retain staged review only if it improves the primary endpoint with a positive 95% paired interval and does not reduce human-confirmed three-peer coverage. Evaluate valuation error separately on common estimated cases, alongside coverage and the share of all targets valued within 25%. If the evidence is inconclusive, keep the simpler method and diagnose missing peers rather than tune on these test cases. This is a proposed protocol, not a completed result."
+      },
+      {
+        "kind": "paragraph",
+        "text": "<b>Reproducibility.</b> The accompanying notebook preserves the sequential workflow, per-method rationale and citations, code, recorded prompts/responses, source references and detailed results. Its last execution completed 17 code cells with zero errors and eight figures; 294 software tests passed. Those checks establish implementation and replay consistency, not economic validity. The repository appendix records individual contributions and completed versus proposed work. No fresh inference is needed to reproduce the saved experiment. [3]"
+      },
+      {
+        "kind": "sources",
+        "rows": [
+          [
+            "1",
+            "Team matching methods and all-company evaluation",
+            "https://github.com/Qual2Cast/Qual2Cast/blob/0ec1aa1/matching/README.md"
+          ],
+          [
+            "2",
+            "Riya's collection and peer-label integration",
+            "https://github.com/Qual2Cast/Qual2Cast/blob/0ec1aa1/conversations/2026-10-18-riya-branch-integration.md"
+          ],
+          [
+            "3",
+            "Integrated workflow, recorded results and validation",
+            "https://github.com/Qual2Cast/Qual2Cast/blob/0ec1aa1/reports/team_company_workflow/README.md"
+          ],
+          [
+            "4",
+            "Growth rules, held-out evaluation and SEC revenue coverage",
+            "https://github.com/Qual2Cast/Qual2Cast/blob/0ec1aa1/conversations/2026-10-19-growth-signals.md"
+          ],
+          [
+            "5",
+            "Kethan's SIC-first experiment (separate branch)",
+            "https://github.com/Qual2Cast/Qual2Cast/blob/9c9d77b1edaaa0a6e203a972971ab8f46bb91e7c/sic_method/README.md"
+          ],
+          [
+            "6",
+            "Field selection and private-target availability",
+            "https://github.com/Qual2Cast/Qual2Cast/blob/0ec1aa1/reports/team_company_workflow/field_selection.csv"
+          ]
+        ]
+      }
+    ]
+  ],
+  "appendix": [
+    {
+      "kind": "heading",
+      "text": "Appendix A. Team contributions and integration status"
+    },
+    {
+      "kind": "paragraph",
+      "text": "This register combines the 19 October team progress document, project-group updates and repository artifacts checked on 20 October. It records supported contributions, not a ranking of effort. It is not a claim that every branch is executed by the integrated notebook. The submitted update identifies six code contributors; additional discussion and coordination are distinguished below. No separate completed artifact for Yiming Zhu was identified in those sources; contribution attribution remains open rather than inferred."
+    },
+    {
+      "kind": "table",
+      "headers": [
+        "Contributor",
+        "Work included",
+        "Verified status",
+        "Source"
+      ],
+      "rows": [
+        [
+          "Michael Chen",
+          "Snapshot correction, full website collection, MPNet/mutual/clustering/tree matching, all-company and ten-target evaluation; earlier profile extractor.",
+          "Implemented; main. Historical profile audit is distinct from new peer-review labels.",
+          "https://github.com/Qual2Cast/Qual2Cast/blob/0ec1aa1/matching/README.md"
+        ],
+        [
+          "Riya Mhatre",
+          "Scraper filters and masking, initial TF-IDF/LSA/embedding comparisons, pre-output Paylocity peer labels.",
+          "Filters/methods ported; original branch retained. Labels cover one target, not the new full pilot.",
+          "https://github.com/Qual2Cast/Qual2Cast/blob/0ec1aa1/conversations/2026-10-18-riya-branch-integration.md"
+        ],
+        [
+          "Fiona (Xiaozhe) Shao",
+          "Dated 13-type growth extraction, hand-labeled evaluation and error analysis; SEC annual revenue and outcome construction.",
+          "Integrated into main. Revenue anomaly review and historical event coverage remain incomplete.",
+          "https://github.com/Qual2Cast/Qual2Cast/blob/0ec1aa1/conversations/2026-10-19-growth-signals.md"
+        ],
+        [
+          "Kethan Bethamcharla",
+          "OSHA SIC industry-group expansion and same-SIC candidate pools; the team update reports 54 SIC4 and 83 SIC3 candidates for PCTY.",
+          "Implemented on kethan/wip; later within-pool ranking/evaluation unfinished. Not an executed arm in the integrated notebook.",
+          "https://github.com/Qual2Cast/Qual2Cast/blob/9c9d77b1edaaa0a6e203a972971ab8f46bb91e7c/sic_method/README.md"
+        ],
+        [
+          "Yifan (Richard) Chen",
+          "Initial website-description collection for the 38-company SIC 35 sample.",
+          "Earlier collection incorporated into the team's broader website work.",
+          "https://github.com/Qual2Cast/Qual2Cast/blob/0ec1aa1/conversations/2026-10-17-task3-profile-pipeline.md"
+        ],
+        [
+          "Eric (Yikai) Li",
+          "Ten-company pilot, combined 19-company notebook, modular workflow, alternative retrieval/review/factor/valuation methods, growth comparison, EBITDA example and review forms.",
+          "PR #6 merged. Frozen replay and tests complete; independent review, private-company validation and growth forecasting incomplete.",
+          "https://github.com/Qual2Cast/Qual2Cast/blob/0ec1aa1/reports/team_company_workflow/README.md"
+        ],
+        [
+          "Barbara (Haoyan) Bai",
+          "Clarified sponsor input permissions and discussed LLM/10-K comparables and valuation direction.",
+          "Requirements/design contribution observed in project messages; no separately verified comparative valuation result is claimed.",
+          ""
+        ],
+        [
+          "Matthew Pisinski",
+          "Project discussion, source-permission clarification and review of the submitted team update.",
+          "Coordination/review contribution; no separate evaluated model is attributed.",
+          ""
+        ]
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "Appendix B. Evidence and reproduction map"
+    },
+    {
+      "kind": "paragraph",
+      "text": "<b>Original all-company experiment.</b> Source [1] contains the original methods, same-SIC/no-matching controls, equal-count comparisons, bootstrap analysis and ten case studies. Runs: 20261019T080322Z and 20261019T080416Z. The published source is preserved; its 535-company results are reported, not recomputed by this editorial build."
+    },
+    {
+      "kind": "paragraph",
+      "text": "<b>Earlier team evidence.</b> Riya's pre-output labels, collection changes and historical profile audits are documented in [2]. They are neither superseded by an empty review template nor evidence that the new model decisions were independently graded. The original 19-company analysis remains in <i>notebooks/integrated_company_analysis.ipynb</i> and its matching reports directory. It showed development sensitivity to financial reranking, not a confirmed improvement."
+    },
+    {
+      "kind": "paragraph",
+      "text": "<b>Paylocity relevance check.</b> The original 535-company page-text run in [2] reported embedding NDCG@20 of 0.85 and recall@25 of 0.91 against Riya's labels, versus NDCG@20 of 0.80 and recall@25 of 0.64 for its combined score. Random ordering had NDCG@20 of 0.03. A later masked-input run used 534 companies and reported embedding NDCG@20 of 0.90; it is a different input snapshot. These one-target results concern retrieval relevance, not out-of-sample valuation accuracy."
+    },
+    {
+      "kind": "paragraph",
+      "text": "<b>Integrated experiment.</b> Run 20261020T033357Z-f5389a uses private-evidence-2026-10-19-v4. Its 672 configurations cross nine retrieval methods, review alternatives, eight factor choices and four aggregators, with smaller few-shot/RAG arms. Exact arm coverage is saved in comparison_scope.json; not every possible method combination was run. The 6,720 rows, prompts, responses and source modules are embedded in the notebook. The new compact table is recomputed from unreviewed_controls.csv and combination_results.csv for the integrated pilot; the all-company row is transcribed from pinned source [1]."
+    },
+    {
+      "kind": "paragraph",
+      "text": "<b>Financial fields.</b> The 15-row field_selection.csv specifies purpose, target/peer side and availability. Explicitly supplied LTM revenue, EBITDA and debt may be used; stock-based target features are not required. Public-peer 10-K descriptions, database crosswalks and WRDS Ask AI are potential extensions, not completed integrations. Capital IQ identifiers do not imply a verified Orbis/Preqin identifier mapping."
+    },
+    {
+      "kind": "paragraph",
+      "text": "<b>Growth and labels.</b> Source [4] preserves the team's original held-out sequence and EDGAR outcome construction. The notebook's rules/LLM/intersection comparison uses 145 held-out-C pages later inspected during development. It scores article/type pairs, not exact event counts, forecast errors or economic value. The broader event evaluation includes sources beyond the narrow private-target deployment policy; its accuracy does not establish private-target source coverage. In the current ten targets, eligible ordinary-site growth evidence covers only PCTY, BV and WING."
+    },
+    {
+      "kind": "paragraph",
+      "text": "<b>Reproduce.</b> Use Python 3.12+ and pipeline/requirements-replay.txt. Download team_company_workflow.ipynb and run its code cells in order. It extracts its checksum-bound bundle into a local directory, replays recorded inference and recomputes downstream results without downloading a model. Source-level integration instructions are in pipeline/TEAM_WORKFLOW.md. Kethan's separate experiment requires its branch and source access. No teammate's original notebook or shared Google Doc was rewritten for this memo."
+    },
+    {
+      "kind": "paragraph",
+      "text": "<b>Team progress source.</b> <a href=\"https://docs.google.com/document/d/1fLsMKBPJ3IY-4UubZt9luw3Eutd8y_ftm_v367AbnUY/edit\">Qual2Cast: Team Progress Check, 19 October 2026</a>. Its results are reconciled with the newer merged workflow; an unverified proposal is not reported as completed work."
+    },
+    {
+      "kind": "sources",
+      "rows": [
+        [
+          "1",
+          "Team matching methods and all-company evaluation",
+          "https://github.com/Qual2Cast/Qual2Cast/blob/0ec1aa1/matching/README.md"
+        ],
+        [
+          "2",
+          "Riya's collection and peer-label integration",
+          "https://github.com/Qual2Cast/Qual2Cast/blob/0ec1aa1/conversations/2026-10-18-riya-branch-integration.md"
+        ],
+        [
+          "3",
+          "Integrated workflow, recorded results and validation",
+          "https://github.com/Qual2Cast/Qual2Cast/blob/0ec1aa1/reports/team_company_workflow/README.md"
+        ],
+        [
+          "4",
+          "Growth rules, held-out evaluation and SEC revenue coverage",
+          "https://github.com/Qual2Cast/Qual2Cast/blob/0ec1aa1/conversations/2026-10-19-growth-signals.md"
+        ],
+        [
+          "5",
+          "Kethan's SIC-first experiment (separate branch)",
+          "https://github.com/Qual2Cast/Qual2Cast/blob/9c9d77b1edaaa0a6e203a972971ab8f46bb91e7c/sic_method/README.md"
+        ],
+        [
+          "6",
+          "Field selection and private-target availability",
+          "https://github.com/Qual2Cast/Qual2Cast/blob/0ec1aa1/reports/team_company_workflow/field_selection.csv"
+        ]
+      ]
+    }
+  ],
+  "comparison": [
+    [
+      "535 targets [1]",
+      "Median APE",
+      "No matching: 34.6%",
+      "MPNet z >= 2: 34.7%",
+      "Reused snapshot; 535 estimates each"
+    ],
+    [
+      "10 pilot targets [3]",
+      "Estimate coverage",
+      "No matching: 10/10",
+      "RRF + staged review: 2/10",
+      "Five candidates reviewed per target"
+    ],
+    [
+      "PCTY + WING [3]",
+      "Median APE",
+      "No matching: 61.1%",
+      "RRF + staged review: 53.6%",
+      "Same 2 cases; selected by method"
+    ],
+    [
+      "Same 2 cases [3]",
+      "Median APE",
+      "MPNet, no review: 41.9%",
+      "RRF + staged review: 53.6%",
+      "Not evidence that review improves error"
+    ],
+    [
+      "145 pages / 10 firms [3,4]",
+      "Precision / recall",
+      "Rules: 58.1% / 42.9%",
+      "LLM: 56.7% / 90.5%",
+      "Reused single-annotator labels"
+    ],
+    [
+      "Same 145 pages [3,4]",
+      "Precision / recall",
+      "Rules: 58.1% / 42.9%",
+      "Rules AND LLM: 81.8% / 42.9%",
+      "Same labels; agreement filter"
+    ]
+  ],
+  "source_commit": "0ec1aa1",
+  "integrated_run": "20261020T033357Z-f5389a",
+  "conditional_baseline_ape": 61.07776391526214,
+  "conditional_mpnet_ape": 41.92506122920661,
+  "conditional_staged_ape": 53.647649260030406,
+  "email_requirement": {
+    "author": "Michael A. Robbins",
+    "date": "2026-10-20T11:29:23-04:00",
+    "subject": "Guidance for Writing Your Quantitative Finance Project Memos",
+    "main_pages": 4,
+    "contributions_location": "appendix"
+  }
+}

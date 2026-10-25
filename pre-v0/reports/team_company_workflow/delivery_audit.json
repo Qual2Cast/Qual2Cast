@@ -1,0 +1,172 @@
+{
+  "scope": {
+    "targets": [
+      "PCTY",
+      "BV",
+      "ROAD",
+      "FIX",
+      "BRO",
+      "ADUS",
+      "LOPE",
+      "ODFL",
+      "WING",
+      "DXPE"
+    ],
+    "candidate_population": 538,
+    "shortlist": 5,
+    "selected_peers": 3,
+    "peer_count_design": "Retrieve up to five candidates and select three eligible peers, so factor reranking can alter the selected set. Fixed before the complete hosted valuation comparison.",
+    "distinct_target_peer_pairs": 112,
+    "configurations": 672,
+    "company_config_runs": 6720,
+    "business_labels": "No independent labels; human-only and saved-review arms correctly abstain.",
+    "growth_labels": "Team holdout C is reused as development data for the new prompt; not a fresh holdout.",
+    "financial_inputs": "Explicit public-as-private simulation; dates, currencies and definitions unverified.",
+    "interpretation": "No universal winner or validated private-company fair value is claimed."
+  },
+  "source_verified_model_pairs": 324,
+  "business_statuses": {
+    "llm_direct": {
+      "source_review_pass": 15,
+      "incompatible": 96,
+      "insufficient_evidence": 1
+    },
+    "llm_fewshot": {
+      "source_review_pass": 16,
+      "incompatible": 34
+    },
+    "llm_rag": {
+      "source_review_pass": 14,
+      "incompatible": 34,
+      "full_scope_review_not_passed": 1,
+      "insufficient_evidence": 1
+    },
+    "llm_staged": {
+      "source_review_pass": 17,
+      "incompatible": 95
+    }
+  },
+  "target_profiles": 10,
+  "company_reports": 10,
+  "default_route": [
+    {
+      "company": "PCTY",
+      "estimate": 17.05259,
+      "observed_multiple": 22.1271,
+      "absolute_percentage_error": 22.933461682732936,
+      "selected_peers": 3,
+      "status": "exploratory_snapshot"
+    },
+    {
+      "company": "BV",
+      "estimate": null,
+      "observed_multiple": 6.6811,
+      "absolute_percentage_error": null,
+      "selected_peers": 0,
+      "status": "abstain_insufficient_positive_multiples"
+    },
+    {
+      "company": "ROAD",
+      "estimate": null,
+      "observed_multiple": 16.45663,
+      "absolute_percentage_error": null,
+      "selected_peers": 1,
+      "status": "abstain_insufficient_positive_multiples"
+    },
+    {
+      "company": "FIX",
+      "estimate": null,
+      "observed_multiple": 22.83728,
+      "absolute_percentage_error": null,
+      "selected_peers": 2,
+      "status": "abstain_insufficient_positive_multiples"
+    },
+    {
+      "company": "BRO",
+      "estimate": null,
+      "observed_multiple": 17.71062,
+      "absolute_percentage_error": null,
+      "selected_peers": 2,
+      "status": "abstain_insufficient_positive_multiples"
+    },
+    {
+      "company": "ADUS",
+      "estimate": null,
+      "observed_multiple": 12.00902,
+      "absolute_percentage_error": null,
+      "selected_peers": 1,
+      "status": "abstain_insufficient_positive_multiples"
+    },
+    {
+      "company": "LOPE",
+      "estimate": null,
+      "observed_multiple": 12.51164,
+      "absolute_percentage_error": null,
+      "selected_peers": 0,
+      "status": "abstain_insufficient_positive_multiples"
+    },
+    {
+      "company": "ODFL",
+      "estimate": null,
+      "observed_multiple": 18.49356,
+      "absolute_percentage_error": null,
+      "selected_peers": 2,
+      "status": "abstain_insufficient_positive_multiples"
+    },
+    {
+      "company": "WING",
+      "estimate": 5.81798,
+      "observed_multiple": 37.20373,
+      "absolute_percentage_error": 84.36183683732787,
+      "selected_peers": 3,
+      "status": "exploratory_snapshot"
+    },
+    {
+      "company": "DXPE",
+      "estimate": null,
+      "observed_multiple": 9.91068,
+      "absolute_percentage_error": null,
+      "selected_peers": 1,
+      "status": "abstain_insufficient_positive_multiples"
+    }
+  ],
+  "growth_evaluation": [
+    {
+      "method": "rules",
+      "status": "scored_development_only",
+      "correct": 18,
+      "predicted": 31,
+      "true": 42,
+      "precision": 0.5806451612903226,
+      "recall": 0.4285714285714285,
+      "f1": 0.4931506849315068,
+      "incomplete_companies": 0,
+      "label_status": "Single-annotator team labels; no independent second review"
+    },
+    {
+      "method": "llm",
+      "status": "scored_development_only",
+      "correct": 38,
+      "predicted": 67,
+      "true": 42,
+      "precision": 0.5671641791044776,
+      "recall": 0.9047619047619048,
+      "f1": 0.6972477064220184,
+      "incomplete_companies": 0,
+      "label_status": "Single-annotator team labels; no independent second review"
+    },
+    {
+      "method": "hybrid",
+      "status": "scored_development_only",
+      "correct": 18,
+      "predicted": 22,
+      "true": 42,
+      "precision": 0.8181818181818182,
+      "recall": 0.4285714285714285,
+      "f1": 0.5625,
+      "incomplete_companies": 0,
+      "label_status": "Single-annotator team labels; no independent second review"
+    }
+  ],
+  "independent_human_labels": 0
+}

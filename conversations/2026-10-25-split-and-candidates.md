@@ -161,6 +161,32 @@ good in step 6. On the 277 common targets: LLM direct 30.8% median abs
 error (Spearman 0.36), LLM good comps 31.1%, cosine z ≥ 2.5 30.2%, cosine
 z ≥ 2 31.1%, no matching 31.9%, same SIC 33.1-34.4% (Spearman 0.28-0.30).
 
+## Results notes, push, merge with main, PR (2026-10-25)
+
+- Results markdown added after each section of `comps_and_valuation.ipynb`
+  (steps 4, 6, no embeddings, 7); outputs unchanged.
+- Committed on `michael/wip` (134a373) and pushed.
+- Merged `origin/main` (25 commits: PRs #5-#7, Yikai's integrated company
+  workflow and team memo, Xiaozhe's growth-signal updates). Michael chose
+  to move that work into `pre-v0/` with the rest: `pipeline/`,
+  `valuation/`, `experiments/integrated_company_analysis/`,
+  `reports/team_company_workflow/`, `reports/integrated_company_analysis/`
+  and the new files in `growth_signals/`, `matching/`, `notebooks/`.
+  - Every file from main is byte-identical at its new path (one notebook's
+    line endings had to be restored from main's blob) except three
+    repo-root lookups (`pipeline/collection.py`,
+    `growth_signals/edgar_revenue.py`, `pipeline/run_workflow.py`, one
+    more `parents[...]` level) and the run instructions in
+    `pipeline/TEAM_WORKFLOW.md` (`PYTHONPATH=pre-v0`).
+  - `.gitattributes`: main's `-text` rules for the integrated workflow
+    moved to the `pre-v0/` paths.
+  - README / PROJECT_STATE conflicts: both sides kept, main's sections on
+    the memo and the 19-company experiment with `pre-v0/` paths.
+  - Tests after the merge: pipeline 50, growth_signals 218, v0 99,
+    website_scrape 33, all passing.
+- The teammates should know their work moved; their notebooks still run
+  as before (they unpack their own code).
+
 ## Next
 
 Open: a target with no good comp (fall back to cosine or "no estimate");

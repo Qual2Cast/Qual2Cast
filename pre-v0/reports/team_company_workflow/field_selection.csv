@@ -1,0 +1,16 @@
+field,side,source,purpose,availability
+Company name and website,Target and peer,User input; sponsor identity table,Resolve identity and locate evidence; not economic similarity,Required; new entities need collection and alignment
+Products/services and operating role,Target and peer,Captured ordinary company website; exact source sentences,Distinguish actual function and position in the value chain,Extracted when supported; missing claims remain unknown
+Customers and end uses,Target and peer,Explicit statements on captured website pages,Review whether the businesses serve comparable needs,Conditional; customers' activities are not the company's activities
+All observed business activities,Target and peer,All retained source pages and activity profiles,Prevent cherry-picking one overlapping business line,Observed scope only; segment revenue weights are unavailable
+Revenue model and pricing,Target and peer,Explicit website text or supplied business information,Support business-model review when directly documented,Conditional evidence; not a complete standardized extracted field
+LTM revenue,Target and peer,Target: supplied accounts; peer: authorized financial data,Optional scale comparison after business approval,Not assumed public for a private target; dates/units require alignment
+LTM EBITDA,Target and peer,Supplied accounts/reconciliation; authorized peer financial data,Profitability measurement and target valuation denominator,Definition and period must be verified; no website-only fallback
+Debt,Target and peer,Supplied debt schedule; authorized peer financial data,Optional financing-intensity comparison,Point-in-time balance; gross/net definition must be explicit
+EBITDA margin and debt/revenue,Target and peer,Derived from aligned permitted financial inputs,Optional secondary factors; compare every subset with business-only,Requires positive revenue and compatible inputs
+"Growth events, event/publication date and source text",Target and peer,"Ordinary news, press and careers pages","Describe recent activity; compare rules, LLM and agreement extraction",Coverage is sparse; no validated forecast or valuation premium
+"Source URL, capture time and text hash",Target and peer,Collection and preparation ledger,"Traceability, source ownership and point-in-time checks",Stored for captured evidence; capture time differs from event time
+Peer EV/EBITDA,Public peer only,Sponsor snapshot; aligned financial vendor data for future validation,Aggregate only after business approval and peer selection,Snapshot dates/definitions are unverified; development proxy only
+Target EV/EBITDA,Public development target outcome only,Sealed sponsor snapshot outcome,Score the returned estimate; excluded from extraction and matching,Unavailable for a genuinely private target; not a required input
+Public-comp 10-K descriptions and segments,Public peer only,SEC filings / authorized vendor descriptions,Potential enrichment of peer business scope,Permitted but not collected into this frozen comparison
+Capital IQ / Orbis / Preqin entity identifiers,Identity alignment,Authorized vendor records,Join additional records to the correct company,Capital IQ key exists; cross-vendor entity crosswalk is not implemented

@@ -8,7 +8,10 @@ from collections import defaultdict
 from datetime import date, timedelta
 from pathlib import Path
 
-from schema import EVENT_TYPES, Event, read_events_jsonl
+try:
+    from .schema import EVENT_TYPES, Event, read_events_jsonl
+except ImportError:  # Direct script entry remains supported.
+    from schema import EVENT_TYPES, Event, read_events_jsonl
 
 WINDOW_DAYS = (365, 730, 1095)
 

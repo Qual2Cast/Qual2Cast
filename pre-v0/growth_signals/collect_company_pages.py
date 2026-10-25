@@ -16,25 +16,50 @@ if str(WEBSITE_SCRAPE_DIR) not in sys.path:
 
 from fetch_and_clean import find_input, load_companies  # noqa: E402
 
-from collect_events import (
-    articles_from_wordpress_api,
-    discover_article_links,
-    discover_event_pages,
-    date_from_text,
-    is_article_url,
-    publication_date_from_html,
-    same_registered_host,
-    wordpress_posts_api_url,
-)
-from fetch_adapter import (
-    FetchFailed,
-    build_clients,
-    close_clients,
-    fetch_page,
-    fetch_text_payload,
-    raw_text_fields,
-    save_raw_page,
-)
+try:
+    from .collect_events import (
+        articles_from_wordpress_api,
+        discover_article_links,
+        discover_event_pages,
+        discover_listing_next_url,
+        date_from_text,
+        is_article_url,
+        publication_date_from_html,
+        same_registered_host,
+        wordpress_posts_api_url,
+    )
+except ImportError:  # Direct script entry remains supported.
+    from collect_events import (
+        articles_from_wordpress_api,
+        discover_article_links,
+        discover_event_pages,
+        discover_listing_next_url,
+        date_from_text,
+        is_article_url,
+        publication_date_from_html,
+        same_registered_host,
+        wordpress_posts_api_url,
+    )
+try:
+    from .fetch_adapter import (
+        FetchFailed,
+        build_clients,
+        close_clients,
+        fetch_page,
+        fetch_text_payload,
+        raw_text_fields,
+        save_raw_page,
+    )
+except ImportError:  # Direct script entry remains supported.
+    from fetch_adapter import (
+        FetchFailed,
+        build_clients,
+        close_clients,
+        fetch_page,
+        fetch_text_payload,
+        raw_text_fields,
+        save_raw_page,
+    )
 
 DEFAULT_OUT = REPO_ROOT / "outputs-local" / "growth_signals"
 CATEGORY_PRIORITY = {"press": 0, "news": 1, "careers": 2, "jobs": 3}
@@ -88,12 +113,15 @@ def choose_event_pages(discovered: list[dict], max_event_pages: int) -> list[dic
 
 
 def page_record(page, metadata: dict, page_id: str, category: str,
-                extra: dict | None = None) -> dict:
+                extra: dict | None = None, via_ir_fallback: bool = False) -> dict:
     record = {
         "page_id": page_id,
         "category": category,
         **metadata,
         **raw_text_fields(page.html),
+        # Pages reached only through the conventional ir.<domain> host. A
+        # private target has no IR site, so coverage is reported without them.
+        "via_ir_fallback": via_ir_fallback,
     }
     if extra:
         record.update(extra)
@@ -101,7 +129,8 @@ def page_record(page, metadata: dict, page_id: str, category: str,
 
 
 def collect_company(company: dict, clients: list, output_root: Path,
-                    max_event_pages: int = 4, max_articles: int = 5) -> dict:
+                    max_event_pages: int = 4, max_articles: int = 25,
+                    max_listing_pages: int = 3) -> dict:
     """Collect a homepage plus selected growth-signal pages for one company."""
     company_id = company["IQ_COMPANY_ID"]
     name = company["target_company_name"]
@@ -147,11 +176,12 @@ def collect_company(company: dict, clients: list, output_root: Path,
             page_id = f"P{len(record['pages']) + 1}"
             ir_metadata = save_raw_page(ir_home, output_root, company_id, page_id)
             record["pages"].append(page_record(
-                ir_home, ir_metadata, page_id, "ir_home"))
+                ir_home, ir_metadata, page_id, "ir_home", via_ir_fallback=True))
             seen_final_urls.add(canonical_url(ir_home.final_url))
+            known_urls = {item["url"] for item in discovered}
             for item in discover_event_pages(ir_home.html, ir_home.final_url):
-                if item not in discovered:
-                    discovered.append(item)
+                if item["url"] not in known_urls:
+                    discovered.append({**item, "via_ir_fallback": True})
             record["ir_fallback"] = {
                 "url": ir_home.final_url,
                 "status": "used",
@@ -162,6 +192,7 @@ def collect_company(company: dict, clients: list, output_root: Path,
 
     for selected_page in selected:
         page_id = f"P{len(record['pages']) + 1}"
+        via_ir = bool(selected_page.get("via_ir_fallback", False))
         try:
             validator = None
             if selected_page["category"] in {"news", "press"}:
@@ -205,14 +236,51 @@ def collect_company(company: dict, clients: list, output_root: Path,
                 "published_date": published_date,
                 "published_date_precision": precision,
                 "discovered_from": home.final_url,
-            }))
+            }, via_ir_fallback=via_ir))
         else:
             record["pages"].append(page_record(
-                page, metadata, page_id, selected_page["category"]))
+                page, metadata, page_id, selected_page["category"],
+                via_ir_fallback=via_ir))
         if selected_page["category"] in {"news", "press"} and not direct_article:
             for article in discover_article_links(
                     page.html, page.final_url, selected_page["category"]):
-                article_candidates.setdefault(article["url"], article)
+                article_candidates.setdefault(
+                    article["url"], {**article, "via_ir_fallback": via_ir})
+            # Follow explicit listing continuations (rel=next, Next/Older),
+            # bounded by --max-listing-pages, until enough articles are known.
+            listing_page = page
+            for _ in range(max(0, max_listing_pages - 1)):
+                if len(article_candidates) >= max_articles:
+                    break
+                next_url = discover_listing_next_url(
+                    listing_page.html, listing_page.final_url)
+                if not next_url or next_url in seen_final_urls:
+                    break
+                try:
+                    next_page = fetch_page(next_url, clients, content_validator=validator)
+                except FetchFailed as exc:
+                    record["errors"].append({
+                        "url": next_url,
+                        "category": selected_page["category"],
+                        "attempts": exc.attempts,
+                    })
+                    break
+                next_key = canonical_url(next_page.final_url)
+                if next_key in seen_final_urls:
+                    break
+                seen_final_urls.add(next_key)
+                next_page_id = f"P{len(record['pages']) + 1}"
+                next_metadata = save_raw_page(
+                    next_page, output_root, company_id, next_page_id)
+                record["pages"].append(page_record(
+                    next_page, next_metadata, next_page_id,
+                    selected_page["category"], via_ir_fallback=via_ir))
+                for article in discover_article_links(
+                        next_page.html, next_page.final_url,
+                        selected_page["category"]):
+                    article_candidates.setdefault(
+                        article["url"], {**article, "via_ir_fallback": via_ir})
+                listing_page = next_page
             api_url = wordpress_posts_api_url(
                 page.html, page.final_url, max_articles)
             if api_url:
@@ -237,11 +305,13 @@ def collect_company(company: dict, clients: list, output_root: Path,
                         "raw_title": "",
                         "raw_meta": "",
                         "raw_blocks": [],
+                        "via_ir_fallback": via_ir,
                     })
                     for article in articles_from_wordpress_api(
                             api_page.html, api_page.final_url,
                             selected_page["category"]):
-                        article_candidates[article["url"]] = article
+                        article_candidates[article["url"]] = {
+                            **article, "via_ir_fallback": via_ir}
 
     articles = sorted(
         article_candidates.values(),
@@ -273,7 +343,7 @@ def collect_company(company: dict, clients: list, output_root: Path,
             "published_date_precision": (
                 article_precision if article_date else article["published_date_precision"]),
             "discovered_from": article["discovered_from"],
-        }))
+        }, via_ir_fallback=bool(article.get("via_ir_fallback", False))))
 
     event_page_count = sum(
         page["category"] not in {"home", "ir_home", "archive_api"}
@@ -285,6 +355,9 @@ def collect_company(company: dict, clients: list, output_root: Path,
     else:
         record["status"] = "no_event_pages" if not record["errors"] else "event_pages_failed"
     record["event_page_count"] = event_page_count
+    record["ir_fallback_article_count"] = sum(
+        page["category"] == "article" and page.get("via_ir_fallback", False)
+        for page in record["pages"])
     return record
 
 
@@ -313,7 +386,9 @@ def main() -> None:
     parser.add_argument("--tickers", nargs="*", help="only these tickers")
     parser.add_argument("--limit", type=int)
     parser.add_argument("--max-event-pages", type=int, default=4)
-    parser.add_argument("--max-articles", type=int, default=5)
+    parser.add_argument("--max-articles", type=int, default=25)
+    parser.add_argument("--max-listing-pages", type=int, default=3,
+                        help="listing pages per News/Press page, including the first")
     parser.add_argument(
         "--methods",
         nargs="*",
@@ -343,7 +418,8 @@ def main() -> None:
         for index, company in enumerate(companies.to_dict("records"), start=1):
             label = f"[{index}/{total}] {company['target_ciq_ticker']:<6} {company['target_company_name']}"
             record = collect_company(
-                company, clients, args.out, args.max_event_pages, args.max_articles)
+                company, clients, args.out, args.max_event_pages, args.max_articles,
+                args.max_listing_pages)
             path = write_company_record(record, args.out)
             print(f"{label}  {record['status']} ({record.get('event_page_count', 0)} event pages) -> {path}")
     finally:
