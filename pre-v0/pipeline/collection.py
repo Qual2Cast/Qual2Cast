@@ -31,7 +31,7 @@ class EvidenceStage:
                 raise ValueError(
                     "Live collection requires name, website, output directory and contact User-Agent"
                 )
-            module_dir = Path(__file__).resolve().parents[1] / "website_scrape"
+            module_dir = Path(__file__).resolve().parents[2] / "website_scrape"   # repo root (pipeline/ is in pre-v0/)
             if str(module_dir) not in sys.path:
                 sys.path.insert(0, str(module_dir))
             from scrape_websites import collect

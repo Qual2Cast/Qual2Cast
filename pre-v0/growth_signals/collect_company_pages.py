@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = Path(__file__).resolve().parents[2]
 WEBSITE_SCRAPE_DIR = REPO_ROOT / "website_scrape"
 if str(WEBSITE_SCRAPE_DIR) not in sys.path:
     sys.path.insert(0, str(WEBSITE_SCRAPE_DIR))

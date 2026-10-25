@@ -117,7 +117,13 @@ scraper.
 - **Bot checks:** every method checks for bot-check pages ("Pardon Our
   Interruption", Cloudflare, Incapsula).
 - **Fallback addresses:** a site that can't be reached is retried at its
-  `www.` and `http://` addresses.
+  `www.` and `http://` addresses. The browser's certificate-error screen
+  ("Privacy error / Your connection is not private") counts as a failed load
+  too, so the next address is tried and the screen is never saved as text
+  (Englewood Lab, fixed 2026-10-24).
+- **English homepage:** a homepage that lands on another language's locale
+  (`/ko/home`) is replaced by its English copy (`/en/home`) when the site has
+  one; translated pages are skipped as before.
 - **Text encoding:** pages are decoded from their bytes, since requests
   guesses ISO-8859-1 when the server names no charset.
 

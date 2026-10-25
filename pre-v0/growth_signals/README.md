@@ -206,9 +206,9 @@ Extract candidate events and retain an audit row for every article:
 
 ```bash
 python extract_events.py \
-  --page-record ../outputs-local/growth_signals/page_records/IQ254957567.json \
-  --events ../outputs-local/growth_signals/events/IQ254957567.jsonl \
-  --audit ../outputs-local/growth_signals/audit/IQ254957567.json
+  --page-record ../../outputs-local/growth_signals/page_records/IQ254957567.json \
+  --events ../../outputs-local/growth_signals/events/IQ254957567.jsonl \
+  --audit ../../outputs-local/growth_signals/audit/IQ254957567.json
 ```
 
 Specific article pages are eligible for the full taxonomy. Careers and Jobs

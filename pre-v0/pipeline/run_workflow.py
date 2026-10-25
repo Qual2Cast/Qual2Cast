@@ -11,7 +11,8 @@ from pathlib import Path
 from datetime import datetime,timezone
 import numpy as np
 import pandas as pd
-ROOT=Path(__file__).resolve().parents[1]
+ROOT=Path(__file__).resolve().parents[1]   # pre-v0/: the packages imported below
+REPO=ROOT.parent                            # repo root: outputs-local/
 sys.path[:0]=[str(ROOT),str(ROOT/'experiments/whole_company_pilot/src')]
 from pipeline.workflow import CompanyWorkflow
 from pipeline.config import Configuration,PRIMARY_RETRIEVERS as RETRIEVERS,FACTOR_SETS,AGGREGATORS
@@ -21,8 +22,8 @@ from matching.peer_selectors import paired_bootstrap
 
 import argparse
 parser=argparse.ArgumentParser(description=__doc__)
-parser.add_argument('--data-root',type=Path,default=ROOT/'outputs-local/integration-19')
-parser.add_argument('--output',type=Path,default=ROOT/'outputs-local/company-workflow')
+parser.add_argument('--data-root',type=Path,default=REPO/'outputs-local/integration-19')
+parser.add_argument('--output',type=Path,default=REPO/'outputs-local/company-workflow')
 parser.add_argument('--review',action='store_true',help='Run the separately cached local language model')
 args=parser.parse_args() if __name__=='__main__' else parser.parse_args([])
 DATA=args.data_root

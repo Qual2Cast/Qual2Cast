@@ -169,12 +169,17 @@ STEALTH_SCROLLS = 4            # scrolls to trigger lazy-loaded content
 BLOCK_PAGE = re.compile(
     r"just a moment|checking your browser|verify you are human|attention required"
     r"|cf-browser-verification|access denied|403 forbidden|request blocked"
-    r"|pardon our interruption|are you a robot"
+    r"|pardon our interruption|are you a robot|your connection is not private|privacy error"
     r"|something about your browser made us think you were a bot"
     r"|enable javascript and cookies to continue|request unsuccessful\. incapsula",
     re.I,
 )
 BLOCK_PAGE_MAX_WORDS = 100     # a real page can mention reCAPTCHA; a bot check is short
+# The browser's own page for an untrusted certificate. Chrome shows it in
+# place of the site, so it reads as page text (Englewood Lab, 2026-10-17:
+# "Privacy error / Your connection is not private"). It means the address
+# failed, like a connection error, so the next form (http://) is tried.
+CERT_ERROR_PAGE = re.compile(r"<title>\s*privacy error\s*</title>|NET::ERR_CERT_", re.I)
 MAX_SNAPSHOT_AGE_YEARS = 2     # older archived pages are too stale to describe the business
 # Errors after which the next form of the address is tried (www., http://)
 CONNECTION_ERRORS = (requests.ConnectionError, requests.Timeout, RenderError)
@@ -324,6 +329,18 @@ def link_score(text: str, url: str) -> tuple[str, int] | None:
     return (best[0], score) if score > 0 else None
 
 
+def english_version(url: str) -> str | None:
+    """The same page with an English locale, if the path starts with another
+    language's locale ("/ko/home" -> "/en/home"); else None."""
+    parsed = urlparse(url)
+    segments = parsed.path.split("/")
+    first = segments[1].lower() if len(segments) > 1 else ""
+    match = LOCALE_SEGMENT.match(first)
+    if not match or match.group(1) not in NON_ENGLISH:
+        return None
+    return parsed._replace(path="/".join(["", "en", *segments[2:]])).geturl()
+
+
 CORE_CATEGORIES = {"about", "offerings", "markets", "model"}
 
 
@@ -428,10 +445,22 @@ def crawl(client, website: str, max_pages: int, raw_dir: Path) -> dict:
             return {"status": "robots_disallowed", "pages": []}
         try:
             final_url, html = client.get_html(url)
+            if CERT_ERROR_PAGE.search(html):
+                raise RenderError("the browser's certificate error page")
             break
         except CONNECTION_ERRORS:
             if n == len(candidates_urls):
                 raise
+    english = english_version(final_url)
+    if english:
+        # a homepage in another language (/ko/home): use its English copy if
+        # the site has one; the translated pages are skipped below anyway
+        try:
+            english_url, english_html = client.get_html(english)
+            if english_version(english_url) is None and not CERT_ERROR_PAGE.search(english_html):
+                final_url, html = english_url, english_html
+        except CONNECTION_ERRORS + (BlockedError, requests.HTTPError):
+            pass
     if is_investor_host(final_url):
         # Aziz's rule: no investor-relations pages, even when the main domain
         # redirects there (a private company wouldn't have them)

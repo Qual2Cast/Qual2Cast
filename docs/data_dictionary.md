@@ -56,4 +56,20 @@ Reasons in `removed`: `ticker_tag`, `bare_ticker`, `public_phrase`,
 `too_short_after_cleaning` (whole sentence or block dropped).
 
 Outputs of earlier attempts (Codex profiles, the first matching pass) are in
-`outputs-local/scraps/`; see [scraps/README.md](../scraps/README.md).
+`outputs-local/scraps/`; see [pre-v0/scraps/README.md](../pre-v0/scraps/README.md).
+
+## Comp universe and facets (`outputs-local/comps/`)
+
+Written by `v0/` (recipe steps 1-3); full layout in
+[v0/README.md](../v0/README.md).
+
+| path | stage | contents |
+|---|---|---|
+| `universe/<run time>/companies.csv` | processed | every company, non-financial columns, with `us_hq`, `sic2_in_target_list`, `candidate`, `kept_multiple`, `drop_reason` (`below_3`, `above_30`, `missing`) and `in_universe` |
+| `universe/<run time>/financials.csv` | processed | the five financial columns, keyed by IQ_COMPANY_ID: **not a matching input**, except revenue, EBITDA and debt for comparing scale in later steps |
+| `facets/codex_runs/` | raw | prompt, raw answer, `run.json` (backend, model, tokens) and logs of every model call, Claude (`api_response.json`) or Codex (`events.jsonl`, `stderr.txt`) |
+| `facets/profiles/<IQ_ID>.json` | intermediate | checked facets, each with status (`filled`, `not_applicable`, `unknown`), value, category, source ("model knowledge" and/or page URLs), flags and cited page lines (`block` label such as P1.3, page, URL, quote = the line's text, `quote_found`); version g on: no source asked without pages, citations by line label |
+| `facets/tables/facets.csv` | processed | one row per business profile (most companies have one; B1 is the largest): `business_id`, `business`, `business_count`, `<facet>_status`, `<facet>` (category facets: `category: detail`, several joined with "; "), `<facet>_category` (category facets: the categories alone), `<facet>_source` ("model knowledge" and/or URLs of the cited pages), `<facet>_flags` for the 12 facets, `with_pages`, `issues` (`no_business`, `too_many_businesses`), `llm_status` (`ok`, `not_run`, or an error) Manual review: `needs_review` (true/false) and `review_reasons` (`described_from_pages_only`, `facet_unknown`, `facet_flagged`, and other issues such as `pages_mention_divestiture`), set by code from what the fill recorded (`fill_facets.review_reasons`); 32 of 533 on 2026-10-25. |
+| `facets/tables/facet_quotes.csv` | processed | one row per cited page line, with `business_id` and `block` |
+| `fill_test/<folder>/` | experiment | fill test: `knowledge_only` (31 companies, Codex), `with_pages` (12 of them, version e, pages from the start), one folder per later run; same layout as `facets/` |
+| `api_checks/<time>/` | experiment | `check_claude_api.py`: `checks.json` (each check's result, tokens, seconds, US dollars) and each call's raw answer; made-up companies only |

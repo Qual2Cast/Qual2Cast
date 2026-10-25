@@ -40,7 +40,7 @@ from pathlib import Path
 
 import requests
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = Path(__file__).resolve().parents[2]   # growth_signals/ is in pre-v0/
 WEBSITE_SCRAPE_DIR = REPO_ROOT / "website_scrape"
 if str(WEBSITE_SCRAPE_DIR) not in sys.path:
     sys.path.insert(0, str(WEBSITE_SCRAPE_DIR))

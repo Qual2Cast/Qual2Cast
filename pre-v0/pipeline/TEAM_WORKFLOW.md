@@ -10,11 +10,18 @@ the sequential implementation. The original code and recorded results are unchan
 ## Setup and reproduction
 
 Use Python 3.12+ in a virtual environment for the recorded dependency versions.
-Validation used Python 3.12.14. From the repository root:
+Validation used Python 3.12.14.
+
+**Moved to `pre-v0/` on 2026-10-25**, with the other work from before v0. Run
+every command below from the repository root with `pre-v0` on the import path
+(bash: `export PYTHONPATH=pre-v0`; PowerShell: `$env:PYTHONPATH = "pre-v0"`), so
+`pipeline`, `matching`, `growth_signals` and `valuation` import as before; data
+paths (`outputs-local/...`) are unchanged. Tests: `python -m pytest pipeline/tests -q`
+from `pre-v0/`.
 
 ```bash
-python -m pip install -r pipeline/requirements-replay.txt
-python experiments/integrated_company_analysis/extract_bundle.py notebooks/team_company_workflow.ipynb outputs-local/team-workflow
+python -m pip install -r pre-v0/pipeline/requirements-replay.txt
+python pre-v0/experiments/integrated_company_analysis/extract_bundle.py pre-v0/notebooks/team_company_workflow.ipynb outputs-local/team-workflow
 python -m pipeline.rank_targets --bundle outputs-local/team-workflow/bundle --output outputs-local/ranked-search --targets PCTY --review-limit 50 --simulate-financials
 ```
 
@@ -79,7 +86,7 @@ CLI inference uses medium reasoning effort and the requested model alias. Exact 
 
 ```bash
 python -m pipeline.infer --bundle outputs-local/team-bundle --output outputs-local/inference --provider cli --model gpt-6.1-sol --workers 2
-python -m pipeline.compare --bundle outputs-local/team-bundle --output outputs-local/comparisons --provider cli --model gpt-6.1-sol --growth-root growth_signals/eval/2026-10-19
+python -m pipeline.compare --bundle outputs-local/team-bundle --output outputs-local/comparisons --provider cli --model gpt-6.1-sol --growth-root pre-v0/growth_signals/eval/2026-10-19
 ```
 
 Each teammate uses their own login and allowance. No shared token or separate account credential belongs in Git. [Official non-interactive interface](https://learn.chatgpt.com/docs/non-interactive-mode).

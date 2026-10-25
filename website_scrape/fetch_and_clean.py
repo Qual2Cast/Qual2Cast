@@ -14,7 +14,7 @@ it, so nothing is removed silently.
   clean_block_logged   the sentence filters, with a reason for each removal
   load_companies       the non-financial columns of the company list
 
-Split out of the first collection script (scraps/collect_descriptions_v0/),
+Split out of the first collection script (pre-v0/scraps/collect_descriptions_v0/),
 which is kept unchanged for reference.
 """
 

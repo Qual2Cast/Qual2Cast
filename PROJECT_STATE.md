@@ -3,13 +3,36 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
+_2026-10-24: repo reorganized. The comps recipe (v0) is in v0/; earlier
+work (matching, growth signals, the ten-company pilot, scraps) moved into
+pre-v0/, see pre-v0/README.md and conversations/2026-10-24-pre-v0-reorg.md._
+
+_2026-10-24, later: v0 steps 1-3 built (universe, EV/EBITDA 3-30, twelve
+facets F1-F12 filled by the LLM from its own knowledge, one profile per
+business); fill test 99.7-100%. AGENTS.md trimmed to working habits; the
+method lives here and in v0/README.md. See
+conversations/2026-10-24-v0-steps-1-3.md._
+
+_2026-10-25: training/holdout split (373/160, stratified on company size
+F9, seed 2026, ten showcase targets in training) and recipe step 4
+(candidate comps by per-facet embedding similarity, top 10 or z ≥ 2,
+training pool only) built in `v0/notebooks/comps_and_valuation.ipynb`.
+Model decided: prompts plus weights fit on training pairs. Steps 5-7 open.
+See conversations/2026-10-25-split-and-candidates.md._
+
+_2026-10-25, merge with main: the teammates' work merged into main on
+2026-10-19/20 (PRs #5-#7: the integrated company workflow in `pipeline/`,
+`valuation/`, the team memo and growth-signal updates) moved into pre-v0/
+with the rest, at Michael's request; its two sections from main follow,
+with paths updated. See conversations/2026-10-25-split-and-candidates.md._
+
 ## Team research memo (2026-10-20)
 
 PR #6's integrated workflow is on main. A four-page memo now consolidates the
 team's evidence under research question, data/assumptions, approach/rationale,
 results/interpretation and limitations/next test. Individual contributions and
 implementation records are in a linked appendix. The same material opens
-`notebooks/team_company_workflow.ipynb`; its technical workflow follows unchanged.
+`pre-v0/notebooks/team_company_workflow.ipynb`; its technical workflow follows unchanged.
 
 The memo distinguishes the original 535-company matching study from the
 538-company integrated evidence universe and the ten development targets.
@@ -19,13 +42,13 @@ accuracy, independent peer review or growth forecast is claimed.
 
 Validation of this revision is editorial: all 17 code cells, saved outputs,
 embedded inputs and eight figures match the previously executed notebook.
-See `reports/team_company_workflow/VALIDATION.json` and
+See `pre-v0/reports/team_company_workflow/VALIDATION.json` and
 `conversations/2026-10-20-team-research-memo.md`.
 
 ## Integrated 19-company experiment (2026-10-19)
 
-New entry point: `notebooks/integrated_company_analysis.ipynb`; summary and
-review queues: `reports/integrated_company_analysis/`. It combines the two
+New entry point: `pre-v0/notebooks/integrated_company_analysis.ipynb`; summary and
+review queues: `pre-v0/reports/integrated_company_analysis/`. It combines the two
 ten-company lists (PCTY overlaps), current team matching families, earlier
 representation/activity alternatives, financial reranking and growth extraction.
 The original ten-company notebook remains unchanged.
@@ -38,9 +61,9 @@ See `conversations/2026-10-19-integrated-company-analysis.md` for exact scope,
 data version and next steps. Baseline code is unchanged; recall is pinned
 separately rather than merged.
 
-_Last updated: 2026-10-19 (`michael/wip` merged with main: see
+_Last updated before that: 2026-10-19 (`michael/wip` merged with main: see
 conversations/2026-10-19-merge-main.md. Matching: three methods and an
-evaluation notebook; methodology in matching/README.md; history in
+evaluation notebook; methodology in pre-v0/matching/README.md; history in
 conversations/2026-10-19-method2-mutual-knn.md. Methodology rules updated
 after Aziz's reply on 10-Ks and financial inputs; growth-signal recall: see
 conversations/2026-10-19-growth-signals.md)_
@@ -71,8 +94,17 @@ conversations/2026-10-19-growth-signals.md)_
   (public vet hospitals for a private vet hospital, not human clinics);
   scale similarity is secondary. Investor pages and stock data are still
   not used for the target.
-- All collection is programmatic; nothing written by hand. Unknown
-  information is marked unknown, and every extracted fact cites a source URL.
+- All collection is programmatic; nothing written by hand.
+- v0 facets (decided 2026-10-24): the LLM fills all twelve facets from what
+  it knows about the company, given its name and website. Each facet records
+  its source ("model knowledge", or "website" with quotes and page URLs);
+  "unknown" is a last resort. This replaces the earlier "unknown, never
+  guessed; every fact cites a URL" rule for facets. The saved website pages
+  only fill gaps: every company is first filled from what the model knows
+  (name and website only); a company left with an unknown facet then gets a
+  second call with its saved pages, and only the unknown facets are taken
+  from it, so page text never replaces what the model knew. A company with
+  unrelated businesses gets one profile per business.
 - Financial fields: the target's LTM revenue, LTM EBITDA and debt (and
   derived margin, debt/revenue) may be compared with the comps' figures to
   favor similar-scale comps. EV/EBITDA is the valuation output and is never a
@@ -89,7 +121,7 @@ conversations/2026-10-19-growth-signals.md)_
 ## Matching methodology (working approach)
 
 On branch `michael/wip`, not yet reviewed by the team. Full write-up:
-matching/README.md, "Methodology".
+pre-v0/matching/README.md, "Methodology".
 
 - Every public company takes a turn as the private target: comps are found
   among the other 534 from website text only, the estimate is the comps'
@@ -110,17 +142,19 @@ matching/README.md, "Methodology".
 
 | part | status | where |
 |---|---|---|
-| Website scrape | **Done for all 560** (3 pages per site, re-parsed 2026-10-18): 532 ok, 15 thin, 4 investor_site, 4 robots_disallowed, 4 http_403, 1 blocked. 26 tests. | website_scrape/, outputs-local/website_scrape/ |
-| Growth signals | **On main: first collector + rule extractor** (2026-10-18), 5-company pilot, 70 tests. **Improved rules are on branch `growth-signals-recall`, not yet merged:** recall widening, sentence-boundary fix, one event per article, other-company actor check, five new event types; 211 tests; about 58-61% precision / 43% recall on unseen companies. See conversations/2026-10-19-growth-signals.md. | growth_signals/ |
-| Matching method | **Three methods and an evaluation, on branch `michael/wip`.** `matching/matching_methods.ipynb`: website text → `all-mpnet-base-v2` embeddings (535 matchable, 25 excluded) → comps by method 1 (embedding similarity, cosine z ≥ 2 / 2.5), method 2 (mutual kNN, k = 10 / 20; then UMAP + HDBSCAN clusters), or method 3 (agglomerative tree, complete / ward linkage) → estimate = comps' median EV/EBITDA (financials read only there). Each method is shown on PCTY and then values every company from its own comps. `matching/matching_evaluation.ipynb` (runs the methods notebook first): every method at 3-10 comps, and ten targets (PCTY, BV, ROAD, FIX, BRO, ADUS, LOPE, ODFL, WING, DXPE). **Results:** median absolute error ≈ 35% for every method, the same as no matching (34.6%); method 1 ranks companies best (Spearman 0.31 vs 0.21-0.24 for the others and 0.22-0.24 for SIC peer groups); at equal comp counts no method beats method 1; targets with clear peers get them (ROAD, BRO, LOPE, ADUS), finer distinctions fail (truckload types, contractors vs HVAC makers, distributors), BV gets comps though it has no real peer, and right peers still miss by 29-43%. Latest runs `20261019T080322Z` (methods) and `20261019T080416Z` (evaluation). `umap-learn` and `hdbscan` 0.8.44 are installed in the kernel's Python 3.14. | matching/, outputs-local/matching/ |
-| Results across targets, sanity check, definitions / limitations | **Started:** valuation error for all 535 matchable companies, every method at 3-10 comps, and ten targets (`matching/matching_evaluation.ipynb`). Human check of comps against source pages, and definitions / limitations, not started. | matching/ |
-| Ten-company research pilot | **Frozen ten-company research comparison available.** Independent human review and financial alignment remain pending; not integrated into the main matching workflow. | reports/whole_company_pilot/, notebooks/whole_company_pilot.ipynb |
-| Earlier attempts | Set aside 2026-10-18, kept runnable for reference: Codex profiles (219/560 done), first matching pass, first collection script. | scraps/, outputs-local/scraps/ |
+| Comps recipe (v0) | **Steps 1-3 built and run (533/533 at version k). Split and step 4 candidates built 2026-10-25** (`v0/split.py`, `v0/candidates.py`, `v0/notebooks/comps_and_valuation.ipynb`; 89 tests). Earlier notes on steps 1-3: Universe = the 560 list (all US, 43 SIC2 codes); 27 dropped outside EV/EBITDA 3-30, 533 left. Twelve facets F1-F12, filled by an LLM from model knowledge (name + website): Claude Haiku 5.5 through the Anthropic API from 2026-10-24 (`fill_facets.py --backend claude`, the default; Codex CLI still a backend), not run yet, needs an API key; one profile per business, prompt version 2026-10-24i (the model describes only companies it knows: `knows_company`, and a company it doesn't know is all unknown in the first pass and goes to the pages; checked with made-up companies, which came back invented from their names at version h and all unknown at i, while Paylocity is still filled; one-line JSON; details of about twenty words, lists of up to five; company size a category with no text: small, mid-sized, large, among the largest; no source asked without pages; page lines labeled and cited by label; page lines with figures left out and every prompt checked for figures: 0 of 533). Fill test at version i done 2026-10-24 (`fill_test/knowledge_only_i_haiku`, 31 companies, $0.041 for both passes): 29 known and filled in the first pass (AMETEK's primary services from the pages), Cardinal Infrastructure and Englewood Lab unknown to the model and filled from their pages (Englewood after a rescrape: its first scrape had saved the browser's certificate-error screen), so 100% of 456 facets; 5 companies split (Albemarle 3, St. Joe 3, AZZ, Con Ed, SBC Medical 2); on the any-of category facets Haiku lists fewer categories than Codex f but shares at least one for 95-100% of companies. API key in `.env`; API checks in `v0/check_claude_api.py`. Fill test: 31 companies picked + random, 21 done before the Codex usage limit (100% filled at version f; 99.7% on 30 at version e); the 12 hard picks also once with the saved pages (99.3%, version e). Category facets move between runs: versions e and f (same default model) agree on revenue model for 62% of companies, distribution channels 86%. Notebook `v0/notebooks/comp_universe_and_facets.ipynb`; fill runs (model, tokens, fill %) and the fill test in `v0/notebooks/facet_fill_runs.ipynb`. First Luna run (2026-10-24) hit the usage limit on its first calls; nothing filled. Two passes: model knowledge for every company, then saved pages only for facets left unknown (run again when a company's pages change); instructions and schema cached (about $0.001 per company). 58 tests. Details and decisions in v0/README.md. | v0/, outputs-local/comps/ |
+| Website scrape | **Done for all 560** (3 pages per site, re-parsed 2026-10-18; Englewood Lab rescraped 2026-10-24): 533 ok, 14 thin, 4 investor_site, 4 robots_disallowed, 4 http_403, 1 blocked. The browser's certificate-error screen counts as a failed load (next address tried), and a homepage in another language switches to its /en/ copy. 33 tests. | website_scrape/, outputs-local/website_scrape/ |
+| Growth signals | **On main: first collector + rule extractor** (2026-10-18), 5-company pilot, 70 tests. **Improved rules are on branch `growth-signals-recall`, not yet merged:** recall widening, sentence-boundary fix, one event per article, other-company actor check, five new event types; 211 tests; about 58-61% precision / 43% recall on unseen companies. See conversations/2026-10-19-growth-signals.md. | pre-v0/growth_signals/ |
+| Matching method | **Three methods and an evaluation, on branch `michael/wip`.** `pre-v0/matching/matching_methods.ipynb`: website text → `all-mpnet-base-v2` embeddings (535 matchable, 25 excluded) → comps by method 1 (embedding similarity, cosine z ≥ 2 / 2.5), method 2 (mutual kNN, k = 10 / 20; then UMAP + HDBSCAN clusters), or method 3 (agglomerative tree, complete / ward linkage) → estimate = comps' median EV/EBITDA (financials read only there). Each method is shown on PCTY and then values every company from its own comps. `pre-v0/matching/matching_evaluation.ipynb` (runs the methods notebook first): every method at 3-10 comps, and ten targets (PCTY, BV, ROAD, FIX, BRO, ADUS, LOPE, ODFL, WING, DXPE). **Results:** median absolute error ≈ 35% for every method, the same as no matching (34.6%); method 1 ranks companies best (Spearman 0.31 vs 0.21-0.24 for the others and 0.22-0.24 for SIC peer groups); at equal comp counts no method beats method 1; targets with clear peers get them (ROAD, BRO, LOPE, ADUS), finer distinctions fail (truckload types, contractors vs HVAC makers, distributors), BV gets comps though it has no real peer, and right peers still miss by 29-43%. Latest runs `20261019T080322Z` (methods) and `20261019T080416Z` (evaluation). `umap-learn` and `hdbscan` 0.8.44 are installed in the kernel's Python 3.14. | pre-v0/matching/, outputs-local/matching/ |
+| Results across targets, sanity check, definitions / limitations | **Started:** valuation error for all 535 matchable companies, every method at 3-10 comps, and ten targets (`pre-v0/matching/matching_evaluation.ipynb`). Human check of comps against source pages, and definitions / limitations, not started. | pre-v0/matching/ |
+| Ten-company research pilot | **Frozen ten-company research comparison available.** Independent human review and financial alignment remain pending; not integrated into the main matching workflow. | pre-v0/reports/whole_company_pilot/, pre-v0/notebooks/whole_company_pilot.ipynb |
+| Integrated team workflow | **On main 2026-10-19/20 (PRs #5-#7), moved to pre-v0/ 2026-10-25.** Staged company workflow, integrated 19-company experiment and four-page team memo; see the sections above. | pre-v0/pipeline/, pre-v0/valuation/, pre-v0/notebooks/team_company_workflow.ipynb, pre-v0/reports/team_company_workflow/ |
+| Earlier attempts | Set aside 2026-10-18, kept runnable for reference: Codex profiles (219/560 done), first matching pass, first collection script. | pre-v0/scraps/, outputs-local/scraps/ |
 
 ## Ten-company pilot contribution (2026-10-19)
 
 - Uses the approved `company_list_v3` snapshot and archived website text. All ten targets are development cases; comparisons use a fixed 183-company candidate pool, partly selected by constituent retrievers.
-- Includes 31 ranking variants, 279 compatible peer-count/aggregation configurations, four direct valuation configurations, citations, company-level results and human-review forms. The notebook is the independent experiment entry point; source modules are exposed in `experiments/whole_company_pilot/`.
+- Includes 31 ranking variants, 279 compatible peer-count/aggregation configurations, four direct valuation configurations, citations, company-level results and human-review forms. The notebook is the independent experiment entry point; source modules are exposed in `pre-v0/experiments/whole_company_pilot/`.
 - Default replay recomputes analysis from saved model outputs; full inference is an explicit separate workflow. Publication wording is normalized; numerical results and model logic are unchanged.
 - Michael's newer `michael/wip` matching notebook uses a different eligible universe and z-threshold selection. This pilot does not establish superiority over that version. Growth diagnostics cover pinned `41aa007`, not `growth-signals-recall` schema v2, and do not validate a growth forecast.
 - Validation and next actions: [handoff](conversations/2026-10-19-whole-company-pilot.md). The report distinguishes financial-only controls from approved business peers and automated source-based review from independent human judgments.
@@ -136,13 +170,90 @@ matching/README.md, "Methodology".
   debt (allowed, secondary to same-business match). Headcount is still
   filtered out of the website text; undecided.
 - Date of the multiples in the company list (needed to judge how stale the
-  website text is relative to them).
+  website text is relative to them). The recipe asks for year-end-2025
+  financials; v0 uses the list's multiples as given until this is answered.
+- Who pays for the API calls, and on whose Anthropic Console account (about
+  $0.30 for all 533 with Claude Haiku 5.5, a few dollars with retries and
+  tests). Decided 2026-10-24 to use Haiku 5.5 because the Codex usage
+  window allowed only ~200 calls; the notes below are the background.
+- Codex quota: about 200 facet calls fit in one ChatGPT account's usage window
+  on 2026-10-24, so the 533-company fill needs a cheaper model, shorter
+  answers, batching, several accounts, or an API. Measured per call (version
+  f, name + website): ~17-18k input tokens, of which ~15k is Codex's own
+  scaffolding (cached when calls run back to back), ~900 output, ~70
+  reasoning. Output is most of the cost, so lower effort or more workers
+  barely help. Version g shortens the answer; GPT-6 Luna (`--model
+  gpt-6-luna`) costs ~1/20 of GPT-6.1 Sol per token on OpenAI's Codex rate
+  card. Whether Luna's facets are good enough is untested (see the handoff
+  2026-10-24-short-answers.md).
 - Whether financial columns may stay in files like Riya's
   `company_list_for_interns.csv`: decide when training the forecasting model.
   For now financials are kept, but always in separate columns or tables from
   matching inputs.
 
 ## Next steps
+
+v0 (current):
+
+1. Full run at version k (2026-10-25): one profile per company, no
+   business splits (`facets.SPLIT_BUSINESSES = False`; decided 2026-10-25,
+   splitting left for the group to pick up, see v0/README.md "One profile
+   per company"). **Done 2026-10-25** in `facets/` (log
+   `facets/logs/fill_20261025T045332Z.log`): 533 companies, 533 profiles,
+   6,389 of 6,396 facets filled (7 unknown on 6 companies the model didn't
+   know); 19 companies filled from their pages; 330 cited page lines, all
+   found; 1 flag (website_without_quote); 13 divestiture flags. $0.552 for
+   552 calls, median 8.8 s. Version j (with splits, 599 profiles) is in
+   `profiles_history/`. Known limit: out-of-date facts (American
+   Financial's annuities, AZZ's electrical products, Carlisle's brake
+   components) are only caught where the pages mention the sale; RAG is a
+   possible later step. Next: the manual review, then recipe step 4.
+2. Split and step 4: **built 2026-10-25** (`comps_and_valuation.ipynb`,
+   split run `split/20261025T061905Z`, candidates
+   `candidates/20261025T061905Z`). 373 training / 160 holdout; size shares
+   equal, numeric SMDs 0.00-0.13 (debt/revenue 0.126), but SIC divisions
+   differ by up to 5.5 points (construction 5.1% vs 1.2%, manufacturing
+   33% vs 39%), because only size is stratified. Candidates for the 373
+   training targets from the training pool: median 14 per target at
+   z ≥ 2 (none with fewer than 3), 47% of top-10 share the target's SIC2
+   (7% at random). Open: (a) stratify on size × SIC division too? (b) the
+   training-only pool takes real peers out of development (ADUS loses
+   AVAH, CHE, NHC, BKD; DXPE loses MSM, DSGR; BRO loses AJG, RYAN; WEN
+   loses TXRH); (c) D2, what the facet weights are fit to.
+3. Notebook restructured 2026-10-25 (later): a target's **profile** is
+   its collection of comps; facets are **business-model
+   characteristics**. Recipe steps 5-6 are covered by step 4 (profile =
+   candidates, score = cosine). Added step: an LLM hones each target's
+   candidates (prompts and fitted weights developed on training; not
+   built). Last step built for cosine comps and no matching, on the 373
+   training targets (`valuation/20261025T065131Z`): no matching 32.7%
+   median abs error; cosine rules 30.6-32.4%, Spearman 0.32-0.39, closer
+   than no matching for 52-56%. The LLM step has to beat these. Fall-off
+   plots per showcase target; embedding model now loads from the local
+   cache (no HF Hub warning). 93 tests.
+4. Step 6 built and run 2026-10-25 (`v0/judge_comps.py`, prompt
+   2026-10-25a, Claude Haiku 5.5, ~$0.57): every z ≥ 2 candidate of the
+   373 training targets marked good (1) or bad (0) with a reason; 663 of
+   5,293 pairs good, 96 targets with none. Notebook section 3 removed
+   (steps 5-6 text moved into section 2); section 3 is now the LLM step,
+   section 4 the evaluation. On the 277 targets with a good comp: LLM
+   31.1% median abs error, cosine z ≥ 2 31.1%, cosine z ≥ 2.5 30.2%, no
+   matching 31.9%. The LLM's choice doesn't lower the error yet. 97 tests.
+5. Comps without embeddings, tested 2026-10-25 (`v0/suggest_comps.py`,
+   notebook section 4; evaluation is now section 5): the LLM picks up to
+   ten comps from the whole training pool (cached ~99k-token list, ~$0.55
+   for 373); median 3 per target, 32 with none; 89% of its picks are
+   cosine z ≥ 2 candidates anyway. On the 277 targets both LLM rules
+   cover: LLM direct 30.8%, LLM good comps 31.1%, cosine z ≥ 2.5 30.2%,
+   no matching 31.9%, same-SIC peers 33.1-34.4%. All comp rules within
+   ~30-33%, as in pre-v0. 99 tests.
+6. Next (open): what to do for a target with no good comp (fall back to
+   cosine, or report "no estimate"); weights fit on training pairs; then
+   the evals notebook (manual review from `judgments.csv`, rubric).
+7. Evals (separate notebook, later): manual review of 100-200 target-comp
+   pairs with a rubric of at most 4 levels.
+
+pre-v0 matching (reference):
 
 1. Picking peers doesn't look like the bottleneck: no comp rule beats method 1,
    even at equal comp counts, and right peers still give large errors. Next:

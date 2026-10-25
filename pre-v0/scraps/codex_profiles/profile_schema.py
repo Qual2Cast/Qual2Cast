@@ -40,7 +40,7 @@ from pydantic import (BaseModel, BeforeValidator, ConfigDict, ValidationError, V
 from pydantic_core import PydanticCustomError
 
 # the scrape's text filters (fetch_and_clean also puts src/ on the path)
-sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "website_scrape"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "website_scrape"))
 from fetch_and_clean import FINANCIAL_FIGURE, TICKER_TAG  # noqa: E402
 
 MIN_QUOTE_WORDS = 4          # brands: 1 (the brand name itself is the evidence).
