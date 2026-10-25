@@ -169,9 +169,9 @@ Extract candidate events and retain an audit row for every article:
 
 ```bash
 python extract_events.py \
-  --page-record ../outputs-local/growth_signals/page_records/IQ254957567.json \
-  --events ../outputs-local/growth_signals/events/IQ254957567.jsonl \
-  --audit ../outputs-local/growth_signals/audit/IQ254957567.json
+  --page-record ../../outputs-local/growth_signals/page_records/IQ254957567.json \
+  --events ../../outputs-local/growth_signals/events/IQ254957567.jsonl \
+  --audit ../../outputs-local/growth_signals/audit/IQ254957567.json
 ```
 
 Only specific article pages are eligible. Generic Careers pages and broad

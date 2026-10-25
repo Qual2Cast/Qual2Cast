@@ -60,9 +60,9 @@ from sklearn.decomposition import TruncatedSVD
 from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS, TfidfVectorizer
 from sklearn.preprocessing import normalize
 
-REPO = Path(__file__).resolve().parents[2]
+REPO = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(REPO / "website_scrape"))
-sys.path.insert(0, str(REPO / "scraps" / "codex_profiles"))
+sys.path.insert(0, str(REPO / "pre-v0" / "scraps" / "codex_profiles"))
 from fetch_and_clean import find_input, load_companies  # noqa: E402  (also adds src/)
 from project_data import OUTPUTS_LOCAL  # noqa: E402
 from scrape_websites import DEFAULT_OUT as SCRAPE_OUT, output_paths  # noqa: E402

@@ -63,7 +63,7 @@ import requests
 from bs4 import BeautifulSoup
 from bs4.dammit import UnicodeDammit
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "src"))
 from project_data import normalize_sic_codes, snapshot_path  # noqa: E402
 
 SHEET_CSV_URL = (

@@ -101,6 +101,66 @@ def test_pages_without_a_declared_charset_decode_as_utf8():
     assert "Café équipement —" in fc.decode_html(resp)
 
 
+def test_browser_certificate_error_page_means_try_the_next_address():
+    import scrape_websites as s1
+    chrome = ("<html><head><title>Privacy error</title></head><body><h1>Your connection is not "
+              "private</h1><p>Attackers might be trying to steal your information from "
+              "www.englewoodlab.com</p><p>NET::ERR_CERT_AUTHORITY_INVALID</p></body></html>")
+    assert s1.CERT_ERROR_PAGE.search(chrome)
+    assert s1.text_fields(fc.extract_page(chrome))["block_page"]     # never kept as text
+    assert not s1.CERT_ERROR_PAGE.search("<html><head><title>Data privacy services</title></head>"
+                                         "<body><p>We fix privacy errors in your records.</p></body></html>")
+
+
+@pytest.mark.parametrize("url, english", [
+    ("http://www.englewoodlab.com/ko/home", "http://www.englewoodlab.com/en/home"),
+    ("https://example.com/de-de/about", "https://example.com/en/about"),
+    ("https://example.com/en/home", None),
+    ("https://example.com/about", None),
+    ("https://example.com/", None),
+])
+def test_homepage_in_another_language_has_an_english_address(url, english):
+    import scrape_websites as s1
+    assert s1.english_version(url) == english
+
+
+class FakeClient:
+    """Serves fixed pages by URL, like a fetch client."""
+    method = "html"
+
+    def __init__(self, pages):
+        self.pages, self.asked = pages, []
+
+    def allowed(self, url):
+        return True
+
+    def get_html(self, url):
+        import scrape_websites as s1
+        self.asked.append(url)
+        if url not in self.pages:
+            raise s1.RenderError("unreachable")
+        final, html = self.pages[url]
+        return final, html
+
+
+def test_crawl_skips_the_certificate_error_and_uses_the_english_homepage(tmp_path, monkeypatch):
+    import scrape_websites as s1
+    monkeypatch.setattr(s1, "save_raw", lambda raw_dir, page_id, html: ("", ""))   # no files
+    chrome = "<html><head><title>Privacy error</title></head><body>NET::ERR_CERT_AUTHORITY_INVALID</body></html>"
+    korean = "<html><head><title>Home</title></head><body><p>잉글우드랩에 오신 것을 환영합니다</p></body></html>"
+    english = ("<html><head><title>Englewood LAB</title></head><body>"
+               + "<p>We research, develop and manufacture skincare and cosmetics for beauty brands.</p>" * 10
+               + "</body></html>")
+    client = FakeClient({"https://www.englewoodlab.com": ("https://www.englewoodlab.com/", chrome),
+                         "http://www.englewoodlab.com": ("http://www.englewoodlab.com/ko/home", korean),
+                         "http://www.englewoodlab.com/en/home": ("http://www.englewoodlab.com/en/home", english)})
+    result = s1.crawl(client, "www.englewoodlab.com", 1, tmp_path)
+    assert client.asked[:3] == ["https://www.englewoodlab.com", "http://www.englewoodlab.com",
+                                "http://www.englewoodlab.com/en/home"]
+    assert result["pages"][0]["url"] == "http://www.englewoodlab.com/en/home"
+    assert "manufacture skincare and cosmetics" in " ".join(result["pages"][0]["blocks"])
+
+
 def test_bot_check_pages_are_never_used_as_text():
     import scrape_websites as s1
     wall = fc.extract_page("<html><head><title>Pardon Our Interruption</title></head><body>"
