@@ -37,9 +37,9 @@
 
 ## Open / next
 
-1. Needs Michael's `outputs-local/comps/` (universe, split, facets.csv,
-   judge tables) and an API key to fill the sector facets.
-2. Needs the golden set (Kethan) as a pairs file.
-3. Then: fill, run `facet_eval.py`, keep the facets whose removal hurts and
-   the sector additions that help; if the sub-model wins, use its ranking as
-   the step 4 candidates and rerun the judge with the 2/1/0 rubric.
+1. Fill the sector-specific facets and the LLM sub-sector
+   (`fill_sector_facets.py`, needs an API key), then rerun
+   `facet_eval.py --stage comps_pilot_targets` and compare with SIC4.
+2. Rerun with the golden-set labels once they exist (`--gold <file>`).
+3. Then keep the facets whose removal hurts and the sector additions that
+   help.
