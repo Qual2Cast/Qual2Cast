@@ -287,6 +287,7 @@ def main() -> None:
     facets = pd.read_csv(output_paths(FACETS_OUT).tables / "facets.csv", dtype=str).fillna("")
     facets = facets[(facets["prompt_version"] == fc.PROMPT_VERSION) & (facets["llm_status"] == "ok")]
     texts = cd.facet_texts(facets).reindex(info.index)
+    texts = texts.astype(object).where(texts.notna(), None)   # unknown as None (pandas 3 gives NaN), so the step 4 embedding cache matches
     ids = list(texts.index)
     emb, _ = cd.embed_facets(texts, comps / "embeddings")
     _, general = cd.similarity(emb)
