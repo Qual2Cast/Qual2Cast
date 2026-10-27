@@ -285,12 +285,17 @@ def main() -> None:
     p.add_argument("--no-judge", action="store_true", help="leave out the step 6 judge labels")
     p.add_argument("--sector-facets", help="sector_facets.csv (default: outputs-local/comps/sector_facets/tables/)")
     p.add_argument("--k", type=int, default=TOP_K)
+    p.add_argument("--stage", default="comps",
+                   help="outputs-local folder with the split and judge to use: comps (previous baseline) or "
+                        "comps_pilot_targets (updated baseline, SIC2 split)")
     args = p.parse_args()
 
     comps = OUTPUTS_LOCAL / "comps"
     universe_run = _latest(comps / "universe", "universe.csv")
     info = pd.read_csv(universe_run / "universe.csv", dtype=str).set_index("IQ_COMPANY_ID")
-    split = pd.read_csv(_latest(comps / "split", "split.csv") / "split.csv", dtype=str)
+    stage = OUTPUTS_LOCAL / args.stage
+    split_run = _latest(stage / "split", "split.csv")
+    split = pd.read_csv(split_run / "split.csv", dtype=str)
     training = split.loc[split["sample"] == "training", "IQ_COMPANY_ID"].tolist()
     facets = pd.read_csv(output_paths(FACETS_OUT).tables / "facets.csv", dtype=str).fillna("")
     facets = facets[(facets["prompt_version"] == fc.PROMPT_VERSION) & (facets["llm_status"] == "ok")]
@@ -323,7 +328,7 @@ def main() -> None:
         label_sets[f"gold:{Path(g).stem}"], dropped[Path(g).name] = labels, n
     if not args.no_judge:
         import judge_comps as jc
-        jt = jc.output_paths(jc.DEFAULT_OUT).tables / "judgments.csv"
+        jt = jc.output_paths(stage / "judge").tables / "judgments.csv"
         if jt.exists():
             j = pd.read_csv(jt, dtype={"target": str, "comp": str})
             j = j[j["prompt_version"] == jc.PROMPT_VERSION].dropna(subset=["score"])
@@ -338,13 +343,13 @@ def main() -> None:
 
     table, tops = evaluate(variants(general, extra), ids, training, sectors, label_sets, args.k)
     run = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    out = comps / "facet_eval" / run
+    out = stage / "facet_eval" / run
     out.mkdir(parents=True, exist_ok=True)
     table.to_csv(out / "summary.csv", index=False)
     pd.concat(tops, names=["variant"]).reset_index(level=0).to_csv(out / f"top{args.k}.csv", index=False)
     sectors.to_csv(out / "sectors.csv")
     (out / "run.json").write_text(json.dumps({
-        "run": run, "universe_run": universe_run.name, "facets_version": fc.PROMPT_VERSION,
+        "run": run, "stage": args.stage, "split_run": split_run.name, "universe_run": universe_run.name, "facets_version": fc.PROMPT_VERSION,
         "sector_facets_version": sf.PROMPT_VERSION if sf_path.exists() else None, "k": args.k,
         "min_pool": MIN_POOL, "labels": {k: len(v) for k, v in label_sets.items()},
         "dropped_holdout_pairs": dropped}, indent=1), encoding="utf-8")
