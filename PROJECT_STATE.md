@@ -292,3 +292,15 @@ outstanding. Growth extraction is evaluated; a growth forecast is not validated.
 Validation: 294 tests passed; standalone cached replay completed 17 code cells,
 zero errors and eight figures, reproducing all reference configuration outputs.
 See [handoff](conversations/2026-10-19-hosted-team-workflow.md) for scope and next work.
+
+## v0 fourth baseline — 27 October 2026
+
+Section 5 of `v0/notebooks/comps_and_valuation.ipynb` adds LLM then cosine:
+the existing direct LLM selections are reranked and weighted by the saved
+cosine scores. The original valuation remains Section 6 (recipe Step 7), with
+unchanged evaluation measures. On the 373 development targets, this route
+covers 341 and has 32.69% median absolute percentage error; on the common
+277-target cohort it has 30.57%. The original 14 evaluation rows reproduce
+exactly. Source snapshot: `company_list_v3`; saved source run:
+`20261025T080854Z`. Holdout and human evaluation remain open. See
+`conversations/2026-10-27-v0-fourth-baseline.md`.
