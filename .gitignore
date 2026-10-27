@@ -9,34 +9,20 @@
 !/outputs-local/website_scrape/page_text/
 !/outputs-local/website_scrape/scrape_log.csv
 
-# v0 comps results shared with the team: everything under comps/ except the
-# facet fill runs' raw Codex output, run logs, dry-run prompts and history
-# folders (local safety copies).
-!/outputs-local/comps/
-/outputs-local/comps/*
-!/outputs-local/comps/split/
-!/outputs-local/comps/universe/
-!/outputs-local/comps/valuation/
-!/outputs-local/comps/candidates/
-!/outputs-local/comps/embeddings/
-!/outputs-local/comps/fill_test/
-!/outputs-local/comps/api_checks/
-!/outputs-local/comps/facets/
-/outputs-local/comps/facets/*
-!/outputs-local/comps/facets/profiles/
-!/outputs-local/comps/facets/tables/
-!/outputs-local/comps/facets/answer_schema.json
-!/outputs-local/comps/facets/answer_schema_with_pages.json
-!/outputs-local/comps/judge/
-/outputs-local/comps/judge/*
-!/outputs-local/comps/judge/tables/
-!/outputs-local/comps/judge/judgments/
-!/outputs-local/comps/judge/runs/
-!/outputs-local/comps/suggest/
-/outputs-local/comps/suggest/*
-!/outputs-local/comps/suggest/tables/
-!/outputs-local/comps/suggest/suggestions/
-!/outputs-local/comps/suggest/runs/
+# v0 comps results are shared with the team BY DEFAULT: every outputs-local/comps*/
+# folder (comps/, comps_pilot_targets/, and any later comps_<name>/) and every
+# stage folder and file inside it, so a new stage or run needs no new line here.
+# Only local-only material is ignored: directly under a stage folder, raw Codex
+# output (codex_runs), run logs, dry-run prompts and *_history folders (local
+# safety copies); a top-level history/ folder of superseded runs; and console
+# logs. (fill_test/ and api_checks/ keep being shared whole, as before.)
+!/outputs-local/comps*/
+/outputs-local/comps*/history/
+/outputs-local/comps*/*/codex_runs/
+/outputs-local/comps*/*/logs/
+/outputs-local/comps*/*/prompts_dry_run/
+/outputs-local/comps*/*/*_history/
+/outputs-local/comps*/**/*.log
 
 /.env
 
