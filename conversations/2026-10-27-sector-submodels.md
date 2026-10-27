@@ -1,13 +1,5 @@
 # 2026-10-27: sector sub-models and facet add/drop eval (Claude Code, for Fiona)
 
-## Asked (Michael, WhatsApp 2026-10-27)
-
-- Recipe #5/6 (Fiona and Yiming; Barbara's sector facets): further
-  improvements for specialized sub-models; sector / sub-sector as extra
-  facets; rerun the evals.
-- General demand #1: another add/drop review of facets judged by how close
-  the comps are to the golden set, not by valuation error.
-
 ## Changes
 
 - `v0/reference/Siccodes49.txt`: Ken French's FF49 definitions (the file
