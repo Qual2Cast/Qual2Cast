@@ -1,0 +1,83 @@
+You describe a company and the businesses it runs. A research project uses these descriptions to find comparable companies.
+
+You get the company's name and website.
+
+First, say whether you know this company: set "knows_company" to true only if you recognize this specific company from what you already know. A name and a web address alone are not knowing the company: do not guess what a company does from its name, its web address, or what is typical for companies with similar names. If you don't know the company, can't tell which company it is, or it may be fictional, set "knows_company" to false and every facet to "unknown".
+
+Then decide how many businesses the company runs. Most companies run one business. Count separate businesses only when they are unrelated: they sell different things to different customers, for example supermarkets and car dealerships. Product lines that share customers, technology or sales channels are one business. List each business, the largest first, with a short general name, such as "supermarkets". List at most 4; if there are more, combine the smallest ones.
+
+Then fill in every facet below for each business. Use what you know about the company.
+
+For a company you know, fill every facet you can. If you are not sure of a detail, give your best description of this company and say what is uncertain in "notes". If a business sells no products, or no services, set that facet to "not_applicable". Write "unknown" for a facet you know nothing about. Do not make up facts.
+
+Write general values, like the examples. Use general product names, not brand names. Keep each detail to one phrase of about twenty words at most that names the specific customers, products or channels, and do not repeat the category in it. Leave the value or detail empty when the status is "unknown" or "not_applicable".
+
+Do not give financial information: no revenue, profit, market value, share price, stock ticker, stock exchange or employee counts.
+
+Everything you need is in this message. Do not run commands, open files or search the web. Write the JSON on one line, with no indentation or line breaks.
+
+Facets:
+
+F1 Core offering (offering_description): What the company sells, and to whom.
+  Write two or three plain sentences: what it sells, to whom, and how it makes or delivers it.
+  Example: Designs and manufactures rooftop HVAC units for commercial buildings
+
+F2 Primary products (primary_products): The main products it sells.
+  Write a short text.
+  Use general names, not brand names. Name up to about five, separated by semicolons. If the company sells no products, set the status to not_applicable.
+  Example: HR software; medical devices; hot-mix asphalt
+
+F3 Primary services (primary_services): The main services it provides.
+  Write a short text.
+  Name up to about five, separated by semicolons. If the company sells no services, set the status to not_applicable. Support that comes with a product, such as a warranty, is not a service.
+  Example: consulting; freight logistics; payroll processing
+
+F4 Customer segment (customer_segment): Who buys its products or services.
+  Choose all that apply: B2B, B2C, B2G. Add a short detail for each.
+  B2B means businesses and private institutions. B2C means individual consumers or patients. B2G means government agencies. In the detail, name the customer groups.
+  Example: B2B: mechanical contractors, commercial building owners; B2G: school districts
+
+F5 End markets (end_markets): The industries it serves.
+  Write a short text.
+  Name the industries or markets where customers use its products or services, up to about five, separated by semicolons. For a consumer business, name the consumer market, such as home improvement.
+  Example: healthcare; retail; manufacturing
+
+F6 Revenue model (revenue_model): How it earns money.
+  Choose all that apply: product sales, subscription, transaction or usage fees, licensing or royalties, service fees, project or contract, rental or leasing, advertising, healthcare reimbursement, interest or premiums, commissions or management fees, other. Add a short detail for each.
+  In the detail, say what customers pay for.
+  Example: product sales: equipment sold through dealers; service fees: installation and repair
+
+F7 Value chain position (value_chain_position): Its role in the industry.
+  Choose all that apply: raw materials, component supplier, OEM / manufacturer, brand owner, distributor, retailer, service provider, software / platform, asset operator, financial intermediary, other. Add a short detail for each.
+  A brand owner designs and markets products that other companies make. An asset operator owns and runs physical assets, such as plants, networks, buildings or vehicle fleets. In the detail, say what the company takes in and who it sells to.
+  Example: OEM / manufacturer: builds HVAC units from purchased components, sold to contractors
+
+F8 Geography served (geography_served): Where it sells or operates.
+  Choose one: US regional, US national, North America, global. Add a short detail.
+  Choose the widest area. US regional means some states or one region. In the detail, name the regions, states or countries.
+  Example: US regional: Alabama, Florida, Georgia and the Carolinas
+
+F9 Company size (company_size): How large it is within its own industry.
+  Choose one: small, mid-sized, large, among the largest. No detail.
+  Judge scale within the company's own industry. Small means a niche or local player with one or a few sites. Mid-sized means an established player in its segment with several sites. Large means a major player in its industry with many sites or a broad customer base. Among the largest means one of the few biggest companies in its industry. Size is scale only: where it operates belongs in geography served, and how it sells in distribution channels. Judge from the kind and number of sites, the range of products, the kind of customers and how the company describes itself, not from revenue or employee counts.
+  Example: mid-sized
+
+F10 Product specialization (specialization): How wide its range of offerings is.
+  Choose one: niche specialist, related lines, diversified. Add a short detail.
+  A niche specialist has one product or service line. Related lines means several lines that share customers, technology or channels. Diversified means separate businesses with different customers. Judge each business on its own: a business that was split off is rarely diversified. In the detail, name the lines or businesses.
+  Example: related lines: HVAC units, controls and replacement parts
+
+F11 Distribution channels (distribution_channels): How its products reach customers.
+  Choose all that apply: direct sales, distributors / dealers, own locations, third-party retail, online, partners / resellers, agents / brokers, other. Add a short detail for each.
+  In the detail, say who or what the channel is.
+  Example: distributors / dealers: independent HVAC dealers; direct sales: national accounts
+
+F12 Regulatory exposure (regulatory_exposure): How much regulation controls the business.
+  Choose one: high, medium, low. Add a short detail.
+  High means the company needs approval or a license to operate or sell, as for utilities, hospitals, drugs and medical devices, banks, insurers and airlines. Medium means important industry rules apply, such as environmental, safety, transport or data privacy rules. Low means only normal business rules apply. In the detail, name the regulated activity and the main regulators or rules.
+  Example: high: medical devices that need FDA clearance
+
+Also write "notes": leave it empty unless something important is uncertain or missing; then say what in one short sentence.
+
+Company: Reynolds Consumer Products Inc.
+Website: www.reynoldsconsumerproducts.com

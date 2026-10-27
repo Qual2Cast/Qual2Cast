@@ -1,0 +1,684 @@
+{
+ "$defs": {
+  "Evidence": {
+   "additionalProperties": false,
+   "properties": {
+    "page": {
+     "type": "string"
+    },
+    "quote": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "page",
+    "quote"
+   ],
+   "type": "object"
+  },
+  "Facet_company_size": {
+   "additionalProperties": false,
+   "properties": {
+    "status": {
+     "enum": [
+      "filled",
+      "not_applicable",
+      "unknown"
+     ],
+     "type": "string"
+    },
+    "value": {
+     "pattern": "^[^0-9$%]*$",
+     "type": "string"
+    },
+    "source": {
+     "enum": [
+      "model knowledge",
+      "website",
+      "both",
+      ""
+     ],
+     "type": "string"
+    },
+    "quotes": {
+     "items": {
+      "$ref": "#/$defs/Evidence"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "status",
+    "value",
+    "source",
+    "quotes"
+   ],
+   "type": "object"
+  },
+  "Facet_customer_segment": {
+   "additionalProperties": false,
+   "properties": {
+    "status": {
+     "enum": [
+      "filled",
+      "not_applicable",
+      "unknown"
+     ],
+     "type": "string"
+    },
+    "items": {
+     "items": {
+      "$ref": "#/$defs/Item_customer_segment"
+     },
+     "type": "array"
+    },
+    "source": {
+     "enum": [
+      "model knowledge",
+      "website",
+      "both",
+      ""
+     ],
+     "type": "string"
+    },
+    "quotes": {
+     "items": {
+      "$ref": "#/$defs/Evidence"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "status",
+    "items",
+    "source",
+    "quotes"
+   ],
+   "type": "object"
+  },
+  "Facet_distribution_channels": {
+   "additionalProperties": false,
+   "properties": {
+    "status": {
+     "enum": [
+      "filled",
+      "not_applicable",
+      "unknown"
+     ],
+     "type": "string"
+    },
+    "items": {
+     "items": {
+      "$ref": "#/$defs/Item_distribution_channels"
+     },
+     "type": "array"
+    },
+    "source": {
+     "enum": [
+      "model knowledge",
+      "website",
+      "both",
+      ""
+     ],
+     "type": "string"
+    },
+    "quotes": {
+     "items": {
+      "$ref": "#/$defs/Evidence"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "status",
+    "items",
+    "source",
+    "quotes"
+   ],
+   "type": "object"
+  },
+  "Facet_end_markets": {
+   "additionalProperties": false,
+   "properties": {
+    "status": {
+     "enum": [
+      "filled",
+      "not_applicable",
+      "unknown"
+     ],
+     "type": "string"
+    },
+    "value": {
+     "type": "string"
+    },
+    "source": {
+     "enum": [
+      "model knowledge",
+      "website",
+      "both",
+      ""
+     ],
+     "type": "string"
+    },
+    "quotes": {
+     "items": {
+      "$ref": "#/$defs/Evidence"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "status",
+    "value",
+    "source",
+    "quotes"
+   ],
+   "type": "object"
+  },
+  "Facet_geography_served": {
+   "additionalProperties": false,
+   "properties": {
+    "status": {
+     "enum": [
+      "filled",
+      "not_applicable",
+      "unknown"
+     ],
+     "type": "string"
+    },
+    "category": {
+     "enum": [
+      "US regional",
+      "US national",
+      "North America",
+      "global",
+      ""
+     ],
+     "type": "string"
+    },
+    "detail": {
+     "type": "string"
+    },
+    "source": {
+     "enum": [
+      "model knowledge",
+      "website",
+      "both",
+      ""
+     ],
+     "type": "string"
+    },
+    "quotes": {
+     "items": {
+      "$ref": "#/$defs/Evidence"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "status",
+    "category",
+    "detail",
+    "source",
+    "quotes"
+   ],
+   "type": "object"
+  },
+  "Facet_offering_description": {
+   "additionalProperties": false,
+   "properties": {
+    "status": {
+     "enum": [
+      "filled",
+      "not_applicable",
+      "unknown"
+     ],
+     "type": "string"
+    },
+    "value": {
+     "type": "string"
+    },
+    "source": {
+     "enum": [
+      "model knowledge",
+      "website",
+      "both",
+      ""
+     ],
+     "type": "string"
+    },
+    "quotes": {
+     "items": {
+      "$ref": "#/$defs/Evidence"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "status",
+    "value",
+    "source",
+    "quotes"
+   ],
+   "type": "object"
+  },
+  "Facet_primary_products": {
+   "additionalProperties": false,
+   "properties": {
+    "status": {
+     "enum": [
+      "filled",
+      "not_applicable",
+      "unknown"
+     ],
+     "type": "string"
+    },
+    "value": {
+     "type": "string"
+    },
+    "source": {
+     "enum": [
+      "model knowledge",
+      "website",
+      "both",
+      ""
+     ],
+     "type": "string"
+    },
+    "quotes": {
+     "items": {
+      "$ref": "#/$defs/Evidence"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "status",
+    "value",
+    "source",
+    "quotes"
+   ],
+   "type": "object"
+  },
+  "Facet_primary_services": {
+   "additionalProperties": false,
+   "properties": {
+    "status": {
+     "enum": [
+      "filled",
+      "not_applicable",
+      "unknown"
+     ],
+     "type": "string"
+    },
+    "value": {
+     "type": "string"
+    },
+    "source": {
+     "enum": [
+      "model knowledge",
+      "website",
+      "both",
+      ""
+     ],
+     "type": "string"
+    },
+    "quotes": {
+     "items": {
+      "$ref": "#/$defs/Evidence"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "status",
+    "value",
+    "source",
+    "quotes"
+   ],
+   "type": "object"
+  },
+  "Facet_regulatory_exposure": {
+   "additionalProperties": false,
+   "properties": {
+    "status": {
+     "enum": [
+      "filled",
+      "not_applicable",
+      "unknown"
+     ],
+     "type": "string"
+    },
+    "category": {
+     "enum": [
+      "high",
+      "medium",
+      "low",
+      ""
+     ],
+     "type": "string"
+    },
+    "detail": {
+     "type": "string"
+    },
+    "source": {
+     "enum": [
+      "model knowledge",
+      "website",
+      "both",
+      ""
+     ],
+     "type": "string"
+    },
+    "quotes": {
+     "items": {
+      "$ref": "#/$defs/Evidence"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "status",
+    "category",
+    "detail",
+    "source",
+    "quotes"
+   ],
+   "type": "object"
+  },
+  "Facet_revenue_model": {
+   "additionalProperties": false,
+   "properties": {
+    "status": {
+     "enum": [
+      "filled",
+      "not_applicable",
+      "unknown"
+     ],
+     "type": "string"
+    },
+    "items": {
+     "items": {
+      "$ref": "#/$defs/Item_revenue_model"
+     },
+     "type": "array"
+    },
+    "source": {
+     "enum": [
+      "model knowledge",
+      "website",
+      "both",
+      ""
+     ],
+     "type": "string"
+    },
+    "quotes": {
+     "items": {
+      "$ref": "#/$defs/Evidence"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "status",
+    "items",
+    "source",
+    "quotes"
+   ],
+   "type": "object"
+  },
+  "Facet_specialization": {
+   "additionalProperties": false,
+   "properties": {
+    "status": {
+     "enum": [
+      "filled",
+      "not_applicable",
+      "unknown"
+     ],
+     "type": "string"
+    },
+    "category": {
+     "enum": [
+      "niche specialist",
+      "related lines",
+      "diversified",
+      ""
+     ],
+     "type": "string"
+    },
+    "detail": {
+     "type": "string"
+    },
+    "source": {
+     "enum": [
+      "model knowledge",
+      "website",
+      "both",
+      ""
+     ],
+     "type": "string"
+    },
+    "quotes": {
+     "items": {
+      "$ref": "#/$defs/Evidence"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "status",
+    "category",
+    "detail",
+    "source",
+    "quotes"
+   ],
+   "type": "object"
+  },
+  "Facet_value_chain_position": {
+   "additionalProperties": false,
+   "properties": {
+    "status": {
+     "enum": [
+      "filled",
+      "not_applicable",
+      "unknown"
+     ],
+     "type": "string"
+    },
+    "items": {
+     "items": {
+      "$ref": "#/$defs/Item_value_chain_position"
+     },
+     "type": "array"
+    },
+    "source": {
+     "enum": [
+      "model knowledge",
+      "website",
+      "both",
+      ""
+     ],
+     "type": "string"
+    },
+    "quotes": {
+     "items": {
+      "$ref": "#/$defs/Evidence"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "status",
+    "items",
+    "source",
+    "quotes"
+   ],
+   "type": "object"
+  },
+  "Item_customer_segment": {
+   "additionalProperties": false,
+   "properties": {
+    "category": {
+     "enum": [
+      "B2B",
+      "B2C",
+      "B2G"
+     ],
+     "type": "string"
+    },
+    "detail": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "category",
+    "detail"
+   ],
+   "type": "object"
+  },
+  "Item_distribution_channels": {
+   "additionalProperties": false,
+   "properties": {
+    "category": {
+     "enum": [
+      "direct sales",
+      "distributors / dealers",
+      "own locations",
+      "third-party retail",
+      "online",
+      "partners / resellers",
+      "agents / brokers",
+      "other"
+     ],
+     "type": "string"
+    },
+    "detail": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "category",
+    "detail"
+   ],
+   "type": "object"
+  },
+  "Item_revenue_model": {
+   "additionalProperties": false,
+   "properties": {
+    "category": {
+     "enum": [
+      "product sales",
+      "subscription",
+      "transaction or usage fees",
+      "licensing or royalties",
+      "service fees",
+      "project or contract",
+      "rental or leasing",
+      "advertising",
+      "healthcare reimbursement",
+      "interest or premiums",
+      "commissions or management fees",
+      "other"
+     ],
+     "type": "string"
+    },
+    "detail": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "category",
+    "detail"
+   ],
+   "type": "object"
+  },
+  "Item_value_chain_position": {
+   "additionalProperties": false,
+   "properties": {
+    "category": {
+     "enum": [
+      "raw materials",
+      "component supplier",
+      "OEM / manufacturer",
+      "brand owner",
+      "distributor",
+      "retailer",
+      "service provider",
+      "software / platform",
+      "asset operator",
+      "financial intermediary",
+      "other"
+     ],
+     "type": "string"
+    },
+    "detail": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "category",
+    "detail"
+   ],
+   "type": "object"
+  }
+ },
+ "additionalProperties": false,
+ "properties": {
+  "offering_description": {
+   "$ref": "#/$defs/Facet_offering_description"
+  },
+  "primary_products": {
+   "$ref": "#/$defs/Facet_primary_products"
+  },
+  "primary_services": {
+   "$ref": "#/$defs/Facet_primary_services"
+  },
+  "customer_segment": {
+   "$ref": "#/$defs/Facet_customer_segment"
+  },
+  "end_markets": {
+   "$ref": "#/$defs/Facet_end_markets"
+  },
+  "revenue_model": {
+   "$ref": "#/$defs/Facet_revenue_model"
+  },
+  "value_chain_position": {
+   "$ref": "#/$defs/Facet_value_chain_position"
+  },
+  "geography_served": {
+   "$ref": "#/$defs/Facet_geography_served"
+  },
+  "company_size": {
+   "$ref": "#/$defs/Facet_company_size"
+  },
+  "specialization": {
+   "$ref": "#/$defs/Facet_specialization"
+  },
+  "distribution_channels": {
+   "$ref": "#/$defs/Facet_distribution_channels"
+  },
+  "regulatory_exposure": {
+   "$ref": "#/$defs/Facet_regulatory_exposure"
+  },
+  "notes": {
+   "type": "string"
+  }
+ },
+ "required": [
+  "offering_description",
+  "primary_products",
+  "primary_services",
+  "customer_segment",
+  "end_markets",
+  "revenue_model",
+  "value_chain_position",
+  "geography_served",
+  "company_size",
+  "specialization",
+  "distribution_channels",
+  "regulatory_exposure",
+  "notes"
+ ],
+ "type": "object"
+}

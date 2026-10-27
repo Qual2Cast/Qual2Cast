@@ -21,8 +21,9 @@ imports the modules, runs a step, and shows and saves its results.
 | file | what it does |
 |---|---|
 | `notebooks/comp_universe_and_facets.ipynb` | Steps 1-3: the universe, the dropped firms, the facet definitions, what the model reads, and the filled facets (coverage, source checks, the numbered profile list with fill %, example profiles) |
-| `notebooks/comps_and_valuation.ipynb` | Steps 4-7 and the training/holdout split (kernel `qual2cast`): the split with its balance check; steps 4-5, candidates (each target's profile) with fall-off plots; step 6, the LLM's good/bad answers (run by `judge_comps.py`); step 7, LLM good comps against cosine comps and no matching |
+| `notebooks/comps_and_valuation.ipynb` | Steps 4-7 and the training/holdout split (kernel `qual2cast`): the split with its balance check; steps 4-5, candidates (each target's profile) with fall-off plots; step 6, the LLM's good/bad answers (run by `judge_comps.py`); four routes—cosine similarity alone, cosine shortlist followed by LLM judgment, direct LLM selection, and direct LLM selection followed by cosine reranking; step 7, their estimates against no matching |
 | `suggest_comps.py` | Step 4 without embeddings: the LLM picks up to ten comps per target from the whole training pool; writes `suggest/tables/suggestions.csv` |
+| `llm_then_cosine.py` | Reverse hybrid: retains and reranks the direct LLM peers by cosine; the existing valuation code uses their cosine scores as weights |
 | `judge_comps.py` | Step 6: Claude Haiku 5.5 marks each z ≥ 2 candidate good (1) or bad (0) with a reason; writes `judge/tables/judgments.csv` |
 | `split.py` | The training/holdout split: stratified on company size, fixed seed, showcase targets in training; balance tables |
 | `candidates.py` | Step 4: per-facet embeddings (model loaded from the local cache, no Hub request), combined similarity, ranking with z, candidates (top k or z level) |
@@ -202,8 +203,9 @@ imports the modules, runs a step, and shows and saves its results.
   its picks are cosine z ≥ 2 candidates anyway (median cosine rank 3,
   8% past rank 20), so the embedding shortlist rarely hides a comp the
   LLM would choose. Same-SIC peers (no model): SIC4 / SIC3 / SIC2.
-  Errors, on the 277 targets where both LLM rules give an estimate: LLM
-  direct 30.8% (equal-weighted mean), LLM good comps 31.1%, cosine z ≥ 2.5
+  Errors, on the 277 targets where all four routes give an estimate: LLM
+  direct 30.8% (equal-weighted mean), LLM then cosine 30.6%,
+  cosine then LLM good comps 31.1%, cosine z ≥ 2.5
   30.2%, cosine z ≥ 2 31.1%, no matching 31.9%, same SIC 33.1-34.4%
   (Spearman 0.28-0.30, the lowest). Every comp rule lands within about
   30-33%, as in pre-v0: choosing comps doesn't look like the bottleneck.
@@ -324,4 +326,5 @@ facets); the code folder was renamed to `v0/` on 2026-10-24.
 | `candidates/<run time>/` | `candidates.csv` (training target-comp pairs in the top 10 or at z ≥ 2: rank, similarity, z, flags, per-facet cosines `sim_<facet>`), `ranking.csv.gz` (every training pair), `similarity_falloff_<ticker>.png` (showcase targets), `run.json` |
 | `judge/` | `runs/<IQ_ID>/<time>/` (per call: `prompt.txt`, `api_response.json`, `response.json`, `run.json`), `judgments/<IQ_ID>.json` (checked answer per target; replaced ones in `judgments_history/`), `tables/judgments.csv` (one row per target-comp pair: score 1/0, reason, step 4 rank, similarity, z), `logs/` |
 | `suggest/` | same layout as `judge/`: `runs/` (the shared pool prompt once as `system_<version>_<split>.txt`, then per call `prompt_target.txt`, `api_response.json`, `response.json`, `run.json`), `suggestions/<IQ_ID>.json`, `tables/suggestions.csv` (one row per suggested pair, rank 1 = best; a row with no comp for a target given none), `logs/` |
-| `valuation/<run time>/` | `summary.csv` (one row per comp rule: errors, Spearman, % closer than no matching), `summary_llm_covered.csv` (the same on the targets with at least one good comp), `per_target.csv` (each rule's estimate, actual and error per training target), `run.json` |
+| `llm_then_cosine/<run time>/` | `pairs.csv` (direct LLM peers with their original rank and reason, cosine rank and score, and new rank) |
+| `valuation/<run time>/` | `summary.csv` (one row per comp rule: errors, Spearman, % closer than no matching), `summary_llm_covered.csv` (the same on targets covered by both original LLM routes and LLM then cosine), `per_target.csv` (each rule's estimate, actual and error per training target), `run.json` |
