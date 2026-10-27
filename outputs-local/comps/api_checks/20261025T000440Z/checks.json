@@ -1,0 +1,99 @@
+{
+ "run": "20261025T000440Z",
+ "model": "claude-haiku-5-5",
+ "prompt_version": "2026-10-24i",
+ "price_per_mtok": {
+  "input": 0.1,
+  "cache_write": 0.125,
+  "cache_read": 0.01,
+  "output": 0.5
+ },
+ "checks": {
+  "digit_rule_one_field": {
+   "accepted": true,
+   "stop_reason": "end_turn",
+   "answer": "{\"company_size\": \"The company operates one hundred twenty plants, employs five thousand employees, and generates two billion dollars in revenue.\"}",
+   "usage": {
+    "input_tokens": 263,
+    "output_tokens": 183
+   },
+   "seconds": 2.5,
+   "cost_usd": 0.0001178,
+   "has_digit": false
+  },
+  "digit_rule_full_schema": {
+   "accepted": false,
+   "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Schema is too complex.'}, 'request_id': 'req_011CgMyf85eqaQxGJc3dGt66'}",
+   "cost_usd": 0.0
+  },
+  "first_call": {
+   "llm_status": "ok",
+   "stop_reason": "end_turn",
+   "seconds": 6.5,
+   "usage": {
+    "input_tokens": 5978,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 5942,
+    "output_tokens": 601
+   },
+   "error": null,
+   "knows_company": false,
+   "facets_unknown": "12 of 12",
+   "answer_chars": 825,
+   "notes": "I do not recognize this company from its name and website alone, so all facets are unknown.",
+   "cost_usd": 0.00104685
+  },
+  "second_call": {
+   "llm_status": "ok",
+   "stop_reason": "end_turn",
+   "seconds": 3.5,
+   "usage": {
+    "input_tokens": 5982,
+    "cached_input_tokens": 5942,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 561
+   },
+   "error": null,
+   "knows_company": false,
+   "facets_unknown": "12 of 12",
+   "answer_chars": 818,
+   "notes": "The company is described as fictional and I do not know it, so no facets are filled.",
+   "cost_usd": 0.00034392
+  },
+  "one_message_call": {
+   "llm_status": "ok",
+   "stop_reason": "end_turn",
+   "seconds": 2.4,
+   "usage": {
+    "input_tokens": 5978,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 248
+   },
+   "error": null,
+   "knows_company": false,
+   "facets_unknown": "12 of 12",
+   "answer_chars": 168,
+   "notes": "Name and website do not identify a company I know; it may be fictional, so no businesses or facets are described.",
+   "cost_usd": 0.0007218000000000001
+  },
+  "known_company_call": {
+   "llm_status": "ok",
+   "stop_reason": "end_turn",
+   "seconds": 6.5,
+   "usage": {
+    "input_tokens": 5975,
+    "cached_input_tokens": 5942,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1358
+   },
+   "error": null,
+   "knows_company": true,
+   "facets_unknown": "0 of 12",
+   "answer_chars": 2270,
+   "notes": "",
+   "cost_usd": 0.0007417200000000001
+  }
+ },
+ "total_cost_usd": 0.00297209
+}

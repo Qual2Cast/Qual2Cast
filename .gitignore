@@ -9,23 +9,35 @@
 !/outputs-local/website_scrape/page_text/
 !/outputs-local/website_scrape/scrape_log.csv
 
-# v0 comps results shared with the team: split, universe, valuation, facet
-# profiles/tables, judge tables, and the candidates tables. Embeddings (can be
-# regenerated), candidate rankings, run logs, prompts and history stay local.
+# v0 comps results shared with the team: everything under comps/ except the
+# facet fill runs' raw Codex output, run logs, dry-run prompts and history
+# folders (local safety copies).
 !/outputs-local/comps/
 /outputs-local/comps/*
 !/outputs-local/comps/split/
 !/outputs-local/comps/universe/
 !/outputs-local/comps/valuation/
+!/outputs-local/comps/candidates/
+!/outputs-local/comps/embeddings/
+!/outputs-local/comps/fill_test/
+!/outputs-local/comps/api_checks/
 !/outputs-local/comps/facets/
 /outputs-local/comps/facets/*
 !/outputs-local/comps/facets/profiles/
 !/outputs-local/comps/facets/tables/
+!/outputs-local/comps/facets/answer_schema.json
+!/outputs-local/comps/facets/answer_schema_with_pages.json
 !/outputs-local/comps/judge/
 /outputs-local/comps/judge/*
 !/outputs-local/comps/judge/tables/
-!/outputs-local/comps/candidates/
-/outputs-local/comps/candidates/*/ranking.csv.gz
+!/outputs-local/comps/judge/judgments/
+!/outputs-local/comps/judge/runs/
+!/outputs-local/comps/suggest/
+/outputs-local/comps/suggest/*
+!/outputs-local/comps/suggest/tables/
+!/outputs-local/comps/suggest/suggestions/
+!/outputs-local/comps/suggest/runs/
+
 /.env
 
 # Codex credentials must never be committed
