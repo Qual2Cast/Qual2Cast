@@ -3,6 +3,26 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
+_2026-10-27, business-structure pilot:
+`v0/business_split.py` and executed
+`v0/notebooks/business_structure_eval.ipynb` are the two analytical files.
+The method keeps one company ID, separates broad current businesses using
+company-source evidence, groups related products, and removes only documented
+completed exits. A thin page cannot silently delete a business. It classified
+all 40 development companies: 33 one-business, 7 multi-business; 8 carry
+source-gap flags. Ten deliberately chosen source challenges matched their
+expected direction, but they are not independent accuracy labels. The old F10
+Sheet concerns older Haiku descriptions and is not split ground truth.
+The downstream paired v0 test changed 10 of 142 peer decisions. Matched-peer
+coverage fell from 7 to 4 of 10 targets; median absolute percentage error with
+the existing no-matching fallback was 29.21% for the original judge and 32.10%
+with full split context. The new scope is therefore an audit aid, not a
+validated replacement for v0 peer selection. `company_list_v3` remains the
+source snapshot; the v0 533-company inputs and notebook were not edited.
+Next: independent split/peer labels and a held-out test before changing the
+valuation rule. Details and saved-output paths:
+`conversations/2026-10-27-business-structure-review.md`._
+
 _2026-10-24: repo reorganized. The comps recipe (v0) is in v0/; earlier
 work (matching, growth signals, the ten-company pilot, scraps) moved into
 pre-v0/, see pre-v0/README.md and conversations/2026-10-24-pre-v0-reorg.md._
