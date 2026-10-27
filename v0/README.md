@@ -22,6 +22,7 @@ imports the modules, runs a step, and shows and saves its results.
 |---|---|
 | `notebooks/comp_universe_and_facets.ipynb` | Steps 1-3: the universe, the dropped firms, the facet definitions, what the model reads, and the filled facets (coverage, source checks, the numbered profile list with fill %, example profiles) |
 | `notebooks/comps_and_valuation.ipynb` | **The updated baseline model (2026-10-27).** Steps 4-7 and the training/holdout split (kernel `qual2cast`): the ten showcase targets (the business-structure pilot's) and why they were picked; the split, stratified on SIC2, with its balance check; steps 4-5, candidates (each target's profile) with fall-off plots; step 6, the LLM's good/bad answers (run by `judge_comps.py`); four routes: cosine similarity alone, cosine shortlist followed by LLM judgment, direct LLM selection, and direct LLM selection followed by cosine reranking; step 7, their estimates against no matching; and three added sections: 7 which facets drive the score (including company size), 8 what company size does, 9 choosing the golden-set targets. Writes to `outputs-local/comps_pilot_targets/` (README there); see "Updated baseline" below |
+| `notebooks/golden_set.ipynb`, `golden_set.py` | **The golden set (2026-10-27).** Builds the pool to label for PCTY and WEN (the union of the four routes' comps: 36 pairs), writes a blind, shuffled CSV sheet to `outputs-local/comps_pilot_targets/golden_set/labels/golden_set_labels.csv` (never overwritten once it exists), checks the hand scores (2 direct, 1 adjacent, blank = 0 with one of five reasons) and prints precision@10, direct hits@10 and NDCG@10 per route. No API calls. Metrics wait until every pair is reviewed. Tests in `tests/test_golden_set.py` |
 | `notebooks/history/comps_and_valuation_size_stratified.ipynb` | The previous baseline, kept unchanged (apart from a banner) for reference: the split stratified on company size and the original ten showcase targets. Its outputs are in `outputs-local/comps/` |
 | `suggest_comps.py` | Step 4 without embeddings: the LLM picks up to ten comps per target from the whole training pool; writes `suggest/tables/suggestions.csv` |
 | `llm_then_cosine.py` | Reverse hybrid: retains and reranks the direct LLM peers by cosine; the existing valuation code uses their cosine scores as weights |
@@ -333,7 +334,7 @@ reviews it.
 - **Open:** the holdout is untouched; the LLM judge reads the same facet text
   the embeddings are built from, so its labels are not independent evidence;
   the golden set itself (pooled candidates, blind to rank and multiples) is
-  not built yet.
+  built (`notebooks/golden_set.ipynb`) but not labeled yet.
 
 ## Outputs (`outputs-local/comps/`)
 

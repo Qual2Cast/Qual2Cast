@@ -3,6 +3,19 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
+_2026-10-27, golden set built, not labeled: `v0/notebooks/golden_set.ipynb` and
+`v0/golden_set.py` pool every comp the four routes found for PCTY and WEN (36
+pairs: 16 and 20), write a shuffled sheet with no rank, similarity, verdict or
+multiple to `outputs-local/comps_pilot_targets/golden_set/labels/golden_set_labels.csv`,
+and, once Michael has scored it (2 direct, 1 adjacent, blank = 0 with one of five
+reasons), check it and print precision@10, direct hits@10 and NDCG@10 per route.
+The notebook never overwrites the sheet and waits for every pair to be reviewed.
+No API calls; data version `company_list_v3`, candidates run `20261027T204930Z`.
+Tested with throwaway labels in a scratch folder (not the real sheet). 105 tests
+pass (6 new). Next: label the sheet, re-run from section 3, then compare the
+LLM judge's verdicts with the hand scores. See
+`conversations/2026-10-27-golden-set-notebook.md`._
+
 _2026-10-27, updated baseline (proposed): `v0/notebooks/comps_and_valuation.ipynb`
 is now the updated baseline model. It uses the business-structure pilot's ten
 targets as the showcase set (with the reason each was picked) and the split
