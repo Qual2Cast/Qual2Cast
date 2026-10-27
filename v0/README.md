@@ -21,11 +21,12 @@ imports the modules, runs a step, and shows and saves its results.
 | file | what it does |
 |---|---|
 | `notebooks/comp_universe_and_facets.ipynb` | Steps 1-3: the universe, the dropped firms, the facet definitions, what the model reads, and the filled facets (coverage, source checks, the numbered profile list with fill %, example profiles) |
-| `notebooks/comps_and_valuation.ipynb` | Steps 4-7 and the training/holdout split (kernel `qual2cast`): the split with its balance check; steps 4-5, candidates (each target's profile) with fall-off plots; step 6, the LLM's good/bad answers (run by `judge_comps.py`); four routes—cosine similarity alone, cosine shortlist followed by LLM judgment, direct LLM selection, and direct LLM selection followed by cosine reranking; step 7, their estimates against no matching |
+| `notebooks/comps_and_valuation.ipynb` | **The updated baseline model (2026-10-27).** Steps 4-7 and the training/holdout split (kernel `qual2cast`): the ten showcase targets (the business-structure pilot's) and why they were picked; the split, stratified on SIC2, with its balance check; steps 4-5, candidates (each target's profile) with fall-off plots; step 6, the LLM's good/bad answers (run by `judge_comps.py`); four routes: cosine similarity alone, cosine shortlist followed by LLM judgment, direct LLM selection, and direct LLM selection followed by cosine reranking; step 7, their estimates against no matching; and three added sections: 7 which facets drive the score (including company size), 8 what company size does, 9 choosing the golden-set targets. Writes to `outputs-local/comps_pilot_targets/` (README there); see "Updated baseline" below |
+| `notebooks/history/comps_and_valuation_size_stratified.ipynb` | The previous baseline, kept unchanged (apart from a banner) for reference: the split stratified on company size and the original ten showcase targets. Its outputs are in `outputs-local/comps/` |
 | `suggest_comps.py` | Step 4 without embeddings: the LLM picks up to ten comps per target from the whole training pool; writes `suggest/tables/suggestions.csv` |
 | `llm_then_cosine.py` | Reverse hybrid: retains and reranks the direct LLM peers by cosine; the existing valuation code uses their cosine scores as weights |
 | `judge_comps.py` | Step 6: Claude Haiku 5.5 marks each z ≥ 2 candidate good (1) or bad (0) with a reason; writes `judge/tables/judgments.csv` |
-| `split.py` | The training/holdout split: stratified on company size, fixed seed, showcase targets in training; balance tables |
+| `split.py` | The training/holdout split: stratified on any strata series (company size in the previous baseline, SIC2 in the updated baseline), fixed seed, showcase targets in training; balance tables |
 | `candidates.py` | Step 4: per-facet embeddings (model loaded from the local cache, no Hub request), combined similarity, ranking with z, candidates (top k or z level) |
 | `valuation.py` | Step 7 and the evaluation: weighted mean or median of the comps' multiples, the no-matching baseline, error summary |
 | `notebooks/facet_fill_runs.ipynb` | Development record for step 3, not a v0 output: every prompt version and what changed, the model choice, the pages-fill-gaps rule, the API checks, every fill run (tokens, time, cost, fill %) and the fill test |
@@ -155,7 +156,7 @@ imports the modules, runs a step, and shows and saves its results.
   still open.
 - **Split:** 70/30, stratified on company size (F9; unknown size is its
   own stratum), counts per stratum rounded by largest remainder (373 / 160),
-  seed 2026, not re-drawn for balance. The ten showcase targets (PCTY, BV,
+  seed 2026, not re-drawn for balance (**superseded 2026-10-27, proposed: the updated baseline stratifies on SIC2, see "Updated baseline" below**). The ten showcase targets (PCTY, BV,
   ROAD, LMB, BRO, ADUS, DXPE, SLGN, BGS, WEN) are in training. Balance is
   checked on SIC division shares and on SMDs of log revenue, margin,
   debt/revenue and EV/EBITDA (read only for that check).
@@ -305,7 +306,76 @@ run stops if the Codex usage limit or the API credit runs out, or the key
 is refused; finished companies are kept, so run it again after fixing that.
 Then run the notebook.
 
+## Updated baseline: SIC2 split and the pilot's ten targets (2026-10-27, proposed)
+
+`notebooks/comps_and_valuation.ipynb` is the updated baseline model. It runs the
+method of the 2026-10-25 decisions above on a different split, to line the v0
+pipeline up with the business-structure pilot's ten targets and to test company
+size. The previous baseline notebook is kept, unchanged apart from a banner, in
+`notebooks/history/comps_and_valuation_size_stratified.ipynb`, and its outputs
+stay in `outputs-local/comps/`. The split decision is a proposal until the team
+reviews it.
+
+- **Showcase targets:** the pilot's PCTY, WEN, CSL, AFG, BOC, NWSA, AZZ, BBCP,
+  BUKS and SNFC.A, in training. The notebook lists each with the reason the
+  pilot picked it (related products, a completed exit, or a current
+  multi-business group). They were chosen as source challenges, not at random.
+- **Split:** 70/30, seed 2026, stratified on SIC2 with groups under 6 firms
+  merged into "other" (26 strata), instead of company size. Size is left free
+  so its effect can be tested, which means it is not balanced between the
+  samples (large 54% of training against 46% of holdout, among the largest
+  12% against 18%, small 3% against 6%). 271 of the 373 training firms are the
+  previous baseline's. Not re-drawn for balance.
+- **Re-runs:** z is relative to the pool, so a new split changes almost every
+  target's candidate list. The judge (`judge_comps.py`) and the direct picks
+  (`suggest_comps.py`) were re-run on it, Claude Haiku 5.5, prompt 2026-10-25a,
+  373 of 373 targets.
+- **Outputs:** `outputs-local/comps_pilot_targets/` (see the README there for
+  the layout and which run is which), not `comps/`. `judge_comps.py` and
+  `suggest_comps.py` default to the latest candidates run in `comps/`, so a run
+  written there would silently redirect them; run them here with
+  `--candidates <run> --out <folder>`. `suggest_comps.py` now finds the split
+  beside the candidates run's own folder (the same result for `comps/`).
+- **Sharing:** `.gitignore` shares every `outputs-local/comps*/` folder by
+  default (so a new stage folder needs no new line) and ignores only logs,
+  dry-run prompts, `*_history` folders, raw Codex output and a top-level
+  `history/` of superseded notebook reruns. The rest of `outputs-local/` (raw
+  website HTML, `matching/`, `scraps/`) stays local: the repository is public,
+  so sharing it is a team decision.
+- **Results (training targets, development only):** median absolute %
+  error 31.9% with no matching; cosine 28.8-32.1%; LLM good comps 30.5% (264
+  targets); LLM direct and LLM then cosine 30.6% (343); same SIC 35.1-36.7%. As
+  before, every way of choosing comps lands within a few points, and the split
+  alone moves a rule by 2-4 points.
+- **Facets (section 7):** the combined similarity separates the LLM's good
+  comps from its bad ones with an AUC of 0.87; offering description (F1) is the
+  best single facet (0.83), geography 0.53. Company size (F9), embedded the same
+  way though it is not in the similarity, is 0.49 (chance) and lifts the
+  top-10 comps by 0.01 cosine. A facet that does not apply is embedded as
+  "none", so two firms with "none" match exactly (1.00): this inflates primary
+  products and services (F2, F3; 13% and 19% of top-10 pairs), whose lift falls
+  from 0.34 to 0.29 without those pairs. WEN shows it: its F3 is "none" and
+  matches 17 of its 20 candidates, 16 of them judged bad.
+- **Company size (section 8):** error falls as firms get bigger (cosine z ≥ 2:
+  39.8% small, 34.3% mid-sized, 28.7% large, 24.0% among the largest), but the
+  median multiple barely moves with size, size agreement does not predict the
+  LLM's verdict (AUC 0.498), and requiring the same size category hurts (32.1%
+  against 29.6%). Not a useful comp filter beyond excluding extreme gaps.
+- **Golden set (section 9):** two of the ten targets will be chosen; the
+  current pick is PCTY and WEN. `golden_set/<run>/target_choice.csv` compares
+  the ten (candidates, LLM-good comps, direct picks, size of the pool to label).
+- **To do (notebook section 10):** a facet that does not apply is embedded as
+  "none", which the similarity has done since 2026-10-25; the stopgap (treat it
+  as missing) and the fix at the source (tighten the facet prompt, re-fill all
+  533) are described there, with costs. Neither is applied.
+- **Open:** the holdout is untouched; the LLM judge reads the same facet text
+  the embeddings are built from, so its labels are not independent evidence;
+  the golden set itself (pooled candidates, blind to rank and multiples) is
+  not built yet.
+
 ## Outputs (`outputs-local/comps/`)
+
+This section describes the previous baseline's folder. The updated baseline's outputs are in `outputs-local/comps_pilot_targets/`, which has its own README; the layout of each stage folder is the same.
 
 The output folder keeps the name `comps/` (it holds the comp universe and
 facets); the code folder was renamed to `v0/` on 2026-10-24.
