@@ -4,8 +4,11 @@ call per company, and write outputs-local/comps/sector_facets/tables/
 sector_facets.csv.
 
 Each company gets its sector from its SIC code (sectors.py), then the
-sub-sector facet and its sector's facets, from what the model knows (name,
-website, sector; no pages, no financials). Training companies only by
+sub-sector facet and its sector's facets from evidence (Aziz: no LLM memory
+alone): its saved website pages by default, and with --evidence also a
+deeper crawl of its site and web search (verification/evidence.py). Each
+facet cites its evidence lines; memory fills only gaps and is flagged
+from_memory. No financials. Training companies only by
 default, so nothing about the holdout is looked at while the facets are
 being designed; --include-holdout fills the holdout once the facet list is
 frozen.
@@ -37,7 +40,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import facets as fc  # noqa: E402,F401  (puts website_scrape/ and src/ on the path)
 import sector_facets as sf  # noqa: E402
 import sectors as sc  # noqa: E402
-from fill_facets import DEFAULT_MODEL, call_claude, claude_api_key, now_iso, stamp  # noqa: E402
+from fill_facets import DEFAULT_MODEL, call_claude, claude_api_key, company_record, now_iso, stamp  # noqa: E402
 from project_data import OUTPUTS_LOCAL  # noqa: E402
 from universe import build_universe  # noqa: E402
 
@@ -75,10 +78,29 @@ def companies_to_fill(include_holdout: bool) -> pd.DataFrame:
     return out
 
 
+def gather_evidence(iq_id: str, name: str, website: str, deep: bool) -> tuple[str, dict[str, str], dict]:
+    """The evidence for one company: its saved website pages (P lines,
+    labeled as the facet fill labels them); with deep, also a further crawl
+    of its own site (W) and web search (S, if a search key is set) through
+    v0/verification/evidence.py. Returns the prompt text, label -> line,
+    and a short record of what was used."""
+    if deep:
+        from verification.evidence import gather
+        ev = gather(iq_id, name, website)
+        kinds = sorted({k[0] for k in ev.lines})
+        return ev.text("PWS"), dict(ev.lines), {"kinds": kinds, "log_dir": ev.log_dir,
+                                                "sources": {k: v.get("url", "") for k, v in ev.sources.items()}}
+    record = company_record(iq_id, name, website, True)
+    _, lines = fc.build_prompt(record, True)
+    return sf.evidence_text(lines), lines, {"kinds": ["P"] if lines else [], "scrape_status": record["status"],
+                                            "sources": {p["page_id"]: p["url"] for p in record["pages"]}}
+
+
 def fill_one(iq_id: str, row: pd.Series, out: SimpleNamespace, args) -> dict:
     company = {"IQ_COMPANY_ID": iq_id, "company_name": row["target_company_name"],
                "website": row["target_ciq_website"], "sector": row["sector"]}
-    prompt = sf.build_prompt(company)
+    evidence, lines, used = gather_evidence(iq_id, company["company_name"], company["website"], args.evidence)
+    prompt = sf.build_prompt(company, evidence)
     fp = sf.fingerprint(prompt, args.model)
     path = out.profiles / f"{iq_id}.json"
     if path.exists() and not args.refresh:
@@ -97,11 +119,11 @@ def fill_one(iq_id: str, row: pd.Series, out: SimpleNamespace, args) -> dict:
                "sic4": row["sic4"], "ff49": row["ff49"], "sector": row["sector"], "model": args.model,
                "prompt_version": sf.PROMPT_VERSION, "fingerprint": fp, "llm_status": result["llm_status"],
                "run_dir": str(run_dir.relative_to(out.runs.parent)), "created_at": now_iso(),
-               "facets": {}, "issues": [], "notes": ""}
+               "facets": {}, "issues": [], "notes": "", "evidence": used}
     if result["llm_status"] == "ok":
         try:
             raw = json.loads(result["text"])
-            profile["facets"], profile["issues"] = sf.check_answer(raw, row["sector"])
+            profile["facets"], profile["issues"] = sf.check_answer(raw, row["sector"], lines)
             profile["knows_company"], profile["notes"] = bool(raw.get("knows_company")), raw.get("notes", "")
         except json.JSONDecodeError:
             profile["llm_status"] = "invalid_json"
@@ -152,6 +174,9 @@ def main() -> None:
     p.add_argument("--model", default=DEFAULT_MODEL["claude"])
     p.add_argument("--effort", choices=["low", "medium", "high"])
     p.add_argument("--workers", type=int, default=2)
+    p.add_argument("--evidence", action="store_true",
+                   help="also crawl more of each company's site and search the web (verification/evidence.py; "
+                        "search needs SERPER_API_KEY, BRAVE_API_KEY or TAVILY_API_KEY); default: saved pages only")
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--tables-only", action="store_true")
     args = p.parse_args()
@@ -174,7 +199,7 @@ def main() -> None:
         for iq_id, row in todo.iterrows():
             company = {"company_name": row["target_company_name"], "website": row["target_ciq_website"],
                        "sector": row["sector"]}
-            (out.prompts_dry_run / f"{iq_id}.txt").write_text(sf.build_prompt(company), encoding="utf-8")
+            (out.prompts_dry_run / f"{iq_id}.txt").write_text(sf.build_prompt(company, gather_evidence(iq_id, company["company_name"], company["website"], args.evidence)[0]), encoding="utf-8")
         print(f"wrote {len(todo)} prompts to {out.prompts_dry_run}")
         return
 

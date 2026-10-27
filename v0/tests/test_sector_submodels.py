@@ -65,35 +65,51 @@ def test_prompt_has_no_provenance_notes_and_lists_categories():
 def test_schema_matches_the_sector():
     s = sf.answer_schema("software")
     assert "deployment_model" in s["properties"] and "manufacturing_type" not in s["properties"]
-    assert s["properties"]["sub_sector"]["required"] == ["status", "value"]
+    assert s["properties"]["sub_sector"]["required"] == ["status", "value", "cites"]
+
+
+def test_evidence_text_groups_lines_by_source():
+    t = sf.evidence_text({"P1.1": "a", "P1.2": "b", "S2.1": "c"})
+    assert t.count("<source") == 2 and '<source id="P1">' in t and "[S2.1] c" in t
 
 
 def test_check_answer_keeps_valid_categories_and_flags_problems():
+    labels = {"P1.1", "P1.2"}
     raw = {"knows_company": True, "notes": "",
-           "sub_sector": {"status": "stated", "value": "commercial HVAC equipment"},
-           "manufacturing_type": {"status": "stated", "categories": ["discrete", "assembly", "made up"], "detail": ""},
-           "production_model": {"status": "stated", "categories": ["make-to-order", "both"], "detail": "x"},
-           "product_complexity": {"status": "stated", "categories": [], "detail": ""},
+           "sub_sector": {"status": "stated", "value": "commercial HVAC equipment", "cites": ["[P1.1]"]},
+           "manufacturing_type": {"status": "stated", "categories": ["discrete", "assembly", "made up"],
+                                  "detail": "", "cites": ["P1.2", "X9.9"]},
+           "production_model": {"status": "stated", "categories": ["make-to-order", "both"], "detail": "x",
+                                "cites": ["P1.1"]},
+           "product_complexity": {"status": "stated", "categories": [], "detail": "", "cites": []},
            "production_role": {"status": "stated", "categories": ["final manufacturer / OEM"],
-                               "detail": "sells $40 million a year"},
-           "end_market_exposure": {"status": "unknown", "categories": ["industrial"], "detail": "x"}}
-    out, issues = sf.check_answer(raw, "manufacturing")
+                               "detail": "sells $40 million a year", "cites": []},
+           "end_market_exposure": {"status": "unknown", "categories": ["industrial"], "detail": "x", "cites": ["P1.1"]}}
+    out, issues = sf.check_answer(raw, "manufacturing", labels)
+    assert out["sub_sector"]["source"] == "evidence" and out["sub_sector"]["cites"] == ["P1.1"]
     assert out["manufacturing_type"]["categories"] == ["discrete", "assembly"]
+    assert out["manufacturing_type"]["cites"] == ["P1.2"] and "unknown_cite:manufacturing_type" in issues
     assert out["production_model"]["categories"] == ["make-to-order"]
     assert "several_categories:production_model" in issues
     assert out["product_complexity"]["status"] == "unknown" and "no_category:product_complexity" in issues
+    assert out["production_role"]["source"] == "model knowledge" and "from_memory:production_role" in issues
     assert "figure_in_value:production_role" in issues
-    assert out["end_market_exposure"] == {"status": "unknown", "categories": [], "detail": ""}
+    assert out["end_market_exposure"] == {"status": "unknown", "cites": [], "source": "", "categories": [], "detail": ""}
     row = sf.table_row(out)
     assert row["manufacturing_type_categories"] == "discrete|assembly"
     assert row["sub_sector"] == "commercial HVAC equipment"
+    assert row["production_role_source"] == "model knowledge"
 
 
-def test_unknown_company_is_all_unknown():
-    raw = {"knows_company": False, "notes": "", "sub_sector": {"status": "stated", "value": "guess"}}
-    out, issues = sf.check_answer(raw, "software")
-    assert all(v["status"] == "unknown" for v in out.values())
+def test_unknown_company_keeps_only_cited_facets():
+    raw = {"knows_company": False, "notes": "",
+           "sub_sector": {"status": "stated", "value": "guess", "cites": []},
+           "software_category": {"status": "stated", "categories": ["HR and payroll"], "detail": "",
+                                 "cites": ["P1.1"]}}
+    out, issues = sf.check_answer(raw, "software", {"P1.1"})
+    assert out["sub_sector"]["status"] == "unknown" and "unsupported:sub_sector" in issues
     assert "company_not_known" in issues
+    assert out["software_category"]["status"] == "stated" and out["software_category"]["source"] == "evidence"
 
 
 # ---------------------------------------------------------------- evaluation

@@ -10,9 +10,13 @@ group (sectors.py) gets a few extra category facets that separate business
 models inside that sector, and every company gets one more text facet,
 its sub-sector, in a few words.
 
-Filled like the general facets: Claude Haiku from what it knows, given the
-company's name, website and sector group (fill_sector_facets.py). Never
-financial figures; "unknown" only as a last resort. Categories come from a
+Filled by Claude Haiku from evidence, not from memory alone (Aziz,
+2026-10-27: "Totally avoid relying on LLM memory only. Use tool calling, web
+search..."): the company's saved website pages, and with --evidence a deeper
+crawl of its site plus web search (v0/verification/evidence.py). Each facet
+cites the evidence lines it rests on; the model's own knowledge fills only
+what the evidence doesn't cover and is marked "model knowledge". Never
+financial figures. Categories come from a
 fixed list (the answer schema rejects anything else), so the sub-model
 compares them value for value (sector_submodel.category_similarity).
 
@@ -30,7 +34,7 @@ import re
 from facets import FINANCIAL_FIGURE, SCALE_FIGURE, Facet
 from sectors import SECTOR_GROUPS, SECTOR_LABELS
 
-PROMPT_VERSION = "2026-10-27a"
+PROMPT_VERSION = "2026-10-27b"   # b: evidence first (website pages, optional web search), cited; memory only for gaps
 
 SUB_SECTOR = Facet(
     "sub_sector", "Sub-sector", "The narrow industry niche the company competes in, in a few words",
@@ -232,13 +236,15 @@ def all_facet_names() -> list[str]:
     return seen
 
 
-INSTRUCTIONS = """You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and its sector. Use what you know about the company.
+INSTRUCTIONS = """You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
 
-First, say whether you know this company: set "knows_company" to true only if you recognize this specific company. A name and a web address alone are not knowing it: do not guess from the name, the web address, or what is typical for similar companies. If you don't know it, set "knows_company" to false and every facet's status to "unknown".
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
 
-Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
 
-Then fill in each facet listed for the company. For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" only if you really don't know.
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
 
 Rules:
 - Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
@@ -255,12 +261,22 @@ def facet_block(f: Facet) -> str:
     return head
 
 
-def build_prompt(company: dict) -> str:
-    """company: IQ_COMPANY_ID, company_name, website, sector."""
+def evidence_text(lines: dict[str, str]) -> str:
+    """Labeled lines grouped by source ("P1", "W2", "S3"), in label order."""
+    groups: dict[str, list[str]] = {}
+    for label, text in lines.items():
+        groups.setdefault(label.split(".")[0], []).append(f"[{label}] {text}")
+    return "\n\n".join(f'<source id="{sid}">\n' + "\n".join(body) + "\n</source>" for sid, body in groups.items())
+
+
+def build_prompt(company: dict, evidence: str = "") -> str:
+    """company: company_name, website, sector. evidence: the labeled lines
+    (evidence_text, or verification.evidence.Evidence.text)."""
     fs = facets_for(company["sector"])
     return "\n".join([INSTRUCTIONS, "", f"Company: {company['company_name']} ({company['website']})",
                       f"Sector: {SECTOR_LABELS.get(company['sector'], company['sector'])}", "",
-                      "Facets:", *[facet_block(f) for f in fs]])
+                      "Facets:", *[facet_block(f) for f in fs], "",
+                      "Evidence:", evidence or "(no evidence was found for this company)"])
 
 
 def answer_schema(sector: str) -> dict:
@@ -272,6 +288,7 @@ def answer_schema(sector: str) -> dict:
             p["detail"] = {"type": "string"}
         else:
             p["value"] = {"type": "string"}
+        p["cites"] = {"type": "array", "items": {"type": "string"}}
         props[f.name] = {"type": "object", "additionalProperties": False, "required": list(p), "properties": p}
         required.append(f.name)
     return {"type": "object", "additionalProperties": False, "required": required, "properties": props}
@@ -285,11 +302,18 @@ def _has_figure(text: str) -> bool:
     return bool(FINANCIAL_FIGURE.search(text) or SCALE_FIGURE.search(text))
 
 
-def check_answer(raw: dict, sector: str) -> tuple[dict, list[str]]:
-    """Checked facets {name: {status, categories, detail} or {status, value}}
-    and the issues found. An unknown company makes every facet unknown; a
-    single-choice facet with several categories keeps the first; a value
-    with a figure is kept but flagged."""
+def check_answer(raw: dict, sector: str, labels: set[str] | dict | None = None) -> tuple[dict, list[str]]:
+    """Checked facets {name: {status, categories, detail} or {status, value},
+    plus cites and source} and the issues found.
+
+    Citations are kept only if the label was in the prompt (else issue
+    unknown_cite). A filled facet with a valid citation has source
+    "evidence"; one without is "model knowledge" (issue from_memory) when
+    the model knows the company, and becomes unknown when it doesn't (issue
+    unsupported), so nothing is guessed from the name. A single-choice facet
+    with several categories keeps the first; a value with a figure is kept
+    but flagged."""
+    labels = set(labels or ())
     issues: list[str] = []
     known = bool(raw.get("knows_company"))
     if not known:
@@ -298,35 +322,49 @@ def check_answer(raw: dict, sector: str) -> tuple[dict, list[str]]:
     for f in facets_for(sector):
         a = raw.get(f.name) or {}
         status = a.get("status") if a.get("status") in STATUSES else "unknown"
-        if not known:
-            status = "unknown"
+        cites = [c.strip().strip("[]") for c in (a.get("cites") or [])]
+        bad = [c for c in cites if c not in labels]
+        cites = list(dict.fromkeys(c for c in cites if c in labels))
+        if bad:
+            issues.append(f"unknown_cite:{f.name}")
         if f.categories:
-            cats = [c for c in (a.get("categories") or []) if c in f.categories]
-            cats = list(dict.fromkeys(cats))
+            cats = list(dict.fromkeys(c for c in (a.get("categories") or []) if c in f.categories))
             if not f.several and len(cats) > 1:
                 issues.append(f"several_categories:{f.name}")
                 cats = cats[:1]
             if status == "stated" and not cats:
                 issues.append(f"no_category:{f.name}")
                 status = "unknown"
-            detail = (a.get("detail") or "").strip()
-            if _has_figure(detail):
-                issues.append(f"figure_in_value:{f.name}")
-            out[f.name] = {"status": status, "categories": cats if status == "stated" else [],
-                           "detail": detail if status == "stated" else ""}
+            text = (a.get("detail") or "").strip()
         else:
-            value = (a.get("value") or "").strip()
-            if status == "stated" and not value:
+            cats, text = None, (a.get("value") or "").strip()
+            if status == "stated" and not text:
                 status = "unknown"
-            if _has_figure(value):
-                issues.append(f"figure_in_value:{f.name}")
-            out[f.name] = {"status": status, "value": value if status == "stated" else ""}
+        source = ""
+        if status == "stated":
+            if cites:
+                source = "evidence"
+            elif known:
+                source = "model knowledge"
+                issues.append(f"from_memory:{f.name}")
+            else:
+                issues.append(f"unsupported:{f.name}")
+                status = "unknown"
+        if _has_figure(text):
+            issues.append(f"figure_in_value:{f.name}")
+        entry = {"status": status, "cites": cites if status == "stated" else [], "source": source}
+        if cats is not None:
+            entry.update(categories=cats if status == "stated" else [], detail=text if status == "stated" else "")
+        else:
+            entry["value"] = text if status == "stated" else ""
+        out[f.name] = entry
     return out, issues
 
 
 def table_row(facets: dict) -> dict:
     """Flat columns for sector_facets.csv: <facet>_status, <facet> (text or
-    "cat1; cat2: detail"), <facet>_categories ("cat1|cat2")."""
+    "cat1; cat2: detail"), <facet>_categories ("cat1|cat2"), <facet>_source
+    ("evidence" or "model knowledge") and <facet>_cites."""
     row = {}
     for name, a in facets.items():
         row[f"{name}_status"] = a["status"]
@@ -335,6 +373,8 @@ def table_row(facets: dict) -> dict:
             row[name] = ("; ".join(a["categories"]) + (f": {a['detail']}" if a["detail"] else "")) if a["categories"] else ""
         else:
             row[name] = a["value"]
+        row[f"{name}_source"] = a.get("source", "")
+        row[f"{name}_cites"] = " ".join(a.get("cites", []))
     return row
 
 
