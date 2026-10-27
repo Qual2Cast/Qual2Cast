@@ -15,6 +15,12 @@ _README last updated 2026-10-24: work from before v0 moved into `pre-v0/`. Times
 **Current method (v0):** the mentor's recipe for comps, in [`v0/`](v0/README.md); start with
 [`v0/notebooks/comps_and_valuation.ipynb`](v0/notebooks/comps_and_valuation.ipynb).
 
+**Evaluate the cosine → LLM peers:** continue in
+[`v0/notebooks/peer_evaluation.ipynb`](v0/notebooks/peer_evaluation.ipynb).
+It grades accepted pairs against saved website passages on a 0–3 rubric using
+Codex CLI or Claude Code CLI. The matching notebook's final cell exports its
+input handoff. [Setup and interpretation](v0/PEER_EVALUATION.md).
+
 **Team report (2026-10-20, before v0):** read the [four-page research memo](pre-v0/reports/team_company_workflow/team_research_memo.pdf)
 and [contribution/evidence appendix](pre-v0/reports/team_company_workflow/team_research_appendix.html).
 The memo reports the original team experiments alongside the newer integrated

@@ -1,5 +1,38 @@
 # Data dictionary
 
+## Peer-evaluation outputs
+
+`v0/notebooks/peer_evaluation.ipynb` grades the accepted outputs of cosine → LLM,
+using saved website passages and the agreed 0–3 rubric. Results stay local under
+`outputs-local/comps/peer_evaluation/<run>/`.
+
+- `inputs/`: file hashes, target list, upstream candidate decisions, sampled
+  accepted pairs, exact passage text/URLs/capture dates, rubric, schema and prompts.
+- `runs/`, `judgments/`: raw CLI attempts and checked pair answers/errors.
+- `tables/pair_judgments.csv`: `judge_score` (0–3 or null), `verdict`,
+  offering/customer/business-model fit, reason, missing evidence, checked citations,
+  provider/model and execution status. Upstream score/reason/rank/similarity are
+  joined only for the report; they are not given to the judge.
+- `tables/target_summary.csv`: upstream completeness, accepted/sampled/graded/
+  passing pairs and explicit insufficient-evidence, failed and not-run counts.
+- `tables/summary.csv`: pass rate among numeric grades, grading coverage among
+  sampled pairs, execution counts and the passing threshold (default 3).
+- `tables/human_review_template.csv`: blank reviewer/human-score/reason fields
+  alongside model outputs. Annotate a separate copy; reruns archive replacements.
+- `history/`: earlier versions of replaced outputs.
+- `analysis/`: notebook section 7's derived coverage metrics, outcome counts,
+  fit-dimension counts, target attention list, illustrative pair examples,
+  answer errors, two PNG charts and a generated findings note. Source judgment
+  tables remain unchanged; percentages distinguish all selected pairs from
+  valid numeric grades. These are automated judge diagnostics, not accuracy.
+
+`insufficient_evidence` is a null grade with successful execution; it is distinct
+from `not_run`, CLI failure and `invalid_answer`. All requested training targets
+remain in target reports, including those with no accepted peer. This is
+automated business-fit evaluation, not independent labels or valuation accuracy.
+The matching notebook exports `peer_evaluation_input.json` and a frozen
+`selection_judgments_for_evaluation.csv` beside its candidate run for handoff.
+
 ## Where data lives
 
 | location | in Git? | contents |

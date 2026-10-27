@@ -1,5 +1,14 @@
 # v0/
 
+**Downstream peer evaluation:** after `notebooks/comps_and_valuation.ipynb`,
+open [notebooks/peer_evaluation.ipynb](notebooks/peer_evaluation.ipynb). It
+evaluates accepted cosine → LLM peers with the agreed 0–3 business-fit rubric,
+saved website passages, and either Codex CLI or Claude Code CLI. The final
+matching-notebook cell exports a frozen judgment snapshot and input handoff.
+See [PEER_EVALUATION.md](PEER_EVALUATION.md) for setup, saved outputs and limits.
+`peer_evaluation.py` holds evaluation logic; `cli_models.py` holds subprocess
+transport. This evaluation is separate from `judge_comps.py`'s peer selection.
+
 Comparable-company selection, following the mentor's recipe for getting comps
 (received 2026-10-24). This folder covers the first three steps:
 

@@ -39,6 +39,62 @@ under SIC2. Next: decide how to treat "not applicable" facets (notebook section 
 whether this split replaces the previous baseline's. See
 `conversations/2026-10-27-updated-baseline-sic2-split.md` and `v0/README.md`._
 
+## Downstream LLM peer evaluation — 2026-10-27
+
+- Integrated with updated main at `e2bf5a2e`: kept its SIC2 baseline and all
+  existing notebook cells; appended the evaluator handoff as section 11.
+  Evaluator split lookup follows the candidate stage's output root so a new
+  handoff can use `comps_pilot_targets/`. Defaults and the completed 663-pair
+  results still refer to the original size-stratified baseline, not SIC2.
+  Peer-evaluation raw runs and local analysis remain ignored by Git.
+- Notebook section 7 now analyzes a saved run without model calls: coverage
+  and pass metrics, grade/outcome and fit-dimension charts, target coverage,
+  illustrative pairs and evidence/validation issues. Default analysis input:
+  completed local run `20261027T190213461887Z` (663 pairs, 615 numeric grades,
+  139 score-3 peers, 44 insufficient-evidence answers, 4 invalid answers).
+  Derived outputs go to `analysis/`, with replaced versions archived.
+  Added matplotlib to judge requirements. New cells have not been executed;
+  no tests or model calls were run for this change. Next: user runs section 7.
+- New notebook: `v0/notebooks/peer_evaluation.ipynb`; logic in
+  `v0/peer_evaluation.py`, CLI transport in `v0/cli_models.py`, setup in
+  `v0/PEER_EVALUATION.md` and `v0/requirements-judge.txt`.
+- It evaluates the final accepted outputs of cosine → LLM, using the user's
+  selected 0–3 business-fit rubric, with null for insufficient evidence.
+  It matches the current z cutoff, selection prompt version, completed
+  upstream target decisions and training-only peer pool.
+- The evaluator sees company names/websites and saved cleaned source passages,
+  not upstream facets, reasons, scores, ranks, SIC or financials. Citation labels
+  resolve to actual text/URLs/dates. This is an automated evaluation aid, not
+  independent human labels or measured accuracy.
+- Codex CLI is the default; Claude Code CLI is selected with `claude-cli`.
+  Each pair has a separate structured call, raw logs and checked response.
+  Matching successful calls resume; replaced files are archived.
+  Notebook setup now exposes optional executable overrides and prints the
+  resolved CLI before live preparation. Codex also detects the macOS desktop
+  app's bundled executable when the VS Code kernel PATH lacks `codex`.
+  Both providers retain direct subprocess calls and their normal CLI login.
+- The matching notebook now ends with a frozen judgment snapshot and handoff
+  export for the evaluator. Its existing cells, results and valuation logic
+  are unchanged. Per the latest user request, the evaluator now uses all
+  training targets, no pair sampling limit and `RUN_JUDGE=True`. `RUN_DIR=None`
+  starts a new manual run; a prior output directory can be supplied to resume.
+- Validation: Python modules and notebook code cells parsed successfully;
+  `git diff --check` passed. No automated tests, model calls, embedding runs or
+  embedding runs were performed. Subsequently installed the judge requirements
+  in the project `.venv` through VS Code's terminal. Full preparation succeeded:
+  373 targets, 663 accepted pairs across 277 targets, zero missing upstream
+  verdicts. Despite stale VS Code UI observations, the terminal launch took
+  effect and a partial live batch ran. On the user's clarification to update
+  code only, its runner and inference subprocess were stopped and process
+  exit verified. Partial outputs remain in
+  `outputs-local/comps/peer_evaluation/training_20261027`; they are not a
+  completed full-training evaluation. Citation parsing now accepts displayed
+  bracketed labels while still resolving only exact supplied passage IDs.
+- Source data remains `company_list_v3`; saved input captures were not changed.
+  Next: the user will manually Run All in VS Code, then calibrate against
+  independent human scores. Changes are local on main; no commit or push.
+  Handoff: `conversations/2026-10-27-llm-peer-evaluation.md`.
+
 _2026-10-27, business-structure pilot:
 `v0/business_split.py` and executed
 `v0/notebooks/business_structure_eval.ipynb` are the two analytical files.
