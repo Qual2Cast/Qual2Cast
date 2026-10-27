@@ -1,0 +1,39 @@
+# 2026-10-27: sector sub-models and facet add/drop eval (Claude Code, for Fiona)
+
+## Asked (Michael, WhatsApp 2026-10-27)
+
+- Recipe #5/6 (Fiona and Yiming; Barbara's sector facets): further
+  improvements for specialized sub-models; sector / sub-sector as extra
+  facets; rerun the evals.
+- General demand #1: another add/drop review of facets judged by how close
+  the comps are to the golden set, not by valuation error.
+
+## Changes
+
+- `v0/reference/Siccodes49.txt`: Ken French's FF49 definitions (the file
+  Barbara used for growth base rates).
+- `v0/sectors.py`: FF49 lookup, eleven sector groups, sector similarity.
+  On the 560 list: Softw 73, BusSv 66, Drugs 35, Mach 31, Fin 28, Insur 26,
+  MedEq 23, ...; no company falls in "other".
+- `v0/sector_facets.py`: sub-sector (text) for every company; 2-5 category
+  facets per group from Barbara's framework section 2 (ours where her
+  framework has no section).
+- `v0/fill_sector_facets.py`: Haiku fill, training only by default.
+- `v0/facet_eval.py`: variants (generic, generic minus each facet, +sector,
+  +sub-sector, +sector-specific facets, sub-model restricted to the sector
+  group) scored against golden-set and judge labels.
+- `v0/tests/test_sector_submodels.py`: 22 tests. Whole suite: 120 passed;
+  `test_facet_texts_marks_not_applicable_and_unknown` fails on main too
+  under pandas 3 (NaN vs None), not touched here.
+- Smoke run of `facet_eval.py` on synthetic facets and a synthetic gold
+  file (fake embeddings): every variant runs and writes its tables. No real
+  numbers yet.
+
+## Open / next
+
+1. Needs Michael's `outputs-local/comps/` (universe, split, facets.csv,
+   judge tables) and an API key to fill the sector facets.
+2. Needs the golden set (Kethan) as a pairs file.
+3. Then: fill, run `facet_eval.py`, keep the facets whose removal hurts and
+   the sector additions that help; if the sub-model wins, use its ranking as
+   the step 4 candidates and rerun the judge with the 2/1/0 rubric.
