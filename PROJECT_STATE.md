@@ -3,6 +3,29 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
+_2026-10-27, updated baseline (proposed): `v0/notebooks/comps_and_valuation.ipynb`
+is now the updated baseline model. It uses the business-structure pilot's ten
+targets as the showcase set (with the reason each was picked) and the split
+stratified on SIC2 instead of company size, which is left free so it can be
+tested. The previous baseline is kept in
+`v0/notebooks/history/comps_and_valuation_size_stratified.ipynb`; earlier notes
+below that name `comps_and_valuation.ipynb` describe it. Judge and direct picks
+were re-run on the new split (Haiku 5.5, prompt 2026-10-25a, 373/373) and the
+notebook executed with no errors. Training-target median absolute % error: 31.9%
+no matching, cosine 28.8-32.1%, LLM routes 30.5-30.6%, same SIC 35.1-36.7%, so
+the routes are still bunched. New sections: 7 (per-facet separation and lift,
+heatmaps; company size has AUC 0.49 and lift 0.01; a shared "none" inflates the products and services facets), 8 (size is not a useful comp
+filter) and 9 (choosing the two golden-set targets; current pick PCTY and WEN).
+Outputs are in `outputs-local/comps_pilot_targets/` (README there), not
+`comps/`, because the judge and suggest scripts default to the latest candidates
+run in `comps/`; `suggest_comps.py` now finds the split beside the candidates
+run. `.gitignore` now shares every `outputs-local/comps*/` folder by default (logs, dry-run prompts, `*_history`, raw Codex output and a `history/` of reruns stay local); the rest of `outputs-local/` stays local because the repository is public. A facet that does not apply is embedded as "none" (exact 1.00 match): the stopgap and the source fix are written up at the end of the notebook, not applied.
+99 tests pass. `company_list_v3` remains the source snapshot; `comps/` is
+unchanged. Holdout untouched. Size is not balanced between training and holdout
+under SIC2. Next: decide how to treat "not applicable" facets (notebook section 10), build the golden set for PCTY and WEN and decide with the team
+whether this split replaces the previous baseline's. See
+`conversations/2026-10-27-updated-baseline-sic2-split.md` and `v0/README.md`._
+
 _2026-10-27, business-structure pilot:
 `v0/business_split.py` and executed
 `v0/notebooks/business_structure_eval.ipynb` are the two analytical files.

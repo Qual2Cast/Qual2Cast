@@ -137,7 +137,8 @@ def load_inputs(candidates_run: Path) -> tuple[list[str], pd.DataFrame, pd.DataF
     """The training firms (targets and pool), company names and websites, the
     current facets (first business), and the split run they come from."""
     run = json.loads((candidates_run / "run.json").read_text(encoding="utf-8"))
-    split = pd.read_csv(OUTPUTS_LOCAL / "comps" / "split" / run["split_run"] / "split.csv", dtype=str)
+    # the split sits beside the candidates run's own folder (comps/ or another run root)
+    split = pd.read_csv(candidates_run.parent.parent / "split" / run["split_run"] / "split.csv", dtype=str)
     training = split.loc[split["sample"] == "training", "IQ_COMPANY_ID"].tolist()
     info = pd.read_csv(OUTPUTS_LOCAL / "comps" / "universe" / run["universe_run"] / "universe.csv",
                        dtype=str).set_index("IQ_COMPANY_ID")
