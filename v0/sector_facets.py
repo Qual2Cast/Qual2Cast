@@ -10,9 +10,7 @@ group (sectors.py) gets a few extra category facets that separate business
 models inside that sector, and every company gets one more text facet,
 its sub-sector, in a few words.
 
-Filled by Claude Haiku from evidence, not from memory alone (Aziz,
-2026-10-27: "Totally avoid relying on LLM memory only. Use tool calling, web
-search..."): the company's saved website pages, and with --evidence a deeper
+Filled by Claude Haiku from evidence, not from memory alone: the company's saved website pages, and with --evidence a deeper
 crawl of its site plus web search (v0/verification/evidence.py). Each facet
 cites the evidence lines it rests on; the model's own knowledge fills only
 what the evidence doesn't cover and is marked "model knowledge". Never

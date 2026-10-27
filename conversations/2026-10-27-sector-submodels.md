@@ -23,8 +23,7 @@
 
 ## Later the same day
 
-- Sector facets made evidence-first after Aziz ("totally avoid relying on
-  LLM memory only"): saved pages by default, `--evidence` for a deeper crawl
+- Sector facets made evidence-first: saved pages by default, `--evidence` for a deeper crawl
   and web search; cites per facet; memory flagged. 24 tests pass.
 - `sectors.sic_similarity`: SIC4 sub-sector without an LLM.
 - `facet_eval.py --stage comps_pilot_targets` runs on Michael's updated

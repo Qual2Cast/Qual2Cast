@@ -4,8 +4,8 @@ call per company, and write outputs-local/comps/sector_facets/tables/
 sector_facets.csv.
 
 Each company gets its sector from its SIC code (sectors.py), then the
-sub-sector facet and its sector's facets from evidence (Aziz: no LLM memory
-alone): its saved website pages by default, and with --evidence also a
+sub-sector facet and its sector's facets from evidence, not LLM memory
+alone: its saved website pages by default, and with --evidence also a
 deeper crawl of its site and web search (verification/evidence.py). Each
 facet cites its evidence lines; memory fills only gaps and is flagged
 from_memory. No financials. Training companies only by
