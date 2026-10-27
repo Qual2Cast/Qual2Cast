@@ -1,0 +1,132 @@
+You describe a company and the businesses it runs. A research project uses these descriptions to find comparable companies.
+
+You get the company's name and website, and text from a few pages of its website. Each line of page text starts with a label: [P1.3] is page P1, line 3.
+
+First, say whether you know this company: set "knows_company" to true only if you recognize this specific company from what you already know. Either way, describe it: if you don't know it, use only the website pages. Do not guess anything from the company's name, its web address, or what is typical for companies with similar names; a facet the pages don't support is "unknown".
+
+Then decide how many businesses the company runs. Most companies run one business. Count separate businesses only when they are unrelated: they sell different things to different customers, for example supermarkets and car dealerships. Product lines that share customers, technology or sales channels are one business. List each business, the largest first, with a short general name, such as "supermarkets". List at most 4; if there are more, combine the smallest ones.
+
+Then fill in every facet below for each business. Use what you know about the company, and the website pages.
+
+For a company you know, fill every facet you can. If you are not sure of a detail, give your best description of this company and say what is uncertain in "notes". If a business sells no products, or no services, set that facet to "not_applicable". Write "unknown" for a facet you know nothing about. Do not make up facts.
+
+For every facet you fill from the website pages, add one entry to "citations": the business, the facet's name and the labels of the 1 or 2 page lines that best support it, written like "B1 primary_products: P1.3, P2.1" (B1 is the first business you list). A facet you fill from what you already know about the company gets no citation.
+
+Write general values, like the examples. Use general product names, not brand names. Keep each detail to one phrase of about twenty words at most that names the specific customers, products or channels, and do not repeat the category in it. Leave the value or detail empty when the status is "unknown" or "not_applicable".
+
+Do not give financial information: no revenue, profit, market value, share price, stock ticker, stock exchange or employee counts.
+
+Everything you need is in this message. Do not run commands, open files or search the web. Write the JSON on one line, with no indentation or line breaks.
+
+Facets:
+
+F1 Core offering (offering_description): What the company sells, and to whom.
+  Write two or three plain sentences: what it sells, to whom, and how it makes or delivers it.
+  Example: Designs and manufactures rooftop HVAC units for commercial buildings
+
+F2 Primary products (primary_products): The main products it sells.
+  Write a short text.
+  Use general names, not brand names. Name up to about five, separated by semicolons. If the company sells no products, set the status to not_applicable.
+  Example: HR software; medical devices; hot-mix asphalt
+
+F3 Primary services (primary_services): The main services it provides.
+  Write a short text.
+  Name up to about five, separated by semicolons. If the company sells no services, set the status to not_applicable. Support that comes with a product, such as a warranty, is not a service.
+  Example: consulting; freight logistics; payroll processing
+
+F4 Customer segment (customer_segment): Who buys its products or services.
+  Choose all that apply: B2B, B2C, B2G. Add a short detail for each.
+  B2B means businesses and private institutions. B2C means individual consumers or patients. B2G means government agencies. In the detail, name the customer groups.
+  Example: B2B: mechanical contractors, commercial building owners; B2G: school districts
+
+F5 End markets (end_markets): The industries it serves.
+  Write a short text.
+  Name the industries or markets where customers use its products or services, up to about five, separated by semicolons. For a consumer business, name the consumer market, such as home improvement.
+  Example: healthcare; retail; manufacturing
+
+F6 Revenue model (revenue_model): How it earns money.
+  Choose all that apply: product sales, subscription, transaction or usage fees, licensing or royalties, service fees, project or contract, rental or leasing, advertising, healthcare reimbursement, interest or premiums, commissions or management fees, other. Add a short detail for each.
+  In the detail, say what customers pay for.
+  Example: product sales: equipment sold through dealers; service fees: installation and repair
+
+F7 Value chain position (value_chain_position): Its role in the industry.
+  Choose all that apply: raw materials, component supplier, OEM / manufacturer, brand owner, distributor, retailer, service provider, software / platform, asset operator, financial intermediary, other. Add a short detail for each.
+  A brand owner designs and markets products that other companies make. An asset operator owns and runs physical assets, such as plants, networks, buildings or vehicle fleets. In the detail, say what the company takes in and who it sells to.
+  Example: OEM / manufacturer: builds HVAC units from purchased components, sold to contractors
+
+F8 Geography served (geography_served): Where it sells or operates.
+  Choose one: US regional, US national, North America, global. Add a short detail.
+  Choose the widest area. US regional means some states or one region. In the detail, name the regions, states or countries.
+  Example: US regional: Alabama, Florida, Georgia and the Carolinas
+
+F9 Company size (company_size): How large it is within its own industry.
+  Choose one: small, mid-sized, large, among the largest. No detail.
+  Judge scale within the company's own industry. Small means a niche or local player with one or a few sites. Mid-sized means an established player in its segment with several sites. Large means a major player in its industry with many sites or a broad customer base. Among the largest means one of the few biggest companies in its industry. Size is scale only: where it operates belongs in geography served, and how it sells in distribution channels. Judge from the kind and number of sites, the range of products, the kind of customers and how the company describes itself, not from revenue or employee counts.
+  Example: mid-sized
+
+F10 Product specialization (specialization): How wide its range of offerings is.
+  Choose one: niche specialist, related lines, diversified. Add a short detail.
+  A niche specialist has one product or service line. Related lines means several lines that share customers, technology or channels. Diversified means separate businesses with different customers. Judge each business on its own: a business that was split off is rarely diversified. In the detail, name the lines or businesses.
+  Example: related lines: HVAC units, controls and replacement parts
+
+F11 Distribution channels (distribution_channels): How its products reach customers.
+  Choose all that apply: direct sales, distributors / dealers, own locations, third-party retail, online, partners / resellers, agents / brokers, other. Add a short detail for each.
+  In the detail, say who or what the channel is.
+  Example: distributors / dealers: independent HVAC dealers; direct sales: national accounts
+
+F12 Regulatory exposure (regulatory_exposure): How much regulation controls the business.
+  Choose one: high, medium, low. Add a short detail.
+  High means the company needs approval or a license to operate or sell, as for utilities, hospitals, drugs and medical devices, banks, insurers and airlines. Medium means important industry rules apply, such as environmental, safety, transport or data privacy rules. Low means only normal business rules apply. In the detail, name the regulated activity and the main regulators or rules.
+  Example: high: medical devices that need FDA clearance
+
+Also write "notes": leave it empty unless something important is uncertain or missing; then say what in one short sentence.
+
+Company: Cardinal Infrastructure Group Inc.
+Website: cardinalinfrastructuregroup.com
+
+<page id="P1">
+[P1.1] Cardinal Infrastructure Group | Cardinal Infrastructure Group
+[P1.2] Cardinal Infrastructure Group is a civil infrastructure and site development services provider operating in the Southeast that is delivering integrity from the ground up.
+[P1.3] Civil Infrastructure Services, Delivering Integrity from the Ground Up
+[P1.4] Across the Southeast, the neighborhoods, commercial developments, roads and other infrastructure taking shape all start in the same place: the ground. Cardinal Infrastructure Group is a vertically integrated civil infrastructure and site development platform serving residential, commercial, industrial and municipal projects.
+[P1.5] Our operating companies self-perform site work from preconstruction to paving, including grading, site clearing, erosion control, underground utilities, drilling and blasting, and asphalt paving. Bringing multiple phases of the work under one accountable team gives our clients a single point of responsibility across the site.
+[P1.6] Every decision is guided by doing what's right and what creates long-term value for everyone.
+[P1.7] Site development across multiple phases, under one accountable team.
+[P1.8] Local expertise. Shared standards. One Cardinal.
+[P1.9] Vertically integrated. Disciplined acquirer. Founder led.
+[P1.10] The strongest relationships we build are inside our company. At Cardinal, we hire the right people and trust them to uphold our standards.
+[P1.11] One company, with crews, equipment and expertise across the Southeast.
+</page>
+
+<page id="P2">
+[P2.1] Civil Construction Services | Cardinal Infrastructure Group
+[P2.2] Cardinal Infrastructure Group delivers end to end civil construction and site development through a vertically integrated, self performing platform.
+[P2.3] We approach large-scale development differently.
+[P2.4] and led by executives with more than 30 years in the field, we know the value of relationships. We've built our reputation on delivering for everyone who works with us. At Cardinal, we plan carefully, communicate early, and work to the agreed on schedule and specifications. Partners run their businesses to take advantage of the opportunities in front of them. Employees know they can make the right call so that work moves forward safely. We show up, communicate clearly and deliver on what we promise.
+[P2.5] And we grow with the same intent, by doing work right the first time and acquiring companies whose people and standards match our own. That foundation guides every decision we make. It's how we deliver Integrity from the Ground Up.
+[P2.6] 93% proud to work at Cardinal
+[P2.7] Bringing multiple phases under one team means one point of accountability for the site, and fewer gaps between phases. Our team is responsible for the scope, and you get work done to our standards and results we answer for directly.
+[P2.8] With work sequenced in-house, we anticipate what's next and keep work moving. Having access to the crews, equipment and resources to keep your project moving helps us deliver on tight schedules.
+[P2.9] Being a partner starts before the work does. We plan scope, schedules and budgets with you before crews mobilize. From preconstruction through closeout we stay close, communicate early and honestly, and bring solutions.
+[P2.10] Safety is a commitment we make to each other and to the communities where we build, backed by ongoing training and a dedicated safety team. It's a standard we hold every day, on every site.
+[P2.11] We're growing across the Southeast and adding crews in every market we serve.
+[P2.12] We pursue acquisitions that expand our geographic footprint or build density in our existing markets. Cultural fit is one of the main the deciding factors. We integrate companies whose people share our same standards, take care of their teams and want to keep building with us.
+[P2.13] Why We're Built This Way
+[P2.14] Every capability we've brought in-house traces back to one idea: control the work and you control the outcome.
+</page>
+
+<page id="P3">
+[P3.1] Cardinal Infrastructure companies | Cardinal Infrastructure Group
+[P3.2] Explore the Cardinal Infrastructure companies, delivering specialized expertise in heavy civil construction, infrastructure development and related site services.
+[P3.3] Full-service civil infrastructure service provider
+[P3.4] Cardinal Civil Contracting delivers infrastructure site development services from preconstruction and mass grading through underground utilities installation across the Carolinas.
+[P3.5] A fourth-generation site developer with deep roots in the Georgia market, A.L. Grading Contractors provides clearing, grading, erosion control and underground utility services across the state.
+[P3.6] Fine grading, paving, curb and stone
+[P3.7] Aviator Paving delivers full-service grading and paving solutions, using the highest-quality materials through our wholly owned asphalt plant.
+[P3.8] Drilling, blasting and crushing services
+[P3.9] North Carolina, South Carolina, Georgia
+[P3.10] Civil Drilling & Blasting provides rock removal, drilling, blasting and crushing services supporting building foundations, roadway construction, infrastructure installation and retaining wall projects across the Southeast.
+[P3.11] Municipal, commercial and residential paving
+[P3.12] Allied Paving is a heavy site and roadway construction company that specializes in crushed stone base, asphalt paving and milling for Georgia development projects.
+[P3.13] Five companies, one set of standards. Each has deep roots in its own market and its own specialty, and together they cover multiple phases of site development.
+</page>
