@@ -1,4 +1,4 @@
-# 2026-10-27: sector sub-models and facet add/drop eval (Claude Code, for Fiona)
+# 2026-10-27: sector sub-models and facet add/drop eval (Fiona)
 
 ## Changes
 
