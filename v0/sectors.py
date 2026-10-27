@@ -117,3 +117,14 @@ def sector_similarity(sectors: pd.DataFrame, ids: list[str], same_ff49: float = 
     grp = s["sector"].to_numpy()
     return np.where(ff[:, None] == ff[None, :], same_ff49,
                     np.where(grp[:, None] == grp[None, :], same_sector, 0.0)).astype(float)
+
+
+def sic_similarity(sectors: pd.DataFrame, ids: list[str]) -> np.ndarray:
+    """Sub-sector from the SIC code, no LLM: 1 for the same 4-digit SIC,
+    2/3 for the same 3-digit, 1/3 for the same 2-digit, 0 otherwise."""
+    sic = sectors.reindex(ids)["sic4"].astype(str).to_numpy()
+    out = np.zeros((len(ids), len(ids)))
+    for digits, score in ((2, 1 / 3), (3, 2 / 3), (4, 1.0)):
+        p = np.array([s[:digits] for s in sic])
+        out = np.where(p[:, None] == p[None, :], score, out)
+    return out

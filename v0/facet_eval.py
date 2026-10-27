@@ -145,11 +145,19 @@ def variants(general: dict[str, np.ndarray], extra: dict[str, np.ndarray]) -> di
     sector_specific = {k: v for k, v in extra.items() if k.startswith("sector:")}
     if "sector" in extra:
         out["generic + sector (FF49)"] = {"mats": {**general, "sector": extra["sector"]}, "restrict": False}
+    if "sic" in extra:
+        out["generic + sub-sector (SIC4)"] = {"mats": {**general, "sic": extra["sic"]}, "restrict": False}
+        if "sector" in extra:
+            both = {**general, "sector": extra["sector"], "sic": extra["sic"]}
+            out["generic + sector (FF49) + sub-sector (SIC4)"] = {"mats": both, "restrict": False}
+            if "geography_served" in general:
+                out["generic minus F8 + sector + sub-sector (SIC4)"] = {
+                    "mats": {k: v for k, v in both.items() if k != "geography_served"}, "restrict": False}
     if "sub_sector" in extra:
         out["generic + sub-sector"] = {"mats": {**general, "sub_sector": extra["sub_sector"]}, "restrict": False}
     if sector_specific:
         out["generic + sector-specific facets"] = {"mats": {**general, **sector_specific}, "restrict": False}
-    if len(extra) > 1:
+    if len(set(extra) - {"sector", "sic"}) > 0:
         out["generic + all sector facets"] = {"mats": {**general, **extra}, "restrict": False}
     if "sector" in extra or sector_specific:
         out["sub-model (same sector group) + all sector facets"] = {"mats": {**general, **extra}, "restrict": True}
@@ -293,7 +301,7 @@ def main() -> None:
     _, general = cd.similarity(emb)
 
     sectors = sc.sector_table(info)
-    extra = {"sector": sc.sector_similarity(sectors, ids)}
+    extra = {"sector": sc.sector_similarity(sectors, ids), "sic": sc.sic_similarity(sectors, ids)}
     sf_path = Path(args.sector_facets) if args.sector_facets else comps / "sector_facets" / "tables" / "sector_facets.csv"
     if sf_path.exists():
         sft = pd.read_csv(sf_path, dtype=str).fillna("")

@@ -180,3 +180,9 @@ def test_variants_and_evaluate_end_to_end():
     acc = table.set_index("variant")["pairwise accuracy"]
     assert acc["generic + sector (FF49)"] >= acc[fe.GENERIC]
     assert set(tops) == set(defs)
+
+
+def test_sic_similarity_by_digits():
+    t = pd.DataFrame({"sic4": ["3585", "3585", "3580", "3510", "7372"]}, index=list("abcde"))
+    S = sc.sic_similarity(t, list("abcde"))
+    assert S[0, 1] == 1.0 and S[0, 2] == pytest.approx(2 / 3) and S[0, 3] == pytest.approx(1 / 3) and S[0, 4] == 0
