@@ -52,6 +52,7 @@ pass `--candidates outputs-local/comps_pilot_targets/candidates/<run>` and
 | `facet_contribution/<run>/` | notebook section 7: `facet_separation.png` (AUC of each facet, good vs bad, F9 included), `facet_lift_top10.png`, `facet_heatmap_PCTY.png`, `facet_heatmap_WEN.png`, `facet_summary.csv` (includes the lift without shared "none" pairs) |
 | `size_effect/<run>/` | notebook section 8: `error_by_size.csv/.png`, `size_gap.csv/.png`, `size_restriction.csv` |
 | `golden_set/<run>/` | notebook section 9: `target_choice.csv`, the ten showcase targets side by side (what each was picked to test, the pilot's split result, candidates, LLM-good comps, direct picks, size of the pool to label, and the current golden-set pick) |
+| `golden_set/labels/` | `golden_set_labels.csv`: the sheet to label by hand (36 pairs for PCTY and WEN, shuffled, no rank or verdict; edited by hand, the notebook never overwrites it) and `pool_with_routes.csv` (which route picked each pair, at what rank; not for the labeler). `golden_set/metrics/<run>/`: `metrics.csv`, `scores.csv`, `run.json`, written once every pair is reviewed. From `v0/notebooks/golden_set.ipynb` |
 
 ## What `history/` and the `*_history` folders are
 
