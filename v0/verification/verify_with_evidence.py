@@ -178,9 +178,11 @@ def main() -> None:
     p.add_argument("--gold", help="gold labels CSV (ticker, facet, verdict)")
     p.add_argument("--provider", choices=["serper", "brave", "tavily"])
     p.add_argument("--refresh-evidence", action="store_true", help="collect evidence again")
-    p.add_argument("--model", default=ff.DEFAULT_MODEL["claude"])
+    p.add_argument("--backend", choices=["codex", "claude-cli", "claude"], default="claude")
+    p.add_argument("--model")
     p.add_argument("--effort", choices=["low", "medium", "high"])
     args = p.parse_args()
+    args.model = args.model or ff.DEFAULT_MODEL[args.backend]
 
     table = pd.read_csv(Path(args.facets) / "tables" / "facets.csv", dtype=str).fillna("")
     from universe import build_universe
@@ -190,7 +192,8 @@ def main() -> None:
                   & table.llm_status.eq("ok")]
     run = OUT / datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
     (run / "calls").mkdir(parents=True, exist_ok=True)
-    ff.claude_api_key()
+    if args.backend == "claude":
+        ff.claude_api_key()
     rows = []
     for _, row in table.iterrows():
         ev = None if args.refresh_evidence else load_evidence(row.IQ_COMPANY_ID)
@@ -202,8 +205,8 @@ def main() -> None:
             call_dir = run / "calls" / row.IQ_COMPANY_ID / tier
             call_dir.mkdir(parents=True, exist_ok=True)
             (call_dir / "prompt.txt").write_text(prompt, encoding="utf-8")
-            res = ff.call_claude(prompt, call_dir, schema(), args.model, args.effort,
-                                 instructions_len=len(INSTRUCTIONS))
+            res = ff.call_model(prompt, call_dir, schema(), args.model, args.effort,
+                                backend=args.backend, instructions_len=len(INSTRUCTIONS))
             if res["llm_status"] != "ok":
                 print(f"{row.target_ciq_ticker:<6} {tier:<4} {res['llm_status']} {res.get('error', '')}")
                 if res.get("stop_run"):
@@ -217,7 +220,7 @@ def main() -> None:
             print(f"{row.target_ciq_ticker:<6} {tier:<4} lines {len(lines):>4}  {counts}", flush=True)
     verdicts = pd.DataFrame(rows)
     verdicts.to_csv(run / "verdicts.csv", index=False)
-    (run / "run.json").write_text(json.dumps({"prompt_version": PROMPT_VERSION, "model": args.model,
+    (run / "run.json").write_text(json.dumps({"prompt_version": PROMPT_VERSION, "backend": args.backend, "model": args.model,
                                               "facets": str(args.facets), "tickers": args.tickers,
                                               "tiers": args.tiers}, indent=1), encoding="utf-8")
     print(f"\nVerdicts -> {run / 'verdicts.csv'}")

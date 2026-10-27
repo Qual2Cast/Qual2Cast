@@ -37,7 +37,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import facets as fc  # noqa: E402  (also puts website_scrape/ and src/ on the path)
-from fill_facets import DEFAULT_MODEL, call_claude, now_iso, output_paths as facet_paths, stamp  # noqa: E402
+from fill_facets import DEFAULT_MODEL, call_model, now_iso, output_paths as facet_paths, stamp  # noqa: E402
 from judge_comps import describe, fingerprint, latest_candidates, move_to_history  # noqa: E402
 from project_data import OUTPUTS_LOCAL  # noqa: E402
 
@@ -150,7 +150,7 @@ def load_inputs(candidates_run: Path) -> tuple[list[str], pd.DataFrame, pd.DataF
 def suggest_one(target: str, system: str, labels: dict[str, str], info, facets, out: SimpleNamespace,
                 args) -> dict:
     prompt = build_prompt(system, target, info, facets)
-    fp = fingerprint(prompt, args.model)
+    fp = fingerprint(prompt, f"{getattr(args, 'backend', 'claude')}:{args.model}:{args.effort}")
     path = out.suggestions / f"{target}.json"
     if path.exists() and not args.refresh:
         old = json.loads(path.read_text(encoding="utf-8"))
@@ -159,8 +159,10 @@ def suggest_one(target: str, system: str, labels: dict[str, str], info, facets, 
     run_dir = out.runs / target / stamp()
     run_dir.mkdir(parents=True, exist_ok=True)
     (run_dir / "prompt_target.txt").write_text(prompt[len(system):], encoding="utf-8")   # the pool is in system.txt
-    result = call_claude(prompt, run_dir, ANSWER_SCHEMA, args.model, args.effort, instructions_len=len(system))
-    run_info = {"model": args.model, "effort": args.effort or "", "prompt_version": PROMPT_VERSION,
+    (run_dir / "prompt.txt").write_text(prompt, encoding="utf-8")
+    result = call_model(prompt, run_dir, ANSWER_SCHEMA, args.model, args.effort,
+                        backend=getattr(args, "backend", "claude"), instructions_len=len(system))
+    run_info = {"backend": getattr(args, "backend", "claude"), "model": args.model, "effort": args.effort or "", "prompt_version": PROMPT_VERSION,
                 "fingerprint": fp, "finished_at": now_iso(),
                 **{k: v for k, v in result.items() if k != "text"}}
     (run_dir / "run.json").write_text(json.dumps(run_info, indent=1), encoding="utf-8")
@@ -203,19 +205,21 @@ def write_tables(out: SimpleNamespace, info: pd.DataFrame) -> Path:
     return dest
 
 
-def main() -> None:
+def main(argv=None) -> None:
     p = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     p.add_argument("--out", default=str(DEFAULT_OUT))
     p.add_argument("--candidates", help="step 4 run folder whose split is used (default: the latest)")
     p.add_argument("--tickers", nargs="*", help="only these targets")
     p.add_argument("--limit", type=int, help="stop after N targets")
     p.add_argument("--refresh", action="store_true", help="ask again for current targets")
-    p.add_argument("--model", default=DEFAULT_MODEL["claude"])
+    p.add_argument("--backend", choices=["claude", "codex", "claude-cli"], default="claude")
+    p.add_argument("--model")
     p.add_argument("--effort", choices=["low", "medium", "high"], help="default: the model's own")
     p.add_argument("--workers", type=int, default=2, help="targets in parallel")
     p.add_argument("--dry-run", action="store_true", help="write the prompts only")
     p.add_argument("--tables-only", action="store_true", help="only rebuild suggestions.csv")
-    args = p.parse_args()
+    args = p.parse_args(argv)
+    args.model = args.model or DEFAULT_MODEL[args.backend]
     candidates_run = Path(args.candidates) if args.candidates else latest_candidates()
     out = output_paths(Path(args.out))
     for d in (out.runs, out.suggestions, out.logs):
@@ -255,7 +259,7 @@ def main() -> None:
                 print(line)
                 lf.write(line + "\n")
                 if r.get("stop_run"):
-                    print("stopping: the API refused the key or the credit ran out; finished targets are kept")
+                    print("stopping: the model call failed or its usage allowance was exhausted; finished targets are kept")
                     for f in futures:
                         f.cancel()
                     break

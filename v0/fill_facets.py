@@ -2,7 +2,8 @@
 Fill the facets (facets.py) for every company in the comp universe
 (universe.py) with an LLM, then write the facet tables.
 
-Two backends, one call per company, same prompt and answer schema:
+Three backends, one call per company, same prompt and answer schema:
+- claude-cli: Claude Code CLI with its normal login, structured JSON output.
 - claude (default): Claude Haiku 5.5 through the Anthropic API, paid per
   token from the team's Console account. Needs ANTHROPIC_API_KEY, set in
   the shell or in a .env file at the repo root (never committed). The
@@ -51,7 +52,6 @@ import copy
 import json
 import os
 import shutil
-import subprocess
 import sys
 import tempfile
 import threading
@@ -68,11 +68,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import facets as fc  # noqa: E402  (also puts website_scrape/ and src/ on the path)
 from project_data import OUTPUTS_LOCAL, REPO_ROOT  # noqa: E402
 from universe import build_universe  # noqa: E402
+from cli_models import call_cli, executable  # noqa: E402
 
 SCRAPE_PAGE_TEXT = OUTPUTS_LOCAL / "website_scrape" / "page_text"
 DEFAULT_OUT = OUTPUTS_LOCAL / "comps" / "facets"
 CODEX_TIMEOUT_SECONDS = 600
-DEFAULT_MODEL = {"claude": "claude-haiku-5-5", "codex": ""}   # codex "": Codex's own default
+DEFAULT_MODEL = {"claude": "claude-haiku-5-5", "codex": "", "claude-cli": ""}   # codex "": Codex's own default
 CLAUDE_MAX_TOKENS = 16000    # answers are ~1k tokens plus thinking; well under this
 
 
@@ -94,7 +95,7 @@ def now_iso() -> str:
 
 
 def stamp() -> str:
-    return now_iso().replace(":", "")
+    return datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
 
 
 # ---------------------------------------------------------------- model call
@@ -123,35 +124,17 @@ def codex_usage(events: str) -> dict:
 
 def call_codex(prompt: str, run_dir: Path, schema_path: Path, workdir: str,
                model: str | None, effort: str | None) -> dict:
-    """Run `codex exec` once; the answer is written to run_dir/response.json."""
-    response_path = run_dir / "response.json"
-    cmd = [find_codex(), "exec", "--skip-git-repo-check", "--ephemeral",
-           "--sandbox", "read-only", "--cd", workdir,
-           "--output-schema", str(schema_path),
-           "--output-last-message", str(response_path), "--json"]
-    if model:
-        cmd += ["--model", model]
-    if effort:
-        cmd += ["--config", f"model_reasoning_effort={effort}"]
-    cmd.append("-")   # prompt from stdin
-    started = time.time()
-    try:
-        proc = subprocess.run(cmd, input=prompt, capture_output=True, text=True,
-                              encoding="utf-8", timeout=CODEX_TIMEOUT_SECONDS)
-    except subprocess.TimeoutExpired:
-        return {"llm_status": "timeout", "command": cmd}
-    (run_dir / "events.jsonl").write_text(proc.stdout or "", encoding="utf-8")
-    (run_dir / "stderr.txt").write_text(proc.stderr or "", encoding="utf-8")
-    meta = {"command": cmd, "returncode": proc.returncode,
-            "seconds": round(time.time() - started, 1), "usage": codex_usage(proc.stdout)}
-    if proc.returncode != 0:
-        tail = (proc.stderr or proc.stdout or "").strip().splitlines()[-3:]
-        error = " / ".join(tail)[:300]
-        return {"llm_status": "codex_error", "error": error,
-                "stop_run": "usage limit" in error.lower(), **meta}
-    if not response_path.exists() or not response_path.read_text(encoding="utf-8").strip():
-        return {"llm_status": "no_output", **meta}
-    return {"llm_status": "ok", "text": response_path.read_text(encoding="utf-8"), **meta}
+    """Compatibility entry point; the shared transport owns its temporary workdir."""
+    return call_cli(prompt, run_dir, json.loads(schema_path.read_text(encoding="utf-8")),
+                    "codex", model, effort, CODEX_TIMEOUT_SECONDS)
+
+
+def call_model(prompt: str, run_dir: Path, schema: dict, model: str | None,
+               effort: str | None, backend: str = "claude", instructions_len: int = 0) -> dict:
+    """Same prompt/schema for both CLI proxies; retain the original API option."""
+    if backend == "claude":
+        return call_claude(prompt, run_dir, schema, model, effort, instructions_len)
+    return call_cli(prompt, run_dir, schema, backend, model, effort, CODEX_TIMEOUT_SECONDS)
 
 
 def claude_api_key() -> str:
@@ -244,12 +227,8 @@ def fill_one(record: dict, out_dir: Path, args, workdir: str, with_pages: bool =
     prompt, lines = fc.build_prompt(record, with_pages)
     (run_dir / "prompt.txt").write_text(prompt, encoding="utf-8")
     input_figures = fc.figures_in_input(prompt, bool(lines))
-    if args.backend == "claude":
-        result = call_claude(prompt, run_dir, fc.answer_schema(bool(lines)), args.model, args.effort,
-                             instructions_len=len(fc.instructions(bool(lines))))
-    else:
-        schema_path = paths.answer_schema_pages if lines else paths.answer_schema
-        result = call_codex(prompt, run_dir, schema_path, workdir, args.model, args.effort)
+    result = call_model(prompt, run_dir, fc.answer_schema(bool(lines)), args.model, args.effort,
+                        args.backend, instructions_len=len(fc.instructions(bool(lines))))
     text = result.pop("text", None)
     if result["llm_status"] == "ok":
         page_urls = {p["page_id"]: p["url"] for p in record["pages"]}
@@ -279,11 +258,7 @@ def check_split(record: dict, profile: dict, out_dir: Path, args, workdir: str) 
     prompt, _ = fc.split_check_prompt(record, profile["businesses"])
     (run_dir / "prompt.txt").write_text(prompt, encoding="utf-8")
     schema = fc.split_check_schema([b["business_id"] for b in profile["businesses"]])
-    if args.backend == "claude":
-        result = call_claude(prompt, run_dir, schema, args.model, args.effort)
-    else:
-        (run_dir / "schema.json").write_text(json.dumps(schema, indent=1), encoding="utf-8")
-        result = call_codex(prompt, run_dir, run_dir / "schema.json", workdir, args.model, args.effort)
+    result = call_model(prompt, run_dir, schema, args.model, args.effort, args.backend)
     text = result.pop("text", None)
     if result["llm_status"] == "ok":
         try:
@@ -389,10 +364,13 @@ def has_unknown(profile: dict) -> bool:
                for f in b["facets"].values())
 
 
-def is_current(profile: dict, record: dict, model: str) -> bool:
+def is_current(profile: dict, record: dict, model: str, backend: str | None = None,
+               effort: str | None = None) -> bool:
     return (profile.get("llm_status") == "ok"
             and profile.get("prompt_version") == fc.PROMPT_VERSION
             and profile.get("model", "") == model
+            and (backend is None or profile.get("backend", "claude") == backend)
+            and (backend is None or profile.get("effort", "") == (effort or ""))
             and profile.get("input_sha256") == fc.input_fingerprint(record, False))
 
 
@@ -527,14 +505,14 @@ def load_profiles(out_dir: Path) -> pd.DataFrame:
 
 # ---------------------------------------------------------------- main
 
-def main() -> None:
+def main(argv=None) -> None:
     p = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     p.add_argument("--out", default=str(DEFAULT_OUT))
     p.add_argument("--tickers", nargs="*", help="only these tickers")
     p.add_argument("--limit", type=int, help="stop after N companies")
     p.add_argument("--refresh", action="store_true", help="redo current profiles too")
-    p.add_argument("--backend", choices=["claude", "codex"], default="claude",
-                   help="claude: Anthropic API (default); codex: Codex CLI")
+    p.add_argument("--backend", choices=["claude", "codex", "claude-cli"], default="claude",
+                   help="codex / claude-cli: CLI proxies; claude: original Anthropic API")
     p.add_argument("--model", help="model (default: claude-haiku-5-5 for claude, "
                                    "Codex's configured model for codex)")
     p.add_argument("--effort", choices=["low", "medium", "high"],
@@ -547,7 +525,7 @@ def main() -> None:
     p.add_argument("--dry-run", action="store_true",
                    help="write the first pass's prompts, don't call the model")
     p.add_argument("--tables-only", action="store_true", help="only rebuild the CSVs")
-    args = p.parse_args()
+    args = p.parse_args(argv)
     args.model = args.model or DEFAULT_MODEL[args.backend]
 
     out_dir = Path(args.out).resolve()
@@ -572,7 +550,7 @@ def main() -> None:
             return None
         profile = json.loads(path.read_text(encoding="utf-8"))
         record = company_record(c.IQ_COMPANY_ID, c.target_company_name, c.target_ciq_website, False)
-        return profile if is_current(profile, record, args.model) else None
+        return profile if is_current(profile, record, args.model, args.backend, args.effort) else None
 
     # First pass: every company from the model's own knowledge (name and website).
     todo = [(company_record(c.IQ_COMPANY_ID, c.target_company_name, c.target_ciq_website, False),
@@ -594,7 +572,7 @@ def main() -> None:
     if args.backend == "claude":
         claude_api_key()   # fail early with setup instructions
     else:
-        find_codex()
+        executable(args.backend)
     workdir = tempfile.mkdtemp(prefix="codex_facets_")
     stopped = threading.Event()   # usage limit, no credit, or key refused
 
@@ -607,7 +585,8 @@ def main() -> None:
     def first_pass(record, out_path):
         result = fill_one(record, out_dir, args, workdir, with_pages=False)
         if not result.get("stop_run"):
-            save(out_path, profile_record(record, result, args.model))
+            save(out_path, {**profile_record(record, result, args.model),
+                            "backend": args.backend, "effort": args.effort or ""})
         return result
 
     def second_pass(record, out_path):

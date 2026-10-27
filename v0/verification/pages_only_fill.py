@@ -121,13 +121,14 @@ def build(record: dict) -> tuple[str, dict[str, str]]:
     return pages_only_instructions() + prompt[len(instr):], lines
 
 
-def fill(tickers: list[str], model: str, effort: str | None) -> None:
+def fill(tickers: list[str], model: str, effort: str | None, backend: str = "claude") -> None:
     paths = ff.output_paths(OUT)
     paths.profiles.mkdir(parents=True, exist_ok=True)
     companies, _ = build_universe()
     rows = companies[companies["in_universe"] & companies["target_ciq_ticker"].str.upper()
                      .isin({t.upper() for t in tickers})]
-    ff.claude_api_key()
+    if backend == "claude":
+        ff.claude_api_key()
     instr = pages_only_instructions()
     for c in rows.itertuples():
         record = ff.company_record(c.IQ_COMPANY_ID, c.target_company_name, c.target_ciq_website, True)
@@ -141,8 +142,8 @@ def fill(tickers: list[str], model: str, effort: str | None) -> None:
             meta = {}
         else:
             (run_dir / "prompt.txt").write_text(prompt, encoding="utf-8")
-            res = ff.call_claude(prompt, run_dir, fc.answer_schema(True), model, effort,
-                                 instructions_len=len(instr))
+            res = ff.call_model(prompt, run_dir, fc.answer_schema(True), model, effort,
+                                backend=backend, instructions_len=len(instr))
             status, meta = res["llm_status"], {k: v for k, v in res.items() if k != "text"}
             answer = None
             if status == "ok":
@@ -154,11 +155,11 @@ def fill(tickers: list[str], model: str, effort: str | None) -> None:
             if res.get("stop_run"):
                 raise SystemExit(f"Stopped: {res.get('error')}")
             answer = answer or fc.unknown_facets(f"no answer ({status})")
-        (run_dir / "run.json").write_text(json.dumps({"experiment": EXPERIMENT, "model": model,
+        (run_dir / "run.json").write_text(json.dumps({"experiment": EXPERIMENT, "backend": backend, "model": model,
                                                       "prompt_version": fc.PROMPT_VERSION, **meta},
                                                      indent=1, default=str), encoding="utf-8")
         profile = {"IQ_COMPANY_ID": c.IQ_COMPANY_ID, "company_name": c.target_company_name,
-                   "website": c.target_ciq_website, "with_pages": True, "model": model,
+                   "website": c.target_ciq_website, "with_pages": True, "backend": backend, "model": model,
                    "experiment": EXPERIMENT, "prompt_version": fc.PROMPT_VERSION,
                    "llm_status": "ok" if status == "ok" else status,
                    "llm_run_dir": run_dir.relative_to(OUT).as_posix(), "created_at": ff.now_iso(),
@@ -230,11 +231,13 @@ def main() -> None:
     p.add_argument("--tickers", nargs="+")
     p.add_argument("--compare", metavar="MEMORY_FILL_DIR")
     p.add_argument("--gold")
-    p.add_argument("--model", default=ff.DEFAULT_MODEL["claude"])
+    p.add_argument("--backend", choices=["codex", "claude-cli", "claude"], default="claude")
+    p.add_argument("--model")
     p.add_argument("--effort", choices=["low", "medium", "high"])
     args = p.parse_args()
+    args.model = args.model or ff.DEFAULT_MODEL[args.backend]
     if args.tickers:
-        fill(args.tickers, args.model, args.effort)
+        fill(args.tickers, args.model, args.effort, args.backend)
     if args.compare:
         compare(args.compare, args.gold)
     if not args.tickers and not args.compare:

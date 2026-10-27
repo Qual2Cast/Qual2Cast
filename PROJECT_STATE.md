@@ -3,6 +3,46 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
+## Main pipeline entry point updated 2026-10-27
+
+- **Start at root `pipeline.ipynb`.** It connects the existing v0 recipe:
+  universe → facets → size-stratified split → per-facet embeddings/candidates
+  → LLM peer judgments → optional full-pool suggestions → valuation/evaluation.
+  Every stage prints and displays results and saves under one
+  `outputs-local/pipeline/<timestamp>/` directory. Inputs are passed explicitly,
+  not selected from unrelated latest runs. The previous notebooks remain as references.
+- One backend/model/effort selection applies to all model stages:
+  `codex` (Codex CLI) or `claude-cli` (Claude Code CLI), using their usual
+  logins. The original `claude` Anthropic API option remains for compatibility.
+  `v0/cli_models.py` is the shared subprocess/JSON transport. Source-verification
+  runners also accept the two CLI options but remain separate diagnostic tools.
+- The root README has fresh-clone setup and rerun instructions;
+  `requirements.txt` and `requirements-dev.txt` define the Python environment.
+  Completed model calls resume in the same run directory; replaced tables
+  and plots are archived. Each new experiment gets a separate directory.
+- Per user request, failed website gap fills preserve the previous behavior:
+  log the failure, retain unknown facets and continue with the successful
+  first-pass profile. A later rerun retries the unfinished gap fill.
+  Incomplete peer judgments are retried on resume rather than reused as complete.
+- **Last validation before restoring gap-fill continuation:** 168 tests passed across `v0/tests`, `v0/verification/tests`
+  and `website_scrape/tests`. This includes all nine main-notebook code
+  cells executed in order with synthetic inference and embeddings, both
+  CLI response formats, resume behavior and target/pool separation.
+  No full live inference or new valuation accuracy evaluation was run;
+  Claude CLI is not installed in this environment. Tests were not rerun for
+  the user-requested gap-fill behavior restoration. See
+  `conversations/2026-10-27-main-pipeline-and-cli-backends.md`.
+- Methodology unchanged: the multiple range, model-knowledge-first facets,
+  fixed split, equal facet weights, z-cutoff judging and v0 valuation rules
+  are retained. Main notebook defaults to training evaluation; holdout
+  remains an explicit choice. Financial dates/definitions are still unknown.
+- Publishing this refactor to `kethan/wip` at the user's request. The old
+  remote branch's SIC experiment (`9c9d77b`) is replaced by this code; the
+  user explicitly declined creating a backup branch. An explicit lease
+  protects against concurrent remote changes. No newer main changes are included.
+
+The historical notes below predate this execution refactor.
+
 _2026-10-24: repo reorganized. The comps recipe (v0) is in v0/; earlier
 work (matching, growth signals, the ten-company pilot, scraps) moved into
 pre-v0/, see pre-v0/README.md and conversations/2026-10-24-pre-v0-reorg.md._

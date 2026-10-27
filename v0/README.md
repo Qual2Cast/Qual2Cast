@@ -1,17 +1,34 @@
 # v0/
 
+**Main entry point: [../pipeline.ipynb](../pipeline.ipynb).** Run it top to bottom after
+following the [fresh-clone setup](../README.md#quick-start). It runs recipe steps
+1–7, prints intermediate results, saves every stage under one run directory and
+uses one selected CLI backend throughout. `pipeline.py` contains orchestration;
+`cli_models.py` contains the two CLI transports. Earlier notebooks below are
+analysis references, not prerequisites for the main notebook.
+
+- `backend="codex"`: Codex CLI and its normal login.
+- `backend="claude-cli"`: Claude Code CLI and its normal login.
+- `backend="claude"`: original Anthropic API, retained for old commands/results.
+
+The standalone `fill_facets.py`, `judge_comps.py` and `suggest_comps.py` runners
+all accept `--backend codex` or `--backend claude-cli`; their original default
+`claude` still means the API. Existing prompts and method rules remain unchanged.
+Use a distinct output directory for each model experiment. The notebook passes
+all stage inputs explicitly instead of selecting unrelated latest folders.
+
 Comparable-company selection, following the mentor's recipe for getting comps
-(received 2026-10-24). This folder covers the first three steps:
+(received 2026-10-24). The recipe begins with:
 
 1. **Candidate comps:** a universe covering the list's 2-digit SIC codes, HQ in the US.
 2. **Multiple range:** drop firms, as targets and as comps, whose EV/EBITDA is outside 3-30.
 3. **Facets:** descriptive attributes, available for every company, that together
    give a reasonable sense of its business model.
 
-Built on these (2026-10-25): the 70/30 training/holdout split and step 4,
-candidate comps by embedding similarity. Still to come: profiles for the
-scoring model, scoring each comp 0-1, the weighted average of the comps'
-EV/EBITDA, and evals.
+Built on these (2026-10-25): the 70/30 training/holdout split, candidate comps
+by embedding similarity, binary LLM judgments, direct LLM suggestions and
+valuation comparisons. These are now connected by the main notebook.
+Fitting facet weights and independent human evaluation remain open.
 
 The folder separates the two kinds of work. The `.py` modules at the top hold
 the logic, so it is defined once, tested, and runnable on its own (e.g. the

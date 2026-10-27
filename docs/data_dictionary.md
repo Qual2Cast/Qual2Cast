@@ -1,5 +1,39 @@
 # Data dictionary
 
+## Main notebook run outputs
+
+`pipeline.ipynb` runs the current v0 recipe. Each invocation creates a directory
+under `outputs-local/pipeline/` (not committed); setting `RUN_DIR` resumes an
+existing directory with the same configuration. Computational stages use these
+explicit paths instead of a global latest-run lookup.
+
+- `config.json`: backend/model/effort, worker count, sample/target choices,
+  split seed/share, embedding model, retrieval settings and optional comparisons.
+- `universe/`: all source-company flags, selected universe, separate financials,
+  snapshot name/hash and prompt version.
+- `facets/`: call prompts, schemas, raw responses/logs, checked profiles and tables,
+  using the existing facet format described below. Backend and effort are part
+  of the resume identity, alongside model, prompt version and input hash.
+- `split/`: assignments, size/sector balance and financial balance diagnostics.
+- `candidates/`: complete ranking, candidate pairs with per-facet scores,
+  falloff plot and metadata linking the exact universe, split and facet outputs.
+- `judge/`: per-target prompts/responses, judgments and the current candidate-pair
+  table. Historical judgments outside the current candidate set are not included.
+- `suggest/`: optional full-training-pool prompts/responses and direct peer choices.
+- `valuation/summary.csv`: conditional errors, scored/attempted counts, coverage
+  percentage and percentage of all attempted targets within 25% error.
+- `valuation/summary_common.csv`: the same core errors on common LLM-covered cases.
+- `valuation/per_target.csv`: every attempted target for every rule, including
+  null estimates with `no_comps` status, target outcome, estimate and signed error.
+- `history/`: prior versions of stage files replaced on a resumed run.
+
+Codex CLI logs include `events.jsonl`; both CLI backends save `stdout.txt`,
+`stderr.txt`, `schema.json`, `prompt.txt` and `response.json` for successful calls.
+Failure logs are retained. Failed website gap fills leave unknown facets in
+the successful first-pass profile; the pipeline continues with available facets
+and retries unfinished gap fills on a later rerun.
+CLI outputs are transport records, not independent verification of model facts.
+
 ## Where data lives
 
 | location | in Git? | contents |

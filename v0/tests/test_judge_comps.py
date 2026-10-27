@@ -1,5 +1,8 @@
 """Tests for the LLM good/bad step (judge_comps.py). No model is called."""
 
+import json
+from types import SimpleNamespace
+
 import pandas as pd
 
 import facets as fc
@@ -54,3 +57,24 @@ def test_schema_limits_labels():
 def test_fingerprint_changes_with_model_and_prompt():
     assert jc.fingerprint("p", "m1") != jc.fingerprint("p", "m2")
     assert jc.fingerprint("p", "m1") != jc.fingerprint("q", "m1")
+
+
+def test_resume_retries_unanswered_candidates(tmp_path, monkeypatch):
+    info, facets = company_tables()
+    out = jc.output_paths(tmp_path)
+    out.judgments.mkdir(parents=True)
+    args = SimpleNamespace(backend="codex", model="test", effort=None, refresh=False,
+                           candidates=tmp_path / "candidates", z=2)
+    calls = []
+    def call(*a, **kw):
+        calls.append(True)
+        labels = ["C1"] if len(calls) == 1 else ["C1", "C2"]
+        return {"llm_status": "ok", "text": json.dumps({"comps": [
+            {"label": label, "good": True, "reason": "Same business"} for label in labels]})}
+    monkeypatch.setattr(jc, "call_model", call)
+    first = jc.judge_one("T", ["A", "Z"], info, facets, out, args)
+    assert "not_answered:C2" in first["issues"]
+    second = jc.judge_one("T", ["A", "Z"], info, facets, out, args)
+    assert second["status"] == "ok" and not second["issues"]
+    assert len(calls) == 2
+    assert jc.judge_one("T", ["A", "Z"], info, facets, out, args)["status"] == "current"
