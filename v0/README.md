@@ -212,6 +212,72 @@ imports the modules, runs a step, and shows and saves its results.
   (Spearman 0.28-0.30, the lowest). Every comp rule lands within about
   30-33%, as in pre-v0: choosing comps doesn't look like the bottleneck.
 
+## Sector sub-models and facet add/drop (2026-10-27, recipe steps 5-6)
+
+Michael's open tasks of 2026-10-27: recipe #5/6 (specialized sub-models;
+sector / sub-sector as extra facets; rerun the evals) and general demand
+#1 (another add/drop review of facets, judged by how close the chosen comps
+are to the golden set, not by valuation error). Built on branch
+`fiona/sector-submodels`; nothing here changes step 3-7 code.
+
+| file | what it does |
+|---|---|
+| `sectors.py` | SIC → Fama-French 49 industry (`reference/Siccodes49.txt`, Ken French's file) → one of eleven sector groups (`SECTOR_GROUPS`); the sector facet as a similarity (1 same FF49, 0.5 same group, 0 otherwise) |
+| `sector_facets.py` | the sub-sector text facet for everyone, plus 2-5 category facets per sector group, taken from Barbara's "Comprehensive Company Facet Framework" section 2 (software, manufacturing, financials, healthcare, consumer, energy, business services; distribution/transport, construction/real estate and telecom/media are ours); prompt, answer schema and checks |
+| `fill_sector_facets.py` | fills them with Claude Haiku from evidence, not memory alone: the company's saved website pages by default, plus a deeper crawl and web search with `--evidence` (`verification/evidence.py`); every facet cites its evidence lines, a facet filled from memory is flagged `from_memory`, and one with neither is unknown; no financials; training firms only unless `--include-holdout`; `outputs-local/comps/sector_facets/tables/sector_facets.csv` |
+| `facet_eval.py` | ranks every labeled training target's pool under each variant (generic step 4; generic minus one facet, for each facet; + sector; + sub-sector (SIC4, no LLM: 1 same 4-digit SIC, 2/3 same 3-digit, 1/3 same 2-digit); + LLM sub-sector; + sector-specific facets; sub-model = comps only from the target's sector group) and scores the ranking against the golden set (2/1/0) and the step 6 judge: pairwise accuracy, recall@10 and MRR of the best comps, top-10 label mean and how much of the top 10 is labeled; `outputs-local/<stage>/facet_eval/<run>/`, where `--stage` picks the split and judge: `comps` (previous baseline) or `comps_pilot_targets` (updated baseline) |
+
+Decisions and notes:
+- **Sector comes from the SIC code** (CapIQ gives one for private companies
+  too); it is not a financial field. EV/EBITDA is never read in these files.
+- **Sector-specific facets are compared category by category** (Jaccard
+  overlap), and only between two companies of the same sector group;
+  across groups the facet is left out of the pair, like an unknown facet.
+- **Sub-model:** a target searches only its own sector group when the group
+  has at least 8 training firms (`facet_eval.MIN_POOL`), else the whole pool.
+- **Holdout untouched:** the fill defaults to training firms, and any label
+  that touches a holdout company is dropped (and counted) by the eval.
+- **Golden-set file:** `.csv` or `.xlsx` with a target column (`target`,
+  `target_ticker` or `target_iq_id`), a comp column (likewise) and a score
+  (`score`, `label`, `grade` or `rating`; 0-2 is halved, 0/0.5/1 kept).
+- Equal weights for every facet in a variant, as in step 4.
+
+Run, after the step 3-4 outputs exist:
+
+```
+python v0/fill_sector_facets.py --tickers AAON PCTY ROAD   # check a few first
+python v0/fill_sector_facets.py --workers 4                # all training firms (~$0.2)
+python v0/facet_eval.py --gold golden_set.csv              # + the judge's labels if judged
+python v0/facet_eval.py --stage comps_pilot_targets        # updated baseline (SIC2 split)
+```
+
+Results so far (2026-10-27, LLM judge labels only, training targets;
+updated baseline `comps_pilot_targets/facet_eval/20261027T211617Z`, 373
+targets, 4,996 labeled pairs; pairwise accuracy):
+
+| variant | updated baseline | previous baseline |
+|---|---|---|
+| generic (step 4) | 0.899 | 0.910 |
+| + sub-sector (SIC4) | 0.911 | 0.918 |
+| minus F3 primary services | 0.911 | 0.911 |
+| minus F8 geography | 0.906 | 0.918 |
+| + sector (FF49) | 0.895 | 0.892 |
+| + sector + SIC4 | 0.888 | 0.886 |
+| sub-model (same sector group) | 0.78-0.79 | 0.75-0.76 |
+
+- The SIC4 sub-sector helps a little; FF49 does not; the sector sub-model
+  hurts because many judge-good comps are in another sector group (PCTY,
+  software, and ADP, business services).
+- Dropping F3 helps, matching Michael's finding that "none" pairs match
+  exactly (notebook section 10, not fixed).
+- Caveat: the judge labeled only the generic model's candidates, so a
+  variant that brings new firms into the top 10 is scored on fewer labels
+  (labeled share falls from 0.97 to 0.77-0.90), while the labeled ones score
+  higher (top-10 label mean 0.158 to 0.19). A golden set from pooled
+  candidates is needed to settle it.
+- The sector-specific facets are not filled yet (no API key in this
+  session).
+
 ## The facets
 
 | ID | facet | what it captures | example values | categories |
