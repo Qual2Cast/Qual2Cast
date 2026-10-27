@@ -208,6 +208,44 @@ imports the modules, runs a step, and shows and saves its results.
   (Spearman 0.28-0.30, the lowest). Every comp rule lands within about
   30-33%, as in pre-v0: choosing comps doesn't look like the bottleneck.
 
+## Sector sub-models and facet add/drop (2026-10-27, recipe steps 5-6)
+
+Michael's open tasks of 2026-10-27: recipe #5/6 (specialized sub-models;
+sector / sub-sector as extra facets; rerun the evals) and general demand
+#1 (another add/drop review of facets, judged by how close the chosen comps
+are to the golden set, not by valuation error). Built on branch
+`fiona/sector-submodels`; nothing here changes step 3-7 code.
+
+| file | what it does |
+|---|---|
+| `sectors.py` | SIC → Fama-French 49 industry (`reference/Siccodes49.txt`, Ken French's file) → one of eleven sector groups (`SECTOR_GROUPS`); the sector facet as a similarity (1 same FF49, 0.5 same group, 0 otherwise) |
+| `sector_facets.py` | the sub-sector text facet for everyone, plus 2-5 category facets per sector group, taken from Barbara's "Comprehensive Company Facet Framework" section 2 (software, manufacturing, financials, healthcare, consumer, energy, business services; distribution/transport, construction/real estate and telecom/media are ours); prompt, answer schema and checks |
+| `fill_sector_facets.py` | fills them with Claude Haiku (name, website, sector; no pages, no financials), training firms only unless `--include-holdout`; `outputs-local/comps/sector_facets/tables/sector_facets.csv` |
+| `facet_eval.py` | ranks every labeled training target's pool under each variant (generic step 4; generic minus one facet, for each facet; + sector; + sub-sector; + sector-specific facets; sub-model = comps only from the target's sector group) and scores the ranking against the golden set (2/1/0) and the step 6 judge: pairwise accuracy, recall@10 and MRR of the best comps, top-10 label mean and how much of the top 10 is labeled; `outputs-local/comps/facet_eval/<run>/` |
+
+Decisions and notes:
+- **Sector comes from the SIC code** (CapIQ gives one for private companies
+  too); it is not a financial field. EV/EBITDA is never read in these files.
+- **Sector-specific facets are compared category by category** (Jaccard
+  overlap), and only between two companies of the same sector group;
+  across groups the facet is left out of the pair, like an unknown facet.
+- **Sub-model:** a target searches only its own sector group when the group
+  has at least 8 training firms (`facet_eval.MIN_POOL`), else the whole pool.
+- **Holdout untouched:** the fill defaults to training firms, and any label
+  that touches a holdout company is dropped (and counted) by the eval.
+- **Golden-set file:** `.csv` or `.xlsx` with a target column (`target`,
+  `target_ticker` or `target_iq_id`), a comp column (likewise) and a score
+  (`score`, `label`, `grade` or `rating`; 0-2 is halved, 0/0.5/1 kept).
+- Equal weights for every facet in a variant, as in step 4.
+
+Run, after the step 3-4 outputs exist:
+
+```
+python v0/fill_sector_facets.py --tickers AAON PCTY ROAD   # check a few first
+python v0/fill_sector_facets.py --workers 4                # all training firms (~$0.2)
+python v0/facet_eval.py --gold golden_set.csv              # + the judge's labels if judged
+```
+
 ## The facets
 
 | ID | facet | what it captures | example values | categories |

@@ -20,6 +20,15 @@ training pool only) built in `v0/notebooks/comps_and_valuation.ipynb`.
 Model decided: prompts plus weights fit on training pairs. Steps 5-7 open.
 See conversations/2026-10-25-split-and-candidates.md._
 
+_2026-10-27: recipe steps 5-6 and the facet add/drop review started on
+branch `fiona/sector-submodels`: SIC → FF49 → sector groups
+(`v0/sectors.py`), sector-specific facets from Barbara's framework plus a
+sub-sector facet (`v0/sector_facets.py`, filled by
+`v0/fill_sector_facets.py`), and `v0/facet_eval.py`, which scores facet
+variants and sector sub-models against the golden set and the judge. Not
+run on real outputs yet. See v0/README.md and
+conversations/2026-10-27-sector-submodels.md._
+
 _2026-10-25, merge with main: the teammates' work merged into main on
 2026-10-19/20 (PRs #5-#7: the integrated company workflow in `pipeline/`,
 `valuation/`, the team memo and growth-signal updates) moved into pre-v0/
