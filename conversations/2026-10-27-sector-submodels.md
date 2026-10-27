@@ -29,6 +29,21 @@
   file (fake embeddings): every variant runs and writes its tables. No real
   numbers yet.
 
+## Later the same day
+
+- Sector facets made evidence-first after Aziz ("totally avoid relying on
+  LLM memory only"): saved pages by default, `--evidence` for a deeper crawl
+  and web search; cites per facet; memory flagged. 24 tests pass.
+- `sectors.sic_similarity`: SIC4 sub-sector without an LLM.
+- `facet_eval.py --stage comps_pilot_targets` runs on Michael's updated
+  baseline (PR #15, SIC2 split). Results in v0/README.md. Michael's own
+  per-facet analysis (notebook section 7) agrees: F9 size and F8 geography
+  are weakest.
+- Data: universe/facets from `outputs-local/comps/`, split and judge from
+  `outputs-local/comps_pilot_targets/` (split run 20261027T204930Z).
+- A Codex backend for `fill_sector_facets.py` was started and paused (not
+  committed).
+
 ## Open / next
 
 1. Needs Michael's `outputs-local/comps/` (universe, split, facets.csv,

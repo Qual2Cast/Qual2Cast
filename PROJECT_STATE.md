@@ -68,8 +68,11 @@ branch `fiona/sector-submodels`: SIC → FF49 → sector groups
 (`v0/sectors.py`), sector-specific facets from Barbara's framework plus a
 sub-sector facet (`v0/sector_facets.py`, filled by
 `v0/fill_sector_facets.py`), and `v0/facet_eval.py`, which scores facet
-variants and sector sub-models against the golden set and the judge. Not
-run on real outputs yet. See v0/README.md and
+variants and sector sub-models against the golden set and the judge. Run
+on the judge labels of both baselines (updated baseline: generic 0.899,
++SIC4 sub-sector 0.911, minus F3 0.911, minus F8 0.906, +FF49 0.895,
+sector sub-model 0.78). Sector-specific facets are evidence-first (website
+pages, cited) and not filled yet (no API key). See v0/README.md and
 conversations/2026-10-27-sector-submodels.md._
 
 _2026-10-25, merge with main: the teammates' work merged into main on
