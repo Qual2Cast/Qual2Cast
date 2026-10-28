@@ -30,7 +30,7 @@ imports the modules, runs a step, and shows and saves its results.
 | file | what it does |
 |---|---|
 | `notebooks/comp_universe_and_facets.ipynb` | Steps 1-3: the universe, the dropped firms, the facet definitions, what the model reads, and the filled facets (coverage, source checks, the numbered profile list with fill %, example profiles) |
-| `notebooks/comps_and_valuation.ipynb` | **The updated baseline model (2026-10-27).** Steps 4-7 and the training/holdout split (kernel `qual2cast`): the ten showcase targets (the business-structure pilot's) and why they were picked; the split, stratified on SIC2, with its balance check; steps 4-5, candidates (each target's profile) with fall-off plots; step 6, the LLM's good/bad answers (run by `judge_comps.py`); four routes: cosine similarity alone, cosine shortlist followed by LLM judgment, direct LLM selection, and direct LLM selection followed by cosine reranking; step 7, their estimates against no matching; and three added sections: 7 which facets drive the score (including company size), 8 what company size does, 9 choosing the golden-set targets. Writes to `outputs-local/comps_pilot_targets/` (README there); see "Updated baseline" below |
+| `notebooks/comps_and_valuation.ipynb` | **The updated baseline model (2026-10-27), with the 2026-10-28 graded-judge holdout extension.** Sections 1-5 run the SIC2 split and four original matching routes on the training firms. Section 6 replays the source-cited 0–2 judge's two peer-selection rules on the fixed holdout. Section 7 shows training valuation separately from the seven-route holdout comparison, including no matching. Sections 8-10 analyze facets, size and golden-set targets. Writes to `outputs-local/comps_pilot_targets/` (README there). |
 | `notebooks/golden_set.ipynb`, `golden_set.py` | **The golden set (2026-10-27).** Builds the pool to label for PCTY and WEN (the union of the four routes' comps: 36 pairs), writes a blind, shuffled CSV sheet to `outputs-local/comps_pilot_targets/golden_set/labels/golden_set_labels.csv` (never overwritten once it exists), checks the hand scores (2 direct, 1 adjacent, blank = 0 with one of five reasons) and prints precision@10, direct hits@10 and NDCG@10 per route. No API calls. Metrics wait until every pair is reviewed. Tests in `tests/test_golden_set.py` |
 | `reviewer_gold_eval.py` | Scores the four saved routes separately against Riya, Barbara, and Matthew's 36 reviewed pairs, without forcing a consensus or changing their reasons. Writes reviewer metrics and a pair-disagreement table; no API calls |
 | `judge_gold_eval.py`, `graded_peer_selection.py` | Score peers directly with the shared 0–2 rubric and saved website citations. The first file compares 36 pairs with the three reviewers; the second tests grade-based selection on the fixed candidate pool, keeping the original routes unchanged. |
@@ -328,7 +328,7 @@ targets, 4,996 labeled pairs; pairwise accuracy):
   hurts because many judge-good comps are in another sector group (PCTY,
   software, and ADP, business services).
 - Dropping F3 helps, matching Michael's finding that "none" pairs match
-  exactly (notebook section 10, not fixed).
+  exactly (notebook section 11, not fixed).
 - Caveat: the judge labeled only the generic model's candidates, so a
   variant that brings new firms into the top 10 is scored on fewer labels
   (labeled share falls from 0.97 to 0.77-0.90), while the labeled ones score
@@ -435,7 +435,7 @@ reviews it.
   targets); LLM direct and LLM then cosine 30.6% (343); same SIC 35.1-36.7%. As
   before, every way of choosing comps lands within a few points, and the split
   alone moves a rule by 2-4 points.
-- **Facets (section 7):** the combined similarity separates the LLM's good
+- **Facets (section 8):** the combined similarity separates the LLM's good
   comps from its bad ones with an AUC of 0.87; offering description (F1) is the
   best single facet (0.83), geography 0.53. Company size (F9), embedded the same
   way though it is not in the similarity, is 0.49 (chance) and lifts the
@@ -444,22 +444,21 @@ reviews it.
   products and services (F2, F3; 13% and 19% of top-10 pairs), whose lift falls
   from 0.34 to 0.29 without those pairs. WEN shows it: its F3 is "none" and
   matches 17 of its 20 candidates, 16 of them judged bad.
-- **Company size (section 8):** error falls as firms get bigger (cosine z ≥ 2:
+- **Company size (section 9):** error falls as firms get bigger (cosine z ≥ 2:
   39.8% small, 34.3% mid-sized, 28.7% large, 24.0% among the largest), but the
   median multiple barely moves with size, size agreement does not predict the
   LLM's verdict (AUC 0.498), and requiring the same size category hurts (32.1%
   against 29.6%). Not a useful comp filter beyond excluding extreme gaps.
-- **Golden set (section 9):** two of the ten targets will be chosen; the
+- **Golden set (section 10):** two of the ten targets will be chosen; the
   current pick is PCTY and WEN. `golden_set/<run>/target_choice.csv` compares
   the ten (candidates, LLM-good comps, direct picks, size of the pool to label).
-- **To do (notebook section 10):** a facet that does not apply is embedded as
+- **To do (notebook section 11):** a facet that does not apply is embedded as
   "none", which the similarity has done since 2026-10-25; the stopgap (treat it
   as missing) and the fix at the source (tighten the facet prompt, re-fill all
   533) are described there, with costs. Neither is applied.
-- **Open:** the holdout is untouched; the LLM judge reads the same facet text
-  the embeddings are built from, so its labels are not independent evidence;
-  the golden set itself (pooled candidates, blind to rank and multiples) is
-  built (`notebooks/golden_set.ipynb`) but not labeled yet.
+- **Status of this 2026-10-27 baseline:** holdout and human-label evaluations
+  were still pending. The later fixed-holdout and reviewer-label results are
+  reported above and in the companion integration notebook.
 
 ## Outputs (`outputs-local/comps/`)
 
