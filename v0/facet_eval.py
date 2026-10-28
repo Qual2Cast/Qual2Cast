@@ -275,6 +275,34 @@ def _latest(root: Path, file: str) -> Path:
     return runs[-1]
 
 
+def load_saved_embeddings(candidate_run: Path, ids: Sequence[str], cache_root: Path
+                          ) -> tuple[dict[str, np.ndarray], float]:
+    """Reuse the baseline's exact embeddings after checking saved pair cosines."""
+    run = json.loads((candidate_run / "run.json").read_text(encoding="utf-8"))
+    path = cache_root / run["embedding_cache"]
+    with np.load(path) as archive:
+        embeddings = {name: archive[name] for name in run["similarity_facets"]}
+    if any(len(values) != len(ids) for values in embeddings.values()):
+        raise ValueError("Saved embedding rows do not match the universe")
+    sample = pd.read_csv(candidate_run / "candidates.csv",
+                         dtype={"target": str, "comp": str})
+    positions = {company: i for i, company in enumerate(ids)}
+    ti = sample["target"].map(positions).to_numpy()
+    ci = sample["comp"].map(positions).to_numpy()
+    if pd.isna(ti).any() or pd.isna(ci).any():
+        raise ValueError("Saved candidate IDs are absent from the universe")
+    error = 0.0
+    for name, vectors in embeddings.items():
+        observed = sample[f"sim_{name}"].to_numpy(dtype=float)
+        calculated = np.einsum("ij,ij->i", vectors[ti], vectors[ci])
+        valid = np.isfinite(observed)
+        if valid.any():
+            error = max(error, float(np.max(np.abs(observed[valid] - calculated[valid]))))
+    if error > 1e-5:
+        raise ValueError(f"Saved embeddings do not reproduce candidate scores: {error}")
+    return embeddings, error
+
+
 def main() -> None:
     import candidates as cd
     from fill_facets import DEFAULT_OUT as FACETS_OUT, output_paths
@@ -288,6 +316,8 @@ def main() -> None:
     p.add_argument("--stage", default="comps",
                    help="outputs-local folder with the split and judge to use: comps (previous baseline) or "
                         "comps_pilot_targets (updated baseline, SIC2 split)")
+    p.add_argument("--saved-cache-run", type=Path,
+                   help="candidate run whose checked embedding cache is reused; avoids model loading")
     args = p.parse_args()
 
     comps = OUTPUTS_LOCAL / "comps"
@@ -302,7 +332,12 @@ def main() -> None:
     texts = cd.facet_texts(facets).reindex(info.index)
     texts = texts.astype(object).where(texts.notna(), None)   # unknown as None (pandas 3 gives NaN), so the step 4 embedding cache matches
     ids = list(texts.index)
-    emb, _ = cd.embed_facets(texts, comps / "embeddings")
+    if args.saved_cache_run:
+        emb, cache_error = load_saved_embeddings(args.saved_cache_run, ids, comps / "embeddings")
+        print(f"saved embedding cache verified; max cosine difference {cache_error:.2g}")
+    else:
+        emb, _ = cd.embed_facets(texts, comps / "embeddings")
+        cache_error = None
     _, general = cd.similarity(emb)
 
     sectors = sc.sector_table(info)
@@ -352,6 +387,8 @@ def main() -> None:
         "run": run, "stage": args.stage, "split_run": split_run.name, "universe_run": universe_run.name, "facets_version": fc.PROMPT_VERSION,
         "sector_facets_version": sf.PROMPT_VERSION if sf_path.exists() else None, "k": args.k,
         "min_pool": MIN_POOL, "labels": {k: len(v) for k, v in label_sets.items()},
+        "saved_cache_run": str(args.saved_cache_run) if args.saved_cache_run else None,
+        "max_saved_pair_cosine_difference": cache_error,
         "dropped_holdout_pairs": dropped}, indent=1), encoding="utf-8")
     pd.set_option("display.width", 220)
     for name, g in table.groupby("labels", sort=False):

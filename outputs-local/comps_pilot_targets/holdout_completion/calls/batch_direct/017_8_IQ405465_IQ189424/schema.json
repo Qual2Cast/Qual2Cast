@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "targets"
+  ],
+  "properties": {
+    "targets": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "target_id",
+          "comps"
+        ],
+        "properties": {
+          "target_id": {
+            "type": "string",
+            "enum": [
+              "IQ405465",
+              "IQ34783",
+              "IQ322372",
+              "IQ337346",
+              "IQ1856268950",
+              "IQ422832",
+              "IQ224946128",
+              "IQ189424"
+            ]
+          },
+          "comps": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "label",
+                "reason"
+              ],
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "reason": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

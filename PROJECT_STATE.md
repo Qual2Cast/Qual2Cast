@@ -3,6 +3,34 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
+_2026-10-28, gold/holdout integration: Michael's 27 October SIC2 v0
+candidate run was extended to all 160 holdout targets with the same 373-firm
+training pool. The four routes processed 2,138 cosine→LLM candidate judgments
+and 311 direct-LLM selections without invalid labels. On the 107 targets
+covered by every route, median EV/EBITDA APE is cosine 36.83%, cosine→LLM
+37.50%, direct LLM 37.79%, and LLM→cosine 37.93%; paired intervals do not
+establish a winner. Removing F3 improves peer-label ranking on the two gold
+targets but has threshold-dependent holdout effects. The source-backed split
+improves its targeted source check, while tested downstream interventions do
+not help consistently. Executed report and tables:
+`v0/notebooks/gold_and_holdout_integration.ipynb` and
+`outputs-local/comps_pilot_targets/holdout_completion/evaluation/`; details:
+`conversations/2026-10-28-holdout-integration.md`._
+
+_2026-10-28, reviewer and split refinement: three completed 36-pair
+PCTY/WEN reviews score the four saved routes separately; only 11/36 pairs are
+unanimous. A source-checked 40-company business grouping retains each current
+activity once under its original company ID; 8 firms have multiple groups.
+The targeted primary-source audit improves current/exited activity statuses
+from 27/34 to 34/34 and exact group partitions from 7/9 to 9/9. In ten selected
+development targets, adding split context changes 4/137 peer decisions and
+raises median APE from 19.26% to 39.41% (coverage 7/10 both). In six firms
+from the fixed holdout, it changes 1/72 decisions and raises median APE from
+31.02% to 40.21% (coverage 4/6 to 5/6). The split is kept as source-linked
+metadata; the tested prompt is not adopted as the v0 peer rule. Executed
+notebook: `v0/notebooks/business_split_refinement_eval.ipynb`; details:
+`conversations/2026-10-28-reviewer-and-split-refinement.md`._
+
 _2026-10-27, golden set built, not labeled: `v0/notebooks/golden_set.ipynb` and
 `v0/golden_set.py` pool every comp the four routes found for PCTY and WEN (36
 pairs: 16 and 20), write a shuffled sheet with no rank, similarity, verdict or
@@ -428,3 +456,17 @@ covers 341 and has 32.69% median absolute percentage error; on the common
 exactly. Source snapshot: `company_list_v3`; saved source run:
 `20261025T080854Z`. Holdout and human evaluation remain open. See
 `conversations/2026-10-27-v0-fourth-baseline.md`.
+
+## Reviewer labels and business grouping — 28 October 2026
+
+The local [evaluation notebook](v0/notebooks/business_split_refinement_eval.ipynb)
+compares the four saved v0 routes against Riya, Barbara, and Matthew's 36
+PCTY/WEN labels separately. Only 11 pairs received the same score from all
+three. The source-corrected grouping retains one company ID and assigns every
+current activity once; 8 of 40 firms have multiple groups. The targeted
+primary-source check scores 34/34 activity statuses and 9/9 exact partitions,
+versus 27/34 and 7/9 in the saved decisions. Development median APE changes
+from 19.26% to 39.41% with split context; fixed-holdout median APE changes
+from 31.02% to 40.21%. The context prompt is not adopted as the v0 default.
+Details and reproduction steps:
+`conversations/2026-10-28-reviewer-and-split-refinement.md`.
