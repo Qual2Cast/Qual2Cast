@@ -33,6 +33,7 @@ imports the modules, runs a step, and shows and saves its results.
 | `notebooks/comps_and_valuation.ipynb` | **The updated baseline model (2026-10-27).** Steps 4-7 and the training/holdout split (kernel `qual2cast`): the ten showcase targets (the business-structure pilot's) and why they were picked; the split, stratified on SIC2, with its balance check; steps 4-5, candidates (each target's profile) with fall-off plots; step 6, the LLM's good/bad answers (run by `judge_comps.py`); four routes: cosine similarity alone, cosine shortlist followed by LLM judgment, direct LLM selection, and direct LLM selection followed by cosine reranking; step 7, their estimates against no matching; and three added sections: 7 which facets drive the score (including company size), 8 what company size does, 9 choosing the golden-set targets. Writes to `outputs-local/comps_pilot_targets/` (README there); see "Updated baseline" below |
 | `notebooks/golden_set.ipynb`, `golden_set.py` | **The golden set (2026-10-27).** Builds the pool to label for PCTY and WEN (the union of the four routes' comps: 36 pairs), writes a blind, shuffled CSV sheet to `outputs-local/comps_pilot_targets/golden_set/labels/golden_set_labels.csv` (never overwritten once it exists), checks the hand scores (2 direct, 1 adjacent, blank = 0 with one of five reasons) and prints precision@10, direct hits@10 and NDCG@10 per route. No API calls. Metrics wait until every pair is reviewed. Tests in `tests/test_golden_set.py` |
 | `reviewer_gold_eval.py` | Scores the four saved routes separately against Riya, Barbara, and Matthew's 36 reviewed pairs, without forcing a consensus or changing their reasons. Writes reviewer metrics and a pair-disagreement table; no API calls |
+| `judge_gold_eval.py`, `graded_peer_selection.py` | Score peers directly with the shared 0–2 rubric and saved website citations. The first file compares 36 pairs with the three reviewers; the second tests grade-based selection on the fixed candidate pool, keeping the original routes unchanged. |
 | `business_split_refinement.py`, `source_split_benchmark.py`, `holdout_split_candidates.py`, `split_peer_eval.py`, `notebooks/business_split_refinement_eval.ipynb` | Corrects dated activity status and groups current business activities under one company ID; checks ten selected profiles against primary sources; compares the unchanged peer judge with added scope context on ten development and six fixed-holdout targets. The executed notebook shows reviewer, source, peer, and valuation results. The tested context raises median valuation error on both subsets and is not adopted as the v0 default |
 | `facet_eval.py`, `notebooks/gold_and_holdout_integration.ipynb` | Reuses saved per-facet embeddings to compare the existing facet set and single-facet removals against each reviewer's scores; presents those results alongside source checks and the fixed holdout |
 | `holdout_llm_routes.py`, `holdout_batched_routes.py`, `holdout_evaluation.py` | Runs the two LLM selection stages on all 160 fixed-holdout targets, then evaluates cosine, cosine → LLM, direct LLM, and LLM → cosine against the same 373-company pool and no-matching control. The holdout uses Codex CLI rather than the original Haiku training backend. The batch runner evaluates targets independently while sharing the large direct-LLM pool prompt; the inference protocol is recorded |
@@ -81,6 +82,19 @@ comparison, gold-label facet check, source-backed business grouping, coverage,
 and example peer decisions. Its holdout LLM calls use `gpt-6.1-sol` in batches,
 whereas the original training run used one-target Haiku calls; compare methods
 within the holdout, not across those inference protocols.
+
+To test the optional 0–2 judge selection route, run
+`python v0/graded_peer_selection.py --mode gold --execute --workers 2`, then
+`python v0/graded_peer_selection.py --mode holdout --execute --workers 3`.
+Completed target calls are reused on rerun. To rebuild the comparison tables
+from the shared grades without model calls, use `--evaluate-saved` with each
+mode instead of `--execute`. The method scores the unchanged
+cosine z ≥ 2 candidate pool from saved website passages, then compares direct
+peers (2 only) with direct-first/adjacent-second peers (2 then 1). Scores 0
+and insufficient evidence are excluded. Grade orders peers; the existing
+cosine weight and `valuation.estimate` produce the multiple. The original four
+routes remain unchanged. Results and pairwise common-target comparisons are
+in `outputs-local/comps_pilot_targets/holdout_completion/graded_peer_selection/`.
 
 ## Decisions (2026-10-24)
 
