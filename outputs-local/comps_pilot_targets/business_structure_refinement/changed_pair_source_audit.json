@@ -1,0 +1,31 @@
+{
+  "definition": "A full-company comparable must represent the target's current business mix; matching only one small or unquantified activity is not sufficient for whole-company EV/EBITDA.",
+  "scope": "Post-run analyst review of the five peer decisions changed by the split-context prompt; diagnostic, not blinded labels or an accuracy estimate.",
+  "pairs": [
+    {
+      "cohort": "development", "target": "AFG", "peer": "FG", "full_company_fit": false,
+      "reason": "AFG sold its annuity business and is currently a specialty P&C insurer; F&G sells annuity and life insurance products.",
+      "sources": ["https://www.afginc.com/about-us", "https://www.fglife.com/annuities"]
+    },
+    {
+      "cohort": "development", "target": "BOC", "peer": "BWIN", "full_company_fit": false,
+      "reason": "Boston Omaha operates broadband, billboards, surety and asset management; Baldwin is primarily an insurance distribution firm.",
+      "sources": ["https://www.bostonomaha.com/", "https://baldwin.com/transparency-disclosure/"]
+    },
+    {
+      "cohort": "development", "target": "BOC", "peer": "GSHD", "full_company_fit": false,
+      "reason": "Goosehead is an insurance agency, while insurance is only one of Boston Omaha's four current businesses.",
+      "sources": ["https://www.bostonomaha.com/", "https://www.goosehead.com/"]
+    },
+    {
+      "cohort": "development", "target": "CSL", "peer": "CSW", "full_company_fit": false,
+      "reason": "Carlisle focuses on building-envelope materials; CSW is a diversified contractor-products company with HVAC/R as its largest market. Overlap in some building products does not establish a close whole-company match.",
+      "sources": ["https://www.carlisle.com/", "https://www.sec.gov/Archives/edgar/data/1624794/000162479426000027/cswi-20260331.htm"]
+    },
+    {
+      "cohort": "holdout", "target": "LUCK", "peer": "PRKS", "full_company_fit": false,
+      "reason": "Both operate water parks, but Lucky Strike also has 361 non-water-park locations out of 366 and reports 45% of FY2026 revenue from bowling; United Parks is a park operator. Shared water parks alone are insufficient for a whole-company comp.",
+      "sources": ["https://www.sec.gov/Archives/edgar/data/1840572/000162828026059179/bowl-20260628.htm", "https://unitedparks.com/our-brands/water-parks/"]
+    }
+  ]
+}
