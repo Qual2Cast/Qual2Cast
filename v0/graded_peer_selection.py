@@ -33,6 +33,7 @@ CANDIDATES = (OUTPUTS_LOCAL / "comps_pilot_targets/business_structure_refinement
               "holdout_all_candidates")
 GOLD_POOL = gold_judge.POOL
 HOLDOUT_OUT = OUTPUTS_LOCAL / "comps_pilot_targets/holdout_completion/graded_peer_selection"
+LLM_OUT = OUTPUTS_LOCAL / "comps_pilot_targets/holdout_completion"
 GOLD_OUT = OUTPUTS_LOCAL / "comps_pilot_targets/golden_set/graded_batch_check"
 EVIDENCE_WORDS = 900
 MODEL = "gpt-6.1-sol"
@@ -50,8 +51,8 @@ class EvidenceJudge:
         self.config = SimpleNamespace(evidence_words=EVIDENCE_WORDS)
 
 
-def load_pairs(mode: str) -> tuple[pd.DataFrame, pd.DataFrame, Path]:
-    metadata = json.loads((CANDIDATES / "run.json").read_text(encoding="utf-8"))
+def load_pairs(mode: str, candidates_path: Path = CANDIDATES) -> tuple[pd.DataFrame, pd.DataFrame, Path]:
+    metadata = json.loads((candidates_path / "run.json").read_text(encoding="utf-8"))
     universe_path = OUTPUTS_LOCAL / "comps/universe" / metadata["universe_run"] / "universe.csv"
     info = pd.read_csv(universe_path, dtype=str).set_index("IQ_COMPANY_ID")
     if mode == "gold":
@@ -62,7 +63,7 @@ def load_pairs(mode: str) -> tuple[pd.DataFrame, pd.DataFrame, Path]:
         if len(pairs) != 36 or pairs.target.nunique() != 2:
             raise ValueError("Expected the frozen 36-pair PCTY/WEN gold pool")
     else:
-        ranking = pd.read_csv(CANDIDATES / "ranking.csv.gz", dtype={"target": str, "comp": str})
+        ranking = pd.read_csv(candidates_path / "ranking.csv.gz", dtype={"target": str, "comp": str})
         pairs = ranking.loc[ranking.z_ge_2, ["target", "comp", "similarity", "rank"]]
         pairs = pairs.sort_values(["target", "comp"])
         split = pd.read_csv(OUTPUTS_LOCAL / "comps_pilot_targets/split" /
@@ -142,12 +143,14 @@ def check_batch(raw: dict, target: str, comps: list[str], lines: dict,
 
 
 def run(mode: str, execute: bool, workers: int, limit: int | None,
-        model: str, effort: str, out: Path) -> dict:
+        model: str, effort: str, out: Path,
+        candidates_path: Path = CANDIDATES, llm_dir: Path = LLM_OUT) -> dict:
+    candidates_path = candidates_path.resolve()
     if not 1 <= workers <= 4:
         raise ValueError("workers must be between 1 and 4")
     if not execute and (out / "grades.csv").exists() and not (out / "judgments").exists():
         raise ValueError("Per-target cache is absent; use --evaluate-saved to preserve shared grades")
-    pairs, info, universe_path = load_pairs(mode)
+    pairs, info, universe_path = load_pairs(mode, candidates_path)
     targets = sorted(pairs.target.unique())
     if limit is not None:
         targets = targets[:limit]
@@ -160,8 +163,8 @@ def run(mode: str, execute: bool, workers: int, limit: int | None,
         "effort": effort, "backend": "codex", "evidence_words_per_company": EVIDENCE_WORDS,
         "rubric": gold_judge.RUBRIC}, indent=2), encoding="utf-8")
     provenance = {str(path.relative_to(REPO_ROOT)): sha256(path)
-                  for path in (CANDIDATES / "run.json", universe_path,
-                               GOLD_POOL if mode == "gold" else CANDIDATES / "ranking.csv.gz")}
+                  for path in (candidates_path / "run.json", universe_path,
+                               GOLD_POOL if mode == "gold" else candidates_path / "ranking.csv.gz")}
     (out / "provenance.json").write_text(json.dumps({"mode": mode, "files": provenance,
         "rubric_source": "https://docs.google.com/spreadsheets/d/1rp6H-IXhfZ09NbOObzPreLvGaXjOugEUblYcHo31IQg/edit#gid=1963357707",
         "evidence_words_per_company": EVIDENCE_WORDS,
@@ -241,7 +244,7 @@ def run(mode: str, execute: bool, workers: int, limit: int | None,
     if mode == "gold" and summary["completed_targets"] == len(targets):
         gold_comparison(grades, out)
     if mode == "holdout" and summary["completed_targets"] == len(targets):
-        evaluate_holdout(pairs, grades, out)
+        evaluate_holdout(pairs, grades, out, candidates_path, llm_dir)
     return summary
 
 
@@ -303,23 +306,24 @@ def gold_comparison(grades: pd.DataFrame, out: Path) -> None:
     pd.concat(rows, ignore_index=True).to_csv(out / "gold_selection_metrics.csv", index=False)
 
 
-def evaluate_holdout(pairs: pd.DataFrame, grades: pd.DataFrame, out: Path) -> None:
+def evaluate_holdout(pairs: pd.DataFrame, grades: pd.DataFrame, out: Path,
+                     candidates_path: Path = CANDIDATES, llm_dir: Path = LLM_OUT) -> None:
     out.mkdir(parents=True, exist_ok=True)
-    metadata = json.loads((CANDIDATES / "run.json").read_text(encoding="utf-8"))
+    metadata = json.loads((candidates_path / "run.json").read_text(encoding="utf-8"))
     financials = pd.read_csv(OUTPUTS_LOCAL / "comps/universe" /
                              metadata["universe_run"] / "financials.csv",
                              dtype={"IQ_COMPANY_ID": str}).set_index("IQ_COMPANY_ID")
     multiples = financials["target_ev_to_ebitda"]
     targets = sorted(pairs.target.unique())
     actual = multiples.reindex(targets)
-    judge = pd.read_csv(OUTPUTS_LOCAL / "comps_pilot_targets/holdout_completion/judge.csv",
+    judge = pd.read_csv(llm_dir / "judge.csv",
                         dtype={"target": str, "comp": str})
     binary = judge[judge.score.eq(1)].merge(
         pairs[["target", "comp", "similarity"]], on=["target", "comp"],
         how="left", validate="one_to_one")
-    direct = pd.read_csv(OUTPUTS_LOCAL / "comps_pilot_targets/holdout_completion/direct.csv",
+    direct = pd.read_csv(llm_dir / "direct.csv",
                          dtype={"target": str, "comp": str})
-    full_ranking = pd.read_csv(CANDIDATES / "ranking.csv.gz",
+    full_ranking = pd.read_csv(candidates_path / "ranking.csv.gz",
                                dtype={"target": str, "comp": str})
     reverse = rank_selected(direct, full_ranking)
     split = pd.read_csv(OUTPUTS_LOCAL / "comps_pilot_targets/split" /
@@ -422,9 +426,11 @@ def evaluate_holdout(pairs: pd.DataFrame, grades: pd.DataFrame, out: Path) -> No
     pd.DataFrame(paired_rows).to_csv(out / "paired_comparison.csv", index=False)
 
 
-def evaluate_saved(mode: str, out: Path) -> dict:
+def evaluate_saved(mode: str, out: Path, candidates_path: Path = CANDIDATES,
+                   llm_dir: Path = LLM_OUT) -> dict:
     """Rebuild tables from committed grades without CLI calls or raw caches."""
-    pairs, _, _ = load_pairs(mode)
+    candidates_path = candidates_path.resolve()
+    pairs, _, _ = load_pairs(mode, candidates_path)
     provenance = json.loads((out / "provenance.json").read_text(encoding="utf-8"))
     if provenance["mode"] != mode:
         raise ValueError("Saved grades belong to another mode")
@@ -448,7 +454,7 @@ def evaluate_saved(mode: str, out: Path) -> dict:
     if mode == "gold":
         gold_comparison(grades, out)
     else:
-        evaluate_holdout(pairs, grades, out)
+        evaluate_holdout(pairs, grades, out, candidates_path, llm_dir)
     return {"mode": mode, "evaluated_saved_pairs": len(grades),
             "non_null_grades": int(grades.score.notna().sum())}
 
@@ -464,11 +470,13 @@ if __name__ == "__main__":
     parser.add_argument("--model", default=MODEL)
     parser.add_argument("--effort", default=EFFORT)
     parser.add_argument("--out", type=Path)
+    parser.add_argument("--candidates", type=Path, default=CANDIDATES)
+    parser.add_argument("--llm-dir", type=Path, default=LLM_OUT)
     args = parser.parse_args()
     output = args.out or (GOLD_OUT if args.mode == "gold" else HOLDOUT_OUT)
     if args.execute and args.evaluate_saved:
         parser.error("--execute and --evaluate-saved are mutually exclusive")
-    result = (evaluate_saved(args.mode, output) if args.evaluate_saved else
+    result = (evaluate_saved(args.mode, output, args.candidates, args.llm_dir) if args.evaluate_saved else
               run(args.mode, args.execute, args.workers, args.limit,
-                  args.model, args.effort, output))
+                  args.model, args.effort, output, args.candidates, args.llm_dir))
     print(json.dumps(result, indent=2))

@@ -45,7 +45,7 @@ from project_data import OUTPUTS_LOCAL  # noqa: E402
 from universe import build_universe  # noqa: E402
 
 DEFAULT_OUT = OUTPUTS_LOCAL / "comps" / "sector_facets"
-SPLIT_ROOT = OUTPUTS_LOCAL / "comps" / "split"
+DEFAULT_STAGE = "comps_pilot_targets"
 
 
 def output_paths(out_dir: Path) -> SimpleNamespace:
@@ -55,20 +55,21 @@ def output_paths(out_dir: Path) -> SimpleNamespace:
                            tables_history=out_dir / "tables_history", logs=out_dir / "logs")
 
 
-def latest_split() -> pd.DataFrame | None:
-    runs = sorted(p for p in SPLIT_ROOT.iterdir() if (p / "split.csv").exists()) if SPLIT_ROOT.exists() else []
+def latest_split(stage: str = DEFAULT_STAGE) -> pd.DataFrame | None:
+    split_root = OUTPUTS_LOCAL / stage / "split"
+    runs = sorted(p for p in split_root.iterdir() if (p / "split.csv").exists()) if split_root.exists() else []
     return pd.read_csv(runs[-1] / "split.csv", dtype=str) if runs else None
 
 
-def companies_to_fill(include_holdout: bool) -> pd.DataFrame:
+def companies_to_fill(include_holdout: bool, stage: str = DEFAULT_STAGE) -> pd.DataFrame:
     companies, _ = build_universe()
     companies = companies[companies["in_universe"]].set_index("IQ_COMPANY_ID")
     sectors = sc.sector_table(companies)
     out = companies[["target_company_name", "target_ciq_ticker", "target_ciq_website"]].join(sectors)
-    split = latest_split()
+    split = latest_split(stage)
     if split is None:
         if not include_holdout:
-            raise SystemExit("No split yet (outputs-local/comps/split/): run the split first, "
+            raise SystemExit(f"No split yet (outputs-local/{stage}/split/): run the split first, "
                              "or pass --include-holdout to fill every company.")
         out["sample"] = ""
     else:
@@ -110,10 +111,16 @@ def fill_one(iq_id: str, row: pd.Series, out: SimpleNamespace, args) -> dict:
     run_dir = out.runs / iq_id / stamp()
     run_dir.mkdir(parents=True, exist_ok=True)
     (run_dir / "prompt.txt").write_text(prompt, encoding="utf-8")
-    result = call_claude(prompt, run_dir, sf.answer_schema(row["sector"]), args.model, args.effort,
-                         instructions_len=len(sf.INSTRUCTIONS))
+    if args.backend == "codex":
+        from cli_models import call_cli
+        result = call_cli(prompt, run_dir, sf.answer_schema(row["sector"]),
+                          "codex", model=args.model, effort=args.effort)
+    else:
+        result = call_claude(prompt, run_dir, sf.answer_schema(row["sector"]), args.model, args.effort,
+                             instructions_len=len(sf.INSTRUCTIONS))
     (run_dir / "run.json").write_text(json.dumps(
-        {"model": args.model, "prompt_version": sf.PROMPT_VERSION, "fingerprint": fp, "finished_at": now_iso(),
+        {"backend": args.backend, "model": args.model, "prompt_version": sf.PROMPT_VERSION,
+         "fingerprint": fp, "finished_at": now_iso(),
          **{k: v for k, v in result.items() if k != "text"}}, indent=1), encoding="utf-8")
     profile = {"IQ_COMPANY_ID": iq_id, "company_name": company["company_name"], "website": company["website"],
                "sic4": row["sic4"], "ff49": row["ff49"], "sector": row["sector"], "model": args.model,
@@ -170,8 +177,13 @@ def main() -> None:
     p.add_argument("--limit", type=int)
     p.add_argument("--include-holdout", action="store_true",
                    help="also fill holdout companies (only once the facet list is frozen)")
+    p.add_argument("--stage", default=DEFAULT_STAGE,
+                   help="output stage containing the split (default: current SIC2 pilot)")
+    p.add_argument("--gold-pairs", type=Path,
+                   help="limit the pilot to target_iq_id and comp_iq_id in a reviewer-label CSV")
     p.add_argument("--refresh", action="store_true")
-    p.add_argument("--model", default=DEFAULT_MODEL["claude"])
+    p.add_argument("--backend", choices=["claude", "codex"], default="claude")
+    p.add_argument("--model", default=None)
     p.add_argument("--effort", choices=["low", "medium", "high"])
     p.add_argument("--workers", type=int, default=2)
     p.add_argument("--evidence", action="store_true",
@@ -180,6 +192,7 @@ def main() -> None:
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--tables-only", action="store_true")
     args = p.parse_args()
+    args.model = args.model or ("gpt-6.1-sol" if args.backend == "codex" else DEFAULT_MODEL["claude"])
     out = output_paths(Path(args.out))
     for d in (out.runs, out.profiles, out.logs):
         d.mkdir(parents=True, exist_ok=True)
@@ -187,7 +200,16 @@ def main() -> None:
         write_tables(out)
         return
 
-    todo = companies_to_fill(args.include_holdout)
+    todo = companies_to_fill(args.include_holdout, args.stage)
+    if args.gold_pairs:
+        pairs = pd.read_csv(args.gold_pairs, dtype=str)
+        required = {"target_iq_id", "comp_iq_id"}
+        if not required.issubset(pairs.columns):
+            raise SystemExit(f"{args.gold_pairs}: expected {sorted(required)}")
+        ids = set(pairs["target_iq_id"]) | set(pairs["comp_iq_id"])
+        todo = todo.loc[todo.index.intersection(ids)]
+        if len(todo) != len(ids):
+            raise SystemExit("Some reviewed companies are missing from the selected split")
     if args.tickers:
         todo = todo[todo["target_ciq_ticker"].str.upper().isin({t.upper() for t in args.tickers})]
     if args.limit:
@@ -203,7 +225,8 @@ def main() -> None:
         print(f"wrote {len(todo)} prompts to {out.prompts_dry_run}")
         return
 
-    claude_api_key()
+    if args.backend == "claude":
+        claude_api_key()
     log = out.logs / f"fill_{stamp()}.log"
     totals, started = {"input_tokens": 0, "cached_input_tokens": 0, "output_tokens": 0}, time.time()
     with ThreadPoolExecutor(max_workers=args.workers) as pool, log.open("w", encoding="utf-8") as lf:

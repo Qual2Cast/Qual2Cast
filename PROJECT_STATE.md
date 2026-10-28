@@ -3,6 +3,26 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
+_2026-10-28, sector-facet holdout comparison (local branch): Fiona's frozen
+`generic + all sector facets` configuration was filled for all 533 eligible
+companies from saved website evidence using GPT-6.1 Sol. The fixed 373/160
+SIC2 split and six existing peer-selection routes were reused; no peer rule,
+0–2 rubric, or EV/EBITDA estimator changed. The new ranking has 2,470 z≥2
+holdout pairs (general facets: 2,138). All 160 holdout targets completed
+both LLM selection routes and source-cited grades; 2,315 pairs received a
+numeric grade. In the main `v0/notebooks/comps_and_valuation.ipynb`, the new
+six-row results sit beside the six saved general-facet rows. Cosine-only median
+APE moves from 37.32% to 34.97% on all 160; the paired median change is
+−1.94 percentage points (95% target-bootstrap interval −3.81 to +0.25).
+Other routes have different coverage and no clear paired-median gain. The
+PCTY/WEN reviewer-label pilot improves majority pairwise ranking accuracy
+from 0.851 to 0.904 on 32 labeled pairs, but has only two targets. The
+notebook validates, its code cells parse, and 33 targeted tests pass. Saved
+inputs, raw calls and tables are in `outputs-local/comps_pilot_targets/sector_facets/`;
+details: `conversations/2026-10-28-sector-facets-holdout.md`. Next: team review
+the paired results and obtain independent holdout peer labels before adopting
+the added facets as the default._
+
 _2026-10-28, gold/holdout integration: Michael's 27 October SIC2 v0
 candidate run was extended to all 160 holdout targets with the same 373-firm
 training pool. The four routes processed 2,138 cosine→LLM candidate judgments

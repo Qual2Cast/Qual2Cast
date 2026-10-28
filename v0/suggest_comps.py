@@ -89,6 +89,9 @@ def pool_line(label: str, row: pd.Series, facet_row: pd.Series) -> str:
             status = facet_row.get(f"{f.name}_status", "unknown")
             value = {"unknown": "unknown", "not_applicable": "none"}.get(status) or facet_row.get(f.name, "")
             parts.append(f"{f.label.lower()}: {value or 'unknown'}")
+    sector_summary = facet_row.get("sector_summary", "")
+    if isinstance(sector_summary, str) and sector_summary:
+        parts.append(f"sector-specific: {sector_summary}")
     return f"{label}: {row['target_company_name']} ({row['target_ciq_website']}) | " + " | ".join(parts)
 
 
