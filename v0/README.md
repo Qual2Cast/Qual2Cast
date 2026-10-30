@@ -30,12 +30,13 @@ imports the modules, runs a step, and shows and saves its results.
 | file | what it does |
 |---|---|
 | `notebooks/comp_universe_and_facets.ipynb` | Steps 1-3: the universe, the dropped firms, the facet definitions, what the model reads, and the filled facets (coverage, source checks, the numbered profile list with fill %, example profiles) |
-| `notebooks/comps_and_valuation.ipynb` | **The updated baseline model (2026-10-27), with the 2026-10-28 graded-judge holdout extension.** Sections 1-5 run the SIC2 split and four original matching routes on the training firms. Section 6 replays the source-cited 0–2 judge's two peer-selection rules on the fixed holdout. Section 7 shows training valuation separately from the seven-route holdout comparison, including no matching. Sections 8-10 analyze facets, size and golden-set targets. Writes to `outputs-local/comps_pilot_targets/` (README there). |
+| `notebooks/comps_and_valuation.ipynb` | **The updated baseline model (2026-10-27), with fixed-holdout extensions.** Sections 1-5 run the SIC2 split and four original matching routes on the training firms. Section 6 replays the source-cited 0–2 judge's two peer-selection rules. Section 7 compares six routes under the general facets and Fiona's complete sector-facet configuration on the same holdout, with one no-matching control. Sections 8-10 analyze facets, size and golden-set targets. Writes to `outputs-local/comps_pilot_targets/` (README there). |
 | `notebooks/golden_set.ipynb`, `golden_set.py` | **The golden set (2026-10-27).** Builds the pool to label for PCTY and WEN (the union of the four routes' comps: 36 pairs), writes a blind, shuffled CSV sheet to `outputs-local/comps_pilot_targets/golden_set/labels/golden_set_labels.csv` (never overwritten once it exists), checks the hand scores (2 direct, 1 adjacent, blank = 0 with one of five reasons) and prints precision@10, direct hits@10 and NDCG@10 per route. No API calls. Metrics wait until every pair is reviewed. Tests in `tests/test_golden_set.py` |
 | `reviewer_gold_eval.py` | Scores the four saved routes separately against Riya, Barbara, and Matthew's 36 reviewed pairs, without forcing a consensus or changing their reasons. Writes reviewer metrics and a pair-disagreement table; no API calls |
 | `judge_gold_eval.py`, `graded_peer_selection.py` | Score peers directly with the shared 0–2 rubric and saved website citations. The first file compares 36 pairs with the three reviewers; the second tests grade-based selection on the fixed candidate pool, keeping the original routes unchanged. |
 | `business_split_refinement.py`, `source_split_benchmark.py`, `holdout_split_candidates.py`, `split_peer_eval.py`, `notebooks/business_split_refinement_eval.ipynb` | Corrects dated activity status and groups current business activities under one company ID; checks ten selected profiles against primary sources; compares the unchanged peer judge with added scope context on ten development and six fixed-holdout targets. The executed notebook shows reviewer, source, peer, and valuation results. The tested context raises median valuation error on both subsets and is not adopted as the v0 default |
 | `facet_eval.py`, `notebooks/gold_and_holdout_integration.ipynb` | Reuses saved per-facet embeddings to compare the existing facet set and single-facet removals against each reviewer's scores; presents those results alongside source checks and the fixed holdout |
+| `sector_facet_candidates.py` | Reuses Fiona's `generic + all sector facets` variant on the fixed holdout: eleven general facets plus FF49, SIC4, filled sub-sector text and sector-specific categories, with equal available-facet weights. It keeps the original peer pool and candidate rule; it does not impose a same-sector filter. |
 | `holdout_llm_routes.py`, `holdout_batched_routes.py`, `holdout_evaluation.py` | Runs the two LLM selection stages on all 160 fixed-holdout targets, then evaluates cosine, cosine → LLM, direct LLM, and LLM → cosine against the same 373-company pool and no-matching control. The holdout uses Codex CLI rather than the original Haiku training backend. The batch runner evaluates targets independently while sharing the large direct-LLM pool prompt; the inference protocol is recorded |
 | `source_scope_sensitivity.py` | Flags selected peers among 40 source-audited companies that have multiple businesses, and reports how excluding them changes coverage and error. This is a diagnostic; it does not change the default peer lists |
 | `notebooks/history/comps_and_valuation_size_stratified.ipynb` | The previous baseline, kept unchanged (apart from a banner) for reference: the split stratified on company size and the original ten showcase targets. Its outputs are in `outputs-local/comps/` |
@@ -72,6 +73,22 @@ notebook, which reads the saved outputs. The reviewer-label facet comparison
 uses `facet_eval.py --saved-cache-run` with the four exported reviewer files;
 its inputs and results are in the notebook. No financial multiple is passed to
 the peer-selection calls.
+
+The sector-facet holdout comparison keeps these six routes and the fixed split.
+It reuses Fiona's `generic + all sector facets` definition without a sector
+restriction; `notebooks/comps_and_valuation.ipynb` reports the six new rows
+beside the saved general-facet rows. With the local Codex CLI login:
+
+```text
+python v0/fill_sector_facets.py --stage comps_pilot_targets --include-holdout --backend codex --out outputs-local/comps_pilot_targets/sector_facets
+python v0/sector_facet_candidates.py
+python v0/holdout_batched_routes.py --candidates-run outputs-local/comps_pilot_targets/sector_facets/holdout_candidates --sector-facets outputs-local/comps_pilot_targets/sector_facets/tables/sector_facets.csv --out outputs-local/comps_pilot_targets/sector_facets/holdout_llm
+python v0/graded_peer_selection.py --mode holdout --execute --candidates outputs-local/comps_pilot_targets/sector_facets/holdout_candidates --llm-dir outputs-local/comps_pilot_targets/sector_facets/holdout_llm --out outputs-local/comps_pilot_targets/sector_facets/holdout_grades
+```
+
+The saved run has 533 company profiles, 160 holdout targets and 2,470 graded
+candidate pairs. Its six valuation rows and paired changes are in the main
+notebook and `outputs-local/comps_pilot_targets/sector_facets/comparison/`.
 
 The completed local holdout covers 160 SIC2 targets. On the 107 targets
 estimated by all four routes, median EV/EBITDA APE is 36.83% for cosine,
@@ -283,7 +300,7 @@ are to the golden set, not by valuation error). Built on branch
 |---|---|
 | `sectors.py` | SIC → Fama-French 49 industry (`reference/Siccodes49.txt`, Ken French's file) → one of eleven sector groups (`SECTOR_GROUPS`); the sector facet as a similarity (1 same FF49, 0.5 same group, 0 otherwise) |
 | `sector_facets.py` | the sub-sector text facet for everyone, plus 2-5 category facets per sector group, taken from Barbara's "Comprehensive Company Facet Framework" section 2 (software, manufacturing, financials, healthcare, consumer, energy, business services; distribution/transport, construction/real estate and telecom/media are ours); prompt, answer schema and checks |
-| `fill_sector_facets.py` | fills them with Claude Haiku from evidence, not memory alone: the company's saved website pages by default, plus a deeper crawl and web search with `--evidence` (`verification/evidence.py`); every facet cites its evidence lines, a facet filled from memory is flagged `from_memory`, and one with neither is unknown; no financials; training firms only unless `--include-holdout`; `outputs-local/comps/sector_facets/tables/sector_facets.csv` |
+| `fill_sector_facets.py` | fills them from saved website evidence with Claude Haiku or Codex CLI (`--backend codex`); `--evidence` adds a deeper crawl and web search. Each facet cites supporting lines; model-memory fills are flagged `from_memory`. No financials; training firms only unless `--include-holdout`. |
 | `facet_eval.py` | ranks every labeled training target's pool under each variant (generic step 4; generic minus one facet, for each facet; + sector; + sub-sector (SIC4, no LLM: 1 same 4-digit SIC, 2/3 same 3-digit, 1/3 same 2-digit); + LLM sub-sector; + sector-specific facets; sub-model = comps only from the target's sector group) and scores the ranking against the golden set (2/1/0) and the step 6 judge: pairwise accuracy, recall@10 and MRR of the best comps, top-10 label mean and how much of the top 10 is labeled; `outputs-local/<stage>/facet_eval/<run>/`, where `--stage` picks the split and judge: `comps` (previous baseline) or `comps_pilot_targets` (updated baseline) |
 
 Decisions and notes:
@@ -294,8 +311,9 @@ Decisions and notes:
   across groups the facet is left out of the pair, like an unknown facet.
 - **Sub-model:** a target searches only its own sector group when the group
   has at least 8 training firms (`facet_eval.MIN_POOL`), else the whole pool.
-- **Holdout untouched:** the fill defaults to training firms, and any label
-  that touches a holdout company is dropped (and counted) by the eval.
+- **Frozen design:** the fill defaults to training firms. The fixed-holdout
+  comparison fills holdout companies only after the facet definitions are fixed;
+  training-label evaluation still drops any label touching a holdout firm.
 - **Golden-set file:** `.csv` or `.xlsx` with a target column (`target`,
   `target_ticker` or `target_iq_id`), a comp column (likewise) and a score
   (`score`, `label`, `grade` or `rating`; 0-2 is halved, 0/0.5/1 kept).
@@ -334,8 +352,9 @@ targets, 4,996 labeled pairs; pairwise accuracy):
   (labeled share falls from 0.97 to 0.77-0.90), while the labeled ones score
   higher (top-10 label mean 0.158 to 0.19). A golden set from pooled
   candidates is needed to settle it.
-- The sector-specific facets are not filled yet (no API key in this
-  session).
+- The 2026-10-27 results above preceded the sector-facet fill. The current
+  fixed-holdout comparison and its 36-pair reviewer check are in
+  `notebooks/comps_and_valuation.ipynb`.
 
 ## The facets
 

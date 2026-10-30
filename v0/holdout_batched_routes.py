@@ -65,7 +65,7 @@ def judge_schema(targets: list[str]) -> dict:
 
 def run(candidates_run: Path = common.CANDIDATES, output: Path = common.OUTPUT,
         model: str = common.MODEL, limit: int | None = None,
-        workers: int = 3) -> dict:
+        workers: int = 3, sector_facets: Path | None = None) -> dict:
     # Large shared-pool prompts sometimes exceed the facet fill's 10-minute
     # default. Resume cached batches and allow 20 minutes for the few long calls.
     common.ff.CODEX_TIMEOUT_SECONDS = 1200
@@ -87,6 +87,11 @@ def run(candidates_run: Path = common.CANDIDATES, output: Path = common.OUTPUT,
         raise ValueError("Candidates include a training target")
     if not set(pairs["comp"]) <= set(training):
         raise ValueError("Candidates include a holdout peer")
+    if sector_facets is not None:
+        from sector_facet_candidates import attach_sector_summary, load_sector_facets
+        sector = load_sector_facets(sector_facets, list(info.index))
+        facets = attach_sector_summary(facets, sector)
+        direct_facets = attach_sector_summary(direct_facets, sector)
     system, labels = suggest.build_system(training, direct_info, direct_facets)
     output.mkdir(parents=True, exist_ok=True)
     (output / "direct_system.txt").write_text(system, encoding="utf-8")
@@ -169,6 +174,7 @@ def run(candidates_run: Path = common.CANDIDATES, output: Path = common.OUTPUT,
     pd.DataFrame(issue_rows, columns=["target", "route", "issue"]).to_csv(
         output / "answer_issues.csv", index=False)
     summary = {"model": model, "inference_protocol": "batched independent targets",
+               "sector_facets": str(sector_facets) if sector_facets else None,
                "direct_batch_size": DIRECT_BATCH, "judge_batch_size": JUDGE_BATCH,
                "workers": workers, "call_timeout_seconds": common.ff.CODEX_TIMEOUT_SECONDS,
                "split_run": config["split_run"], "candidate_run": str(candidates_run),
@@ -187,5 +193,10 @@ if __name__ == "__main__":
     parser.add_argument("--limit", type=int)
     parser.add_argument("--model", default=common.MODEL)
     parser.add_argument("--workers", type=int, default=3)
+    parser.add_argument("--candidates-run", type=Path, default=common.CANDIDATES)
+    parser.add_argument("--out", type=Path, default=common.OUTPUT)
+    parser.add_argument("--sector-facets", type=Path)
     args = parser.parse_args()
-    print(json.dumps(run(model=args.model, limit=args.limit, workers=args.workers), indent=2))
+    print(json.dumps(run(candidates_run=args.candidates_run, output=args.out,
+                         model=args.model, limit=args.limit, workers=args.workers,
+                         sector_facets=args.sector_facets), indent=2))

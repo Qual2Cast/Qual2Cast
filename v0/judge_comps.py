@@ -96,6 +96,9 @@ def describe(row: pd.Series) -> str:
         status = row.get(f"{f.name}_status", "unknown")
         value = {"unknown": "unknown", "not_applicable": "none"}.get(status) or row.get(f.name, "") or "unknown"
         lines.append(f"- {f.label}: {value}")
+    sector_summary = row.get("sector_summary", "")
+    if isinstance(sector_summary, str) and sector_summary:
+        lines.append(f"- Sector-specific business characteristics: {sector_summary}")
     return "\n".join(lines)
 
 
