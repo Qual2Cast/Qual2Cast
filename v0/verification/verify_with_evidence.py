@@ -9,6 +9,8 @@ Haiku call per company and evidence tier:
   P     the saved scrape pages only (what a website-only check sees)
   PW    plus the same-site crawl (evidence.py, W lines)
   PWS   plus web search results (S lines)
+  R     the same evidence as PWS, but retrieved per facet (retrieve.py): the
+        k lines most related to each facet, shown under that facet
 
 For each facet the model gives a verdict, cites the evidence labels and
 gives a short reason. Code then applies the rules (as apply_split_check does
@@ -43,12 +45,13 @@ sys.path.insert(0, str(HERE))
 import facets as fc  # noqa: E402
 import fill_facets as ff  # noqa: E402
 import evidence as evm  # noqa: E402
+import retrieve as rv  # noqa: E402
 from project_data import OUTPUTS_LOCAL  # noqa: E402
 
-PROMPT_VERSION = "2026-10-26a"
+PROMPT_VERSION = "2026-10-27a"   # a: an item the evidence doesn't mention is not a problem
 OUT = OUTPUTS_LOCAL / "comps" / "evidence_verify"
 VERDICTS = ["supported", "partly", "contradicted", "missed", "not_found"]
-TIERS = ["P", "PW", "PWS"]
+TIERS = ["P", "PW", "PWS", "R"]
 
 INSTRUCTIONS = """\
 You check descriptions of a company against evidence. A research project \
@@ -63,11 +66,13 @@ press_release, news, reference or database.
 
 For each facet, compare the value with the evidence only. Do not use what \
 you already know about the company.
-- "supported": the evidence confirms the category and the main claim. A \
-missing minor item is fine.
-- "partly": the main claim is confirmed, but an item or detail is wrong, \
-not confirmed while others are, or out of date; or a size category is one \
-step off what the company says about itself.
+- "supported": the evidence confirms the category and the main claim. \
+Items or details the evidence doesn't mention are fine: evidence is never \
+complete, so silence about an item is not a problem.
+- "partly": the main claim is confirmed, but the evidence shows an item or \
+detail is wrong or out of date (for example a product line the evidence \
+says was sold), or a size category is one step off what the company says \
+about itself. Never use "partly" only because an item isn't mentioned.
 - "contradicted": the evidence conflicts with the category or the main \
 claim, for example a geography category narrower than the countries the \
 evidence names, a business the evidence says was sold, or a single-line \
@@ -102,10 +107,36 @@ def facet_block(row: pd.Series) -> str:
     return "\n".join(lines)
 
 
-def build_prompt(row: pd.Series, ev: evm.Evidence, tier: str) -> tuple[str, dict[str, str]]:
+def facet_values(row: pd.Series) -> dict[str, str]:
+    """Facet name -> the value as the verifier sees it ("unknown" etc. for a
+    facet that wasn't filled)."""
+    out = {}
+    for f in fc.FACETS:
+        status = row.get(f"{f.name}_status", "")
+        out[f.name] = row.get(f.name, "") if status == "filled" else status or "unknown"
+    return out
+
+
+# Added after the facet values for tier R only, so the shared INSTRUCTIONS
+# (the cached prefix) stay the same for every tier.
+R_NOTE = """\
+The evidence is grouped by facet: under each facet are the lines most \
+related to it, picked by a search over all the evidence. Judge each facet \
+from the lines under it; you may also cite a line shown under another \
+facet."""
+
+
+def build_prompt(row: pd.Series, ev: evm.Evidence, tier: str, *, k: int = rv.DEFAULT_K,
+                 retriever: str = "bm25") -> tuple[str, dict[str, str]]:
+    head = f"Company: {row['target_company_name']}\nWebsite: {ev.website}"
+    if tier == "R":
+        values = facet_values(row)
+        picked = rv.retrieve(ev, values, k=k, method=retriever)
+        lines = {lab: ev.lines[lab] for lab in rv.shown(picked)}
+        return (INSTRUCTIONS + "\n\n" + head + "\n\n" + R_NOTE + "\n\nFacet values and evidence:\n"
+                + rv.evidence_block(ev, picked, values)), lines
     lines = ev.subset(tier)
     body = ev.text(tier) or "(no evidence)"
-    head = f"Company: {row['target_company_name']}\nWebsite: {ev.website}"
     return (INSTRUCTIONS + "\n\n" + head + "\n\nFacet values:\n" + facet_block(row)
             + "\n\nEvidence:\n" + body), lines
 
@@ -180,6 +211,8 @@ def main() -> None:
     p.add_argument("--refresh-evidence", action="store_true", help="collect evidence again")
     p.add_argument("--model", default=ff.DEFAULT_MODEL["claude"])
     p.add_argument("--effort", choices=["low", "medium", "high"])
+    p.add_argument("--k", type=int, default=rv.DEFAULT_K, help="tier R: evidence lines per facet")
+    p.add_argument("--retriever", choices=rv.RETRIEVERS, default="bm25", help="tier R: how lines are picked")
     args = p.parse_args()
 
     table = pd.read_csv(Path(args.facets) / "tables" / "facets.csv", dtype=str).fillna("")
@@ -198,7 +231,7 @@ def main() -> None:
             ev = evm.gather(row.IQ_COMPANY_ID, row.target_company_name, row.target_ciq_website,
                             provider=args.provider)
         for tier in args.tiers:
-            prompt, lines = build_prompt(row, ev, tier)
+            prompt, lines = build_prompt(row, ev, tier, k=args.k, retriever=args.retriever)
             call_dir = run / "calls" / row.IQ_COMPANY_ID / tier
             call_dir.mkdir(parents=True, exist_ok=True)
             (call_dir / "prompt.txt").write_text(prompt, encoding="utf-8")
@@ -219,7 +252,9 @@ def main() -> None:
     verdicts.to_csv(run / "verdicts.csv", index=False)
     (run / "run.json").write_text(json.dumps({"prompt_version": PROMPT_VERSION, "model": args.model,
                                               "facets": str(args.facets), "tickers": args.tickers,
-                                              "tiers": args.tiers}, indent=1), encoding="utf-8")
+                                              "tiers": args.tiers,
+                                              "retrieval": {"version": rv.RETRIEVAL_VERSION, "k": args.k,
+                                                            "retriever": args.retriever}}, indent=1), encoding="utf-8")
     print(f"\nVerdicts -> {run / 'verdicts.csv'}")
     if args.gold and len(verdicts):
         s = score(verdicts, pd.read_csv(args.gold, dtype=str).fillna(""))

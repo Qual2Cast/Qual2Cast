@@ -15,9 +15,23 @@ had 0 of 12 facets supported.
 | file | what it does |
 |---|---|
 | `evidence.py` | Collects evidence for a company and labels each line: `P1.3` saved scrape page, `W2.4` another page of its own site (deeper crawl, robots.txt honoured), `S3.1` a web search result. It drops investor-relations, SEC and market-data sources, and results pages a private company wouldn't have. It ranks sources (company site > press release > news > reference > database), drops lines with financial or headcount figures, and logs every query and page. It doesn't judge anything. |
-| `verify_with_evidence.py` | Stand-in verifier for measuring the evidence: one Haiku call per company and evidence tier (`P`, `PW`, `PWS`). It gives each facet supported / partly / contradicted / missed / not_found, with cited labels. Code rules: an uncited verdict becomes not_found, and a contradiction resting only on database sources becomes not_found. It scores against gold labels. |
+| `verify_with_evidence.py` | Stand-in verifier for measuring the evidence: one Haiku call per company and evidence tier (`P`, `PW`, `PWS`, `R`). It gives each facet supported / partly / contradicted / missed / not_found, with cited labels. Code rules: an uncited verdict becomes not_found, and a contradiction resting only on database sources becomes not_found. It scores against gold labels. |
+| `retrieve.py` | Retrieval for tier `R` (the RAG step, added 2026-10-27, Yifan): for each facet it picks the k evidence lines most related to it (BM25 keyword ranking by default, or `--retriever hybrid` with the embedding model `candidates.py` uses), from the facet's name, the filled value and words that tend to settle it (deal words like *sold*, *divested* for products and offering). Run it alone to see what it picks, without any API call. |
+| `gold_from_labels.py` | Turns the team's labelled sheet (`facet_gold_labels`, 40 companies, 480 facets) into a fill table of the labelled values and a gold file the scorer reads. The labelled values come from an earlier fill run (41 of 480 match the current fill), so the verifier must judge these values, not the current fill. |
 | `pages_only_fill.py` | Experiment: refill companies from the saved pages only, with the company's name and website masked, to see how fills look for a private company the model doesn't know. `--compare` puts the result next to the memory fill and the gold verdicts. |
 | `tests/` | Offline tests (no network, no API): `python -m pytest v0/verification/tests -q` |
+
+## Tier R: retrieval before judging
+
+`P`, `PW` and `PWS` put all of a company's evidence in one prompt. `R` uses
+the same evidence as `PWS`, but `retrieve.py` first picks the k lines (default
+8) most related to each facet and the prompt shows them under that facet; a
+line picked for several facets is written out once. Citations, rules and
+scoring are unchanged, so `R` against `PWS` measures what retrieval adds.
+On the saved pages alone (no crawl or search) the `R` prompts are about the
+same size as `PWS`; the gain should show when the crawl and search add many
+lines. Example: for AFG, `R` puts "Sale of Annuity Business to MassMutual"
+under primary products, the out-of-date annuities the labels flagged.
 
 ## Plugging into Riya's verifier
 
@@ -27,7 +41,21 @@ and `sources` (`P1`/`W2`/`S3` to url, type, title, date). `ev.text("PWS")` is
 the block to put in a prompt. When her verifier finds that the site doesn't
 settle a facet, pass it these lines and have it cite the labels.
 
-## Running (from the repo root)
+## Running on the team's 40 labelled companies (from the repo root)
+
+```
+python v0/verification/gold_from_labels.py --labels "facet_gold_labels - Labels.csv"
+python v0/verification/retrieve.py --facets outputs-local/comps/gold_labels --tickers AFG   # after evidence exists
+python v0/verification/verify_with_evidence.py --facets outputs-local/comps/gold_labels \
+    --tickers PCTY BV ROAD LMB BRO ADUS DXPE SLGN BGS WEN CSL AFG NWSA AZZ BOC TECH PBYI BLBD KAI DORM \
+              FRPT HEOL UFPT MSA TASK BUKS NGS ACEL NRC DV LUCK FLUT CCC SNFC.A RYAN CRVL GLIB.A JBHT BBCP BBW \
+    --gold outputs-local/comps/gold_labels/verification/gold_labels.csv
+```
+
+`--tiers PWS R` runs only the two tiers being compared; `--k` and
+`--retriever` set the retrieval.
+
+## Running on the 20 hand-checked companies (from the repo root)
 
 Search needs one API key in the environment or `.env`: `SERPER_API_KEY`
 (Google results, serper.dev), `BRAVE_API_KEY` or `TAVILY_API_KEY`. Five
