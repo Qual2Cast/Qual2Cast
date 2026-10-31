@@ -243,7 +243,7 @@ Earlier attempts that aren't part of the pipeline (structured profiles written b
 ## Next steps
 
 1. **Open branches:** open a pull request so retrieval tier `R` reaches `main`, run it on the 40 labelled companies, and decide whether `kethan/wip`'s pipeline refactor is rebased onto the SIC2 baseline or dropped.
-2. **Independent holdout labels:** the 36 PCTY/WEN labels cover only two targets. Get peer labels for more holdout targets before adopting the sector facets or the graded judge as the default.
+2. **Independent holdout labels:** the 36 PCTY/WEN labels cover only two targets. Get peer labels for more holdout targets before adopting the sector facets or the graded judge as the default. The fixed holdout has been used to compare many configurations, so it can no longer serve as a final test: a final score needs a fresh set (for example a wider universe, which Aziz has allowed), with the settings and one primary rule written down before it is scored.
 3. **Estimate formation:** every route still lands within a few points of no matching. Test pulling the estimate toward the all-company median, size as a secondary check, and a "no good match" rule.
 4. **Facet quality:** act on the verification findings (sold businesses, weak geography and size facets) and agree the 20-company and 40-company label sets before trusting the scores.
 5. **Growth model:** build the point-in-time revenue and outcome table it needs.
