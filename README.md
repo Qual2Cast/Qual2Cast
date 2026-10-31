@@ -10,16 +10,22 @@ Private companies don't publish audited financials, so it's hard to estimate how
 
 Every automated step, including any language model, is treated as a system under test: it's scored against known answers, and its errors are counted rather than trusted away.
 
-_README last updated 2026-10-24: work from before v0 moved into `pre-v0/`. Times below are US Eastern (UTC−4)._
+_README last updated 2026-10-31 to reflect `main` through PR #22 (2026-10-28). Work from before v0 is in `pre-v0/`. Times below are US Eastern (UTC−4)._
 
-**Current method (v0):** the mentor's recipe for comps, in [`v0/`](v0/README.md); start with
-[`v0/notebooks/comps_and_valuation.ipynb`](v0/notebooks/comps_and_valuation.ipynb).
+**Current method (v0):** the mentor's recipe for comps, in [`v0/`](v0/README.md). Since the pre-v0
+matching, v0 has grown from a candidate-and-estimate pipeline into a scored, held-out evaluation
+with human labels, source-checked facets, an LLM judge and sector-specific facets (see
+[What v0 has now](#what-v0-has-now)). Start with
+[`v0/notebooks/comps_and_valuation.ipynb`](v0/notebooks/comps_and_valuation.ipynb), the baseline
+and the fixed-holdout comparison, then
+[`v0/notebooks/gold_and_holdout_integration.ipynb`](v0/notebooks/gold_and_holdout_integration.ipynb)
+for the human-label and holdout report.
 
 **Evaluate the cosine → LLM peers:** continue in
 [`v0/notebooks/peer_evaluation.ipynb`](v0/notebooks/peer_evaluation.ipynb).
-It grades accepted pairs against saved website passages on a 0–3 rubric using
-Codex CLI or Claude Code CLI. The matching notebook's final cell exports its
-input handoff. [Setup and interpretation](v0/PEER_EVALUATION.md).
+It grades accepted pairs against saved website passages using Codex CLI or Claude Code CLI.
+The matching notebook's final cell exports its input handoff.
+[Setup and interpretation](v0/PEER_EVALUATION.md).
 
 **Team report (2026-10-20, before v0):** read the [four-page research memo](pre-v0/reports/team_company_workflow/team_research_memo.pdf)
 and [contribution/evidence appendix](pre-v0/reports/team_company_workflow/team_research_appendix.html).
@@ -41,13 +47,47 @@ mandatory before financial ranking; independent human validation remains pending
 |---|---|---|
 | Company list | **Done.** 560 US public companies, used as stand-ins for private targets. | `data-local/snapshots/`, `data_manifest.json` |
 | Website scrape | **Done for all 560.** 532 sites gave usable text. | `website_scrape/` |
-| Comps recipe (v0) | **Steps 1-7 built (2026-10-25).** The mentor's recipe: universe and EV/EBITDA 3-30 range (533 firms), twelve facets filled by Claude Haiku 5.5, a 70/30 training/holdout split, candidates by facet embeddings, an LLM good/bad step and an LLM that picks comps directly, and estimates against the actual multiples. Every way of choosing comps lands at about 30-33% median error on the training targets (no matching: 32.7%). Holdout not scored yet; evals next. | `v0/` |
+| Comps recipe (v0) | **Steps 1-7 built and the fixed holdout scored (2026-10-28).** Universe and EV/EBITDA 3-30 range (533 firms), twelve facets filled by Claude Haiku 5.5, a SIC2-stratified 373 training / 160 holdout split, candidates by facet embeddings, an LLM good/bad judge, an LLM that picks comps directly, the reverse hybrid (LLM then cosine), and estimates against the actual multiples. On the 160 holdout targets the no-matching control has a median error of 39.9% and the routes land at about 33-38% on the targets each can estimate; paired bootstrap intervals do not establish a winner. | `v0/` |
+| Human labels and judge checks | **Three reviewers' 0-2 labels on 36 PCTY/WEN pairs** score the four routes separately (only 11/36 pairs are unanimous). A source-cited 0-2 LLM judge is checked against them and runs as an optional peer-selection route on all 160 holdout targets. | `v0/reviewer_gold_eval.py`, `v0/judge_gold_eval.py`, `v0/graded_peer_selection.py`, `v0/golden_set.py` |
+| Facet checks | **Facet fills checked against evidence beyond the scrape** (saved pages, deeper site crawl, web search): 24.5% of checkable fills on a 20-company hand check had a problem. Facet add/drop evaluation against peer labels. | `v0/verification/`, `v0/facet_eval.py` |
+| Sector sub-models | **Eleven sector groups from Fama-French 49, with sector-specific facets and a sub-sector description**, filled for all 533 firms. On the holdout, cosine median error moves from 37.3% to 35.0% (paired change -1.9 points, interval -3.8 to +0.3); other routes show no clear gain. | `v0/sectors.py`, `v0/sector_facets.py`, `v0/sector_facet_candidates.py` |
+| Business-split refinement | **Source-checked grouping of multi-business firms** (40 companies; 8 have several current businesses). Improves the targeted source check but, as an extra prompt context, raised valuation error in the tests, so it is kept as metadata and not adopted as a v0 rule. | `v0/business_split_refinement.py`, `v0/notebooks/business_split_refinement_eval.ipynb` |
 | Comparable-company matching | **Three methods built and scored on all 535 usable companies.** Picking comps from website text finds real peers but doesn't yet beat a no-matching estimate on valuation error. | `pre-v0/matching/` |
 | Ten-company research pilot | **Frozen comparison** of 31 ways to rank peers, on ten companies. Human review still pending. | `pre-v0/notebooks/`, `pre-v0/experiments/`, `pre-v0/reports/` |
 | Integrated team workflow | **Staged company workflow and team memo** (Yikai, on main 2026-10-20). | `pre-v0/pipeline/`, `pre-v0/valuation/`, `pre-v0/notebooks/team_company_workflow.ipynb`, `pre-v0/reports/team_company_workflow/` |
 | Growth signals | **Revised 13-type extraction and SEC revenue outcomes integrated.** Rules/LLM/agreement comparison is exploratory; historical coverage and label review remain incomplete. | `pre-v0/growth_signals/`, `pre-v0/reports/team_company_workflow/` |
 | Growth forecasting model | **Not started.** Needs past revenue for the outcome and point-in-time event history. | n/a |
 | Report, definitions and limitations | **Four-page team memo complete (2026-10-20, before v0).** Detailed contributions, sources and reproducible workflow are in the appendix and notebook. | `pre-v0/reports/team_company_workflow/`, `pre-v0/notebooks/team_company_workflow.ipynb` |
+
+## What v0 has now
+
+The pre-v0 matching ended with "right peers still give wrong values". v0 replaced it with the mentor's recipe and then added the pieces needed to test it properly. Everything below is on `main` (PRs #8-#22). Each item has its own entry in [`v0/README.md`](v0/README.md).
+
+**The recipe and baseline** (Michael, [#8](https://github.com/Qual2Cast/Qual2Cast/pull/8), [#11](https://github.com/Qual2Cast/Qual2Cast/pull/11), [#15](https://github.com/Qual2Cast/Qual2Cast/pull/15))
+- 533-firm universe, twelve LLM-filled facets (no financial figures, no guessing from the name, saved pages fill gaps only), embeddings, a 373/160 SIC2-stratified training/holdout split, and the EV/EBITDA estimate. The SIC2 notebook is the updated baseline; the earlier size-stratified one is kept in `v0/notebooks/history/`.
+- Facet and company-size analysis: company size (F9) and geography (F8) are the weakest facets.
+
+**Four matching routes** (Yikai, [#12](https://github.com/Qual2Cast/Qual2Cast/pull/12), [#13](https://github.com/Qual2Cast/Qual2Cast/pull/13))
+- Cosine z ≥ 2, cosine → LLM judge, direct LLM, and LLM → cosine, each named and compared against the no-matching control.
+
+**Golden set and human labels** (Michael [#16](https://github.com/Qual2Cast/Qual2Cast/pull/16)/[#17](https://github.com/Qual2Cast/Qual2Cast/pull/17); Yikai [#19](https://github.com/Qual2Cast/Qual2Cast/pull/19))
+- The 36 PCTY/WEN pairs pooled from the four routes, labeled blind by Riya, Barbara and Matthew, scored with precision@10, direct hits@10 and NDCG@10 per reviewer without forcing a consensus.
+- Holdout evaluation: all four routes run on the 160 holdout targets against the training pool, with a bootstrap for paired differences. The LLM calls in the holdout use `gpt-6.1-sol` in batches, so compare routes within the holdout, not against the original Haiku training run.
+
+**LLM as judge** (Kethan, direct commit `c2977824` on 2026-10-27; Yikai [#20](https://github.com/Qual2Cast/Qual2Cast/pull/20), [#21](https://github.com/Qual2Cast/Qual2Cast/pull/21))
+- `peer_evaluation.py` grades accepted peers against saved website passages, with citations required from both companies, through Codex CLI or Claude Code CLI (`cli_models.py`). `judge_gold_eval.py` checks the shared 0-2 rubric's grades against the three reviewers on the 36 pairs.
+- The same 0-2 rubric (`graded_peer_selection.py`) also works as an optional peer-selection route: it improves coverage over the binary judge (155/160 vs 110/160 targets) with no established error advantage over cosine.
+
+**Facet verification** (Yiming, [#9](https://github.com/Qual2Cast/Qual2Cast/pull/9))
+- `v0/verification/` collects evidence beyond the scrape: saved pages, a deeper crawl of the company's own site, and web search (Serper, Brave or Tavily). Every line is labeled with its source, investor-relations and market-data sources are dropped, and a stand-in verifier scores facet fills as supported, partly, contradicted, missed or not found, citing the lines. It also refills facets from pages alone with the company name masked, to see how a private company the model doesn't know would look.
+
+**Sector sub-models and facet evaluation** (Fiona, [#18](https://github.com/Qual2Cast/Qual2Cast/pull/18); integrated by Yikai in [#22](https://github.com/Qual2Cast/Qual2Cast/pull/22))
+- Fama-French 49 sector groups, sub-sector text and sector-specific facets, filled evidence-first from saved pages. `facet_eval.py` scores facet removals and sector additions against the reviewers' labels.
+
+**Business structure** (Yikai, [#14](https://github.com/Qual2Cast/Qual2Cast/pull/14) and the 2026-10-28 refinement)
+- Source-checked grouping of each firm's current businesses, with corrected activity status (a targeted primary-source check improves from 27/34 to 34/34 activity labels). Not adopted as a peer rule.
+
+**Not in `main` yet** (open on branches, see below): the retrieval (RAG) step for facet verification, and the one-notebook pipeline refactor.
 
 ## How it fits together
 
@@ -150,9 +190,12 @@ Records *what changed at a company and when*, from its own News, Press, Careers 
 
 ## Work on branches, not yet in `main`
 
+Checked against `origin/main` on 2026-10-31. Every other remote branch is fully merged, including `growth-signals-recall` (its revised extractor is now under `pre-v0/growth_signals/`).
+
 | branch | author | last commit | what's there | state |
 |---|---|---|---|---|
-| `growth-signals-recall` | Xiaozhe | 2026-10-19 16:26 | Revised growth-signal extractor. Catches more phrasings (noun forms like "the launch of", "N new openings"); rule windows no longer stop at decimals or abbreviations ("$2.2 million", "Inc."); rejects sentences where another company is acting; adds five event types (acquisition, divestiture, funding round, guidance raised, guidance lowered); counts one event per article rather than per sentence; tags pages found only through an investor-relations site. | Not merged; 6 commits ahead of main, 10 behind. On new, unseen companies (held-out C) the rules are right 58-61% of the time and find 43% of true events. An LLM pass is in progress, not yet on the branch. Handoff: `conversations/2026-10-19-growth-signals.md` (also on main). Its files are under `pre-v0/growth_signals/` on main now. |
+| `verification/gold-labels` | Yifan / Richard | 2026-10-27 23:32 | **The retrieval (RAG) step for facet verification.** `retrieve.py` picks, for each facet, the k evidence lines most related to it (BM25 by default, or hybrid with the same embedding model as `candidates.py`, using the facet name, the filled value and words that tend to settle it such as *sold* or *divested*), and the verifier judges against those lines as new tier `R`, so `R` against `PWS` measures what retrieval adds. `gold_from_labels.py` turns the team's 40-company, 480-facet label sheet into a gold file the scorer reads, and the verifier's "partly" rule is aligned with those labels. Two new test files, about 650 added lines. | One commit ahead of `main`; not merged. Builds on `v0/verification/` already on `main`; running it needs the evidence crawl and a search API key. |
+| `kethan/wip` | Kethan | 2026-10-27 | One-notebook pipeline refactor: `pipeline.ipynb` and `v0/pipeline.py` run the v0 steps behind Codex or Claude CLI backends, with `requirements.txt` and tests. | One commit ahead of `main`. It is built on the earlier size-stratified split, not the SIC2 baseline, so it needs rebasing before it can replace anything. |
 | `riya/wip` | Riya | 2026-10-17 17:12 | Scraper v2 (leak filters, company-name masking, all 560 companies) and the first Paylocity comps notebook (TF-IDF, LSA and embeddings, combined). | Superseded but still useful: its ideas seeded matching method 1 and `pre-v0/scraps/comps_first_pass/`. The branch also carries large data folders, so pieces are copied over as code rather than merging the branch. |
 
 Merged into `main` so far:
@@ -168,16 +211,29 @@ Merged into `main` so far:
 | 2026-10-19 19:46 | [#5](https://github.com/Qual2Cast/Qual2Cast/pull/5) `research/company-analysis-pipeline` | Integrated company analysis pipeline |
 | 2026-10-20 00:23 | [#6](https://github.com/Qual2Cast/Qual2Cast/pull/6) `research/company-analysis-pipeline` | Staged company workflow, growth-signal methods and SEC revenue outcomes |
 | 2026-10-20 11:46 | [#7](https://github.com/Qual2Cast/Qual2Cast/pull/7) `research/company-analysis-pipeline` | Consolidated team research memo |
+| 2026-10-25 | [#8](https://github.com/Qual2Cast/Qual2Cast/pull/8) `michael/wip` | v0 comps recipe (steps 1-7); earlier work moved into `pre-v0/` |
+| 2026-10-26 | [#9](https://github.com/Qual2Cast/Qual2Cast/pull/9) `yiming/facet-evidence-verification` | Pages-only facet extraction and evidence collection for facet verification |
+| 2026-10-27 | [#11](https://github.com/Qual2Cast/Qual2Cast/pull/11) `michael/wip` | v0 comps outputs shared (split, facets, judge, candidates) |
+| 2026-10-27 | [#12](https://github.com/Qual2Cast/Qual2Cast/pull/12), [#13](https://github.com/Qual2Cast/Qual2Cast/pull/13) | The reverse hybrid (LLM then cosine); all four routes named |
+| 2026-10-27 | [#14](https://github.com/Qual2Cast/Qual2Cast/pull/14) `research/business-structure` | Business structure split evaluation |
+| 2026-10-27 | [#15](https://github.com/Qual2Cast/Qual2Cast/pull/15) `michael/wip` | Updated baseline: SIC2 split, pilot-target showcase set, facet and company-size analysis |
+| 2026-10-27 | direct commit | Source-cited LLM peer evaluation (`peer_evaluation.py`, `cli_models.py`; Kethan) |
+| 2026-10-27 | [#16](https://github.com/Qual2Cast/Qual2Cast/pull/16), [#17](https://github.com/Qual2Cast/Qual2Cast/pull/17) `michael/wip` | Golden-set notebook: pool to label for PCTY and WEN, label checks, metrics |
+| 2026-10-27 | [#18](https://github.com/Qual2Cast/Qual2Cast/pull/18) `fiona/sector-submodels` | FF49 sector sub-models, sector facets and facet add/drop evaluation |
+| 2026-10-28 | [#19](https://github.com/Qual2Cast/Qual2Cast/pull/19) `research/gold-label-split-evaluation` | Reviewer-label evaluation, business-split refinement, full 160-target holdout |
+| 2026-10-28 | [#20](https://github.com/Qual2Cast/Qual2Cast/pull/20), [#21](https://github.com/Qual2Cast/Qual2Cast/pull/21) | 0-2 LLM judge in v0; graded judge routes in the main notebook |
+| 2026-10-30 | [#22](https://github.com/Qual2Cast/Qual2Cast/pull/22) `research/v0-sector-facets-integration` | Sector facets integrated into v0 and the main notebook |
 
 Earlier attempts that aren't part of the pipeline (structured profiles written by Codex, the first matching pass, the first collection script) are in [`pre-v0/scraps/`](pre-v0/scraps/README.md), with notes on why each was set aside.
 
 ## Next steps
 
-1. **Matching:** change how the estimate is formed (pull it toward the all-company median, weight comps by similarity, add a "no good match" rule), then add size (target revenue, EBITDA and debt against the comps') as a secondary check, which the updated rules now allow.
-2. **Growth signals:** fix the decimal-point bug and the listed misses on `growth-signals-recall`, score on a fresh set of unseen articles, then merge.
-3. **Checks:** human review of top comps against their source pages, for both the matching notebooks and the pilot.
-4. **Growth model:** build the point-in-time revenue and outcome table it needs.
-5. **Write-up:** definitions and limitations, then the report.
+1. **Merge the open branches:** bring in `verification/gold-labels` (retrieval tier `R`), run it on the 40 labelled companies, and decide whether `kethan/wip`'s pipeline refactor is rebased onto the SIC2 baseline or dropped.
+2. **Independent holdout labels:** the 36 PCTY/WEN labels cover only two targets. Get peer labels for more holdout targets before adopting the sector facets or the graded judge as the default.
+3. **Estimate formation:** every route still lands within a few points of no matching. Test pulling the estimate toward the all-company median, size as a secondary check, and a "no good match" rule.
+4. **Facet quality:** act on the verification findings (sold businesses, weak geography and size facets) and agree the 20-company and 40-company label sets before trusting the scores.
+5. **Growth model:** build the point-in-time revenue and outcome table it needs.
+6. **Write-up:** definitions and limitations, then the report.
 
 Day-to-day status and open questions are in [`PROJECT_STATE.md`](PROJECT_STATE.md).
 
@@ -207,7 +263,8 @@ Day-to-day status and open questions are in [`PROJECT_STATE.md`](PROJECT_STATE.m
 | `src/` | shared code: loading the data snapshot, list corrections |
 | `data_manifest.json` | which data snapshot the code needs, with checksums |
 | `website_scrape/` | collects each company's website text |
-| `v0/` | **v0:** comparable-company selection following the mentor's recipe (universe, multiple range, facets, split, candidates, LLM comp steps, valuation). Modules (`.py`) at the top; pipeline notebooks in `v0/notebooks/` |
+| `v0/` | **v0:** comparable-company selection following the mentor's recipe (universe, multiple range, facets, split, candidates, LLM comp steps, valuation), plus the evaluation layer: golden set and reviewer labels, LLM judge, holdout evaluation, sector facets, business-split refinement. Modules (`.py`) at the top; pipeline notebooks in `v0/notebooks/` |
+| `v0/verification/` | facet verification: evidence collection (saved pages, deeper crawl, web search), a stand-in verifier scored against hand labels, pages-only refills |
 | `data-local/`, `outputs-local/` | data and outputs; only the input snapshots and current website text (`page_text/`) are in Git |
 | `pre-v0/` | work from before v0 (before 2026-10-21), kept for reference and still runnable; see [`pre-v0/README.md`](pre-v0/README.md) |
 | `pre-v0/matching/` | comparable-company matching: methods notebook, evaluation notebook, write-up |
