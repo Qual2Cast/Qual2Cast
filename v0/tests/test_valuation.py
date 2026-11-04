@@ -40,3 +40,18 @@ def test_summary():
     assert s.loc["good", "% within 25%"] == 100
     assert s.loc["good", "% closer than no matching"] == 100
     assert np.isnan(s.loc["none", "Spearman(estimate, actual)"])
+
+
+def test_bootstrap_gain_is_paired_and_interval_brackets_it():
+    actual = pd.Series(10.0, index=list("abcdefghij"))
+    base = pd.DataFrame({"estimate": 15.0, "comps": 3}, index=actual.index)             # 50% off everywhere
+    good = pd.DataFrame({"estimate": 11.0, "comps": 3}, index=actual.index)             # 10% off everywhere
+    b = vl.bootstrap({"none": base, "good": good}, actual, baseline="none", n_boot=200)
+    assert b.loc["good", "median abs % error"] == pytest.approx(10)
+    assert b.loc["good", "gain on baseline"] == pytest.approx(40)
+    assert b.loc["good", "gain 2.5%"] == pytest.approx(40) and b.loc["good", "gain 97.5%"] == pytest.approx(40)
+    assert np.isnan(b.loc["none", "gain on baseline"])
+    # a rule that is no better than the baseline has an interval around 0
+    noisy = pd.DataFrame({"estimate": [15.0, 5.0] * 5, "comps": 3}, index=actual.index)  # 50% off, in both directions
+    b2 = vl.bootstrap({"none": base, "noisy": noisy}, actual, baseline="none", n_boot=200)
+    assert b2.loc["noisy", "gain on baseline"] == pytest.approx(0)

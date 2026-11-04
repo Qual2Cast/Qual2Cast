@@ -67,3 +67,30 @@ def summary(results: dict[str, pd.DataFrame], actual: pd.Series, baseline: str) 
                      else e["estimate"].corr(e["actual"], method="spearman"),
                      "% closer than no matching": np.nan if name == baseline else 100 * closer.mean()})
     return pd.DataFrame(rows).set_index("comp rule")
+
+
+def bootstrap(results: dict[str, pd.DataFrame], actual: pd.Series, baseline: str,
+              n_boot: int = 2000, seed: int = 2026) -> pd.DataFrame:
+    """Per comp rule: the median absolute % error with a 95% bootstrap
+    interval, and the points it gains on the baseline (the baseline's median
+    absolute % error minus the rule's, on the targets both estimate) with its
+    interval. Targets are resampled together, so the gain is paired. An
+    interval that includes 0 means the rule is not shown to beat the baseline."""
+    rng = np.random.default_rng(seed)
+    base = errors(results[baseline], actual)["error %"].abs()
+    rows = []
+    for name, result in results.items():
+        ape = errors(result, actual)["error %"].abs().dropna()
+        pick = rng.integers(0, len(ape), (n_boot, len(ape)))
+        lo, hi = np.percentile(np.median(ape.to_numpy()[pick], axis=1), [2.5, 97.5])
+        row = {"comp rule": name, "targets": len(ape), "median abs % error": ape.median(),
+               "error 2.5%": lo, "error 97.5%": hi, "gain on baseline": np.nan, "gain 2.5%": np.nan, "gain 97.5%": np.nan}
+        both = ape.index.intersection(base.dropna().index)
+        if name != baseline and len(both):
+            a, b = ape[both].to_numpy(), base[both].to_numpy()
+            pick = rng.integers(0, len(both), (n_boot, len(both)))
+            gain = np.median(b[pick], axis=1) - np.median(a[pick], axis=1)
+            row.update({"gain on baseline": np.median(b) - np.median(a),
+                        "gain 2.5%": np.percentile(gain, 2.5), "gain 97.5%": np.percentile(gain, 97.5)})
+        rows.append(row)
+    return pd.DataFrame(rows).set_index("comp rule")

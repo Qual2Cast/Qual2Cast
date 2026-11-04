@@ -3,6 +3,23 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
+_2026-11-03, README rewritten for non-technical readers: what the project does, the recipe in four plain steps, status and results, a folder map (v1 current, v0 the 2026-10-28 record), setup, rules, team contributions, next steps and terms. Pre-v0 sections, PR history and branch tables removed; `pre-v0/README.md` is linked for that history. Details: `conversations/2026-11-03-readme-rewrite.md`._
+
+_2026-11-03, v1 = a working copy of v0, and a shared uv environment: `v1/` is v0 as left on 2026-10-28
+(notebooks with their saved outputs, unedited apart from paths), with all code in `v1/scripts/` and outputs in
+`outputs-local/v1/` (seeded from v0's `comps_pilot_targets/` plus universe, facets, fill tests, API checks and
+embeddings by `v1/scripts/seed_from_v0.py`; v0's folders untouched). Reads of the size-stratified baseline still use
+`outputs-local/comps/`. `pyproject.toml`, `uv.lock`, `.python-version` (3.12) at the root: `uv sync` gives every
+machine the same environment; 182 tests pass under it, and a cloned notebook (golden set) runs under it.
+AGENTS.md now points to v1. `main` was fast-forwarded to PR #23 first; Kethan's `kethan/wip` pipeline is set aside.
+Label sheets: `outputs-local/v1/gold_labels/source/` (480 facet labels) and `outputs-local/v1/golden_set/labels/`
+(three reviewers, 36 pairs). Search API keys (Serper, Tavily, Brave) are in `.env`. Not run: the RAG crawl, search
+and verifier; Kethan's LLM-as-judge on the SIC2 baseline. Known when re-running on Windows: (a)
+`graded_peer_selection.evaluate_saved` rejects saved grades because `core.autocrlf` changes the universe CSV's line
+endings (content is the same); (b) `holdout_split_candidates.py` takes over 10 minutes (it re-reads the embedding
+archive per pair); (c) the sector-facet holdout routes kept only result tables, not raw answers. Details:
+`conversations/2026-11-03-v1-clone-and-uv.md`._
+
 _2026-10-28, sector-facet holdout comparison (local branch): Fiona's frozen
 `generic + all sector facets` configuration was filled for all 533 eligible
 companies from saved website evidence using GPT-6.1 Sol. The fixed 373/160
@@ -50,6 +67,8 @@ from the fixed holdout, it changes 1/72 decisions and raises median APE from
 metadata; the tested prompt is not adopted as the v0 peer rule. Executed
 notebook: `v0/notebooks/business_split_refinement_eval.ipynb`; details:
 `conversations/2026-10-28-reviewer-and-split-refinement.md`._
+
+_2026-10-27, holdout notebook built, not scored by this notebook (note added at merge: the fixed holdout was later scored by the team's 2026-10-28 holdout runs above, which use a different pipeline, and this notebook's own freeze is still unwritten): `v0/notebooks/holdout_test.ipynb` applies the baseline's rules to new targets (comps from the 373 training firms only, so a holdout multiple cannot reach an estimate). `MODE = "training"` is a reference run on the training firms (reproduces the baseline: no matching 31.9%, cosine top 10 weighted 28.8%, LLM good comps 30.5%); `MODE = "holdout"` needs `holdout/freeze.json` (settings plus one `PRIMARY_RULE`, written by the notebook), runs the frozen judge once through a printed `judge_comps.py` command, and refuses a second score under the same freeze. New `valuation.bootstrap` gives 95% intervals for each rule's error and its gain on no matching: on the 373 training targets no rule's gain interval excludes 0 (cosine top 10 weighted: +3.1 points, -1.5 to +5.5). The direct-LLM routes are not in the holdout notebook: `suggest_comps.py` has no target-set option. Holdout untouched; no freeze written; `PRIMARY_RULE` not chosen. 129 tests pass (1 new). Next: label the golden set, choose `PRIMARY_RULE` with the team, freeze, then score once. See `conversations/2026-10-27-holdout-notebook.md`._
 
 _2026-10-27, golden set built, not labeled: `v0/notebooks/golden_set.ipynb` and
 `v0/golden_set.py` pool every comp the four routes found for PCTY and WEN (36

@@ -1,0 +1,48 @@
+[project]
+name = "qual2cast"
+version = "0.1.0"
+description = "Comparable-company selection and EV/EBITDA valuation from qualitative company data"
+readme = "README.md"
+requires-python = ">=3.12"
+# Core: what v1's notebooks and scripts import (see v1/README.md). One environment for Windows and Mac:
+#   uv sync                      # core + dev (pytest)
+#   uv sync --extra scrape       # + the website scraper's browser tools
+#   uv sync --extra pre-v0       # + the earlier matching experiments (UMAP, HDBSCAN)
+dependencies = [
+    "pandas>=2.2,<3",
+    "numpy>=2",
+    "matplotlib>=3.9",
+    "pydantic>=2.7,<3",
+    "requests>=2.31",
+    "beautifulsoup4>=4.12",
+    "httpx>=0.27",
+    "anthropic>=1.0",
+    "sentence-transformers>=5",
+    "transformers>=4.40",
+    "torch>=2.4",
+    "openpyxl>=3.1",
+    "ipython>=8",
+    "ipykernel>=6",
+    "nbformat>=5",
+    "nbconvert>=7",
+]
+
+[project.optional-dependencies]
+scrape = [
+    "playwright>=1.40",              # then once: uv run playwright install chromium
+    "undetected-chromedriver>=3.5",  # needs Google Chrome installed
+    "selenium>=4",
+    "setuptools",                    # undetected-chromedriver imports distutils (removed in Python 3.12)
+]
+pre-v0 = [
+    "scikit-learn>=1.4",
+    "scipy>=1.11",
+    "umap-learn>=0.5",
+    "hdbscan>=0.8",
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.uv]
+package = false
