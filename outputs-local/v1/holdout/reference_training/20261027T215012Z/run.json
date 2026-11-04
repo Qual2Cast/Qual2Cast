@@ -1,0 +1,72 @@
+{
+ "run": "20261027T215012Z",
+ "mode": "training",
+ "freeze": null,
+ "settings": {
+  "split_run": "20261027T204930Z",
+  "universe_run": "20261025T060358Z",
+  "facets_version": "2026-10-25k",
+  "embed_model": "sentence-transformers/all-mpnet-base-v2",
+  "similarity_facets": [
+   "offering_description",
+   "primary_products",
+   "primary_services",
+   "customer_segment",
+   "end_markets",
+   "revenue_model",
+   "value_chain_position",
+   "geography_served",
+   "specialization",
+   "distribution_channels",
+   "regulatory_exposure"
+  ],
+  "weights": "equal",
+  "top_k": 10,
+  "z_levels": [
+   2.0,
+   2.5
+  ],
+  "pool": "training",
+  "judge_model": "claude-haiku-5-5",
+  "judge_prompt_version": "2026-10-25a",
+  "judge_z": 2.0,
+  "rules": [
+   "no matching (median of the training firms)",
+   "cosine top 10, similarity-weighted mean",
+   "cosine top 10, median",
+   "cosine z ≥ 2, similarity-weighted mean",
+   "cosine z ≥ 2, median",
+   "cosine z ≥ 2.5, similarity-weighted mean",
+   "cosine z ≥ 2.5, median",
+   "LLM good comps (from z ≥ 2), similarity-weighted mean",
+   "LLM good comps (from z ≥ 2), median",
+   "same SIC4 (no embeddings, no LLM), mean",
+   "same SIC3 (no embeddings, no LLM), mean",
+   "same SIC2 (no embeddings, no LLM), mean"
+  ],
+  "primary_rule": null
+ },
+ "targets": 373,
+ "pool": "training (373 firms)",
+ "baseline": "no matching (median of the training firms)",
+ "rules": [
+  "no matching (median of the training firms)",
+  "cosine top 10, similarity-weighted mean",
+  "cosine top 10, median",
+  "cosine z ≥ 2, similarity-weighted mean",
+  "cosine z ≥ 2, median",
+  "cosine z ≥ 2.5, similarity-weighted mean",
+  "cosine z ≥ 2.5, median",
+  "LLM good comps (from z ≥ 2), similarity-weighted mean",
+  "LLM good comps (from z ≥ 2), median",
+  "same SIC4 (no embeddings, no LLM), mean",
+  "same SIC3 (no embeddings, no LLM), mean",
+  "same SIC2 (no embeddings, no LLM), mean"
+ ],
+ "llm_targets_judged": 373,
+ "bootstrap": {
+  "n_boot": 2000,
+  "seed": 2026
+ },
+ "git_commit": "ad33c9c50488deb1a7723cef8b5375fed9699df3"
+}

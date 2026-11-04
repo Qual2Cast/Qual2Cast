@@ -1,0 +1,31 @@
+{
+ "run": "20261027T204930Z",
+ "candidates_run": "20261027T204930Z",
+ "split_run": "20261027T204930Z",
+ "targets": "training",
+ "pool": "training (not the target itself)",
+ "rules": [
+  "no matching (median of the other training firms)",
+  "cosine top 10, similarity-weighted mean",
+  "cosine top 10, median",
+  "cosine z ≥ 2, similarity-weighted mean",
+  "cosine z ≥ 2, median",
+  "cosine z ≥ 2.5, similarity-weighted mean",
+  "cosine z ≥ 2.5, median",
+  "LLM good comps (from z ≥ 2), similarity-weighted mean",
+  "LLM good comps (from z ≥ 2), median",
+  "LLM suggests directly (no embeddings), mean",
+  "LLM suggests directly (no embeddings), median",
+  "LLM then cosine, similarity-weighted mean",
+  "same SIC4 (no embeddings, no LLM), mean",
+  "same SIC3 (no embeddings, no LLM), mean",
+  "same SIC2 (no embeddings, no LLM), mean"
+ ],
+ "baseline": "no matching (median of the other training firms)",
+ "llm_rule": "LLM good comps (from z ≥ 2), similarity-weighted mean",
+ "llm_prompt_version": "2026-10-25a",
+ "llm_targets_judged": 373,
+ "direct_prompt_version": "2026-10-25a",
+ "direct_targets_asked": 373,
+ "targets_both_llm_rules": 264
+}

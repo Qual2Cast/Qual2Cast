@@ -1,0 +1,31 @@
+{
+  "split_run": "20261027T204930Z",
+  "targets": 160,
+  "training_pool": 373,
+  "llm_complete": true,
+  "llm_model": "gpt-6.1-sol",
+  "factor_ablation": "primary_services (F3), selected from reviewer labels",
+  "methods": [
+    "no matching, training-pool median",
+    "cosine top 10, weighted mean",
+    "cosine top 10, median",
+    "cosine z >= 2, weighted mean",
+    "cosine z >= 2, median",
+    "cosine z >= 2.5, weighted mean",
+    "cosine z >= 2.5, median",
+    "cosine minus F3 top 10, weighted mean",
+    "cosine minus F3 top 10, median",
+    "cosine minus F3 z >= 2, weighted mean",
+    "cosine minus F3 z >= 2, median",
+    "cosine minus F3 z >= 2.5, weighted mean",
+    "cosine minus F3 z >= 2.5, median",
+    "same SIC2, mean",
+    "same SIC3, mean",
+    "same SIC4, mean",
+    "cosine then LLM, weighted mean",
+    "cosine then LLM, median",
+    "LLM direct, mean",
+    "LLM direct, median",
+    "LLM then cosine, weighted mean"
+  ]
+}

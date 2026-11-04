@@ -1,0 +1,53 @@
+{
+  "run": "20261027T204930Z",
+  "split_run": "20261027T204930Z",
+  "universe_run": "20261025T060358Z",
+  "facets_version": "2026-10-25k",
+  "embed_model": "sentence-transformers/all-mpnet-base-v2",
+  "embedding_cache": "facets_all-mpnet-base-v2_6f4ce4373bfbc08a.npz",
+  "similarity_facets": [
+    "offering_description",
+    "primary_products",
+    "primary_services",
+    "customer_segment",
+    "end_markets",
+    "revenue_model",
+    "value_chain_position",
+    "geography_served",
+    "specialization",
+    "distribution_channels",
+    "regulatory_exposure"
+  ],
+  "weights": "equal",
+  "targets": "all six 40-company pilot firms in holdout",
+  "pool": "373 training firms",
+  "top_k": 10,
+  "z_levels": [
+    2.0,
+    2.5
+  ],
+  "candidate_rule": "top 10 or z >= 2",
+  "pairs": 74,
+  "showcase": [
+    "PCTY",
+    "WEN",
+    "CSL",
+    "AFG",
+    "BOC",
+    "NWSA",
+    "AZZ",
+    "BBCP",
+    "BUKS",
+    "SNFC.A"
+  ],
+  "holdout_tickers": [
+    "ADUS",
+    "TECH",
+    "BV",
+    "LMB",
+    "LUCK",
+    "RYAN"
+  ],
+  "embedding_cache_checked": "facets_all-mpnet-base-v2_6f4ce4373bfbc08a.npz",
+  "max_saved_pair_cosine_difference": 4.806289672920627e-07
+}
