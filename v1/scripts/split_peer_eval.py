@@ -18,7 +18,7 @@ import pandas as pd
 
 import business_split_refinement as refine
 import fill_facets as ff
-import judge_comps as judge
+import cosine_then_llm as judge
 import valuation
 from project_data import OUTPUTS_LOCAL
 
@@ -127,7 +127,8 @@ def run(snapshot_path: Path, candidates_path: Path, output: Path, model: str,
     with tempfile.TemporaryDirectory(prefix="split-peer-eval-") as workdir:
         for index, (ticker, target) in enumerate(targets.items(), start=1):
             pool = candidates[candidates["target"] == target].copy()
-            prompt, labels = judge.build_prompt(target, pool["comp"].tolist(), info, facets)
+            # the saved prompt version (all twelve facets), so the saved paired calls replay
+            prompt, labels = judge.build_prompt(target, pool["comp"].tolist(), info, facets, judge.SAVED_PROMPT_VERSION)
             addendum = scope_addendum(target, labels, info,
                                       {key: {"decision": value} for key, value in corrected.items()}, refined)
             control = call_or_load(prompt, labels, output / "calls" / ticker / "control", model, workdir)

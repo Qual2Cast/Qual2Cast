@@ -1,0 +1,33 @@
+{
+ "run": "20261104T074915Z",
+ "method": "B3 = method 1 (v1 baseline): 0.5 embedding cosine + 0.5 TF-IDF cosine per facet, information weights, 'none' as missing, company size out; mutual top 10 topped up to 3",
+ "universe_run": "20261025T060358Z",
+ "split_run": "20261027T204930Z",
+ "facets_version": "2026-10-25k",
+ "facets": [
+  "offering_description",
+  "primary_products",
+  "primary_services",
+  "customer_segment",
+  "end_markets",
+  "revenue_model",
+  "value_chain_position",
+  "geography_served",
+  "specialization",
+  "distribution_channels",
+  "regulatory_exposure"
+ ],
+ "excluded_facets": [
+  "company_size"
+ ],
+ "alpha": 0.5,
+ "saturation_k": 41.84879778413833,
+ "top_k": 10,
+ "min_comps": 3,
+ "targets": "training",
+ "n_targets": 373,
+ "pool": "training",
+ "embed_model": "sentence-transformers/all-mpnet-base-v2",
+ "text_cache": "texts_all-mpnet-base-v2.npz",
+ "selected_pairs": 2396
+}

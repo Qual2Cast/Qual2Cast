@@ -18,8 +18,8 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import fill_facets as ff
-import judge_comps as judge
-import suggest_comps as suggest
+import cosine_then_llm as judge
+import direct_llm as suggest
 from project_data import OUTPUTS_LOCAL
 
 
@@ -85,7 +85,8 @@ def run(candidates_run: Path = CANDIDATES, output: Path = OUTPUT,
         choices = pairs.loc[pairs["target"].eq(target), "comp"].tolist()
         judge_rows, direct_rows, issue_rows = [], [], []
         if choices:
-            prompt, candidate_labels = judge.build_prompt(target, choices, info, facets)
+            # the saved prompt version (all twelve facets), so saved calls match by fingerprint
+            prompt, candidate_labels = judge.build_prompt(target, choices, info, facets, judge.SAVED_PROMPT_VERSION)
             raw = checked_call(prompt, judge.answer_schema(list(candidate_labels)),
                                output / "calls/judge" / target, model)
             answers, problems = judge.check_answer(raw, candidate_labels)
@@ -94,7 +95,7 @@ def run(candidates_run: Path = CANDIDATES, output: Path = OUTPUT,
             judge_rows.extend({"target": target, "comp": item["comp"],
                                "score": item["score"], "reason": item["reason"]}
                               for item in answers if item["score"] is not None)
-        direct_prompt = suggest.build_prompt(system, target, direct_info, direct_facets)
+        direct_prompt = suggest.build_prompt(system, target, direct_info, direct_facets, suggest.SAVED_PROMPT_VERSION)
         raw = checked_call(direct_prompt, suggest.ANSWER_SCHEMA,
                            output / "calls/direct" / target, model, system)
         direct, problems = suggest.check_answer(raw, labels, target)

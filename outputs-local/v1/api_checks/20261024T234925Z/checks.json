@@ -1,0 +1,79 @@
+{
+ "run": "20261024T234925Z",
+ "model": "claude-haiku-5-5",
+ "prompt_version": "2026-10-24h",
+ "price_per_mtok": {
+  "input": 0.1,
+  "cache_write": 0.125,
+  "cache_read": 0.01,
+  "output": 0.5
+ },
+ "checks": {
+  "digit_rule_one_field": {
+   "accepted": true,
+   "stop_reason": "end_turn",
+   "answer": "{\"company_size\": \"One hundred twenty plants, five thousand employees and two billion dollars in revenue\"}",
+   "usage": {
+    "input_tokens": 263,
+    "output_tokens": 139
+   },
+   "seconds": 1.8,
+   "cost_usd": 9.58e-05,
+   "has_digit": false
+  },
+  "digit_rule_full_schema": {
+   "accepted": false,
+   "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Schema is too complex.'}, 'request_id': 'req_011CgMxVi4AQotUJWc3KxWm3'}",
+   "cost_usd": 0.0
+  },
+  "first_call": {
+   "llm_status": "ok",
+   "stop_reason": "end_turn",
+   "seconds": 6.3,
+   "usage": {
+    "input_tokens": 5814,
+    "cached_input_tokens": 5778,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1461
+   },
+   "error": null,
+   "facets_unknown": "3 of 12",
+   "answer_chars": 1739,
+   "notes": "Fictional test company; facets are inferred from the name only and the website was not checked, so geography and size are unknown.",
+   "cost_usd": 0.00079188
+  },
+  "second_call": {
+   "llm_status": "ok",
+   "stop_reason": "end_turn",
+   "seconds": 6.6,
+   "usage": {
+    "input_tokens": 5818,
+    "cached_input_tokens": 5778,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1462
+   },
+   "error": null,
+   "facets_unknown": "2 of 12",
+   "answer_chars": 1616,
+   "notes": "Fictional test company; details are inferred from the name only and the website was not checked.",
+   "cost_usd": 0.00079278
+  },
+  "one_message_call": {
+   "llm_status": "ok",
+   "stop_reason": "end_turn",
+   "seconds": 6.9,
+   "usage": {
+    "input_tokens": 5814,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1528
+   },
+   "error": null,
+   "facets_unknown": "3 of 12",
+   "answer_chars": 1584,
+   "notes": "Fictional test company; the business is inferred from the name only, and size and geography are unknown.",
+   "cost_usd": 0.0013454
+  }
+ },
+ "total_cost_usd": 0.00302586
+}

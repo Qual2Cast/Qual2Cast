@@ -50,8 +50,9 @@ To keep the test honest, the companies are split once into a **training set (373
 | Company list and website text | **Done.** 560 companies; 532 websites gave usable text. |
 | Facets (company descriptions) | **Done** for all 533 firms. A hand check found problems in about 1 in 4 checkable facets; size and geography are the weakest. |
 | Finding comps (four routes) | **Done and scored** on the 160 holdout companies. |
-| Human review of comps | **Done for two targets** (Paylocity and Wendy's, 36 candidate pairs, three reviewers). Reviewers fully agreed on only 11 of 36. |
+| Human review of comps | **Done for two targets** (Paylocity and Wendy's, 36 candidate pairs, three reviewers). Reviewers fully agreed on only 11 of 36. **Round 2 is ready to fill:** five more targets, 67 pairs ([`v1/GOLDEN_SET_ROUND2.md`](v1/GOLDEN_SET_ROUND2.md)). |
 | Sector-specific facets | **Done.** Small, not-yet-certain improvement for the similarity route. |
+| Weighting the facets (v1) | **Adopted as the v1 baseline ("B3")**, see [`v1/notebooks/similarity_methods.ipynb`](v1/notebooks/similarity_methods.ipynb). It finds better-fitting comps by the reviewers' and the AI judge's grades, but the estimates are no more accurate. |
 | Revenue-growth forecast | **Not started** (an earlier signal collector is in `pre-v0/`). |
 
 **What the results say so far.** With no matching, the median estimate is off by about 40%. The comp routes land at
@@ -67,7 +68,7 @@ been used for many comparisons, so a final score needs a fresh set of companies.
 | [`v0/`](v0/README.md) | **The 2026-10-28 deliverable**, kept unchanged as a record. Start with [`notebooks/comps_and_valuation.ipynb`](v0/notebooks/comps_and_valuation.ipynb) (main results) and [`notebooks/gold_and_holdout_integration.ipynb`](v0/notebooks/gold_and_holdout_integration.ipynb) (human review and holdout report). |
 | [`website_scrape/`](website_scrape/README.md) | Collects each company's website text and removes financial and stock-market language. |
 | `data-local/` | The input company list (snapshots, never edited by hand). |
-| `outputs-local/` | Results of every step: tables, AI prompts and answers. |
+| `outputs-local/` | Results of every step: tables, AI prompts and answers. The current work is in `outputs-local/v1/`, shared through Git ([map](outputs-local/v1/README.md)). |
 | `src/`, [`docs/`](docs/data_dictionary.md) | Shared code for loading data; column definitions and known data issues. |
 | [`PROJECT_STATE.md`](PROJECT_STATE.md) | Running log of decisions, status and open questions. |
 | `conversations/` | Handoff notes: what each work session changed and what's next. |
@@ -107,7 +108,7 @@ Full working rules: [`AGENTS.md`](AGENTS.md).
 
 ## Next steps
 
-1. **More human reviews** of comps, beyond the two targets reviewed so far.
+1. **More human reviews** of comps: round 2's sheet (five targets) is ready; see [`v1/GOLDEN_SET_ROUND2.md`](v1/GOLDEN_SET_ROUND2.md).
 2. **A fresh test set** (e.g. a wider set of companies), with the method fixed in writing before it is scored.
 3. **Better estimates:** pulling estimates toward the overall average, using size as a secondary check, and flagging
    companies with no good match.

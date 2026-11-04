@@ -3,7 +3,7 @@
 Entry point: [notebooks/peer_evaluation.ipynb](notebooks/peer_evaluation.ipynb).
 
 This is a downstream evaluator for the final peers produced by the existing
-cosine-shortlist → LLM-filter method. `judge_comps.py` remains the selection
+cosine-shortlist → LLM-filter method. `cosine_then_llm.py` remains the selection
 model; `peer_evaluation.py` evaluates its accepted outputs.
 
 The defaults and completed 663-pair analysis refer to the original size-stratified

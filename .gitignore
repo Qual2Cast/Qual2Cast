@@ -24,6 +24,19 @@
 /outputs-local/comps*/*/*_history/
 /outputs-local/comps*/**/*.log
 
+# v1 results are shared the same way, BY DEFAULT (2026-11-04), so the team has the current data, comp lists,
+# saved LLM answers and the golden-set sheets without asking: every outputs-local/v1/ folder and file, at any
+# depth, except the same local-only material: raw Codex output (codex_runs), run logs, dry-run prompts,
+# *_history safety copies, history/ folders of superseded runs, and console logs.
+# (Pre-v0 folders, outputs-local/matching/ and outputs-local/scraps/, stay local.)
+!/outputs-local/v1/
+/outputs-local/v1/**/history/
+/outputs-local/v1/**/codex_runs/
+/outputs-local/v1/**/logs/
+/outputs-local/v1/**/prompts_dry_run/
+/outputs-local/v1/**/*_history/
+/outputs-local/v1/**/*.log
+
 /.env
 
 # Codex credentials must never be committed

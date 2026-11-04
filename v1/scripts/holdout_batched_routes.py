@@ -17,8 +17,8 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import holdout_llm_routes as common
-import judge_comps as judge
-import suggest_comps as suggest
+import cosine_then_llm as judge
+import direct_llm as suggest
 from project_data import OUTPUTS_LOCAL
 
 
@@ -98,8 +98,10 @@ def run(candidates_run: Path = common.CANDIDATES, output: Path = common.OUTPUT,
     direct_rows, judge_rows, issue_rows = [], [], []
 
     def direct_one(batch_no: int, group: list[str]):
+        # the saved prompt version (all twelve facets), so saved batches are found by their prompt hash
         blocks = [f"Target ID {target}: " + suggest.build_prompt(
-            system, target, direct_info, direct_facets)[len(system):].removeprefix("Target: ")
+            system, target, direct_info, direct_facets,
+            suggest.SAVED_PROMPT_VERSION)[len(system):].removeprefix("Target: ")
                   for target in group]
         prompt = (system + "\nEvaluate each target below independently. Return one "
                   "answer for each target ID; use the same pool labels for all.\n\n"
@@ -134,7 +136,8 @@ def run(candidates_run: Path = common.CANDIDATES, output: Path = common.OUTPUT,
         blocks = []
         for target in group:
             comps = pairs.loc[pairs["target"].eq(target), "comp"].tolist()
-            target_prompt, mappings[target] = judge.build_prompt(target, comps, info, facets)
+            target_prompt, mappings[target] = judge.build_prompt(target, comps, info, facets,
+                                                                 judge.SAVED_PROMPT_VERSION)   # see PROMPT_VERSIONS.md
             blocks.append(f"Target ID {target}:\n" + target_prompt[len(judge.INSTRUCTIONS):].strip())
         prompt = (judge.INSTRUCTIONS + "\n\nEvaluate each target independently. "
                   "C labels restart for each target. Return one answer for each target ID.\n\n"
