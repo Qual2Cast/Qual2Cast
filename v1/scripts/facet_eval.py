@@ -362,16 +362,17 @@ def main() -> None:
         labels, n = training_only(load_labels(Path(g), tick), set(training))
         label_sets[f"gold:{Path(g).stem}"], dropped[Path(g).name] = labels, n
     if not args.no_judge:
-        import judge_comps as jc
+        import cosine_then_llm as jc
         jt = jc.output_paths(stage / "judge").tables / "judgments.csv"
         if jt.exists():
             j = pd.read_csv(jt, dtype={"target": str, "comp": str})
-            j = j[j["prompt_version"] == jc.PROMPT_VERSION].dropna(subset=["score"])
+            # the saved verdicts in <stage>/judge were made with the saved prompt version (PROMPT_VERSIONS.md)
+            j = j[j["prompt_version"] == jc.SAVED_PROMPT_VERSION].dropna(subset=["score"])
             labels, n = training_only(j.assign(gain=j["score"].astype(float))[["target", "comp", "gain"]],
                                       set(training))
             label_sets["judge (LLM, z>=2 candidates)"], dropped["judge"] = labels, n
     if not label_sets:
-        raise SystemExit("no labels: pass --gold, or run judge_comps.py first")
+        raise SystemExit("no labels: pass --gold, or run cosine_then_llm.py first")
     for name, n in dropped.items():
         if n:
             print(f"{name}: {n} labeled pairs touch a holdout company and were left out")

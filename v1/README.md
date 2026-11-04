@@ -9,10 +9,65 @@ v0's saved outputs. Two things differ from v0, both mechanical:
   plus the universe, facet fills, fill tests, API checks and embeddings from `outputs-local/comps/`
   (`python v1/scripts/seed_from_v0.py`; manifest in `outputs-local/v1/seed_manifest.json`). v0's folders are untouched.
   Reads of the earlier size-stratified baseline (`comps/candidates/20261025T080854Z`, `comps/judge`) still point at
-  `outputs-local/comps/`. `outputs-local/v1/` is local (not shared through Git).
+  `outputs-local/comps/`. Since 2026-11-04, `outputs-local/v1/` is **shared through Git**: a pull gives the data, comp
+  lists, saved LLM answers and the golden-set sheets. Raw Codex output, logs, dry-run prompts and history folders stay
+  local; see `.gitignore`.
 
 Environment: `uv sync` at the repo root, then pick `.venv` as the notebook kernel (see the root README).
-Tests: `uv run pytest v1/scripts/tests v1/scripts/verification/tests -q` (182 pass).
+Tests: `uv run pytest v1/scripts/tests v1/scripts/verification/tests -q` (209 pass).
+
+## Start here (2026-11-04)
+
+| what | where |
+|---|---|
+| **The v1 baseline is B3 (method 1):** TF-IDF-blended facet scores, information weights, "none" as missing, company size out, mutual top 10 topped up to 3 | [`notebooks/similarity_methods.ipynb`](notebooks/similarity_methods.ipynb) (what B0–B3 mean, results, charts); code in [`scripts/facet_weighting.py`](scripts/facet_weighting.py) (`method1_similarity`) |
+| B3's comp lists for every training target, as a candidates run | `uv run python v1/scripts/method1_candidates.py` writes `outputs-local/v1/candidates_method1/<time>/` |
+| Have the LLM screen B3's lists (paid; Haiku by default) | `uv run python v1/scripts/cosine_then_llm.py --b3 --workers 4` (free first: add `--dry-run`) |
+| The selectors' prompt no longer lists company size; the saved answers keep the old prompt | [`PROMPT_VERSIONS.md`](PROMPT_VERSIONS.md); check with `uv run python v1/scripts/check_prompt_versions.py` |
+| **Golden set round 2** (CSL, AFG, AZZ, BBCP, BUKS + 2 WEN pairs; 67 pairs) | reviewer guide [`GOLDEN_SET_ROUND2.md`](GOLDEN_SET_ROUND2.md); sheet `outputs-local/v1/golden_set_showcase/labels/round2_sheet.csv`; notebook [`notebooks/golden_set_showcase.ipynb`](notebooks/golden_set_showcase.ipynb) |
+| The multi-business rule for BBCP and BUKS | **stub for Eric** in the guide and in the notebook's section 5 |
+
+## Changes in v1 since the clone
+
+**2026-11-04, v1 baseline, prompt versions, round 2.**
+- **B3 (method 1) is the v1 baseline** (team decision). It is chosen on comp quality: it keeps every reviewed direct comp, recovers the adjacent comps v0 missed, and lists none of the reviewed non-comps. It is not chosen on valuation, where it is within noise of v0 (30.0% vs 28.8% median APE). `facet_weighting.method1_similarity` computes it.
+- **`method1_candidates.py`** (new) writes B3's lists in the selectors' candidates format. **`cosine_then_llm.py --b3`** screens them.
+- **The F9 prompt fix.** New selector runs use prompt `2026-11-04a`, without company size. Everything that replays or reads saved answers pins `2026-10-25a`, so nothing saved was lost or needs re-paying. All 373 + 373 saved prompts were rebuilt byte for byte and checked. New runs write to new folders (`outputs-local/v1/cosine_then_llm/`, `direct_llm/`), never into the saved `judge/` and `suggest/`. Details: [`PROMPT_VERSIONS.md`](PROMPT_VERSIONS.md).
+- **`similarity_methods.ipynb`** additions:
+  - "How the BM25 pieces curb boilerplate": label IDF vs a typical word; B3 roughly halves the label premium; the saturation curve; a worked pair.
+  - Every method's full ranking for the ten showcase targets (`rankings_showcase.csv.gz`).
+- **Golden set round 2:** `golden_set_showcase.ipynb` and `GOLDEN_SET_ROUND2.md`, with three neutral reviewer slots, the six-reason rubric and the multi-business stub. `similarity_eval.py` gained `reviewer_sheet` and `check_reviewer_sheet`, and `reviewer_sets` takes any three reviewer names.
+- **`outputs-local/v1/` is shared through Git.**
+
+| new file | what it does |
+|---|---|
+| `scripts/method1_candidates.py` | B3's comp lists as a candidates run (one-way top 10, `mutual`, `selected`, z); no API calls |
+| `scripts/check_prompt_versions.py` | Rebuilds every saved selector prompt at the saved version and compares fingerprints; exit code 0 = all match |
+| `notebooks/golden_set_showcase.ipynb` | Round 2: pool, blind sheet (never overwritten), checks, the agreed reviewer rule, hit and rank charts for all seven reviewed targets |
+| `PROMPT_VERSIONS.md`, `GOLDEN_SET_ROUND2.md` | Teammate guides (prompt versions; reviewer guide) |
+
+**2026-11-03, similarity methods** ([`notebooks/similarity_methods.ipynb`](notebooks/similarity_methods.ipynb)).
+This notebook tests how the facets are combined into one similarity score. Team decisions it applies:
+- Company size (F9) is out of the similarity.
+- "Not applicable" ("none") counts as missing, not as a 1.00 match.
+- Comps are the mutual top 10, topped up to 3. This replaces z ≥ 2.
+- The reviewers' scores are used under a written rule: majority grade as the main set, unanimous pairs as a strict check, unlabeled comps never counted as 0.
+- Sol's grades are an alternative evaluation that no decision rests on.
+
+| file | what it does |
+|---|---|
+| `notebooks/similarity_methods.ipynb` | Method 1 (TF-IDF-blended facet scores, information weights with BM25-style saturation) and method 2 (FAME-inspired: per-facet heads, a fixed-rule gate, `;`-piece matching), built up from v0's B0. Evaluated on the reviewers' golden set, Sol's holdout grades and valuation APE. Writes `outputs-local/v1/similarity_methods/<run>/`, including a top-up label sheet. No API calls. |
+| `scripts/facet_weighting.py` | The methods: facet list (`facets.py` minus `EXCLUDED_FACETS`, so new facets are picked up), TF-IDF/IDF, information, blend, pieces, gate, mutual top k, text-keyed embedding cache. |
+| `scripts/similarity_eval.py` | The reviewer rule (`reviewer_sets`), list metrics with unlabeled comps skipped, strict check, Sol grade loading. |
+
+**Result.** On the reviewed comps (PCTY, WEN), methods 1 and 2 keep every direct comp and recover the adjacent comps v0 missed, thanks to the "none" fix. They also drop v0's non-comps, mostly through the mutual filter. Sol's grades on 156 holdout targets point the same way. Charts show each method's hits and each reviewed comp's rank, and method 2's facet weights and contributions for PCTY and WEN. Valuation doesn't move: median APE is 28.8% for v0's top 10, 30.0% for method 1 and 30.3% for method 2, with every interval including 0. Method 2 ends up close to method 1. Details are in the notebook.
+
+**2026-11-03, renamed LLM selectors.** These scripts choose comps, so they are named after their route; "judge" (LaaJ) now means only the evaluators, `graded_peer_selection.py` (Sol, 0–2) and `peer_evaluation.py`.
+- `judge_comps.py` → `cosine_then_llm.py`: the LLM keeps the good comps from the cosine shortlist.
+- `suggest_comps.py` → `direct_llm.py`: the LLM picks up to 10 from the whole pool.
+- Their tests were renamed too. The saved output folders `outputs-local/v1/judge/` and `suggest/` keep their names, because the saved files record those paths.
+
+**Dropping F9 from the selectors' prompt** was deferred here on 2026-11-03 and done on 2026-11-04 with the old version pinned wherever saved work is read or replayed (see the 2026-11-04 entry above and [`PROMPT_VERSIONS.md`](PROMPT_VERSIONS.md)).
 
 The rest of this file is v0's README, unchanged; read its `v0/` paths as `v1/scripts/` for code.
 
@@ -26,7 +81,7 @@ saved website passages, and either Codex CLI or Claude Code CLI. The final
 matching-notebook cell exports a frozen judgment snapshot and input handoff.
 See [PEER_EVALUATION.md](PEER_EVALUATION.md) for setup, saved outputs and limits.
 `peer_evaluation.py` holds evaluation logic; `cli_models.py` holds subprocess
-transport. This evaluation is separate from `judge_comps.py`'s peer selection.
+transport. This evaluation is separate from `cosine_then_llm.py`'s peer selection.
 
 Comparable-company selection, following the mentor's recipe for getting comps
 (received 2026-10-24). This folder covers the first three steps:
@@ -60,9 +115,9 @@ imports the modules, runs a step, and shows and saves its results.
 | `source_scope_sensitivity.py` | Flags selected peers among 40 source-audited companies that have multiple businesses, and reports how excluding them changes coverage and error. This is a diagnostic; it does not change the default peer lists |
 | `notebooks/holdout_test.ipynb` | **The holdout test (2026-10-27), not yet scored.** Applies the baseline's cosine, LLM-judged and same-SIC rules to new targets with comps from the training firms only. `MODE = "training"` is a reference run (never reads a holdout multiple); `MODE = "holdout"` needs `holdout/freeze.json` (settings and one `PRIMARY_RULE`, written by the notebook), stops until the frozen judge has been run once, and refuses a second score under one freeze. Reports the usual measures plus 95% bootstrap intervals (`valuation.bootstrap`). Writes to `outputs-local/comps_pilot_targets/holdout/` |
 | `notebooks/history/comps_and_valuation_size_stratified.ipynb` | The previous baseline, kept unchanged (apart from a banner) for reference: the split stratified on company size and the original ten showcase targets. Its outputs are in `outputs-local/comps/` |
-| `suggest_comps.py` | Step 4 without embeddings: the LLM picks up to ten comps per target from the whole training pool; writes `suggest/tables/suggestions.csv` |
+| `direct_llm.py` | Step 4 without embeddings: the LLM picks up to ten comps per target from the whole training pool; writes `suggest/tables/suggestions.csv` |
 | `llm_then_cosine.py` | Reverse hybrid: retains and reranks the direct LLM peers by cosine; the existing valuation code uses their cosine scores as weights |
-| `judge_comps.py` | Step 6: Claude Haiku 5.5 marks each z ≥ 2 candidate good (1) or bad (0) with a reason; writes `judge/tables/judgments.csv` |
+| `cosine_then_llm.py` | Step 6: Claude Haiku 5.5 marks each z ≥ 2 candidate good (1) or bad (0) with a reason; writes `judge/tables/judgments.csv` |
 | `split.py` | The training/holdout split: stratified on any strata series (company size in the previous baseline, SIC2 in the updated baseline), fixed seed, showcase targets in training; balance tables |
 | `candidates.py` | Step 4: per-facet embeddings (model loaded from the local cache, no Hub request), combined similarity, ranking with z, candidates (top k or z level) |
 | `valuation.py` | Step 7 and the evaluation: weighted mean or median of the comps' multiples, the no-matching baseline, error summary |
@@ -271,7 +326,7 @@ in `outputs-local/comps_pilot_targets/holdout_completion/graded_peer_selection/`
   `facets.csv` still say "business profile" for a row of facets.)
 - **Recipe step 5 is covered by step 4:** a target's profile is its step 4
   candidate list.
-- **Step 6, the model** (`judge_comps.py`): Claude Haiku 5.5 marks every
+- **Step 6, the model** (`cosine_then_llm.py`): Claude Haiku 5.5 marks every
   z ≥ 2 candidate of a training target good (1) or bad (0), with a short
   reason; one call per target. It reads names, websites and all twelve
   facets, candidates labeled C1, C2, ... in alphabetical order, with no
@@ -292,7 +347,7 @@ in `outputs-local/comps_pilot_targets/holdout_completion/graded_peer_selection/`
   30.2%), Spearman 0.39-0.40. So far the LLM's choice doesn't lower the
   error: it helps BRO (-39% to -14%) and LMB, hurts WEN and ADUS, and
   leaves 96 targets without an estimate.
-- **Comps without embeddings** (`suggest_comps.py`, notebook section 4,
+- **Comps without embeddings** (`direct_llm.py`, notebook section 4,
   2026-10-25): the LLM picks up to ten same-business comps for each
   target from the whole training pool (all 373 firms in a cached system
   prompt, ~99k tokens, with core offering, products, services, customers
@@ -454,14 +509,14 @@ reviews it.
   12% against 18%, small 3% against 6%). 271 of the 373 training firms are the
   previous baseline's. Not re-drawn for balance.
 - **Re-runs:** z is relative to the pool, so a new split changes almost every
-  target's candidate list. The judge (`judge_comps.py`) and the direct picks
-  (`suggest_comps.py`) were re-run on it, Claude Haiku 5.5, prompt 2026-10-25a,
+  target's candidate list. The judge (`cosine_then_llm.py`) and the direct picks
+  (`direct_llm.py`) were re-run on it, Claude Haiku 5.5, prompt 2026-10-25a,
   373 of 373 targets.
 - **Outputs:** `outputs-local/comps_pilot_targets/` (see the README there for
-  the layout and which run is which), not `comps/`. `judge_comps.py` and
-  `suggest_comps.py` default to the latest candidates run in `comps/`, so a run
+  the layout and which run is which), not `comps/`. `cosine_then_llm.py` and
+  `direct_llm.py` default to the latest candidates run in `comps/`, so a run
   written there would silently redirect them; run them here with
-  `--candidates <run> --out <folder>`. `suggest_comps.py` now finds the split
+  `--candidates <run> --out <folder>`. `direct_llm.py` now finds the split
   beside the candidates run's own folder (the same result for `comps/`).
 - **Sharing:** `.gitignore` shares every `outputs-local/comps*/` folder by
   default (so a new stage folder needs no new line) and ignores only logs,

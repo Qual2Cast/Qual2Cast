@@ -1,6 +1,6 @@
 """Evidence-based evaluation of the peers accepted by cosine -> LLM.
 
-This is a downstream evaluator, separate from judge_comps.py's selection step.
+This is a downstream evaluator, separate from cosine_then_llm.py's selection step.
 No financial table, upstream reason, rank or similarity enters a judge prompt.
 """
 
@@ -18,7 +18,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import facets as fc
-import judge_comps as selection
+import cosine_then_llm as selection
 from cli_models import call_cli
 from project_data import OUTPUTS_LOCAL, REPO_ROOT, sha256, snapshot_path
 
@@ -44,7 +44,7 @@ def stamp() -> str:
 class Config:
     candidates_run: str = "outputs-local/comps/candidates/20261025T080854Z"
     judgments_file: str = "outputs-local/comps/judge/tables/judgments.csv"
-    upstream_prompt_version: str = selection.PROMPT_VERSION
+    upstream_prompt_version: str = selection.SAVED_PROMPT_VERSION   # the saved verdicts' version (PROMPT_VERSIONS.md)
     candidate_z: float = selection.DEFAULT_Z
     backend: str = "codex"                 # or claude-cli
     model: str = ""                        # CLI configured default
@@ -69,7 +69,7 @@ class Config:
         handoff = json.loads(resolve(path).read_text(encoding="utf-8"))
         return cls(candidates_run=handoff["candidates_run"],
                    judgments_file=handoff["judgments_file"],
-                   upstream_prompt_version=handoff.get("upstream_prompt_version", selection.PROMPT_VERSION),
+                   upstream_prompt_version=handoff.get("upstream_prompt_version", selection.SAVED_PROMPT_VERSION),
                    candidate_z=handoff.get("candidate_z", selection.DEFAULT_Z), **settings)
 
 

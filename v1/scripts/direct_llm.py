@@ -1,7 +1,7 @@
 """
 Recipe step 4 without embeddings: an LLM suggests each target's comps
 directly from the whole pool of training firms, instead of judging a
-shortlist made by cosine similarity (judge_comps.py).
+shortlist made by cosine similarity (cosine_then_llm.py).
 
 One call per training target (Claude Haiku 5.5 by default, through
 fill_facets.call_claude). The system prompt holds the instructions and the
@@ -9,18 +9,31 @@ full pool, every training firm labeled P001, P002, ... in alphabetical
 order with its name, website and the facets that define its business
 (core offering, products, services, customers, revenue model). It is the
 same for every target, so it is cached. The user message is the target:
-name, website and all twelve facets. The model picks at most ten companies
-in the same business, best first, each with a reason; code drops the
-target itself, unknown labels and repeats.
+name, website and its facets. The model picks at most ten companies in
+the same business, best first, each with a reason; code drops the target
+itself, unknown labels and repeats.
 
 The pool is the training firms of the split that the latest step 4 run
-used (outputs-local/comps/candidates/<run>/run.json), so the same firms
-can be comps here as there.
+used (outputs-local/v1/candidates/<run>/run.json), so the same firms can be
+comps here as there.
 
-  python v1/scripts/suggest_comps.py --tickers PCTY BV     # a few targets
-  python v1/scripts/suggest_comps.py --workers 4           # every training target
-  python v1/scripts/suggest_comps.py --dry-run             # write the prompts only
-  python v1/scripts/suggest_comps.py --tables-only         # rebuild suggestions.csv
+Prompt versions (details and the checks: v1/PROMPT_VERSIONS.md). Only the
+target's facet lines differ; the pool lines never listed company size:
+  2026-10-25a  SAVED_PROMPT_VERSION. The target with all twelve facets,
+               company size (F9) included. The saved picks
+               (outputs-local/v1/suggest/, 373 training targets, Haiku) and
+               the saved holdout answers were made with it.
+  2026-11-04a  PROMPT_VERSION, the default for new runs: company size left
+               out (team decision 2026-11-03).
+Choose with --prompt-version. A new run writes, by default, to
+outputs-local/v1/direct_llm/<split run>_<prompt version>/, so it never
+replaces the saved picks.
+
+  python v1/scripts/direct_llm.py --tickers PCTY BV     # a few targets
+  python v1/scripts/direct_llm.py --workers 4           # every training target
+  python v1/scripts/direct_llm.py --dry-run             # write the prompts only
+  python v1/scripts/direct_llm.py --tables-only --out outputs-local/v1/suggest --prompt-version 2026-10-25a
+                                                        # rebuild the saved suggestions.csv
 """
 
 from __future__ import annotations
@@ -38,11 +51,18 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import facets as fc  # noqa: E402  (also puts website_scrape/ and src/ on the path)
 from fill_facets import DEFAULT_MODEL, call_claude, now_iso, output_paths as facet_paths, stamp  # noqa: E402
-from judge_comps import describe, fingerprint, latest_candidates, move_to_history  # noqa: E402
+from cosine_then_llm import describe, fingerprint, latest_candidates, move_to_history  # noqa: E402
 from project_data import OUTPUTS_LOCAL  # noqa: E402
 
-PROMPT_VERSION = "2026-10-25a"
-DEFAULT_OUT = OUTPUTS_LOCAL / "v1" / "suggest"
+PROMPT_VERSION = "2026-11-04a"            # new runs: company size (F9) left out of the target's facet lines
+SAVED_PROMPT_VERSION = "2026-10-25a"      # the saved picks and holdout answers: all twelve facets
+PROMPT_EXCLUDES = {                       # facets left out of the target's description, per version
+    "2026-10-25a": (),
+    "2026-11-04a": ("company_size",),
+}
+SAVED_OUT = OUTPUTS_LOCAL / "v1" / "suggest"              # the saved 2026-10-25a picks
+DEFAULT_OUT_ROOT = OUTPUTS_LOCAL / "v1" / "direct_llm"    # new runs: <root>/<split run>_<prompt version>/
+DEFAULT_OUT = SAVED_OUT                   # kept for older imports; new runs use DEFAULT_OUT_ROOT
 FACETS_OUT = OUTPUTS_LOCAL / "v1" / "facets"
 MAX_COMPS = 10
 POOL_FACETS = ["offering_description", "primary_products", "primary_services", "customer_segment",
@@ -103,9 +123,13 @@ def build_system(pool: list[str], info: pd.DataFrame, facet_rows: pd.DataFrame) 
     return INSTRUCTIONS + "\n\nCompanies:\n" + "\n".join(lines) + "\n\n", labels
 
 
-def build_prompt(system: str, target: str, info: pd.DataFrame, facet_rows: pd.DataFrame) -> str:
+def build_prompt(system: str, target: str, info: pd.DataFrame, facet_rows: pd.DataFrame,
+                 prompt_version: str = PROMPT_VERSION) -> str:
+    """The shared part plus the target. `prompt_version` sets which facets
+    describe the target (PROMPT_EXCLUDES); replays pass SAVED_PROMPT_VERSION."""
     r = info.loc[target]
-    return system + f"Target: {r['target_company_name']} ({r['target_ciq_website']})\n{describe(facet_rows.loc[target])}"
+    description = describe(facet_rows.loc[target], PROMPT_EXCLUDES[prompt_version])
+    return system + f"Target: {r['target_company_name']} ({r['target_ciq_website']})\n{description}"
 
 
 # ---------------------------------------------------------------- answer
@@ -153,7 +177,7 @@ def load_inputs(candidates_run: Path) -> tuple[list[str], pd.DataFrame, pd.DataF
 
 def suggest_one(target: str, system: str, labels: dict[str, str], info, facets, out: SimpleNamespace,
                 args) -> dict:
-    prompt = build_prompt(system, target, info, facets)
+    prompt = build_prompt(system, target, info, facets, args.prompt_version)
     fp = fingerprint(prompt, args.model)
     path = out.suggestions / f"{target}.json"
     if path.exists() and not args.refresh:
@@ -164,11 +188,11 @@ def suggest_one(target: str, system: str, labels: dict[str, str], info, facets, 
     run_dir.mkdir(parents=True, exist_ok=True)
     (run_dir / "prompt_target.txt").write_text(prompt[len(system):], encoding="utf-8")   # the pool is in system.txt
     result = call_claude(prompt, run_dir, ANSWER_SCHEMA, args.model, args.effort, instructions_len=len(system))
-    run_info = {"model": args.model, "effort": args.effort or "", "prompt_version": PROMPT_VERSION,
+    run_info = {"model": args.model, "effort": args.effort or "", "prompt_version": args.prompt_version,
                 "fingerprint": fp, "finished_at": now_iso(),
                 **{k: v for k, v in result.items() if k != "text"}}
     (run_dir / "run.json").write_text(json.dumps(run_info, indent=1), encoding="utf-8")
-    answer = {"target": target, "split_run": args.split_run, "prompt_version": PROMPT_VERSION,
+    answer = {"target": target, "split_run": args.split_run, "prompt_version": args.prompt_version,
               "model": args.model, "fingerprint": fp, "run_dir": str(run_dir.relative_to(out.runs.parent)),
               "llm_status": result["llm_status"], "suggested_at": now_iso(), "comps": [], "issues": []}
     if result["llm_status"] == "ok":
@@ -184,17 +208,24 @@ def suggest_one(target: str, system: str, labels: dict[str, str], info, facets, 
             "stop_run": result.get("stop_run", False), "usage": result.get("usage", {})}
 
 
-def write_tables(out: SimpleNamespace, info: pd.DataFrame) -> Path:
-    """suggestions.csv: one row per suggested target-comp pair (rank 1 = the
-    model's best), and one row with no comp for a target it gave none."""
-    rows = []
+def write_tables(out: SimpleNamespace, info: pd.DataFrame, prompt_version: str = PROMPT_VERSION) -> Path:
+    """suggestions.csv: one row per suggested target-comp pair made with
+    `prompt_version` (rank 1 = the model's best), and one row with no comp
+    for a target it gave none. Refuses to write an empty table over saved
+    picks made with another version (pass that version instead)."""
+    rows, other_versions = [], set()
     for path in sorted(out.suggestions.glob("*.json")):
         s = json.loads(path.read_text(encoding="utf-8"))
-        if s.get("llm_status") != "ok" or s.get("prompt_version") != PROMPT_VERSION:
+        if s.get("llm_status") == "ok" and s.get("prompt_version") != prompt_version:
+            other_versions.add(s.get("prompt_version"))
+        if s.get("llm_status") != "ok" or s.get("prompt_version") != prompt_version:
             continue
         base = {"target": s["target"], "model": s["model"], "prompt_version": s["prompt_version"],
                 "split_run": s["split_run"], "suggested_at": s["suggested_at"], "issues": "; ".join(s["issues"])}
         rows += [{**base, **c} for c in s["comps"]] or [{**base, "rank": None, "label": "", "comp": "", "reason": ""}]
+    if not rows and other_versions:
+        raise SystemExit(f"No picks made with prompt {prompt_version} in {out.suggestions}; the ones there use "
+                         f"{sorted(other_versions)}. Pass --prompt-version with that version to rebuild their table.")
     table = pd.DataFrame(rows, columns=["target", "rank", "comp", "label", "reason", "model", "prompt_version",
                                         "split_run", "suggested_at", "issues"])
     for col, src in [("target_ticker", "target"), ("comp_ticker", "comp")]:
@@ -209,8 +240,11 @@ def write_tables(out: SimpleNamespace, info: pd.DataFrame) -> Path:
 
 def main() -> None:
     p = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    p.add_argument("--out", default=str(DEFAULT_OUT))
+    p.add_argument("--out", help="output folder (default: outputs-local/v1/direct_llm/<split run>_<prompt version>/; "
+                                 "the saved picks are in outputs-local/v1/suggest/)")
     p.add_argument("--candidates", help="step 4 run folder whose split is used (default: the latest)")
+    p.add_argument("--prompt-version", choices=sorted(PROMPT_EXCLUDES), default=PROMPT_VERSION,
+                   help=f"default {PROMPT_VERSION} (no company size); {SAVED_PROMPT_VERSION} rebuilds the saved prompts")
     p.add_argument("--tickers", nargs="*", help="only these targets")
     p.add_argument("--limit", type=int, help="stop after N targets")
     p.add_argument("--refresh", action="store_true", help="ask again for current targets")
@@ -221,15 +255,16 @@ def main() -> None:
     p.add_argument("--tables-only", action="store_true", help="only rebuild suggestions.csv")
     args = p.parse_args()
     candidates_run = Path(args.candidates) if args.candidates else latest_candidates()
-    out = output_paths(Path(args.out))
+    training, info, facets, args.split_run = load_inputs(candidates_run)
+    out = output_paths(Path(args.out) if args.out
+                       else DEFAULT_OUT_ROOT / f"{args.split_run}_{args.prompt_version}")
     for d in (out.runs, out.suggestions, out.logs):
         d.mkdir(parents=True, exist_ok=True)
 
-    training, info, facets, args.split_run = load_inputs(candidates_run)
     if missing := sorted(set(training) - set(facets.index)):
         raise SystemExit(f"{len(missing)} training firms have no current facets, e.g. {missing[:3]}")
     system, labels = build_system(training, info, facets)
-    (out.runs / f"system_{PROMPT_VERSION}_{args.split_run}.txt").write_text(system, encoding="utf-8")
+    (out.runs / f"system_{args.prompt_version}_{args.split_run}.txt").write_text(system, encoding="utf-8")
     targets = training
     if args.tickers:
         targets = [t for t in training if info.loc[t, "target_ciq_ticker"] in set(args.tickers)]
@@ -239,14 +274,16 @@ def main() -> None:
     if args.dry_run:
         out.prompts_dry_run.mkdir(parents=True, exist_ok=True)
         for t in targets:
-            (out.prompts_dry_run / f"{t}.txt").write_text(build_prompt(system, t, info, facets), encoding="utf-8")
+            (out.prompts_dry_run / f"{t}.txt").write_text(build_prompt(system, t, info, facets, args.prompt_version),
+                                                           encoding="utf-8")
         print(f"wrote {len(targets)} prompts to {out.prompts_dry_run} (pool of {len(labels)}, "
               f"{len(system.split())} words in the shared part)")
         return
 
     if not args.tables_only:
         log = out.logs / f"suggest_{stamp()}.log"
-        print(f"split {args.split_run}: {len(targets)} targets, pool of {len(labels)}; model {args.model}; log {log.name}")
+        print(f"split {args.split_run}: {len(targets)} targets, pool of {len(labels)}; model {args.model}; "
+              f"prompt {args.prompt_version}; log {log.name}")
         totals, started = {"input_tokens": 0, "cached_input_tokens": 0, "output_tokens": 0}, time.time()
         with ThreadPoolExecutor(max_workers=args.workers) as pool, log.open("w", encoding="utf-8") as lf:
             futures = {pool.submit(suggest_one, t, system, labels, info, facets, out, args): t for t in targets}
@@ -264,7 +301,7 @@ def main() -> None:
                         f.cancel()
                     break
         print(f"tokens: {totals}; {time.time() - started:.0f} s")
-    print("wrote", write_tables(out, info))
+    print("wrote", write_tables(out, info, args.prompt_version))
 
 
 if __name__ == "__main__":

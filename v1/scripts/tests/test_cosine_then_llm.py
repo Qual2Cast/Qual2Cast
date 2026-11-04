@@ -1,9 +1,9 @@
-"""Tests for the LLM good/bad step (judge_comps.py). No model is called."""
+"""Tests for the LLM good/bad step (cosine_then_llm.py). No model is called."""
 
 import pandas as pd
 
 import facets as fc
-import judge_comps as jc
+import cosine_then_llm as jc
 
 
 def company_tables():
@@ -54,3 +54,40 @@ def test_schema_limits_labels():
 def test_fingerprint_changes_with_model_and_prompt():
     assert jc.fingerprint("p", "m1") != jc.fingerprint("p", "m2")
     assert jc.fingerprint("p", "m1") != jc.fingerprint("q", "m1")
+
+
+def test_prompt_versions_differ_only_in_company_size():
+    # see v1/PROMPT_VERSIONS.md: the saved version lists all twelve facets, the current one leaves out F9
+    info, facets = company_tables()
+    new, _ = jc.build_prompt("T", ["Z", "A"], info, facets)
+    saved, _ = jc.build_prompt("T", ["Z", "A"], info, facets, jc.SAVED_PROMPT_VERSION)
+    assert jc.PROMPT_VERSION != jc.SAVED_PROMPT_VERSION
+    assert "- Company size:" not in new and "- Company size:" in saved
+    assert [l for l in saved.splitlines() if not l.startswith("- Company size:")] == new.splitlines()
+
+
+def test_write_tables_refuses_to_empty_a_table_of_another_version(tmp_path):
+    import json
+    import pytest
+    out = jc.output_paths(tmp_path)
+    out.judgments.mkdir(parents=True)
+    (out.judgments / "T.json").write_text(json.dumps({
+        "target": "T", "llm_status": "ok", "prompt_version": jc.SAVED_PROMPT_VERSION, "model": "m", "comps": [],
+        "issues": [], "candidates_run": "r", "judged_at": "t"}), encoding="utf-8")
+    info, _ = company_tables()
+    pairs = pd.DataFrame(columns=["target", "comp", "rank", "similarity", "z"])
+    with pytest.raises(SystemExit, match="Pass --prompt-version"):
+        jc.write_tables(out, pairs, info)                          # the default (current) version
+    assert jc.write_tables(out, pairs, info, jc.SAVED_PROMPT_VERSION).exists()
+
+
+def test_b3_flag_picks_the_baseline_lists_not_the_z_shortlist():
+    import pytest
+    pairs = pd.DataFrame({"target": "T", "comp": ["A", "B", "C"], "z": [2.5, 1.0, 2.1],
+                          "selected": [True, True, False]})
+    assert jc.pick_pairs(pairs, 2.0)["comp"].tolist() == ["A", "C"]                 # v0: z >= 2
+    assert jc.pick_pairs(pairs, 2.0, "selected")["comp"].tolist() == ["A", "B"]     # --b3: the baseline list
+    as_text = pairs.assign(selected=pairs["selected"].astype(str))                  # read back from CSV
+    assert jc.pick_pairs(as_text, 2.0, "selected")["comp"].tolist() == ["A", "B"]
+    with pytest.raises(SystemExit, match="method1_candidates"):
+        jc.pick_pairs(pairs.drop(columns="selected"), 2.0, "selected")

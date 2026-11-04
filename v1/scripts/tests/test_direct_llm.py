@@ -1,9 +1,9 @@
-"""Tests for the LLM's direct comp suggestions (suggest_comps.py). No model is called."""
+"""Tests for the LLM's direct comp suggestions (direct_llm.py). No model is called."""
 
 import pandas as pd
 
 import facets as fc
-import suggest_comps as sc
+import direct_llm as sc
 
 
 def company_tables():
@@ -43,3 +43,13 @@ def test_check_answer_keeps_order_and_drops_bad_labels():
     assert issues == ["chose_target", "duplicate_label:P003", "unknown_label:P999"]
     rows, issues = sc.check_answer(raw, labels, target="T", max_comps=1)
     assert [r["comp"] for r in rows] == ["Z"] and "over_1:P001" in issues
+
+
+def test_prompt_versions_differ_only_in_the_targets_company_size():
+    # see v1/PROMPT_VERSIONS.md: the pool never listed company size; only the target's lines change
+    info, facets = company_tables()
+    system, _ = sc.build_system(["Z", "T", "A"], info, facets)
+    new = sc.build_prompt(system, "T", info, facets)
+    saved = sc.build_prompt(system, "T", info, facets, sc.SAVED_PROMPT_VERSION)
+    assert "- Company size: T company_size" in saved and "Company size" not in new
+    assert [l for l in saved.splitlines() if not l.startswith("- Company size:")] == new.splitlines()

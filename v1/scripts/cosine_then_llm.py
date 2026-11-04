@@ -12,8 +12,27 @@ code checks that every candidate was answered once and maps the labels back
 to companies.
 
 Candidates: the pairs at z >= 2 (--z) in the latest step 4 run
-(outputs-local/comps/candidates/<run>/candidates.csv), for the training
+(outputs-local/v1/candidates/<run>/candidates.csv), for the training
 targets only (that file holds no others).
+
+With --b3 the candidates are instead the v1 baseline's comp lists (B3 =
+method 1: TF-IDF-blended facet scores, information weights, mutual top 10
+topped up to 3), from the latest run of method1_candidates.py in
+outputs-local/v1/candidates_method1/ (or --candidates <that run>). The LLM
+then screens each target's baseline list, which is at most 10 comps.
+
+Prompt versions (details and the checks: v1/PROMPT_VERSIONS.md):
+  2026-10-25a  SAVED_PROMPT_VERSION. All twelve facets, company size (F9)
+               included. Every saved verdict (outputs-local/v1/judge/, 373
+               training targets, Haiku) and every saved holdout answer was
+               made with it; the holdout replay scripts and the readers of
+               saved verdicts pin it, so they keep matching what is saved.
+  2026-11-04a  PROMPT_VERSION, the default for new runs. Company size is
+               left out of the facet lines (team decision 2026-11-03: too
+               generic, hurt the comps). Nothing else in the prompt changed.
+Choose with --prompt-version. A new run writes, by default, to
+outputs-local/v1/cosine_then_llm/<candidates run>_<prompt version>/, so it
+never replaces the saved verdicts in outputs-local/v1/judge/.
 
 Every call keeps its prompt, raw answer and logs under
 <out>/runs/<IQ_ID>/<time>/. A target is judged once per prompt and model;
@@ -21,10 +40,11 @@ a rerun skips finished targets, and a replaced judgment or table moves to
 a history folder. The run stops if the API credit runs out or the key is
 refused; run it again after fixing that.
 
-  python v1/scripts/judge_comps.py --tickers PCTY BV     # a few targets
-  python v1/scripts/judge_comps.py --workers 4           # every training target
-  python v1/scripts/judge_comps.py --dry-run             # write the prompts only
-  python v1/scripts/judge_comps.py --tables-only         # rebuild judgments.csv
+  python v1/scripts/cosine_then_llm.py --tickers PCTY BV     # a few targets
+  python v1/scripts/cosine_then_llm.py --workers 4           # every training target
+  python v1/scripts/cosine_then_llm.py --dry-run             # write the prompts only
+  python v1/scripts/cosine_then_llm.py --tables-only --out outputs-local/v1/judge --prompt-version 2026-10-25a
+                                                             # rebuild the saved judgments.csv
 """
 
 from __future__ import annotations
@@ -46,9 +66,17 @@ import facets as fc  # noqa: E402  (also puts website_scrape/ and src/ on the pa
 from fill_facets import DEFAULT_MODEL, call_claude, now_iso, output_paths as facet_paths, stamp  # noqa: E402
 from project_data import OUTPUTS_LOCAL  # noqa: E402
 
-PROMPT_VERSION = "2026-10-25a"
-DEFAULT_OUT = OUTPUTS_LOCAL / "v1" / "judge"
+PROMPT_VERSION = "2026-11-04a"            # new runs: company size (F9) left out of the facet lines
+SAVED_PROMPT_VERSION = "2026-10-25a"      # every saved verdict and holdout answer: all twelve facets
+PROMPT_EXCLUDES = {                       # facets left out of the prompt, per version
+    "2026-10-25a": (),
+    "2026-11-04a": ("company_size",),
+}
+SAVED_OUT = OUTPUTS_LOCAL / "v1" / "judge"                # the saved 2026-10-25a verdicts (read-only in practice)
+DEFAULT_OUT_ROOT = OUTPUTS_LOCAL / "v1" / "cosine_then_llm"   # new runs: <root>/<candidates run>_<prompt version>/
+DEFAULT_OUT = SAVED_OUT                   # kept for older imports; new runs use DEFAULT_OUT_ROOT
 CANDIDATES_ROOT = OUTPUTS_LOCAL / "v1" / "candidates"
+METHOD1_ROOT = OUTPUTS_LOCAL / "v1" / "candidates_method1"   # the v1 baseline's lists (method1_candidates.py)
 FACETS_OUT = OUTPUTS_LOCAL / "v1" / "facets"
 DEFAULT_Z = 2.0
 
@@ -89,10 +117,15 @@ def answer_schema(labels: list[str]) -> dict:
 
 # ---------------------------------------------------------------- prompt
 
-def describe(row: pd.Series) -> str:
-    """A company's facets as lines: "unknown" or "none" (not applicable) where so."""
+def describe(row: pd.Series, exclude: tuple[str, ...] = PROMPT_EXCLUDES[PROMPT_VERSION]) -> str:
+    """A company's facets as lines: "unknown" or "none" (not applicable) where
+    so. Facets in `exclude` are left out; the default is the current prompt
+    version's list (company size). Pass PROMPT_EXCLUDES[SAVED_PROMPT_VERSION]
+    to rebuild the saved prompts exactly."""
     lines = []
     for f in fc.FACETS:
+        if f.name in exclude:
+            continue
         status = row.get(f"{f.name}_status", "unknown")
         value = {"unknown": "unknown", "not_applicable": "none"}.get(status) or row.get(f.name, "") or "unknown"
         lines.append(f"- {f.label}: {value}")
@@ -102,17 +135,19 @@ def describe(row: pd.Series) -> str:
     return "\n".join(lines)
 
 
-def build_prompt(target: str, comps: list[str], info: pd.DataFrame, facet_rows: pd.DataFrame
-                 ) -> tuple[str, dict[str, str]]:
+def build_prompt(target: str, comps: list[str], info: pd.DataFrame, facet_rows: pd.DataFrame,
+                 prompt_version: str = PROMPT_VERSION) -> tuple[str, dict[str, str]]:
     """The prompt for one target, and the label of each candidate (C1, ...).
     Candidates are listed alphabetically by name, so their order carries no
-    similarity rank."""
+    similarity rank. `prompt_version` sets which facets are listed (see
+    PROMPT_EXCLUDES); replays of saved answers pass SAVED_PROMPT_VERSION."""
     order = sorted(comps, key=lambda c: (info.loc[c, "target_company_name"].lower(), c))
     labels = {f"C{i}": c for i, c in enumerate(order, 1)}
+    exclude = PROMPT_EXCLUDES[prompt_version]
 
     def block(iq_id: str) -> str:
         r = info.loc[iq_id]
-        return f"{r['target_company_name']} ({r['target_ciq_website']})\n{describe(facet_rows.loc[iq_id])}"
+        return f"{r['target_company_name']} ({r['target_ciq_website']})\n{describe(facet_rows.loc[iq_id], exclude)}"
 
     parts = [INSTRUCTIONS, "", f"Target: {block(target)}", "", "Candidates:"]
     parts += [f"\n{label}: {block(c)}" for label, c in labels.items()]
@@ -156,10 +191,29 @@ def latest_candidates() -> Path:
     return runs[-1]
 
 
-def load_inputs(candidates_run: Path, z: float) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    """The pairs at z >= z, company names and websites, and the current facets (first business)."""
-    pairs = pd.read_csv(candidates_run / "candidates.csv", dtype={"target": str, "comp": str})
-    pairs = pairs[pairs["z"] >= z]
+def latest_method1() -> Path:
+    runs = sorted(p for p in METHOD1_ROOT.iterdir() if (p / "candidates.csv").exists()) if METHOD1_ROOT.exists() else []
+    if not runs:
+        raise SystemExit("No v1 baseline lists yet: run  uv run python v1/scripts/method1_candidates.py")
+    return runs[-1]
+
+
+def pick_pairs(pairs: pd.DataFrame, z: float, rule: str = "z") -> pd.DataFrame:
+    """The candidate rows to judge: z >= z (rule "z"), or the rows marked
+    `selected` (rule "selected", a method1_candidates.py run)."""
+    if rule == "selected":
+        if "selected" not in pairs:
+            raise SystemExit("These candidates have no `selected` column: --b3 needs a method1_candidates.py run")
+        return pairs[pairs["selected"].astype(str).str.lower() == "true"]
+    return pairs[pairs["z"] >= z]
+
+
+def load_inputs(candidates_run: Path, z: float, rule: str = "z") -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    """The pairs to judge, company names and websites, and the current facets
+    (first business). rule "z": the pairs at z >= z (v0's shortlist);
+    rule "selected": the rows marked `selected` (a method1_candidates.py run:
+    the v1 baseline's comp lists)."""
+    pairs = pick_pairs(pd.read_csv(candidates_run / "candidates.csv", dtype={"target": str, "comp": str}), z, rule)
     universe_run = json.loads((candidates_run / "run.json").read_text(encoding="utf-8"))["universe_run"]
     info = pd.read_csv(OUTPUTS_LOCAL / "v1" / "universe" / universe_run / "universe.csv",
                        dtype=str).set_index("IQ_COMPANY_ID")
@@ -176,7 +230,7 @@ def move_to_history(path: Path, history: Path) -> None:
 
 
 def judge_one(target: str, comps: list[str], info, facets, out: SimpleNamespace, args) -> dict:
-    prompt, labels = build_prompt(target, comps, info, facets)
+    prompt, labels = build_prompt(target, comps, info, facets, args.prompt_version)
     fp = fingerprint(prompt, args.model)
     path = out.judgments / f"{target}.json"
     if path.exists() and not args.refresh:
@@ -188,12 +242,13 @@ def judge_one(target: str, comps: list[str], info, facets, out: SimpleNamespace,
     (run_dir / "prompt.txt").write_text(prompt, encoding="utf-8")
     result = call_claude(prompt, run_dir, answer_schema(list(labels)), args.model, args.effort,
                          instructions_len=len(INSTRUCTIONS))
-    run_info = {"model": args.model, "effort": args.effort or "", "prompt_version": PROMPT_VERSION,
+    run_info = {"model": args.model, "effort": args.effort or "", "prompt_version": args.prompt_version,
                 "fingerprint": fp, "finished_at": now_iso(),
                 **{k: v for k, v in result.items() if k != "text"}}
     (run_dir / "run.json").write_text(json.dumps(run_info, indent=1), encoding="utf-8")
-    judgment = {"target": target, "candidates_run": args.candidates.name, "z_min": args.z,
-                "prompt_version": PROMPT_VERSION, "model": args.model, "fingerprint": fp,
+    judgment = {"target": target, "candidates_run": args.candidates.name,
+                "z_min": None if args.b3 else args.z, "list_rule": "b3_selected" if args.b3 else "z",
+                "prompt_version": args.prompt_version, "model": args.model, "fingerprint": fp,
                 "run_dir": str(run_dir.relative_to(out.runs.parent)), "llm_status": result["llm_status"],
                 "judged_at": now_iso(), "labels": labels, "comps": [], "issues": []}
     if result["llm_status"] == "ok":
@@ -210,19 +265,27 @@ def judge_one(target: str, comps: list[str], info, facets, out: SimpleNamespace,
             "seconds": result.get("seconds")}
 
 
-def write_tables(out: SimpleNamespace, pairs: pd.DataFrame, info: pd.DataFrame) -> Path:
-    """judgments.csv: one row per judged target-comp pair, with its step 4
-    rank, similarity and z, the score (1 good, 0 bad) and the reason."""
-    rows = []
+def write_tables(out: SimpleNamespace, pairs: pd.DataFrame, info: pd.DataFrame,
+                 prompt_version: str = PROMPT_VERSION) -> Path:
+    """judgments.csv: one row per judged target-comp pair made with
+    `prompt_version`, with its step 4 rank, similarity and z, the score (1
+    good, 0 bad) and the reason. Refuses to write an empty table over saved
+    judgments made with another version (pass that version instead)."""
+    rows, other_versions = [], set()
     for path in sorted(out.judgments.glob("*.json")):
         j = json.loads(path.read_text(encoding="utf-8"))
-        if j.get("llm_status") != "ok" or j.get("prompt_version") != PROMPT_VERSION:
+        if j.get("llm_status") == "ok" and j.get("prompt_version") != prompt_version:
+            other_versions.add(j.get("prompt_version"))
+        if j.get("llm_status") != "ok" or j.get("prompt_version") != prompt_version:
             continue
         for c in j["comps"]:
             rows.append({"target": j["target"], "comp": c["comp"], "label": c["label"], "score": c["score"],
                          "reason": c["reason"], "model": j["model"], "prompt_version": j["prompt_version"],
                          "candidates_run": j["candidates_run"], "judged_at": j["judged_at"],
                          "issues": "; ".join(j["issues"])})
+    if not rows and other_versions:
+        raise SystemExit(f"No judgments made with prompt {prompt_version} in {out.judgments}; the ones there use "
+                         f"{sorted(other_versions)}. Pass --prompt-version with that version to rebuild their table.")
     table = pd.DataFrame(rows, columns=["target", "comp", "label", "score", "reason", "model", "prompt_version",
                                         "candidates_run", "judged_at", "issues"])
     table = table.merge(pairs[["target", "comp", "rank", "similarity", "z"]], on=["target", "comp"], how="left")
@@ -238,9 +301,15 @@ def write_tables(out: SimpleNamespace, pairs: pd.DataFrame, info: pd.DataFrame) 
 
 def main() -> None:
     p = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    p.add_argument("--out", default=str(DEFAULT_OUT))
+    p.add_argument("--out", help="output folder (default: outputs-local/v1/cosine_then_llm/<candidates run>_<prompt "
+                                 "version>/; the saved verdicts are in outputs-local/v1/judge/)")
     p.add_argument("--candidates", help="step 4 run folder (default: the latest)")
+    p.add_argument("--prompt-version", choices=sorted(PROMPT_EXCLUDES), default=PROMPT_VERSION,
+                   help=f"default {PROMPT_VERSION} (no company size); {SAVED_PROMPT_VERSION} rebuilds the saved prompts")
     p.add_argument("--z", type=float, default=DEFAULT_Z, help="candidates at z >= this (default 2)")
+    p.add_argument("--b3", action="store_true",
+                   help="screen the v1 baseline's lists (B3, mutual top 10) from the latest method1_candidates.py run "
+                        "instead of v0's z >= 2 shortlist")
     p.add_argument("--tickers", nargs="*", help="only these targets")
     p.add_argument("--limit", type=int, help="stop after N targets")
     p.add_argument("--refresh", action="store_true", help="judge current targets again")
@@ -250,12 +319,14 @@ def main() -> None:
     p.add_argument("--dry-run", action="store_true", help="write the prompts only")
     p.add_argument("--tables-only", action="store_true", help="only rebuild judgments.csv")
     args = p.parse_args()
-    args.candidates = Path(args.candidates) if args.candidates else latest_candidates()
-    out = output_paths(Path(args.out))
+    args.candidates = (Path(args.candidates) if args.candidates
+                       else latest_method1() if args.b3 else latest_candidates())
+    out = output_paths(Path(args.out) if args.out else DEFAULT_OUT_ROOT /
+                       f"{'b3_' if args.b3 else ''}{args.candidates.name}_{args.prompt_version}")
     for d in (out.runs, out.judgments, out.logs):
         d.mkdir(parents=True, exist_ok=True)
 
-    pairs, info, facets = load_inputs(args.candidates, args.z)
+    pairs, info, facets = load_inputs(args.candidates, args.z, "selected" if args.b3 else "z")
     groups = pairs.groupby("target")["comp"].apply(list)
     if args.tickers:
         wanted = set(args.tickers)
@@ -269,15 +340,16 @@ def main() -> None:
     if args.dry_run:
         out.prompts_dry_run.mkdir(parents=True, exist_ok=True)
         for target, comps in groups.items():
-            (out.prompts_dry_run / f"{target}.txt").write_text(build_prompt(target, comps, info, facets)[0],
-                                                               encoding="utf-8")
+            (out.prompts_dry_run / f"{target}.txt").write_text(
+                build_prompt(target, comps, info, facets, args.prompt_version)[0], encoding="utf-8")
         print(f"wrote {len(groups)} prompts to {out.prompts_dry_run}")
         return
 
     if not args.tables_only:
         log = out.logs / f"judge_{stamp()}.log"
-        print(f"candidates {args.candidates.name}, z >= {args.z:g}: {len(groups)} targets, "
-              f"{groups.str.len().sum()} pairs; model {args.model}; log {log.name}")
+        rule = "v1 baseline lists (B3)" if args.b3 else f"z >= {args.z:g}"
+        print(f"candidates {args.candidates.name}, {rule}: {len(groups)} targets, "
+              f"{groups.str.len().sum()} pairs; model {args.model}; prompt {args.prompt_version}; log {log.name}")
         totals, started = {"input_tokens": 0, "cached_input_tokens": 0, "output_tokens": 0}, time.time()
         with ThreadPoolExecutor(max_workers=args.workers) as pool, log.open("w", encoding="utf-8") as lf:
             futures = {pool.submit(judge_one, t, c, info, facets, out, args): t for t, c in groups.items()}
@@ -295,7 +367,7 @@ def main() -> None:
                         f.cancel()
                     break
         print(f"tokens: {totals}; {time.time() - started:.0f} s")
-    dest = write_tables(out, pairs, info)
+    dest = write_tables(out, pairs, info, args.prompt_version)
     print("wrote", dest)
 
 

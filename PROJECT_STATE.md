@@ -3,6 +3,49 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
+_2026-11-04, v1 baseline = B3, F9 out of the selector prompts, golden set round 2, `outputs-local/v1/` shared.
+- **Decisions:**
+  - B3 (method 1) is the v1 baseline, chosen on comp quality, not valuation.
+  - Golden-set round 2 covers CSL, AFG, AZZ, BBCP and BUKS, plus WEN's 2 unscored pairs.
+  - Reviewers are three neutral slots (A, B, C).
+  - The multi-business rule is proposed ("whole company; one-business match at most 1") and left as a **stub for Eric**.
+  - `outputs-local/v1/` is shared through git, with the same local-only exclusions as `comps*/`.
+- **F9 prompt fix:** `cosine_then_llm.py` and `direct_llm.py` default to prompt `2026-11-04a` (no company size). Every replay or reader of saved answers pins `SAVED_PROMPT_VERSION = 2026-10-25a`: the holdout scripts, `facet_eval`, `peer_evaluation` and the notebooks.
+  - **Checked byte for byte:** 533 descriptions, 533 with the sector summary, 373 saved verdicts and 373 saved direct picks are identical before and after.
+  - **New check script:** `check_prompt_versions.py` (373/373 for each selector).
+  - **Safer outputs:** new runs write to new folders, and `--tables-only` refuses to write an empty table.
+  - **Guide:** `v1/PROMPT_VERSIONS.md`.
+- **B3 for the selectors:** `method1_candidates.py` (run `20261104T074915Z`: 373 targets, 2,396 baseline pairs, identical to the notebook's B3 lists). `cosine_then_llm.py --b3` screens them; a dry run was checked.
+- **`similarity_methods.ipynb`:** adds a BM25 boilerplate section (label IDF 0.12–1.07 vs a typical word's 1.3–3.8; B3 keeps 53–71% of the embedding's label premium; saturation curve; worked pair) and saves every method's ranking for the ten showcase targets. Current run `20261104T075557Z`; the results are unchanged.
+- **Round 2:** `golden_set_showcase.ipynb` wrote the 67-pair blind sheet to `outputs-local/v1/golden_set_showcase/labels/round2_sheet.csv` (never overwritten). The reviewer guide is `v1/GOLDEN_SET_ROUND2.md`, with the team's six-reason rubric. The scoring cells were tested on made-up scores in a scratch folder; nothing from the test is saved.
+- **Tests and cost:** 209 pass. No API calls.
+- **Next:** Eric confirms the multi-business rule; send the sheet to the three reviewers; commit `round2_filled.csv`; re-run the notebook. Paid `--b3` selector run when funded.
+
+Details: `conversations/2026-11-04-v1-baseline-prompt-round2.md`._
+
+_2026-11-03, similarity methods (v1): new `v1/notebooks/similarity_methods.ipynb`, `v1/scripts/facet_weighting.py` and `v1/scripts/similarity_eval.py` (18 new tests; 200 pass).
+- **Team decisions applied:** company size (F9) out of the similarity; "none" as missing; comps = mutual top 10, topped up to 3 (replaces z ≥ 2).
+- **Reviewer rule:** majority grade as the main set (32 pairs), the 11 unanimous pairs as a strict check, unlabeled comps never counted as 0. Sol's grades are an alternative evaluation, not used for decisions.
+- **Method 1:** a blend of embedding cosine and TF-IDF cosine (BM25 IDF) per facet, weighted per pair by information (summed IDF, saturated raw/(raw+K)).
+- **Method 2 (FAME-inspired, no training):** facets as heads, a gate per target (information × sharpness), `;`-piece best-match scoring.
+
+Results on 373 training targets:
+- **On the reviewed comps,** every method finds all direct comps. Methods 1 and 2 also find all adjacent comps (PCTY 7/7, WEN 4/4), while v0 misses BBSI and BDL; both are recovered by the "none" fix. Methods 1 and 2 drop v0's non-comps (v0 lists 3/5 for PCTY and 7/16 for WEN; method 1 none, method 2 one), mostly through the mutual filter.
+- **Precision@10 and robustness:** WEN goes from 0.30 to 1.0 and PCTY from 0.67 to 1.0. Barbara and Matthew agree on their own; Riya's broader grades don't separate the methods.
+- **Sol (alternative check, 156 holdout targets):** the new lists keep 81–82% of Sol-direct comps (v0 84%) with a third of the non-comps.
+- **Side effect:** the TF-IDF blend lifts Lamb Weston for WEN on shared words.
+- **Charts and facet analysis:** the notebook now has charts of each method's list and of every reviewed comp's rank, plus method 2's facet weights and per-facet contributions. For WEN, revenue model does most of the separating (0.050 of a 0.171 gap) and gets the largest gate (14.0%). For PCTY, whose non-comps are other software firms, the separation is spread across facets.
+- **Valuation doesn't move.** Median APE: v0 top 10 28.8%, method 1 30.0%, method 2 30.3%. Every interval against v0 includes 0, and with one-way top 10 the new methods score 29.7% and 30.2%.
+- **Method 2 ≈ method 1.** The gate mostly follows information.
+
+Other changes and state:
+- **Rename:** the LLM selectors are now `cosine_then_llm.py` (was `judge_comps.py`) and `direct_llm.py` (was `suggest_comps.py`); "judge" now means the evaluators only.
+- **F9 in the selector's prompt:** deferred to the next paid run (a version bump would hide saved verdicts from the readers that filter on the current version).
+- **No API calls** were made; API spend is on hold until the method is settled or funded.
+- **Data:** `company_list_v3`, facets `2026-10-25k`, split `20261027T204930Z`, run `outputs-local/v1/similarity_methods/20261104T052054Z` (earlier runs from the same session are in `history/`).
+
+Next: reviewers score the 2 new WEN pairs (`labels_topup/topup_sheet.csv`), and the golden set gets more targets. Details: `conversations/2026-11-03-similarity-methods.md`._
+
 _2026-11-03, README rewritten for non-technical readers: what the project does, the recipe in four plain steps, status and results, a folder map (v1 current, v0 the 2026-10-28 record), setup, rules, team contributions, next steps and terms. Pre-v0 sections, PR history and branch tables removed; `pre-v0/README.md` is linked for that history. Details: `conversations/2026-11-03-readme-rewrite.md`._
 
 _2026-11-03, v1 = a working copy of v0, and a shared uv environment: `v1/` is v0 as left on 2026-10-28
