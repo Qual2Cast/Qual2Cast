@@ -4,7 +4,7 @@ How to work in this repo, for people and for agents (Codex, Claude Code).
 This file covers working habits only, not the method. The method (inputs,
 facets, how comps are picked, valuation) is decided by the team and
 recorded in PROJECT_STATE.md and the README of the current method's folder
-(v0/README.md). Where they differ from this file, they win. Nothing here
+(v1/README.md). Where they differ from this file, they win. Nothing here
 limits a new design: when the team changes the method, update those files,
 not this one.
 
@@ -13,7 +13,9 @@ of the folder you're working in, and the handoffs in conversations/ that
 relate to the task. Old transcripts and handoffs are history, not current
 instructions.
 
-The current method is in v0/ (the mentor's comps recipe). pre-v0/ holds
+The current method is in v1/ (the mentor's comps recipe; a working copy of v0/, which stays as
+the record of the 2026-10-28 deliverable). Code is in v1/scripts/, notebooks in v1/notebooks/.
+Use the uv environment (`uv sync`, `uv run`); add packages with `uv add`. pre-v0/ holds
 earlier work kept for reference; build on it only when the task says so.
 
 ## Data
