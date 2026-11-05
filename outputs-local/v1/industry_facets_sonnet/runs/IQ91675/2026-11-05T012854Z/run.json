@@ -1,0 +1,66 @@
+{
+ "backend": "claude-cli",
+ "model": "claude-sonnet-5-5",
+ "prompt_version": "2026-11-04a",
+ "fingerprint": "0b1dc21bc2515875",
+ "finished_at": "2026-11-05T01:29:01Z",
+ "llm_status": "ok",
+ "command": [
+  "/Users/matthewpisinski/.local/bin/claude",
+  "-p",
+  "--output-format",
+  "json",
+  "--json-schema",
+  "{\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"knows_company\": {\"type\": \"boolean\"}, \"notes\": {\"type\": \"string\"}, \"education_level_institution_type\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"program_qualification\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"enrollment_by_measure\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"tuition_payment_model\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"accreditation_authorization\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"completion_student_outcomes\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"delivery_campus_model\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}}, \"required\": [\"knows_company\", \"notes\", \"education_level_institution_type\", \"program_qualification\", \"enrollment_by_measure\", \"tuition_payment_model\", \"accreditation_authorization\", \"completion_student_outcomes\", \"delivery_campus_model\"]}",
+  "--tools",
+  "",
+  "--no-session-persistence",
+  "--strict-mcp-config",
+  "--mcp-config",
+  "{\"mcpServers\":{}}",
+  "--setting-sources",
+  "",
+  "--max-turns",
+  "3",
+  "--system-prompt-file",
+  "/Users/matthewpisinski/work/school/grad_school/F_26/IEOR_Capstone/Work/outputs-local/v1/industry_facets_sonnet/runs/IQ91675/2026-11-05T012854Z/system.txt",
+  "--model",
+  "claude-sonnet-5-5"
+ ],
+ "returncode": 0,
+ "seconds": 6.98,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 3784,
+  "cache_read_input_tokens": 1917,
+  "output_tokens": 529,
+  "output_tokens_details": {
+   "thinking_tokens": 0
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 3784,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 529,
+    "cache_read_input_tokens": 1917,
+    "cache_creation_input_tokens": 3784,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 3784
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ }
+}

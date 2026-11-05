@@ -1,0 +1,109 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Supernus Pharmaceuticals, Inc. (www.supernus.com)
+Industry (SIC 28): Chemicals & Allied Products
+About this industry group: This major group includes pharmaceuticals and biological products as well as industrial chemicals. Use clinical-stage and drug-platform extensions only for the relevant life-science business; do not impose drug approval or patent dependence on all commodity chemicals.
+
+Facets:
+- chemical_life_science_product_family (Chemical / life-science product family). Examples: Specialty coatings; Fertilizers; Prescription pharmaceuticals.
+- specialty_commodity_positioning (Specialty / commodity positioning). Examples: Customer-qualified specialty formulations; Bulk commodity chemicals.
+- formulation_synthesis_complexity (Formulation / synthesis complexity). Examples: Custom additive formulation; Multistep chemical synthesis; Standardized bulk production.
+- patent_exclusivity_dependence (Patent / exclusivity dependence). Examples: Patented active ingredient; Process know-how; Product-exclusivity expiry in 2029.
+- product_specific_regulatory_route (Product-specific regulatory route). Examples: TSCA chemical compliance; REACH registration; FDA-approved medicine.
+- r_d_intensity (R&D intensity). Examples: Annual R&D: 6% of sales; Annual R&D: 18% of sales.
+- clinical_commercialization_stage_pharma (Clinical / commercialization stage [pharma]). Examples: Phase II trial program; Phase III registration study; Commercialized medicine.
+- biologic_small_molecule_platform_pharma (Biologic / small-molecule platform [pharma]). Examples: Monoclonal antibodies; Small molecules; Vaccines.
+- manufacturing_supply_model_pharma (Manufacturing / supply model [pharma]). Examples: Own GMP drug manufacturing; Outsourced API manufacturing; Contract development and manufacturing.
+
+Evidence:
+<source id="P1">
+[P1.1] Supernus Pharmaceuticals | Innovating CNS Treatments
+[P1.2] Supernus, a biopharmaceutical company, develops CNS disease treatments. Transforming patient care with cutting-edge therapies and strategic partnerships.
+[P1.3] A legacy of innovation. A portfolio of promise.
+[P1.4] Vote clears critical threshold in establishing Supernus, Inc. as a scaled, diversified CNS biopharmaceutical leader
+[P1.5] Please use the links below to access key Sage Therapeutics information:
+[P1.6] To report an adverse event or product complaint please call 844-4-SAGERX to reach Supernus Medical Information Support
+[P1.7] Sage Therapeutics Funding & Giving
+[P1.8] We are an award-winning biopharmaceutical company with more than 30 years of experience in developing and commercializing products that treat central nervous system (CNS) diseases.
+[P1.9] The science that drives our products
+[P1.10] Research and development are key parts of what we do at Supernus. Explore the science behind our work and our pipeline of promising product candidates.
+[P1.11] Novel products that provide important benefits to patients
+[P1.12] Our products fall into a number of therapeutic categories and are designed to provide important health benefits to patients living with CNS diseases.
+[P1.13] Patients and healthcare providers can find more helpful resources here.
+[P1.14] Find and learn about important information for investors.
+</source>
+
+<source id="P2">
+[P2.1] About Us – Supernus
+[P2.2] Revolutionizing CNS treatment with therapies that significantly enhance patients' lives.
+[P2.3] 30 years of expertise in product development
+[P2.4] Jonathan Rubin: When you bring a drug to market, you have
+[P2.5] the potential to affect the lives of many, many people and their families.
+[P2.6] Rebecca Lannan: The impact that our eight marketed products have on patients' lives is significant.
+[P2.7] We cross between migraine prevention, to epilepsy, to Parkinson's disease, and now
+[P2.8] onto ADHD, with our launch product Qelbree. Those patients' lives, across
+[P2.9] children and adults, are changed forever from our products.
+[P2.10] Chad Tasker: What makes us so competitive is we put our patients first; everything we do is dedicated to make
+[P2.11] our patients' lives better. Customer service is number one, we eat sleep and
+[P2.12] breathe that every day——and we live up to it, and it shows each and every day in
+[P2.13] Sarah Munoz: Something that really stands out is the
+[P2.14] fact that we are able to help and change so many lives.
+[P2.15] I will never forget the experience of going into a doctor's office, talking to a doctor about our products,
+[P2.16] and being able to hear about their patients whose lives were benefited from our drugs.
+[P2.17] Bryan Roecklein: What one of the greatest aspects of Supernus is that we have a number of products on
+[P2.18] We have a late-stage product under FDA review.
+[P2.19] We have two mid-stage products that are entering the clinic soon.
+[P2.20] And then we also have an early-stage discovery platform;
+[P2.21] so Supernus is not only growing, but it's going to be growing for a long time.
+[P2.22] Konnie Taylor: We are able to bring so many products to the market because of the people, because of the
+[P2.23] culture, and all of the hard work that everyone puts in——with the end goal of helping the patient.
+[P2.24] Roy Thomas: The number one differentiator is the culture that we've created.
+[P2.25] Erin Agustinus: Whether marketing, whether finance, all the way up to our CEO Jack.
+[P2.26] Logan Hoffman: Every day excited to come in just because of the people——you know, everyone around from senior
+[P2.27] be here, coming in with a positive attitude every single day.
+[P2.28] Frank Mottola: Supernus Pharmaceuticals is more than just a lab—— you can be in the lab, you can be in
+[P2.29] sales, you can be in marketing, you can be in operations, you can be part of the
+[P2.30] management team, you can be part of the executive team, it doesn't matter——we all
+[P2.31] work for the same exact mission: bettering the lives of our patients.
+[P2.32] We are a biopharmaceutical company focused on developing and commercializing products for the treatment of central nervous system (CNS) diseases.
+[P2.33] Over the last 30 years, we have built an extensive expertise in product development.
+[P2.34] We market our products within the United States through our own specialty sales forces. We also seek strategic collaborations with other pharmaceutical companies to license our products outside the United States.
+[P2.35] A record of successful products, with more in development
+[P2.36] At Supernus, we develop innovative products that help treat neurological and psychiatric conditions. It's about more than science and research, though. It's about the real impact these products have on people by helping to improve their health.
+[P2.37] Visit our therapeutics section to learn about all of our products.
+[P2.38] Shaping the future by focusing on novel treatments
+[P2.39] At Supernus, we strive to be a leader in the CNS industry by developing and commercializing new medicines in neurology and psychiatry. Some key elements of our strategy to accomplish this vision are to:
+[P2.40] Using dedicated sales and marketing resources in the U.S., we will continue to drive the revenue growth of our commercial products.
+[P2.41] Adv ance product candidates toward commercialization.
+[P2.42] Several product candidates in our pipeline are in early-to-late-stage clinical testing and moving toward being commercially available to patients.
+[P2.43] Con tinue to grow our pipeline.
+[P2.44] We will continue to evaluate and develop additional CNS product candidates that we believe have significant commercial potential through our internal research and development efforts.
+[P2.45] Tar get strategic business development opportunities.
+[P2.46] We are actively exploring a broad range of strategic opportunities. This includes in-licensing products and entering into co-promotion and co-development partnerships for our commercial products and product candidates.
+[P2.47] View the accolades and awards Supernus has won over the years
+[P2.48] Get to know the leaders at Supernus
+[P2.49] You may also be interested in Our Science
+</source>
+
+<source id="P3">
+[P3.1] Supernus CNS Products | Neurology & Psychiatry Conditions
+[P3.2] At Supernus, we create innovative products to treat neurology and psychiatry conditions, focusing on their real impact in improving people's health.
+[P3.3] At Supernus, we develop innovative products that help treat neurological and psychiatric conditions. It’s about more than science and research, though. It's about the real impact these products have on people by helping to improve their health.
+[P3.4] We have a diverse portfolio of products that treat psychiatric and neurological conditions including ADHD, epilepsy, Parkinson’s disease, migraine, and more.
+[P3.5] Please see prescribing information including boxed warning
+[P3.6] Visit Oxtellar XR website »
+[P3.7] Visit Trokendi XR website »
+[P3.8] You may also be interested in Your resource center
+</source>

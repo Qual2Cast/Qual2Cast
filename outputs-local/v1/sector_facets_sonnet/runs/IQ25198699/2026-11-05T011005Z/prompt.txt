@@ -1,0 +1,37 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: EACO Corporation (eacocorp.com)
+Sector: Wholesale distribution and transportation
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- logistics_role (Role): What it moves or distributes. Example: industrial distributor: MRO parts to factories. Any that apply of: industrial distributor; consumer goods distributor; healthcare distributor; technology distributor; trucking; less-than-truckload; rail; air; marine; freight brokerage / logistics; passenger transport.
+- asset_intensity (Asset intensity): Whether it owns the fleet or warehouses. Example: asset-heavy: owns its fleet and terminals. Exactly one of: asset-heavy; asset-light; mixed.
+- value_added (Value added): What it adds besides moving goods. Example: value-added services: inventory management and repair. Any that apply of: pure distribution; value-added services; contract logistics.
+
+Evidence:
+<source id="P1">
+[P1.1] Eaco Corporation
+[P1.2] About EACO Corp. EACO Corporation (EACO), incorporated on, is a holding company comprised of its wholly-owned subsidiary, Bisco Industries, Inc. (bisco) and bisco's wholly-owned Canadian subsidiary, Bisco Industries Limited (collectively, the Company). The Company engages in the distribution of electronic components and hardware through its multiple primary divisions: bisco, National-Precision and Fast-Cor. Through its divisions, the Company…
+[P1.3] EACO Corporation (EACO), incorporated on, is a holding company comprised of its wholly-owned subsidiary, Bisco Industries, Inc. (bisco) and bisco’s wholly-owned Canadian subsidiary, Bisco Industries Limited (collectively, the Company). The Company engages in the distribution of electronic components and hardware through its multiple primary divisions: bisco, National-Precision and Fast-Cor. Through its divisions, the Company supplies parts used to manufacture products in a range of industries. Primary industries serviced include aerospace & defense (A&D), industrial equipment, fabrication, printed circuit board (PCB), medical, communication, computer, automotive and marine.
+</source>
+
+<source id="P2">
+[P2.1] Divisions – Eaco Corporation
+[P2.2] bisco primarily sells product to original equipment manufacturers (OEMs) and contract manufacturers (CMs). bisco’s sells a wide range of products with a strong focus on Aerospace and Defense hardware, commercial hardware, electro-mechanical hardware, access hardware, fasteners, and electronic components. bisco also provides customized services and solutions for a range of production needs, including special packaging,…
+[P2.3] bisco primarily sells product to original equipment manufacturers (OEMs) and contract manufacturers (CMs). bisco’s sells a wide range of products with a strong focus on Aerospace and Defense hardware, commercial hardware, electro-mechanical hardware, access hardware, fasteners, and electronic components. bisco also provides customized services and solutions for a range of production needs, including special packaging, bin stocking, kitting and assembly, bar coding, electronic requisitioning, and integrated supply programs, among others.
+[P2.4] Fast-Cor is the distributor’s source for electronic components and hardware. For over 60 years Fast-Cor has focused on servicing wholesale distributors of electronic components and hardware. As specialist in working with other B2B distributors, Fast-Cor has built out a suite of value added services specific to supporting this fast-pace high volume industry.
+[P2.5] National-Precision focuses on servicing original equipment manufacturers (OEMs) in the aerospace and defense (A&D), Industrial equipment and fabrication industries. Additionally, National-Precision has a hardware focused product offering with emphasis on both mil-spec and commercial hardware.
+</source>

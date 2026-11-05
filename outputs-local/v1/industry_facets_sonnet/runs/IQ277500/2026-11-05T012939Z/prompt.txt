@@ -1,0 +1,63 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Helen of Troy Limited (www.helenoftroy.com)
+Industry (SIC 36): Electronic and Electrical Equipment, Except Computer Equipment
+
+Facets:
+- electrical_electronic_product_family (Electrical / electronic product family). Examples: Power-management chips; Switchgear; Household electrical appliances.
+- operating_model (Operating model). Examples: Fabless chip designer; Integrated semiconductor manufacturer; Electrical-equipment producer.
+- design_fabrication_assembly_split (Design / fabrication / assembly split). Examples: In-house IC design with outsourced wafer fabrication; Captive wafer fabrication; Outsourced assembly and test.
+- product_design_in_lifecycle (Product / design-in lifecycle). Examples: Annual consumer-electronics redesign; Five-year automotive design-in; Long-life industrial component.
+- oem_design_win_exposure (OEM / design-win exposure). Examples: Smartphone OEM design win; Industrial automation customers; Automotive platform nomination.
+- process_technology_capability_semiconductors (Process / technology capability [semiconductors]). Examples: 5 nm logic design; 300 mm mature-node fabrication; Advanced packaging.
+- manufacturing_supply_capacity_semiconductors (Manufacturing / supply capacity [semiconductors]). Examples: Contracted foundry wafer capacity; 40,000 wafer starts/month; Outsourced test capacity.
+
+Evidence:
+<source id="P1">
+[P1.1] Helen of Troy | Elevating Lives, Soaring Together
+[P1.2] We are proudly powered by our exceptional people, who feel and act like passionate owners. Every day, their experience and skills build superb businesses and create best-in-class capabilities in every corner of our company.
+[P1.3] Latest news, calls & webcasts, events.
+</source>
+
+<source id="P2">
+[P2.1] About Us | Helen of Troy
+[P2.2] Helen of Troy Limited is a leading global consumer products company offering creative products and solutions for our customers through a diversified portfolio of well-recognized and widely-trusted brands. ​
+[P2.3] We have built leading market positions through new product innovation, product quality and competitive pricing. We go to market under a number of brands, some of which are licensed. Our portfolio of brands includes OXO, Hydro Flask, Osprey, Vicks, Braun, Honeywell, PUR, Hot Tools, Drybar, Curlsmith, Revlon, and Olive & June, among others. We currently operate in two reportable business segments: Beauty & Wellness and Home & Outdoor.
+[P2.4] Celebrating over 55 years of history
+[P2.5] Helen of Troy began as a family business and was incorporated in Texas. We have grown organically as well as through acquisition, with a proven ability to acquire and integrate businesses in attractive sectors.
+[P2.6] During fiscal 2026, we made significant organizational and operational changes designed to stabilize our business. We are taking steps to modernize our business model designed to move at the speed of the consumer and excel in a rapidly evolving environment with fragmented consumer attention and shifting value perceptions.
+[P2.7] As part of our strategy, we plan to sharpen our focus on fewer, more impactful initiatives, which include investing more in product innovation, strengthening brand loyalty, and advancing commercial excellence. We intend to energize our brands through a disciplined investment approach focusing on impactful opportunities that generate competitive advantages and deliver product solutions and world-class innovation to our consumers. In addition, we believe our consumer-centric approach will enable us to better understand our consumers, allocate resources more efficiently, and accelerate the time to market for new products and brands with the best opportunities for long-term sustainable growth.
+[P2.8] With over 55 years of experience, we are just getting started. We elevate lives. We soar together. We are Helen of Troy.
+[P2.9] Divested Mass Market Personal Care Business
+[P2.10] Helen of Troy is strengthened by the diversity of experiences of our associates in Texas, New York, China, Switzerland, and beyond. We embrace our differences and continuously look to reach higher and soar, together. That’s why our sense of community is second to none. In addition to our offices and distribution centers, we have many associates working remotely full-time in countries across North America, South America, Europe, and Asia.
+[P2.11] Our North American offices stretch from the East coast to the West coast and from Canada to Mexico. These locations are home base for our brands, like OXO in New York or Drybar in Irvine, as well as our corporate team in El Paso, and distribution centers in Mississippi.
+[P2.12] El Paso, TX The El Paso office is home to our associates from our corporate shared services and Beauty teams. We’re strengthened by bonds with our local communities and partners in El Paso.
+[P2.13] Boston, MA Boston is an iconic city that has blossomed into a global hub for education and culture. The city’s commitment to diversity and its passionate sports scene add to the dynamic atmosphere. At Helen of Troy, we are not just a team, but pioneers at the forefront of innovation, driven by the spirit of our city. Embrace the opportunity to grow, lead, and make a lasting impact in an environment where history meets future, and you can be a part of something truly extraordinary!
+[P2.14] Search jobs in Boston > Search jobs in Marlborough >
+[P2.15] Associates in our European locations help drive international market growth for each of our Health & Home, Housewares, and Beauty business segments.
+[P2.16] Lausanne, Switzerland Overlooking Lake Geneva, our Lausanne location serves as the home for our operations in Europe, Middle East, and Africa. This team includes associates from all over Europe and farther aboard, giving the Lausanne office its unique multicultural environment.
+[P2.17] Associates in our Asia-Pacific locations live and work in some of the region’s most bustling and vibrant cities. Our offices in Macau and Shenzhen serve as the hubs for our operations in Asia-Pacific.
+[P2.18] Shenzhen, Guangdong Our Shenzhen team hosts our annual Supplier Summit. This is an opportunity for Helen of Troy associates from around the globe to attend the conference, along with hundreds of key suppliers and close partners.
+</source>
+
+<source id="P3">
+[P3.1] Our Brands | Helen of Troy
+[P3.2] We boldly bring brands into our family, where we nurture what makes them great. We collaborate internally and externally, always striving to provide the consumer-centric innovation, operational excellence, scale, global reach, and stellar shared services to make them soar.
+[P3.3] This segment offers a broad range of outstanding world-class brands that help consumers enjoy everyday living inside their homes and outdoors. Our innovative products for home activities include food preparation and storage, cooking, cleaning, organization, and beverage service. Our outdoor performance range, on-the-go food storage, and beverageware includes lifestyle hydration products, coolers and food storage solutions, backpacks, and travel gear. Sales for this global segment are primarily to online and brick & mortar retailers and through our direct-to-consumer channel.
+[P3.4] This segment provides consumers with a broad range of outstanding world-class brands for beauty and wellness. In Beauty, we deliver innovation through products such as hair styling appliances, grooming tools, and liquid and aerosol personal care products that help consumers look and feel more beautiful. In Wellness, we are there when you need us most with highly regarded humidifiers, thermometers, water and air purifiers, heaters, and fans. Sales for this global segment are primarily to online and brick & mortar retailers, distributors, and through our direct-to-consumer channel.
+[P3.5] The Company refers to OXO, Hydro Flask, Osprey, Vicks, Braun, Honeywell, PUR, Hot Tools and Drybar as its Leadership Brands.
+[P3.6] Braun, Vicks, Honeywell, Revlon and Bed Head are used under license by Helen of Troy from their respective licensors.
+[P3.7] All trademarks herein belong to Helen of Troy Limited (or its subsidiaries) and/or are used under license from their respective licensors.
+</source>

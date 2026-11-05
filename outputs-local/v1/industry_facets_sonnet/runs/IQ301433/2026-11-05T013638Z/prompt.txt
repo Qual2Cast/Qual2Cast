@@ -1,0 +1,83 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: SEI Investments Company (www.seic.com)
+Industry (SIC 62): Security and Commodity Brokers, Dealers, Exchanges and Services
+About this industry group: Separate asset managers, brokers, dealers and exchanges. AUM, AUA and assets under custody describe different roles and may overlap; do not add them together or treat them as interchangeable company scale.
+
+Facets:
+- financial_market_service (Financial-market service). Examples: Retail brokerage; Investment advisory; Securities market making.
+- client_instrument_exposure (Client / instrument exposure). Examples: Retail equities and ETFs; Institutional fixed income; Listed derivatives.
+- assets_under_management_asset_managers (Assets under management [asset managers]). Examples: $80 billion discretionary AUM; $20 billion non-discretionary AUM.
+- assets_under_administration_custody_platforms (Assets under administration / custody [platforms]). Examples: $100 billion client AUA; $300 billion assets under custody.
+- revenue_fee_economics (Revenue / fee economics). Examples: Asset-based advisory fees; Brokerage commissions; Principal trading revenue.
+- client_trading_activity (Client trading activity). Examples: One million executed trades/day; Ten million options contracts/month.
+
+Evidence:
+<source id="P1">
+[P1.1] Technology and Investment Solutions | SEI U.S.
+[P1.2] We deliver technology and investment solutions that connect the financial services industry.
+[P1.3] Custom solutions. Unlimited potential. One partner
+[P1.4] We deliver end-to-end solutions that simplify the complexities of financial services, connecting every part of your operations to ignite innovation, unlock efficiency, and accelerate growth.
+[P1.5] Select your role and get the solutions made for you.
+[P1.6] Why scale, data, and partnership matter more than ever.
+[P1.7] How financial institutions can scale growth through data, technology, and trusted partnerships.
+[P1.8] From individual to enterprise: What IBM Think reinforced about AI at scale.
+[P1.9] SEI CTO Zach Womack reflects on scaling AI with governance, orchestration, and control.
+</source>
+
+<source id="P2">
+[P2.1] About SEI overview | SEI U.S.
+[P2.2] Solving problems is our foundation. Powering the future is our mission.
+[P2.3] How we harness our expertise, ideas, and innovation to create lasting value for clients.
+[P2.4] Technology and operations We provide the foundation that powers your enterprise—linking platforms, data, and essential services to help everything run smoothly, securely, and at scale.
+[P2.5] Asset management We deliver personalized investment strategies and trusted expertise that help advisors, institutions, and families see the full picture—and act with confidence.
+[P2.6] Helping asset managers stay ahead of change.
+[P2.7] Powering the future of your business.
+[P2.8] A total business solution for independent advisors.
+[P2.9] Simplifying the complex and empowering investors.
+[P2.10] Nuveen and SEI: Advancing retirement innovation.
+[P2.11] TCW and SEI: Scaling across public and private markets.
+[P2.12] How SEI and TCW built a long-term relationship to support growth across markets.
+[P2.13] assets on our wealth management platforms***
+[P2.14] Our insights on topics that matter.
+[P2.15] The new baseline for financial services.
+[P2.16] New baseline in financial services—key shifts leaders can’t ignore.
+[P2.17] **As of 12/31/25. ***As of 12/31/25, value in USD.
+</source>
+
+<source id="P3">
+[P3.1] Market commentaries | SEI U.S.
+[P3.2] SEI industry experts' perspectives on domestic and global markets.
+[P3.3] Our experts weigh in on topics and trends in the financial market.
+[P3.4] Visit to view the latest.
+[P3.5] SEI Vantage in 60: Part 2
+[P3.6] Bonds are no longer dependable ballast due to rising correlations.
+[P3.7] SEI Vantage in 60: Part 1
+[P3.8] The long end of the U.S. Treasury curve has re-emerged as one of the market's key pressure points.
+[P3.9] Quarterly economic outlook: Change is the only constant.
+[P3.10] A summary of our key perspectives.
+[P3.11] Some policymakers take a hike.
+[P3.12] Divergence reigns in global policy.
+[P3.13] Quarterly economic outlook: A shocking decade
+[P3.14] Today, more than ever, we encourage diversification across geographies as well as across sectors and asset classes.
+[P3.15] Iran update: Straitjacket of Hormuz.
+[P3.16] The closure of the Strait of Hormuz has policymakers, economists, and investors very much on edge
+[P3.17] Geopolitics dominate the market news.
+[P3.18] Global equities, as measured by the MSCI ACWI Index, gained ground in.
+[P3.19] Portfolio selection: The solver isn’t the solution.
+[P3.20] To harness CMAs it is important to understand the appropriate application.
+[P3.21] Fourth quarter 2025. Equity markets capped off a stellar year with a positive fourth quarter.
+[P3.22] Insights relevant to your needs.
+</source>

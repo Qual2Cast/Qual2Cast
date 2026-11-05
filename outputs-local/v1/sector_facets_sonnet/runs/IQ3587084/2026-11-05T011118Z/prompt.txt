@@ -1,0 +1,35 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Franklin Street Properties Corp. (www.fspreit.com)
+Sector: Banks, insurance and other financials
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- financial_business_type (Financial business type): What kind of financial firm. Example: insurance brokerage: places commercial insurance for clients. Any that apply of: banking; specialty lending; property and casualty insurance; life and health insurance; insurance brokerage; asset / wealth management; exchanges and market infrastructure; payments; other.
+- revenue_driver (Revenue driver): What it earns on. Example: fees: commissions on placed premiums. Any that apply of: net interest income; fees and commissions; premiums; investment income.
+- customer_type (Customer type): Who its clients are. Example: corporate: small and mid-sized businesses. Any that apply of: retail; corporate; institutional; government.
+- balance_sheet_dependence (Balance sheet dependence): Whether it carries the risk. Example: fee-based: no underwriting risk. Exactly one of: balance-sheet intensive; fee-based; mixed.
+
+Evidence:
+<source id="P1">
+[P1.1] Franklin Street Properties Corp.
+[P1.2] Franklin Street Properties Corp. (FSP) is an investment firm based in Wakefield, Massachusetts, focused on achieving current income and long-term growth through investments in commercial properties.
+[P1.3] Franklin Street Properties Corp., based in Wakefield, Massachusetts, is focused on infill and central business district (CBD) office properties in the U.S. Sunbelt and Mountain West, as well as select opportunistic markets. FSP is focused on long-term growth and appreciation. FSP is a Maryland corporation that operates in a manner intended to qualify as a real estate investment trust (REIT) for federal income tax purposes. FSPâs real estate operations include property acquisitions and dispositions, short-term financing, leasing, development and asset management.
+</source>
+
+<source id="P2">
+[P2.1] Franklin Street Properties Corp. | About Us
+[P2.2] As of, the Company owned a portfolio of real estate consisting of 14 owned properties. The Company may also pursue, on a selective basis, the sale of its properties in order to take advantage of the value creation and demand for its properties, for geographic, property specific reasons or for other general corporate purposes.
+</source>

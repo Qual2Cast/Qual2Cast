@@ -1,0 +1,66 @@
+{
+ "backend": "claude-cli",
+ "model": "claude-sonnet-5-5",
+ "prompt_version": "2026-11-04a",
+ "fingerprint": "80daa6db3ec260e9",
+ "finished_at": "2026-11-05T01:19:16Z",
+ "llm_status": "ok",
+ "command": [
+  "/Users/matthewpisinski/.local/bin/claude",
+  "-p",
+  "--output-format",
+  "json",
+  "--json-schema",
+  "{\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"knows_company\": {\"type\": \"boolean\"}, \"notes\": {\"type\": \"string\"}, \"lodging_operating_format\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"room_inventory_ownership_scope\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"adr_room_operators\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"revpar_room_operators\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"room_occupancy_room_operators\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"ownership_management_franchising\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"hotel_demand_seasonality\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"brand_fee_contract_economics_asset_light_operators\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}}, \"required\": [\"knows_company\", \"notes\", \"lodging_operating_format\", \"room_inventory_ownership_scope\", \"adr_room_operators\", \"revpar_room_operators\", \"room_occupancy_room_operators\", \"ownership_management_franchising\", \"hotel_demand_seasonality\", \"brand_fee_contract_economics_asset_light_operators\"]}",
+  "--tools",
+  "",
+  "--no-session-persistence",
+  "--strict-mcp-config",
+  "--mcp-config",
+  "{\"mcpServers\":{}}",
+  "--setting-sources",
+  "",
+  "--max-turns",
+  "3",
+  "--system-prompt-file",
+  "/Users/matthewpisinski/work/school/grad_school/F_26/IEOR_Capstone/Work/outputs-local/v1/industry_facets_sonnet/runs/IQ115705393/2026-11-05T011858Z/system.txt",
+  "--model",
+  "claude-sonnet-5-5"
+ ],
+ "returncode": 0,
+ "seconds": 17.64,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 7161,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 739,
+  "output_tokens_details": {
+   "thinking_tokens": 0
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 7161,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 739,
+    "cache_read_input_tokens": 0,
+    "cache_creation_input_tokens": 7161,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 7161
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ }
+}

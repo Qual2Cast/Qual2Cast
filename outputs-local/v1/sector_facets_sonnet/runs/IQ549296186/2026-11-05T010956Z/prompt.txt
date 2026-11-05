@@ -1,0 +1,50 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Dream Finders Homes, Inc. (www.dreamfindershomes.com)
+Sector: Construction and real estate
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- construction_role (Role): Its role in building or property. Example: specialty contractor: mechanical and electrical work. Any that apply of: homebuilder; general contractor; specialty contractor; engineering and design; land developer; property owner / REIT; property services.
+- project_type (Project type): What kind of projects. Example: infrastructure: roads and bridges. Any that apply of: residential; commercial / institutional; industrial; infrastructure; energy and utilities.
+- public_funding (Public funding): How much of its work is publicly funded. Example: high: mostly state transportation departments. Exactly one of: high; medium; low.
+
+Evidence:
+<source id="P1">
+[P1.1] Dream Finders Homes: New Construction Homes for Sale
+[P1.2] Dream Finders Homes is one of the nation's premier home builders with a diverse set of options to fit every stage of life.
+[P1.3] Interest Rates Starting at 3.99% (5.899% APR)*
+[P1.4] See Sales Event Page for Full Details
+[P1.5] We strive to be transparent throughout the home building process to ensure all of your questions are answered.
+[P1.6] We are dedicated to building beautiful homes by empowering you to personalize with ease.
+[P1.7] We are committed to providing exceptional customer service while delivering a beautifully innovative home for you and your family.
+[P1.8] 10 Reasons to Buy New
+[P1.9] Our dream home is now a reality
+[P1.10] "Diana Siedman was wonderful start to finish. She was always an advocate for us and kept us well informed of progress since we lived in KY during the build."
+[P1.11] I wanted to send an email regarding our choice to have Dream Finders build our home. We were very pleased with the building process and their guarantee to have our home built in 90 days. The Dream Finders team worked with us throughout our building process and they understood that this was the first time we had built a home. We were very pleased with the choices of plans that were offered and the packages that were included or could be added with each plan. They used high quality building materials and kept our lot clean during building.
+[P1.12] "I recently moved into my Dream Finders home and absolutely love it! The large island and kitchen area always grabs people’s attention and the spacious living room/dining room area is great for hosting guests. I love the unique designs that DFH offered and that makes them stand out from other builders. Kim has been a pleasure to work with. She’s polite and professional and always kept me apprised of the status of my build. She was quick to respond to my many emails and definitely took the stress out of homebuying. This, for me, made for an enjoyable homebuying experience."
+[P1.13] Our new home specialists are happy to answer your questions and provide you with information about our communities, available homes and floor plans.
+</source>
+
+<source id="P2">
+[P2.1] About Us | Dream Finders Homes
+[P2.2] As a and locally operated company, Dream Finders Homes has a commitment to deliver our customers the highest standards in a new home. We are...
+[P2.3] As a and locally operated company, Dream Finders Homes has a commitment to deliver our customers the highest standards in a new home. We are confident that our design features will exceed expectations and surpass the competition. We empower our customers to personalize and modify their new dream home with finishes that reflect their own taste and lifestyle. We hope you allow us the opportunity to show you "The Dream Finders Difference."
+[P2.4] Dream Finders Homes was recently ranked #8 on the Jacksonville Business Journal's list of top corporate philanthropists.
+[P2.5] Dream Finders Homes is defining the future of new home construction with its unique designs, superior quality materials, strong focus on customer satisfaction and an elite desire to be the best home builder in America. Dream Finders Homes is your dream builder, building the American Dream one home at a time.
+[P2.6] Unsurpassed Quality. Uncompromising Value. Extraordinary Level of Personalization.
+[P2.7] THE POWER OF A NATIONAL HOME BUILDER FOCUSED ON SERVING HOME BUYERS AND BUILDING THE DREAM ONE HOME AT A TIME.
+[P2.8] Across 10 states, over 22 different markets, close to 225 unique communities, over 31,000 homes closed and still our most important home buyer is one person....You.
+</source>

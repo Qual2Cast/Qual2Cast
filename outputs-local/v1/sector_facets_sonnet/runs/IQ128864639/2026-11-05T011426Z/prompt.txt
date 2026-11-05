@@ -1,0 +1,61 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Microvast Holdings, Inc. (www.microvast.com)
+Sector: Manufacturing (industrial, materials, electronics)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- manufacturing_type (Manufacturing type): How it makes products. Example: discrete: builds individual units on assembly lines. Any that apply of: discrete; process; assembly; outsourced / fabless.
+- production_model (Production model): Built for an order or for stock. Example: make-to-order: each unit configured to the customer's order. Exactly one of: make-to-order; make-to-stock; both.
+- product_complexity (Product complexity): How engineered its products are. Example: engineered: custom-configured equipment. Exactly one of: commodity; engineered; precision / high-spec.
+- production_role (Production role): Where it sits in its customers' supply chain. Example: final manufacturer: sells finished units to contractors. Any that apply of: final manufacturer / OEM; tier 1 supplier; tier 2 or component supplier; contract manufacturer; materials producer.
+- end_market_exposure (End-market exposure): Which end markets drive demand. Example: industrial: factories and commercial buildings. Any that apply of: aerospace and defense; automotive and transportation; industrial; construction and buildings; energy; electronics and semiconductors; healthcare and life sciences; consumer; agriculture; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Microvast - Industrial Lithium-ion Battery Solutions
+[P1.2] Forward Thinking. Powering Now. ™
+[P1.3] At Microvast we create advanced lithium-ion battery solutions with high energy density, fast charging, long cycle life, and built-in safety—boosting efficiency, lowering costs, and accelerating clean energy adoption and electrification.
+[P1.4] We’re accelerating the advancement of battery technology, creating a more sustainable future for all, and providing clear, competitive advantages for our customers globally.
+[P1.5] The Next Generation of Energy
+[P1.6] Microvast is vertically integrated, with end-to-end oversight spanning research and development through the manufacturing of our battery packs and energy storage systems (ESS), including core battery chemistry (cathode, anode, and electrolyte), with established manufacturing operations worldwide.
+[P1.7] With 20 years of expertise delivering advanced lithium-ion solutions through global operations in the U.S., China, and Germany—we empower leading customers and accelerate clean energy forward.
+[P1.8] Make the Shift to Clean Energy
+[P1.9] Microvast is recognized globally as an industry leader in lithium-ion battery innovation and technology. Our team of experts and our comprehensive portfolio of battery solutions continue to set the standard for electrification.
+</source>
+
+<source id="P2">
+[P2.1] Battery Technology Cells Modules Packs Future
+[P2.2] Design to Manufacturing, Quality at Every Stage
+[P2.3] Complete control and custom R&D capabilities at each step of development and manufacturing, enabling advanced electrification solutions from concept through production.
+[P2.4] We are a vertically integrated battery manufacturer, and as such we design and produce the following battery components: cathode, anode, and electrolyte. Based on our customers’ applications, we can customize the design and development, integrating the ideal chemistry into our cells, module, and packs.
+[P2.5] Microvast is ISO 14001 certified for all of its manufacturing sites, and we are strictly implementing those standards, from raw material inspection to manufacturing monitoring and all the way to final product delivery. In addition to being ISO 14001 certified, the plant in Germany is also IATF 16949 and ISO 9001 certified.
+[P2.6] Microvast offers multiple cells in each of the three major chemistries (NMC, LFP and LTO). These cells are optimized to maximize the benefits below.
+[P2.7] Ultra-fast charging capabilities Ultra-long cycle life Safest lithium-ion battery chemistry
+[P2.8] Lowest cost Good cycle life
+[P2.9] Highest energy density Fast charging capabilities Long cycle life
+[P2.10] We invest in the latest technology and automation to help deliver consistently reliable, high-quality batteries with an excellent safety profile.
+[P2.11] Microvast offers a broad range of cell chemistries, including lithium titanate oxide (LTO), lithium iron phosphate (LFP), nickel manganese cobalt version 1 (NMC-1), and nickel manganese cobalt version 2 (NMC-2).
+[P2.12] Our battery solutions for transportation and heavy equipment feature high energy density, superior safety, long life, and ultra-fast charging capabilities.
+[P2.13] Let’s discuss your specific battery requirements
+</source>
+
+<source id="P3">
+[P3.1] At Microvast, our name captures our founder’s fundamental belief: no matter how large our business grows, we never lose sight of the people that make our technology possible. “Micro” represents the individual – the employees who drive our electrification goals forward, each and every day. “Vast” represents the scale of our ambition and the global impact we strive to achieve as a business. Together, the name “Microvast” embodies this fundamental belief, that no matter our scale as we continue to expand, we must remain grounded in the people who make that growth possible.
+[P3.2] As a global business, we carry this philosophy into our relentless commitment to R&D. This strategy enables our innovative agility and breakthroughs in battery technology. Through this approach, Microvast products have raised the bar for what can be achieved in battery performance.
+[P3.3] With operations in the United States, China, and Germany, we serve customers around the world. empowering global industry leaders and accelerating the transition to clean energy.
+[P3.4] By continuously looking ahead and anticipating market needs, we’re delivering the next generation of battery solutions today.
+[P3.5] We’re accelerating the advancement of battery technology globally, creating a more sustainable future for all, and providing clear, competitive advantages for our customers.
+</source>

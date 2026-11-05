@@ -1,0 +1,66 @@
+{
+ "backend": "claude-cli",
+ "model": "claude-sonnet-5-5",
+ "prompt_version": "2026-10-27b",
+ "fingerprint": "5d3e5dc45e406e7f",
+ "finished_at": "2026-11-05T01:12:14Z",
+ "llm_status": "ok",
+ "command": [
+  "/Users/matthewpisinski/.local/bin/claude",
+  "-p",
+  "--output-format",
+  "json",
+  "--json-schema",
+  "{\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"knows_company\", \"notes\", \"sub_sector\", \"industry_position\", \"commodity_exposure\", \"revenue_structure\", \"energy_transition\"], \"properties\": {\"knows_company\": {\"type\": \"boolean\"}, \"notes\": {\"type\": \"string\"}, \"sub_sector\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"status\", \"value\", \"cites\"], \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}}, \"industry_position\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"status\", \"categories\", \"detail\", \"cites\"], \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"categories\": {\"type\": \"array\", \"items\": {\"type\": \"string\", \"enum\": [\"upstream / production\", \"midstream\", \"downstream\", \"regulated utility\", \"independent power\", \"mining\", \"agriculture\", \"services to producers\"]}}, \"detail\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}}, \"commodity_exposure\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"status\", \"categories\", \"detail\", \"cites\"], \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"categories\": {\"type\": \"array\", \"items\": {\"type\": \"string\", \"enum\": [\"oil\", \"natural gas\", \"electricity\", \"water\", \"metals\", \"minerals and aggregates\", \"crops and livestock\", \"other\"]}}, \"detail\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}}, \"revenue_structure\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"status\", \"categories\", \"detail\", \"cites\"], \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"categories\": {\"type\": \"array\", \"items\": {\"type\": \"string\", \"enum\": [\"spot\", \"contracted\", \"regulated\"]}}, \"detail\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}}, \"energy_transition\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"status\", \"categories\", \"detail\", \"cites\"], \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"categories\": {\"type\": \"array\", \"items\": {\"type\": \"string\", \"enum\": [\"renewables\", \"fossil fuels\", \"mixed\", \"not applicable\"]}}, \"detail\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}}}}",
+  "--tools",
+  "",
+  "--no-session-persistence",
+  "--strict-mcp-config",
+  "--mcp-config",
+  "{\"mcpServers\":{}}",
+  "--setting-sources",
+  "",
+  "--max-turns",
+  "3",
+  "--system-prompt",
+  "You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).\n\nBase every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in \"cites\". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave \"cites\" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is \"unknown\".\n\nDescribe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.\n\nFor a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is \"stated\" when you fill it, \"not_applicable\" when the facet does not apply to this company, and \"unknown\" otherwise.\n\nAlso say whether you recognize this specific company from what you already know (\"knows_company\").\n\nRules:\n- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.\n- Notes: one short sentence, only if something is uncertain; otherwise an empty string.",
+  "--model",
+  "claude-sonnet-5-5"
+ ],
+ "returncode": 0,
+ "seconds": 7.96,
+ "usage": {
+  "input_tokens": 4,
+  "cache_creation_input_tokens": 3730,
+  "cache_read_input_tokens": 6830,
+  "output_tokens": 982,
+  "output_tokens_details": {
+   "thinking_tokens": 0
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 3730,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 501,
+    "cache_read_input_tokens": 4926,
+    "cache_creation_input_tokens": 708,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 708
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ }
+}

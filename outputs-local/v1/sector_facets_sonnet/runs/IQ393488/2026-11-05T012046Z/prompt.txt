@@ -1,0 +1,107 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Zebra Technologies Corporation (www.zebra.com)
+Sector: Manufacturing (industrial, materials, electronics)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- manufacturing_type (Manufacturing type): How it makes products. Example: discrete: builds individual units on assembly lines. Any that apply of: discrete; process; assembly; outsourced / fabless.
+- production_model (Production model): Built for an order or for stock. Example: make-to-order: each unit configured to the customer's order. Exactly one of: make-to-order; make-to-stock; both.
+- product_complexity (Product complexity): How engineered its products are. Example: engineered: custom-configured equipment. Exactly one of: commodity; engineered; precision / high-spec.
+- production_role (Production role): Where it sits in its customers' supply chain. Example: final manufacturer: sells finished units to contractors. Any that apply of: final manufacturer / OEM; tier 1 supplier; tier 2 or component supplier; contract manufacturer; materials producer.
+- end_market_exposure (End-market exposure): Which end markets drive demand. Example: industrial: factories and commercial buildings. Any that apply of: aerospace and defense; automotive and transportation; industrial; construction and buildings; energy; electronics and semiconductors; healthcare and life sciences; consumer; agriculture; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Zebra: The World’s Foundation for Intelligent Operations | Zebra
+[P1.2] Zebra powers intelligent operations to digitize, automate, and enhance your processes with mobile computers, scanners, printers, RFID, and more.
+[P1.3] Digitize and automate your frontline
+[P1.4] Tap into the world’s foundation for intelligent operations and discover countless ways to make your most critical workflows faster, simpler and more efficient. Better experiences for your employees and the customers they serve every day.
+[P1.5] of Fortune 500 companies work with us
+[P1.6] global leader in thermal printing, barcode scanning, rugged mobile computing, RFID readers and retail task management software
+[P1.7] years in business dedicated to the frontline
+[P1.8] Helping frontline operations perform better every day
+[P1.9] Frontline Software Services AI Machine Vision Scanners RFID Printers Tablets Mobile Computers
+[P1.10] Built to optimize employee time and activities, inventory, and budgets. Our software empowers your workers to focus on your customers.
+[P1.11] Built to keep your operations running smoothly and enable peak performance with expert assistance tailored to your technology.
+[P1.12] Built to integrate with RFID, enterprise software and machine vision. Our AI is an intelligent and open platform with partners in mind.
+[P1.13] Built to deliver greater flexibility, simplicity, and value. Our automation solutions solve your most critical operational challenges.
+[P1.14] Built for accuracy and performance in any environment. Our scanners increase workflow performance and provide constant visibility.
+[P1.15] Built to provide visibility into assets, employees, and operations. Leverage the industry’s most comprehensive RFID portfolio.
+[P1.16] Built for durability and reliability. Our printers are easy to set up, manage, and secure.
+[P1.17] Built to adapt to frontline teams' unique workflows. Our tablets deliver higher productivity and smoother operations.
+[P1.18] Built for today’s workforce by powering work whenever, wherever it happens. Our devices make it easier to communicate, collaborate, and get more done.
+[P1.19] Smart solutions for today's complex challenges
+[P1.20] Connected Frontline Asset Visibility Intelligent Automation Quality Inspection Supply Chain Visibility
+[P1.21] University Health equipped staff with Zebra mobile solutions to enable real-time care, cutting provider callback wait times to seconds.
+[P1.22] Apex Steel deployed Zebra mobile computers and scanners to gain real-time stock visibility and ensure accurate next-day delivery.
+[P1.23] Texas Children's Hospital eliminated medication delays, shortages, and waste with real-time inventory visibility and automated counting solutions.
+[P1.24] Del Monte turned to Zebra’s fixed industrial scanning and machine vision solutions to help ensure quality control.
+[P1.25] Nikora implemented a factory-wide Zebra RFID system to automate production tracking, eliminate manual data entry, and cut errors in half.
+[P1.26] Top organizations that saw results with Zebra
+</source>
+
+<source id="P2">
+[P2.1] RFID Solutions | Readers, Printers, Antennas | Zebra
+[P2.2] Zebra's extensive range of RAIN RFID readers, antennas, and printers give you consistent and accurate tracking.
+[P2.3] See How RFID Solves Everyday Challenges
+[P2.4] From inventory counts and product movement to loss prevention and work-in-progress tracking, Zebra RFID helps businesses tackle real operational challenges. Explore how Zebra’s full offering of RFID products enables smarter, more efficient work through proven use cases across a range of environments.
+[P2.5] Retail Transportation and Logistics Manufacturing Food and Pharma Healthcare Government
+[P2.6] Asset utilization, tracking and analysis
+[P2.7] Supply chain tracking and management
+[P2.8] Patient tracking and dwell-time monitoring
+[P2.9] Staff availability and access control
+[P2.10] IT, tool and document tracking
+[P2.11] Track assets across the entire supply chain
+[P2.12] Control secure access to facilities and bases
+[P2.13] Perform inventory and asset cycle counts
+[P2.14] Document chain of custody for weapons, files, evidence and more
+[P2.15] Driving Efficiency with a Unified, Scalable Ecosystem
+[P2.16] Zebra’s ecosystem brings together trusted hardware, proven partners and expert services—giving you everything you need to move forward with confidence.
+[P2.17] Zebra RFID. Move Business Forward
+[P2.18] You need to know everything about your inventory and operation—where every asset is located, where it needs to go, and how quickly you can get it there. Zebra RFID products are engineered and field-proven to improve operational awareness and enhance worker productivity while minimizing errors and downtime. Keep your business moving forward with Zebra RFID.
+[P2.19] Zebra’s expert-certified partners ensure your RFID solution integrates seamlessly and delivers lasting results. Backed by our award-winning global network, they offer deep expertise, streamlined deployments and innovative applications that drive success.
+[P2.20] Services That Keep You Moving
+[P2.21] From faster adoption to maximum uptime, Zebra’s service team is here to help every step of the way. With expert support, real-time performance insights and device-level care, our services give you the confidence to deploy, scale and operate with certainty.
+[P2.22] Track, trace and inventory assets in real time—wherever work happens. From warehouses to indoor environments, Zebra’s handheld, hands-free and sled-style RAIN RFID readers deliver the visibility and agility you need to manage assets with confidence.
+[P2.23] Fixed RFID Readers and Infrastructure
+[P2.24] Streamline inventory and track goods in motion with Zebra’s fixed RFID readers and infrastructure. From dock doors to open floors, get real-time visibility and control over your tagged assets to improve efficiency, accuracy and operational flow.
+[P2.25] Zebra’s high-performance RAIN RFID antennas extend read range and throughput to support accurate, high-volume tracking. Designed for large areas like warehouses, hospitals and retail stores, they help you maintain visibility across your entire operation.
+[P2.26] We've built our proven RFID tracking directly into the everyday devices your team already relies on, from scanners and computers to printers and supplies. Effortlessly track assets and capture reliable, real-time data right where the work gets done.​
+[P2.27] A successful RFID system starts with high-performing labels and inlays. Zebra offers pre-tested RFID supplies made with the right materials, adhesives and top-performing chips—customized to your application for consistent, reliable performance.
+[P2.28] Zebra Integrated RFID Portals empower companies to manage and monitor inventory, control costs, and optimize workflows with fast, highly automated updates when tagged assets pass through a portal or chokepoint. Fully compatible with our broad RFID portfolio, these Power over Ethernet (PoE) based integrated portals are ready to deploy.
+[P2.29] Spex cuts picking time by 50% and achieves near-perfect dispatch accuracy with Zebra RFID
+[P2.30] For someone dealing with a mobility challenge, the right piece of equipment isn’t just a necessity, it’s the freedom to move and live more fully in everyday life. That understanding sits at the heart of New Zealand-based medical equipment manufacturer Medifab, where "Shaping Better Lives" is more than a motto.
+[P2.31] Operating across multiple locations in multiple countries, Incora connects a global network of operators and suppliers, including defense, industrial manufacturing, and automotive.
+[P2.32] The Swedish retailer sought to keep stock data accurate enough to support same-day collection releases across multiple stores and speed up checkout so queues wouldn't cost sales—all on hardware reliable enough to last.
+[P2.33] Nikora automated production tracking and quality control across a complex, multi-stage meat processing facility to eliminate manual data entry and reduce human error.
+[P2.34] CHEC was previously managing stock through manual counts recorded in spreadsheets. Clinical teams were spending more than 290 hours a month counting stock, time that would otherwise have been spent on patient care.
+[P2.35] The Latest on Zebra RFID
+[P2.36] RFID Strategy Starts with the Right People
+[P2.37] A successful RFID strategy isn’t just about technology—it’s about having the right experts guiding the way. Discover why assembling the right team is just as critical as choosing the right tools.
+[P2.38] How RFID Supports First Responders
+[P2.39] First responders are exploring RFID to track mission-critical gear, improve safety and ensure readiness. See how this technology is making a real impact in the field—one scan at a time.
+[P2.40] Inside a Manufacturer's RFID Journey
+[P2.41] See how the CEO of Hunt Country Components brought his RFID vision to life—achieving greater visibility, faster processes and smarter operations. This real-world story shows what’s possible when RFID is done right.
+[P2.42] Take Control of Your Operations with RFID Technology that Simplifies Decision Making and Boosts Efficiency
+[P2.43] Zebra's field-tested solutions automate data capture and give you the visibility you need across assets, employees and critical business processes.
+[P2.44] Talk to a Partner Talk to a Partner
+</source>
+
+<source id="P3">
+[P3.1] Success Stories | Zebra
+[P3.2] Zebra products and solutions help improve the daily functions of companies worldwide. Read the success stories to learn more.
+[P3.3] See Zebra Solutions in Action
+</source>

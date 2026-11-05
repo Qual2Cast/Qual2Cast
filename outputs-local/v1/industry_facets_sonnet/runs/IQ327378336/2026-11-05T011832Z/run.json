@@ -1,0 +1,66 @@
+{
+ "backend": "claude-cli",
+ "model": "claude-sonnet-5-5",
+ "prompt_version": "2026-11-04a",
+ "fingerprint": "b6024d012f6bc395",
+ "finished_at": "2026-11-05T01:18:38Z",
+ "llm_status": "ok",
+ "command": [
+  "/Users/matthewpisinski/.local/bin/claude",
+  "-p",
+  "--output-format",
+  "json",
+  "--json-schema",
+  "{\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"knows_company\": {\"type\": \"boolean\"}, \"notes\": {\"type\": \"string\"}, \"recreation_entertainment_activity\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"venue_service_capacity\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"visits_event_attendance\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"admission_yield\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"pass_membership_mix\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"seasonality_utilization\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"gaming_economics_gaming_businesses\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}}, \"required\": [\"knows_company\", \"notes\", \"recreation_entertainment_activity\", \"venue_service_capacity\", \"visits_event_attendance\", \"admission_yield\", \"pass_membership_mix\", \"seasonality_utilization\", \"gaming_economics_gaming_businesses\"]}",
+  "--tools",
+  "",
+  "--no-session-persistence",
+  "--strict-mcp-config",
+  "--mcp-config",
+  "{\"mcpServers\":{}}",
+  "--setting-sources",
+  "",
+  "--max-turns",
+  "3",
+  "--system-prompt-file",
+  "/Users/matthewpisinski/work/school/grad_school/F_26/IEOR_Capstone/Work/outputs-local/v1/industry_facets_sonnet/runs/IQ327378336/2026-11-05T011832Z/system.txt",
+  "--model",
+  "claude-sonnet-5-5"
+ ],
+ "returncode": 0,
+ "seconds": 6.26,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 4176,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 615,
+  "output_tokens_details": {
+   "thinking_tokens": 0
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 4176,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 615,
+    "cache_read_input_tokens": 0,
+    "cache_creation_input_tokens": 4176,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 4176
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ }
+}

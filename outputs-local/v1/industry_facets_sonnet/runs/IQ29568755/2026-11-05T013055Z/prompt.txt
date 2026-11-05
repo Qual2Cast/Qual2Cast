@@ -1,0 +1,128 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: KORE Group Holdings, Inc. (www.korewireless.com)
+Industry (SIC 48): Communications
+About this industry group: Choose telecom, broadband or broadcast rows by operating activity. Subscription ARPU/churn are not universal broadcast-company measures. Network coverage, population coverage and homes passed use different denominators.
+
+Facets:
+- communications_activity (Communications activity). Examples: Mobile telecom; Fixed broadband; Radio / television broadcasting.
+- network_distribution_assets (Network / distribution assets). Examples: Owned mobile network; Fiber access network; Leased broadcast distribution.
+- subscriber_audience_measure (Subscriber / audience measure). Examples: Five million mobile connections; One million broadband accounts; Television households reached.
+- license_spectrum_rights (License / spectrum rights). Examples: Mid-band mobile spectrum; Broadcast station licenses; Cable franchise rights.
+- arpu_arpa_subscription_telecom (ARPU / ARPA [subscription telecom]). Examples: $55/month per mobile user; $70/month per broadband account.
+- customer_churn_subscription_telecom (Customer churn [subscription telecom]). Examples: 1.2% monthly mobile-account churn; 0.8% monthly broadband-account churn.
+- coverage_distribution_reach (Coverage / distribution reach). Examples: 95% population coverage; Two million fiber homes passed; 40 broadcast markets.
+- advertising_carriage_economics_broadcasting (Advertising / carriage economics [broadcasting]). Examples: Local advertising revenue; Retransmission-consent fees; Network-affiliate payments.
+
+Evidence:
+<source id="P1">
+[P1.1] IoT Solutions & Connectivity | KORE Wireless – Simplify & Scale IoT
+[P1.2] Power your IoT with KORE Wireless—offering global IoT connectivity, eSIM technology, and 2G/3G sunset solutions. Simplify deployment, reduce costs, and scale with ease.
+[P1.3] Connectivity Built for the Moment it Matters Most
+[P1.4] KORE provides global enterprise IoT connectivity that's flexible enough to evolve and proven enough to scale.
+[P1.5] Global and local IoT connectivity across multiple networks and technologies.
+[P1.6] SIM and eSIM options for any deployment.
+[P1.7] Provisioning, monitoring, policies, controls, and visibility – all in one place.
+[P1.8] Hardware and logistics services for end-to-end deployment support.
+[P1.9] connected devices across the globe
+[P1.10] Teams work with KORE because IoT success depends on choosing the right end-to-end partner. That’s why businesses around the world trust us for their IoT connectivity.
+[P1.11] Global reach with a local execution
+[P1.12] Design the right solution for wherever you deploy with global IoT roaming and local connectivity options, 24/7 global support, and local expertise.
+[P1.13] Multi-carrier options, automatic fallbacks, fleet controls, and real-time visibility to keep devices online and predictable at scale.
+[P1.14] Order SIMs quickly, manage global fleets in a single connectivity management platform, and automate at scale with APIs.
+[P1.15] Launch deployments quickly with less risk
+[P1.16] In-house device testing and certification, managed services and industry expertise to launch on time with less operational friction.
+[P1.17] Track high-value assets with reliable, resilient global connectivity.
+[P1.18] Keep chargers connected, monitored, and service-ready.
+[P1.19] Secure, compliant, and resilient connectivity for patient-critical devices.
+[P1.20] Cross-border connectivity with fleet-scale controls.
+[P1.21] Connectivity for field assets and remote monitoring.
+[P1.22] Connectivity that helps feed the world.
+[P1.23] Deliberate. Focused. Built for execution.
+[P1.24] Choose the right connectivity solution for your IoT deployment.
+[P1.25] Select, source, test, and deploy your connected devices.
+[P1.26] Monitor, control, and optimize fleets with our platforms and support.
+[P1.27] Expand your deployment in size, scope, or geography without starting over.
+[P1.28] We earn trust through deep understanding and relentless commitment.
+[P1.29] We lead with energy, creativity, and a bias for action.
+[P1.30] We take accountability seriously — delivering on our promises to customers, teammates, and ourselves.
+[P1.31] We face challenges head-on — with resilience, optimism, and determination.
+[P1.32] Challenge. Debate. But be Human
+[P1.33] We speak up, question assumptions, and challenge ideas — not people.
+[P1.34] ESTABLISH YOUR INNOVATIVE EDGE Redefine what’s possible in IoT – build the future with us.
+</source>
+
+<source id="P2">
+[P2.1] Customer Hub | Sign In, Support, Documentation & Network Sunsets | KORE
+[P2.2] Access the KORE Customer Hub to sign in to your portal, submit a support case, browse documentation, & view network sunset updates. Get help fast & keep IoT deployments running at scale.
+[P2.3] Welcome to KORE's Customer Hub
+[P2.4] KORE is built to help customers run IoT reliably in production.
+[P2.5] Sign in, submit support cases, access documentation, and stay ahead of network sunsets with a platform built to be flexible, global, scalable, and trusted.
+[P2.6] Our connectivity ecosystem, platforms, and managed services are designed to reduce operational complexity and keep your deployments performing as requirements, regions, and technologies change.
+[P2.7] Providing clear, up-to-date technical documentation so teams can integrate, deploy, and operate IoT with confidence.
+[P2.8] Delivering responsive, ownership-driven support to resolve issues fast and keep production fleets running with confidence.
+[P2.9] Delivering proactive network sunset guidance so customers can plan migrations early and avoid disruption in the field.
+[P2.10] On-demand video tutorials covering the most-used ConnectivityPro features, helping customers learn and manage their IoT connectivity with ease.
+[P2.11] Helping customers learn key SIM management features, explore new functionality, and get answers live.
+[P2.12] Select your mobile network provider below to view coverage information, current outages, and historical outage registers for Telstra, Optus, and Vodafone Australia.
+[P2.13] Keep your devices connected for life.
+[P2.14] KORE delivers one of the highest uptimes in the industry, thanks to a multi-carrier, multi-IMSI connectivity services, an owned cloud-native mobile core, and automatic connectivity restoration. With real-time insights, self-service controls, and end-to-end performance monitoring, your devices stay online. No excuses.
+[P2.15] Learn how to create activation profiles and activate SIMs in ConnectivityPro. Watch the guided video tutorial.
+[P2.16] Follow our step-by-step video walkthrough for suspension workflows.
+[P2.17] Review usage data, invoices, and custom reports through ConnectivityPro training resources.
+[P2.18] Access KORE support and create a support case through the Help Center.
+[P2.19] Discover how to configure custom rules and threshold alerts to monitor your device data consumption effectively. Watch the video guide to get started.
+[P2.20] Explore the simple process for updating rate plans and tariffs for individual SIMs or groups of devices. Watch our instructional video.
+[P2.21] See how administrators can easily add new users, assign roles, and manage account security settings in ConnectivityPro. Follow the step-by-step video.
+[P2.22] Learn to build, schedule, and download customized reports tailored to your specific business needs and metrics. Watch the reporting tutorial for a complete overview.
+[P2.23] Learn how to select SIM types, choose your form factors, and submit your SIM orders directly within the platform. Watch our quick order management video to get started.
+</source>
+
+<source id="P3">
+[P3.1] KORE IoT Thought Leadership | Whitepapers, Webinars & Case Studies
+[P3.2] Explore KORE’s IoT resources, including whitepapers, webinars, and case studies, to gain insights into cutting-edge IoT solutions and trends.
+[P3.3] Explore KORE’s Resource Library for in-depth insights into IoT innovation. From whitepapers to case studies, discover expert knowledge and real-world success stories to guide your IoT journey.
+[P3.4] Transforming Store Connectivity at Scale: KORE and a Leading Bedding Retailer
+[P3.5] Company Overview A large bedding retailer in the United States with a nationwide network of multiple stores across the country, relies on reliable connectivity to support in-store operations,…
+[P3.6] Building Global, Future Proof Connected Industrial Equipment with KORE
+[P3.7] The Challenge This global industrial leader set out to transform its industrial equipment by shifting from standalone hardware to a connected, service-enabled offering. Their initial RFQ/RFP centered around one core…
+[P3.8] How IoT Is Transforming Medication Adherence for an Aging Population
+[P3.9] Customer Overview MedReady is a connected health company specializing in automated medication adherence solutions for seniors. Headquartered in Torrance, California, the company designs and manufactures cloud-connected pill dispensers that help…
+[P3.10] Scaling Fleet Intelligence Across Europe with Seamless Connectivity
+[P3.11] Customer Overview Eteria SRLS specialises in fleet management, GPS tracking, and smart mobility solutions. With over a decade of experience and more than 950 client companies served, across industries such…
+[P3.12] Flexible IoT Connectivity for Catrak Drivestream
+[P3.13] Overview in San Diego, Catrak Technologies, Inc delivers innovative automotive security, GPS tracking, telematics, and fleet safety solutions designed to help organizations improve visibility, efficiency, and operational…
+[P3.14] Smart Water, Zero Waste: The IoT Power Behind Bevi’s Growth
+[P3.15] Customer Overview Bevi is a leading provider of smart, internetconnected beverage dispensers that offer filtered, flavored, sparkling, and enhanced water on demand. Founded with a mission to make great-tasting, customizable…
+[P3.16] BANF & KORE Deliver Intelligent Tire Solutions for Trucking Industry
+[P3.17] Background The commercial trucking industry faces a persistent and costly challenge: tire-related incidents. The Federal Motor Carrier Safety Administration (FMCSA) estimates that tire blowouts cause nearly 8,000 truck accidents annually…
+[P3.18] Powering IoT-Driven Micromobility Across New Zealand
+[P3.19] Company Overview Flamingo Scooters is New Zealand’s leading homegrown micromobility operator, running a fleet of over 4,000 shared e-scooters and e- bikes. Operating in major cities such as Auckland, Wellington,…
+[P3.20] Scaling Intelligent Wastewater Monitoring with KORE’s Global Connectivity
+[P3.21] Specializing in intelligent, real-time monitoring…
+[P3.22] Transforming Motorsport Safety with IoT and Real-Time Vehicle Connectivity
+[P3.23] Background In the fast-paced world of motorsport, the stakes are high. Races stretch across remote terrains, vehicles hit extreme speeds, and competitors, spectators, and support staff face increasing risks. Traditional…
+[P3.24] All Topics Asset Monitoring Clinical Trials Connectivity eSIM Hardware Location-Based Services LPWAN LTE Migration Managed Services mPERS MVNE NONE Remote Patient Monitoring Security SGP.32 Supply Chain All Industries Agriculture Automotive Construction and Real Estate Energy & Utilities EV Charging Fleet General Healthcare Industrial Infrastructure Logistics Retail Security Telecoms Transportation All Medium Calculator Case Study Data Sheet eBook Infographic Video Webinar
+[P3.25] The Advent of 3GPP Non-Terrestrial Networks: Satellite Becomes an Option for Cellular Devices
+[P3.26] As IoT deployments expand into remote, mobile, and geographically dispersed environments, satellite connectivity is becoming an increasingly important complement to traditional cellular networks. In this report from Transforma Insights, explore…
+[P3.27] Download the eBook: Building the Next Generation of Connected Care Solutions
+[P3.28] Explore how connected care, cellular connectivity, and AI are enabling more proactive, home-based healthcare. What You’ll Learn: As healthcare moves beyond traditional care settings, connected technologies are helping providers deliver…
+[P3.29] Connected Retail, Without the Wi-Fi Bottleneck
+[P3.30] Build a more resilient retail operation: from the POS terminal to the supply-chain edge Payments, inventory, fulfilment and loss prevention are only as dependable as the network beneath them. Discover…
+[P3.31] Building Successful Global IoT Deployments: Why success requires more than SGP.32
+[P3.32] SGP.32 marks a significant advance in IoT eSIM management. It simplifies remote profile provisioning for devices that may be constrained, unattended and expected to operate for years. Yet the standard…
+[P3.33] The Four Strategic Pillars of Enterprise IoT Connectivity
+[P3.34] Don’t worry, we’re just a click away. Reach out, and let’s get connected!
+</source>

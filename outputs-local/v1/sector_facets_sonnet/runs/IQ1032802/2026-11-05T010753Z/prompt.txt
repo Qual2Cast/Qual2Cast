@@ -1,0 +1,130 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Broadridge Financial Solutions, Inc. (www.broadridge.com)
+Sector: Software and internet
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- software_category (Software category): What the software does. Example: HR and payroll: payroll, benefits and time tracking. Any that apply of: ERP and finance; HR and payroll; CRM, marketing and sales; cybersecurity; data, analytics and AI; IT and developer infrastructure; collaboration and content; industry-specific (vertical) software; payments and fintech; consumer internet and marketplaces; IT services and consulting; other.
+- deployment_model (Deployment model): How the software is delivered. Example: SaaS: cloud subscription. Exactly one of: SaaS / cloud; on-premise; hybrid; not applicable (services or internet).
+- customer_size (Customer size): Its typical customer. Example: mid-market: employers with tens to a few thousand staff. Any that apply of: consumers; SMB; mid-market; enterprise; government.
+- product_architecture (Product architecture): One product or a suite. Example: platform: payroll, HR, time and benefits on one system. Exactly one of: platform / suite; point solution; API / infrastructure.
+
+Evidence:
+<source id="P1">
+[P1.1] Broadridge - Broadridge | Global Leader - Financial Technology Solutions
+[P1.2] Broadridge, a global technology leader with solutions that power investing, governance, and communications for clients and the financial industry.
+[P1.3] The future of investment stewardship is here
+[P1.4] Expect more control, speed, and transparency.
+[P1.5] Broadridge expands next-gen digital assets capabilities to U.S. wealth management firms
+[P1.6] AI at scale across financial services
+[P1.7] Secure, accurate, turnkey proxy solutions
+[P1.8] End-to-end capabilities for evolving financial markets
+[P1.9] Harmonize operations across the asset lifecycle
+[P1.10] Multi asset class trading solutions
+[P1.11] Five questions every financial services executive should be asking about tokenization
+[P1.12] Drive stronger retirement outcomes with model portfolios built for evolving needs
+[P1.13] Explore where AI is driving the greatest value in financial services
+[P1.14] Powering the pulse of the financial industry
+[P1.15] We empower asset managers with flexible technology solutions, insights, and regulatory communications, fostering resilient growth and high performance.
+[P1.16] Our global, multi-asset class solutions power the future of global trading and operations and deliver simplification and innovation across the trade lifecycle.
+[P1.17] Effectively meet governance and regulatory obligations and drive investor engagement with timely intelligence and proven solutions.
+[P1.18] Our solutions digitize operations, boost advisor productivity, and customize investor experiences – reshaping how wealth is managed.
+[P1.19] Automate and efficiently deliver key customer communications across industries with industry leading expertise and omni-channel capabilities.
+[P1.20] Explore the breadth and depth of our capabilities and technology - to operate with greater efficiency and fuel meaningful growth
+[P1.21] Discover wealth advisor solutions that enhance advisory productivity, optimize client portfolios, and drive growth and retention
+[P1.22] Transform your front office with technology and solutions designed to streamline operations, improve client interactions, and boost productivity
+[P1.23] Middle & Back Office Solutions
+[P1.24] Enable efficiency and accuracy in your operations with our proven experience and comprehensive suite of solutions
+[P1.25] Recognized as one of Fortune Magazine’s ‘World’s Most Admired Companies’ in the financial services category for the twelfth time
+[P1.26] Ranked #3 on the 2025 IDC FinTech Rankings Top 100, Wins Capital Markets Transformation Award
+[P1.27] Broadridge Named a Leader in Wealth Management Technology in IDC MarketScape 2025 Assessment
+[P1.28] Celent: Broadridge is Streamlining the Advisor Onboarding Process
+[P1.29] We want to hear more about what you need to improve your business and drive transformative innovation, efficiency, and growth.
+[P1.30] Thank you for your interest in Broadridge. A representative will contact you within 24 business hours.
+[P1.31] Something went wrong with our form submission. Please try again.
+[P1.32] +1 800 353 0103 (option 3)
+[P1.33] EMEA +44 162 591 9082
+[P1.34] Hong Kong +852 3004 3094
+[P1.35] Singapore +65 31 351 278
+</source>
+
+<source id="P2">
+[P2.1] Broadridge - Capital Markets
+[P2.2] Multi-asset-class capital markets solutions simplify and innovate across the trade lifecycle to help firms drive revenue, increase efficiency, and reduce risk.
+[P2.3] Transform and simplify global trading and post-trade operations across the trade lifecycle with innovative, modular, multi-asset solutions that increase efficiency, reduce risk and drive revenue.
+[P2.4] Setting the standard for global trading and operations
+[P2.5] Gain speed, resilience, and rich functionality from order management and trade execution, to clearing and settlement, to finance and accounting.
+[P2.6] Accelerate your transformation as you uncover new opportunities, improve operational efficiency, and reduce risk — with global multi-asset class, modular solutions.
+[P2.7] Innovate, and maximize ROI — with advanced data and analytics, AI, and digital assets that deliver immediate business value.
+[P2.8] Enhance every aspect of the trade lifecycle
+[P2.9] Principal Trading & Market Making
+[P2.10] Simplify and streamline the trade lifecycle across asset classes and regions with a centralized middle office solution.
+[P2.11] Regulatory Trade & Transaction Reporting
+[P2.12] See how we can help you drive measurable growth
+[P2.13] in equity and fixed income trades processed daily
+[P2.14] Buy- and sell-side firms connected to our platform
+[P2.15] Markets served by global teams with local expertise
+[P2.16] In monthly distributed ledger repo contracts
+[P2.17] The Future of Finance Awards 2026 - Best Live Repo Management Solution
+[P2.18] Global Custodian Leaders in Custody Awards 2026 - Securities Finance/Collateral Initiative of the Year
+[P2.19] Markets Choice Awards 2026 - Best OEMS
+[P2.20] TradingTechnology Awards 2026 - Best Solution for ETF Trading
+[P2.21] WatersTechnology Asia Awards 2026 - Best Order Management System
+[P2.22] TabbForum Nova Awards 2025 - NOVA Innovators Award
+[P2.23] Explore all awards and recognition
+[P2.24] DLT in the Real World 2026
+[P2.25] APAC Capital Markets Solutions: Overview and use cases
+[P2.26] DLT in the Real World 2025
+[P2.27] Next-gen markets: The rise and reality of tokenization
+[P2.28] Extended Overnight Trading: Opportunities and Considerations
+[P2.29] SEC central clearing rule changes: Determining the right Treasury market clearing model for your firm
+[P2.30] Solving the Collateral Mobility Puzzle in a Fragmented Market
+[P2.31] Simplification, innovation, and transformation at every step
+[P2.32] Seize market opportunities with high performance, cross asset trading and connectivity solutions.
+[P2.33] Streamline the trade lifecycle on a centralized solution for multi-asset, multi-region operations.
+[P2.34] Simplify your operations and streamline post-trade functions across asset classes and global markets.
+</source>
+
+<source id="P3">
+[P3.1] Broadridge - Wealth Advisor Solutions
+[P3.2] Wealth Advisor Solutions drive digital transformation and advisor productivity so you can scale your business, mitigate risk, and accelerate growth.
+[P3.3] Increase advisor productivity, mitigate risk, and grow assets under management with market-leading technology and services for wealth advisors.
+[P3.4] Equip your advisors for success
+[P3.5] Digital prospecting and marketing automation
+[P3.6] Use proven, high-performing platforms to streamline delivery of relevant, personalized, and contextualized investor communications.
+[P3.7] Equip advisors to boost growth, manage risk, and maintain fiduciary best practices through time-saving automation, marketing tools, and deep investment analytics.
+[P3.8] Leverage our integrated, modular solutions to seamlessly power operations from workflow management and compensation to investor engagement and marketing automation.
+[P3.9] Omnibus trading for retirement plans
+[P3.10] Manage qualified and non-qualified plans in a consolidated view with a proven retirement-fund management solution.
+[P3.11] Comprehensive data management and analytics
+[P3.12] Unlock powerful insights and drive informed decision-making when you leverage a single dataset across multiple Broadridge solutions.
+[P3.13] Deep regulatory, compliance, and investor expertise
+[P3.14] Achieve success with confidence by tapping into proven expertise, deeply informed by extensive market engagement, to navigate challenges and seize opportunities.
+[P3.15] Advisor Productivity & Investor Solutions
+[P3.16] Benefit from our proven, industry-leading solutions and expertise
+[P3.17] accounts serviced on Broadridge trade processing platforms
+[P3.18] active advisor websites hosted on our AdvisorStream platform
+[P3.19] 25 of the top 25 of wealth providers in North America
+[P3.20] advisors on Barron’s Top 100 list leverage Broadridge Wealth Solutions
+[P3.21] advisors and 12K+ AIF® designees served across more than 500 financial services providers
+[P3.22] Innovation in Global Custody, Global Custodian Industry Leaders Awards
+[P3.23] 2024 WealthTech Americas Awards: Winner, Client Marketing and Prospecting (US), AdvisorStream
+[P3.24] WealthTech Americas Award - Best Client Marketing & Prospecting Platform, AdvisorStream
+[P3.25] Asset Servicing Technology Provider of the Year - Global Asset Servicing Platform
+[P3.26] Corporate Actions Technology Award - Corporate Actions and Income Processing
+[P3.27] 2024 Financial Advisor Marketing Report
+[P3.28] Get the latest industry insights and trends on everything from marketing spending to lead-generation strategies and investor expectations. This comprehensive report shares results from a survey of 400+ financial advisors.
+</source>

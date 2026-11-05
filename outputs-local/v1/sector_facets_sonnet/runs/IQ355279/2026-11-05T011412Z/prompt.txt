@@ -1,0 +1,69 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Match Group, Inc. (mtch.com)
+Sector: Software and internet
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- software_category (Software category): What the software does. Example: HR and payroll: payroll, benefits and time tracking. Any that apply of: ERP and finance; HR and payroll; CRM, marketing and sales; cybersecurity; data, analytics and AI; IT and developer infrastructure; collaboration and content; industry-specific (vertical) software; payments and fintech; consumer internet and marketplaces; IT services and consulting; other.
+- deployment_model (Deployment model): How the software is delivered. Example: SaaS: cloud subscription. Exactly one of: SaaS / cloud; on-premise; hybrid; not applicable (services or internet).
+- customer_size (Customer size): Its typical customer. Example: mid-market: employers with tens to a few thousand staff. Any that apply of: consumers; SMB; mid-market; enterprise; government.
+- product_architecture (Product architecture): One product or a suite. Example: platform: payroll, HR, time and benefits on one system. Exactly one of: platform / suite; point solution; API / infrastructure.
+
+Evidence:
+<source id="P1">
+[P1.1] Home | Match Group
+[P1.2] Match Group is the global leader behind Tinder, Hinge, and other leading dating brands, helping millions worldwide build meaningful connections.
+[P1.3] Powering Meaningful Connections at Global Scale
+[P1.4] Across cultures, communities, and every stage of life.
+[P1.5] Our Mission is to Spark Meaningful Connections for Every Single Person Worldwide
+[P1.6] We know that connection looks different for everyone, which is why we build and support a portfolio of brands, each designed to meet people where they are and help them connect in ways that feel right for them.
+[P1.7] The World’s Most Diverse Dating Portfolio
+[P1.8] How We Design for Connection
+[P1.9] We design experiences that meet people where they are — whether they’re exploring, seeking clarity, or looking for community.
+[P1.10] Intentional paths to meaningful relationships.
+[P1.11] Spaces built around shared identity.
+[P1.12] Different brands. One shared mission.
+[P1.13] Built for Exploration and Discovery
+[P1.14] Designed for Clarity and Commitment
+[P1.15] Created for Shared Culture and Community
+[P1.16] Built to Lead Modern Connection
+[P1.17] A global team building thoughtful, scalable solutions for modern connection.
+[P1.18] Match Group apps facilitate nearly half a billion matches every month.
+[P1.19] Designed to serve diverse communities across cultures and regions.
+[P1.20] Built into our apps to promote trust, accountability, and protection at scale.
+[P1.21] Trust and Safety Are Foundational to What We Do
+[P1.22] Connection only works when people feel safe.
+[P1.23] Meaningful connection starts with trust. Across our portfolio, safety, privacy, and user protection are built into how our products are designed and how our teams operate, from proactive detection to clear policies and ongoing investment in user trust.
+[P1.24] Thoughtful innovation guides how we approach AI.
+[P1.25] We believe generative AI can help create more engaging, inclusive, and safer experiences across our platforms. Our approach is grounded in responsible innovation, with a focus on transparency, accountability, and user trust.
+</source>
+
+<source id="P2">
+[P2.1] About | Match Group
+[P2.2] Match Group brings together a portfolio of brands designed to meet people where they are, whether they’re exploring, seeking clarity, or looking for community.
+[P2.3] Chief Executive Officer Match Group
+[P2.4] Chief Financial Officer Match Group
+[P2.5] Chief Legal & Corporate Affairs Officer and Secretary Match Group
+[P2.6] Chief People Officer Match Group
+[P2.7] Head of Corporate Affairs Match Group
+[P2.8] Head of Trust & Safety Match Group
+[P2.9] 500 million matches are facilitated by Match Group's apps every month.
+[P2.10] 1/3 of marriages begin on an app.
+[P2.11] Behind every product are teams of people who care deeply about the impact of their work. Across brands, functions, and geographies, our teams collaborate to solve complex challenges around human connection.
+[P2.12] Sr. Manager, Globalization & International Growth, Product Operations
+[P2.13] Leading a global team across dozens of languages has pushed me to grow as a leader and think more strategically about how we connect people around the world.
+[P2.14] Every day, we’re working behind the scenes to remove bad actors so people have a real chance at finding meaningful connection. Ideally, users never know we exist — it just means we’ve done our job.
+</source>

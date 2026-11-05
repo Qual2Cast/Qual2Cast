@@ -1,0 +1,100 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Tetra Tech, Inc. (www.tetratech.com)
+Industry (SIC 87): Engineering, Accounting, Research & Management Services
+About this industry group: This major group is broader than engineering consulting: it also covers accounting, scientific research and management services. Select service-specific qualifications and project metrics; do not impose an engineering backlog metric on an audit-only practice.
+
+Facets:
+- professional_service_specialty (Professional-service specialty). Examples: Engineering design; Accounting; Scientific research.
+- engagement_delivery_model (Engagement / delivery model). Examples: Fixed-scope engineering project; Recurring audit engagement; Consulting retainer.
+- billable_utilization (Billable utilization). Examples: Billable hours / available professional hours: 72%; 80% utilization for a stated staff population.
+- workforce_expertise_mix (Workforce / expertise mix). Examples: Licensed professional engineers; Audit partners and associates; PhD research scientists.
+- client_industry_project_domain (Client industry / project domain). Examples: Energy infrastructure clients; Financial-services audit clients; Biotechnology research sponsors.
+- contracted_work_backlog (Contracted work backlog). Examples: $500 million signed project backlog; 12 months of contracted engineering work.
+- professional_liability_accreditation (Professional liability / accreditation). Examples: Professional indemnity cover; Named professional licenses; Laboratory accreditation.
+
+Evidence:
+<source id="P1">
+[P1.1] Tetra Tech - Global provider of high-end technical and engineering services
+[P1.2] We are improving the quality of life for people around the world through science, technology, and innovation.
+[P1.3] Leading with Science® to create a more sustainable future
+[P1.4] Solutions for a resilient future
+[P1.5] From innovative water systems to reliable energy and digital tools, our solutions solve today’s most dynamic challenges.
+[P1.6] Wise Water Management in the West
+[P1.7] Exploring high-end solutions to build more resilient water systems in the face of evolving challenges in the Front Range.
+[P1.8] Supporting delivery of safe water across Northern Ireland
+[P1.9] We are helping to advance efficient and effective water infrastructure projects benefiting hundreds of thousands of households in Northern Ireland.
+[P1.10] Advanced water systems in Virginia
+[P1.11] We expanded treatment capacity and introduced advanced technologies to secure water resources for generations.
+[P1.12] Our Tetra Tech Delta suite of digital solutions encompasses advanced data analytics, artificial intelligence, and technologies that create transformational solutions for our clients.
+[P1.13] Learn about the Delta difference
+[P1.14] Jarrett Kinslow Discusses Advanced Water Treatment for Resilient Water Supplies
+[P1.15] Modeling Water and Power Demands for Data Centers in Texas
+[P1.16] Leveraging High-End AI Software to Detect and Protect Marine Mammals for Offshore Energy Projects
+[P1.17] Combining Traditional Engineering with Smart Sewers and Nature-Based Solutions to Improve River Health
+[P1.18] By Catherine Treagus-Mullan and Neil Mason
+[P1.19] ​​Jeff McCoy Discusses Enhancing Resiliency in Air Traffic Control Infrastructure​
+[P1.20] Our world-class engineers and scientists leverage industry-leading technical expertise, in-depth local knowledge, and sustainable approaches to provide resilient solutions for our clients.
+[P1.21] Connect with us. Reach out to our experts.
+[P1.22] Create a future with us
+[P1.23] Learn about life at Tetra Tech
+</source>
+
+<source id="P2">
+[P2.1] Our Company - Tetra Tech
+[P2.2] Tetra Tech is proud to be home to industry-leading scientists, engineers, and technical specialists and to use this expertise throughout the project life cycle.
+[P2.3] Improving lives around the world by Leading with Science®
+[P2.4] Tetra Tech is built on a culture of innovation and committed to creating positive, impactful change as we address the world’s most complex problems.
+[P2.5] We are proud to be home to industry-leading scientists, engineers, and technical specialists and to use this expertise throughout the project life cycle. Our strength is in collectively providing integrated services—delivering the best solutions to meet our clients’ needs.
+[P2.6] What we aim to achieve
+[P2.7] To be the premier global technical and engineering services firm, focusing on water, environment, and sustainable infrastructure.
+[P2.8] How we work together to deliver for our clients
+[P2.9] We put our clients first. We listen better to understand our clients’ needs and deliver smart, cost-effective solutions that meet those needs.
+[P2.10] We take on our clients’ problems as if they were our own. We develop and implement real-world solutions that are cost-effective, efficient, and practical.
+[P2.11] We bring superior technical capability, disciplined project management, and excellence in safety and quality to all our work.
+[P2.12] Our workforce is diverse and includes leading experts in our fields.
+[P2.13] Tetra Tech was to provide engineering services related to waterways, harbors, and coastal areas. For 60 years, we have substantially increased the size and scope of our business and expanded our service offerings through a series of strategic acquisitions and internal growth.
+[P2.14] Today Tetra Tech is organized into two major business groups that align with our core markets and enhance the development of high-end technical solutions to meet our growing client demand. We provide clear solutions for projects in water, environment, and sustainable infrastructure.
+[P2.15] Government Services Group (GSG) provides technical and engineering services for a broad range of U.S. government clients (federal, state and provincial, and municipal) and all activities with development agencies worldwide.
+[P2.16] Commercial/International Group (CIG) provides technical and engineering services worldwide for a broad range of commercial and international clients, inclusive of the commercial and government sectors.
+</source>
+
+<source id="P3">
+[P3.1] Defense Services - Tetra Tech
+[P3.2] Tetra Tech has more than 50 years of experience providing context-appropriate solutions for defense clients worldwide.
+[P3.3] Delivering sustainable infrastructure and environmental solutions for defense clients
+[P3.4] Providing full services for the U.S. Department of Defense
+[P3.5] Tetra Tech provides services for the full life cycle of installations.
+[P3.6] Tetra Tech’s C4I expertise enables support for complex DoD systems.
+[P3.7] Optimizing the asset life cycle
+[P3.8] Tetra Tech’s Colby Hoefar discusses how Tetra Tech uses the latest technology to help defense clients optimize their facilities.
+[P3.9] Tetra Tech has been Leading with Science® on worldwide defense programs for 60 years. Our innovative technical and engineering experts leverage global resources to provide context-appropriate solutions, design sustainable infrastructure, and protect and restore the environment. Learn more.
+[P3.10] in Water Treatment and Desalination and Hydro Plants
+[P3.11] professionals with current Five Eyes clearances
+[P3.12] countries and 7 continents with successful project delivery
+[P3.13] Our featured defense services highlights
+[P3.14] Colby Hoefar Discusses Optimizing the Asset Life Cycle
+[P3.15] Jason J. Cook Discusses the Importance of Industrial Control System Cybersecurity
+[P3.16] Dave George Discusses Architecture and Engineering Program Management
+[P3.17] Brian Thorne Discusses Planning and Designing Military Infrastructure
+[P3.18] Building Broad-based Resilience in Our Facilities, Installations, and Cities
+[P3.19] Tetra Tech Wins 2022 Dwight D. Eisenhower Award, Excellence in the Services Category
+[P3.20] View more defense services news and insights
+[P3.21] Our innovative technical and engineering experts put science at the forefront of our projects, using the latest tools and technologies to solve the world’s most complex problems.
+[P3.22] Architecture, Engineering, and Project Management
+[P3.23] Information Technology and Cyber Services
+[P3.24] See all defense services solutions
+[P3.25] Connect with us. Reach out to our defense services experts.
+</source>

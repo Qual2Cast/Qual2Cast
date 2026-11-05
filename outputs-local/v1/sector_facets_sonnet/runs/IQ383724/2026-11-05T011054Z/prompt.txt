@@ -1,0 +1,78 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Federated Hermes, Inc. (www.federatedhermes.com/us/home.do)
+Sector: Banks, insurance and other financials
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- financial_business_type (Financial business type): What kind of financial firm. Example: insurance brokerage: places commercial insurance for clients. Any that apply of: banking; specialty lending; property and casualty insurance; life and health insurance; insurance brokerage; asset / wealth management; exchanges and market infrastructure; payments; other.
+- revenue_driver (Revenue driver): What it earns on. Example: fees: commissions on placed premiums. Any that apply of: net interest income; fees and commissions; premiums; investment income.
+- customer_type (Customer type): Who its clients are. Example: corporate: small and mid-sized businesses. Any that apply of: retail; corporate; institutional; government.
+- balance_sheet_dependence (Balance sheet dependence): Whether it carries the risk. Example: fee-based: no underwriting risk. Exactly one of: balance-sheet intensive; fee-based; mixed.
+
+Evidence:
+<source id="P1">
+[P1.1] Federated Hermes | Meeting the diverse and evolving needs of global investors
+[P1.2] Meeting the diverse and evolving needs of global investors
+[P1.3] Federated Hermes is committed to doing business the right way by providing active investors a broad spectrum of investment solutions.
+[P1.4] Explore critical thinking on markets and companies from our investment professionals.
+[P1.5] Current views and positioning of our Fixed Income committees.
+[P1.6] With 50 years of experience, we ruthlessly vet investments and aim to provide sound liquidity management through all market environments.
+[P1.7] Federated Hermes is a leading global, active asset manager, focused on meeting the diverse and evolving needs of today’s investors.
+[P1.8] As an active investment manager investing around the world, Federated Hermes’ believes the best investment ideas come from focused teams with differentiated perspectives and strong risk controls and oversight. Our investment solutions span a range of risk and return profiles, allowing us to target investors’ specific financial needs.
+[P1.9] Independent teams seek competitive long-term returns in actively managed growth, value and blend strategies, as well as across capitalizations and regions.
+[P1.10] Active fixed-income strategies across the spectrum (yield curve, quality and regions) designed for total return, income generation and capital preservation.
+[P1.11] A pioneer in liquidity management, offering one of the largest menus of targeted solutions.
+[P1.12] Offering private equity, private debt, infrastructure and real estate solutions.
+[P1.13] Responsible investing reflects our belief that financial connectivity and prudent stewardship can help clients achieve their investment goals.
+[P1.14] Discover the active, systematic quantitative investment solutions from Federated Hermes MDT Advisers.
+[P1.15] Explore our investment solutions designed to help clients meet their investment needs.
+[P1.16] Discover Federated Hermes active ETFs
+[P1.17] Our active ETF lineup offers our most popular strategies in convenient ETF vehicles.
+</source>
+
+<source id="P2">
+[P2.1] Federated Hermes | About us
+[P2.2] Federated Hermes is a leading global, active asset manager, focused on meeting the diverse and evolving needs of today’s investors. For 70 years, our world-class investment platform has provided active investment expertise across the spectrum, in both public and private markets. Our solutions span equity, fixed income, liquidity, private markets and responsible investments.
+[P2.3] Through a relentless commitment to doing business the right way by seeking better outcomes for every client, Federated Hermes has established a position as one of the leaders in the asset management industry. We are differentiated by our deep market experience, independent-thinking investment teams, integrated proprietary research, dynamic data sources and our engagement and stewardship capabilities.
+[P2.4] Federated Hermes aims to deliver strong performance consistent with our clients’ needs and expectations by setting a standard for active investment management. Our rigorous approach to vetting investment opportunities, careful attention to prudently allocating risks and dedication to building insightful teams have been key to our investing for decades.
+[P2.5] For more than 50 years, Federated Hermes has delivered active fixed-income strategies designed to meet a range of investor needs. Whether the goal is total return, income generation or capital preservation, we have a strategy that’s been vetted to fit the bill.
+[P2.6] Wide range of global capabilities
+[P2.7] Federated Hermes offers investment capabilities designed to deliver attractive financial outcomes across a broad array of asset classes. Our investment solutions span a range of risk and return profiles, helping us to target investors' specific financial needs.
+[P2.8] Active fixed-income strategies across the spectrum (yield curve, quality and regions) designed for a variety of goals such as total return, income generation and capital preservation.
+[P2.9] Liquidity management is a core business of Federated Hermes and we use our decades of experience to ruthlessly vet investments in our aim to provide sound liquidity management.
+[P2.10] Private equity, private debt, infrastructure and real estate solutions for institutional investors around the world.
+[P2.11] We pursue long-term, risk-adjusted returns guided by fiduciary duty and client investment objectives. Responsible investing reflects our belief that financial connectivity and prudent stewardship are key to helping clients meet investment goals.
+[P2.12] Our commitment to doing business the right way
+[P2.13] Our company-wide commitment to put clients first, to act responsibly and to be transparent.
+[P2.14] An investment in money market funds is neither insured nor guaranteed by the Federal Deposit Insurance Corporation or any other government agency. It is possible to lose money by investing in these funds.
+[P2.15] Bond prices are sensitive to changes in interest rates and a rise in interest rates can cause a decline in their prices.
+[P2.16] Investing in equities is speculative and involves substantial risk.
+[P2.17] Private investments are not suitable for all investors, are generally illiquid, and have the potential for significant losses.
+[P2.18] Investments are subject to risk and fluctuate in value.
+</source>
+
+<source id="P3">
+[P3.1] Federated Hermes | Capabilities
+[P3.2] our goal has been to help you reach yours. With deep experience across a wide range of asset classes, Federated Hermes provides access to fixed income, liquidity, equity, private markets and responsible investing solutions.
+[P3.3] Federated Hermes has thrived as a leading global, active investment manager. Our goal is to deliver competitive performance consistent with our clients’ needs and expectations by setting a high standard for active investment management. Our rigorous approach to vetting investment opportunities and careful attention to prudently allocating risk have been key aspects of our approach for decades.
+[P3.4] We offer a wide range of retail and institutional liquidity options, spanning corporate, government and municipal offerings.
+[P3.5] We offer institutional investors access to private equity, private credit, real estate and infrastructure.
+[P3.6] Through each team’s disciplined approach, innovative strategies, and rigorously vetted security selection process, we build our clients solutions to help them achieve their long-term objectives.
+[P3.7] President and chief executive officer, Federated Advisory Companies
+[P3.8] Bond prices are sensitive to changes in interest rates and a rise in interest rates can cause a decline in their prices. In addition, fixed-income investors should be aware of other risks such as credit risk, inflation risk, call risk and liquidity risk. Credit ratings are subject to change and don’t protect against market.
+[P3.9] Investments are subject to risks and fluctuate in value.
+[P3.10] Past performance is no guarantee of future results.
+</source>

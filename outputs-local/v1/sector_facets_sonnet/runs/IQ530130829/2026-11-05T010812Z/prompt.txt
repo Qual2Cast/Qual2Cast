@@ -1,0 +1,118 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: CarGurus, Inc. (www.cargurus.com)
+Sector: Software and internet
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- software_category (Software category): What the software does. Example: HR and payroll: payroll, benefits and time tracking. Any that apply of: ERP and finance; HR and payroll; CRM, marketing and sales; cybersecurity; data, analytics and AI; IT and developer infrastructure; collaboration and content; industry-specific (vertical) software; payments and fintech; consumer internet and marketplaces; IT services and consulting; other.
+- deployment_model (Deployment model): How the software is delivered. Example: SaaS: cloud subscription. Exactly one of: SaaS / cloud; on-premise; hybrid; not applicable (services or internet).
+- customer_size (Customer size): Its typical customer. Example: mid-market: employers with tens to a few thousand staff. Any that apply of: consumers; SMB; mid-market; enterprise; government.
+- product_architecture (Product architecture): One product or a suite. Example: platform: payroll, HR, time and benefits on one system. Exactly one of: platform / suite; point solution; API / infrastructure.
+
+Evidence:
+<source id="P1">
+[P1.1] Buy & Sell Cars | Millions Listed, Prices & Deal Ratings | CarGurus
+[P1.2] Unbiased car reviews and over a million opinions and photos from real people. Use CarGurus to find the best used car deals.
+[P1.3] Shop the #1 most visited car shopping site *
+[P1.4] Shop the #1 visited car shopping site *
+[P1.5] Sell your car for the best price
+[P1.6] Compare multiple offers in minutes
+[P1.7] Search in your own words with AI
+[P1.8] AWD SUVs for any weather
+[P1.9] Ride along with Drake and Ann Michael Maye as they share what drives them
+[P1.10] Compare & estimate at the dealership.
+[P1.11] Compare cars and estimate all-in prices at the dealership.
+[P1.12] Shop cars in your budget
+[P1.13] Adjust the sliders to see what you can afford, or get pre-qualified to see real rates with no credit impact.
+[P1.14] Shop by budget Get pre-qualified
+[P1.15] 0 1 2 3 4 5 6 7 8 9
+[P1.16] Compare multiple offers in under 2 minutes. †
+[P1.17] The #1 most visited car shopping site ‡
+[P1.18] Deal ratings you can actually trust
+[P1.19] The highest standards for showing you a great deal and the only site to identify overpriced. §
+[P1.20] No hidden details, no surprises
+[P1.21] Fees included upfront, price changes, accident history, days on lot - no surprises. ‖
+[P1.22] Take an expert with you to the lot
+[P1.23] Dealership Mode gives you real-time price checks, comparisons, and risks, right from your phone.
+[P1.24] Rated 6.2 / 10 2026 Toyota Crown Signia Review
+[P1.25] Rated 6.8 / 10 2026 Toyota Sequoia Review
+[P1.26] Rated 7.7 / 10 2027 Mercedes-Benz GLS Review
+[P1.27] Rated 7.3 / 10 2027 Mercedes-Benz GLE Review
+[P1.28] Rated 7.2 / 10 2027 Volkswagen Atlas Review and Video
+[P1.29] Rated 7.0 / 10 2027 Kia EV3 Review
+[P1.30] Rated 7.5 / 10 2027 Toyota Land Cruiser Review
+[P1.31] Rated 7.5 / 10 2026 Kia Sportage Hybrid Review and Video
+[P1.32] Rated 8.5 / 10 2026 Honda Accord Hybrid Review
+[P1.33] Rated 6.5 / 10 2026 Toyota Sienna Review
+[P1.34] Rated 7.8 / 10 2027 Mercedes-Benz CLA EV Review
+[P1.35] Rated 8.0 / 10 2026 Chevrolet Suburban Review
+[P1.36] Rated 7.5 / 10 2026 BMW X5 Review
+[P1.37] Rated 5.2 / 10 2026 Buick Envista Review
+[P1.38] Rated 7.2 / 10 2026 Volkswagen Atlas Cross Sport Review
+[P1.39] Rated 6.7 / 10 2026 Jeep Recon Review and Video
+[P1.40] Rated 7.0 / 10 2026 Lexus GX Review
+[P1.41] Rated 6.5 / 10 2026 Audi Q5 Review
+[P1.42] Rated 6.2 / 10 2026 Mazda CX-50 Review
+[P1.43] Rated 8.0 / 10 2026 Toyota GR Corolla Review
+[P1.44] Ford Edge Buying Guide: Cost, Reliability, and the Best Years to Own
+[P1.45] Kia Optima Buying Guide: Cost, Reliability, and the Best Years to Own
+[P1.46] Toyota Prius Buying Guide: Cost, Reliability and the Best Years to Buy
+[P1.47] Toyota Land Cruiser Buying Guide: Cost, Reliability, and the Best Years to Buy
+[P1.48] Mercedes-Benz GLE-Class Buying Guide: Cost, Reliability, and the Best Years to Buy
+[P1.49] Hyundai Tucson Buying Guide: Cost, Reliability, and the Best Years to Buy
+[P1.50] Volkswagen Atlas Buying Guide: Cost, Reliability and the Best Years to Buy
+[P1.51] GMC Hummer EV SUV Buying Guide: Cost, Reliability, and the Best Years to Buy
+[P1.52] Subaru Crosstrek Buying Guide: Cost, Reliability, and the Best Years to Buy
+[P1.53] Kia Sportage Buying Guide: Cost, Reliability, and the Best Years to Buy
+[P1.54] Toyota Corolla Buying Guide: Cost, Reliability, and the Best Years to Buy
+[P1.55] Land Rover Defender Buying Guide: Cost, Reliability, and the Best Years to Buy
+[P1.56] Infiniti QX80 Buying Guide: Cost, Reliability, and the Best Years to Buy
+[P1.57] Buick Enclave Buying Guide: Cost, Reliability, and the Best Years to Buy
+[P1.58] GMC Hummer EV Pickup Buying Guide: Cost, Reliability, and the Best Years to Buy
+[P1.59] Chevrolet Traverse Buying Guide: Cost, Reliability, and the Best Years to Buy
+[P1.60] Toyota Sequoia Buying Guide: Cost, Reliability, and the Best Years to Buy
+[P1.61] Mercedes-Benz GLS Buying Guide: Cost, Reliability, and the Best Years to Buy
+[P1.62] Chevrolet Equinox Buying Guide: Cost, Reliability, and the Best Years to Buy
+[P1.63] Kia Niro Buying Guide: Cost, Reliability, and the Best Years to Buy
+[P1.64] Land Rover Range Rover Sport
+[P1.65] * Similarweb, Traffic and Engagement Report (Cars.com, Autotrader.com, TrueCar.com, CARFAX.com Listings (defined as CARFAX.com Total visits minus Vehicle History Reports traffic), Q3’25
+[P1.66] ※ Google Play is a trademark of Google LLC. 4.8/5 rating on Google Play as of Q3 2025
+[P1.67] † Multiple offers available in select markets.
+[P1.68] ◊ Compared to Autotrader.com (YipitData July/), Cars.com, TrueCar.com (YipitData as of), and CARFAX (Joreca as of).
+</source>
+
+<source id="P2">
+[P2.1] About Us
+[P2.2] Our mission is to give people the power to reach their destination
+[P2.3] CarGurus was to bring more trust and transparency to car shopping. Today, with decades of experience in the rearview, CarGurus is the #1 most-visited digital auto platform in the United States.* Powered by industry-leading innovation and insights, we give our consumer and dealer customers the confidence to buy or sell a car exactly how they want, making every step more seamless from online to the dealership lot.
+[P2.4] CarGurus believes everyone should be in control of their purchase or sale from start to finish. With our unmatched inventory, unbiased vehicle information, and tools for buying, financing, and selling, our consumers find what they’re looking for at the right price, and have more flexibility along the way. CarGurus gives each car a deal rating from great to overpriced and our Best Match sort order helps our consumers find their best deal. Our sort showcases recommended vehicles based on a variety of factors, including shopper engagement, vehicle attributes, photos, and dealer reviews & services.
+[P2.5] Enabling dealership success at every turn
+[P2.6] CarGurus is trusted by tens of thousands of dealers to maximize revenue in an evolving automotive landscape. Powered by our unmatched audience and decades of insights and experience, we partner with our dealer customers to help them source, market, and sell each vehicle at the right price: locally, online, or out-of-market.
+[P2.7] Empowering consumers and dealers starts with empowering our own team.
+[P2.8] CarGurus is founded by Langley Steinert, co-founder of TripAdvisor.
+[P2.9] Instant Market Value launches to provide complete transparency on a car's value and deal rating.
+[P2.10] The first-annual Top-Rated Dealer Awards recognize dealers who go above and beyond for their customers.
+[P2.11] CarGurus expands internationally, launching in Canada and the UK.
+[P2.12] New digital retail tools allow drivers and dealers to do more of the sale online, including financing and appointment booking.
+[P2.13] AI-powered shopping experience launches, unlocking a more personalized and intuitive research option right on the CarGurus website
+[P2.14] * Similarweb, Traffic and Engagement Report (Cars.com, Autotrader, TrueCar, CARFAX Listings (defined as CARFAX Total visits minus Vehicle History Reports traffic), US, Q1'25.﻿
+[P2.15] ﻿**Similarweb, Traffic and Engagement Report, US, Q1'25
+[P2.16] *** CarGurus internal data, updated 12/31/24
+</source>
+
+<source id="P3">
+[P3.1] Dealerships near me
+</source>

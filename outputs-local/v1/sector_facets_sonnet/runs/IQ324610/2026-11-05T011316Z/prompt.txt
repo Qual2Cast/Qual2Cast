@@ -1,0 +1,68 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Kadant Inc. (kadant.com)
+Sector: Manufacturing (industrial, materials, electronics)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- manufacturing_type (Manufacturing type): How it makes products. Example: discrete: builds individual units on assembly lines. Any that apply of: discrete; process; assembly; outsourced / fabless.
+- production_model (Production model): Built for an order or for stock. Example: make-to-order: each unit configured to the customer's order. Exactly one of: make-to-order; make-to-stock; both.
+- product_complexity (Product complexity): How engineered its products are. Example: engineered: custom-configured equipment. Exactly one of: commodity; engineered; precision / high-spec.
+- production_role (Production role): Where it sits in its customers' supply chain. Example: final manufacturer: sells finished units to contractors. Any that apply of: final manufacturer / OEM; tier 1 supplier; tier 2 or component supplier; contract manufacturer; materials producer.
+- end_market_exposure (End-market exposure): Which end markets drive demand. Example: industrial: factories and commercial buildings. Any that apply of: aerospace and defense; automotive and transportation; industrial; construction and buildings; energy; electronics and semiconductors; healthcare and life sciences; consumer; agriculture; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Kadant Inc. - A Global Leader in Technology And Engineered Systems
+[P1.2] Kadant Inc. is a global supplier of high-value, engineered systems used in process industries worldwide.
+[P1.3] A Global Leader in Technology & Engineered Systems that Drive
+[P1.4] We are a global supplier of technologies and engineered systems that drive Sustainable Industrial Processing®. Our products and services play an integral role in enhancing efficiency, optimizing energy utilization, and maximizing productivity in process industries.
+[P1.5] Custom-engineered products, systems, and technologies used to enable fluid, power, and data transfer to optimize energy utilization, improve machine runnability, and enhance productivity.
+[P1.6] Machinery and engineered systems and components to help customers maximize the production of fiber-based, renewable products.
+[P1.7] Products and systems used to handle bulk and discrete materials for secondary processing.
+[P1.8] From paper and packaging to wood products, mining, food processing, and energy, Kadant delivers engineered systems and technologies purpose-built for the demands of global process industries. Explore how our expertise and solutions are put to work across the markets we serve.
+[P1.9] Explore our family of companies to learn how each one delivers specialized expertise and proven solutions to process industries around the world.
+[P1.10] Our products are designed to reduce waste, use resources more efficiently, and allow our customers to create more value with fewer inputs. We do this with integrity, a commitment to ethics, and responsible operations.
+[P1.11] Kadant's automation portfolio — illumen.X, PaperFront®, and Vayeron Asset Performance Monitoring — gives process industries the digital tools to optimize performance, predict equipment failures, and build data-driven operations from plant floor to enterprise.
+[P1.12] We work to envision the future and create value through discovering and applying innovations that address industrial processing challenges while extending our depth of technology.
+</source>
+
+<source id="P2">
+[P2.1] Kadant Inc. - Flow Control
+[P2.2] Our Flow Control segment consists of our Fluid Handling and Doctoring, Cleaning & Filtration product lines, delivering custom-engineered products, systems, and technologies that keep critical industrial and commercial processes running efficiently across packaging, tissue, food processing, metals, and other demanding sectors.
+[P2.3] Our brand portfolio carries a rich heritage of product innovation with well-known industry names including AES, Johnson, Lodding, Unaflex, and Vickery. Our primary products include rotary sealing devices, steam systems, expansion joints, doctor systems, roll and fabric cleaning devices, and filtration and fiber recovery systems. With deep application expertise and a proven track record, we help customers reduce energy consumption, improve machine runnability, and build long-term operational sustainability.
+[P2.4] Packaging, Paper, Tissue, and Pulp
+[P2.5] Kadant’s fluid handling products and technologies are used to control the flow of fluids in process industries worldwide. These products include rotary joints and unions, expansion joints, condensate pumps, thermocompressors, desuperheaters, and direct steam injection heaters.
+[P2.6] Kadant’s wide range of doctoring, cleaning, and filtration systems and related consumables are used in process industries worldwide. These products include doctor blades and holders, roll cleaning blades and holders, spray nozzles, oscillating showers, and fabric and belt cleaning systems.
+[P2.7] DSTI is a leader in engineered fluid sealing and transfer solutions for rotating applications, serving a wide range of global industries. Its products include fluid rotary unions, electrical slip rings, and custom-engineered solutions designed and manufactured to meet the precise requirements of aerospace, defense, medical, semiconductor, machine tool, and industrial applications.
+</source>
+
+<source id="P3">
+[P3.1] Kadant Inc. - About Us
+[P3.2] For more than a century, Kadant has been delivering smart and efficient solutions to process industries.
+[P3.3] We are a global supplier of technologies and engineered systems that drive Sustainable Industrial Processing®. Our products and services play an integral role in enhancing efficiency, optimizing energy utilization, and maximizing productivity in process industries while helping our customers advance their sustainability initiatives with products that reduce waste or generate more yield with fewer inputs, particularly fiber, energy, and water.
+[P3.4] Our major product brands, many of which are sold under the Kadant name through our subsidiaries, include well-known industry names such as AES, Balemaster, Black Clawson (stock preparation), Carmanah, Clouth, Goslin, Johnson, Lamort, Link-Belt, Lodding, Nicholson Manufacturing, Noss, PAAL, Syntron, Unaflex, Valon Kone, and Vickery.
+[P3.5] Fiber processing systems for recovering recycled fibers and processing virgin fibers
+[P3.6] Fluid handling systems and engineered products that transfer fluid, power, and data between fixed piping and rotating components
+[P3.7] Roll doctoring and scraping products that clean roll surfaces
+[P3.8] Cleaning and filtration systems that clean fabrics and filter and recycle process water
+[P3.9] Wood processing systems to debark and cut logs into strands, and knife systems for chipping, planing, and flaking used in the production of OSB, lumber, and other wood-based products
+[P3.10] Baling equipment and systems to process recyclable waste and other materials for transport and storage
+[P3.11] Bulk material handling equipment for conveying, feeding, screening, and elevating material
+[P3.12] Boiler cleaning technologies that maximize equipment reliability and minimize operational costs in cellulose pulp-making processes
+[P3.13] Single- and double-screw presses that remove water and other liquids from sugar beet pulp, cellulose pulp, and other agro-industrial products
+[P3.14] Customized rolled profiles and industrial knife solutions engineered for demanding industrial applications
+[P3.15] Kadant brand products and services are sold to industries worldwide through our subsidiaries located in North America, South America, Europe, and Asia.
+</source>

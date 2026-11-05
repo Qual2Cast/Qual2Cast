@@ -1,0 +1,128 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Shenandoah Telecommunications Company (www.shentel.com)
+Industry (SIC 48): Communications
+About this industry group: Choose telecom, broadband or broadcast rows by operating activity. Subscription ARPU/churn are not universal broadcast-company measures. Network coverage, population coverage and homes passed use different denominators.
+
+Facets:
+- communications_activity (Communications activity). Examples: Mobile telecom; Fixed broadband; Radio / television broadcasting.
+- network_distribution_assets (Network / distribution assets). Examples: Owned mobile network; Fiber access network; Leased broadcast distribution.
+- subscriber_audience_measure (Subscriber / audience measure). Examples: Five million mobile connections; One million broadband accounts; Television households reached.
+- license_spectrum_rights (License / spectrum rights). Examples: Mid-band mobile spectrum; Broadcast station licenses; Cable franchise rights.
+- arpu_arpa_subscription_telecom (ARPU / ARPA [subscription telecom]). Examples: $55/month per mobile user; $70/month per broadband account.
+- customer_churn_subscription_telecom (Customer churn [subscription telecom]). Examples: 1.2% monthly mobile-account churn; 0.8% monthly broadband-account churn.
+- coverage_distribution_reach (Coverage / distribution reach). Examples: 95% population coverage; Two million fiber homes passed; 40 broadcast markets.
+- advertising_carriage_economics_broadcasting (Advertising / carriage economics [broadcasting]). Examples: Local advertising revenue; Retransmission-consent fees; Network-affiliate payments.
+
+Evidence:
+<source id="P1">
+[P1.1] High Speed Internet & Cable TV Provider VA, WV, KY | Shentel
+[P1.2] Stay connected with Shentel, the local phone, cable TV, and Internet provider in your area. Get cable TV and high speed Internet near you in VA, WV, KY, and MD.
+[P1.3] For the most accurate results, please select your address from the suggestions that appear in the dropdown.
+[P1.4] Congratulations, Shentel is available in your location!
+[P1.5] Click Get Started Begin by selecting your services.
+[P1.6] Place Order Pick a date and time for your installation.
+[P1.7] Service is not available at the given address.
+[P1.8] Unfortunately, we cannot provide service to this address at this time. If you have any questions, please call 1-800-SHENTEL.
+[P1.9] If you are interested in business services, we may be able to serve you. Please visit us at shentelbusiness.com to request a quote.
+[P1.10] Service might be available at this address
+[P1.11] There is either an issue finding this specific address, or there may already be service at this location. If you are moving to this address in the near future, or would like us to contact you about this address, please click CONTINUE below to complete a form to provide us with more information You may also call 1-800-SHENTEL to speak to a representative.
+[P1.12] Congratulations! Shentel services are coming to your area!
+[P1.13] Construction is planned to provide future service to this address.
+[P1.14] Serviceability date is subject to change. This address is part of an ongoing project, in collaboration with state government initiatives, to provide faster speeds to your area.
+[P1.15] To speak to someone regarding available services:
+[P1.16] Click Continue below to submit your information
+[P1.17] or call us at 1-800-SHENTEL.
+[P1.18] Service is not guaranteed to all addresses and a serviceability check will be required after construction is complete. Please check this page periodically for changes to the schedule.
+[P1.19] There is already an account at this address.
+[P1.20] If you are a new customer moving to this location, please click Continue to provide us with more details so that we may contact you to discuss options.
+[P1.21] You may also call 1-800-SHENTEL to speak to a Shentel Customer Service representative.
+[P1.22] You may be serviceable by our fiber internet brand, Glo Fiber. Click below to proceed to the Glo Fiber website and get started or call 1-833-WANT-GLO to speak to a representative.
+[P1.23] Congratulations! Internet service upgrades are coming to this area!
+[P1.24] Construction is planned to provide future Internet service upgrades to this address.
+[P1.25] Please note: Upgraded services are on the way, but DSL Internet service is already available at your address. To order, call 1-800-SHENTEL. Serviceability date is subject to change. This address is part of an ongoing new Shentel construction project, in collaboration with the Commonwealth of Virginia's Telecommunication Initiative to provide faster speeds to your area. Service is not guaranteed to all addresses and a serviceability check will be required after construction is complete. Please check this page periodically for updates or changes to the schedule.
+[P1.26] Business Services available at this Address
+[P1.27] To get started, click Request a quote below.
+[P1.28] This address is currently serviced
+[P1.29] Service is currently active or scheduled at this address. To make changes to an existing account or discuss available options, please call 1-800-SHENTEL or click Continue.
+[P1.30] Shentel Flex Prepaid is not available in your area
+[P1.31] Good news! While Shentel Flex Prepaid Internet is not currently offered at this address, you may qualify for other Shentel internet services. Click Shop Now below to explore available plans.
+[P1.32] You may qualify for Shentel Flex Prepaid Internet
+[P1.33] Service may be available but we require more details about this address.
+[P1.34] Shentel Flex Prepaid is available for residential addresses only
+[P1.35] The address entered appears to be for a business.
+[P1.36] *Offer listed above available in select areas. Check your address for availability.
+[P1.37] Check your address to see what additional offers are available when you switch to better, more reliable internet
+[P1.38] Offers not available in all areas. Check your address for the most up-to-date pricing.
+[P1.39] Independent Operator of the Year
+[P1.40] Get To Know Our Internet, TV, and Phone Services
+[P1.41] For over 100 years, Shentel Telecommunications Company has been keeping families connected throughout the Shenandoah Valley. Today, we offer high speed internet, streaming TV, and home phone service throughout Virginia, West Virginia, Kentucky, and Maryland. We invite you to explore our services, take advantage of our special offers, and learn why Shentel is your trusted TV, phone, and internet service provider.
+[P1.42] The reviews are in and our customers are beaming.
+[P1.43] "We have only had Shentel Internet a few weeks but it has been great. It's nice to sit down to watch programming and not have to watch our shows buffer. I also wanted to mention that the teams that worked to get us service were also great. They were very friendly and professional. Thanks for all the due diligence you did to get us our internet."
+[P1.44] "Our internet service with Shentel is absolutely outstanding!"
+[P1.45] "Great customer service. Shentel seems to have improved greatly over the last couple years and I always have a solid connection."
+[P1.46] "Their customer service was great… Able to squeeze me in and get my service hooked up the very next day… Really good service, and I am even able to stream live TV or Netflix with no problem!"
+[P1.47] Connecting Communities, Close to Home.
+[P1.48] Reliable Connections, Built for neighborhoods in Kentucky, Virginia, Maryland, and West Virginia.
+[P1.49] KENTUCKY Van Lear VIRGINIA Appomattox Bedford Clarksville Crewe Covington Farmville Kenbridge Keysville Lawrenceville Lebanon Radford Redwood Rural Retreat Rustburg Shenandoah County Strasburg Wytheville
+[P1.50] MARYLAND Oakland WEST VIRGINIA Belington Chapmanville Davis Franklin Glenville Grantsville Low Gap Marlinton Mullens Oakland Omar Petersburg Pineville Ronceverte Salem Summersville Welch Weston
+[P1.51] From better coverage to better rewards, enhance the way you connect and watch
+[P1.52] Unlock the potential of our whole home WiFi
+[P1.53] Earn Rewards When You Share the Love
+[P1.54] High-Speed Internet refers to a reliable broadband connection that delivers fast download and upload speeds. Unlike older technologies like DSL, it allows for seamless streaming, gaming, and multi-device connectivity without lag or buffering.
+[P1.55] Shentel customers praise the service for its reliability, speed, and excellent customer support. Many highlight the consistent performance for streaming, gaming, and remote work, as well as the transparent pricing with no hidden fees or contracts.
+[P1.56] Shentel’s High-Speed Internet is designed for reliability, offering strong connectivity with minimal disruptions.
+[P1.57] Choosing the right Shentel High-Speed Internet for your home depends on how many devices you have, the number of family members in your home, your household's online activities, and the speed you need to enjoy seamless connectivity. Here’s a quick guide to help:
+[P1.58] 400 Mbps: Ideal for small households with moderate internet use.
+[P1.59] 600 Mbps: Great for larger families, remote work, and 4K streaming.
+[P1.60] 1 Gbps: Best for power users, gaming, and smart homes with multiple connected devices.
+[P1.61] Shentel’s reliable network delivers consistent speeds with low latency, so whichever plan fits your needs, you’ll enjoy a stable connection. We can help you choose based on your needs.
+[P1.62] Shentel offers a variety of TV solutions to fit your entertainment needs, with a great selection of live channels, local programming, popular networks, HD programming, and premium options like sports and movie packages, all with an easy-to-use interface. Customers can also enjoy DVR capabilities, On Demand content, and access to streaming apps. With flexible plans, no contracts, and convenient viewing across multiple devices, Shentel TV gives you a seamless entertainment experience tailored to your needs.
+[P1.63] Switching to Shentel High-Speed Internet means faster speeds, more reliable service, and strong whole-home Wi Fi coverage. Installation is easy, and our local customer support is available to assist at every step.
+[P1.64] Customers receive a monthly bill with clear breakdowns of service charges. Payment options include online, phone, automatic draft, or by mail. Auto Pay is available to avoid late fees.
+[P1.65] Shentel’s customer support team is made up of real people from your local area who are ready to assist you when you need help. When you call, you’ll be connected to a knowledgeable representative, who understands our services and can provide quick, reliable solutions. Whether you need technical support, have billing questions, or just need guidance on your service, our team is available to help.
+[P1.66] Dual-Band vs. Tri-Band Routers: Learn the Differences
+[P1.67] How Cloud Computing Impacts Network Storage & Internet Speed
+</source>
+
+<source id="P2">
+[P2.1] Cable TV, Home Phone, Broadband Internet Company | Shentel
+[P2.2] Shentel Telecommunications is committed to delivering the most reliable cable TV, home phone, and broadband internet services to VA, WV, KY, and MD.
+[P2.3] Connected for More Than 100 Years
+[P2.4] From reliable broadband to local service you can count on, we are focused on building connections that last.
+[P2.5] Meet Shentel's family of brands.
+[P2.6] Your needs aren’t like anyone else’s. That’s why Shentel’s family of brands offers you telecom solutions. From fast, reliable internet and phone services to the latest in entertainment, we’re here to keep you connected, no matter where you are.
+[P2.7] We’ve been in the Shenandoah Valley for more than a century, and we’ve grown with our community. We want to keep growing with you.
+[P2.8] Shentel is committed to delivering the most reliable telecom services, no matter where you live.
+[P2.9] Shentel provides local customer service from people who live in our service areas.
+[P2.10] Shentel offers simple, straightforward pricing with no contracts.
+[P2.11] Our technology is ever-evolving, as we continue to invest in our network and provide the best value for our customers.
+[P2.12] Click below and connect to your next opportunity.
+[P2.13] Shentel Completes Fiber-to-the-Home Upgrade in Buchanan, Virginia
+[P2.14] Shentel and Glo Fiber Honored with 2026 CFX Top Ops Award for Community Relations
+</source>
+
+<source id="P3">
+[P3.1] Cable TV & Internet Provider Near You in VA, WV, KY, MD
+[P3.2] Your cable TV and broadband internet provider of choice with locations throughout Virginia, West Virginia, Kentucky, and Maryland.
+[P3.3] Monday through Friday: 8am – 5pm Closed for lunch 1pm - 2pm Closed Saturday and Sunday
+[P3.4] Monday through Friday: 8am - 5pm Closed for Lunch 1pm - 2pm Closed Saturday and Sunday
+[P3.5] Monday, Wednesday, and Friday: 9:30am – 4pm Closed for lunch 1pm - 2pm Closed Tuesday, Thursday, Saturday, and Sunday
+[P3.6] Rustburg - Seneca Commerce Park
+[P3.7] Monday through Friday: 8am – 5pm Drive-thru: Monday through Friday: 8am – 5pm Closed for lunch 1pm - 2pm Closed Saturday and Sunday
+[P3.8] Monday through Friday: 8am – 5pm Drive Thru: Monday through Friday: 8am - 4:30pm (Closed for lunch from 12pm - 1pm) Closed Saturday and Sunday
+[P3.9] Monday through Friday: 8am – 5pm Closed for lunch from 1pm – 2pm Closed Saturday and Sunday
+[P3.10] Monday through Friday: 8pm – 5pm Closed for lunch from 1pm – 2pm Closed Saturday and Sunday
+</source>

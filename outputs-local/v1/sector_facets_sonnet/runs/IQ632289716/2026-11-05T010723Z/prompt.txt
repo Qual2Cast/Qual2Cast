@@ -1,0 +1,50 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: BellRing Brands, Inc. (bellring.com)
+Sector: Consumer products (food, beverages, household, apparel)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- product_category (Product category): What consumers buy from it. Example: food: snacks and frozen meals. Any that apply of: food; beverages; apparel and footwear; household and personal care; home and furnishings; electronics; recreation and leisure goods; general merchandise; restaurant meals; lodging and travel; entertainment and gaming; automotive; other.
+- market_position (Market position): Where it sits on price. Example: mass-market: mainstream national brands. Exactly one of: value / discount; mass-market; premium; luxury.
+- distribution_model (Distribution model): How it reaches consumers. Example: wholesale: sells through grocery and mass retailers. Any that apply of: direct to consumer; wholesale to retailers; franchise; company-operated locations; licensing.
+- purchase_frequency (Purchase frequency): How often consumers buy. Example: daily: staple groceries. Exactly one of: daily / staple; periodic; discretionary / occasional.
+
+Evidence:
+<source id="P1">
+[P1.1] We are Changing Lives with Good Energy! | BellRing Brands
+[P1.2] Changing Lives with Good Energy!
+[P1.3] Premier Protein brings joy to the health journey with ready-to-drink protein shakes and powders that combine high-quality protein with amazing taste. The brand is sold in multiple countries and leads the category in flavor innovation.
+[P1.4] Dymatize is on a mission to become the global leader in performance nutrition by using science to unlock human potential. The brand offers category-leading formulas with a core focus in protein, strength and muscle recovery.
+[P1.5] A revered icon of sports nutrition, PowerBar helps athletes at all levels perform at their best. Today, the PowerBar brand is sold in over 35 international markets with a primary concentration in Europe, where it continues to be a go-to source of nutrition among elite athletes and fitness enthusiasts.
+[P1.6] Premier Protein Introduces Sparkling Protein Soda, Where Refreshing Fizz Meets 15 g of Protein
+[P1.7] New Premier Protein Ultimate Protein Shakes Pack 42 g of Protein in Every Bottle
+[P1.8] BellRing Brands Appoints Michael Axelrod as Chief Executive Officer
+</source>
+
+<source id="P2">
+[P2.1] About | BellRing Brands
+[P2.2] BellRing is a Dynamic and Fast Growing Global Business
+[P2.3] Our mission is to change lives with good energy.
+[P2.4] We believe in celebrating wins, both big and small. Hanging in the center of our office is a large bell anyone can ring to announce achievements ranging from distribution gains to personal milestones. When the bell is rung, we all gather to celebrate. We believe celebrating small wins will lead to bigger ones, and individual contributions contribute to collective success.
+</source>
+
+<source id="P3">
+[P3.1] Our Brands | BellRing Brands
+[P3.2] The #1 Ready-to-Drink Protein and Convenient Nutrition Brand 1, Premier Protein is focused on delivering amazing tasting nutrition that people can’t wait to have. Premier Protein’s products are available globally in Food, Drug, Mass, Convenience, Club, Specialty, E-Commerce and Foodservice channels.
+[P3.3] 1 Circana, Total U.S. Multi Outlet + Convenience 52 and 13 weeks ending.
+[P3.4] The brand behind the #1 Hydrolyzed Protein Powder 2, Dymatize is a global leader in premium performance nutrition products. Dymatize’s high-quality protein products are formulated specifically to help athletes achieve their goals.
+[P3.5] 2 Circana, Total U.S. Multi Outlet + Convenience. $ Sales Rank, 52 and 13 weeks ending.
+</source>

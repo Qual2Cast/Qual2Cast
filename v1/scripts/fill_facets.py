@@ -10,6 +10,10 @@ Two backends, one call per company, same prompt and answer schema:
 - codex: Codex CLI (`codex exec`) under the student's own ChatGPT sign-in,
   in a read-only sandbox in an empty temp folder, so it doesn't load this
   repo's AGENTS.md. The schema goes in --output-schema.
+- claude-cli: Claude Code CLI (`claude -p`) under the student's own Claude
+  subscription (no API key), default model Claude Sonnet 5.5; see
+  cli_models.call_cli. Added 2026-11-04 for the Sonnet refill
+  (outputs-local/v1/facets_sonnet/).
 --model picks the model within a backend; it is recorded in each call's
 run.json and in the profile, and a profile made with another model is
 redone. It never gets SIC codes, tickers or financial fields.
@@ -72,7 +76,7 @@ from universe import build_universe  # noqa: E402
 SCRAPE_PAGE_TEXT = OUTPUTS_LOCAL / "website_scrape" / "page_text"
 DEFAULT_OUT = OUTPUTS_LOCAL / "v1" / "facets"
 CODEX_TIMEOUT_SECONDS = 600
-DEFAULT_MODEL = {"claude": "claude-haiku-5-5", "codex": ""}   # codex "": Codex's own default
+DEFAULT_MODEL = {"claude": "claude-haiku-5-5", "codex": "", "claude-cli": "claude-sonnet-5-5"}   # codex "": Codex's own default
 CLAUDE_MAX_TOKENS = 16000    # answers are ~1k tokens plus thinking; well under this
 
 
@@ -247,6 +251,10 @@ def fill_one(record: dict, out_dir: Path, args, workdir: str, with_pages: bool =
     if args.backend == "claude":
         result = call_claude(prompt, run_dir, fc.answer_schema(bool(lines)), args.model, args.effort,
                              instructions_len=len(fc.instructions(bool(lines))))
+    elif args.backend == "claude-cli":
+        from cli_models import call_cli
+        result = call_cli(prompt, run_dir, fc.answer_schema(bool(lines)), "claude-cli", model=args.model,
+                          effort=args.effort, instructions_len=len(fc.instructions(bool(lines))))
     else:
         schema_path = paths.answer_schema_pages if lines else paths.answer_schema
         result = call_codex(prompt, run_dir, schema_path, workdir, args.model, args.effort)
@@ -281,6 +289,9 @@ def check_split(record: dict, profile: dict, out_dir: Path, args, workdir: str) 
     schema = fc.split_check_schema([b["business_id"] for b in profile["businesses"]])
     if args.backend == "claude":
         result = call_claude(prompt, run_dir, schema, args.model, args.effort)
+    elif args.backend == "claude-cli":
+        from cli_models import call_cli
+        result = call_cli(prompt, run_dir, schema, "claude-cli", model=args.model, effort=args.effort)
     else:
         (run_dir / "schema.json").write_text(json.dumps(schema, indent=1), encoding="utf-8")
         result = call_codex(prompt, run_dir, run_dir / "schema.json", workdir, args.model, args.effort)
@@ -533,10 +544,10 @@ def main() -> None:
     p.add_argument("--tickers", nargs="*", help="only these tickers")
     p.add_argument("--limit", type=int, help="stop after N companies")
     p.add_argument("--refresh", action="store_true", help="redo current profiles too")
-    p.add_argument("--backend", choices=["claude", "codex"], default="claude",
-                   help="claude: Anthropic API (default); codex: Codex CLI")
+    p.add_argument("--backend", choices=["claude", "codex", "claude-cli"], default="claude",
+                   help="claude: Anthropic API (default); codex: Codex CLI; claude-cli: Claude Code CLI")
     p.add_argument("--model", help="model (default: claude-haiku-5-5 for claude, "
-                                   "Codex's configured model for codex)")
+                                   "Codex's configured model for codex, claude-sonnet-5-5 for claude-cli)")
     p.add_argument("--effort", choices=["low", "medium", "high"],
                    help="reasoning effort (default: the model's own; medium on Haiku 5.5)")
     p.add_argument("--workers", type=int, default=2, help="companies in parallel")
@@ -593,6 +604,9 @@ def main() -> None:
 
     if args.backend == "claude":
         claude_api_key()   # fail early with setup instructions
+    elif args.backend == "claude-cli":
+        from cli_models import executable
+        executable("claude-cli")
     else:
         find_codex()
     workdir = tempfile.mkdtemp(prefix="codex_facets_")

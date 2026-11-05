@@ -1,0 +1,191 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Boku, Inc. (www.boku.com)
+Industry (SIC 73): Business Services
+About this industry group: This is not a SaaS-only template. Choose the relevant 731 advertising, 734 building-services, 735 rental, 736 staffing, 737 computer-services/software or 738 specialist-services branch. SIC4 examples are routing aids, not new official business-model categories. NRR, ARR and software implementation fields are conditional software rows. Official scope and detailed groups.
+
+Facets:
+- business_service_specialization (Business-service specialization). Examples: Packaged HCM software; Temporary staffing; Building cleaning.
+- service_operating_model (Service operating model). Examples: Subscription software; Labor-based outsourcing; Project-based agency.
+- charging_unit (Charging unit). Examples: Per employee/month; Per billable labor hour; Per processed transaction.
+- customer_contract_term (Customer contract term). Examples: Month-to-month service; Annual subscription; Three-year managed-service agreement.
+- contracted_repeat_revenue (Contracted / repeat revenue). Examples: 80% subscription revenue; Recurring cleaning contracts; Repeat usage-based processing fees.
+- implementation_transition_work (Implementation / transition work). Examples: Payroll data migration; Outsourcing transition; Customer-site service mobilization.
+- client_count_retention (Client-count retention). Examples: Annual paying-client retention: 92%; Annual retained service accounts: 90%.
+- software_deployment_737_software_services (Software deployment [737 software/services]). Examples: Multi-tenant SaaS; Customer-hosted software; Hybrid deployment.
+- software_functional_scope_737 (Software functional scope [737]). Examples: Payroll and HCM; Cybersecurity; ERP / accounting.
+- net_revenue_retention_subscription_software (Net revenue retention [subscription software]). Examples: Annual NRR: 115%; Annual constant-currency NRR: 108%, separately defined.
+- arr_recurring_base_definition_subscription_software (ARR / recurring-base definition [subscription software]). Examples: Subscription ARR at year-end; Annualized contracted recurring fees, issuer-defined.
+- processing_transaction_platform_7374 (Processing / transaction platform [7374]). Examples: Payroll processing; Card-transaction processing; Data preparation services.
+- staffing_placement_model_736 (Staffing / placement model [736]). Examples: Temporary staffing; Permanent placement; Recruitment process outsourcing.
+- temporary_staffing_activity_temporary_staffing (Temporary staffing activity [temporary staffing]). Examples: 10,000 workers on assignment; Two million billed temporary-worker hours/year.
+- permanent_placement_volume_employment_agencies (Permanent placement volume [employment agencies]). Examples: 3,000 placements/year; 1,500 placements/year.
+- temporary_labor_billing_economics_temporary_staffing (Temporary labor billing economics [temporary staffing]). Examples: Bill rate $40/hour versus pay rate $28/hour; Stated markup on direct labor cost.
+- advertising_agency_economics_731 (Advertising / agency economics [731]). Examples: Media-placement commission; Creative-service retainer; Performance-marketing fee.
+- building_security_service_model_734_7381_7382 (Building / security service model [734, 7381–7382]). Examples: Contract janitorial routes; On-site guarding; Monitored security installations.
+- rental_fleet_utilization_735 (Rental fleet / utilization [735]). Examples: Construction-equipment rental; Medical-equipment rental; Time utilization: 70% of eligible rental days.
+
+Evidence:
+<source id="P1">
+[P1.1] Local Payment Methods Platform for Global Growth | Boku
+[P1.2] Reach the customers cards miss. Accept 200+ local payment methods in 40+ markets and live payment methods in multiple countries with one integration and increase conversion globally.
+[P1.3] 🎉 New: Choosing the right local payment methods Read the blog
+[P1.4] Acquire more customers. Grow globally.
+[P1.5] One integration to unlock growth at every stage. Convert more customers with 200+ local payment methods in 40+ markets and live payment methods in multiple countries, and acquire new ones through bundling partnerships across telco, wallet, and other partners.
+[P1.6] Talk to an expert Explore our network
+[P1.7] The payments platform for merchants who want to unlock growth, not leave it on the table.
+[P1.8] Consumer accounts reachable across our global network
+[P1.9] 200+ payment methods. Wallets, A2A, and Direct Carrier Billing. One API, one contract, one settlement
+[P1.10] 40+ markets and live payment methods in multiple countries
+[P1.11] Trusted by the world’s leading digital brands.
+[P1.12] LOCAL PAYMENTS OPEN GLOBAL MARKETS
+[P1.13] Reach billions of subscribers with a single integration
+[P1.14] Reaching new markets means connecting to hundreds of local payment methods. Doing that manually, market by market, slows everything down.
+[P1.15] Without local payment methods at checkout, consumers leave and don’t return.
+[P1.16] Expand into new markets without rebuilding each connection. One integration gives you access to hundreds of LPMs so you can drive subscriber growth by reaching multiple customers in card-light markets. A platform built specifically for LPMs, and to meet the needs of the largest digital companies.
+[P1.17] Every market has its own licensing obligations and regulatory requirements. Ensuring compliance can be expensive, slow, and distracts from growth.
+[P1.18] We hold payment licenses across multiple countries, allowing us to offer regulated, compliant payment processing. Our team of experts are on hand to advise on local entity requirements as required.
+[P1.19] When payments are fragmented across providers, FX costs stack up. Each applies its own rate, timing, and markup, making it hard to see what you received and why.
+[P1.20] We settle in your preferred currency: USD, EUR, or GBP. One consolidated flow with predictable settlement and transparent FX, so your finance team knows exactly what landed and why.
+[P1.21] Turn local payments and bundling into growth.
+[P1.22] From first payment to recurring subscriber and cross-border settlement, all managed through one commercial relationship, without separate licenses, compliance overhead, or layered third-party dependencies.
+[P1.23] 200+ local payment methods through one integration, built for conversion, recurring payments, and expansion.
+[P1.24] Reach new subscribers through bundling. Connect to the most extensive partner network from telcos and banks to retailers, wallets, and more.
+[P1.25] Move money globally. Settle with speed, control, and confidence
+[P1.26] Move money across borders quickly and reliably. Collect, convert, and payout across established and frontier markets with predictable settlement, transparent FX pricing, and a single, accurate view of your global cash.
+[P1.27] Accept payments across 200+ LPMs through Boku’s unified global banking & settlement network with local experts on the ground to manage local regulations, banking relationships and cutting operational complexity.
+[P1.28] Get paid faster and improve cashflow predictability with Boku’s Advanced Payment Service. Reduce reconciliation effort with unified payouts and consistent reporting across all local payment methods.
+[P1.29] Proven results with big global brands
+[P1.30] How leading digital businesses use Boku to reach more customers, retain more subscribers, and settle funds reliably across markets.
+[P1.31] A leading streaming provider launched across 10 African markets simultaneously via two distribution partners, attracting 1 million new subscribers in 30 days.
+[P1.32] 1 million subscribers in 30 days
+[P1.33] Fast launch of new A2A scheme
+[P1.34] A global digital advertising brand scaled in Thailand after Boku launched PromptPay QR and KBank app, delivering 40% revenue growth
+[P1.35] Revenue uplift in 6 months
+[P1.36] A global digital media company scaled into 11 markets using Boku’s wave-based rollout and LPM selection, increasing TPV and unique users with less effort
+[P1.37] Guaranteed settlement, faster cash access
+[P1.38] A global digital entertainment and streaming platform accesses subscription collections across multiple countries more than 30 days faster. Payments span 200+ LPMs with transparent FX pricing, locked-in rates, and local experts managing compliance
+[P1.39] Faster access to subscription revenue
+[P1.40] One API. Enterprise-grade local payments infrastructure.
+[P1.41] One REST API removes the complexity of connecting to 200+ local payment methods, while built-in compliance, multi-region resilience, and high-availability infrastructure support enterprise scale globally.
+[P1.42] One API. 200+ payment methods
+[P1.43] Connect to 200+ local payment methods through one REST API. Standardized payment method flows make it easy to add new markets and methods without rebuilding your core integration.
+[P1.44] Compliance and security, built in
+[P1.45] We handle encryption, authentication, and tokenization at the platform level to help reduce your compliance burden. Our teams support local regulatory requirements across global markets, with ISO 27001:2022 certification and controls aligned to recognised security standards.
+[P1.46] Built for high availability and scale
+[P1.47] Our platform runs across resilient multi-region, active-active AWS infrastructure with full redundancy and 24/7 NOC and SOC monitoring. Designed for enterprise transaction volumes with >99% uptime SLAs as you scale across markets.
+[P1.48] Where local payments meet global growth
+[P1.49] The way the world pays is changing, market by market. Stay ahead of what matters for your checkout, subscribers, and expansion.
+[P1.50] Audience quality vs reach. Why bigger distribution isn’t always better
+[P1.51] Partner audience fit is how closely a partner’s customers match the people most likely to value, buy and keep using your subscription. A large audience is less useful if few of them fit your service, because the headline number doesn’t show how many sign up, start using it and stay. Judge fit before launch, then […]
+[P1.52] Where users find a service shapes whether they buy it
+[P1.53] Subscription discovery is the moment when someone first comes across your service. The setting that person is in matters because what they’re doing at that moment shapes whether your subscription feels useful and timely or intrusive. That makes moments connected to a task, and periods of change, worth testing as places for an offer. Every […]
+[P1.54] Involuntary churn: how to keep the subscribers who never meant to leave
+[P1.55] Involuntary churn is the loss of subscribers whose payment fails, even though they wanted to keep paying. After a price rise, every subscriber who stays is worth more to you and is harder to replace, so each of these losses costs more. You reduce involuntary churn by recovering failed payments, and by selling through partners […]
+[P1.56] Beyond telcos. Why distribution partner choice should match your audience
+[P1.57] A distribution partner network is the set of companies that offer your subscription to their own customers. Telcos are one of the biggest routes, but banks, digital wallets and retailers can do it too. Choosing the right mix comes down to two questions: who does each partner reach, and how do its customers buy? A […]
+[P1.58] Subscription growth strategies and where to focus first
+[P1.59] Subscription businesses grow in three ways: winning more subscribers, keeping them longer and earning more from each one. The best subscription growth strategies focus on whichever is under performing, whether that means reaching new audiences, making subscriber acquisition more efficient, cutting avoidable cancellations or giving people more ways to buy. Subscription businesses grow in three […]
+[P1.60] Partner ecosystems for subscription businesses, what they are and how to build one
+[P1.61] A subscription partner ecosystem is a group of partners that can help you reach, sign up and keep subscribers (like mobile networks, banks, retailers and digital platforms), that are run as a connected system. If every partner shares the same setup, reporting and operational processes, each new one is quicker to add. What is a […]
+[P1.62] The rise of embedded distribution
+[P1.63] Embedded distribution is when your subscription is offered inside another company’s product, at a point in a journey its customers are already taking, such as choosing a phone plan, using a banking app or checking out at a retailer. They accept the offer through the account they already have with the partner, and the partner […]
+[P1.64] How subscription businesses find their next million subscribers
+[P1.65] If your subscriber growth has slowed, your next million customers probably sit outside the audience you reach today. Look at markets where few people pay by card, and at customers of brands they already trust. Partners such as telcos, banks and retailers can put you in front of them. Why subscriber growth slows after […]
+[P1.66] Building a lower cost growth engine
+[P1.67] How to reduce your subscriber acquisition cost with a lower cost growth engine To reduce your subscriber acquisition cost without slowing the growth of your subscription business, move more of your acquisition into channels you can reuse, such as a bundling connection that supports multiple partners. Keeping more of the customers you’ve already won also […]
+[P1.68] The world pays locally. Meet them there.
+[P1.69] Your next market is ready. The local payment rails are already built. The only question is how fast you want to move.
+</source>
+
+<source id="P2">
+[P2.1] Why subscription bundling is becoming a growth channel - Boku
+[P2.2] Scaling subscription bundling partnerships stalls when every new partner needs its own build. Here is what the scaling challenge looks like.
+[P2.3] Why subscription bundling is becoming a growth channel
+[P2.4] Subscription bundling is a distribution model where digital service providers partner with wallets, telcos, banks, retailers, and digital platforms to acquire and retain subscribers outside of app stores. The subscription businesses scaling fastest are running it as a dedicated growth channel, with repeatable operations, centralized reporting, and direct partner relationships they own and build over time.
+[P2.5] Subscription providers can sell direct to consumers or reach them through a partner. Direct selling and app stores both have limits, which is why more providers are moving to partner-led distribution.
+[P2.6] The service is discovered, purchased, and managed through a major app store or platform.
+[P2.7] Access to a large existing audience and familiar purchase flow.
+[P2.8] Less control over customer relationship, commercial terms, payment flow, and partner strategy.
+[P2.9] The subscription provider builds and runs its own integration with each partner it signs.
+[P2.10] Full ownership of partner selection and commercial terms.
+[P2.11] Engineering and operations effort that grows with every partner added.
+[P2.12] A third party packages and distributes the subscription through its own partner or marketplace environment.
+[P2.13] Faster access to partner channels with less direct integration effort.
+[P2.14] Less direct influence over launch timing, offer configuration, reporting, and long-term relationship development.
+[P2.15] The subscription provider works directly with partners (mobile operators, broadband providers, banks, retailers, wallets, or utilities) to bundle the service into existing customer relationships. The provider keeps the partner relationships and the commercial terms in its own name. This is the model Boku’s platform is built for.
+[P2.16] More control over partner selection, offer structure, customer experience, and future optimization.
+[P2.17] Requires more operational coordination across integration, billing, reporting, and lifecycle management.
+[P2.18] The right model depends on the provider’s stage, resources, and growth priorities. But the important evolution is that subscription bundling has gone from being just another distribution option to becoming a repeatable growth channel.
+[P2.19] What changed is how seriously subscription businesses are taking bundling
+[P2.20] Subscription bundling has been part of the digital services ecosystem for years. Telcos have packaged third-party content into their plans since the early days of mobile data. Banks, retailers, and wallets have followed a similar pattern, and streaming platforms have run promotional trials through these partners for almost as long.
+[P2.21] For most of that time, bundling was treated as opportunistic. It was a useful add-on when a partner deal came together, managed by a business development team with a long list of other priorities. A partnership launched, the outcomes were tracked loosely, and the model worked well enough for a single deal. But nobody was building infrastructure around it.
+[P2.22] This approach is being replaced. Subscription businesses are increasingly running bundling as a structured growth function, with its own commercial strategy, operational processes and performance metrics. It’s a pattern that now runs across streaming, gaming, and digital services, education and e-learning, health and wellness, e-commerce and subscription boxes, as well as online communities, delivery services, and hardware and devices.
+[P2.23] This transition reflects a commercial reality. Subscription fatigue is increasing churn at the same time, and expanding into new markets without local partners is costly and risky. Bundling puts the service in front of a partner’s existing customers, in the apps and websites they already use, backed by partners who understand local preferences and behavior. It gives providers a lower-risk way to test new markets and improve retention.
+[P2.24] What subscription bundling means in practice:
+[P2.25] A digital service provider (for example, a streaming platform, gaming subscription, or e-learning service) partners with a distribution partner such as a telco, bank, retailer, or digital platform to offer their service to that partner’s customer base.
+[P2.26] The partner always handles end-customer billing, and usually manages customer-facing promotion too, either together with the subscription provider or on their own, depending on what’s agreed before launch. Subscription providers can also reach customers directly through their own sales, often as a first step to generating revenue. Bundling extends that reach: it gives the subscription provider access to a trusted customer relationship they couldn’t otherwise build through direct sales alone.
+[P2.27] In the strongest models, the subscription provider retains control over partner selection, offer structure, and how the relationship develops over time.
+[P2.28] Partner bundling and app store distribution work differently
+[P2.29] App stores offer distribution at scale. They also come with a fixed cost structure (typically 15 to 30% of revenue) and a standardized environment where every service competes on the same terms, subject to the same platform policies.
+[P2.30] Partner bundling works differently. Each commercial arrangement is negotiated directly between the subscription provider and the distribution partner. That means the provider can structure an offer suited to a specific audience in a specific market, with pricing, trial mechanics, and positioning that reflect the actual dynamics of that partnership.
+[P2.31] When the subscription provider owns the partner relationship, it has more room to shape it over time. Both sides develop a clearer picture of what drives activation, retention, and lifetime value for their shared subscribers, and the commercial terms can be revisited as that understanding grows. That kind of ongoing development isn’t possible within an app store model.
+[P2.32] active subscribers supported through partner bundling
+[P2.33] Running one partnership with one partner (a telco, bank, retailer, or digital platform) is a useful starting point. The shift happens once that single integration works and you’re ready to add more partners: a repeatable bundling growth channel needs very different commercial and operational commitments to a single bundle.
+[P2.34] One partner, often in one market or through one commercial relationship.
+[P2.35] A portfolio of partnerships across telcos, banks, digital platforms, retailers, and other distribution partners.
+[P2.36] A bespoke integration built around the requirements of one partner.
+[P2.37] A repeatable integration model that allows new partners to be launched without rebuilding from scratch each time.
+[P2.38] Managed by a small team with partner-specific processes.
+[P2.39] Supported by consistent operational standards across activation, billing, lifecycle management, support, and reconciliation.
+[P2.40] Commercial terms, offer structure, and reporting are managed around the individual deal.
+[P2.41] Shared commercial frameworks and reporting standards make performance easier to compare across partners and markets.
+[P2.42] Complexity is contained because the partnership count is low.
+[P2.43] Each additional partner introduces new technical environments, billing logic, lifecycle requirements, and market variables.
+[P2.44] Useful for testing demand and proving the channel.
+[P2.45] Designed to keep expanding once the model has been proven.
+[P2.46] The digital service providers that turn bundling into a reliable growth channel are doing more than just adding partners. They are solving a repeatability problem.
+[P2.47] What a mature bundling program requires:
+[P2.48] A repeatable integration model: so each new partner doesn’t require a full custom build from scratch
+[P2.49] One consistent integration: however each partner runs their own subscription lifecycle, Boku absorbs the difference. The subscription provider builds once and reuses the same integration for every partner it adds.
+[P2.50] Centralized performance data: to understand what’s working before committing further investment
+[P2.51] Operational resilience: so partner incidents and lifecycle exceptions don’t cascade into subscriber experience failures
+[P2.52] The commercial case for investing in bundling infrastructure now
+[P2.53] The subscription businesses that are building bundling capability are typically doing so for one of a few reasons:
+[P2.54] App store dependency has become a commercial risk.
+[P2.55] Previous attempts at partner distribution stalled because each new partnership required a custom integration, a new commercial agreement, and a separate operational process.
+[P2.56] The cumulative overhead made scaling impractical. The subscription teams that have moved past those limitations stopped treating each partnership as a standalone, custom-build project and started running many partnerships through one repeatable model.
+[P2.57] Boku’s platform data reflects the difference this makes. Across our customers, average promotion-to-paid conversion across bundled partnerships runs at approximately 90%, while average retention sits at around 60%.
+[P2.58] These outcomes help explain why subscription providers are treating bundling as more than an acquisition experiment.
+[P2.59] The rest of this series covers how to build that model. From the integration and operational foundations required to scale beyond a handful of partners to the commercial case for owning partner relationships directly, not distributing through a reseller. It goes on to cover the reporting that shows which partners are worth more investment.
+[P2.60] This is the commercial context behind Boku’s bundling education series. It’s about helping subscription providers move from isolated partner launches to repeatable partner-led growth.
+[P2.61] If you want to start with a more foundational overview of how subscription bundling works, our introductory post covers the basics. [Link: boku.com/blog/what-is-bundling]
+[P2.62] Your next growth channel is already built. You just need access.
+[P2.63] Tell us where you want to grow. We'll show you which partners get you there fastest.
+[P2.64] Insight for the digital economy
+[P2.65] Stay ahead of the curve with deep dives into global payment trends, regulatory changes, and local market reports
+</source>
+
+<source id="P3">
+[P3.1] Success stories - Boku
+[P3.2] How a US streaming service processed 530K activations during a major live broadcast
+[P3.3] A leading American over-the-top (OTT) video streaming service offering on-demand and live entertainment to tens of millions of US subscribers.
+[P3.4] viewers for the live-streamed event
+[P3.5] How a global streaming leader launched 35 bundling partnerships across three continents through a single integration
+[P3.6] One of the world’s largest streaming and content businesses, with a portfolio spanning streaming, broadcast, and content brands across North America and Europe.
+[P3.7] net-new bundling partnerships (2022 to 2025)
+[P3.8] customers who signed up through bundled offers
+[P3.9] Tell us where you want to grow. We’ll show you which partners get you there fastest.
+</source>

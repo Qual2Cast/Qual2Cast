@@ -1,0 +1,39 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Smith Douglas Homes Corp. (www.smithdouglas.com)
+Sector: Construction and real estate
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- construction_role (Role): Its role in building or property. Example: specialty contractor: mechanical and electrical work. Any that apply of: homebuilder; general contractor; specialty contractor; engineering and design; land developer; property owner / REIT; property services.
+- project_type (Project type): What kind of projects. Example: infrastructure: roads and bridges. Any that apply of: residential; commercial / institutional; industrial; infrastructure; energy and utilities.
+- public_funding (Public funding): How much of its work is publicly funded. Example: high: mostly state transportation departments. Exactly one of: high; medium; low.
+
+Evidence:
+<source id="P1">
+[P1.1] Home Builder AL, GA, NC, SC, TN, & TX | Smith Douglas Homes
+[P1.2] Smith Douglas Homes offers new quality homes at affordable prices in Atlanta, Greenville, Raleigh, Charlotte, Birmingham, Nashville, Houston & Huntsville.
+[P1.3] Explore Our Most Popular Plans
+[P1.4] Smith Douglas Homes Home Builder in AL, GA, NC, SC, TN & TX
+[P1.5] Smith Douglas Homes was by a core team of new home building professionals, including recognized experts with nearly 50 years of experience. Our team is known for constructing quality homes at affordable prices in the places where you want to live. We strive to provide a superior value to our competitors in a home that feels like it is worth far more. In short, we give you a quality, well-built home for less.
+[P1.6] Design Your New Home With Our Interactive Home Shopping Tools
+[P1.7] Try Our Interactive Home Designer
+[P1.8] Smith Douglas Homes is widely recognized for constructing quality homes with choices you can afford. Our proven, schedule-driven process reduces wasted time and materials. It results in a well-constructed home, with the features that make it your own, for less than you might expect. Find your new home across Alabama, Georgia, North Carolina, Tennessee or Texas.
+[P1.9] The details make a house a home. That's why Smith Douglas Homes offers more choices to make your home feel uniquely your own. Explore our interactive home design tools to visualize everything from homesite maps to exterior colors, floorplan options and interior selection colors. Start personalizing your new home today.
+[P1.10] A new home with Smith Douglas may be more affordable than you thought.
+[P1.11] Read what people are saying about their new home experience with Smith Douglas Homes
+[P1.12] From Renting to Rooted: The Benefits of Homeownership
+[P1.13] Spring Living Near the Swamp Rabbit Trail at Magnolia Trail
+</source>

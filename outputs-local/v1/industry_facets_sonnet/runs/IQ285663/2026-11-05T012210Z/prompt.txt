@@ -1,0 +1,96 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Brandywine Realty Trust (www.brandywinerealty.com)
+Industry (SIC 67): Holding & Other Investment Offices
+About this industry group: Distinguish operating holding companies, investment vehicles, equity REITs and mortgage REITs. Use look-through operating-segment modules for controlled businesses; do not treat fund AUM, NAV and consolidated operating revenue as equivalent scale. Property extensions can be shared with SIC 65 without changing the source’s official code. REIT scope.
+
+Facets:
+- holding_investment_office_structure (Holding / investment-office structure). Examples: Operating holding company; Closed-end investment vehicle; Equity REIT.
+- investment_operating_asset_mix (Investment / operating asset mix). Examples: Controlled industrial subsidiaries; Listed securities portfolio; Income-producing property.
+- control_look_through_ownership (Control / look-through ownership). Examples: Majority-owned subsidiaries; Minority equity stakes; Noncontrolling fund investments.
+- portfolio_concentration (Portfolio concentration). Examples: Three holdings: 70% of NAV; Single-sector investment portfolio.
+- management_incentive_fees_externally_managed_vehicles (Management / incentive fees [externally managed vehicles]). Examples: No external manager fee; 1% of NAV annual management fee; Performance fee above stated hurdle.
+- nav_basis_investment_vehicles (NAV basis [investment vehicles]). Examples: Reported NAV/share at quarter-end; Reported portfolio NAV at year-end.
+- parent_funding_subsidiary_recourse (Parent funding / subsidiary recourse). Examples: Parent-only net debt; Ring-fenced subsidiary borrowings; Parent-guaranteed subsidiary debt.
+- market_discount_listed_investment_vehicles (Market discount [listed investment vehicles]). Examples: Share price 15% below disclosed NAV/share; Share price 5% above disclosed NAV/share.
+- reit_business_model_6798 (REIT business model [6798]). Examples: Equity REIT owning properties; Mortgage REIT holding loan assets.
+- property_portfolio_equity_reits (Property portfolio [equity REITs]). Examples: Multifamily apartments; Industrial warehouses; Data-center properties.
+- property_occupancy_equity_reits (Property occupancy [equity REITs]). Examples: 95% physically occupied units; 92% leased floor area.
+- same_property_noi_growth_equity_reits (Same-property NOI growth [equity REITs]). Examples: Annual same-property NOI: +3%; Quarterly same-property NOI: −1%.
+- lease_expiry_equity_reits (Lease expiry [equity REITs]). Examples: 20% of annual base rent expires within two years; Rent-weighted unexpired lease term: 6.5 years.
+- mortgage_asset_mix_mortgage_reits (Mortgage asset mix [mortgage REITs]). Examples: Agency residential MBS; Commercial mortgage loans; Nonagency mortgage securities.
+- financing_hedge_model_mortgage_reits (Financing / hedge model [mortgage REITs]). Examples: Repo-funded MBS portfolio; Match-funded commercial mortgages; Interest-rate swap hedges.
+
+Evidence:
+<source id="P1">
+[P1.1] Full-Service Real Estate Company | Brandywine Realty Trust
+[P1.2] Brandywine Realty Trust is one of the largest, full-service, integrated real estate companies in the United States, with a core focus in the Philadelphia, PA, Washington, DC, and Austin, TX markets. Organized as a real estate investment trust, we own, develop, lease and manage an urban, town center
+[P1.3] designed for productivity, creativity, and business success
+[P1.4] We create physical spaces that catalyze connection, collaboration, and innovation.
+[P1.5] As a full-service real estate investment, development, and management company, with a 30+ year track record of responsible business practices and successful outcomes, we create dynamic, people-centric workplace and lifestyle environments.
+[P1.6] We believe the value in what we do, lies in the difference we can make.
+[P1.7] We embrace change and challenge the status quo to create new realities that stimulate long-term economic growth, deliver durable value to stakeholders, and positively impact the communities in which we live, work and spend our time.
+[P1.8] Our spaces are designed to enable the success and satisfaction of the people within them.
+[P1.9] Featuring a mix of inspired indoor and outdoor environments that prioritize health and productivity in both business and in life, we lease a diverse portfolio of mixed-use, office, lab, multifamily, retail, green space, and more, totaling more than 19 million square feet spanning from Greater Philadelphia to Austin, Texas.
+[P1.10] As developers, we are guided by a deep-seated commitment to responsible and sustainable environmental and social strategies.
+[P1.11] We understand that our development process must transcend the physical act of construction to create spaces and communities that reinforce human connection and create durable value.
+[P1.12] Pomelo Rooftop Terrace, Radnor's Newest Rooftop Bar and Restaurant, to Open on the Main Line on August 8
+[P1.13] The Brandywine, the Main Line’s Newest Boutique Hotel, to Open
+[P1.14] Merrick’s Tavern, the Main Line’s Newest Neighborhood Dining Destination, to Accept Reservations
+</source>
+
+<source id="P2">
+[P2.1] About Us | Brandywine Realty Trust
+[P2.2] Brandywine Realty Trust develops, builds and manages America's most remarkable 'Best of Class' Class-A office and mixed-use properties.
+[P2.3] We take a people-centric approach to business, with service at the forefront.
+[P2.4] Organized as a real estate investment trust (REIT), we own, develop, lease and manage an urban, town center and transit-oriented portfolio.
+[P2.5] We are forward-thinking, always anticipating what demands might exist down the line, and how we can best support our clients and set new industry standards in customer experience, product features and social responsibility. Whether by introducing innovative tenant services like BEX co-working spaces, or our industry-leading approach to Corporate Social Responsibility, we strive to be true partners to our tenants, clients and stakeholders.
+[P2.6] For more than 30 years, our commitment to innovation, integrity, quality, and community has translated into not only business success, but also, healthier and more vibrant communities.
+[P2.7] President & CEO, Jerry Sweeney founded Brandywine. Through strategic investments, powerful partnerships, stakeholder engagement and a bold approach, we have forged our way into new markets, built second skylines, and created more resilient neighborhoods.
+[P2.8] We challenge every member of our team to lead with strength, humility, and integrity.
+[P2.9] What starts at the top translates across every aspect of our business, empowering employees to lean into a culture defined by adherence to the highest standards of excellence across our business practices, governance principles, and social initiatives.
+[P2.10] Our workplace environments take shape within vertical and master-planned mixed-use developments, inspired office buildings, state-of-the-art research and lab spaces, and innovative co-working spaces. From move-in ready to build-to-suit space, our goal is to shape the setting for collaboration, connection, and productivity that enables business success. These spaces are brought to life by market-leading amenities, vibrant outdoor and greenspaces, and lively community programming.
+[P2.11] Our integrated approach creates synergies across all lines of our business.
+[P2.12] Our robust internal infrastructure includes Asset Management, Development, Construction, Investments, Leasing, Marketing, Property Management, and Construction Accounting services, ensuring a seamless experience with streamlined processes, clear channels of communication, and a cohesive vision.
+[P2.13] We’re building for the future. We develop for a broad range of uses—office, mixed-use, residential, retail, and public space—with each project prioritizing innovative architecture, placemaking, greenspace, community, connectivity, and sustainability.
+[P2.14] We’re building for the future. We develop for a broad range of uses including office, mixed-use, residential, retail, and public space. Each project prioritizes innovative architecture, placemaking, green space, community, connectivity, and sustainability.
+[P2.15] We manage risk, build resilience, and generate sustainable returns and have spent decades building a strategic portfolio, defined by thoughtful investments in people, places, and spaces.
+[P2.16] We understand your business needs. Many of our tenants have remained in the "Brandywine Family" for decades because they know our Leasing Teams are committed to enabling their success. We have years of experience accommodating growth, customizing spaces, and swiftly meeting unique, evolving needs.
+[P2.17] We know that strong partnerships optimize outcomes.
+[P2.18] Our foundation, platform, and proven experience allows us the opportunity to partner with the world-class brands, architects, institutions and tenants who share our same standard of excellence. Together, we take a partnership approach to collaborate, innovate and push forward in creating the greatest shared outcomes of success.
+[P2.19] "One of the most important decisions I made was to ask Brandywine to be Drexel’s partner in what is now Schuylkill Yards. Without their vision, tenacity and desire to get it done right, we wouldn’t be here at the grand opening for Drexel Square today."
+[P2.20] John Fry, President, Drexel University
+[P2.21] "Leadership requires the courage to be among the first to take bold steps, and Brandywine’s project team left no doubt that the potential to improve people’s health and well-being made the journey worthwhile."
+[P2.22] Rick Fedrizzi, Chairman & CEO, International WELL Building Institute
+[P2.23] "Brandywine Realty Trust saw an opportunity in University City long before it was fashionable, and has brought both an innovative eye and a disciplined approach to the real estate development process."
+[P2.24] Craig R. Carnaroli, Executive Vice President of the University of Pennsylvania
+[P2.25] "…But it’s the difference between a good developer and a great developer that makes a difference. A great developer goes above and beyond to truly engage residents and ensure that their project and vision includes the needs of the community. Through its Neighborhood Engagement Initiative, Brandywine will do just that by creating job opportunities, engaging local community groups, and supporting small minority owned businesses."
+</source>
+
+<source id="P3">
+[P3.1] Product Offerings | Brandywine Realty Trust
+[P3.2] Our workplace environments take shape within vertical and master-planned mixed-use developments, inspired office buildings, state-of-the-art research and lab spaces and innovative co-working spaces. From move-in ready, to build-to-suit space, our goal is to shape the setting for collaboration, connection, and productiv
+[P3.3] Our workplace environments take shape within vertical and master-planned mixed-use developments, inspired office buildings, state-of-the-art research and lab spaces, and innovative co-working spaces.
+[P3.4] From move-in ready, to build-to-suit space, our goal is to shape the setting for collaboration, connection, and productivity that enables business success. These spaces are brought to life by market-leading amenities, vibrant outdoor and greenspaces, and lively community programming.
+[P3.5] Brandywine has built and managed millions of square feet of high quality office space designed to help companies attract and retain top talent, build culture, and drive successful business outcomes. We continually raise the bar in architectural quality, technology, engineering, sustainability, and functionality to create a range of offerings from highly-visible, build-to-suit headquarter spaces, to flexible, multi-tenant buildings. Our expansive collection of properties allows our tenants maximum flexibility for growth within the portfolio.
+[P3.6] Our Life Sciences portfolio offers flexible, cutting-edge research and lab environments within some of the nation’s leading life science markets, boasting a unique combination of world-class healthcare and academic institutions, top-tier talent, and investment capital. Recognizing the unique, evolving needs of Life Science businesses, our research + innovation spaces are strategically designed for flexibility and optionality with large floor plates, soaring floor-to-ceiling clear heights, state-of-the-art technology, upgraded building and waste treatment systems, emergency power generation, and extra floor loading capacity. Given our scale, we have both existing product to meet a company’s most urgent lab space needs, as well as customized, ground-up developments, backed by a proven track record of meeting the flexibility requirements of early-stage Life Science companies as they grow into large-scale users.
+[P3.7] Thoughtfully designed hospitality destinations are part of the experience-driven environments that Brandywine creates. Each hotel offers an elevated sense of arrival, blending refined design with intuitive service to deliver spaces connected to their surroundings. Curated food and beverage experiences—from signature restaurants to inviting lounges and rooftop terraces—serve as natural gathering places for guests and locals alike. Notable examples include The Brandywine in Radnor, PA and AKA University City in Schuylkill Yards in Philadelphia, PA.
+[P3.8] Bex—short for Brandywine Experience—offers flexibility, convenience, wellness, and style exclusively to Brandywine Realty Trust tenants, no matter where you work. Our Bex Co-working spaces, positioned in Philadelphia and Radnor, PA, are fully equipped with desk and conference space, lounge and kitchen areas, coffee service, upgraded technology, and free wifi. If you’re a tenant in the building or close by, pop in and relax. If you want to work near home, but not at home, stop by. If you’re traveling to a different region, reserve your touchdown desk by the hour or by the day.
+[P3.9] Multi-family development plays an essential role in bringing our mixed-use communities to life. Our master-planned developments Schuylkill Yards and Uptown ATX feature a combined planned 4.4 million square feet of multi-family residences including 326 units at Avira and 341 units at One Uptown. Other multi-family offerings developed by Brandywine include AKA University City in FMC Tower, Alexan Garza Ranch, and Parc Plymouth Meeting.
+[P3.10] Our Move-In Ready spaces feature fully furnished, Wi-Fi enabled suites that cater to company’s immediate needs, with flexible term options. For those looking for a convenient option to spin up a satellite office, or a state-of-the-art new space without the headache of managing construction —our Move-In Ready portfolio offers inspired, turnkey office space within amenity-rich buildings situated in some of the nation’s most desirable locations.
+[P3.11] For start-up, early-stage, fast-growing, and established Life Science industry leaders, B+labs is a Life Science incubator that provides high quality innovation, collaboration, and research space in an area teeming with top talent and renowned institutions. Located within Cira Centre, B+labs features state-of-the-art plug-and-play lab and innovation space.
+[P3.12] Since the company’s inception, Brandywine has operated parking facilities across the country, and currently manages 3,700 parking spaces in Philadelphia and Austin. BexPark is our full-service Parking Management division, staffed by competitively compensated, in-house personnel who have decades of experience managing and operating parking facilities with tremendous success. Our team has extensive experience in everything from day-to-day operational excellence, to designing and building complex parking facilities, to achieving incredible cost savings for our clients through advanced automation, without sacrificing any of the personal touches that make for memorable customer experiences.
+[P3.13] We provide collaborative, turn-key solutions for acceleration, helping our University partners redevelop land, monetize land holdings, foster commercialization nodes, and introduce mixed-use spaces into learning environments. Brandywine brings our broad expertise in large-scale, mixed-use development to the nuances of academic institutions—a product type that demands a diverse level of experience and skill. Together, we create ecosystems that serve as a magnet for top talent, cutting-edge research and discovery, and sustainable economic growth.
+</source>

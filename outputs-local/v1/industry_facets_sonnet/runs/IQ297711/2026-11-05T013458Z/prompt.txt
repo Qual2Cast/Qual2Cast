@@ -1,0 +1,101 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Powell Industries, Inc. (www.powellind.com)
+Industry (SIC 36): Electronic and Electrical Equipment, Except Computer Equipment
+
+Facets:
+- electrical_electronic_product_family (Electrical / electronic product family). Examples: Power-management chips; Switchgear; Household electrical appliances.
+- operating_model (Operating model). Examples: Fabless chip designer; Integrated semiconductor manufacturer; Electrical-equipment producer.
+- design_fabrication_assembly_split (Design / fabrication / assembly split). Examples: In-house IC design with outsourced wafer fabrication; Captive wafer fabrication; Outsourced assembly and test.
+- product_design_in_lifecycle (Product / design-in lifecycle). Examples: Annual consumer-electronics redesign; Five-year automotive design-in; Long-life industrial component.
+- oem_design_win_exposure (OEM / design-win exposure). Examples: Smartphone OEM design win; Industrial automation customers; Automotive platform nomination.
+- process_technology_capability_semiconductors (Process / technology capability [semiconductors]). Examples: 5 nm logic design; 300 mm mature-node fabrication; Advanced packaging.
+- manufacturing_supply_capacity_semiconductors (Manufacturing / supply capacity [semiconductors]). Examples: Contracted foundry wafer capacity; 40,000 wafer starts/month; Outsourced test capacity.
+
+Evidence:
+<source id="P1">
+[P1.1] Powell Industries | Homepage
+[P1.2] Powell Industries is an electrical engineering and manufacturing company based in Houston, TX, with operations across the U.S., Canada, and the U.K.
+[P1.3] We're with you every step of the way, from project inception to product delivery.
+[P1.4] Introducing the next evolution of our PowlVac Circuit Breaker, the Series 5. Effective, the Series 5 PowlVac will be our standard offering. Click on the link to learn more.
+[P1.5] Powell takes pride in listening to our customers, understanding their needs, and proposing innovative and cost-efficient solutions.
+[P1.6] Single-source supplier for project execution and delivery
+[P1.7] Centralized engineering and project management
+[P1.8] Global factory and service locations
+[P1.9] Safety is and always has been central to our beliefs and culture.
+[P1.10] Different markets face unique challenges.
+[P1.11] We are dedicated to improving people’s lives by providing reliable power distribution systems in every market we serve. From industrial to renewables we play a part in providing communities across the globe access to electricity.
+[P1.12] Offshore Oil and Gas Production
+[P1.13] Supply Chain Management Doing Business with Powell
+</source>
+
+<source id="P2">
+[P2.1] Powell Industries | Product Life Extension, Maintenance and Support
+[P2.2] Discover how Powell's skilled technicians provide electrical equipment services, switchgear maintenance, field service, and electrical commissioning.
+[P2.3] Product Life Extension, Maintenance and Support
+[P2.4] Thanks to a team of experienced, highly skilled service technicians and first-class equipment, Powell's testing and commissioning services ensure electrical safety and reliability.
+[P2.5] Powell offers a comprehensive line of circuit breakers designed for direct replacement for most major manufacturers. Replacement breakers provide upgraded vacuum interrupting technology as a direct replacement to air magnetic circuit breakers.
+[P2.6] Compatible with your existing circuit breakers
+[P2.7] Meets or exceeds latest ANSI standards
+[P2.8] List of Standard Replacement Breakers
+[P2.9] Upgrading or modifying your existing equipment installation is a cost-effective, time-saving way to increase your system reliability demand and meet system design requirements.
+[P2.10] Powell's retrofit and retrofill products provide a cost-effective alternative to complete switchgear replacement when time is critical. Powell Global Services can custom design a breaker cell assembly to be positioned inside of your existing structure, match your control scheme, and custom fit bus work to match your existing installation.
+[P2.11] Cost-effective alternative to full equipment replacement
+[P2.12] Upgrade to vacuum breaker technology
+[P2.13] Bus Duct Repair, Replace, Refurbish (RRR) Services
+[P2.14] The Powell Repair, Replacement and Refurbishment bus duct program keeps your operation competitive and efficient with the most up-to-date bus technology.
+[P2.15] Custom designs to fit to existing equipment
+[P2.16] Proper planning and professional execution are key to any successful electrical system start-up. Powell brings you decades of start-up and commissioning project expertise involving both Powell and non-Powell equipment.
+[P2.17] Supervision or turnkey start-up services available
+[P2.18] LV and MV switchgear and MCC services
+[P2.19] Breaker Life Extension Upgrade (BLEU)
+[P2.20] Powell has a breaker life extension program that includes extensive teardown, cleaning, and inspection of your circuit breaker; along with installation of the latest technology upgrades.
+[P2.21] All upgrade services performed by authorized service technicians
+[P2.22] Upgrade services can be performed at our main location in Houston, Texas or at one of service centers located near you
+[P2.23] Helps to extend the life of your PowlVac and PowerVac medium voltage circuit breakers
+[P2.24] Equipment training provides a practical approach with brief classroom discussions followed by 'hands-on' practice. Each course is intended to stimulate further discussion for continued learning. Instructors are applications technologists, manufacturing specialists, and engineers, who provide a blend of diverse perspectives and real-world experiences.
+[P2.25] Customized courses can be developed to meet your specific training needs
+[P2.26] Classes conducted at any one of Powell's facilities
+[P2.27] On-site instruction at your facility can be provided with class materials provided and structured to fit your jobsite equipment and applications
+[P2.28] Capital and Start-Up Spare Parts
+[P2.29] Powell provides an array of spare and replacement parts for maintenance, start-up, commissioning, and emergencies. Our parts are manufactured with the same specifications as your original equipment, regardless of manufacturer - meeting all safety and reliability standards with a valid warranty.
+[P2.30] The right part, when you need it
+[P2.31] Powell provides on-site spare parts and consumables on demand. With our PowlPOD program we can customize any type of inventory you need, on-site, available when you need it.
+[P2.32] Easy to access spare parts inventory
+[P2.33] Only pay for what you use
+</source>
+
+<source id="P3">
+[P3.1] Powell Industries | About
+[P3.2] Discover Powell Industries, a Houston-based leader in electrical engineering and power solutions, with a legacy of innovation and reliability.
+[P3.3] 1947: Powell Manufacturing Company is founded by William E. Powell, in Houston, Texas.
+[P3.4] 1968: Powell develops the Power Control Room (PCR) concept for a project in Ponce, Puerto Rico for the Union Carbide Company.
+[P3.5] A 75 year legacy and a bright future.
+[P3.6] Powell was as a metal-working shop to support the local Houston, Texas petrochemical facilities. While we began small, the company has grown to become the strategic supplier of choice for highly complex and integrated systems for the distribution and control of electrical energy and other critical processes.
+[P3.7] A one-source solution available wherever you need us.
+[P3.8] Powell has a strong commitment to protect people, the environment, and company resources while providing our customized and engineered solutions in a sustainable manner.
+[P3.9] We reward and recognize our Community Champions, and invite all Powell employees to get involved in the community causes that matter to them!
+[P3.10] Powell maintains a comprehensive cybersecurity posture built on resilience, awareness, and continuous improvement. Our approach is leadership-driven and employee-reinforced, emphasizing proactive security measures across all operational domains including systems, infrastructure, personnel, and cloud environments.
+[P3.11] Zero: Data or Consumer Privacy Breaches in FY2025
+[P3.12] Zero: Security Breaches in FY2025
+[P3.13] Code of Business Conduct and Ethics
+[P3.14] Anti-Slavery and Human Trafficking Statement
+[P3.15] EEO, Non-Discrimination, and Anti-Harassment Policy
+[P3.16] Executive Hedging and Pledging Policy
+[P3.17] Our customers represent our current success and remain vital to our future growth. Valued relationships drive Powell's behavior, generating our product and service innovations. Powell is a customer-focused company that respects, listens to and serves our customers. This attitude contributes to world-class system solutions that set new industry standards. Powell's core business model revolves around responding quickly to customer needs. Customer satisfaction is the focal point that guides our daily actions. Powell aims to strengthen relationships with all levels of our customers' organizations.
+[P3.18] We achieve more than we can imagine through hard work, cooperation and dedication of our great people. Powell employees convey the voice of the customer throughout our company. Their passion ignites our ability to innovate and create system solutions. Our expertise and capabilities reside with each dedicated individual who collectively form the Powell team. We serve and respect each other from top to bottom. Customer perception of Powell starts as they walk through our doors. So it is imperative we take pride in our facilities, appearance and daily actions.
+[P3.19] Our can-do spirit symbolizes who we are -- a world class manufacturer that embraces complexity through custom-engineered solutions. We view daily challenges as opportunities to excel. We don’t pass the buck -- we solve problems. Powell's collaborative style generates solutions, not stalemates or barriers to satisfying our clients. Our collective goal is to “make it right” for our customers. Hard work, teamwork and passion epitomize the Powell way while creating an invigorating atmosphere. We are different from our competition. We respect their capabilities, but take pride in our consistent ability to outperform them.
+[P3.20] Powell's commitment to continually improve our single-source philosophy is steadfast. Our success in achieving continued improvement has kept competitors from duplicating our proven model. We love to innovate and this maverick spirt has produced world class products, services, processes and safety solutions. Powell's Commitment To Improve continues to be the primary catalyst for Powell's growth. Our valued suppliers are partners in this effort. We are proud of our past and confident in who we are. Our past performance is a sound foundation for our future growth.
+</source>

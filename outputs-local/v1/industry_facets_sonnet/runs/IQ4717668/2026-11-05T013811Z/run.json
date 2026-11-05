@@ -1,0 +1,66 @@
+{
+ "backend": "claude-cli",
+ "model": "claude-sonnet-5-5",
+ "prompt_version": "2026-11-04a",
+ "fingerprint": "5923709dd0aaa532",
+ "finished_at": "2026-11-05T01:38:16Z",
+ "llm_status": "ok",
+ "command": [
+  "/Users/matthewpisinski/.local/bin/claude",
+  "-p",
+  "--output-format",
+  "json",
+  "--json-schema",
+  "{\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"knows_company\": {\"type\": \"boolean\"}, \"notes\": {\"type\": \"string\"}, \"restaurant_drinking_place_format\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"franchise_company_operated_footprint\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"comparable_unit_sales_growth\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"comparable_traffic_average_check\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"average_unit_volume_defined_cohort\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"system_operated_unit_counts\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"menu_beverage_focus\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"ordering_delivery_sales_mix\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"store_level_economics_company_operated\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}}, \"required\": [\"knows_company\", \"notes\", \"restaurant_drinking_place_format\", \"franchise_company_operated_footprint\", \"comparable_unit_sales_growth\", \"comparable_traffic_average_check\", \"average_unit_volume_defined_cohort\", \"system_operated_unit_counts\", \"menu_beverage_focus\", \"ordering_delivery_sales_mix\", \"store_level_economics_company_operated\"]}",
+  "--tools",
+  "",
+  "--no-session-persistence",
+  "--strict-mcp-config",
+  "--mcp-config",
+  "{\"mcpServers\":{}}",
+  "--setting-sources",
+  "",
+  "--max-turns",
+  "3",
+  "--system-prompt-file",
+  "/Users/matthewpisinski/work/school/grad_school/F_26/IEOR_Capstone/Work/outputs-local/v1/industry_facets_sonnet/runs/IQ4717668/2026-11-05T013811Z/system.txt",
+  "--model",
+  "claude-sonnet-5-5"
+ ],
+ "returncode": 0,
+ "seconds": 4.78,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 2084,
+  "cache_read_input_tokens": 2245,
+  "output_tokens": 670,
+  "output_tokens_details": {
+   "thinking_tokens": 0
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 2084,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 670,
+    "cache_read_input_tokens": 2245,
+    "cache_creation_input_tokens": 2084,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 2084
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ }
+}

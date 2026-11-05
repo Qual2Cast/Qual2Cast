@@ -111,10 +111,11 @@ def fill_one(iq_id: str, row: pd.Series, out: SimpleNamespace, args) -> dict:
     run_dir = out.runs / iq_id / stamp()
     run_dir.mkdir(parents=True, exist_ok=True)
     (run_dir / "prompt.txt").write_text(prompt, encoding="utf-8")
-    if args.backend == "codex":
+    if args.backend in ("codex", "claude-cli"):
         from cli_models import call_cli
-        result = call_cli(prompt, run_dir, sf.answer_schema(row["sector"]),
-                          "codex", model=args.model, effort=args.effort)
+        result = call_cli(prompt, run_dir, sf.answer_schema(row["sector"]), args.backend,
+                          model=args.model, effort=args.effort,
+                          instructions_len=len(sf.INSTRUCTIONS) if args.backend == "claude-cli" else 0)
     else:
         result = call_claude(prompt, run_dir, sf.answer_schema(row["sector"]), args.model, args.effort,
                              instructions_len=len(sf.INSTRUCTIONS))
@@ -182,7 +183,7 @@ def main() -> None:
     p.add_argument("--gold-pairs", type=Path,
                    help="limit the pilot to target_iq_id and comp_iq_id in a reviewer-label CSV")
     p.add_argument("--refresh", action="store_true")
-    p.add_argument("--backend", choices=["claude", "codex"], default="claude")
+    p.add_argument("--backend", choices=["claude", "codex", "claude-cli"], default="claude")
     p.add_argument("--model", default=None)
     p.add_argument("--effort", choices=["low", "medium", "high"])
     p.add_argument("--workers", type=int, default=2)
@@ -192,7 +193,7 @@ def main() -> None:
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--tables-only", action="store_true")
     args = p.parse_args()
-    args.model = args.model or ("gpt-6.1-sol" if args.backend == "codex" else DEFAULT_MODEL["claude"])
+    args.model = args.model or ("gpt-6.1-sol" if args.backend == "codex" else DEFAULT_MODEL[args.backend])
     out = output_paths(Path(args.out))
     for d in (out.runs, out.profiles, out.logs):
         d.mkdir(parents=True, exist_ok=True)

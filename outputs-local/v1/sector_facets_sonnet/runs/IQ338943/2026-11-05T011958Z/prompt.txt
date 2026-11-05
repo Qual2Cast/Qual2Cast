@@ -1,0 +1,80 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Veeco Instruments Inc. (www.veeco.com)
+Sector: Manufacturing (industrial, materials, electronics)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- manufacturing_type (Manufacturing type): How it makes products. Example: discrete: builds individual units on assembly lines. Any that apply of: discrete; process; assembly; outsourced / fabless.
+- production_model (Production model): Built for an order or for stock. Example: make-to-order: each unit configured to the customer's order. Exactly one of: make-to-order; make-to-stock; both.
+- product_complexity (Product complexity): How engineered its products are. Example: engineered: custom-configured equipment. Exactly one of: commodity; engineered; precision / high-spec.
+- production_role (Production role): Where it sits in its customers' supply chain. Example: final manufacturer: sells finished units to contractors. Any that apply of: final manufacturer / OEM; tier 1 supplier; tier 2 or component supplier; contract manufacturer; materials producer.
+- end_market_exposure (End-market exposure): Which end markets drive demand. Example: industrial: factories and commercial buildings. Any that apply of: aerospace and defense; automotive and transportation; industrial; construction and buildings; energy; electronics and semiconductors; healthcare and life sciences; consumer; agriculture; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Veeco | Innovative Semiconductor Processing Equipment
+[P1.2] Veeco is a global designer and manufacturer of semiconductor process equipment for wet processing, laser annealing, ion beam, ALD, CVD, MBE, PVD, and more.
+[P1.3] Veeco is a leading innovator in semiconductor process equipment, offering advanced technologies such as laser annealing, ion beam deposition and etch, CVD, MOCVD, single wafer etch and clean, and lithography. Our solutions are engineered to enhance device performance, yield, and cost of ownership, securing Veeco’s position as a technology leader in the markets we serve.
+[P1.4] SEMICON West Tue, Oct. 13 – Thur, Oct.
+[P1.5] SEMICON Europa Tue, Nov. 10 - Fri, Nov.
+[P1.6] Veeco Announces LUMINA®+ MOCVD System Order for Manufacturing Indium Phosphide Lasers
+[P1.7] Built on decades of materials science and process know-how, Veeco is uniquely positioned to deliver smart solutions that remove barriers to nanoscale devices and advanced packaging production. Veeco provides advanced capital equipment that addresses front-end processes and advanced packaging needs, tackling challenges like 3D device architectures, EUV photomask production, and material integration for high-performance, low-power devices. Through collaboration and innovation, Veeco enables progress across the entire semiconductor supply chain
+[P1.8] The compound semiconductor market is one of Veeco’s driving forces, fueled mainly by 5G/6G, display, power electronics, and photonics end-markets. Veeco delivers advanced process equipment such as MOCVD and MBE systems, which are vital for producing high-performance devices used in applications such as datacom and telecom, electric vehicles, and AR displays. Our technologies enable both R&D and high-volume manufacturing, helping customers meet demands for innovation and scalability.
+[P1.9] The promise of generative AI requires fundamental changes in our data storage infrastructure. For decades, Veeco has been a key partner for technology leaders in advancing hard drive innovation while driving down costs through ion-beam etch and deposition processes that push the capabilities of thin-film magnetic heads for high areal density hard disk drives.
+[P1.10] Veeco's MEMS, material science and power management experts, helps customers make their mark on the future of smart cities, factories, and transportation systems. Veeco supports the transition from research to high-volume production by providing advanced tools and materials science expertise to support processes such as ALD, MBE, and IBS to universities, labs, and companies. Our technologies enable breakthroughs in semiconductors, optoelectronics, MEMS, and more—fueling innovation in 5G/6G, quantum computing, and IoT applications.
+[P1.11] Ion Beam System & Sources
+[P1.12] Gas & Vapor Delivery Systems
+[P1.13] Veeco has developed revolutionary technology to enable thermal annealing solutions at the most advanced technology nodes. Veeco delivers transformative low-cost-of-ownership, HVM production-proven laser spike annealing solutions to support the most advanced technology nodes.
+[P1.14] Veeco is the market leader in advanced packaging lithography systems designed to address the increasing challenges of smaller line and space patterning. Veeco lithography systems are Making a Material Difference with their industry-leading optical focus capability, proven high-volume production, and warped wafer handling for advanced packaging, LED, MEMS, and power device applications.
+[P1.15] Veeco's unmatched ion beam know-how delivers proven etch and deposition performance that has enabled the data storage and MEMS markets for decades. Our advanced ion beam sputtering, deposition, and etch systems achieve maximum uniformity and repeatability to meet the requirements of microelectronic devices.
+[P1.16] Lower your cost of ownership with Veeco’s new EpiStrideTM system for silicon carbide epitaxy. The EpiStrideTM system enables high-performance chemical vapor deposition of silicon carbide for both 6 and 8-inch wafer production, leading to the lowest cost of ownership per wafer and making it ideally suited for silicon carbide power electronic devices used in electric vehicles, renewable energy, and industrial applications.
+[P1.17] Veeco offers a range of industry-leading GaN and As/P MOCVD systems designed to maximize throughput while lowering cost of ownership for a variety of applications including display, 3D sensing, LiDAR, micro-LED display, and optical data communications. Designed to advance next-generation devices, Veeco allows users to customize their systems for superior uniformity and repeatability with low defectivity to maximize value.
+[P1.18] Surface preparation using sustainable practices is critical to ensuring the reliability of advanced microelectronics destined for AI and high performance computing, automotive applications, medical devices, 5G/6G and cloud storage. Veeco’s WaferStorm and WaferEtch platforms are the industry choice for several critical solvent-based processes as they provide high uniformity combined with low defectivity and flexible design to meet a wide range of process requirements.
+[P1.19] When you’re creating thin films of unique compound semiconductor materials one crystal at a time, you need a molecular beam epitaxy (MBE) system that is highly configurable. Veeco provides the industry’s broadest line-up of innovative and reliable MBE systems.
+[P1.20] We provide ALD systems for research and industry worldwide, delivering comprehensive services and versatile, turnkey systems that are accessible, affordable, and accurate to the atomic scale.
+[P1.21] Veeco's physical vapor deposition (PVD) systems offer maximum flexibility for a wide range of thin film deposition applications with advanced process capabilities, unsurpassed uniformity and multiple deposition modes. Our NEXUS platform integrates with a broad range of Veeco technologies, such as ion beam deposition, ion beam etch and atomic layer deposition to streamline multiple manufacturing steps and processes with ease.
+[P1.22] We deliver tight tolerances and superior flatness when performing dicing and lapping processes. With over 30 years of experience in diversified dicing applications, Veeco provides a broad range of process and tooling design solutions that can improve production and result in higher throughput and quality.
+[P1.23] Advanced semiconductor devices developed for the most leading-edge computing processes, such as AI and edge computing, need to be manufactured in ultra-high-purity environments. This is where material purity matters most, and where we can make a difference. Our gas and vapor delivery systems bring together the precise flow control, smart automation, and built-in diagnostics needed to help engineers maintain stability and repeatability.
+[P1.24] Making a Material Difference Is Our Commitment at Veeco
+[P1.25] At Veeco, we know that making a material difference is at the core of our beliefs and our actions.
+[P1.26] With a clearly defined vision and mission, Veeco can make a material difference in the markets we serve.
+[P1.27] We address complex customer materials challenges through intentional collaboration, and we apply unique know-how to solve unmet needs with the right technology for commercial scaling.
+[P1.28] Veeco is an innovative manufacturer of semiconductor process equipment serving the IC, compound semi, and wafer-level packaging with a broad portfolio of products and comprehensive services.
+</source>
+
+<source id="P2">
+[P2.1] About Our Company | Veeco
+[P2.2] Veeco Instruments manufactures and markets process equipment that enables high-tech technologies for a cleaner and more productive world.
+[P2.3] Making a Material Difference in a world of ever-advancing opportunities
+[P2.4] Our vision: To enable a future where technology improves the human experience
+[P2.5] Our Mission: We collaborate with the world’s leading technology companies to unlock the value of challenging material applications
+[P2.6] Making a Material Difference is at the core of Veeco’s DNA. For over 30 years, we have developed differentiated technologies and built expertise and know-how that has helped world-changing devices such as LED lighting, data storage, advanced computing and mobile devices reach industrial scale. At Veeco, we pride ourselves on close collaboration with our customers to help them overcome technical and cost barriers that make it possible to convert novel materials into high-yielding device performance at production volumes.
+[P2.7] As we enter the next decade of technology development, there is a magnitude of growing applications that combine electronics into game-changing artificial intelligence systems (AI), virtual and augmented reality (VR/AR) and advanced driver-assisted systems (ADAS). This new “Experience Age” will make it possible for humans to interact with the world as never before. Veeco’s technologies are already making a material difference in these emerging megatrends and we see amazing potential to grow in new areas where our unique core competencies in deposition, etch and laser processing systems will make the Experience Age possible.
+[P2.8] We address complex customer materials challenges through intentional collaboration.
+[P2.9] We apply unique know-how to solve unmet needs with the right technology for commercial scaling.
+</source>
+
+<source id="P3">
+[P3.1] Atomic Layer Deposition Services | Veeco
+[P3.2] Optimize your deposition process with our coating and consulting services. Our thin film coating services span a variety of materials to meet your needs.
+[P3.3] Custom Solutions for Atomic Layer Deposition Challenges
+[P3.4] How We Support Your ALD Needs
+[P3.5] Custom Process Development: Work with our experts to fine-tune deposition recipes for your specific materials and applications.
+[P3.6] Film Characterization: Get precise data on thickness, uniformity, and defects with advanced metrology.
+[P3.7] Equipment Calibration & Maintenance: Keep your ALD system running at peak accuracy with regular calibration.
+[P3.8] Material Integration Support: Seamlessly introduce new materials into complex device structures.
+[P3.9] Full-Spectrum Support for Ongoing Success
+</source>

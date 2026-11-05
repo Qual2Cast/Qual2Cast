@@ -1,0 +1,109 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Covista Inc. (www.covista.com)
+Industry (SIC 82): Educational Services
+About this industry group: Enrollment, FTE students and course registrations are separate measures. Graduation/completion/employment rates need the entering cohort, observation window and program type.
+
+Facets:
+- education_level_institution_type (Education level / institution type). Examples: Postsecondary institution; K–12 school; Vocational training provider.
+- program_qualification (Program / qualification). Examples: Bachelor's degree; Nursing diploma; Professional certificate.
+- enrollment_by_measure (Enrollment by measure). Examples: 8,000 enrolled students; 6,000 full-time-equivalent students; 2,000 annual course registrations.
+- tuition_payment_model (Tuition / payment model). Examples: Annual tuition; Per-course fees; Employer-funded training.
+- accreditation_authorization (Accreditation / authorization). Examples: Named institutional accreditor; Program-specific accreditation; Government operating license.
+- completion_student_outcomes (Completion / student outcomes). Examples: Six-year degree completion: 70%; 12-month certificate completion: 85%; Graduate employment rate, defined cohort.
+- delivery_campus_model (Delivery / campus model). Examples: Campus-based instruction; Online-only programs; Hybrid courses.
+
+Evidence:
+<source id="P1">
+[P1.1] Home | Covista
+[P1.2] Without action, the Covista Healthcare Workforce Index estimates that the healthcare shortage is on track to nearly double —but a portfolio approach pairing talent investment with care delivery innovation could close 92% of the projected gap.
+[P1.3] America faces a healthcare workforce crisis that threatens access to care for millions. Through Covista Open Doors, our multi-year impact commitment to build and sustain the healthcare workforce, we're opening doors for current and future healthcare workers during the moments that matter most.
+[P1.4] We believe doing exceptional work and making a meaningful difference for students and society aren’t separate goals—they are one and the same.
+[P1.5] See the story behind the numbers
+[P1.6] Learn why investors are choosing Covista.
+[P1.7] Covista Open Doors | Covista
+[P1.8] Community Rounds: Care In Every Round, Impact In Every Community
+[P1.9] Beyond the Badge: A Look Behind Covista's Best Employer Wins
+[P1.10] Healthcare Salary Gap | Covista Care Capacity Monitor
+[P1.11] Examining the Healthcare Salary Gap: Fixing It Will Take More Than a Bigger Paycheck
+[P1.12] Chamberlain University | Healthcare Education
+[P1.13] Closing the Gap: Chamberlain’s New Campus Targets Utah's Nursing Shortage
+[P1.14] Covista Leadership | Healthcare Education
+[P1.15] Chairman and CEO Steve Beard Interview with McKinsey: How Covista Is Changing Education For Healthcare Professionals
+[P1.16] Covista Open Doors | Covista Foundation
+[P1.17] Covista Open Doors: Investing in America's Healthcare Workforce
+</source>
+
+<source id="P2">
+[P2.1] Our Story | Covista
+[P2.2] Discover the Covista story.
+[P2.3] America faces a workforce shortage across the sectors that matter most: healthcare, veterinary medicine, education and business. We don't have enough professionals to meet growing demands. Organizations are investing in technology and innovation, but technology alone won't solve this crisis. Meaningful progress requires people—and higher education models built for how they actually live and work.
+[P2.4] The future lies in education built for working adults who bring the maturity and real-world experience healthcare needs. The challenge is building these pathways at scale.
+[P2.5] We exist to solve this challenge.
+[P2.6] We're unlocking exceptional talent at scale through a fundamentally different model—one that both expands access and prepares practice-ready graduates.
+[P2.7] Our graduates enter the workforce ready from day one—clinically skilled, hands-on prepared and comfortable with AI-powered tools. For employers, this means professionals who can hit the ground running.
+[P2.8] We partner directly with hospitals and healthcare providers to build programs that lead to employment after graduation.
+[P2.9] Serving communities that need care most
+[P2.10] We place our graduates in underserved rural and urban communities, improving patient outcomes by increasing the number of healthcare providers who can work closer to home, among the people that know them best.
+[P2.11] "The workforce shortage is intensifying. We're removing barriers to education and expanding pathways at scale—so more people can join the solution."
+[P2.12] Steve Beard Chairman and CEO
+[P2.13] Covista (pronounced co-vis-tah) blends two powerful ideas: "co" standing for community, collaboration and partnership and "vista" referencing future and vision.
+[P2.14] Together, Covista communicates a shared vision of the future.
+[P2.15] Explore the principles that ground our existence, guide our actions and bring our company to life.
+[P2.16] We’re embedding AI into clinical education across all five institutions, preparing graduates to apply AI tools in practice from day one.
+[P2.17] Covista is America's largest healthcare educator, serving 100,000 students through five accredited institutions: American University of the Caribbean School of Medicine, Chamberlain University, Ross University School of Medicine, Ross University School of Veterinary Medicine and Walden University.
+[P2.18] Our purpose is to open doors and unlock potential—developing skilled, compassionate professionals who strengthen healthcare and improve patient outcomes in their communities.
+[P2.19] Our outcomes demonstrate this commitment: a 97% first-time residency attainment rate* at our medical schools, #1 and #3 rankings for our nursing schools (Chamberlain and Walden) and the #1 provider of DVM graduates (Ross Veterinary). Through partnerships with hospitals and healthcare providers, we’re connecting education directly to employment pathways and building sustainable workforce pipelines that support America’s healthcare needs.
+[P2.20] Our graduates are practice ready from day one. Through partnering with leaders such as Google Cloud and, Hippocratic AI, we work to integrate AI and technology directly into clinical education. Students develop skills in our simulation labs and complete clinical rotations at hundreds of partner hospitals and healthcare systems—learning the workflows, technology and protocols they'll use in practice. This is how we deliver workforce solutions at scale.
+[P2.21] *Percent of students attaining a 2026-27 residency position out of all graduates or expected graduates -26 who were active applicants NRMP match or who attained a residency position outside the NRMP match
+</source>
+
+<source id="P3">
+[P3.1] Employer Partners | Covista
+[P3.2] Covista healthcare partnerships strengthen workforce pipelines, preparing practice-ready graduates and upskilled staff for quality patient care.
+[P3.3] Every health provider faces different workforce challenges. We design solutions tailored to your system’s specific needs—nursing pipelines, physician pathways, behavioral health programs and more.
+[P3.4] Students learn in your facilities and are taught according to your practices, your technology and your culture of care. By graduation, these clinicians have already been seamlessly integrated into your workforce.
+[P3.5] Build customized, practice-ready pipelines—nurses, physicians, behavioral health specialists—learning in your facilities, your way.
+[P3.6] Onboarding that drives faster readiness
+[P3.7] Drive faster readiness by pulling onboarding into the course of study—so when graduates start, they already meet your standards for practice-ready.
+[P3.8] Increase retention by preparing clinicians for your practice environments and standards of care. Structure benefits like loan repayment tied to employment commitments and create advancement pathways that give employees reasons to stay and grow within your system.
+[P3.9] Advance unlicensed staff to BSNs, nurses to NPs, licensed staff to leadership roles. Access certificate and CME programs designed around your organization's needs and your employees' ambitions.
+[P3.10] Our five accredited institutions deliver 26,000 healthcare graduates each year—building the sustainable talent pipelines your system needs.
+[P3.11] SSM Health faced workforce challenges common to health systems nationwide: nursing shortages across their markets, experienced nurses nearing retirement and costly reliance on contract labor. They needed a sustainable, long-term solution to strengthen their workforce and ensure consistent care across all four states they serve.
+[P3.12] A multi-state BSN program where students learn in SSM Health facilities, taught by a blend of Chamberlain and SSM Health faculty, using SSM Health standards. Students commit to employment in exchange for loan repayment over four years.
+[P3.13] Programs like this drive down workforce costs by addressing turnover, reliance on travel nurses and recruiting expenses—while ensuring consistent, high-quality care. Graduates arrive on day one with institutional knowledge and a clear understanding of SSM Health’s standards of care. This program is designed to deliver:
+[P3.14] 1,200 students enrolled at full program scale
+[P3.15] 400 SSM Health-ready nurses graduating annually
+[P3.16] 4 states with sustainable talent pipelines
+[P3.17] Advocate Health, the nation's third-largest nonprofit health system, operates across eight states with 69 hospitals and multiple care locations. Caring for communities at that scale requires a significant nursing workforce—practice-ready, specialty-trained and committed to the populations they serve. Advocate Health recognized that building that workforce requires more than traditional models of recruitment. Their People Forward, Practice Ready strategy is a long-term commitment to attracting, preparing and retaining nursing teammates, including nontraditional and working adults who have the calling—but need a different path to get there. Executing that vision required a collaborator with the capabilities, footprint and scale to match a system of their size.
+[P3.18] A four-part program that takes a student from aspiration to practice-ready employment within Advocate Health: BSN scholarships, clinical immersion inside Advocate Health care settings, direct employment pathways and loan repayment support during employment. The collaboration is built specifically around Acute and Progressive Care—one of the most difficult and consequential roles for any health system to fill—delivered through Chamberlain's Practice Ready. Specialty Focused.® track and tailored to Advocate Health's clinical environment and patient population.
+[P3.19] Nurses who graduate are already familiar with Advocate Health's care settings, clinical standards and patient population—reducing onboarding time and accelerating time to contribution. The program is purpose-built to scale alongside Advocate Health's needs, expanding access to care across the communities they serve.
+[P3.20] "Through the Aspiring Nurses program, we're not just convincing somebody who was already applying to nursing school to go from one nursing school to another, which is historically what's happened.
+[P3.21] Amy Wilson CNO, SSM Health
+[P3.22] Chamberlain has the resources and footprint to match a system as large as ours, and their focus on nontraditional, working adults means we can reach students who might otherwise never have entered the nursing profession."
+[P3.23] Betty Jo Rocchio EVP and CNE, Advocate Health
+[P3.24] "The partnership with Chamberlain allows us to grow our nurses from within the community, and they are more likely to stay because this is where they got their education. As we align them with SSM Health, they get to become part of the culture and, in turn, serve the communities in which they were raised."
+[P3.25] Dr. Marcia Lysaght SSM Regional CNO
+[P3.26] "At Advocate Health, we believe building the healthcare workforce of tomorrow starts with removing barriers today. This collaboration with Covista creates a clear pathway for aspiring nurses—from education to employment—with the financial support they need to succeed.
+[P3.27] Nakesha Lopez Chief People & Culture Officer, Advocate Health
+[P3.28] Every health system has different challenges. We design partnerships based on the healthcare staffing solutions that you need. Let's talk about what a custom workforce solution could look like for your organization.
+[P3.29] Covista recruits and enrolls qualified candidates into a dedicated cohort for your health system. Your team gets to know applicants, and students complete clinical rotations in your facilities—taught by our faculty and yours, following your protocols. Throughout the program, students engage with your leadership through customized experiences that build institutional belonging before graduation. They’re ready to contribute from day one because they’ve already learned your workflows, technology systems and culture.
+[P3.30] Traditional recruitment brings candidates who have been educated at any number of schools and systems. These recruits need to learn your organization and may need to “unlearn” what they have learned elsewhere. Covista partnerships deliver graduates who understand your workflows, technology, culture and standards because they developed their skills exclusively in your facilities with your workforce. This drives down the costs of turnover—travel nurses, repeated onboarding and care gaps—while ensuring continuity and consistency in patient care. You're building a sustainable workforce pipeline, not just filling open positions.
+[P3.31] We partner directly with 270+ hospitals and healthcare systems across the country. Our SSM Health partnership demonstrates what's possible at scale: 400 practice-ready nurses annually across four states, delivering consistent care quality across every facility from day one.
+[P3.32] Yes. Covista builds custom workforce pathways designed around the specific needs of each health system we partner with—their markets, clinical environment and workforce needs. The Advocate Health collaboration is purpose-built this way: an Acute and Progressive Care specialty track tailored to their high-demand roles, delivered through Chamberlain University, the largest school of nursing in the U.S., through its Practice Ready. Specialty Focused.® model. As America's largest healthcare educator, Covista has the education infrastructure, clinical expertise and geographic reach to build this kind of custom pathway for any health system.
+[P3.33] The model that works is built around the people in those communities rather than competing for nurses who already exist elsewhere. Rather than redistributing talent that's already too scarce, we build new nurses trained and rooted in the communities that need them most, with a direct line of sight to employment.
+[P3.34] Employer Partnerships | Chamberlain University
+[P3.35] Covista and Advocate Health: Building a Workforce of Practice-Ready Nurses
+</source>

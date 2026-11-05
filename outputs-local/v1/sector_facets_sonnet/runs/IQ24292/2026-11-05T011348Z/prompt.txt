@@ -1,0 +1,112 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: LiveRamp Holdings, Inc. (liveramp.com)
+Sector: Software and internet
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- software_category (Software category): What the software does. Example: HR and payroll: payroll, benefits and time tracking. Any that apply of: ERP and finance; HR and payroll; CRM, marketing and sales; cybersecurity; data, analytics and AI; IT and developer infrastructure; collaboration and content; industry-specific (vertical) software; payments and fintech; consumer internet and marketplaces; IT services and consulting; other.
+- deployment_model (Deployment model): How the software is delivered. Example: SaaS: cloud subscription. Exactly one of: SaaS / cloud; on-premise; hybrid; not applicable (services or internet).
+- customer_size (Customer size): Its typical customer. Example: mid-market: employers with tens to a few thousand staff. Any that apply of: consumers; SMB; mid-market; enterprise; government.
+- product_architecture (Product architecture): One product or a suite. Example: platform: payroll, HR, time and benefits on one system. Exactly one of: platform / suite; point solution; API / infrastructure.
+
+Evidence:
+<source id="P1">
+[P1.1] AI-Powered Marketing | LiveRamp
+[P1.2] Market at the speed of AI with credibility & control. LiveRamp helps you fuel AI‑powered marketing that drives better performance – grounded in trust.
+[P1.3] The trusted network for AI-powered marketing
+[P1.4] Only the LiveRamp data collaboration network connects every signal, agent, and platform to fuel and measure intelligent marketing.
+[P1.5] Subscribe to Beyond the Signal
+[P1.6] Make sense of what’s next in marketing. Every month.
+[P1.7] Access the AI-Ready Advertiser Action Plan
+[P1.8] Unlock strategies to fuel AI-powered marketing that drives performance.
+[P1.9] Why 500+ global partners trust LiveRamp
+[P1.10] Plug into the world’s most powerful data collaboration network
+[P1.11] Smarter marketing demands shared intelligence. Connect and collaborate across a universe of signals to drive insights and impact no one can achieve alone.
+[P1.12] Delight consumers everywhere it matters
+[P1.13] Reach consumers across the advertising ecosystem, including Disney, Hulu, Pinterest, Snap, Spotify, Netflix, and TikTok – no other platform comes close.
+[P1.14] Work with your tools, your way
+[P1.15] Connect your most valuable data and signals across identifiers, platforms, clouds, and agents – that’s the freedom of full interoperability.
+[P1.16] Use data responsibly at scale. Our strict platform neutrality and advanced controls protect your data and consumer trust, so you can collaborate with confidence.
+[P1.17] Help AI agents act smarter
+[P1.18] Power more intelligent AI with robust first, second, and third-party signals you can only access through the most expansive data collaboration network.
+[P1.19] Proven by leaders, powered by LiveRamp
+[P1.20] The world’s top brands, publishers, and platforms use LiveRamp to drive measurable growth.
+[P1.21] AVP of Retail Media Costco Wholesale
+[P1.22] Netflix Drives Exceptional Ad Performance Through the Power of Personalization
+[P1.23] American Cancer Society Boosts Donor Acquisition and ROI with Data Collaboration
+[P1.24] Costco Fuels Member Loyalty with Retail Media Power
+[P1.25] Director, KitchenAid Small Appliances D2C & Digital Marketing
+[P1.26] Whirlpool reaches 5x more shoppers with personalized experiences everywhere
+[P1.27] Global Head, Commercial Data: Strategy, Partnerships, and Governance
+[P1.28] DICK’S Media guides brands to victory with unique insights into the athlete journey
+[P1.29] Hill’s Pet Nutrition finds the winning formula for measurable growth
+[P1.30] Comcast unlocks addressable, measurable TV everywhere
+[P1.31] Pinterest drives growth for Albertsons and Triscuit
+[P1.32] How liveramp can help you
+[P1.33] Explore intelligent solutions for your most ambitious marketing and business goals
+[P1.34] Deliver and measure marketing performance everywhere it matters.
+[P1.35] Build a connected, enterprise-wide customer view by resolving identity across systems and enriching that data to deeply understand behaviors.
+[P1.36] Reach your most valuable customers wherever they spend time, all from one trusted platform.
+[P1.37] Measure marketing performance across the ecosystem, quantify lift and incrementality, and continuously improve outcomes.
+[P1.38] Consistently recognized by partners and analysts you trust
+[P1.39] LiveRamp Achieves a 99.5% Match Rate Score on Full PII with Complete Address Data
+[P1.40] LiveRamp receives Fortune Great Place to Work Certification
+[P1.41] LiveRamp awarded AWS Global Industry Partner of the Year
+[P1.42] LiveRamp named a finalist for “Best Measurement or Analytics” in the AdExchanger Awards
+[P1.43] LiveRamp named a finalist for “Best Cookieless Identification Technology” in the Digiday Technology Awards
+[P1.44] LiveRamp named a 2024 Google Cloud “Industry Solutions – Technology: Retail” Partner of the Year award winner
+[P1.45] LiveRamp named a Leader IDC MarketScape: Worldwide Data Clean Room Technology for Advertising and Marketing Use Cases
+[P1.46] LiveRamp wins the 2025 Google Cloud DORA Award for Operational Excellence and Automation
+[P1.47] LiveRamp named a Leader in Data Collaboration in Snowflake’s 2026 Modern Marketing Stack Report
+</source>
+
+<source id="P2">
+[P2.1] Cloud-Ready Solutions | LiveRamp
+[P2.2] LiveRamp enables you to collaborate responsibly with data in or across any cloud you or your partners choose to use. Learn about our cloud-ready solutions.
+[P2.3] Collaborate with full control in the LiveRamp Clean Room
+[P2.4] LiveRamp enables you to collaborate responsibly with data in or across any cloud you or your partners choose to use, anywhere in the world.
+[P2.5] Collaborate in or across any cloud
+[P2.6] Dynamically connect data from any location, using a network that’s built for interoperability across identifiers, platforms, partners, and clouds.
+[P2.7] Connect data directly in the cloud with embedded identity
+[P2.8] Resolve, translate, and deconflict identifiers directly where your data lives with LiveRamp’s identity capabilities built directly into your cloud environments.
+[P2.9] Unlock insights from untapped data sources
+[P2.10] Leverage insights from otherwise inaccessible data sources using the LiveRamp Clean Room – a secure, cloud-agnostic environment for collaborative targeting, analytics, and measurement.
+[P2.11] Meet the LiveRamp Clean Room
+[P2.12] Build data infrastructure within your cloud environment
+[P2.13] In this video, watch Marton Kriszan, Product Manager for Cloud Embedded Identity at LiveRamp, show how LiveRamp’s deep integration with Google’s BigQuery unlocks data signals and helps optimize media spend and increase marketing agility.
+[P2.14] For even more videos on how LiveRamp powers data collaboration and enhances personalization on Google Cloud, see this page.
+[P2.15] Explore LiveRamp's Solutions in Action
+[P2.16] Take a self-guided tour of the LiveRamp Data Collaboration Platform with our interactive demos.
+[P2.17] Creating the Foundation: A Cloud-Driven Approach for Retail Media Innovation
+[P2.18] Making Data Delicious in the Cloud
+[P2.19] LiveRamp Launches Advanced Media Capabilities to Empower Databricks' New Agentic CDP
+</source>
+
+<source id="P3">
+[P3.1] Customer Stories & Resources | LiveRamp
+[P3.2] Browse customer stories, testimonials, webinars & other resources to learn how the world’s most innovative companies build brand & business value with data.
+[P3.3] How the world’s most innovative companies win with trusted data collaboration
+[P3.4] Thank you! Your submission has been received!
+[P3.5] Oops! Something went wrong while submitting the form.
+[P3.6] Newton Research Brings ‘Unlimited’ Analytics to Clients of Every Size
+[P3.7] Mohegan Bets on Data to Win the Omnichannel Journey
+[P3.8] Unify Customer Data with Identity
+[P3.9] Infobip Helps Brands Orchestrate Meaningful Customer Journeys in the AI Era
+[P3.10] Fueling the AI Revolution: Transforming Ad Markets into Engines of Innovation
+[P3.11] Delta Air Lines Delivers Next-Level Personalization 30,000 Feet in the Air
+[P3.12] Tailored Brands Delivers Increased ROAS with Personalization That’s Made to Measure
+[P3.13] Build + Grow Your Media Network
+</source>

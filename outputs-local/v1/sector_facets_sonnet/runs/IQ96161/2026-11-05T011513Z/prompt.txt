@@ -1,0 +1,64 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Omnicom Group Inc. (www.omc.com)
+Sector: Business and personal services
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- service_category (Service category): What service it sells. Example: outsourcing: payroll and benefits administration. Any that apply of: consulting and advisory; outsourcing / BPO; staffing; facilities and field services; engineering and technical services; marketing and information services; education and training; personal and consumer services; other.
+- engagement_model (Engagement model): How clients engage it. Example: managed service: multi-year outsourced contracts. Any that apply of: project; retainer; managed service; per transaction / per visit.
+- labor_specialization (Labor specialization): Who delivers it. Example: specialist: licensed technicians. Exactly one of: generalist / low-skill; skilled trades; licensed professionals; technical / IT specialists.
+- client_segment (Client segment): Its typical client. Example: enterprise: large employers. Any that apply of: consumers; SMB; enterprise; government.
+
+Evidence:
+<source id="P1">
+[P1.1] Home - Omnicom
+[P1.2] Omnicom Group is the world's leading marketing and sales company, offering advertising, media, PR, and digital commerce.
+[P1.3] The world’s leading marketing and sales company
+[P1.4] Built for intelligent growth in the next era.
+[P1.5] We help the world’s leading brands solve their most critical growth challenges by giving them access to industry-leading insights, breakthrough technology, and the most creative talent in the business.
+[P1.6] Advertising Branding Commerce Experiential Health Media Precision Marketing Production Public Relations
+[P1.7] A competitive edge across every dimension
+[P1.8] Our connected capabilities give brands a measurable advantage in the modern world of marketing and sales.
+[P1.9] Omnicom’s AI-driven marketing intelligence platform
+[P1.10] Omni unites creativity, media, data, and AI to help brands grow with greater clarity, speed, and measurable impact in the age of influence.
+[P1.11] Content at an unmatched reach.
+[P1.12] A single source of truth. Clarity for every decision.
+[P1.13] Media investment connected to business outcomes.
+[P1.14] A record of sustained growth
+[P1.15] Omnicom sets the standard for marketing and sales leadership by consistently building stronger brands and delivering superior outcomes.
+[P1.16] NEW YORK, Omnicom will publish its third quarter 2026 results on Thursday, after the New York Stock […]
+[P1.17] Omnicom Media Partner Intelligence and Amazon Ads Reveal the Power of Pause Ads
+[P1.18] New research finds pause ads capture 92% visual attention and drive strong brand connection, favorability and purchase intent New York, NY — […]
+[P1.19] Omnicom Media and Rembrand Partner to Scale In-Content Advertising Across Premium Streaming
+</source>
+
+<source id="P2">
+[P2.1] about - Omnicom
+[P2.2] Our Connected Capabilities across media, commerce, consulting, precision marketing, advertising, production, health, public relations, branding and experiential deliver measurable growth for leading brands around the globe.
+[P2.3] Reaching consumers with unmatched precision in a privacy-first world
+[P2.4] Powered by Omni and anchored by Acxiom RealID™, we've unified 2.6B+ verified global IDs with rich cultural, media, and commerce signals.
+</source>
+
+<source id="P3">
+[P3.1] Capability-health - Omnicom
+[P3.2] Shaping a healthier, more connected world.
+[P3.3] Omnicom Health is the world’s most comprehensive, multi-specialty healthcare communications network. Powered by Omni and Acxiom’s unparalleled life-sciences data, we are an engine of creativity and science. We unlock the power of deep human expertise with transformative, state-of-the-art technology, insights, and cultural amplification to deliver smarter, faster ways to drive measurable outcomes across key audiences and stakeholders. With a shared purpose and best-in-class capabilities, we’re shaping a healthier, more connected world.
+[P3.4] New Business Inquiries: [email protected]
+[P3.5] Healthcare Professional & Consumer Advertising
+[P3.6] Omnicom Health, UK & EU
+[P3.7] President & Chief Executive Officer
+[P3.8] Founder & Chief Executive Officer
+</source>

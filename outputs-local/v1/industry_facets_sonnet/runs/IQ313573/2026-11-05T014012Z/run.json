@@ -1,0 +1,66 @@
+{
+ "backend": "claude-cli",
+ "model": "claude-sonnet-5-5",
+ "prompt_version": "2026-11-04a",
+ "fingerprint": "a25dac24e6513728",
+ "finished_at": "2026-11-05T01:40:16Z",
+ "llm_status": "ok",
+ "command": [
+  "/Users/matthewpisinski/.local/bin/claude",
+  "-p",
+  "--output-format",
+  "json",
+  "--json-schema",
+  "{\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"knows_company\": {\"type\": \"boolean\"}, \"notes\": {\"type\": \"string\"}, \"food_retail_format\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"fresh_packaged_food_mix\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"private_label_sales_share\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"fresh_food_waste_perishability\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"store_network_density\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"average_transaction_basket\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}, \"customer_traffic_comparable_growth\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"status\": {\"type\": \"string\", \"enum\": [\"stated\", \"not_applicable\", \"unknown\"]}, \"value\": {\"type\": \"string\"}, \"cites\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"status\", \"value\", \"cites\"]}}, \"required\": [\"knows_company\", \"notes\", \"food_retail_format\", \"fresh_packaged_food_mix\", \"private_label_sales_share\", \"fresh_food_waste_perishability\", \"store_network_density\", \"average_transaction_basket\", \"customer_traffic_comparable_growth\"]}",
+  "--tools",
+  "",
+  "--no-session-persistence",
+  "--strict-mcp-config",
+  "--mcp-config",
+  "{\"mcpServers\":{}}",
+  "--setting-sources",
+  "",
+  "--max-turns",
+  "3",
+  "--system-prompt-file",
+  "/Users/matthewpisinski/work/school/grad_school/F_26/IEOR_Capstone/Work/outputs-local/v1/industry_facets_sonnet/runs/IQ313573/2026-11-05T014012Z/system.txt",
+  "--model",
+  "claude-sonnet-5-5"
+ ],
+ "returncode": 0,
+ "seconds": 4.18,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 1050,
+  "cache_read_input_tokens": 1935,
+  "output_tokens": 543,
+  "output_tokens_details": {
+   "thinking_tokens": 0
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 1050,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 543,
+    "cache_read_input_tokens": 1935,
+    "cache_creation_input_tokens": 1050,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 1050
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ }
+}

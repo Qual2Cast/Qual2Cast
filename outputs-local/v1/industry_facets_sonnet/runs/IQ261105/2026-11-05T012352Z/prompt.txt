@@ -1,0 +1,70 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Church & Dwight Co., Inc. (www.churchdwight.com)
+Industry (SIC 28): Chemicals & Allied Products
+About this industry group: This major group includes pharmaceuticals and biological products as well as industrial chemicals. Use clinical-stage and drug-platform extensions only for the relevant life-science business; do not impose drug approval or patent dependence on all commodity chemicals.
+
+Facets:
+- chemical_life_science_product_family (Chemical / life-science product family). Examples: Specialty coatings; Fertilizers; Prescription pharmaceuticals.
+- specialty_commodity_positioning (Specialty / commodity positioning). Examples: Customer-qualified specialty formulations; Bulk commodity chemicals.
+- formulation_synthesis_complexity (Formulation / synthesis complexity). Examples: Custom additive formulation; Multistep chemical synthesis; Standardized bulk production.
+- patent_exclusivity_dependence (Patent / exclusivity dependence). Examples: Patented active ingredient; Process know-how; Product-exclusivity expiry in 2029.
+- product_specific_regulatory_route (Product-specific regulatory route). Examples: TSCA chemical compliance; REACH registration; FDA-approved medicine.
+- r_d_intensity (R&D intensity). Examples: Annual R&D: 6% of sales; Annual R&D: 18% of sales.
+- clinical_commercialization_stage_pharma (Clinical / commercialization stage [pharma]). Examples: Phase II trial program; Phase III registration study; Commercialized medicine.
+- biologic_small_molecule_platform_pharma (Biologic / small-molecule platform [pharma]). Examples: Monoclonal antibodies; Small molecules; Vaccines.
+- manufacturing_supply_model_pharma (Manufacturing / supply model [pharma]). Examples: Own GMP drug manufacturing; Outsourced API manufacturing; Contract development and manufacturing.
+
+Evidence:
+<source id="P1">
+[P1.1] Church and Dwight | Consumer Goods | Home and Personal Care Products
+[P1.2] Church and Dwight has brought you many products for home goods, personal care, health, and global consumer products all around the world.
+[P1.3] CHURCH & DWIGHT CO., INC.
+[P1.4] At Church & Dwight, we study consumers, uncover insights, and turn those insights into new products.
+[P1.5] Find your role by exploring open positions.
+[P1.6] Read an overview of the steps involved when you apply for a job with us.
+[P1.7] With opportunities worldwide, you can find your place at Church & Dwight.
+[P1.8] What to expect when you apply to join us.
+[P1.9] We would love to hear about it.
+[P1.10] Connect with us about your idea or innovation.
+[P1.11] We’re always ready to hear great ideas.
+[P1.12] We’re committed to a more sustainable world.
+[P1.13] Read our latest performance report.
+[P1.14] Explore our quality and sustainability standards.
+</source>
+
+<source id="P2">
+[P2.1] Consumer Packaged Goods | Church and Dwight Company Overview
+[P2.2] We are one of the fastest growing Consumer Packed Goods companies that has outpaced competition with brands like Arm & Hammer, First Response, and more.
+[P2.3] Church & Dwight Co., Inc. Overview
+[P2.4] Welcome to Church & Dwight.
+[P2.5] We’ve been making products that millions enjoy and rely on.
+[P2.6] Added to the S&P 500 our brands are instantly recognizable across three primary segments:
+[P2.7] Our Consumer Domestic segment includes our thirteen power brands, ARM & HAMMER™, Trojan™, First Response™, Nair™, Spinbrush™, OxiClean™, Orajel™, Vitafusion™, Batiste™, XTRA™, WaterPik™, Flawless™ and ZICAM™.
+[P2.8] Our Consumer International segment sells a variety of household and personal care products across Canada, France, Australia, the United Kingdom, Mexico, and China.
+[P2.9] Our Specialty Products segment is the largest U.S. producer of sodium bicarbonate, used in a variety of industrial, institutional, medical, food and specialty cleaning applications. Additionally, in this segment we provide a growing range of animal agriculture productivity and wellness products.
+[P2.10] We're a growing business, a close-knit team, and committed to providing products consumers can rely on today, tomorrow and for many years to come.
+[P2.11] SEE ALL OF OUR BRANDS
+</source>
+
+<source id="P3">
+[P3.1] Church & Dwight Brands | Home, Health, Fabric & Personal Care Products
+[P3.2] Find out about our Consumer Brands for fabric care, health and well-being and more. Also see our Business to Business Areas like Armand and Armex products.
+[P3.3] ARM & HAMMER™ Animal Nutrition
+[P3.4] ARM & HAMMER™ Commercial & Professional
+[P3.5] Learn about our commitment to bringing your family safe, effective products to use throughout your home.
+[P3.6] Use our easy search tool to find safety and handling information for all of our products.
+[P3.7] Subscribe to our brand emails for first access to savings, new product announcements, sweepstakes and more.
+</source>

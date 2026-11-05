@@ -1,0 +1,75 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Olin Corporation (www.olin.com)
+Sector: Manufacturing (industrial, materials, electronics)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- manufacturing_type (Manufacturing type): How it makes products. Example: discrete: builds individual units on assembly lines. Any that apply of: discrete; process; assembly; outsourced / fabless.
+- production_model (Production model): Built for an order or for stock. Example: make-to-order: each unit configured to the customer's order. Exactly one of: make-to-order; make-to-stock; both.
+- product_complexity (Product complexity): How engineered its products are. Example: engineered: custom-configured equipment. Exactly one of: commodity; engineered; precision / high-spec.
+- production_role (Production role): Where it sits in its customers' supply chain. Example: final manufacturer: sells finished units to contractors. Any that apply of: final manufacturer / OEM; tier 1 supplier; tier 2 or component supplier; contract manufacturer; materials producer.
+- end_market_exposure (End-market exposure): Which end markets drive demand. Example: industrial: factories and commercial buildings. Any that apply of: aerospace and defense; automotive and transportation; industrial; construction and buildings; energy; electronics and semiconductors; healthcare and life sciences; consumer; agriculture; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Olin® Corporation
+[P1.2] Olin Corporation is a global manufacturer and distributor of chemical products and a leading U.S. manufacturer of ammunition. Our worldwide commitment to continuous innovation, superior safety and exceptional service ensures customer success throughout the chemical value chain and beyond.
+[P1.3] We deliver essential materials and solutions that enhance and protect lives.
+[P1.4] Discover how Olin Epoxy can help you deliver extraordinary results.
+[P1.5] Learn about the American Legend in ammunition and 150+ years of success.
+[P1.6] We passionately focus on generating value for customers, investors, and our communities as we methodically, safely, and responsibly deliver essential materials and solutions that enhance and protect lives.
+[P1.7] Olin offers substantial value growth through our essential solutions and strong market positions, driven by a strategic value-first approach that maximizes our unique integration capabilities.
+[P1.8] Stay informed with corporate updates and news.
+</source>
+
+<source id="P2">
+[P2.1] About Olin - Olin® Corporation
+[P2.2] We are OLIN and this is our story.
+[P2.3] From our beginnings in East Alton to the world’s No. 1 chlorine producer, we are a success story more than 130 years in the making.
+[P2.4] From our beginnings in East Alton to the world’s leading producer of chlorine and small caliber ammunition, we are a success story more than 130 years in the making.
+[P2.5] HUMBLE BEGINNINGS TO GLOBAL SUCCESS
+[P2.6] Olin Corporation began as a small blasting powder supplier in East Alton, Illinois. Following a few decades of success, along with some fruitful acquisitions, Olin has grown and expanded to encompass three business units —Olin Chlor Alkali Products & Vinyls, Olin Epoxy, and Winchester Ammunition.
+[P2.7] Largest producer of small caliber ammunition
+[P2.8] Global chlor alkali producer with largest chlorine capacity
+[P2.9] Global producer of membrane caustic soda and chlorinated organics
+[P2.10] Global supplier of epoxy materials
+[P2.11] North American seller of chlorine, bleach, and hydrochloric acid
+[P2.12] in caustic, epoxy and chlorinated organics
+[P2.13] chlorine envelope of any North America producer
+[P2.14] Olin’s success is grounded in its commitment to operating with integrity every day.
+[P2.15] We safely and reliably deliver essential materials
+[P2.16] We act with integrity, always doing what is right
+[P2.17] Business Partner Code of Conduct
+[P2.18] Olin expects its distributors, suppliers, and business partners to uphold the same standards of integrity in their business dealings.
+[P2.19] If you have any questions or concerns, please reach out to:
+[P2.20] The Olin Help-Line is a confidential, 24-hour telephone and Internet reporting service to ask questions, get advice or raise a concern about potential violations of the law or our Code. If you are an Olin employee, please reach out to your supervisor.
+</source>
+
+<source id="P3">
+[P3.1] Products Improving Our World - Olin® Corporation
+[P3.2] Discover how Olin products enable a healthier, safer, and more productive world.
+[P3.3] OLIN ALLYL CHLORIDE & EPICHLOROHYDRIN
+[P3.4] Manufactured in Stade & Freeport, these are critical ingredients for wastewater treatment, protecting our health and ecosystems.
+[P3.5] Manufactured in Becancour, Charleston, Freeport, McIntosh, Niagara Falls, Plaquemine, & St. Gabriel, this is a critical ingredient for safer drinking water.
+[P3.6] Produced in Baltringen, Freeport, Guarujá, Pisticci, Rheinmunster, Roberta, Stade, and Zhangjiagang, these provide reliable corrosion resistance and concrete protection for longer-lasting infrastructure.
+[P3.7] Products manufactured in our Baltringen, Freeport, Rheinmunster, Roberta, and Stade facilities are mission-critical ingredients for Composite Pressure Vessels, which safely transport and store green energy sources like hydrogen.
+[P3.8] Made in our Freeport & Stade facilities, this is used to make chemicals critical to the operation of wastewater treatment plants in most major cities.
+[P3.9] Manufactured in Plaquemine & Stade, this is used in brake degreasers to remove dust and debris from brake pads and rotors, providing safer stopping distances.
+[P3.10] Produced in Charleston, Tennessee, Olin’s KOH is used in deicing fluids to protect aircraft surfaces from ice accumulation for safer air travel.
+[P3.11] Made in our Charleston, Tennessee, facility to help create record-setting harvests.
+[P3.12] Produced in Becancour, Charleston, Freeport, McIntosh, Niagara, Plaquemine, & St. Gabriel, this is used to create the liquid-absorbing gel in diapers for improved sanitation and comfort.
+[P3.13] A key ingredient used to make insulin for diabetes medication is produced only by Olin in our Stade, Germany facility.
+</source>

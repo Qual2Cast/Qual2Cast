@@ -1,0 +1,126 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: ZoomInfo Technologies Inc. (www.zoominfo.com)
+Sector: Software and internet
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- software_category (Software category): What the software does. Example: HR and payroll: payroll, benefits and time tracking. Any that apply of: ERP and finance; HR and payroll; CRM, marketing and sales; cybersecurity; data, analytics and AI; IT and developer infrastructure; collaboration and content; industry-specific (vertical) software; payments and fintech; consumer internet and marketplaces; IT services and consulting; other.
+- deployment_model (Deployment model): How the software is delivered. Example: SaaS: cloud subscription. Exactly one of: SaaS / cloud; on-premise; hybrid; not applicable (services or internet).
+- customer_size (Customer size): Its typical customer. Example: mid-market: employers with tens to a few thousand staff. Any that apply of: consumers; SMB; mid-market; enterprise; government.
+- product_architecture (Product architecture): One product or a suite. Example: platform: payroll, HR, time and benefits on one system. Exactly one of: platform / suite; point solution; API / infrastructure.
+
+Evidence:
+<source id="P1">
+[P1.1] ZoomInfo: The #1 GTM Platform - Sales AI for Lead Generation
+[P1.2] ZoomInfo is the #1 GTM Platform: Marketing and sales AI plus the best B2B data. All-in-one lead generation, prospecting, market intelligence, and ABM software.
+[P1.3] GTM starts with the best B2B data
+[P1.4] Power every stage of your GTM motion with clean, accurate, compliant, and actionable B2B data. Expand your total addressable market (TAM), prioritize high-fit accounts, and connect with decision-makers faster.
+[P1.5] Find your next best customers faster. Use firmographic, technographic, and intent data to uncover high-potential segments and prioritize outreach based on buying signals and revenue potential.
+[P1.6] Connect with the people who matter most. Access decision-makers, org charts, and real-time intent insights to personalize your outreach, boost response rates, and move deals forward, faster.
+[P1.7] Keep your funnel moving. Automatically route leads to the right reps based on account fit, territory, and buying stage. Sync enriched data to your CRM and trigger real-time follow-up workflows.
+[P1.8] “ ZoomInfo data drives 39% of pipeline and saves reps 11+ hours weekly. ” Seismic
+[P1.9] Grow, retain, and win more with every customer
+[P1.10] Use ZoomInfo’s AI-driven account intelligence to identify expansion opportunities, uncover new stakeholders, and remove friction from every stage of the deal cycle.
+[P1.11] Leverage AI to uncover strategic intelligence on your accounts - key decision-makers, org changes, pain points and usage trends - all in one view.
+[P1.12] Find new revenue paths by surfacing hidden stakeholders, uncovering multithreaded buying groups, and identifying whitespace within existing customers.
+[P1.13] Accelerate deals with AI-guided workflows that reduce manual effort. Equip your team with the context, content, and next-best actions needed to grow deals faster.
+[P1.14] “ ZoomInfo helped grow revenue by 300% in just one year. ” Zoom
+[P1.15] Maximize rep productivity with clean data and smart automation
+[P1.16] Drive more pipeline with less manual work. ZoomInfo helps you enrich data at scale, automate sales processes, and prioritize high-value opportunities - so your reps can spend more time selling.
+[P1.17] Automatically enrich and cleanse contact and company records across your tech stack - not just your CRM. Keep your data accurate, up-to-date, and always sales-ready.
+[P1.18] Build smarter territories using real-time firmographic and intent signals. Prioritize the right accounts in the right regions, and adjust quickly as markets shift.
+[P1.19] Use AI-powered scoring and buying signals to surface accounts most likely to convert. Focus reps on the deals that matter most - at the right time.
+[P1.20] “ Teams using ZoomInfo automate 30% more sales tasks. ” Salesloft
+[P1.21] Discover how ZoomInfo empowers revenue teams worldwide to grow faster at scale
+[P1.22] ZoomInfo is an all-in-one AI GTM Platform that helps B2B sales, marketing, RevOps, and customer success teams find, win, and grow business. It combines verified data on 500M+ contacts and 100M+ companies with the GTM Context Graph, AI agents that act on it, and access from any tool your team already uses. ZoomInfo was is headquartered in Vancouver, Washington, and trades on Nasdaq as GTM.
+[P1.23] Sales, marketing, RevOps, customer success, and recruiting teams use ZoomInfo, along with developers building AI agents. Customers range from fast-growing startups to 8 of the 10 largest companies in the world and more than half of the Fortune 500.
+[P1.24] Free to start with consumption credits based on usage. ZoomInfo doesn't charge by fixed seat tiers: teams pay for the credits they use, so cost scales with how much data and how many workflows they run. ZoomInfo Lite is a permanent free plan with no credit card required. See ZoomInfo pricing for current details.
+[P1.25] Yes. ZoomInfo Lite is a permanent free plan that requires no credit card and no commitment, and you can start a free trial of the full platform. Developers can also try ZoomInfo data headlessly for free through GTM.AI.
+[P1.26] ZoomInfo builds its data from public web sources and company websites, SEC and regulatory filings, job postings, and a contributory network of business professionals. AI handles deduplication, and 300+ human researchers verify records. ZoomInfo covers professionals in their business capacity, not consumers, and processes 1.5B+ data points daily. How ZoomInfo gets its data.
+[P1.27] Yes. ZoomInfo processes professional contact data under GDPR's legitimate-interest basis, honors data subject rights, and holds ISO 27001, ISO 27701, SOC 2 Type II, TRUSTe GDPR, and TRUSTe CCPA certifications. Details are in the ZoomInfo Trust Center.
+[P1.28] Yes. AI runs through every layer of ZoomInfo. The GTM Context Graph reasons across ZoomInfo data, your CRM, conversations, and buying signals to show why accounts are moving. GTM Workspace gives sellers AI agents for account research, meeting prep, and deal prioritization. Agent Teams coordinates specialized agents that run complete GTM plays, such as reactivating a champion who changed jobs, within the approvals and limits your team sets.
+[P1.29] Yes. GTM.AI gives developers and AI agents headless access to ZoomInfo data and the GTM Context Graph through an API, CLI, and MCP server, and you can try it for free. The ZoomInfo MCP server connects Claude, ChatGPT, and custom agents to verified ZoomInfo data.
+[P1.30] Most tools handle one slice of go-to-market work: a contact list, an intent feed, or an AI writing assistant. ZoomInfo connects verified data on 500M+ contacts and 100M+ companies, the GTM Context Graph, which explains why an account is moving rather than just flagging it, and AI agents that act on it across sales, marketing, and RevOps. See how ZoomInfo compares with Apollo.io, Cognism, and Lusha.
+[P1.31] Yes. ZoomInfo integrates natively with Salesforce, HubSpot, and Microsoft Dynamics 365, plus 120+ sales engagement, marketing automation, and data warehouse tools, including Outreach, Salesloft, Marketo, and Snowflake. AI assistants such as Claude and ChatGPT connect through the ZoomInfo MCP server. See all integrations.
+</source>
+
+<source id="P2">
+[P2.1] ZoomInfo Sales - B2B Sales Prospecting Software
+[P2.2] ZoomInfo Sales is B2B sales prospecting software that accelerates your pipeline & revenue by identifying your ideal customer profile & ready-to-buy prospects
+[P2.3] Access 420M+ global contacts including 120M+ direct dials and 145M+ companies to define and filter your target market. Build precise lists using 300+ attributes such as technology stack and funding data, with CRM integration and automatic data updates to keep your records current.
+[P2.4] Prioritize accounts showing buying signals
+[P2.5] Track website visitors and identify accounts researching solutions like yours. Surface companies with high intent scores based on content consumption, technology signals, and behavioral patterns. Focus outreach on accounts ready to engage.
+[P2.6] Export prospects to your CRM in one click. Sync records automatically, trigger next steps, and connect with your existing sales engagement tools to keep outreach consistent and up to date.
+[P2.7] Define markets and discover buyers
+[P2.8] Reach your next best customer with AI-driven insights, buying signals, and automated engagement.
+[P2.9] Reach decision-makers via our B2B contact database with over 70M phone numbers and 174M-plus verified email addresses.
+[P2.10] Identify prospects at the beginning of the buyer’s journey by tracking companies researching solutions like yours.
+[P2.11] Discover and connect with decision-makers from companies exploring your business website.
+[P2.12] Analyze customer interactions, understand why a deal is won or lost, and forecast sales with confidence.
+[P2.13] Build and execute multi-touch sales cadences with our direct phone dialer and email tool.
+[P2.14] Act fast on market signals, from buyer intent to tech installations, with automated outreach and sales activities.
+[P2.15] How revenue teams outperform competitors
+[P2.16] Increase your team’s productivity and growth. Save time prospecting and exponentially expand reach by providing more contacts with exceptional accuracy.
+[P2.17] Drive collaboration across sales and supporting organizations, resulting in improved customer experiences and retention.
+[P2.18] Comprehensive sales intelligence solutions to maintain database hygiene, optimize processes, and streamline workflows so sales teams operate at peak performance.
+[P2.19] “That combination of our internal CRM data, external signals, and the AI chatbot that’s given all that context has helped us craft very specific account- and persona-based messages.
+[P2.20] And people have responded to them right away,”
+[P2.21] Innovating the future of sales
+[P2.22] ZoomInfo Copilot delivers first-mover advantage. Sellers can engage faster knowing which accounts are ready to listen, with better messaging from interactive chat summaries and better connections with AI-scripted emails to achieve higher win rates.
+[P2.23] Learn how our customers use ZoomInfo Sales to find new opportunities, engage the right buyers at the right time, and collaborate across every customer interaction.
+[P2.24] Leverage buyer intent signals, web activity, fit scoring, ZoomInfo’s Chrome extension, and other amazing features to precisely and quickly identify the most likely-to-buy prospects.
+[P2.25] Enrich lead data and create signal-driven workflows to automatically engage your customer, integrated with your customer engagement platform. Never miss a chance to act on a hot lead.
+[P2.26] Make every interaction count by using AI to analyze customer calls, meetings, and emails. Drive collaboration across the customer experience to improve customer adoption, retention, and growth.
+[P2.27] Empower your teams to bring your GTM strategy to life with plug-and-play and customizable integrations that bring best-in-class B2B intelligence directly to your tech stack.
+[P2.28] Here are just a few ways multiple customers use ZoomInfo to find, acquire, and grow customers.
+[P2.29] Higher customer engagement and retention
+[P2.30] “With Chorus by ZoomInfo, we know exactly why a customer purchased, what the use case is, and how that customer wants to be successful.”
+[P2.31] Grew pipeline by over 50%
+[P2.32] “We not only have access to decision-makers, but we’re armed with real-time buying signals that allow us to uncover and prioritize sales-ready prospects.”
+[P2.33] 14x increase in MQL to Opp rate
+[P2.34] “There is really no other option out there, ZoomInfo is simply the best tool in the market. It has it all and does it all.”
+[P2.35] Software that helps sales teams find, qualify, and contact potential B2B buyers using company data, contact data, and buying signals. ZoomInfo fits this use case by combining verified B2B data with real-time market and intent signals.
+[P2.36] It defines ideal customers, finds high-fit accounts, identifies decision-makers, and supports outreach using data instead of manual research. ZoomInfo supports this by unifying prospecting data, buyer intent, and execution workflows in one platform.
+[P2.37] Data quality depends on continuous verification and refresh of contact and company records. ZoomInfo emphasizes data accuracy through large-scale verification, data enrichment, and real-time updates.
+[P2.38] Yes. Most platforms integrate with CRMs to sync contacts, enrich records, and surface insights. ZoomInfo integrates directly with major CRMs to keep prospecting data aligned with sales workflows.
+[P2.39] Flat fee pricing offers predictable costs and unrestricted usage, while credit models limit volume. ZoomInfo uses platform-based access rather than per-credit constraints, supporting continuous prospecting.
+[P2.40] Core features include contact and company data, search filters, buyer intent, and workflow automation. ZoomInfo adds intent signals, website visitor data, conversation intelligence, and automated actions.
+[P2.41] ZoomInfo is designed for fast CRM integration and phased rollouts, supported by real customer implementations, to reduce transition time.
+</source>
+
+<source id="P3">
+[P3.1] Case Studies | Customer Success | ZoomInfo
+[P3.2] See how companies like yours use ZoomInfo to achieve successful business outcomes.
+[P3.3] Check out the case studies below to see how companies like yours use ZoomInfo to achieve successful business outcomes.
+[P3.4] hours saved per week thanks to ZoomInfo
+[P3.5] higher conversion rates on top-scoring accounts
+[P3.6] Ad Campaign Execution & ABM
+[P3.7] File Sharing & Content Management
+[P3.8] It’s Our Business to Grow Yours
+[P3.9] Get the B2B data and software you need to connect with and close your most valuable buyers — all in one operating system.
+[P3.10] We help multiple customers find, acquire, and grow customers.
+[P3.11] A data-driven playbook is the biggest difference between the average and the highest performing company.
+[P3.12] Head of B2B Sales, Reality Labs, Meta
+[P3.13] Without ZoomInfo, it would be extremely difficult — if not impossible — to achieve our business objectives. Without it, we wouldn’t be able to understand the market, have the right contact data, and make meaningful connections.
+[P3.14] Senior Manager of Sales Technology Enablement, Smartsheet
+[P3.15] I give a lot of credit to the data services team at ZoomInfo. They’ve done really a great job working with us to get us what we need.
+[P3.16] Head of Sales Data Science, Snowflake
+[P3.17] ZoomInfo case studies highlight a range of B2B companies across industries like software, manufacturing, healthcare, and professional services.
+[P3.18] Case studies highlight measurable success, including an average 100% increase in win rates, 70% reduction in marketing spend, and a 63% boost in productivity. Driven by faster pipeline growth, reduced prospecting time, higher conversion rates, and improved data quality.
+[P3.19] Yes, you can browse and filter case studies by industry, company size, and solution type to find relevant success stories.
+[P3.20] Yes. All case studies are developed in collaboration with the customer and are reviewed for accuracy before publication.
+[P3.21] Many case studies include details on the specific products, integrations, and workflows the customer used — or you can <a href="https://www.zoominfo.com/request-demo">request a demo</a> to learn more.
+</source>

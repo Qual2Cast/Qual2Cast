@@ -1,0 +1,68 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: CVR Partners, LP (www.cvrpartners.com)
+Industry (SIC 28): Chemicals & Allied Products
+About this industry group: This major group includes pharmaceuticals and biological products as well as industrial chemicals. Use clinical-stage and drug-platform extensions only for the relevant life-science business; do not impose drug approval or patent dependence on all commodity chemicals.
+
+Facets:
+- chemical_life_science_product_family (Chemical / life-science product family). Examples: Specialty coatings; Fertilizers; Prescription pharmaceuticals.
+- specialty_commodity_positioning (Specialty / commodity positioning). Examples: Customer-qualified specialty formulations; Bulk commodity chemicals.
+- formulation_synthesis_complexity (Formulation / synthesis complexity). Examples: Custom additive formulation; Multistep chemical synthesis; Standardized bulk production.
+- patent_exclusivity_dependence (Patent / exclusivity dependence). Examples: Patented active ingredient; Process know-how; Product-exclusivity expiry in 2029.
+- product_specific_regulatory_route (Product-specific regulatory route). Examples: TSCA chemical compliance; REACH registration; FDA-approved medicine.
+- r_d_intensity (R&D intensity). Examples: Annual R&D: 6% of sales; Annual R&D: 18% of sales.
+- clinical_commercialization_stage_pharma (Clinical / commercialization stage [pharma]). Examples: Phase II trial program; Phase III registration study; Commercialized medicine.
+- biologic_small_molecule_platform_pharma (Biologic / small-molecule platform [pharma]). Examples: Monoclonal antibodies; Small molecules; Vaccines.
+- manufacturing_supply_model_pharma (Manufacturing / supply model [pharma]). Examples: Own GMP drug manufacturing; Outsourced API manufacturing; Contract development and manufacturing.
+
+Evidence:
+<source id="P1">
+[P1.1] Welcome to CVR Partners - CVR Partners, LP
+[P1.2] CVR Partners is a growth-oriented company focused on producing nitrogen fertilizer to help serve the needs of a growing population
+[P1.3] Annual Report & Proxy Information
+[P1.4] Reaching Out to Our Communities
+[P1.5] Product and Safety Data Sheets
+[P1.6] CVR Partners ( CVR Partners)
+[P1.7] We put Safety first, care for our Environment and require high business ethics and Integrity consistent with our Code of Ethics & Business Conduct. We embrace Corporate Citizenship as proud members of and good neighbors to the communities where we operate. We believe in Continuous Improvement for individuals to achieve their maximum potential through teamwork, diversity and personal development.
+[P1.8] 2024 Environmental, Social & Governance Report Learn More
+</source>
+
+<source id="P2">
+[P2.1] Who We Are - CVR Partners, LP
+[P2.2] We are a growth-oriented limited partnership formed by CVR Energy, Inc., to own, operate and grow our nitrogen fertilizer business. Our nitrogen fertilizer manufacturing facilities, which primarily produce ammonia and urea ammonium nitrate (UAN) fertilizers, are located in Coffeyville, Kansas, and East Dubuque, Illinois.
+[P2.3] Our Coffeyville plant is the only such operations in North America that uses a petroleum coke gasification process to make hydrogen, a key ingredient in its manufacturing process. Our East Dubuque nitrogen fertilizer plant uses natural gas as its feedstock to produce nitrogen fertilizer. our fertilizer facilities produced a combined 761,000 tons of ammonia, of which 243,000 net tons were available for sale, while the rest was upgraded to other fertilizer products, including 1,174,000 tons of UAN.
+</source>
+
+<source id="P3">
+[P3.1] Product and Safety Data Sheets - CVR Partners, LP
+[P3.2] Coming Soon: New Data Sheets for Urea Solid and Carbon Dioxide (CO2)
+[P3.3] Product Data Sheets and Safety Data Sheets (SDS) are listed below for products from East Dubuque Nitrogen Fertilizers and Coffeyville Resources Nitrogen Fertilizers.
+[P3.4] Simplest form of nitrogen fertilizer and feedstock for other nitrogen-based fertilizers
+[P3.5] Easy to use; highest concentration of nitrogen for direct application; pH control in a variety of industrial applications
+[P3.6] SDS Fertilizer Grade Data Sheet Industrial Grade Data Sheet
+[P3.7] Delivers nitrogen-rich benefits; no need to pressurize or refrigerate when transporting
+[P3.8] Premium curtain granulation dry granular for agriculture
+[P3.9] Curtain granulation allows for more consistent spherical sizing
+[P3.10] SDS Midsize Granular Data Sheet Coarse Granular Data Sheet
+[P3.11] Liquid for use in power, ethanol and diesel emissions markets
+[P3.12] Power, ethanol and diesel emissions markets
+[P3.13] SDS 32% Data Sheet 32% Spec Sheet 40% Data Sheet 50% Data Sheet 50% Spec Sheet
+[P3.14] Gaseous product co-manufactured with ammonia
+[P3.15] Converted into purified liquid CO2 for food and beverage industry. Also used in dry ice manufacturing and urea production
+[P3.16] High-purity urea solution used to reduce NOx emissions in diesel vehicles
+[P3.17] Reduces NOx emissions in diesel vehicles.
+[P3.18] Nitric acid in liquid form
+[P3.19] Metal finishing, industrial sanitation and commercial blends
+</source>

@@ -1,0 +1,65 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Chemed Corporation (www.chemed.com)
+Industry (SIC 80): Health Services
+About this industry group: Use setting-specific units: visits, discharges, staffed beds and dialysis stations are not interchangeable. Distinguish an organization delivering medical care from one only underwriting medical insurance. Provider/insurer boundary.
+
+Facets:
+- healthcare_provider_setting (Healthcare-provider setting). Examples: Hospital; Outpatient clinic; Home-health provider.
+- clinical_specialty (Clinical specialty). Examples: Orthopedics; Oncology; Primary care.
+- patient_activity_volume (Patient activity / volume). Examples: 200,000 outpatient visits/year; 15,000 inpatient discharges/year; 500,000 home-health visits/year.
+- payer_revenue_mix (Payer revenue mix). Examples: 40% commercial insurance; 35% Medicare; 20% Medicaid.
+- payment_reimbursement_model (Payment / reimbursement model). Examples: Fee-for-service; Case-based bundled payment; Per-member capitation.
+- setting_specific_capacity (Setting-specific capacity). Examples: 250 staffed hospital beds; 25 clinics; 100 outpatient treatment stations.
+- patient_acuity_case_mix (Patient acuity / case mix). Examples: Routine outpatient visits; High-acuity inpatient care; Reported case-mix index.
+- clinical_operating_quality (Clinical operating quality). Examples: 30-day readmission rate; Hospital-acquired infection rate; Documented patient-safety measure.
+
+Evidence:
+<source id="P1">
+[P1.1] Company Overview | Chemed Corporation
+[P1.2] VITAS is one of the nation's largest providers of end-of-life hospice care and Roto-Rooter is the nation's leading provider of plumbing, drain cleaning and water cleanup services.
+[P1.3] UnitedHealthcare creates and publishes the Machine-Readable Files on behalf of Chemed Corporation. To link to the Machine-Readable Files, please click on the URL provided: transparency-in-coverage.uhc.com
+</source>
+
+<source id="P2">
+[P2.1] About Us | Chemed Corporation
+[P2.2] The Company’s day to day operating businesses are managed on a decentralized basis. There are few integrated business functions between the operating units and Chemed (such as sales, marketing or purchasing). Since its inception, the Company has engaged in twelve significant acquisitions or divestitures of diverse business units.
+[P2.3] Chemed conducts its business operations in two segments: the VITAS segment (“VITAS”) and the Roto-Rooter segment (“Roto-Rooter”). Roto-Rooter provides plumbing, drain cleaning, excavation, water restoration and other related services to residential and commercial customers.
+[P2.4] VITAS Healthcare Corporation is one of the nation's largest, long-standing mission-focused providers of end-of-life are services. Based in Miami, Florida, VITAS operates 59 hospice programs in 15 states (Alabama, California, Connecticut, Delaware, Florida, Georgia, Illinois, Kansas, Missouri, New Jersey, Ohio, Pennsylvania, Texas, Virginia, and Wisconsin) and the District of Columbia. Please visit the VITAS website at www.vitas.com for more information.
+[P2.5] Roto-Rooter Plumbing and Water Cleanup
+[P2.6] Roto-Rooter offers an ever-expanding variety of plumbing repair and maintenance, drain cleaning and water cleanup services to homeowners, businesses and municipalities. Roto-Rooter operates multiple company-owned branches and independent contractors and 345 franchisees. The total Roto-Rooter system offers services to more than 90% of the U.S. population and approximately 30% of the Canadian population. Please visit the Roto-Rooter website at www.rotorooter.com for more information.
+</source>
+
+<source id="P3">
+[P3.1] Documents & Charters | Chemed Corporation
+[P3.2] Nominating Committee Charter 15.1 KB
+[P3.3] Employee Complaint Procedures – Accounting & Auditing 113.3 KB
+[P3.4] Political Spending Policies 113.4 KB
+[P3.5] Human Rights Policy 115.6 KB
+[P3.6] Corporate Governance Principles 61 KB
+[P3.7] Policies on Business Ethics 91.1 KB
+[P3.8] Semiannual Political Spending Report 1st half of 2026 388.8 KB
+[P3.9] Semiannual Political Spending Comprehensive Report 2025 399.1 KB
+[P3.10] Semiannual Political Spending Report 1st half of 2025 396.3 KB
+[P3.11] Semiannual Political Spending Comprehensive Report 2024 402.2 KB
+[P3.12] Semiannual Political Spending Report 1st half of 2024 386.7 KB
+[P3.13] Semiannual Political Spending Comprehensive Report 2023 417.6 KB
+[P3.14] Semiannual Political Spending Report 1st half of 2023 537.9 KB
+[P3.15] Semiannual Political Spending Comprehensive Report 2022 658.9 KB
+[P3.16] Semiannual Political Spending Report 1st half of 2022 202.3 KB
+[P3.17] Semiannual Political Spending Comprehensive Report 2021 497.6 KB
+[P3.18] Sustainability Accounting Standards Board (SASB) Index Disclosures Report 2024 129.7 KB
+[P3.19] Environmental Social Governance (ESG) Report 15.9 MB
+</source>

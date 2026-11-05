@@ -1,0 +1,104 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: CCC Intelligent Solutions Holdings Inc. (www.cccis.com)
+Sector: Software and internet
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- software_category (Software category): What the software does. Example: HR and payroll: payroll, benefits and time tracking. Any that apply of: ERP and finance; HR and payroll; CRM, marketing and sales; cybersecurity; data, analytics and AI; IT and developer infrastructure; collaboration and content; industry-specific (vertical) software; payments and fintech; consumer internet and marketplaces; IT services and consulting; other.
+- deployment_model (Deployment model): How the software is delivered. Example: SaaS: cloud subscription. Exactly one of: SaaS / cloud; on-premise; hybrid; not applicable (services or internet).
+- customer_size (Customer size): Its typical customer. Example: mid-market: employers with tens to a few thousand staff. Any that apply of: consumers; SMB; mid-market; enterprise; government.
+- product_architecture (Product architecture): One product or a suite. Example: platform: payroll, HR, time and benefits on one system. Exactly one of: platform / suite; point solution; API / infrastructure.
+
+Evidence:
+<source id="P1">
+[P1.1] CCCIS - Cloud Platform for P&C Insurance Economy
+[P1.2] CCC cloud platform connects insurers, repairers, OEMs, and parts suppliers with AI-powered solutions for smarter claims and repair experiences.
+[P1.3] We’re shaping a world where life just works.
+[P1.4] Through purposeful innovation and the strength of our connections, our technology keeps lives moving forward when it matters most.
+[P1.5] Redefining What’s Possible in Claims & Repair
+[P1.6] Millions of times a year, auto accidents and injuries occur. When life brings the unexpected, CCC gets to work, uniting an entire industry – insurers, repairers, automakers, and more - helping them come together to get people back on the road and back to health. Watch the video for CCC's vision on making life just work for the P&C insurance economy.
+[P1.7] Every auto accident sets off a series of complex events that must be carefully orchestrated to get people back to their lives as quickly and seamlessly as possible. The CCC IX Cloud™ is the core of CCC’s technology. It integrates data and AI across our ecosystem to help insurers and repairers create workflows as dynamic and unique as the millions of claims and repairs they manage each year. The CCC IX Cloud builds on our SaaS expertise and data stewardship to bring intelligent experiences to life - experiences that are smarter, faster, and more seamless. Experiences that just work for everyone.
+[P1.8] The CCC IX Cloud: A Platform Built for Connection
+[P1.9] To create intelligent experiences, the CCC IX Cloud uses a combination of AI, data, and an event-driven architecture to put crucial insights into the hands of the right people at the right time. One connection to CCC effortlessly links you to 35,000+ businesses dedicated to restoring normalcy for consumers.
+[P1.10] Our solutions help insurers make more confident decisions earlier, creating intelligent claims experiences that are more connected for their employees and more compassionate for their policyholders.
+[P1.11] Our solutions help repairers run more efficient body shop businesses, while making repair decisions simpler and faster.
+[P1.12] Our solutions help auto manufacturers enhance their consumers’ repair experiences, while connecting them to the industry’s largest repair network.
+[P1.13] Our solutions help parts suppliers sell more parts, enabling them to digitally connect to tens of thousands of body shops sourcing and ordering replacement parts while writing estimates.
+[P1.14] CCC's unique combination of data, AI and network connections are what make Intelligent Experiences possible.
+[P1.15] Make faster, better-informed decisions with AI-infused solutions that make claims and repair just work.
+[P1.16] Connect to our network of more than 35,000 companies to accelerate innovation.
+[P1.17] Delivering Value with Our Trusted Partners
+[P1.18] Our collaborative network drives innovation through seamless integrations, secure data sharing, and industry-leading expertise. Together, we are shaping the future of auto claims and repair. Together, we make life just work.
+[P1.19] Our newest innovations are transforming the industry. Designed to drive efficiency and enhance customer experiences, these new solutions help insurers, repairers, and OEMs work smarter and stay ahead.
+[P1.20] From Surge to Stall: What's Really Driving the EV Market Reset
+[P1.21] The Rise of Low-Complexity Surgical Interventions in Auto Casualty BI Claims
+[P1.22] Marketing in the Era of AI: How It's Changing What Shops Can & Should Do
+[P1.23] CCC Intelligent Solutions and CREF Share Findings from New Study on Future Collision Repair Workforce
+[P1.24] CCC Experts & Forrester Guest Discuss the New Claims Advantage: Where CX, Efficiency, and Payments Converge
+[P1.25] A Closer Look at an Unexpected Trend
+[P1.26] Inside CCC's New White Paper: How AI is Transforming Auto Claims and Repair
+</source>
+
+<source id="P2">
+[P2.1] CCC IX Cloud Platform - Intelligent Auto Claims Technology
+[P2.2] Transform auto claims with CCC IX Cloud's AI-powered platform. Event-driven technology for insurers, repairers, and OEMs. Optimize experiences today.
+[P2.3] CCC IX Cloud ™: Innovating Intelligent Experiences
+[P2.4] The CCC Intelligent Experience (IX) Cloud™ is the core of CCC’s technology. It integrates data and AI across our ecosystem to help you create workflows as dynamic and unique as the millions of claims and repairs you manage each year. The CCC IX Cloud builds on our SaaS expertise and data stewardship. It brings intelligent experiences to life -- experiences that are smarter, faster, and more seamless. Experiences that just work for your customers, your employees and your business.
+[P2.5] The CCC IX Cloud connects businesses, data, and AI to create intelligent claims and repair experiences for everyone. Using event-driven technology, the IX Cloud converts data into insights and delivers them at the right time to the right people. Workflows can run concurrently instead of linearly, enabling new levels of speed and responsiveness, helping consumers get back on the road and back to health quickly.
+[P2.6] Githesh Ramamurthy on the CCC IX Cloud
+[P2.7] CCC Chairman and CEO Githesh Ramamurthy shares how the CCC IX Cloud platform is helping the industry deliver on crucial moments across the claims and repair experience.
+[P2.8] Through our IX Cloud innovation, CCC is helping the auto claims and repair industry transition from:
+[P2.9] Advanced optimization creates tailored experiences for each business to support both employees and customers.
+[P2.10] Data Points to Dynamic Insights
+[P2.11] At CCC, AI is applied broadly to data to surface insights to the right people at the right time across the claims and repair experience, helping users make faster, smarter decisions.
+[P2.12] One connection to CCC unlocks tens of thousands of connections across our ecosystem, providing you easier access to partners and driving efficiency and speed at every step.
+[P2.13] Routine Tasks to Talent Efficiency
+[P2.14] Automate routine tasks so your employees can minimize errors and delays and focus their time and effort where it’s needed most.
+[P2.15] CCC IX Cloud: Powering Your Solutions
+[P2.16] The CCC IX Cloud platform powers our three market-facing industry solutions: CCC ONE® for repair shops, CCC for Insurance, and OEM Net™ for auto manufacturers. Together, these platforms use our AI to create intelligent experiences across the claims and repair journey – helping you restore the vehicle and return drivers to health. All three integrate seamlessly with the IX Cloud, offering configurability without the need to replace or disrupt current workflows.
+[P2.17] CCC ONE is CCC’s total repair platform. It brings together everything you need to run your shop faster, better, and more profitably. The CCC ONE platform helps you maximize productivity, monitor quality, and communicate with your partners and customers.
+[P2.18] CCC for Insurance is CCC’s intelligent claims platform. It’s designed to deliver an optimized claims experience, regardless of complexity, and helps you turn your customer’s claim into a personalized, end-to-end journey that gets them back to normalcy quickly and seamlessly.
+[P2.19] CCC OEM Net is CCC’s solution for automakers, helping you support your drivers when they need you most. One connection gives you access to the largest community of collision repairers to grow and manage your certified network, expand parts performance, and deliver repair and diagnostics data to repairers’ fingertips, helping your partners execute safe, consistent repairs.
+[P2.20] Click below to read about CCC's intelligent experiences vision and IX Cloud technology.
+[P2.21] We're powering the next evolution of the P&C insurance economy.
+[P2.22] Partnering with global leaders to help shape the responsible and purposeful use of AI.
+</source>
+
+<source id="P3">
+[P3.1] About CCC - Leading Cloud Platform for P&C Insurance
+[P3.2] CCC turns crucial moments into intelligent experiences with AI-driven cloud technology for insurance, collision repair, and automotive industries.
+[P3.3] Turning Crucial Moments into Intelligent Experiences
+[P3.4] CCC is a leader in the auto claims and collision repair industry. We help insurers, repairers, automakers, parts suppliers, and others automate and streamline the auto claims and repair process. We provide the advanced tools and technology needed to improve operations and create better customer experiences. CCC helps our customers turn data into action and key moments into intelligent experiences. Our AI-powered technology, market-leading solutions, expansive industry network, and dedicated teams set us apart – it's why industry leaders consistently turn to CCC to fuel their growth.
+[P3.5] To shape a world where Life Just Works.
+[P3.6] To turn crucial moments into intelligent experiences. Through purposeful innovation and the strength of our connections, our technologies empower the people and industry relied upon to keep people's lives moving forward when it matters most.
+[P3.7] The following values have underpinned our 20+ years of consecutive growth.
+[P3.8] We put our customers at the heart of every decision we make.
+[P3.9] We will do right by you, always.
+[P3.10] We always find new ways to make life work better.
+[P3.11] We drive for results and do not stop until we achieve them.
+[P3.12] We seek out diverse ideas and create opportunities for everyone to succeed.
+[P3.13] We believe in the power of relationships at work and in our communities.
+[P3.14] SVP, Chief Human Resources Officer
+[P3.15] Chief Product Officer & Interim Chief Technology Officer
+[P3.16] SVP, Head of Automotive Partnerships
+[P3.17] SVP, Head of Insurance Partnerships
+[P3.18] SVP, Head of OEM Partnerships
+[P3.19] SVP & General Manager, China
+[P3.20] We’re honored that our efforts have been recognized with these prestigious awards.
+[P3.21] Make faster, better-informed decisions with our AI-driven platform that makes the claims and repair experience just work.
+[P3.22] Explore opportunities to grow with us.
+[P3.23] Stay informed on our financial performance and strategic growth.
+</source>

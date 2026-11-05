@@ -1,0 +1,58 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Ategrity Specialty Insurance Company Holdings (ategrity.com)
+Industry (SIC 63): Insurance Carriers
+About this industry group: Combined ratio is an underwriting measure for P&C operations, not a universal life-insurance profitability metric. Preserve gross/net, calendar/accident-year, catastrophe exclusions and the issuer’s expense-ratio basis. Life/annuity and health businesses need liability/benefit measures instead. NAIC terminology.
+
+Facets:
+- insurance_business_line (Insurance business line). Examples: Commercial P&C; Life and annuity insurance; Health insurance.
+- risk_underwriting_distribution_model (Risk underwriting / distribution model). Examples: Direct primary insurer; Reinsurer; Delegated underwriting with retained risk.
+- premium_exposure_mix (Premium / exposure mix). Examples: 60% commercial auto and 40% property premiums; Individual annuity-led sales.
+- combined_ratio_p_c_underwriting (Combined ratio [P&C underwriting]). Examples: Calendar-year combined ratio: 96%; Accident-year ratio excluding catastrophes: 91%, separately defined.
+- loss_lae_ratio_p_c_underwriting (Loss / LAE ratio [P&C underwriting]). Examples: Net loss and LAE / net earned premiums: 64%; Accident-year loss and LAE ratio: 60%.
+- medical_benefit_ratio_health_insurers (Medical benefit ratio [health insurers]). Examples: Medical benefits / premium revenue: 82%; Issuer-defined medical loss ratio: 85%.
+- reinsurance_catastrophe_protection (Reinsurance / catastrophe protection). Examples: Quota-share cessions; Excess-of-loss catastrophe cover; Retained catastrophe limit.
+- liability_duration_guarantees_life_and_annuity (Liability duration / guarantees [life and annuity]). Examples: Fixed deferred annuities; Variable annuities with guarantees; Long-duration protection liabilities.
+- investment_liability_matching (Investment / liability matching). Examples: Duration-matched bond portfolio; Interest-rate hedges for annuity guarantees; Separate-account investment assets.
+- regime_specific_solvency_measure (Regime-specific solvency measure). Examples: U.S. insurance RBC ratio, denominator identified; EU Solvency II coverage ratio.
+
+Evidence:
+<source id="P1">
+[P1.1] Ategrity - Welcome Homepage
+[P1.2] Welcome to Ategrity: Innovating E&S for Todayâs Generation of Agents and Brokers
+[P1.3] At Ategrity, we believe that insurance should be fast, intelligent, and effortless for agents and brokers. By leveraging advanced risk analysis and cutting-edge technology, we are making the underwriting process for small to medium-sized businesses smarter and more efficient. We deliver consistent, accurate solutions with minimal hassle.
+[P1.4] Experience the future of E&S insurance with a carrier designed to make your job easier.
+</source>
+
+<source id="P2">
+[P2.1] About Us - Ategrity
+[P2.2] At Ategrity, we believe that insurance should be fast, intelligent, and effortless for agents and brokers. By leveraging advanced risk analysis and cutting-edge technology, we are making the underwriting process for small to medium-sized businesses smarter and more efficient. This enables us to offer consistent, accurate solutions with minimal hassle.
+[P2.3] Our commitment to data-driven risk-taking and ease of use is matched with financial strength, a cornerstone of our partnersâ confidence in Ategrity. This strong foundation ensures we can continue to provide innovative solutions and exceptional service to our partners while adapting to the evolving needs of the market.
+[P2.4] Property and Casualty for SMBs
+[P2.5] Core Verticals: Construction, Daycare, Hotels/Motel, Real Estate, Restaurants, Retail
+[P2.6] Risk modeling & quantitative underwriting
+[P2.7] Advanced technology for rapid response
+</source>
+
+<source id="P3">
+[P3.1] Ategrity - Products
+[P3.2] Consistent Appetite. Intelligent Underwriting. Fast & Reliable Quotes.
+[P3.3] Curated coverage focusing on construction, real estate, hospitality, and retail.
+[P3.4] Protection for building, contents, and business income optimized for non-critical CAT risks.
+[P3.5] D&O, EPLI, Fiduciary & Crime coverage for private firms and non-profits.
+[P3.6] Specialized E&O coverage for professionals across diverse fields and industries.
+[P3.7] Specialized coverage for risks faced by traditional and emerging health service providers.
+[P3.8] E&O protection for technical and design professionals in construction and other industries.
+</source>

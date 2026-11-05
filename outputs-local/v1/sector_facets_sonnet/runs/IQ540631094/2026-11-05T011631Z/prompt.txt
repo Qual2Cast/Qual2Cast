@@ -1,0 +1,88 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Ranpak Holdings Corp. (www.ranpak.com)
+Sector: Manufacturing (industrial, materials, electronics)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- manufacturing_type (Manufacturing type): How it makes products. Example: discrete: builds individual units on assembly lines. Any that apply of: discrete; process; assembly; outsourced / fabless.
+- production_model (Production model): Built for an order or for stock. Example: make-to-order: each unit configured to the customer's order. Exactly one of: make-to-order; make-to-stock; both.
+- product_complexity (Product complexity): How engineered its products are. Example: engineered: custom-configured equipment. Exactly one of: commodity; engineered; precision / high-spec.
+- production_role (Production role): Where it sits in its customers' supply chain. Example: final manufacturer: sells finished units to contractors. Any that apply of: final manufacturer / OEM; tier 1 supplier; tier 2 or component supplier; contract manufacturer; materials producer.
+- end_market_exposure (End-market exposure): Which end markets drive demand. Example: industrial: factories and commercial buildings. Any that apply of: aerospace and defense; automotive and transportation; industrial; construction and buildings; energy; electronics and semiconductors; healthcare and life sciences; consumer; agriculture; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Ranpak - Eco Friendly Paper Packing Materials, Solutions & Equipment
+[P1.2] Ranpak is the first global 100% paper-based eco-friendly packing material & solutions provider.
+[P1.3] We’re proud to release our 2025 Sustainability & Impact Report
+[P1.4] Ranpak has made paper the foundation of our business.
+[P1.5] We believe in the power of paper
+[P1.6] Ranpak has made paper the foundation of our business. This renewable, recyclable, and biodegradable material can help to protect your packages, whatever your requirements. Ranpak’s packaging engineers can create solutions that meet and exceed your needs for sustainability, performance, and cost.
+[P1.7] Trusted By Leading Global Brands
+[P1.8] Unlock unrivaled ROI with Ranpak Automation.
+[P1.9] Transform your end-of-line operation with our modular, scalable, and data-driven solutions. Ranpak now offers a complete portfolio of automated packaging equipment designed to increase productivity, decrease cost, and maximize uptime.​
+[P1.10] Paper is changing packaging one box at a time.​
+[P1.11] Our 50+ year expertise in protective packaging means that our solutions can meet and exceed your needs for performance, cost savings, and sustainability. Explore our full range of solutions that are engineered to ensure optimal protection and made from 100% recyclable paper.​
+[P1.12] In-the-box packaging that’s good for business and the planet
+[P1.13] From small to large. Local to global. Start-up to enterprise
+[P1.14] NeoPharm reduces damages with 100% recyclable FillPak paper
+[P1.15] East Fork Pottery achieves <1% damage rate by wrapping with Geami
+[P1.16] Frive (formerly Lions Prep) keeps products cool for 48 hours with Climaliner
+[P1.17] We are now able to process all orders during our daily peaks with only four packing stations instead of 20.
+</source>
+
+<source id="P2">
+[P2.1] Eco-Friendly Packaging Company | Ranpak
+[P2.2] We create innovative solutions for protecting products in ways that benefit businesses, customers and the environment.
+[P2.3] Meet the first global producer of 100% sustainable, paper-based packaging.
+[P2.4] Our company was built on a revolutionary business model rooted in sustainability, innovation and service. You can discover the major milestones of our history when you read our 50th Anniversary eBook, available below:
+[P2.5] Our operations now span across North America, South America, Europe and Asia Pacific.
+[P2.6] Out-of-the box thinking. In-the-box engineering
+[P2.7] Our innovation team comprises the leading talent in packaging design and engineering. Together, we’re working toward a future where all packaging is sustainable, and every company is making significant positive impact for both the bottom line and the planet.
+[P2.8] View our maximum efficiency masterplan.
+[P2.9] Environmental responsibility is not a feature of Ranpak. It is embedded in the fiber of our foundation. For over 45 years, we have been a pioneer in packaging made exclusively from all-natural materials.
+[P2.10] We are on a mission to bring supply chains in balance with the environment.
+[P2.11] Learn how we’re tackling the plastic crisis.
+[P2.12] “I love the look of Geami and how elegant my products present themselves when the box is opened.”
+[P2.13] “WrapPak protects our products securely in boxes. Anything that can keep two bottles intact when shipped is hugely important.”
+[P2.14] “We have become more environmentally friendly by using Ranpak and we are seeing significant cost savings. Also, Ranpak’s paper packaging saves us time and manpower in packing our products.”
+[P2.15] Leading for the long term
+[P2.16] Contact a Ranpak Specialist to find the right solution for your company, products and industry.
+</source>
+
+<source id="P3">
+[P3.1] Paper Packaging Case Studies | Ranpak
+[P3.2] Learn how our paper expertise enables us to improve protection, efficiency, and sustainability across a broad spectrum of B2B and B2C packaging applications.
+[P3.3] Learn how we partner with our customers to build solutions.
+[P3.4] Dive into case examples of how our paper expertise enables us to consistently improve protection, efficiency, and sustainability across a broad spectrum of B2B and B2C packaging applications.
+[P3.5] Legally Addictive Extends Cooling Duration By >30% With Climaliner Plus
+[P3.6] Legally Addictive protects their shipments with fully recyclable paper cold chain liners.
+[P3.7] Medline Improves Order Cycle Time By More Than 50%, Reduces Material Costs
+[P3.8] Medline has deployed Ranpak’s Cut’it!™ EVO rightsizing machine and Form’it!™ case erector, providing a scalable end-of-line automation flow.
+[P3.9] Garden Supply Center Cuts Costs by 35% After Switching to Paper
+[P3.10] The power of paper helps protect fragile garden supplies while saving costs.
+[P3.11] Winc achieves 97% on-time and accurate delivery rate with automation
+[P3.12] Winc found an automation partner they could rely on. to maintain excellent customer experiences.
+[P3.13] Brilliant Fulfillment improves operational efficiency, achieves 5X ROI with Rabot
+[P3.14] Brilliant used Rabot to leverage computer vision and AI at the packing station
+[P3.15] Babydump optimizes labor and throughput by 4-5X with Ranpak Automation
+[P3.16] Babydump used automation to improve their branded unboxing experience.
+[P3.17] Helly Hansen triples throughput with Form’it! Case + Cut’it! EVO combination
+[P3.18] Helly Hansen automated their operations to deliver their products more sustainably.
+[P3.19] The UK’s highest rated meal plan service adopted paper-based packaging to keep meals safe and cool.
+[P3.20] CEWE packs up to 540 orders per hour with Flap’it!
+[P3.21] A leading photo and printing service found an automation solution perfect for packaging and protecting their products.
+</source>

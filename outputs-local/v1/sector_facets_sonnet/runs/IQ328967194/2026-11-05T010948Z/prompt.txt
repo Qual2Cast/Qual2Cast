@@ -1,0 +1,141 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Donnelley Financial Solutions, Inc. (www.dfinsolutions.com)
+Sector: Software and internet
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- software_category (Software category): What the software does. Example: HR and payroll: payroll, benefits and time tracking. Any that apply of: ERP and finance; HR and payroll; CRM, marketing and sales; cybersecurity; data, analytics and AI; IT and developer infrastructure; collaboration and content; industry-specific (vertical) software; payments and fintech; consumer internet and marketplaces; IT services and consulting; other.
+- deployment_model (Deployment model): How the software is delivered. Example: SaaS: cloud subscription. Exactly one of: SaaS / cloud; on-premise; hybrid; not applicable (services or internet).
+- customer_size (Customer size): Its typical customer. Example: mid-market: employers with tens to a few thousand staff. Any that apply of: consumers; SMB; mid-market; enterprise; government.
+- product_architecture (Product architecture): One product or a suite. Example: platform: payroll, HR, time and benefits on one system. Exactly one of: platform / suite; point solution; API / infrastructure.
+
+Evidence:
+<source id="P1">
+[P1.1] DFIN | Financial Risk, Compliance and Software Solutions
+[P1.2] We provide advanced financial solutions software, compliance tools, and global reporting support—empowering your business at every stage.
+[P1.3] Powerful Software. Dedicated Experts. All in one Solution.
+[P1.4] Solutions built for the way you work
+[P1.5] That's why DFIN gives you both — the software and dedicated expertise.
+[P1.6] Securely manage due diligence, transactions, and corporate information with DFIN Venue®. The Venue VDR is intentionally designed for the speed, confidence, and precision modern transactions demand. DFIN Active Intelligence™ extends these capabilities with AI Document Summaries and AI Document Translation, helping teams understand documents faster, accelerate multilingual review, and support secure, governed diligence workflows.
+[P1.7] Paired with DFIN Active Intelligence™ extends those capabilities with AI-powered analysis capabilities helping reporting teams accelerate content review, improve consistency, surface critical information, and generate first-pass drafts within established reporting workflows.
+[P1.8] Harness the power of our global financial solutions to navigate complex regulations across multiple jurisdictions. Arc Suite supports end-to-end operations for fund and insurance companies to keep you ahead of evolving global regulatory and compliance requirements, now powered by DFIN's AI tool, Active Intelligence™.
+[P1.9] Powering every stage of your corporate lifecycle
+[P1.10] DFIN is the finance solutions company you can trust at every phase—startup, growth, or transformation—ensuring compliance and efficiency.
+[P1.11] Choose your line of business
+[P1.12] Meet financial, regulatory, and ESG requirements accurately and securely with Excel-based, single-source data management, easy team collaboration and improved workflows.
+[P1.13] Venue secure VDR and data room services help streamline M&A diligence, improve negotiations and reduce cost for strategic transactions with data privacy protection, auto-redaction capabilities and self-launching data rooms.
+[P1.14] Strategic, World-Class, Compliant Proxy Communications
+[P1.15] Optimize efficiencies — experience seamless, turn-key, expert-supported proxy statement solutions from advisory services, strategy, design and print to annual meeting services and more.
+[P1.16] Four purpose-built products. One powerful end-to-end solution.
+[P1.17] DFIN’s Arc Suite offers regulatory, reporting, legal, filing and distribution solutions through one integrated financial compliance management software platform.
+[P1.18] ArcPro® offers intuitive, cloud-based workflow tools and managerial dashboards to streamline the review and approval process for prospectus building and a wide range of other regulatory communications.
+[P1.19] DFIN’s financial compliance solutions ingest data, perform calculations and produce compliant reports for requirements in Europe including PRIIPs, MiFID II and PRIIPs KID.
+[P1.20] Compliance Management Built for Investment Companies
+[P1.21] ArcDigital supports all the key functions required for digital content delivery including a centralized document repository, compliance material tracking and digital asset management all in a one-stop ecosystem.
+[P1.22] Five purpose-built products. One powerful end-to-end solution.
+[P1.23] DFIN’s regulatory reporting software solution ingests data, performs calculations and produces compliant reports for requirements in Europe including PRIIPs, MiFID II and PRIIPs KID.
+[P1.24] Confident work demands smarter solutions
+[P1.25] Achieve financial goals to profitably grow the company
+[P1.26] Maintain readiness and work through deals faster to spur growth
+[P1.27] Stay in control of sensitive info and mitigate risk
+[P1.28] Easily comply with the SEC ESG reporting & climate disclosures
+[P1.29] Get the software you need and the service you deserve — let's connect.
+[P1.30] or call +1 800 823 5304
+[P1.31] Discover how DFIN enables clients to boost productivity, improve processes and deliver better results.
+[P1.32] How European Wax Center streamlined SEC filings
+[P1.33] Learn how we helped a biotech company save hours on their SEC filings & increase reporting productivity.
+[P1.34] Engineered to the latest global standards, strategies and technologies
+[P1.35] More findings, right this way
+[P1.36] Guides, Reports & White Papers
+[P1.37] DFIN Expands Active Intelligence™ with AI-Powered Document Translation and Document Summaries in Venue®
+[P1.38] DFIN Launches 14th Annual Guide to Effective Proxies to Help Companies Navigate Evolving Governance Expectations
+[P1.39] Guide to Effective Proxies - 14th Edition
+[P1.40] DFIN ActiveDisclosure Earns Three G2 Leader Badges. Here's What Finance and Legal Teams Say Matters Most.
+[P1.41] Case Studies & Fact Sheets
+[P1.42] How We Facilitated the Fundraising Process for this Ingenious Finance Platform
+[P1.43] DFIN Introduces AI-Powered iXBRL Tagging for SEC Filings, Delivering Breakthrough Speed, Accuracy, and Control for Regulatory Compliance
+[P1.44] Rethinking the Reporting Cycle: What the SEC’s Semiannual Proposal Means for Public Companies
+[P1.45] Board Reporting Today: 8 Best Practices for Clearer, Faster Decisions
+[P1.46] DFIN Announces Leadership Changes to Advance Sales Transformation
+[P1.47] DFIN Positioned to Help Public Companies Navigate SEC’s Proposed Semiannual Reporting Framework
+[P1.48] Market Momentum, Software Strength, and the AI Advantage
+[P1.49] Modernizing Broker‑Dealer Reporting: A Smarter Path to FOCUS and Financial Compliance
+[P1.50] The 2026 Proxy Playbook: 6 Key Trends
+[P1.51] The Top 5 Things You Should Know About the SEC’s Potential Move to Semiannual Reporting
+</source>
+
+<source id="P2">
+[P2.1] Venue® Data Room | Smart & Secure Virtual Deal Rooms | DFIN
+[P2.2] Award winning virtual data room optimized for security, productivity, usability & cost transparency. Securely share documents and accelerate the deal process.
+[P2.3] Own the Room with DFIN Venue
+[P2.4] DFIN Venue sets the bar for responsive, intuitive, and innovative virtual data room solutions by merging reliable technology with best-in-class service. This virtual data room platform is designed for transactions that require speed, security and scalability.
+[P2.5] DFIN is the virtual data room provider trusted by countless businesses to support their global, mission-critical transactions. It’s built for deals that can’t afford delays or data risk, with exceptional high-volume performance as well as streamlined reviewer onboarding. Our live deal experts are available 24/7/365 to assist whenever you have questions or concerns.
+[P2.6] Discover the leading virtual data room providers for:
+[P2.7] of the Top 100 investment banks
+[P2.8] of the Top 100 private equity firms
+[P2.9] Due-diligence content pages hosted annually
+[P2.10] See the Power of DFIN Venue:
+[P2.11] Save valuable time by expanding every folder and file with one click, which prevents users from being overwhelmed by a confusing file management architecture.
+[P2.12] Create better stakeholder experiences by delivering ready-to-use data rooms that facilitate easier communication and feature easy-to-use interfaces.
+[P2.13] Work more efficiently by viewing the cover page of documents so you can ensure you have the right ones at first glance.
+[P2.14] Get new data rooms faster by creating them yourself as they are needed.
+[P2.15] Safeguard data room content by optimizing group and user privileges so only authorized users have access.
+[P2.16] Instantly find documents and insights across large deal rooms with advanced algorithms that enable predictive document relevance, automated folder structuring, and automatic risk identification.
+[P2.17] Monitor user activity, document views and engagement metrics to drive deals faster and with greater responsivity and visibility.
+[P2.18] Increase productivity by erasing sensitive data using data room tools so there's no risk of confidential details being leaked by accident.
+[P2.19] Organize and update data rooms by uploading and moving items anywhere.
+[P2.20] 15 minutes is plenty of time to see if DFIN Venue is a fit for your team
+[P2.21] or call +1 866 245 6044
+[P2.22] Leverage the Power of DFIN Active Intelligence™
+[P2.23] Introducing Active Intelligence™ — a transformative suite of AI capabilities thoughtfully designed to help deal teams navigate complex, document-intensive transactions. Embedded directly within Venue®, AI Document Summaries and AI Document Translation help accelerate due diligence, reduce manual review effort, improve cross-border collaboration, and keep sensitive workflows secure and governed within the data room.
+[P2.24] Support clients during IPOs, mergers, and acquisitions. The Venue VDR reduces friction for multi-jurisdictional deal reviews, enabling seamless collaboration among buyers, counsel, and regulators. With Venue, you can accelerate the time-to-close with version control and audit trails to ensure compliance every step of the way.
+[P2.25] Streamline fundraising, investments, and exits. With Venue, you can manage limited partners (LP) reporting, portfolio company document sharing and exit prep in a single, consistent platform. Venue is the leading virtual data room software providing scalablility to accommodate multiple companies and deals, with role-based access to ensure control. It offers the highest degree of performance across mega-funds and high-volume file sharing, as well.
+[P2.26] Support transactions across the corporate lifecycle. Centralize your workflows for board governance, regulatory audits, and multi-division transaction support. Venue is an M&A-ready platform that adapts as your strategy evolves.
+[P2.27] The Venue virtual data room features bank-grade security for sensitive information, including robust encryption, multi-factor authentication, and role-based access control. This secure document sharing ensures you can prevent unauthorized downloading, printing, or viewing that can create unwanted complications.
+[P2.28] These tools are compliant with global regulatory standards including SOC 2, ISO 27001, GDPR and more.
+[P2.29] With advanced monitoring tools to track activity on confidential documents and built-in audit trails for full deal transparency, Venue makes every transaction as safe and secure as possible.
+[P2.30] SOC 2 Type II Audits
+[P2.31] AES 256-bit Encryption at Rest & in Transit
+[P2.32] Intrusion Prevention (IPS) and Detection (IDS) Systems
+[P2.33] AI in M&A: Where Automation Delivers Value and Where Human Judgment Still Matters
+[P2.34] How AI is Transforming Cross-Border Due Diligence
+[P2.35] SB 253 Reporting: What CARB's New Guidance Means for Your November 10 Submission
+[P2.36] How DFIN Supports Companies Pursuing a Dual Listing Through the New SGX–Nasdaq Global Listing Board
+[P2.37] Maximizing Exit Value Through Scalable Infrastructure
+[P2.38] A Smarter Approach to Compliance
+[P2.39] What the Q1 2026 M&A Market Signals for APAC Dealmakers
+[P2.40] Global Dealmaking Has Changed. Deal Execution Had to Change with It.
+[P2.41] Creating Real Value From M&A Synergy
+[P2.42] White Knight Takeovers: A More Controlled Response to Hostile Bids
+[P2.43] Q1 2026 Global M&A Report: From Complexity to Competitive Advantage
+</source>
+
+<source id="P3">
+[P3.1] About Donnelley Financial Solutions | Risk & Compliance Solutions
+[P3.2] Discover how our technology solutions help you work more efficiently and how our data processes can deliver insights.
+[P3.3] Donnelley Financial Solutions (DFIN) is the leading provider of innovative, software and technology-enabled financial regulatory and compliance solutions.
+[P3.4] We provide regulatory filing and deal solutions to public and private companies, mutual funds, and other regulated investment firms. We support every stage of our clients' business and investment lifecycles.
+[P3.5] We navigate constantly changing market conditions in order to help our clients succeed.
+[P3.6] We create the best solutions by leveraging diverse perspectives, sharing knowledge, and fostering an inclusive environment in which all voices are heard.
+[P3.7] We adhere to the highest standards of integrity, quality, and transparency in all that we do.
+[P3.8] We are confident and willing to push boundaries to pursue innovative and unconventional solutions.
+[P3.9] DFIN is led by professionals who bring many perspectives and experiences to the table.
+[P3.10] We’ve had the pleasure of working with amazing clients, but here are just a few.
+[P3.11] Become part of a team that is shaping global markets and work in an environment where you can bring your whole self to work and do your best work every day.
+[P3.12] At DFIN, we believe there is power in our collective genius. It takes diverse voices, perspectives, and ways of thinking to deliver the best solutions for our clients. We seek those voices out and create an inclusive environment in which they are heard and valued.
+[P3.13] Our foundation is built upon delivering trusted solutions to our clients through responsible and sustainable business practices. We are committed to upholding environmental, health, and safety standards in all that we do. We believe a dedication to sustainability is critical for economies and for all global citizens.
+[P3.14] DFIN provides regulatory filing and deal solutions via its software, technology-enabled services, and print and distribution solutions to public and private companies, mutual funds, and other regulated investment firms.
+</source>

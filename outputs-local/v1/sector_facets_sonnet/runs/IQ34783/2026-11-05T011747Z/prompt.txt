@@ -1,0 +1,53 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: STERIS plc (www.steris.com)
+Sector: Healthcare (providers, devices, pharmaceuticals)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- healthcare_segment (Healthcare segment): Part of healthcare. Example: services: home health and hospice care. Any that apply of: pharma; biotech; medtech / devices; diagnostics and tools; provider services; healthcare IT; payer; distribution / pharmacy; other.
+- product_stage (Product stage): Whether its products are on the market. Example: commercial: sells approved products. Exactly one of: commercial; clinical; research; not applicable (services).
+- customer_payer (Customer / payer): Who pays. Example: Medicare and Medicaid: government programs pay for most visits. Any that apply of: hospitals and providers; private insurance; Medicare and Medicaid; patients / consumers; pharma and biotech companies; employers; other.
+- therapeutic_area (Therapeutic area): Main clinical area. Example: cardiovascular: heart rhythm devices. Any that apply of: oncology; cardiovascular; neurology and behavioral health; orthopedics and spine; metabolic and diabetes; infectious disease; ophthalmology; dental; general / multiple; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Welcome to STERIS | STERIS
+[P1.2] STERIS is a leading provider of infection prevention and other procedural products and services. Learn more here.
+[P1.3] Certificates of Analysis Device Compatibility Matrix Instructions For Use Safety Data Sheets
+[P1.4] Contact Form Get a Quote or Information Healthcare Live Chat Locate Your STERIS Representative
+[P1.5] United States Canada (EN) Canada (FR) Deutschland Italia United Kingdom Europe, Middle East and Africa Australia New Zealand Singapore Asia-Pacific Brasil México América Latina
+</source>
+
+<source id="P2">
+[P2.1] Company Overview and Information | STERIS
+[P2.2] STERIS is a leading global provider of products and services that support patient care with an emphasis on infection prevention.
+[P2.3] WE HELP OUR CUSTOMERS CREATE A HEALTHIER AND SAFER WORLD by providing innovative healthcare and life science products and services around the globe.
+[P2.4] We offer our Customers a unique mix of innovative products and services. These include: consumable products, such as detergents, endoscopy accessories, barrier products, instruments and tools; and services, including equipment installation and maintenance, microbial reduction of medical devices, instrument and scope repair, laboratory testing, outsourced reprocessing; and capital equipment, such as sterilizers, surgical tables, and automated endoscope reprocessors, and connectivity solutions such as operating room integration.
+[P2.5] Founded as Innovative Medical Technologies in Ohio the company was renamed STERIS. However, some of the businesses that have been acquired and integrated into STERIS, notably American Sterilizer Company, have much longer operating histories.
+</source>
+
+<source id="P3">
+[P3.1] Explore Our Healthcare Products and Services | STERIS
+[P3.2] Explore STERIS’s portfolio of healthcare products and services designed to enhance patient care, improve facility efficiency, and meet the specific needs of healthcare settings.
+[P3.3] Operating Room Equipment & Solutions
+[P3.4] Sterilization Solutions & Sterile Processing Equipment
+[P3.5] Equipment Maintenance and SecureCare Services
+[P3.6] MEDICAL DEVICE, PHARMACEUTICAL & BIOTECHNOLOGY MANUFACTURERS
+[P3.7] Washing, Sterilization, Decontamination and Water Purification Equipment
+[P3.8] Surface Disinfectants, Cleaners and Alcohols
+[P3.9] Sterility Assurance and Barrier Products
+[P3.10] Medical Device and Pharmaceutical Laboratory Services
+</source>

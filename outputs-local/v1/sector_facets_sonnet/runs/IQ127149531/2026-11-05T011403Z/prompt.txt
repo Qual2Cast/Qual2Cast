@@ -1,0 +1,73 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Marriott Vacations Worldwide Corporation (www.marriottvacationsworldwide.com)
+Sector: Retail, restaurants, hotels and entertainment
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- product_category (Product category): What consumers buy from it. Example: food: snacks and frozen meals. Any that apply of: food; beverages; apparel and footwear; household and personal care; home and furnishings; electronics; recreation and leisure goods; general merchandise; restaurant meals; lodging and travel; entertainment and gaming; automotive; other.
+- market_position (Market position): Where it sits on price. Example: mass-market: mainstream national brands. Exactly one of: value / discount; mass-market; premium; luxury.
+- distribution_model (Distribution model): How it reaches consumers. Example: wholesale: sells through grocery and mass retailers. Any that apply of: direct to consumer; wholesale to retailers; franchise; company-operated locations; licensing.
+- purchase_frequency (Purchase frequency): How often consumers buy. Example: daily: staple groceries. Exactly one of: daily / staple; periodic; discretionary / occasional.
+
+Evidence:
+<source id="P1">
+[P1.1] Home - Marriott Vacations Worldwide
+[P1.2] We strive to create the most expansive, immersive world of vacation and leisure experiences. We develop premium resorts and innovative travel options around...
+[P1.3] The Marriott Vacation Clubs ® Expands Owners’ Access to Hotels in the Marriott Family of Brands
+[P1.4] Vacations are our dedicated time to relax. To revitalize. To dream. They embody our most fulfilling life. When we explore new places, we discover new inspiration — new ways of thinking. Most importantly, we reconnect with our family, our friends, and our best self. At Marriott Vacations Worldwide, we strive to create the most expansive, immersive world of vacation and leisure experiences. We develop premium resorts and innovative travel options around the globe. Yet our success comes from the long-lasting relationships we build with our customers and associates to help them live their lives to the fullest.
+[P1.5] Marriott Vacations Worldwide encompasses a diverse portfolio of businesses and distinctive brands.
+[P1.6] Offering Owners a lifetime of memorable experiences at resorts and vacation properties around the world.
+[P1.7] A broad portfolio of hotels, resorts, timeshare exchange and rental services worldwide.
+[P1.8] Get the latest information on our company.
+[P1.9] Marriott Vacations Worldwide is a proven leader and innovator in the vacation industry, with locations and customers around the globe.
+[P1.10] When you and your family vacation with us, we want to help you stay healthy. Our elevated standards provide cleaner, safer spaces for our Owners, members, guests and associates. So you can focus on what matters most on vacation: time together. Because now, more than ever, together is our favorite destination.
+</source>
+
+<source id="P2">
+[P2.1] About - Marriott Vacations Worldwide
+[P2.2] To inspire people to live their lives to the fullest through exceptional vacation experiences – that are treasured for a lifetime.
+[P2.3] Innovation. Integrity. Excellence. This is the story of Marriott Vacations Worldwide. And while the company spans brands and businesses, decades and continents, our shared inspiration continues to drive us forward: delivering unforgettable experiences that make vacation dreams come true.
+[P2.4] MARRIOTT’S MONARCH hilton head island, south carolina
+[P2.5] Marriott Corporation becomes the first hospitality brand to enter the timeshare industry. Marriott Ownership Resorts, Inc. (MORI) is established.
+[P2.6] sheraton vistana resort Orlando, Florida
+[P2.7] Marriott begins an exchange partnership with Interval International®, allowing Owners the option to exchange their Home Resort ownership weeks for access to other resort destinations.
+[P2.8] Marriott’s royal palms Orlando, Florida
+[P2.9] Marriott Vacation Club International celebrates 20 years in the industry with the announcement of new resorts and over 250,000 Owners and members.
+[P2.10] Marriott’s PHUKET BEACH CLUB mAI kHAO bEACH, pHUKET, tHAILAND
+[P2.11] New points-based program is introduced, providing Owners and members with unparalleled flexibility in vacation experiences.
+[P2.12] Marriott’s Playa Andaluza Estepona, Malaga, Spain
+[P2.13] Marriott’s Ko Olina beach club Kapolei, O‘ahu, Hawai‘i
+[P2.14] The Westin Los Cabos Resort Villas & Spa LOS CABOS, Mexico
+[P2.15] Marriott Vacations Worldwide encompasses a diverse portfolio of businesses and distinctive brands. Each has its own unique legacy of innovation, integrity, and excellence — but all are united by a shared passion for delivering exceptional vacations.
+[P2.16] We believe that how we do business is as important as the business we do. We put our customers at the center of every decision we make. And we hold ourselves to the highest standards of integrity and excellence, all while having fun and winning together as one team.
+[P2.17] Fun is at the heart of our business. Each associate helps create memorable vacation moments for our customers.
+[P2.18] We embody a culture of caring by supporting the communities in which we live and work. Our planet sustains us all, so we feel it’s our responsibility to protect it.
+</source>
+
+<source id="P3">
+[P3.1] Vacation Ownership - Marriott Vacations Worldwide
+[P3.2] Our vacation ownership businesses offer flexible vacation programs, giving customers the ability to choose the style of vacationing that suits their needs, year after year. Each vacation ownership product provides access to a variety of usage options — from an internal collection and an external exchange network of resorts; to hotels around the world; cruises, adventure travel, guided tours and more.
+[P3.3] Marriott Vacation Club is a collection of upper-upscale vacation ownership programs with a diverse portfolio of more than 60 resorts and more than 13,000 vacation villas and other accommodations throughout the U.S., Caribbean, Central America, Europe, Asia, and Australia. Marriott Vacation Club provides Owners and their families with the flexibility to enjoy a wide variety of vacation experiences that are characterized by the consistent high quality and warm hospitality for which the Marriott name has become known. For more information, please visit Marriott Vacation Club. For nightly rentals, visit Marriott.
+[P3.4] Sheraton Vacation Club provides enriching and unexpected vacation experiences in fun family destinations like Florida, South Carolina and Colorado. This collection of 9 Sheraton-branded upper-upscale vacation ownership resorts, with over 3,500 villas, allows Owners and guests to relax, play and experience what the world has to offer. Sheraton Vacation Club resorts are part of the Vistana Signature Network. For more information, please visit Sheraton Vacation Club. For nightly rentals, visit Marriott.
+[P3.5] Westin Vacation Club is a collection of 12 Westin-branded upper-upscale vacation ownership resorts, with over 2,000 villas, located in some of the most sought-after destinations and designed with well-being in mind. From the world-renowned Heavenly Bed to an energizing WestinWORKOUT and revitalizing Heavenly Spa treatments, every element of a vacation stay is created to leave Owners and guests feeling better than when they arrived. Westin Vacation Club resorts are part of the Vistana Signature Network. For more information, please visit Westin Vacation Club. For nightly rentals, visit Marriott.
+[P3.6] Grand Residences by Marriott ®
+[P3.7] Grand Residences by Marriott provides vacation ownership through fractional real estate and whole ownership offerings. Grand Residences by Marriott is dedicated to providing carefree property ownership. For more information, please visit Grand Residences by Marriott.
+[P3.8] The Ritz-Carlton Club provides luxurious vacation experiences for Members and their families commensurate with the legacy of The Ritz-Carlton brand. The Ritz-Carlton Club resorts include luxury villas and resort amenities that offer inspirational vacation lifestyles tailored to every Member’s needs and expectations. For more information, please visit The Ritz-Carlton Club.
+[P3.9] St. Regis ® Residence Club
+[P3.10] For connoisseurs who desire the finest in luxury living, the St. Regis Residence Club offers distinctive privileges to Members who embrace the art of living in unforgettable destinations. Magnificent residences exude the timeless grandeur and glamour synonymous with the illustrious past of the St. Regis brand. For more information, please visit St. Regis Residence Club.
+[P3.11] Hyatt Vacation Club shows people the power of vacations. Owners have access to distinctive residential-style resorts in highly desirable destinations, unique on-site experiences, and global travel opportunities. We help them use their valuable vacation time to take a breath, reconnect, and return home with stories that make them smile, stronger bonds, and lifelong memories. Explore flexible, rewarding vacation ownership at Hyatt Vacation Club. Visit Hyatt to book rental stays.
+[P3.12] Marriott Vacations Worldwide Corporation, through its subsidiaries, offers programs and products under the Marriott Vacation Club, Sheraton, Westin, The Ritz-Carlton Club, St. Regis, and Grand Residences by Marriott brands, none of which are owned, developed or sold by Marriott International, Inc., The Ritz-Carlton Hotel Company, L.L.C. or their affiliates. Marriott Vacations Worldwide Corporation and its subsidiaries use the Marriott, Sheraton, Westin, The Ritz-Carlton, and St. Regis marks and associated logos under license from Marriott International, Inc., The Ritz-Carlton Hotel Company, L.L.C. and their affiliates. HVO uses the Hyatt names and marks under license from an affiliate of Hyatt Hotels Corporation. The right to use such marks shall cease if such license expires or is revoked or terminated. Hyatt Hotels Corporation and its affiliates make no representations, warranties, or guarantees with respect to HVC programs or products.
+</source>

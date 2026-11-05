@@ -1,0 +1,123 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Summit Hotel Properties, Inc. (www.shpreit.com)
+Sector: Banks, insurance and other financials
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- financial_business_type (Financial business type): What kind of financial firm. Example: insurance brokerage: places commercial insurance for clients. Any that apply of: banking; specialty lending; property and casualty insurance; life and health insurance; insurance brokerage; asset / wealth management; exchanges and market infrastructure; payments; other.
+- revenue_driver (Revenue driver): What it earns on. Example: fees: commissions on placed premiums. Any that apply of: net interest income; fees and commissions; premiums; investment income.
+- customer_type (Customer type): Who its clients are. Example: corporate: small and mid-sized businesses. Any that apply of: retail; corporate; institutional; government.
+- balance_sheet_dependence (Balance sheet dependence): Whether it carries the risk. Example: fee-based: no underwriting risk. Exactly one of: balance-sheet intensive; fee-based; mixed.
+
+Evidence:
+<source id="P1">
+[P1.1] Summit Hotel Properties | Hotel Real Estate Investment Trust
+[P1.2] Hyatt Place Chicago/Downtown - The Loop
+[P1.3] Hampton Inn & Suites Tampa/Ybor City/Downtown
+[P1.4] Hampton Inn & Suites Baltimore Inner Harbor
+[P1.5] Residence Inn Baltimore Downtown/Inner Harbor
+</source>
+
+<source id="P2">
+[P2.1] Lodging Real Estate Investment Trust - | Summit Hotel Properties
+[P2.2] We are a leading publicly‐traded lodging real estate investment trust.
+[P2.3] We are a leading publicly‐traded lodging real estate investment trust
+[P2.4] Focused and Efficient Operating Model
+</source>
+
+<source id="P3">
+[P3.1] Real Estate Investment Properties by State - Hotel REIT Portfolio | Summit Hotel Properties
+[P3.2] Learn about the hotel assets under Summit Hotel Properties. The Summit Hotel Properties portfolio consists of the Marriott, Hilton, IHG, and Hyatt Brands.
+[P3.3] STATE Arizona California Colorado Connecticut Florida Georgia Illinois Indiana Kentucky Louisiana Maryland Massachusetts Minnesota New Jersey New York North Carolina Ohio Oklahoma Oregon Pennsylvania South Carolina Tennessee Texas Virginia
+[P3.4] BRAND Marriott Hilton Hyatt IHG Onera Independent
+[P3.5] Hilton Garden Inn Tysons Corner
+[P3.6] AC Hotel by Marriott Miami Brickell
+[P3.7] Canopy Hotel – New Orleans Downtown
+[P3.8] Embassy Suites – Tucson / Paloma Village
+[P3.9] AC Hotel – Houston Downtown
+[P3.10] Canopy Hotel – Dallas / Frisco Station
+[P3.11] AC Hotel – Dallas / Frisco
+[P3.12] Residence Inn – Dallas / Frisco
+[P3.13] Hilton Garden Inn – Grapevine at Silver Lake Crossing
+[P3.14] Courtyard – Dallas DFW Airport / North Grapevine
+[P3.15] TownePlace Suites – Dallas / Grapevine
+[P3.16] Holiday Inn Express & Suites – DFW / Grapevine
+[P3.17] Hyatt Place – Dallas / Grapevine
+[P3.18] AC Hotel – Dallas Downtown
+[P3.19] Residence Inn – Dallas Downtown
+[P3.20] Hampton Inn & Suites – Dallas Downtown
+[P3.21] SpringHill Suites – Dallas Downtown
+[P3.22] AC Hotel – Oklahoma City / Bricktown
+[P3.23] Hyatt Place – Oklahoma City / Bricktown
+[P3.24] Holiday Inn Express & Suites – Oklahoma City Downtown / Bricktown
+[P3.25] TownePlace Suites – New Orleans Downtown / Canal Street
+[P3.26] SpringHill Suites – New Orleans Downtown / Canal Street
+[P3.27] Embassy Suites – Amarillo Downtown
+[P3.28] Hyatt House across from Universal Orlando Resort
+[P3.29] Hampton Inn & Suites – Austin / Downtown / Convention Center
+[P3.30] Homewood Suites – Aliso Viejo / Laguna Beach
+[P3.31] Hyatt Place – Chicago / Downtown – The Loop
+[P3.32] Hotel Indigo – Asheville Downtown
+[P3.33] AC Hotel – Atlanta Downtown
+[P3.34] Hampton Inn & Suites Silverthorne
+[P3.35] Courtyard – Fort Worth Downtown / Blackstone
+[P3.36] Hampton Inn & Suites – Minneapolis / Downtown
+[P3.37] Courtyard – New Orleans Downtown Near the French Quarter
+[P3.38] Residence Inn – Cleveland Downtown
+[P3.39] Hampton Inn & Suites – Baltimore Inner Harbor
+[P3.40] Courtyard – Fort Lauderdale Beach
+[P3.41] SpringHill Suites – Indianapolis Downtown
+[P3.42] Courtyard – Charlotte City Center
+[P3.43] Springhill Suites – Scottsdale North
+[P3.44] Hyatt House – Miami Airport
+[P3.45] Hyatt Place – Minneapolis / Downtown
+[P3.46] Homewood Suites – Tucson / St. Philip’s Plaza University
+[P3.47] Doubletree by Hilton San Francisco Airport North Bayfront
+[P3.48] Boulder Marriott Hotel & Spa
+[P3.49] Courtyard – Nashville Vanderbilt / West End
+[P3.50] Courtyard – Atlanta Decatur Downtown / Emory
+[P3.51] Hyatt Place Orlando / I-Drive / Convention Center
+[P3.52] Hyatt Place – Garden City
+[P3.53] Hyatt House – Denver Tech Center
+[P3.54] Hyatt Place – Denver South / Park Meadows
+[P3.55] Residence Inn – Atlanta Midtown / Peachtree at 17th
+[P3.56] Hyatt Place – Denver Tech Center
+[P3.57] SpringHill Suites – Louisville Downtown
+[P3.58] Residence Inn – Baltimore Downtown / Inner Harbor
+[P3.59] Staybridge Suites – Denver / Cherry Creek
+[P3.60] Fairfield Inn & Suites – Louisville Downtown
+[P3.61] Holiday Inn Express & Suites – San Francisco / Fisherman’s Wharf
+[P3.62] Hampton Inn & Suites – Camarillo
+[P3.63] Hampton Inn & Suites – Tampa / Ybor City / Downtown
+[P3.64] Hilton Garden Inn – Houston / Energy Corridor
+[P3.65] Springhill Suites – Nashville MetroCenter
+[P3.66] Hilton Garden Inn – Greenville
+[P3.67] Hilton Garden Inn – Waltham
+[P3.68] The Nordic Lodge – Steamboat Springs
+[P3.69] Residence Inn – Baltimore / Hunt Valley
+[P3.70] Hampton Inn & Suites – San Diego / Poway
+[P3.71] Courtyard – New Orleans / Metairie
+[P3.72] Hyatt Place – Phoenix / Mesa
+[P3.73] Hyatt Place – Portland Airport / Cascade Station
+[P3.74] Residence Inn – New Orleans / Metairie
+[P3.75] Residence Inn – Bridgewater / Branchburg
+[P3.76] Courtyard – New Haven at Yale
+[P3.77] Hyatt Place – Scottsdale / Old Town
+[P3.78] Hyatt Place – Orlando / Universal
+[P3.79] Hilton Garden Inn – Houston / Galleria Area
+[P3.80] Residence Inn – Portland Airport at Cascade Station
+[P3.81] Hilton Garden Inn San Jose/Milpitas
+</source>

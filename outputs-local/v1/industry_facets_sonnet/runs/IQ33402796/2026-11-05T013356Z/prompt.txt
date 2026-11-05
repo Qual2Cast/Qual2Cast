@@ -1,0 +1,81 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: OPENLANE, Inc. (corporate.openlane.com)
+Industry (SIC 73): Business Services
+About this industry group: This is not a SaaS-only template. Choose the relevant 731 advertising, 734 building-services, 735 rental, 736 staffing, 737 computer-services/software or 738 specialist-services branch. SIC4 examples are routing aids, not new official business-model categories. NRR, ARR and software implementation fields are conditional software rows. Official scope and detailed groups.
+
+Facets:
+- business_service_specialization (Business-service specialization). Examples: Packaged HCM software; Temporary staffing; Building cleaning.
+- service_operating_model (Service operating model). Examples: Subscription software; Labor-based outsourcing; Project-based agency.
+- charging_unit (Charging unit). Examples: Per employee/month; Per billable labor hour; Per processed transaction.
+- customer_contract_term (Customer contract term). Examples: Month-to-month service; Annual subscription; Three-year managed-service agreement.
+- contracted_repeat_revenue (Contracted / repeat revenue). Examples: 80% subscription revenue; Recurring cleaning contracts; Repeat usage-based processing fees.
+- implementation_transition_work (Implementation / transition work). Examples: Payroll data migration; Outsourcing transition; Customer-site service mobilization.
+- client_count_retention (Client-count retention). Examples: Annual paying-client retention: 92%; Annual retained service accounts: 90%.
+- software_deployment_737_software_services (Software deployment [737 software/services]). Examples: Multi-tenant SaaS; Customer-hosted software; Hybrid deployment.
+- software_functional_scope_737 (Software functional scope [737]). Examples: Payroll and HCM; Cybersecurity; ERP / accounting.
+- net_revenue_retention_subscription_software (Net revenue retention [subscription software]). Examples: Annual NRR: 115%; Annual constant-currency NRR: 108%, separately defined.
+- arr_recurring_base_definition_subscription_software (ARR / recurring-base definition [subscription software]). Examples: Subscription ARR at year-end; Annualized contracted recurring fees, issuer-defined.
+- processing_transaction_platform_7374 (Processing / transaction platform [7374]). Examples: Payroll processing; Card-transaction processing; Data preparation services.
+- staffing_placement_model_736 (Staffing / placement model [736]). Examples: Temporary staffing; Permanent placement; Recruitment process outsourcing.
+- temporary_staffing_activity_temporary_staffing (Temporary staffing activity [temporary staffing]). Examples: 10,000 workers on assignment; Two million billed temporary-worker hours/year.
+- permanent_placement_volume_employment_agencies (Permanent placement volume [employment agencies]). Examples: 3,000 placements/year; 1,500 placements/year.
+- temporary_labor_billing_economics_temporary_staffing (Temporary labor billing economics [temporary staffing]). Examples: Bill rate $40/hour versus pay rate $28/hour; Stated markup on direct labor cost.
+- advertising_agency_economics_731 (Advertising / agency economics [731]). Examples: Media-placement commission; Creative-service retainer; Performance-marketing fee.
+- building_security_service_model_734_7381_7382 (Building / security service model [734, 7381–7382]). Examples: Contract janitorial routes; On-site guarding; Monitored security installations.
+- rental_fleet_utilization_735 (Rental fleet / utilization [735]). Examples: Construction-equipment rental; Medical-equipment rental; Time utilization: 70% of eligible rental days.
+
+Evidence:
+<source id="P1">
+[P1.1] OPENLANE Corporate
+[P1.2] Remarketing, Simplified: we make wholesale easy so our customers can be more successful.
+[P1.3] We make wholesale easy so our customers can be more successful
+[P1.4] A leading national digital marketplace with unparalleled access to dealer and commercial vehicles.
+[P1.5] Fuel your business with Canada’s largest digital wholesale marketplace for used vehicles.
+[P1.6] The leading digital platform in Europe and the UK offering end-to-end solutions for the automotive wholesale industry.
+[P1.7] Helping independent dealers grow their business faster by providing financing for used vehicle inventory.
+[P1.8] Off-lease remarketing platform supporting more than 40 upstream brand programs.
+[P1.9] Industry-leading simulcast solution powering more than 300 wholesale and retail auctions.
+[P1.10] Software and data solutions facilitating recovery of assets for the automotive finance industry.
+[P1.11] Leading source for vehicle history and pricing evaluation information for automotive dealers.
+[P1.12] Best-in-class independent, reliable and accurate commercial vehicle inspections.
+[P1.13] North America’s leading provider of automated vehicle-shipping services.
+[P1.14] Smarter tools to help lenders and financial institutions manage the remarketing of repossessed vehicles.
+[P1.15] Vehicle transition services including recovery management, remarketing, skip tracing, compliance and title services.
+[P1.16] Pricing delayed by 5 minutes
+[P1.17] OPENLANE Announces Pricing of Secondary Offering of Common Stock, Including Concurrent Share Repurchase
+[P1.18] OPENLANE Announces Secondary Offering of Common Stock, Including Concurrent Share Repurchase
+</source>
+
+<source id="P2">
+[P2.1] Our Company | About OPENLANE
+[P2.2] Our digital marketplaces offer a fast, easy and transparent way to sell and source used vehicle inventory—anytime, anywhere.
+[P2.3] Building the world’s greatest digital marketplace for used vehicles
+[P2.4] We bring together the leading OEMs, dealers, fleet operators, rental companies and financial institutions to match the right buyer with the right car for every lot.
+[P2.5] building the world’s most advanced—and uncomplicated—digital marketplace for used vehicles.
+[P2.6] helping customers buy and sell smarter with clear, actionable insights they can understand and use.
+[P2.7] And we’re an innovation company
+[P2.8] accelerating the future of wholesale remarketing through curiosity, collaboration and an entrepreneurial spirit.
+[P2.9] Headquartered in Carmel, Indiana, OPENLANE’s global footprint spans multiple operating locations across North America, Europe, the Philippines and Uruguay. Our automotive marketplaces, technology platforms and other services support customers in multiple countries around the globe.
+</source>
+
+<source id="P3">
+[P3.1] Our Brands | OPENLANE
+[P3.2] Dedicated to helping every customer—big or small—achieve the best outcomes possible.
+[P3.3] The world’s greatest digital marketplaces for used vehicles.
+[P3.4] Floorplan and inventory financing solutions for independent dealers.
+[P3.5] Technology solutions that power results.
+[P3.6] Comprehensive end-to-end solutions to drive your business forward.
+</source>

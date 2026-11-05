@@ -1,0 +1,91 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Innovative Aerosystems, Inc. (www.iascorp.com)
+Sector: Manufacturing (industrial, materials, electronics)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- manufacturing_type (Manufacturing type): How it makes products. Example: discrete: builds individual units on assembly lines. Any that apply of: discrete; process; assembly; outsourced / fabless.
+- production_model (Production model): Built for an order or for stock. Example: make-to-order: each unit configured to the customer's order. Exactly one of: make-to-order; make-to-stock; both.
+- product_complexity (Product complexity): How engineered its products are. Example: engineered: custom-configured equipment. Exactly one of: commodity; engineered; precision / high-spec.
+- production_role (Production role): Where it sits in its customers' supply chain. Example: final manufacturer: sells finished units to contractors. Any that apply of: final manufacturer / OEM; tier 1 supplier; tier 2 or component supplier; contract manufacturer; materials producer.
+- end_market_exposure (End-market exposure): Which end markets drive demand. Example: industrial: factories and commercial buildings. Any that apply of: aerospace and defense; automotive and transportation; industrial; construction and buildings; energy; electronics and semiconductors; healthcare and life sciences; consumer; agriculture; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Aerospace Avionics, Flight Displays & Engineering | Innovative Aerosystems
+[P1.2] Avionics, flat panel displays, flight computers, and engineering for aerospace—quality, support, and in-house manufacturing.
+[P1.3] Tailored Avionics. Versatile Engineering. Manufactured In-House.
+[P1.4] Innovative Aerosystems designs, engineers, manufactures, certifies, and supports advanced avionics solutions for commercial, military, business, and general aviation aircraft worldwide. From integrated flight decks and autopilots to autothrottles, flight management systems, mission computers, air data systems, displays, engine instrumentation, and navigation technologies, our scalable solutions are engineered to meet the unique requirements of every platform.
+[P1.5] As one of the few U.S.-based avionics manufacturers with vertically integrated engineering and production, we control every stage of development—from concept and certification to manufacturing and lifecycle support. This enables us to deliver tailored, mission-ready solutions with the quality, reliability, and responsiveness our customers depend on. Whether modernizing legacy aircraft or developing next-generation capabilities, Innovative Aerosystems provides the expertise, flexibility, and innovation to keep fleets flying safely, efficiently, and ready for the future.
+[P1.6] B737 NextGen Flight Deck Upgrade B757/B767 Cockpit/IP Communication & Navigation Products Inertial Reference Products Integrated Standby Unit LPV Navigator MagVar Software Updates GPS Sensor Unit
+[P1.7] C-130 Engine Instrument Display System C-130 Cockpit/IP P-3 Cockpit/IP Integrated Standby Unit ThrustSense Autothrottle Air Data Solutions – DADC, SSBA, Altimeters GPS Sensor Unit ADAHRS
+[P1.8] Autopilots Communication & Navigation Products Integrated Standby Unit Liberty Flight Deck Utilities Management System GPS Sensor Unit
+[P1.9] IA brings OEM-grade technology to retrofit and forward-fit markets, delivering scalable solutions that minimize downtime and maximize situational awareness.
+[P1.10] IA Gains FAA Approval for a Digital Engine-Indicating and Crew-Alerting System (EICAS) for Its Flat Panel Display System (FPDS)
+[P1.11] Contact Sales Quality Assurance Documents Customer Feedback
+</source>
+
+<source id="P2">
+[P2.1] About Innovative Aerosystems: USA-Made Avionics, Cockpit Solutions & Flight Deck Upgrades
+[P2.2] Innovative Aerosystems delivers certified avionics, retrofit solutions, and cockpit systems—engineered in the USA.
+[P2.3] Tailored, Versatile, and Made in the USA.
+[P2.4] At Innovative Aerosystems, we deliver custom avionics systems designed for your specific aircraft requirements—whether you’re upgrading a legacy platform or outfitting new production. From our FAA-certified flat panel flight decks to our award-winning ThrustSense® Autothrottle, our systems are engineered for performance, precision, and agility—delivering modern solutions for today’s demanding flight environments. Every product we design is engineered, certified, and manufactured at our in-house facility in Exton, Pennsylvania.
+[P2.5] Hundreds of aircraft are flying Innovative Aerosystems avionics, we specialize in retrofitting commercial, business, and military aircraft with advanced, value-driven solutions that reduce downtime and improve situational awareness. Our agile engineering team works directly with operators, MROs, and OEMs to deliver tailored solutions that meet certification standards while maintaining installation simplicity.
+[P2.6] If you’re looking for a proven avionics partner who can deliver certified cockpit upgrades, global positioning systems, or flight deck modernization with minimal disruption, Innovative Aerosystems is ready to support your next mission.
+[P2.7] Proven Performance. Trusted by Industry Leaders.
+[P2.8] With a legacy of innovation and a reputation built on high reliability and low MTBF, Innovative Aerosystems delivers next-generation cockpit technology that operators can depend on. Our agile engineering team has the experience and flexibility to customize solutions quickly, cost-effectively, and to the highest standards—without compromise.
+[P2.9] Innovative Aerosystems brings OEM-grade technology to retrofit and forward-fit markets, delivering scalable solutions that minimize downtime and maximize situational awareness.
+[P2.10] Cockpit/IP® Flat Panel Display Systems – FAA/EASA certified for B757/B767/737 and other platforms. Upgrade your cockpit with minimal wiring changes and transformative capability.
+[P2.11] ThrustSense® Autothrottle – Full-regime autothrottle with FADEC-like protection for King Air and PC-12 aircraft. Flying Magazine’s Editors’ Choice Award winner.
+[P2.12] NextGen Flight Management Systems (FMS) – Seamless integration with IRU/AHRS and WAAS GPS, supporting advanced navigation, LPV approaches, and mission planning.
+[P2.13] Air Data, Attitude and Heading Reference Systems (ADAHRS) – Compact, highly reliable units with analog support for legacy aircraft and digital performance for modern requirements.
+[P2.14] GPS Sensor Units (GPSSU) – WAAS Beta-3 certified GPS with SBAS and ADS-B capability.
+[P2.15] Engine & Fuel Instrumentation – State-of-the-art indicators and gauges for commercial and military platforms.
+[P2.16] Utilities Management Systems – Modular, scalable control systems for both rotorcraft and fixed-wing applications.
+[P2.17] Built for the Installer. Designed for the Pilot.
+[P2.18] Every product is developed with both the installer and operator in mind:
+[P2.19] Use of existing wiring wherever possible
+[P2.20] Reduced installation time and LRU count
+[P2.21] No structural modifications required for many platforms
+[P2.22] Enhanced dispatch reliability and MEL relief
+[P2.23] Situational awareness tools built into every display
+[P2.24] Made in the USA. Trusted Worldwide.
+[P2.25] From Pilatus to Boeing, from DHL to the US Department of Defense, Innovative Aerosystems products fly on some of the most iconic platforms in the skies. We take pride in American manufacturing, rigorous AS9100D quality standards, and support that doesn’t end after installation.
+[P2.26] Whether you’re an OEM, fleet operator, or independent MRO, Innovative Aerosystems has the experience and agility to help you reduce downtime, improve safety, and extend the life of your aircraft.
+</source>
+
+<source id="P3">
+[P3.1] Innovative Aerosystems Air Data Solutions | RVSM-Compliant Avionics
+[P3.2] Precision air data systems for commercial, military, and business aircraft with RVSM compliance, reliability, and seamless avionics integration.
+[P3.3] Precision Air Data Systems for Aviation Performance and Compliance
+[P3.4] At Innovative Aerosystems, our expertise in Air Data Solutions forms the foundation of our avionics legacy. Recognized as a global leader in RVSM-compliant Air Data Systems, Innovative Aerosystems has delivered thousands of high-reliability retrofits for corporate, commercial, military, and rotorcraft applications.
+[P3.5] Our extensive installed base is a testament to the performance, reliability, and trust we’ve earned from OEMs, operators, and MROs worldwide.
+[P3.6] Our portfolio of Air Data Computers (ADC) and display solutions continues to evolve, integrating cutting-edge technologies while maintaining the proven durability demanded by aviation professionals.
+[P3.7] The Innovative Aerosystems line of Air Data Computers and Display products is time-tested, and it continues to evolve with state-of-the-art technology to meet the needs of operators who require and rely on our proven systems to complete their missions. Today, our advanced Air Data solutions are found on many of the world’s most high-profile aerospace programs and aircraft.
+[P3.8] Innovative Aerosystems offers a complete line of advanced air data products, including:
+[P3.9] Digital Air Data Computers (DADC)
+[P3.10] RVSM-Compliant Solutions for Retrofit and OEM Installations
+[P3.11] These systems are engineered for forward-fit and aftermarket applications, delivering high-performance data essential for flight control systems, navigation, autopilot integration, and situational awareness.
+[P3.12] Designed for Demanding Flight Environments
+[P3.13] Our Air Data Computers support altitude, airspeed, Mach number, and temperature measurement while providing critical data to EFIS, FMS, and autopilot systems. All Innovative Aerosystems products meet rigorous FAA TSO, RTCA DO-160, DO-178, and DO-254 certification standards to ensure compliance, reliability, and safety.
+[P3.14] Every Innovative Aerosystems Air Data product is engineered, manufactured, and tested at our Exton, Pennsylvania facility. We maintain complete in-house control over design, production, and quality assurance—allowing us to deliver fast response times, consistent manufacturing quality, and streamlined customer support.
+[P3.15] Proven, RVSM-compliant Air Data performance
+[P3.16] Seamless integration with legacy and modern avionics
+[P3.17] Reduced installation time and total lifecycle costs
+[P3.18] High MTBF and system reliability
+[P3.19] Fully qualified for corporate, commercial, and military aircraft
+[P3.20] Contact Sales Document Requests Customer Feedback
+</source>

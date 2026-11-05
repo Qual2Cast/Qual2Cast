@@ -1,0 +1,29 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Curaleaf Holdings, Inc. (www.curaleaf.com)
+Sector: Healthcare (providers, devices, pharmaceuticals)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- healthcare_segment (Healthcare segment): Part of healthcare. Example: services: home health and hospice care. Any that apply of: pharma; biotech; medtech / devices; diagnostics and tools; provider services; healthcare IT; payer; distribution / pharmacy; other.
+- product_stage (Product stage): Whether its products are on the market. Example: commercial: sells approved products. Exactly one of: commercial; clinical; research; not applicable (services).
+- customer_payer (Customer / payer): Who pays. Example: Medicare and Medicaid: government programs pay for most visits. Any that apply of: hospitals and providers; private insurance; Medicare and Medicaid; patients / consumers; pharma and biotech companies; employers; other.
+- therapeutic_area (Therapeutic area): Main clinical area. Example: cardiovascular: heart rhythm devices. Any that apply of: oncology; cardiovascular; neurology and behavioral health; orthopedics and spine; metabolic and diabetes; infectious disease; ophthalmology; dental; general / multiple; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Age Gate
+[P1.2] Curaleaf is a leading medical and recreational marijuana dispensary in the United States. We serve 350k+ registered patients across 23 states. Shop now!
+</source>

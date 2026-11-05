@@ -240,9 +240,14 @@ def judge_one(target: str, comps: list[str], info, facets, out: SimpleNamespace,
     run_dir = out.runs / target / stamp()
     run_dir.mkdir(parents=True, exist_ok=True)
     (run_dir / "prompt.txt").write_text(prompt, encoding="utf-8")
-    result = call_claude(prompt, run_dir, answer_schema(list(labels)), args.model, args.effort,
-                         instructions_len=len(INSTRUCTIONS))
-    run_info = {"model": args.model, "effort": args.effort or "", "prompt_version": args.prompt_version,
+    if args.backend == "claude-cli":
+        from cli_models import call_cli
+        result = call_cli(prompt, run_dir, answer_schema(list(labels)), "claude-cli", model=args.model,
+                          effort=args.effort, instructions_len=len(INSTRUCTIONS))
+    else:
+        result = call_claude(prompt, run_dir, answer_schema(list(labels)), args.model, args.effort,
+                             instructions_len=len(INSTRUCTIONS))
+    run_info = {"backend": args.backend, "model": args.model, "effort": args.effort or "", "prompt_version": args.prompt_version,
                 "fingerprint": fp, "finished_at": now_iso(),
                 **{k: v for k, v in result.items() if k != "text"}}
     (run_dir / "run.json").write_text(json.dumps(run_info, indent=1), encoding="utf-8")
@@ -313,12 +318,15 @@ def main() -> None:
     p.add_argument("--tickers", nargs="*", help="only these targets")
     p.add_argument("--limit", type=int, help="stop after N targets")
     p.add_argument("--refresh", action="store_true", help="judge current targets again")
-    p.add_argument("--model", default=DEFAULT_MODEL["claude"])
+    p.add_argument("--backend", choices=["claude", "claude-cli"], default="claude",
+                   help="claude: Anthropic API (default); claude-cli: Claude Code CLI under your own login")
+    p.add_argument("--model", help="default: claude-haiku-5-5 for claude, claude-sonnet-5-5 for claude-cli")
     p.add_argument("--effort", choices=["low", "medium", "high"], help="default: the model's own")
     p.add_argument("--workers", type=int, default=2, help="targets in parallel")
     p.add_argument("--dry-run", action="store_true", help="write the prompts only")
     p.add_argument("--tables-only", action="store_true", help="only rebuild judgments.csv")
     args = p.parse_args()
+    args.model = args.model or DEFAULT_MODEL[args.backend]
     args.candidates = (Path(args.candidates) if args.candidates
                        else latest_method1() if args.b3 else latest_candidates())
     out = output_paths(Path(args.out) if args.out else DEFAULT_OUT_ROOT /

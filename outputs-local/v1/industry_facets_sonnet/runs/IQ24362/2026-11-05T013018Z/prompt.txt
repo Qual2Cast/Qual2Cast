@@ -1,0 +1,75 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Innoviva, Inc. (www.inva.com)
+Industry (SIC 28): Chemicals & Allied Products
+About this industry group: This major group includes pharmaceuticals and biological products as well as industrial chemicals. Use clinical-stage and drug-platform extensions only for the relevant life-science business; do not impose drug approval or patent dependence on all commodity chemicals.
+
+Facets:
+- chemical_life_science_product_family (Chemical / life-science product family). Examples: Specialty coatings; Fertilizers; Prescription pharmaceuticals.
+- specialty_commodity_positioning (Specialty / commodity positioning). Examples: Customer-qualified specialty formulations; Bulk commodity chemicals.
+- formulation_synthesis_complexity (Formulation / synthesis complexity). Examples: Custom additive formulation; Multistep chemical synthesis; Standardized bulk production.
+- patent_exclusivity_dependence (Patent / exclusivity dependence). Examples: Patented active ingredient; Process know-how; Product-exclusivity expiry in 2029.
+- product_specific_regulatory_route (Product-specific regulatory route). Examples: TSCA chemical compliance; REACH registration; FDA-approved medicine.
+- r_d_intensity (R&D intensity). Examples: Annual R&D: 6% of sales; Annual R&D: 18% of sales.
+- clinical_commercialization_stage_pharma (Clinical / commercialization stage [pharma]). Examples: Phase II trial program; Phase III registration study; Commercialized medicine.
+- biologic_small_molecule_platform_pharma (Biologic / small-molecule platform [pharma]). Examples: Monoclonal antibodies; Small molecules; Vaccines.
+- manufacturing_supply_model_pharma (Manufacturing / supply model [pharma]). Examples: Own GMP drug manufacturing; Outsourced API manufacturing; Contract development and manufacturing.
+
+Evidence:
+<source id="P1">
+[P1.1] Innoviva – Healthcare Royalty and Asset Management
+[P1.2] Innoviva manages a respiratory royalty portfolio and makes strategic acquisitions in promising areas of unmet need, such as infectious diseases.
+[P1.3] Innoviva is fueling healthcare innovation by investing in areas of high unmet medical need as well as developing and commercializing differentiated therapies.
+[P1.4] We are a diversified biopharmaceutical company with a core royalties portfolio, a leading critical care and infectious disease platform, and a portfolio of strategic investments in healthcare assets.
+[P1.5] It’s who we are. It’s our purpose. It’s our passion. It’s why we exist. It’s our name. We are Innoviva.
+[P1.6] Strongly cashflow-positive, durable core royalty business stemming from widely used respiratory products
+[P1.7] Commercial stage, fast-growth critical care and infectious disease platform
+[P1.8] High-potential, valuable diversified portfolio of healthcare assets offers optionality, downside protection, and long-term value creation
+[P1.9] Thoughtful, robust approach to capital deployment with long-term horizon
+[P1.10] Strong track record and value creation focus
+[P1.11] Innoviva at a glance (2025)
+</source>
+
+<source id="P2">
+[P2.1] About Us - Our Core Values - Innoviva
+[P2.2] Innoviva effectives manages royalty portfolio and advances innovation in areas of high unmet medical need.
+[P2.3] Long live the innovators. We’re here to help – through thoughtful capital allocation and stewardship.
+[P2.4] Innoviva was originally formed to maximize the value of the royalty streams coming from respiratory products co-developed with and licensed to GSK.
+[P2.5] Incorporated in Delaware under the name Advanced Medicine, Inc.
+[P2.6] Changed its name to Theravance, Inc.
+[P2.7] Innoviva / GSK collaboration agreement signed
+[P2.8] Breo launched in the US
+[P2.9] Anoro launched in the US
+[P2.10] Spun-off research and development operations
+[P2.11] Trelegy launched in the US.
+[P2.12] Armata* and Innoviva announced strategic investment
+[P2.13] Entasis and Innoviva announced private placement
+[P2.14] Innoviva announced strategic repurchase of GSK’s equity stake
+[P2.15] Sold 15% stake in Theravance Respiratory Company**
+[P2.16] Announced integration of Entasis and La Jolla into Innoviva Specialty Therapeutics
+[P2.17] Announced successful zoliflodacin Phase III results in uncomplicated gonorrhea
+[P2.18] ZEVTERA ® launched in the U.S.
+[P2.19] XACDURO ® and ZEVTERA ® nominated for 2025 Prix Galien USA Award
+[P2.20] FDA approval of NUZOLVENCE ®
+[P2.21] *Currently with greater than 50% equity ownership and significant warrant coverage by Innoviva
+[P2.22] **Holder of Trelegy royalty rights
+[P2.23] We believe in the power of partnership and inclusiveness, and that the best ideas can come from anywhere in the room. Together we are always better.
+[P2.24] We take the long view and focus our efforts.
+[P2.25] ACT WITH INTEGRITY, EVERY DAY IN EVERY WAY.
+[P2.26] We believe in transparency, honesty, and trust. A genuine desire to do what’s right will always be what defines us as a team and guides us on our journey.
+[P2.27] MAKE OUR MARK BY MAKING A DIFFERENCE.
+[P2.28] We believe the world will become a better place when we fuse our expertise, resources, and ambition with our passion for making a positive, lasting impact on people’s lives.
+[P2.29] We believe in dreaming big, acting quickly and taking risks in line with our conviction yet managing them well.
+</source>

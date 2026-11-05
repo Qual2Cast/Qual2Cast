@@ -1,0 +1,60 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: LTC Properties, Inc. (www.LTCreit.com)
+Sector: Banks, insurance and other financials
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- financial_business_type (Financial business type): What kind of financial firm. Example: insurance brokerage: places commercial insurance for clients. Any that apply of: banking; specialty lending; property and casualty insurance; life and health insurance; insurance brokerage; asset / wealth management; exchanges and market infrastructure; payments; other.
+- revenue_driver (Revenue driver): What it earns on. Example: fees: commissions on placed premiums. Any that apply of: net interest income; fees and commissions; premiums; investment income.
+- customer_type (Customer type): Who its clients are. Example: corporate: small and mid-sized businesses. Any that apply of: retail; corporate; institutional; government.
+- balance_sheet_dependence (Balance sheet dependence): Whether it carries the risk. Example: fee-based: no underwriting risk. Exactly one of: balance-sheet intensive; fee-based; mixed.
+
+Evidence:
+<source id="P1">
+[P1.1] Financing Senior Housing Since 1992 | LTC Properties Inc.
+[P1.2] LTC Properties is a REIT investing in seniors housing and health care through sale-leasebacks, mortgage financing, joint-ventures, construction financing and structured finance solutions.
+[P1.3] LTC Properties is a real estate investment trust (REIT) investing in seniors housing and care properties, primarily through SHOP, as well as triple-net leases and joint ventures. Our portfolio includes nearly 200 properties across the U.S. — approximately 70% seniors housing and 30% skilled nursing.
+[P1.4] (As of 6/30/26 and as disclosed in our Supplemental Operating and Financial Data report.)
+[P1.5] We've taken bold steps to completely transform our business approach into a SHOP-forward REIT.
+[P1.6] Your vision. Our capital. Let’s GROW!
+[P1.7] We’d love to hear from you, we’re constantly thinking outside of the REIT box to develop creative financing solutions.
+</source>
+
+<source id="P2">
+[P2.1] Leadership and BOD for LTC Properties
+[P2.2] We're a relationship-driven company, through and through. Partnership and alignment aren't just values — they're how we win together. Because our business isn't just real estate. It's the operators bringing our communities to life, and the residents calling them home.
+[P2.3] (As of 6/30/2026 and as disclosed in our Supplemental Operating and Financial Data report.)
+[P2.4] Executive Vice President and Chief Investment Officer
+[P2.5] Executive Vice President, Chief financial Officer, Treasurer and secretary
+[P2.6] eXECUTIVE Vice President, Asset Management
+[P2.7] Vice President, Asset Management (SHOP)
+[P2.8] Vice President and Director of Tax
+[P2.9] Vice President, Facilities and Capital Projects
+[P2.10] Lead Director – LTC Board member
+</source>
+
+<source id="P3">
+[P3.1] Senior housing and health care properties portfolio of LTC Properties
+[P3.2] At LTC our goal is to be the strategic capital partner aligning interests with creative capital solutions, ultimately generating shared success.
+[P3.3] Our deliberately curated SHOP portfolio is designed to compete effectively today, and well into the future. That means newer buildings in strong established markets, and unit and common-area configurations built around contemporary consumer preferences.
+[P3.4] Click on state for more detail
+[P3.5] Property count as of and as disclosed in our Supplemental Operating and Financial Data report.
+[P3.6] Download a List of Properties
+[P3.7] We invite you to step inside.
+[P3.8] Arbor Terrace Hamilton Mill, Dacula, GA
+[P3.9] Charter Senior Living of Paducah, Paducah, KY
+[P3.10] Cloverland Park Senior Living, Brentwood, TN
+</source>

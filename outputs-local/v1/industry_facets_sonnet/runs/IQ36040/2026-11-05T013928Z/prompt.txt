@@ -1,0 +1,104 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Universal Health Services, Inc. (uhs.com)
+Industry (SIC 80): Health Services
+About this industry group: Use setting-specific units: visits, discharges, staffed beds and dialysis stations are not interchangeable. Distinguish an organization delivering medical care from one only underwriting medical insurance. Provider/insurer boundary.
+
+Facets:
+- healthcare_provider_setting (Healthcare-provider setting). Examples: Hospital; Outpatient clinic; Home-health provider.
+- clinical_specialty (Clinical specialty). Examples: Orthopedics; Oncology; Primary care.
+- patient_activity_volume (Patient activity / volume). Examples: 200,000 outpatient visits/year; 15,000 inpatient discharges/year; 500,000 home-health visits/year.
+- payer_revenue_mix (Payer revenue mix). Examples: 40% commercial insurance; 35% Medicare; 20% Medicaid.
+- payment_reimbursement_model (Payment / reimbursement model). Examples: Fee-for-service; Case-based bundled payment; Per-member capitation.
+- setting_specific_capacity (Setting-specific capacity). Examples: 250 staffed hospital beds; 25 clinics; 100 outpatient treatment stations.
+- patient_acuity_case_mix (Patient acuity / case mix). Examples: Routine outpatient visits; High-acuity inpatient care; Reported case-mix index.
+- clinical_operating_quality (Clinical operating quality). Examples: 30-day readmission rate; Hospital-acquired infection rate; Documented patient-safety measure.
+
+Evidence:
+<source id="P1">
+[P1.1] Universal Health Services, Inc. | Healthcare Delivered With Passion
+[P1.2] UHS is one of the nation's largest healthcare management companies with over 400 acute care and behavioral health facilities.
+[P1.3] The Future of Mental Health Is Here
+[P1.4] Care within reach, in-person and online.
+[P1.5] NEXT: Our 2025 Annual Report Now Available
+[P1.6] 2025 Annual Report Now Available!
+[P1.7] We’re proud to share our Annual Report, reflecting on a year of achievement and progress in patient care.
+[P1.8] NEXT: Attentive Care Focused on Quality and Compassion
+[P1.9] Attentive Care Focused on Quality and Compassion
+[P1.10] Improving patient outcomes and building a future focused on quality and innovation are our top priorities.
+[P1.11] NEXT: Meeting the Needs of our Communities
+[P1.12] Meeting the Needs of our Communities
+[P1.13] West Henderson Hospital, the newest UHS acute care hospital in southern Nevada, is the second Henderson location for the Valley Health System.
+[P1.14] NEXT: Annual Report: A Year of Progress
+[P1.15] Transforming the Delivery of Modern Healthcare
+[P1.16] Universal Health Services, Inc. Through its subsidiaries, the company operates 30 Acute Care hospitals, more than 380 Behavioral Health inpatient facilities, 35 freestanding emergency departments and multiple outpatient facilities and ambulatory care centers in 40 states in the U.S., Washington, D.C., Puerto Rico, Ireland and the United Kingdom. UHS Inc. subsidiary Talkspace has virtual behavioral health services throughout the United States and Puerto Rico. Prominence Health offers health plans and provider support, and Independence Physician Management develops and manages physician services and urgent care centers.
+[P1.17] Universal Health Services, Inc. Recognized With 2026 Staritas Supply Chain Excellence Award
+[P1.18] Media Coverage Highlights: UHS and Talkspace Bring Together Virtual, Outpatient and Inpatient Care to Advance a Connected Behavioral Healthcare Continuum
+[P1.19] LEADERS Magazine: A More Connected Model of Care – An Interview with Marc D. Miller
+[P1.20] Talkspace Named to TIME’s World’s Top HealthTech Companies of 2026
+[P1.21] The recognition honors healthcare organizations demonstrating strong performance in supply chain management and the use of data, benchmarking and market intelligence to improve decision-making.
+[P1.22] The acquisition has generated significant media interest, with coverage examining how UHS and Talkspace can help reshape the way behavioral healthcare is accessed, navigated and delivered.
+[P1.23] Companies were selected by evaluating metrics including financial performance, reputation and online engagement.
+[P1.24] A legacy of excellence, a future of innovation
+[P1.25] We’re proud to share our 2025 Annual Report, reflecting on a year of achievement and progress in patient care.
+[P1.26] Download Our Annual Report »
+[P1.27] Engaging patients’ minds to get well and lead better lives
+[P1.28] Through our strong commitment to patient safety and quality, UHS is among industry leaders for evidence-based outcomes and regularly earns high patient experience scores.
+[P1.29] We’re proud to share our Annual Report, reflecting on a year of achievement and progress in healthcare.
+[P1.30] For 45 years, UHS has been a leader in the healthcare management industry and recognized for delivering quality care.
+[P1.31] The care you trust, not far from home.
+[P1.32] Find a UHS facility location
+[P1.33] Provider teams are passionate about improving and saving lives.
+[P1.34] Patient care based on proven therapies and treatments for all ages.
+[P1.35] Making a difference in the lives of millions starts when you make a change in yours.
+</source>
+
+<source id="P2">
+[P2.1] What We Do - Universal Health Services, Inc. | Healthcare Delivered With Passion
+[P2.2] What We Do Universal Health Services, Inc. (UHS) is one of the nation’s largest and most respected providers of hospital and healthcare services. In This Section Transforming the Delivery of Modern Healthcare UHS operates through its subsidiaries more than 540 acute care hospitals, behavioral health
+[P2.3] Universal Health Services, Inc. (UHS) is one of the nation’s largest and most respected providers of hospital and healthcare services.
+[P2.4] UHS operates through its subsidiaries more than 540 acute care hospitals, behavioral health facilities, freestanding emergency departments and ambulatory centers. As we continue to expand our business, we’ll stay focused on making healthcare a positive, more local experience. UHS also offers health insurance and Medicare plans through its subsidiary, Prominence Health. And we manage a vast network of doctors and providers through Independence Physician Management, all committed to making a profound impact on the communities we serve.
+[P2.5] Quality and Innovation in Everything We Do
+[P2.6] With an unwavering commitment to excellence, the UHS Acute Care division aims to raise the bar in quality patient care and transform the patient experience. >>
+[P2.7] Our facilities are dedicated to serving patients and their families with empathetic, effective care based on proven therapies that result in successful, long-term recovery. >>
+[P2.8] Operating in Florida, Texas and Nevada, Prominence Health Plan members can compare drug prices, view their own medical history, find a provider and take advantage of telehealth appointments. >>
+[P2.9] Healthcare Management and Consulting Services
+[P2.10] We offer advanced software and consulting services in operational, financial and clinical environments. >>
+[P2.11] Since we opened the first acute care hospital our vision has been to put patients first. We offer the highest quality patient care at a reasonable cost, and we build relationships with people and the communities we serve.
+[P2.12] Alan B. Miller Universal Health Services Founder and Executive Chairman of the Board
+[P2.13] As a leading provider of hospital and healthcare services, UHS […]
+[P2.14] Universal Health Services, Inc. Ranked by Fortune Among World’s Most Admired Companies
+[P2.15] UHS has once again been selected by Fortune as one of the “World’s Most Admired Companies”.
+[P2.16] Universal Health Services (UHS) Receives 2024 Press Ganey Human Experience Guardian of Excellence Award®
+[P2.17] UHS named a 2024 Human Experience (HX) Guardian of Excellence Award® winner by Press Ganey, the global leader in healthcare experience solutions and services.
+</source>
+
+<source id="P3">
+[P3.1] UHS Locations | UHS, King of Prussia, PA
+[P3.2] View an interactive map of all the Universal Health Services, Inc. (UHS) locations in the US, Puerto Rico and the United Kingdom.
+[P3.3] We look to support each of our served communities as a trusted healthcare provider, ethical employer and valued ally.
+[P3.4] Find a UHS Facility Location in Your Community
+[P3.5] UHS currently operates, through its subsidiaries, more than 540 acute care hospitals, behavioral health facilities, freestanding emergency departments and ambulatory centers across the U.S. and U.K. As we continue to grow, we’re staying focused on making healthcare a more enriching, local experience.
+[P3.6] All Acute Care Behavioral Health Physician Networks Acute Care Outpatient Centers Freestanding Emergency Room Urgent Care Universal Health Services, Inc.
+[P3.7] Find a UHS Behavioral Health Location Near You
+[P3.8] Search by location, level of care and more to find a treatment program that works for you.
+[P3.9] UHS Invests in its Communities
+[P3.10] We’re committed to meeting the diverse needs of the communities we serve.
+[P3.11] Alan B. Miller Medical Center Celebrates Ribbon Cutting
+[P3.12] Ceremonial Ribbon Cutting Welcomes Hanover Hill Behavioral Health
+[P3.13] New 144-bed behavioral health hospital expands access to care for the Lehigh Valley region.
+[P3.14] Universal Health Services Holds Beam Topping Ceremony and Reveals Brand Name for New Behavioral Hospital: Three Trails Behavioral Hospital
+[P3.15] New hospital in Independence, MO, on schedule to open.
+</source>

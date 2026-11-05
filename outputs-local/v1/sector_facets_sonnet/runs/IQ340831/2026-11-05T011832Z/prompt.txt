@@ -1,0 +1,77 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: The Hanover Insurance Group, Inc. (www.hanover.com)
+Sector: Banks, insurance and other financials
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- financial_business_type (Financial business type): What kind of financial firm. Example: insurance brokerage: places commercial insurance for clients. Any that apply of: banking; specialty lending; property and casualty insurance; life and health insurance; insurance brokerage; asset / wealth management; exchanges and market infrastructure; payments; other.
+- revenue_driver (Revenue driver): What it earns on. Example: fees: commissions on placed premiums. Any that apply of: net interest income; fees and commissions; premiums; investment income.
+- customer_type (Customer type): Who its clients are. Example: corporate: small and mid-sized businesses. Any that apply of: retail; corporate; institutional; government.
+- balance_sheet_dependence (Balance sheet dependence): Whether it carries the risk. Example: fee-based: no underwriting risk. Exactly one of: balance-sheet intensive; fee-based; mixed.
+
+Evidence:
+<source id="P1">
+[P1.1] The Hanover Insurance Group
+[P1.2] The Hanover Insurance Group has been providing world class auto, home, and business insurance services to our customers. We are big enough to get things done and local enough to care.
+[P1.3] We’re getting your search results.
+[P1.4] Experience a higher level of coverage, service and convenience.
+[P1.5] Difference-making expertise for businesses in a wide range of industries.
+[P1.6] Learn what makes us stand out
+[P1.7] We're proud to be recognized for being a company that delivers meaningful value for our customers, agents, employees and communities.
+[P1.8] Hear directly from our customers about their Hanover experience.
+[P1.9] We take our corporate responsiblity to heart, by adhering to rigorous environmental, social and governance principles.
+[P1.10] customers with a paid home, business or auto claim express high levels of satisfaction with their claims experience.
+[P1.11] Find out more about The Hanover
+[P1.12] Hear from customers like you
+[P1.13] And that's a good place to start.”
+[P1.14] Get safety and insurance articles, videos, infographics and more to help keep your family, business and property safe, and guide you through the insurance buying process.
+[P1.15] Tips to trick-or-treat safely this Halloween
+[P1.16] Severe storm preparation and safety tips for businesses
+[P1.17] Protect your seasonal home away from home
+[P1.18] Counterfeit check notice - It has come to our attention that a third party, (or parties), is issuing counterfeit Hanover checks to individuals as part of a scam.
+</source>
+
+<source id="P2">
+[P2.1] Our companies | The Hanover Insurance Group
+[P2.2] Allmerica Financial Alliance Insurance Company
+[P2.3] Allmerica Financial Benefit Insurance Company
+[P2.4] Campmed Casualty & Indemnity Company, Inc.
+[P2.5] Citizens Insurance Company of America
+[P2.6] Citizens Insurance Company of Illinois
+[P2.7] Citizens Insurance Company of the Midwest
+[P2.8] Citizens Insurance Company of Ohio
+[P2.9] The Hanover American Insurance Company
+[P2.10] The Hanover Atlantic Insurance Company Ltd.
+[P2.11] The Hanover National Insurance Company
+</source>
+
+<source id="P3">
+[P3.1] Businesses | The Hanover Insurance Group
+[P3.2] The Hanover offers insurance coverage for an array of small and mid-sized businesses in various industries. Our commercial lines products are offered through select independent agents.
+[P3.3] Help me protect my business
+[P3.4] With coverages for an array of industries, The Hanover is here to keep your business protected.
+[P3.5] We offer a variety of coverage for businesses across many industries.
+[P3.6] Keep your business protected with professional liability coverage from The Hanover. With protection for a variety of professionals, our professional liability coverage provides protection for defense costs and settlement payments for claims that your firms’ work or advice was inadequate, contained errors, or failed to meet specifications.
+[P3.7] Learn about our industry-specific professional liability solutions and how they can be tailored to fit your business.
+[P3.8] The Hanover offers a variety of tools and resources, as well as the services of a network of preferred service providers, to help you mitigate the risks faced by your business.
+[P3.9] Our industry-leading claim services and 24/7 reporting help you get back to business quickly. If you ever need to make a claim, you'll be glad you have The Hanover.
+[P3.10] Never did I feel our claim was just another claim number on the never-ending pile of claims.
+[P3.11] See more of what our customers are saying
+[P3.12] Get safety and insurance articles, videos, infographics and more to help keep your business and property safe, and guide you through the insurance-buying process.
+[P3.13] Five signs your business property insurance needs have changed
+[P3.14] The answers to your questions about international business insurance
+[P3.15] Explore the Prepare now. Learn how. library
+</source>

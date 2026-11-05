@@ -1,0 +1,70 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: H2O America (www.h2o-america.com)
+Sector: Energy, utilities, mining and agriculture
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- industry_position (Industry position): Where it sits in the chain. Example: regulated utility: electric and gas distribution. Any that apply of: upstream / production; midstream; downstream; regulated utility; independent power; mining; agriculture; services to producers.
+- commodity_exposure (Commodity exposure): What it produces or delivers. Example: electricity and natural gas. Any that apply of: oil; natural gas; electricity; water; metals; minerals and aggregates; crops and livestock; other.
+- revenue_structure (Revenue structure): How prices are set. Example: regulated: rates approved by state commissions. Any that apply of: spot; contracted; regulated.
+- energy_transition (Energy transition exposure): Fossil or renewable. Example: mixed: gas plants and solar. Exactly one of: renewables; fossil fuels; mixed; not applicable.
+
+Evidence:
+<source id="P1">
+[P1.1] Home | H2O America
+[P1.2] H2O America is a national investor-owned network of local water and wastewater utilities united by one purpose: delivering clean, high-quality water to the communities we call home.
+[P1.3] Water is the foundation of life. And we’ve made it our life’s work.
+[P1.4] Local solutions. National impact. Unwavering support in the communities we call home.
+[P1.5] infrastructure investment plan for 2026 - 2030
+[P1.6] Securing the future of water.
+[P1.7] From cutting emissions to preserving ecosystems, we’re taking action to protect water for the people and communities who depend on it - today and for generations to come.
+[P1.8] H2O America Receives Regulatory Approval for Texas Subsidiary’s Cibolo Valley Acquisition
+[P1.9] San Jose Water -Taking a Proactive Approach to Drinking Water Safety
+[P1.10] Andrew F. Walters, chief executive officer and chair of the board; Ann P.
+[P1.11] Significantly Expands H2O America’s Texas Footprint into the High-Growth Houston Region SAN JOSE, Calif., (GLOBE NEWSWIRE) -- H2O America today announced that its regulated Texas water and wastewater utility, The Texas Water Company, Inc.
+</source>
+
+<source id="P2">
+[P2.1] About Us | H2O America
+[P2.2] Rooted in service. Committed to communities.
+[P2.3] For H2O America, treating water and providing water is more than a responsibility—it’s a privilege. Every connection we serve helps sustain what matters most: public health, vibrant neighborhoods, and a reliable future. Across approximately 407,000 water and wastewater service connections, we invest in critical infrastructure to protect and strengthen water supply for generations to come.
+[P2.4] we deepened our impact with the launch of the Force for Good Foundation, supporting nonprofit organizations that help our communities thrive. We are also committed environmental stewards—prioritizing water conservation, climate resilience, and the sustainable management of our natural resources.
+[P2.5] Water is inherently local—and so are we. Together, we protect what’s precious.
+[P2.6] H2O America at a glance
+[P2.7] Our Mission, Vision & Values
+[P2.8] We sustain life by providing high-quality water and exceptional service while investing in the health and vitality of the communities we serve.
+[P2.9] Thriving local communities, built on reliable water and world-class service - today and for generations to come.
+[P2.10] We uphold the highest standards of i ntegrity. We make the right choices, even when they're hard, and foster a culture of transparency and accountability with straight talk.
+[P2.11] We believe in the power of partnership - because we're stronger together. We respect each other's expertise and collaborate with trust and teamwork to create better outcomes for all.﻿
+[P2.12] We serve with compassion, positivity, and purpose. By actively listening, delivering solutions, and making lasting impact, we strive to be a force for good in our communities and beyond.﻿
+</source>
+
+<source id="P3">
+[P3.1] Local Utilities | H2O America
+[P3.2] San Jose Water and San Jose Conservation Corps Partner to Expand Hands-On Job Training Opportunities
+[P3.3] San Jose Water today announced a new collaboration with the San Jose Conservation Corps (SJCC) to provide corpsmembers with hands-on experience in water utility operations, vegetation management and environmental stewardship through a long-term workforce development partnership.
+[P3.4] San Jose Water Brings First New Cambrian Station Storage Tank Online
+[P3.5] Local and state leaders toured the new PFAS treatment facility in Avon as Connecticut Water continues to make progress on more than twenty projects throughout the state that will proactively meet the new U.S. Environmental Protection Agency (EPA) PFAS regulations set to be in effect.
+[P3.6] SJW Highlights Key Achievements and Investments
+[P3.7] The Maine Public Utilities Commission (MPUC) approved a stipulation agreement between The Maine Water Company (MWC) and the Office of Public Advocate to combine MWC’s ten different rate districts into a single unified rate, which marks a big step in the company’s continued efforts to improve efficiency, upgrade aging water systems, and maximize the value of our customers’ dollars.
+[P3.8] Connecticut Water installed more than 20 miles of water main as part of ongoing efforts to increase service reliability, address aging infrastructure and improve water quality so customers continue to receive high-quality water meeting all state and federal guidelines well into the future.
+[P3.9] Biddeford wastewater customers can now expect to receive their wastewater bills reliably and predictably from Maine Water. Recently, the city transitioned to leveraging Maine Water's billing and customer service expertise to stabilize the administrative processes for sewer billing.
+[P3.10] The Connecticut Construction Industries Association recognized Connecticut Water with two prestigious awards – a Safety Recognition Award for the company’s safety program and a Community Service Award for a tree planting project around a reservoir.
+[P3.11] San Jose Water recognized by Silicon Valley Business Journal with Community Impact Award
+[P3.12] Texas Water Company’s Smart Meters Deliver Real-Time Benefits
+[P3.13] Texas Water Company Welcomes Bryan Raisor as Vice President of Operations
+[P3.14] Texas Water Company Emphasizes Commitment to Reliability and Responsible Growth
+</source>

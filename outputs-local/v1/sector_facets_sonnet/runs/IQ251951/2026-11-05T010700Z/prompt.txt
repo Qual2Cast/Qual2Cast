@@ -1,0 +1,83 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Astec Industries, Inc. (www.astecindustries.com)
+Sector: Manufacturing (industrial, materials, electronics)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- manufacturing_type (Manufacturing type): How it makes products. Example: discrete: builds individual units on assembly lines. Any that apply of: discrete; process; assembly; outsourced / fabless.
+- production_model (Production model): Built for an order or for stock. Example: make-to-order: each unit configured to the customer's order. Exactly one of: make-to-order; make-to-stock; both.
+- product_complexity (Product complexity): How engineered its products are. Example: engineered: custom-configured equipment. Exactly one of: commodity; engineered; precision / high-spec.
+- production_role (Production role): Where it sits in its customers' supply chain. Example: final manufacturer: sells finished units to contractors. Any that apply of: final manufacturer / OEM; tier 1 supplier; tier 2 or component supplier; contract manufacturer; materials producer.
+- end_market_exposure (End-market exposure): Which end markets drive demand. Example: industrial: factories and commercial buildings. Any that apply of: aerospace and defense; automotive and transportation; industrial; construction and buildings; energy; electronics and semiconductors; healthcare and life sciences; consumer; agriculture; other.
+
+Evidence:
+<source id="P1">
+[P1.1] ASTEC | Aggregates, Asphalt, Concrete & Road Equipment
+[P1.2] Equipment for aggregates processing, asphalt and concrete production, road construction, industrial heating and forestry applications.
+[P1.3] We provide the equipment, expertise, and innovation you need to stay ahead and succeed in a competitive world.
+[P1.4] Effective Training is Key to Your Success
+[P1.5] Innovative Solutions for Your Project
+[P1.6] Your Industry. Our Solutions. Explore Now.
+[P1.7] Unmatched Strength from Rock to Road ®
+[P1.8] At Astec, we design and build the infrastructure that connects the world, but it’s the connections with people that truly move us forward. Born from innovation and a passion for customer success, we unite as one company to simplify how you do business with us and to strengthen partnerships across the industries we serve. From concept to completion, our solutions are engineered to perform reliably today and be ready for whatever tomorrow brings.
+[P1.9] Astec brings together 16 trusted brands, each with deep industry expertise, to deliver comprehensive solutions across the infrastructure, construction, and materials sectors.
+[P1.10] Astec operates in multiple countries worldwide, providing global reach with local support to deliver consistent, high-quality solutions wherever customers do business.
+[P1.11] Screening Innovation: The Path to Operational Excellence with Astec
+[P1.12] By partnering with Astec and implementing the new Vari- F requency screen, Perkins Cinders unlocked a major throughput increase in its cinder production.
+[P1.13] From Screws to Screed, Astec Equipment Delivers at Every Level
+[P1.14] Case Study | Road Construction
+[P1.15] Herrmann Equipment isn’t afraid to get into the weeds to find the best equipment for customers. That’s how they found some of their top sellers.
+[P1.16] Moving Infrastructure Forward in Ghana
+[P1.17] Case Study | Asphalt Plants
+[P1.18] IntelliPac: Precision Moisture, Proven Efficiency
+[P1.19] How Dunn Construction Boosted Quality with the Astec IntelliPac System.
+[P1.20] The Astec milling team knew just how to give the new team at the NCAT Pavement Test Track exactly what they wanted.
+[P1.21] Beyond Your Average Monitoring Tool
+[P1.22] How the new Astec IntelliPac ™ Moisture System is a catalyst for significant cost savings.
+[P1.23] Any Part. Any Time. Anywhere.
+[P1.24] With over 1 million square feet of parts storage, Astec ensures the parts you need are always on hand—backed by expert support available 24/7.
+[P1.25] Find authorized dealers and distributors near you to ensure access to genuine Astec products, expert guidance, and dependable support.
+[P1.26] Downtime directly impacts your bottom line, and our expert service team delivers fast, accurate support to keep your operation running smoothly and at peak efficiency.
+[P1.27] Training to Help You Succeed
+[P1.28] With expert-led, year-round training, Astec confidently empowers your team to boost performance, reduce downtime, and maximize equipment value.
+[P1.29] Astec Industries is a globally trusted leader in infrastructure, aggregates, and mining equipment—offering over 100 innovative, state‑of‑the‑art solutions built on decades of engineering excellence. With a relentless focus on operational excellence, aftermarket strength, and strategic growth, Astec equips customers worldwide to build better and operate more profitably.
+[P1.30] ASTE Price Today by TradingView
+[P1.31] *15 minute delay. Refresh page for updates.
+[P1.32] Fast answers. Real support. Always ready to help.
+</source>
+
+<source id="P2">
+[P2.1] About Us - ASTEC
+[P2.2] Our Purpose. Our Story. Driven by a legacy of innovation, Astec works behind the scenes, transforming challenges into progress and helping build the infrastructure that physically connects the world. But our commitment extends far beyond the...
+[P2.3] Our Vision: To build industry changing solutions that create life-changing opportunities
+[P2.4] Driven by a legacy of innovation, Astec works behind the scenes, transforming challenges into progress and helping build the infrastructure that physically connects the world. But our commitment extends far beyond the equipment we manufacture; it lives in the expertise we share, the partnerships we foster, and the solutions we deliver. At Astec, we are Built to Connect.
+[P2.5] OUR BUSINESS LANDSCAPE AND MARKET PHILOSOPHY
+[P2.6] At Astec, we design and build the infrastructure that connects the world, and it’s the connections with people that truly move us forward. we brought creative thinking and state-of-the-art technology to industries ready for innovation, backed by a corporate culture known for putting customer service first. Today, our market-leading brands serve a wide range of industries, providing equipment and solutions that are reliable, productive, and sustainable.
+[P2.7] Our mission is simple: to design and build state-of-the-art equipment that enables our customers to deliver industry-leading results efficiently and profitably. We combine innovative products with world-class training, education, and support, helping our customers succeed at every stage of their projects.
+[P2.8] For our customers, we strive to be the most innovative company in our industry, offering advanced, durable, and environmentally responsible solutions. From equipment to education, service, and support, we go beyond what our competition provides to ensure our customers thrive.
+[P2.9] Safety is our first core value, and we invest in training, personal protective equipment, and technology to advance our safety programs — always striving for zero harm.
+[P2.10] Born in Chattanooga. Built for the World.
+[P2.11] Astec Showcases Telestack Dry Bulk Material Handling Expertise at Breakbulk Americas 2026
+[P2.12] Astec Industries Introduces Thermal Imaging Electrical Inspection Service to Enhance Asphalt Plant Safety and Reliability
+[P2.13] " * " indicates required fields
+[P2.14] Find Astec product availability nearby
+</source>
+
+<source id="P3">
+[P3.1] Where to Buy - ASTEC
+[P3.2] Find Dealers and Sales Contacts
+[P3.3] Advanced Technical Services AggCorp Alta Equipment Alta Equipment Florida American State Equipment Arnold Machinery Barry Equipment Bejac Border Equipment Carter Machinery Cleveland Brothers Closner Equipment CMW Columbus Equipment Company Concrete Equipment Supply Concrete Machinery Company Cooper Equipment Core Equipment Group Cowin Equipment Crisp Industries Dave Humphrey Enterprises Faris Machinery Company Finkbiner Equipment G.W. Van Keppel
+</source>

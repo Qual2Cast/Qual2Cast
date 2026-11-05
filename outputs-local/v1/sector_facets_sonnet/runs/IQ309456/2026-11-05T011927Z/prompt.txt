@@ -1,0 +1,65 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Trinity Industries, Inc. (www.trin.net)
+Sector: Manufacturing (industrial, materials, electronics)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- manufacturing_type (Manufacturing type): How it makes products. Example: discrete: builds individual units on assembly lines. Any that apply of: discrete; process; assembly; outsourced / fabless.
+- production_model (Production model): Built for an order or for stock. Example: make-to-order: each unit configured to the customer's order. Exactly one of: make-to-order; make-to-stock; both.
+- product_complexity (Product complexity): How engineered its products are. Example: engineered: custom-configured equipment. Exactly one of: commodity; engineered; precision / high-spec.
+- production_role (Production role): Where it sits in its customers' supply chain. Example: final manufacturer: sells finished units to contractors. Any that apply of: final manufacturer / OEM; tier 1 supplier; tier 2 or component supplier; contract manufacturer; materials producer.
+- end_market_exposure (End-market exposure): Which end markets drive demand. Example: industrial: factories and commercial buildings. Any that apply of: aerospace and defense; automotive and transportation; industrial; construction and buildings; energy; electronics and semiconductors; healthcare and life sciences; consumer; agriculture; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Trinity Industries, Inc. - Investor Relations
+[P1.2] Trinity Industries, Inc. owns market-leading businesses that provide railcar products and services in North America under the trade name TrinityRail®. TrinityRail’s unique platform provides a single source for comprehensive rail transportation solutions that optimizes our customers’ ownership and usage of railcar equipment and enhances the value-proposition of the rail modal supply chain.
+[P1.3] Our purpose is to Deliver Goods for the Good of All.
+[P1.4] Delivering Goods for the Good of All™
+[P1.5] It’s more than a motto — it’s our purpose. Rail transports the goods that keep our lives, our communities, and our economy thriving, and TrinityRail is proud to keep North America’s rail shippers moving forward.
+[P1.6] TrinityRail is an industry-leading railcar leasing company, enhanced by our manufacturing and service capabilities. We are a leader in providing leasing and logistics services, and act as an integrated and strategic partner to stakeholders across the industry. We are on a mission to increase rail’s modal share and convenience by delivering more sustainable, end-to-end solutions that bridge the first and last miles for our customers.
+[P1.7] years in business 50+ years manufacturing railcars, 40+ years leasing railcars
+[P1.8] major commercial end markets serving 21 different commodity markets with the broadest railcar product offering in North America
+[P1.9] invested in our lease fleet
+[P1.10] Trinity Industries celebrating 50 years of being on the NYSE on
+[P1.11] As a leading railcar lessor enabled by rail transportation manufacturing and services in North America, Trinity Industries is committed to supporting a more sustainable future and making meaningful contributions to address our long-term impact.
+[P1.12] We are dedicated to integrating sustainability principles, including socially responsible and environmentally conscious corporate practices, grounded in a robust governance framework to ensure we continue operating at the industry's highest standards.
+</source>
+
+<source id="P2">
+[P2.1] Trinity Industries, Inc. - About - About Us
+[P2.2] Trinity began providing industrial products and services to customers more than 85 years ago. We started as a small butane-tank manufacturer and evolved over time into a premier provider of railcar products and services in North America with a leading railcar lease fleet and manufacturing, maintenance and repair operations.
+[P2.3] Our rail-related products and services are marketed under the trade name TrinityRail. Our purpose is to Deliver Goods for the Good of All.
+[P2.4] The TrinityRail platform plays an important role in the North American supply chain by facilitating the transportation of bulk commodities and goods by rail. Railcar transportation is sustainable and is the most economical land-based mode of transportation. At Trinity, we strive to employ company resources in ways that make positive contributions to our stakeholders for the benefit of current and future generations.
+[P2.5] TrinityRail’s platform aims to deliver innovative solutions that optimize the life-cycle ownership and usage of railcar equipment and enhance the value-proposition of the rail modal supply chain. We differentiate our value proposition to all stakeholders by:
+[P2.6] leveraging our rail expertise across a broad market viewpoint,
+[P2.7] working collaboratively to provide an unparalleled customer experience, and
+[P2.8] delivering significant financial and commercial synergies that create a strategic advantage.
+[P2.9] Our market leadership, performance and growth through the years are attributable to:
+[P2.10] the synergies within our platform,
+[P2.11] the quality of our rail products and services,
+[P2.12] the depth of our operational capabilities, market insight and expertise, and
+[P2.13] our cultural commitment to excellence and continuous improvement.
+</source>
+
+<source id="P3">
+[P3.1] Trinity Industries, Inc. - About - Trinity Platform
+[P3.2] The TrinityRail Platform and Operating Model
+[P3.3] At Trinity, we are committed to Delivering Goods for the Good of All. Look around and you’ll see us. Our railcars have likely carried the materials that built them. We may have delivered it from the farm to grocer. We likely transported and fueled it. That’s us too.
+[P3.4] Our railcars play an important role in North America as they deliver essential goods that keep the economy moving and enrich the lives of people in communities across the continent.
+[P3.5] Delivering Goods for the Good of All is why we proudly come to work each day.
+[P3.6] Each serves as our cultural cornerstone and defines how we accomplish our purpose. We align our business strategy with three broad initiatives: optimization, innovation, and customer experience - all with the goal to deliver superior returns to our stakeholders and achieve our overarching purpose of Delivering Goods for the Good of All.
+</source>

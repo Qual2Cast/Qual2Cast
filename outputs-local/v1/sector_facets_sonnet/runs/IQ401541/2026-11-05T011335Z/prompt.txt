@@ -1,0 +1,105 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Lennox International Inc. (www.lennox.com)
+Sector: Manufacturing (industrial, materials, electronics)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- manufacturing_type (Manufacturing type): How it makes products. Example: discrete: builds individual units on assembly lines. Any that apply of: discrete; process; assembly; outsourced / fabless.
+- production_model (Production model): Built for an order or for stock. Example: make-to-order: each unit configured to the customer's order. Exactly one of: make-to-order; make-to-stock; both.
+- product_complexity (Product complexity): How engineered its products are. Example: engineered: custom-configured equipment. Exactly one of: commodity; engineered; precision / high-spec.
+- production_role (Production role): Where it sits in its customers' supply chain. Example: final manufacturer: sells finished units to contractors. Any that apply of: final manufacturer / OEM; tier 1 supplier; tier 2 or component supplier; contract manufacturer; materials producer.
+- end_market_exposure (End-market exposure): Which end markets drive demand. Example: industrial: factories and commercial buildings. Any that apply of: aerospace and defense; automotive and transportation; industrial; construction and buildings; energy; electronics and semiconductors; healthcare and life sciences; consumer; agriculture; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Building Climate and Home Comfort Solutions for Residential and Commercial Environments | Lennox
+[P1.2] Explore Lennox climate-control solutions for residential homes, commercial buildings, commercial services, and OEM HVAC parts & supplies. Built for every environment.
+[P1.3] Creating Healthier, More Comfortable Environments
+[P1.4] Lennox delivers energy-efficient climate solutions that create healthier, more comfortable spaces for homes and businesses everywhere.
+[P1.5] Premium, award-winning systems that make the air in your home cooler, warmer, cleaner, and quieter than ever.
+[P1.6] VISIT RESIDENTIAL FIND A DEALER
+[P1.7] Deliver reliable results for every job with our energy-efficient products built for easy installation and maintenance.
+[P1.8] VISIT COMMERCIAL REQUEST A QUOTE
+[P1.9] We help multi-site businesses optimize HVAC performance through lifecycle solutions, including preventative maintenance, planned replacement, and sustainable recycling.
+[P1.10] VISIT COMMERCIAL SERVICES REQUEST A QUOTE
+[P1.11] ENERGY STAR ® -certified products that reduce utility costs while minimizing environmental impact.
+[P1.12] Over a century of engineering breakthroughs that set the standard for the entire HVAC industry.
+[P1.13] More than 130 years of craftsmanship, reliability, and commitment to customer satisfaction.
+[P1.14] Serving residential and commercial customers across North America with innovative climate control solutions.
+</source>
+
+<source id="P2">
+[P2.1] About Lennox | Lennox Dealers | Lennox History | Lennox Residential
+[P2.2] With high-efficiency ratings and the latest innovative, mobile technology, our home heating and cooling equipment for the residential replacement and new construction markets in the United States and Canada provide the ultimate in comfort and climate control.
+[P2.3] Our product lines include air conditioners, furnaces, heat pumps, comfort controls, and indoor air quality equipment.
+[P2.4] We provide climate control and refrigeration systems for retail establishments, restaurants, schools, supermarkets, office buildings, and other commercial applications in North America. Products include packaged rooftop units, split systems, VRF and ductless, commercial controls, indoor air quality systems, coolers, condensing units, packaged systems, and related equipment.
+[P2.5] Delivering complete lifecycle solutions for HVAC customers through a wide range of parts and supplies that meet not only the i ndustry’s most stringent demands but also offer all the essentials to stock an HVAC service truck.
+[P2.6] There is something in the air at Lennox.
+[P2.7] Makes others want to do business with us.
+[P2.8] We deliver on our commitments.
+[P2.9] We energize and motivate others.
+[P2.10] We are always honest, ethical, and safe.
+[P2.11] We earn the loyalty of our customers.
+[P2.12] We care for our community and planet.
+[P2.13] We foster belonging and create opportunities to grow.
+[P2.14] We embrace original ideas and creative solutions.
+[P2.15] We strive for continuous improvements.
+[P2.16] Innovation: A Legacy of Firsts at Lennox
+[P2.17] the world’s first riveted-steel furnace rolled off our assembly lines and we’ve been at it ever since —developing reliable, innovative heating and cooling systems to keep you comfortable.
+[P2.18] He incorporated the operation as Lennox Furnace Company, and proceeded to sell 600 furnaces in the company's first year.
+[P2.19] Lennox pioneers the introduction of a forced-air furnace for residential heating.
+[P2.20] Lennie Lennox, Lennox's icon, came to life.
+[P2.21] His image helped spread the word about the Lennox Furnace company and 50's.
+[P2.22] Lennox establishes an international division with a facility in Basingstoke, England and sales offices and warehouses in Holland and Germany.
+[P2.23] "Dave Lennox" appears in his first Lennox advertising campaign with L.A. actor Bill Tracy in the role.
+[P2.24] Lennox develops and manufactures the industry's first high-efficiency gas furnaces.
+[P2.25] Introduced​ first air conditioner to achieve 15 SEER efficiency rating
+[P2.26] Lennox introduces CompleteHeat(TM), the first combination space and hot-water high-efficiency heating system by a major HVAC manufacturer.
+[P2.27] Launched XC 25 with 26 SEER efficiency rating
+[P2.28] Introduced PureAirS, whole-home air purification system
+[P2.29] Introduced Model L, most energy-efficient rooftop unit
+[P2.30] Launched new iComfort S40 thermostat with features including temperature and humidity controls and IAQ room sensors
+[P2.31] Launched Enlight rooftop unit and heat pump line​
+[P2.32] Lennox expands for the first time, building a warehouse in Syracuse, New York. Two years later a factory is added.
+[P2.33] During the war, the company's production included not only heating equipment for military use, but also parts for aircraft and bombs.
+[P2.34] Lennox establishes operations in Canada and expands its product line with the introduction of residential central air-conditioning systems.
+[P2.35] Lennox was the first to manufacture packaged direct multi-zone rooftop units for heating and cooling beginning.
+[P2.36] Lennox develops the first two-speed hermetic compressor, making possible significant energy cost savings in residential and commercial air conditioning.
+[P2.37] Lennox International Inc. is established
+[P2.38] as the parent company for Lennox Industries Inc. and future acquisitions under the ownership of the Norris family.
+[P2.39] Dallas Texas becomes the Lennox Corporate Headquarters.
+[P2.40] The Beacon Control System eases installation and maintenance of refrigeration system problems.
+[P2.41] LII Introduces HSX19, industry's quietest and most efficient air conditioner.
+[P2.42] Launched iComfort S30 ultra-smart thermostat to help homeowners maximize air conditioning units
+[P2.43] Launched high-efficiency ductless heat pumps
+[P2.44] Cold climate heat pump launch
+[P2.45] Meet the team that is working together to deliver results that build on the company’s rich history of sustainability, innovation and performance.
+</source>
+
+<source id="P3">
+[P3.1] Find a Lennox Dealer | HVAC Dealers | HVAC Service
+[P3.2] Lennox technicians have the experience necessary to get the job done right the first time. Find a local Lennox air conditioner and furnace dealer near you.
+[P3.3] Find Trained HVAC Dealers for Installation, Service & Repair
+[P3.4] Whether it’s routine maintenance or a brand-new system, find a Lennox HVAC local expert to keep your home comfortable year-round.
+[P3.5] From precision installations to expert service, repairs and maintenance, our trained HVAC professionals ensure your home stays comfortable year-round with energy-efficient solutions you can trust.
+[P3.6] Offers Manufacturer rebates when available
+[P3.7] North American Technician Excellence (NATE)
+[P3.8] Provides options for expanding your purchasing power
+[P3.9] Independent Lennox dealers that have completed Lennox’s 40 hour factory training requirement, which includes intensive, up-to-date classes on installation, design, communication, and service.
+[P3.10] The top Lennox Dealers are recognized for their prestigious achievements, embodying the hightest standards of customer service, community, and quality of installations.
+[P3.11] A Lennox Powered by Samsung Dealer is a Lennox Premier Dealer specially trained and committed to delivering expert service and support for high-efficiency mini-split systems
+[P3.12] The dealerships accessible on this Lennox Dealer Locator (this "Locator") are independent of Lennox International Inc.(including its affiliates, "Lennox"). All information made available on this Locator is for general informational purposes only, and any reliance on such information is done at your own risk. By accessing this Locator, you acknowledge that Lennox makes no warranty, guarantee, or representation as to the accuracy or sufficiency of the information featured in this Locator or the services provided by such dealer.
+</source>

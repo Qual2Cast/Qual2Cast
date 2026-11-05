@@ -1,0 +1,52 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: The Monarch Cement Company (monarchcement.com)
+Industry (SIC 32): Stone, Clay, Glass & Concrete
+
+Facets:
+- mineral_based_product (Mineral-based product). Examples: Ready-mix concrete; Cement; Flat glass.
+- thermal_processing_dependence (Thermal-processing dependence). Examples: Cement kiln; Glass-melting furnace; Concrete batching without kiln.
+- energy_fuel_intensity (Energy / fuel intensity). Examples: Electricity-intensive glass melting; Kiln fuel from natural gas; Diesel-intensive concrete delivery.
+- delivery_radius_product_logistics (Delivery radius / product logistics). Examples: 30-mile ready-mix radius; Bulk cement by rail; Exported flat glass.
+- construction_end_use (Construction end use). Examples: Residential foundations; Commercial glazing; Infrastructure concrete.
+- raw_material_integration_model (Raw-material / integration model). Examples: Owned limestone quarry; Purchased cement and aggregates; Purchased glass cullet.
+
+Evidence:
+<source id="P1">
+[P1.1] Home - Monarch Cement Company
+[P1.2] Operating at a Higher Standard
+[P1.3] At The Monarch Cement Company, strength is more than muscle and brawn; real strength is character, conviction and grit. It’s a core belief that binds us together with our customers, employees and communities, and it’s the hidden ingredient that still binds us more than 100 years later as we honor the past while building a stronger future.
+[P1.4] All cement is not created equal.
+[P1.5] We’re using technology for smarter, more efficient results that are also good for the planet.
+[P1.6] "Proud of our heritage and passionate about our future."
+[P1.7] National Ready Mixed Concrete Association
+</source>
+
+<source id="P2">
+[P2.1] About - Monarch Cement Company
+[P2.2] Strength is more than muscle and brawn; real strength is character, conviction and grit. It’s a core belief that binds us together with our customers, employees and communities. It’s a promise to do what’s right—good people helping good people.
+[P2.3] At The Monarch Cement Company, that strength has forged a solid foundation for more than a century. It holds us to a higher standard of quality. It reinforces our commitment to our customers throughout the Midwest. It paves a path to innovation, to use technology for smarter, more efficient results that are also good for the planet.
+[P2.4] Quietly driven and fiercely independent, that strength is the hidden ingredient that still binds us more than 100 years later as we honor the past while building a stronger future.
+[P2.5] Roots run deep at Monarch, and the Company story is one of integrity, quality and extraordinary people whose pride shows in every detail.
+</source>
+
+<source id="P3">
+[P3.1] Products - Monarch Cement Company
+[P3.2] As the world’s most widely used construction material and one of the planet’s most-consumed resources, cement forms the backbone of our modern civilization. It’s the hidden ingredient giving strength to the concrete and mortar that form our buildings, roads and everything in between.
+[P3.3] At The Monarch Cement Company, we’re proud to produce consistent and high-quality Portland and masonry cements to serve our region.
+[P3.4] Monarch is proud to offer Portland-Limestone Cement (PLC) – engineered to reduce carbon emissions by approximately 10% but with all the performance and resilience you’ve come to expect.
+[P3.5] One of the most versatile construction products, Portland cement is the most common type of cement and serves as the basic component of concrete, mortar, stucco and non-specialty grout.
+[P3.6] Used in brick, block and stone masonry construction, masonry cement produced by Monarch serves as a key element of the building industry throughout the Midwest.
+</source>

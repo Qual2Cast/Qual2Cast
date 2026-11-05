@@ -1,0 +1,59 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Dycom Industries, Inc. (www.dycomind.com)
+Sector: Construction and real estate
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- construction_role (Role): Its role in building or property. Example: specialty contractor: mechanical and electrical work. Any that apply of: homebuilder; general contractor; specialty contractor; engineering and design; land developer; property owner / REIT; property services.
+- project_type (Project type): What kind of projects. Example: infrastructure: roads and bridges. Any that apply of: residential; commercial / institutional; industrial; infrastructure; energy and utilities.
+- public_funding (Public funding): How much of its work is publicly funded. Example: high: mostly state transportation departments. Exactly one of: high; medium; low.
+
+Evidence:
+<source id="P1">
+[P1.1] Dycom Industries, Inc. | The People Connecting America®
+[P1.2] Dycom Industries, Inc. is a leading provider of specialty contracting services to the telecommunications infrastructure and utility industries throughout the United States.
+[P1.3] The People Connecting America ®
+[P1.4] In the Air and Underground™
+[P1.5] Dycom Industries, Inc. is a leading provider of specialty contracting services to the telecommunications infrastructure and utility industries throughout the United States. We supply the single most critical resource telecom service providers need: skilled people. We serve the nation from hundre d s of field offices and are unparalleled in scope and scale.
+[P1.6] Additionally, we provide underground facility locating services for various utilities, including telecommunications providers, and other construction and maintenance services for electric and gas utilities.
+[P1.7] Embracing a common vision of connecting America, Dycom proudly builds networks and partnerships nationwide. Our engaged workforce is key to meeting the needs of our customers by bringing and keeping communities online and connected. They guide our interactions with each other, with our customers, and with the communities where we live and work.
+[P1.8] Our team’s performance and innovation is trusted by several of the country’s most prominent brands on a daily basis, and we are constantly striving to meet and exceed expectations.
+[P1.9] We believe safety is more than rules and procedures – it’s a mindset. Headway® safety program is our preferred path when mitigating risk on the job. Our multi-step strategy and intensive training empowers workers to recognize and enforce natural safety techniques, so they always get home safe.
+[P1.10] Employees are our most important resource. We bring connectivity to households and businesses alike.
+[P1.11] The reach of our expansive group of companies is built on our deep relationships with leading service providers. Dedicated to safety and quality, we have the partners to meet the needs of every client, no matter the scope or deadline.
+</source>
+
+<source id="P2">
+[P2.1] Dycom Industries | What We Do | Services for Wireline and Wireless Construction
+[P2.2] Dycom Industries offers a range of services including wireline and wireless construction, project management, fulfillment, and maintenance & restoration. Our mission is to connect America through safe and innovative solutions.
+[P2.3] Ready for you and your customers
+[P2.4] We have engineered and constructed hundreds of thousands of miles of fiber, meeting the needs of our customers while upholding the service and quality standards their customers expect. Our services include: program management; planning; engineering and design; aerial, underground, and wireless construction; maintenance; and fulfillment services. Additionally, we provide underground facility locating services for multiple utilities, including telecommunications providers, and other construction and maintenance services for electric and gas utilities.
+[P2.5] Across the nation, we complete construction projects with our workers’ talents augmented by our enterprise technology tools.
+[P2.6] Dycom is an expert in wireless communications construction. We complete projects of any size, from macro cells to small cells, for 4G and 5G networks.
+[P2.7] Our locating services provide the skilled workforce necessary to ensure all underground utilities are identified before work begins
+[P2.8] Our engineering teams survey and design facilities for copper, coaxial and fiber networks.
+[P2.9] Dycom provides fulfillment services including complete in-home and drop installations, as well as repair and maintenance of broadband networks.
+[P2.10] Dycom provides ongoing maintenance and service for telecommunication networks across the country, as well as emergency restoration services when required.
+[P2.11] From the smallest town to the largest city, we manage both turn-key and standard telecommunication projects that connect America.
+</source>
+
+<source id="P3">
+[P3.1] Dycom's Professional Locating Services for Underground Utilities
+[P3.2] Dycom provides skilled workforce and state-of-the-art technology for locating all underground utilities before construction begins. Our Enhanced Positive Response system (EPR) ensures the safety of excavation projects by digitally documenting locates on high-resolution aerial images. We also offer risk assessments for outside plant, leak surveys, and meter inspections to ensure a healthy and sustainable future for outside plant.
+[P3.3] Our locating services provide the skilled workforce to ensure underground infrastructure is protected when excavation activity occurs. Dycom’s employees utilize modern technology to deliver timely, reliable, and accurate locate services to our clients throughout America.
+[P3.4] We complete millions of successful locates each year and include proper documentation to help reduce underground plant damages. Our Enhanced Positive Response process (EPR) helps excavators know where utilities are buried before construction begins. We also offer specialized services which include quality audit programs, facility documentation, standby services, risk assessment, leak surveys and meter inspections. Our suite of services enables our nation’s infrastructure to remain healthy and sustainable into the future.
+[P3.5] Every day, our locators work across America to achieve safer excavations and assist in reducing damages.
+</source>

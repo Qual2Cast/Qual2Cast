@@ -1,0 +1,71 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: AAR Corp. (www.aarcorp.com)
+Sector: Wholesale distribution and transportation
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- logistics_role (Role): What it moves or distributes. Example: industrial distributor: MRO parts to factories. Any that apply of: industrial distributor; consumer goods distributor; healthcare distributor; technology distributor; trucking; less-than-truckload; rail; air; marine; freight brokerage / logistics; passenger transport.
+- asset_intensity (Asset intensity): Whether it owns the fleet or warehouses. Example: asset-heavy: owns its fleet and terminals. Exactly one of: asset-heavy; asset-light; mixed.
+- value_added (Value added): What it adds besides moving goods. Example: value-added services: inventory management and repair. Any that apply of: pure distribution; value-added services; contract logistics.
+
+Evidence:
+<source id="P1">
+[P1.1] AAR is an independent provider of aviation services worldwide | AAR CORP.
+[P1.2] Our solutions help commercial and government customers increase efficiency while maintaining quality, service, and safety.
+[P1.3] Company overview Doing it right ® throughout history Safety and certifications Locations
+[P1.4] Corporate governance Corporate officers Sustainability
+[P1.5] Software overview Trax℠ Aerostrat℠ Airvoyant℠ Airinmar ®
+[P1.6] Parts Government Programs Mobility Systems
+[P1.7] SEC reports News Corporate governance
+[P1.8] US and other international job openings Amsterdam job openings Greensboro job openings Lake City job openings Thailand job openings Trois Rivières - Canada job openings United Kingdom job openings Windsor - Canada job openings
+[P1.9] Employee experience Military veterans EAGLE Pathway Program
+[P1.10] 2026 Annual Report 2025 Sustainability Report
+[P1.11] AAR is an award-winning provider of aviation parts, repair, software, and government solutions worldwide.
+[P1.12] New and used aircraft and engine parts
+[P1.13] Airframe and component maintenance, repair, and overhaul services
+[P1.14] Comprehensive maintenance and supply chain programs, shelters and sustainment systems, and parts for governments
+[P1.15] AAR goes above and beyond to provide quality-focused, value-driven solutions that support the evolving needs of our customers worldwide.
+[P1.16] Our unmatched blend of offerings, focus on fundamentals, and compelling strategic plan position AAR for continued growth.
+[P1.17] Our team is AAR’s greatest asset. Our positive workplace culture earned AAR Military Friendly® recognition and a Great Place To Work certification.
+</source>
+
+<source id="P2">
+[P2.1] About AAR | AAR CORP.
+[P2.2] AAR is an independent aviation service provider helping customers increase efficiency and reduce costs while maintaining high levels of quality, service, and safety.
+[P2.3] AAR delivers award-winning aerospace and defense services to airlines, OEMs, and governments across the globe.
+[P2.4] Based in the Chicago area AAR is the number one aviation maintenance, repair, and overhaul provider in North America. With a unique combination of industry-leading parts, repair, government solutions, and software, AAR is a trusted partner to commercial and government customers worldwide.
+[P2.5] As your trusted aircraft parts supplier and distributor, AAR delivers a broad range of products across all major commercial and government platforms globally.
+[P2.6] Our trusted Airframe MRO and Component MRO teams provide comprehensive repair services while prioritizing the highest levels of quality and safety.
+[P2.7] AAR's software offerings combine the latest technology and customer feedback to provide innovative solutions to airlines, MROs, and cargo companies.
+[P2.8] AAR provides comprehensive maintenance and supply chain programs, shelter and sustainment systems, and parts to governments across the globe.
+[P2.9] Commercial parts shipped and received in FY2026
+[P2.10] There’s no one like AAR.
+[P2.11] Impressive mix of aftermarket solutions
+[P2.12] AAR is a global aerospace and defense aftermarket solutions company with operations in multiple countries. Headquartered in the Chicago area, AAR supports commercial and government customers through four operating segments: Parts Supply; Repair, Engineering, and Software; Government Solutions; and Legacy Commercial Programs. Additional information can be found at aarcorp.com.
+</source>
+
+<source id="P3">
+[P3.1] Software | AAR CORP.
+[P3.2] AAR extends its industry-leading supply chain services in the digital realm with new and enhanced applications to better support our customers.
+[P3.3] More than 10,000 aircraft rely on AAR's software.
+[P3.4] Mobilize maintenance with cutting edge software solutions
+[P3.5] AAR subsidiary Trax is the preeminent global provider of aviation software, delivering a fully integrated, cloud-hosted ERP solution through its flagship product, eMRO, and its eMobility suite of mobile apps.
+[P3.6] Simplify long-range heavy maintenance planning
+[P3.7] AAR subsidiary Aerostrat automates complex scheduling, ensures production capacity, and simplifies aircraft allocation with Aerros, its flagship ERP-agnostic solution.
+[P3.8] AAR subsidiary Airvoyant automates the sourcing process with an AI-capable platform to help airlines and MROs reduce costs, minimize order delays, limit AOG exposure, and improve on-time performance.
+[P3.9] Maximize aircraft warranty management and value engineering services
+[P3.10] AAR subsidiary Airinmar delivers tailored component repair and warranty management support services, driving reduced repair expenditure, improved component availability, and enhanced operational efficiencies.
+</source>

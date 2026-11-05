@@ -1,0 +1,67 @@
+{
+ "backend": "claude-cli",
+ "model": "claude-sonnet-5-5",
+ "effort": "",
+ "prompt_version": "2026-11-04a",
+ "fingerprint": "1ca059b457874c54",
+ "finished_at": "2026-11-05T01:28:29Z",
+ "llm_status": "ok",
+ "command": [
+  "/Users/matthewpisinski/.local/bin/claude",
+  "-p",
+  "--output-format",
+  "json",
+  "--json-schema",
+  "{\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"comps\"], \"properties\": {\"comps\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"label\", \"good\", \"reason\"], \"properties\": {\"label\": {\"type\": \"string\", \"enum\": [\"C1\", \"C2\", \"C3\", \"C4\", \"C5\", \"C6\", \"C7\", \"C8\"]}, \"good\": {\"type\": \"boolean\"}, \"reason\": {\"type\": \"string\"}}}}}}",
+  "--tools",
+  "",
+  "--no-session-persistence",
+  "--strict-mcp-config",
+  "--mcp-config",
+  "{\"mcpServers\":{}}",
+  "--setting-sources",
+  "",
+  "--max-turns",
+  "3",
+  "--system-prompt-file",
+  "/Users/matthewpisinski/work/school/grad_school/F_26/IEOR_Capstone/Work/outputs-local/v1/cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/runs/IQ294382/2026-11-05T012823Z/system.txt",
+  "--model",
+  "claude-sonnet-5-5"
+ ],
+ "returncode": 0,
+ "seconds": 5.05,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 5507,
+  "cache_read_input_tokens": 887,
+  "output_tokens": 462,
+  "output_tokens_details": {
+   "thinking_tokens": 0
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 5507,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 462,
+    "cache_read_input_tokens": 887,
+    "cache_creation_input_tokens": 5507,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 5507
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ }
+}

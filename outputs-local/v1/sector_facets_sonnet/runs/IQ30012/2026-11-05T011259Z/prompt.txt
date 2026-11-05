@@ -1,0 +1,65 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Integra LifeSciences Holdings Corporation (www.integralife.com)
+Sector: Healthcare (providers, devices, pharmaceuticals)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- healthcare_segment (Healthcare segment): Part of healthcare. Example: services: home health and hospice care. Any that apply of: pharma; biotech; medtech / devices; diagnostics and tools; provider services; healthcare IT; payer; distribution / pharmacy; other.
+- product_stage (Product stage): Whether its products are on the market. Example: commercial: sells approved products. Exactly one of: commercial; clinical; research; not applicable (services).
+- customer_payer (Customer / payer): Who pays. Example: Medicare and Medicaid: government programs pay for most visits. Any that apply of: hospitals and providers; private insurance; Medicare and Medicaid; patients / consumers; pharma and biotech companies; employers; other.
+- therapeutic_area (Therapeutic area): Main clinical area. Example: cardiovascular: heart rhythm devices. Any that apply of: oncology; cardiovascular; neurology and behavioral health; orthopedics and spine; metabolic and diabetes; infectious disease; ophthalmology; dental; general / multiple; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Integra LifeSciences
+[P1.2] Integra LifeSciences has a broad portfolio of innovative products and solutions used in neurosurgery, wound reconstruction and care, surgical reconstruction, surgical instrumentation and lighting, and ear, nose and throat.
+[P1.3] As supervisor of manufacturing operations at Integra LifeSciences' Le Locle facility, Lucie Fillolleau helps lead the production of Integra LifeSciences valves used in the management of hydrocephalus.
+[P1.4] Integra LifeSciences Announces 100th Patient Enrolled in AERA® Pediatric Registry
+[P1.5] From Severe Burns to a Life in Motion
+[P1.6] At just eight years old, Tyler Schultz suffered severe burns from a devastating accident. More than 100 surgeries later, he’s thriving and focused on building a promising future.
+[P1.7] Get an inside look at Integra LifeSciences' hands-on learning environment where healthcare professionals can develop surgical skills, explore innovative techniques and build confidence through immersive, procedure-based training.
+[P1.8] What's New in Our News Center
+[P1.9] Integra LifeSciences to Highlight ENT and Instruments Portfolios and Sponsor New Clinical Research Presentations at AAO-HNSF 2026 Annual Meeting
+[P1.10] Integra LifeSciences announced its participation American Academy of Otolaryngology-Head and Neck Surgery Foundation (AAO-HNSF) Annual Meeting & OTO EXPO, taking place October 17-20 in Los Angeles, California.
+[P1.11] Integra LifeSciences Marks 20 Years of CUSA® Technology with Liver Surgery Education at ACS Clinical Congress 2026
+</source>
+
+<source id="P2">
+[P2.1] Who We Are | Integra LifeSciences
+[P2.2] Integra LifeSciences is a global medical technology leader dedicated to restoring lives. We are advancing transformational care through impactful innovation in neurosurgery and tissue reconstruction, specialized fields that demand exceptional expertise and precision. Our portfolio of highly differentiated gold-standard products and solutions is built on decades of clinical evidence and trusted by healthcare professionals to improve patient outcomes.
+[P2.3] Dr. Richard Caruso founded Integra LifeSciences and the company acquired collagen technology.
+[P2.4] Integra® Dermal Regeneration Template approved by the FDA and is engineered to promote the regeneration of dermal tissue.
+[P2.5] Leveraging its tissue regeneration technology, Integra received FDA clearance of DuraGen® Dural Graft Matrix for use as a dura substitute for the repair of the dura mater.
+[P2.6] NeuraGen® Nerve Guide is FDA cleared and provides a protective environment across nerve discontinuities.
+</source>
+
+<source id="P3">
+[P3.1] Biomaterial Partnerships | Integra LifeSciences
+[P3.2] Integra offers extensive expertise in collagen biomaterials for companies seeking strategic alliances. Our collagen products are manufactured from bovine deep flexor tendon, one of the purest sources of Type 1 collagen available, with biocompatibility and safety demonstrated in over 10 million implants (neurosurgery, plastic and reconstructive surgery and orthopedic surgery). Integra is a recognized and respected industry leader with vast experience in developing innovative regenerative products with a wide array of applications, including dental applications, sports medicine, bone grafting materials, reconstructive wound healing, hemostasis and carrier technologies for drug and protein delivery.
+[P3.3] Integra is compliant with ISO 13485:2016, FDA Quality Systems Regulations and the (EU) 2017/745 Medical Device Regulations. Our wealth of experience in design control, testing requirements, manufacturing, quality systems and the regulatory approval process makes us a powerful partner to companies seeking:
+[P3.4] A private label partner: Integra manufactures products that are available for private label distribution by our customers
+[P3.5] A material supplier: Integra produces raw materials that can be integrated into our customer's production processes
+[P3.6] Customer-specific product development: Integra has the expertise to design, develop and manufacture products to meet the specific needs of our customers
+[P3.7] For complete product information, please see the Instructions for Use accompanying each product.
+[P3.8] Bioengineering with Ultra Pure Collagen ™
+[P3.9] Integra LifeSciences controls the physical and chemical composition to ensure each product is designed with attributes critical for biological/physiological activity.
+[P3.10] Provides a scaffold for cellular ingrowth
+[P3.11] Affords excellent handling and conformability
+[P3.12] Engineered with defined mechanical strength, porosity and degradation rate
+[P3.13] Custom shapes and sizes available
+[P3.14] Carrier technologies for drug/protein delivery
+[P3.15] Ultra Pure Collagen is a trademark of Integra LifeSciences Corporation
+</source>

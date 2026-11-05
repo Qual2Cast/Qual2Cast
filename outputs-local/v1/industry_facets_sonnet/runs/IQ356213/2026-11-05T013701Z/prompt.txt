@@ -1,0 +1,153 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Smith-Midland Corporation (smithmidland.com)
+Industry (SIC 32): Stone, Clay, Glass & Concrete
+
+Facets:
+- mineral_based_product (Mineral-based product). Examples: Ready-mix concrete; Cement; Flat glass.
+- thermal_processing_dependence (Thermal-processing dependence). Examples: Cement kiln; Glass-melting furnace; Concrete batching without kiln.
+- energy_fuel_intensity (Energy / fuel intensity). Examples: Electricity-intensive glass melting; Kiln fuel from natural gas; Diesel-intensive concrete delivery.
+- delivery_radius_product_logistics (Delivery radius / product logistics). Examples: 30-mile ready-mix radius; Bulk cement by rail; Exported flat glass.
+- construction_end_use (Construction end use). Examples: Residential foundations; Commercial glazing; Infrastructure concrete.
+- raw_material_integration_model (Raw-material / integration model). Examples: Owned limestone quarry; Purchased cement and aggregates; Purchased glass cullet.
+
+Evidence:
+<source id="P1">
+[P1.1] Precast Concrete Products | Smith Midland Corporation
+[P1.2] Smith-Midland has been a leader in precast concrete for over 50 years. Backed by our superior service & diverse portfolio, let us help your business.
+[P1.3] Six decades of working with clients to develop and continually improve products and services has kept us at the leading edge of the precast concrete industry. This is American manufacturing at its finest.
+[P1.4] We’re geared to exceed your expectations
+[P1.5] Explore our vast array of capabilities
+[P1.6] Dedicated to world-class performance and safety
+[P1.7] Join a team where you can excel
+[P1.8] Three manufacturing hubs produce a vast array of award-winning precast concrete architectural, transportation, utility and custom products for projects spanning the Eastern Seaboard.
+[P1.9] While it is in our DNA to create new products and advance technologies, Smith-Midland is much more. With a broad range of engineering and architectural expertise, we work with you to solve problems, design efficient solutions and engineer favorable outcomes.
+[P1.10] A passion for lean manufacturing, prioritizing safety, and a commitment to maintaining certifications and best practices adding value to our organization and yours.
+[P1.11] How A Lean Culture Benefits You Commitment To Safety
+[P1.12] A place where people can grow, backed by continuing education, training and access to advancement opportunities. See what we’ve got to offer.
+[P1.13] “I’m part of a team. With our lean manufacturing culture, my ideas for improving processes are implemented.”
+</source>
+
+<source id="P2">
+[P2.1] Services | Smith Midland Corporation
+[P2.2] Smith-Midland Corporation is a full-service precast concrete manufacturer.
+[P2.3] We work closely with our customers to ensure the optimal delivery of products and provide additional value- added services such as:
+[P2.4] Full installation of SlenderWall architectural cladding panels, including engineering, erection, insulation, fire-stopping and caulking. These services apply to new construction, re-cladding or over-cladding applications.
+[P2.5] One-call-does-it-all. J-J Hooks Safety Barrier rental services include logistics planning for construction sites or secured events, delivery, installation, repositioning of barriers during the project, pick-up when complete, and a full line of accompanying accessories.
+[P2.6] Easi-Set and Easi-Span Precast Concrete Buildings, including engineering of standard and custom structures, site preparation, installation, and full outfitting.
+[P2.7] Installation of our traditional architectural precast concrete panels and custom architectural products.
+[P2.8] Installation of sound wall panel-and-post systems.
+[P2.9] Our full-service engineering department works closely with contractors, engineers, architects and owners to ensure that our standard products meet the exacting specifications of your project. But we go beyond that, providing engineering concepts and cost-saving ideas that add value to your bottom line.
+[P2.10] We will tailor our services to your needs, providing full-service engineering or collaborating as part of a larger design-build team.
+[P2.11] We call it Napkin-to-Project. Tell us your project need, even in the simplest terms, and we will engineer the product designs and logistics to meet it. We have a long history of thinking outside the box to enhance project outcomes.
+[P2.12] Smith-Midland is known as a product innovator. During six decades in business we have developed some of the precast industry’s most innovative and successful products, many of which are being manufactured by precasters across the globe. We are adept at working with our customers to conceive, develop, prototype, test and certify new precast concrete products.
+[P2.13] Making sure our product delivery fits within your schedule, project site parameters, and available labor, equipment and resource allocation is half the battle of a successful partnership. We work hard up front to establish the entire logistical process, making sure we can achieve the most efficient result.
+[P2.14] Full shipping services are available on all products through our fleet of company-owned vehicles and trusted subcontractors, including just-in-time scheduling so you do not have to worry about storing product on your job site.
+[P2.15] Our manufacturing facilities provide the necessary certifications specified for your projects, such as PCI and NPCA.
+</source>
+
+<source id="P3">
+[P3.1] About | Smith Midland Corporation
+[P3.2] Over sixty years of knowledge working for you
+[P3.3] From our emergence in the precast concrete marketplace as Smith-Cattleguard, our focus has always been on creating innovative products to solve problems and contribute to the world around us. We started the company with a new idea – a precast concrete cattleguard to keep the cows from roaming on local farms – but the vision of our founder, David G. Smith, and his son, Rodney I. Smith, soon propelled the company in new directions.
+[P3.4] David Smith founds the Smith-Cattleguard Company on the family farm. Son, Rodney Smith, joins company.
+[P3.5] First underground precast concrete utility vault product developed for power companies. Utility product line expands.
+[P3.6] Smith-Cattleguard outgrows its first facility on the family farm and moves into a new 10,000 sq. ft. plant at the current location.
+[P3.7] Concrete Safety Systems company formed to rent precast concrete highway safety barrier.
+[P3.8] Easi-Set all-precast concrete buildings developed. Easi-Set Worldwide formed to license Smith-Midland-developed products across the globe.
+[P3.9] Reidsville, North Carolina plant opened to meet growing production demands. Roderick Smith would become General Manager.
+[P3.10] First sound wall system, “Sierra Wall,” introduced to transportation product line.
+[P3.11] The Virginia plant is one of the first round of multiple plants certified in North America by the National Precast Concrete Association (NPCA). Currently certified by both PCI and NPCA.
+[P3.12] Smith-Midland develops and patents the J-J Hooks highway safety barrier connection system. Easi-Set licenses the product worldwide.
+[P3.13] SlenderWall precast/steel-stud modular building panels developed and licensed by Easi-Set. First project installed, Health Insurance Plan building in North Brunswick, NJ.
+[P3.14] Smith-Midland Corporation goes public (SMID) as the holding company for multiple divisions. Rodney Smith is named Chairman.
+[P3.15] SlenderWall installed on the tallest building in Virginia, The Westin Luxury Hotel and Residences in Virginia Beach.
+[P3.16] Easi-Set licensed producers surpass the 1,000,000 sq. ft. milestone of SoftSound absorptive sound wall production.
+[P3.17] Hopkins, South Carolina plant opens – allowing Smith-Midland to reach customers across the mid-Atlantic and southeastern markets.
+[P3.18] Ashley Smith chosen as CEO of the Smith-Midland Corporation, the third generation of Smith family leadership.
+[P3.19] A second larger manufacturing facility opens in Reidsville, NC greatly expanding capacity to serve customer across Smith-Midland full market area
+[P3.20] J-J Hooks total production reaches a milestone of 16 million linear feet worldwide – enough to reach across the United States from New York to Los Angeles.
+[P3.21] Now in its third generation, Smith-Midland Corporation continues to develop and market industry-changing products, like the J-J Hooks traffic barrier system, our Easi-Set total-precast utility buildings or SlenderWall architectural cladding panels. Through the Easi-Set Worldwide subsidiary, we provide licensing for five innovative product lines to precast manufacturers throughout the world. These groundbreaking systems make Easi-Set the industry’s leading licensor and provide high-quality, profitable product offerings for precasters.
+[P3.22] A corporation Smith-Midland continues to evolve, innovate and enter new markets, adding manufacturing facilities in North Carolina and South Carolina to serve the construction industry. Through another subsidiary, Concrete Safety Systems, we are the leading supplier of rental safety barrier in the Mid-Atlantic region and manage logistics for security barrier installations throughout North America.
+[P3.23] While we are known as a major regional precast concrete manufacturer, we think of ourselves as a place where people are developed. We bring together elite engineering, dedicated support staff and a skilled production team in a workplace dedicated to lean manufacturing to satisfy the needs of our customers. At the core of everything is passion for precast and our desire for continuous improvement. Whether it is through our award-winning projects, an ongoing focus on safety, or community involvement, we strive for excellence in all our operations, backed by superior service and a commitment to our Associates and our customers.
+[P3.24] Research and development has been integral to the Smith-Midland philosophy since our very first day. We designed and patented many of our own products to meet a need or solve a problem for our customers – like the J-J Hooks positive connection safety barrier system. The connection system enables the barriers to slide quickly into place, significantly speeding installation, and making it easier and safer for work crews. Our family of innovative proprietary products:
+[P3.25] Precast buildings with post-tensioned roofs and floors
+[P3.26] North America's most successful highway safety barrier
+[P3.27] A sound-absorbing noise wall system for highways
+[P3.28] Smith-Midland Corporation consists of three precast concrete manufacturing facilities, a product licensing subsidiary, a barrier rental company and an internal advertising/marketing operation.
+[P3.29] Manufactures thousands of precast concrete products at multiple plant facilities: Smith-Midland in Midland, VA.; Smith-Carolina, in Reidsville, N.C.; and Smith-Columbia, in Hopkins, S.C. These multiple strategic locations enable us to serve a significant portion of the Eastern Seaboard – from New York to Atlanta.
+[P3.30] Providing licensing for five proprietary product lines throughout the world
+[P3.31] The “one call does it all” industry leading supplier of safety barrier in the Mid-Atlantic region with logistical management of barrier projects throughout North America.
+[P3.32] A full-service advertising and public relations firm.
+[P3.33] Chairman of the Board, President and CEO
+[P3.34] Vice President of Sales and Marketing, President of Concrete Safety Systems
+[P3.35] Skilled craftsmanship, innovation, and an entrepreneurial spirit have been at the center of the Smith-Midland culture since its founding. We encourage our Associates to learn and grow, and they provide the foundation for our success. At the end of the day, we’re builders, and our goal is to contribute to the world around us by constructing a safer, more resilient world while enriching the lives of our Associates and the communities where we live and do business.
+[P3.36] Smith-Midland Corporation utilizes lean manufacturing processes and training that emulates the Toyota Production System. That means our goal is to eliminate waste, maintain a clean, well-organized working environment, and reducing inefficient work practices at every opportunity.
+[P3.37] We tear down the walls on traditional manufacturing methods and take a more holistic approach to the process of producing precast concrete products.
+[P3.38] Traditional manufacturing focuses all of its attention on how quickly processes can complete a task. It isolates production in each area along the way and emphasizes a top down approach to identifying and correcting problems. This makes it difficult to react quickly when a problem arises. It is a typical and cumbersome approach to manufacturing.
+[P3.39] Smith-Midland is dismantling this model, looking at material as it flows through the process of manufacturing and empowering employees to address and continually improve the issues they encounter.
+[P3.40] As a people-centered company, we keep safety on the frontline of everything we do. As part of our lean manufacturing environment, we eliminate waste, strive for a clean, well-ordered workplace and look for efficiencies in the movement of equipment and people during work processes. That helps to create a safer environment, but that’s only part of our commitment. A full-time safety officer oversees our multiple manufacturing plants and sets up regular OSHA safety training. Safety huddles start each day and each new project. And the HR/Safety team tracks safety every day and reports to senior management each week. We also have a Safety Observation program, which is a management walk-through to look for ways to improve safety. Our extensive training and expertise in safe working practices carries over to the job site and benefits our customers through the safe working protocols practiced by our installation and delivery crews. Needless to say, we take safety very seriously. All of these programs are designed with one goal in mind: making sure every Associate returns safely home to their family at the end of each day.
+[P3.41] We are a community-based company. And because most of our Associates have deep roots in the places where we operate, we encourage them to play an active role in supporting local nonprofit organizations, such as The Fauquier Health Mental Health Association, Community Touch, and the schools, arts associations and service groups where we live and work. Smith-Midland Corporation backs up our commitment with financial support to a variety of nonprofits with a goal of contributing to the health and well-being of our fellow citizens.
+[P3.42] Our list of award-winning projects is long and spans the decades, but we are most proud of the individuals who make those awards possible. Each award we earn symbolizes the pride in craftsmanship, attention to detail and commitment to excellence that our Associates bring to work every day.
+[P3.43] 2016 Precast Concrete Craftsman Award: Smithsonian National Zoological Park retaining wall
+[P3.44] 2015 Concrete Award: Award of Excellence: Johns Hopkins Nelson/Harvey Building, Baltimore, MD
+[P3.45] 2011 Concrete Award: Concrete Buildings: M Square II building, at M Square Research Park, College Park, MD
+[P3.46] 2010 Concrete Award: Virginia Tech Basketball Practice Center, Blacksburg, VA
+[P3.47] 2010 Concrete Award: Concrete Panels for Route 66, Virginia Highways for LIFE Project
+[P3.48] 2009 Concrete Award: Concrete Buildings/ Special for Jefferson at Inigo’s Crossing in Rockville, MD
+[P3.49] 2006 Judges Award: Creative Use of Project for Jefferson at Logan Circle, Washington, DC
+[P3.50] 2004 Excellence in Concrete Award: Town Square Parking Garage, Silver Spring, MD
+[P3.51] 2003 Creative Use of Project Award: Pentagon Remote Delivery Facility (Retaining Wall)
+[P3.52] 1998 Special Award Category: Award of Excellence for the Spectrum at Reston Town Center
+[P3.53] 1998 Excellence in Precast Concrete Award: The Magellan Buildings, Columbia, MD
+[P3.54] Excellence in Concrete: Wayne Avenue Parking Garage
+[P3.55] 1990 Excellence in Concrete: Sierra Noise Barrier System, I-370 from I-270 West of MD Rte 355
+[P3.56] National Association of Industrial and Office Properties (NAIOP)
+[P3.57] 2018 Award of Merit in Mixed-Use Category, Single Building: The Latitude, Arlington. VA
+[P3.58] 2007 Award of Excellence in the Best Building Category for Mid-Rise: Phase I of the Dulles Station Office Building West
+[P3.59] 2007 Award of Merit for the Best Speculative Building R & D: Northridge at Westfield Office Park
+[P3.60] 2004 Award of Excellence for Green Building of the Year: MDOT Headquarters, Hanover, MD
+[P3.61] 2004 Award of Excellence for Build-to-Suit Project: MDOT Headquarters, Hanover, MD
+[P3.62] National Precast Concrete Association Awards
+[P3.63] 2025 Standard Work for Continuous Improvement
+[P3.64] 2024 Innovation Award for the App Development for the Quality Technology Improvement Program (QTIP)
+[P3.65] 2021 Best Practices Awards, Second Place
+[P3.66] 2020 Best Practices Awards, First Place & Third Place
+[P3.67] 2013 Creative Use of Precast, Above Ground Category, First Place: The Alexander Luxury Highrise, Edgewater, NJ
+[P3.68] 2013 Creative Use of Precast, Sustainability Awards, First Place: Johns Hopkins Nelson Harvey Building, Baltimore, MD
+[P3.69] 2013 Creative Use of Precast, Above Ground Category, Honorable Mention: Lake Wappapello Restrooms, MO
+[P3.70] 2013 Creative Use of Precast, Below Ground Category, Honorable Mention: Beach Prisms Installation, OceanGate, NJ
+[P3.71] 2012 Creative Use of Precast, Above Ground Category, Honorable Mention: Camp Lejuene Mock Afghan Village
+[P3.72] 2011 Creative Use of Precast, Above Ground Category, Second Place: Virginia Tech Basketball Practice Center, Blacksburg, VA
+[P3.73] 2008 Creative Use of Precast, Above Ground Category, Third Place Award: Combat Training Facility, Virginia Beach, VA
+[P3.74] 2007 Creative Use of Precast, Above Ground Category, First Place Award: Jefferson at Inigo’s Crossing in Rockville, MD
+[P3.75] 2006 Creative Use of Precast, Judges’ Award: Beach Prisms, Erosion Control Barriers
+[P3.76] 2005 Creative Use of Precast, Second-Place Award: Jefferson at Logan Circle, Washington, DC
+[P3.77] 2004 Creative Use of Precast, Building Projects Award: Marriott ExecuStay Project, New York City
+[P3.78] 1997 Building and Site Amenities Products: Marymount Medical Centre
+[P3.79] 2023 Washington Contractor Award – Transform I-66 Outside the Beltway
+[P3.80] 2020 Washington Contractor Award Multi-family/Mixed-Use: The Lumen, SlenderWall Architectural Project, Tysons, VA
+[P3.81] 2018 Merit Award – Transit/Highway/Bridge: Eisenhower Sound Wall, Alexandria, VA
+[P3.82] 2012 Metro Washington – Precast Concrete Subcontractor of the Year
+[P3.83] 2022 Central VA EIC for Specialty Concrete for River Tower at Harbors Edge
+[P3.84] 2020 Annual Central Virginia Excellence in Construction Award for Specialty Concrete: Ferguson Enterprises HQ3, SlenderWall Architectural Project, Newport News, VA
+[P3.85] 2020 Annual Metro Washington Excellence in Construction Award for Specialty Concrete: The Lumen, SlenderWall Architectural Project, Tysons, VA
+[P3.86] 2010 Annual Metro Washington Excellence in Construction Award for Specialty Concrete: Concrete Panels for Route 66, Virginia Highways for LIFE Project
+[P3.87] Gold Level 1999 National Quality Initiative (NQI) Achievement Award: I-695 widening project
+[P3.88] Easi-Set Industries Building Sales Awards
+[P3.89] 2015 Outstanding Sales Award: Highest Number of Easi-Set and Easi-Span Buildings Sold
+[P3.90] 2013 Outstanding Sales Award: Highest Number of Easi-Set and Easi-Span Buildings Sold
+[P3.91] 2012 Outstanding Sales Award: Highest Number of Easi-Set and Easi-Span Buildings Sold
+</source>

@@ -1,0 +1,58 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: TIC Solutions, Inc. (tics.com)
+Sector: Business and personal services
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- service_category (Service category): What service it sells. Example: outsourcing: payroll and benefits administration. Any that apply of: consulting and advisory; outsourcing / BPO; staffing; facilities and field services; engineering and technical services; marketing and information services; education and training; personal and consumer services; other.
+- engagement_model (Engagement model): How clients engage it. Example: managed service: multi-year outsourced contracts. Any that apply of: project; retainer; managed service; per transaction / per visit.
+- labor_specialization (Labor specialization): Who delivers it. Example: specialist: licensed technicians. Exactly one of: generalist / low-skill; skilled trades; licensed professionals; technical / IT specialists.
+- client_segment (Client segment): Its typical client. Example: enterprise: large employers. Any that apply of: consumers; SMB; enterprise; government.
+
+Evidence:
+<source id="P1">
+[P1.1] Home - TIC Solutions
+[P1.2] A leading provider of tech-enabled Testing, Inspection, Certification, and Compliance (TICC) services and critical asset integrity solutions.
+[P1.3] WE SHAPE AND STRENGTHEN THE PHYSICAL WORLD
+[P1.4] TiC Solutions delivers integrated lifecycle solutions that ensure critical assets are planned, designed, built, monitored, inspected, and optimized with confidence.
+[P1.5] Bridging Trust and Technical Excellence
+[P1.6] TIC Solutions serves diversified end markets that are essential to the broader economy, including industrials, energy processing, utilities, and both public and commercial infrastructure, with exposure to data centers and other high-growth adjacencies. As the parent company of Acuren and NV5, we integrate deep domain expertise, local presence, and global standards to solve our clients’ most complex challenges.
+[P1.7] End-to-End Expertise to Support Assets & Infrastructure​ ​
+[P1.8] Tech-Enabled Solutions to Design and Protect Critical Assets and Infrastructure
+[P1.9] Turnkey, End-to-End Solutions Across the Entire Asset & Infrastructure Lifecycle
+[P1.10] Scalable Expertise Across multiple Locations
+[P1.11] A Unified Force, Built on Distinct Expertise
+[P1.12] End-to-End Expertise Across Every Sector.
+</source>
+
+<source id="P2">
+[P2.1] Buildings & Technology - TIC Solutions
+[P2.2] The efficiency and performance of the modern built environment are paramount to achieving optimal functionality and meeting the needs of building occupants and regulatory requirements. TIC Solutions’ engineers, project managers, and technical experts specialize in facility design, commissioning, and owner representation to ensure that assets operate reliably and efficiently. Full-Lifecycle Facility and Infrastructure Expertise From […]
+[P2.3] The efficiency and performance of the modern built environment are paramount to achieving optimal functionality and meeting the needs of building occupants and regulatory requirements. TIC Solutions’ engineers, project managers, and technical experts specialize in facility design, commissioning, and owner representation to ensure that assets operate reliably and efficiently.
+[P2.4] Full-Lifecycle Facility and Infrastructure Expertise
+[P2.5] From hyperscale data centers to modern hospitality, educational, commercial, industrial and public sector facilities, TIC Solutions delivers building systems and technologies that allow you get the most out of your vertical infrastructure. TIC Solutions serves the entire lifecycle of facilities from planning and design through operation and decommissioning of facilities. With specialists in mechanical, electrical, plumbing, fire protection (MEP-FP), building technology, and clean energy design, as well as non-destructive testing and asset management, you can rest assured that industry’s leading professionals are delivering facilities with the latest technological advancements that stand the test of time.
+[P2.6] Your Partner in Smarter Building Solutions
+[P2.7] We bring innovation, technology, and expertise together to help clients achieve resilient, high-performing infrastructure.
+</source>
+
+<source id="P3">
+[P3.1] About - TIC Solutions
+[P3.2] Strengthening Assets, Securing Communities TIC Solutions is a leading provider of critical asset integrity solutions, which includes tech-enabled testing, inspection, certification, and compliance (TICC) and engineering services. TIC Solutions serves diversified end markets that are essential to the communities where we live and work, including industrials, infrastructure, energy, midstream, and renewables. Global Reach, Local Expertise […]
+[P3.3] TIC Solutions is a leading provider of critical asset integrity solutions, which includes tech-enabled testing, inspection, certification, and compliance (TICC) and engineering services. TIC Solutions serves diversified end markets that are essential to the communities where we live and work, including industrials, infrastructure, energy, midstream, and renewables.
+[P3.4] Lifecycle Solutions for Critical Assets​
+[P3.5] From infrastructure and building systems design and commissioning to testing, inspection, and compliance, TIC Solutions supports the entire lifecycle of assets and infrastructure through comprehensive solutions for engineering design, advanced inspection and nondestructive testing (NDT), Rope Access Technician (RAT) mitigation services, materials engineering services, lab analysis and destructive testing, proprietary software, and drone-enabled geospatial analytics.
+[P3.6] See the framework of our power
+</source>

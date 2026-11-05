@@ -1,0 +1,73 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Veralto Corporation (www.veralto.com)
+Industry (SIC 38): Measuring, Medical, Optical and Related Instruments
+About this industry group: Medical devices and nonmedical instruments require different regulatory and performance fields. FDA 510(k) clearance, PMA approval and other routes are distinct statuses, not interchangeable certification labels. FDA device pathway.
+
+Facets:
+- instrument_device_family (Instrument / device family). Examples: Diagnostic imaging systems; Industrial sensors; Laboratory analytical instruments.
+- measurement_performance_specification (Measurement / performance specification). Examples: ±0.01°C temperature accuracy; 1 μm positional resolution; Stated imaging spatial resolution.
+- clinical_industrial_research_use (Clinical / industrial / research use). Examples: Hospital diagnostics; Factory process control; Research laboratories.
+- product_specific_regulatory_status (Product-specific regulatory status). Examples: FDA 510(k)-cleared device; FDA PMA-approved device; Nonmedical industrial instrument.
+- consumables_service_attachment (Consumables / service attachment). Examples: Proprietary reagent cartridges; Recurring calibration service; One-time equipment sales.
+- calibration_qualification_requirement (Calibration / qualification requirement). Examples: Annual traceable calibration; On-site validation; Factory-only recalibration.
+
+Evidence:
+<source id="P1">
+[P1.1] Home | Veralto
+[P1.2] Veralto is a global leader in essential technology solutions powered by purpose: Safeguarding the World’s Most Vital Resources™.
+[P1.3] Safeguarding the World’s Most Vital Resources ™
+[P1.4] Imagine a world where everyone has access to clean water, safe food, and trusted essential goods. This is the tomorrow Veralto is helping to create today.
+[P1.5] Veralto is a global leader in essential technology solutions powered by purpose: Safeguarding the World’s Most Vital Resources™. Our operating companies share a powerful vision for a better tomorrow.
+[P1.6] Solving the problems that matter most
+[P1.7] Our industry-leading companies and globally-recognized brands are building on a long-established legacy of innovation and customer trust to create a safer, cleaner, more vibrant future.
+[P1.8] Our Water Quality companies help our customers manage, treat, purify, and protect the world’s waters, from municipal and wastewater treatment facilities to lakes, rivers, watersheds, and oceans.
+[P1.9] Safeguarding food, medicine, and essentials
+[P1.10] Our Product Quality and Innovation companies help our customers protect food, medicine, and essential goods by enabling the traceability and authentication of billions of products that travel the global supply chain every day.
+[P1.11] Explore Product Quality and Innovation
+[P1.12] What we do protects, builds, and improves the systems that enable everyday life. And how we do it sets us apart.
+[P1.13] Working for a better world
+[P1.14] Sustainability is woven deeply into the fabric of Veralto. From helping ensure clean drinking water to reducing packaging waste, we help protect precious resources and keep our global water and food supplies safe.
+[P1.15] Veralto Corporation, a global leader in essential water and product quality solutions dedicated to Safeguarding the World’s Most Vital Resources™, announced that it will webcast its…
+[P1.16] Veralto Announces Climate Targets Validated by the Science Bas…
+[P1.17] SBTi approval affirms Veralto’s climate strategy, enabling new near-term targets WALTHAM, Mass., /PRNewswire/ — Veralto Corporation, a global leader in essential water…
+[P1.18] Veralto Signs Agreement to Acquire Cleanwater1
+[P1.19] Strengthens Veralto’s leadership in water disinfection and contaminant removal Expands presence in high-growth chlorine disinfection and solid management applications Provides installed base of…
+[P1.20] Veralto Reports Second Quarter 2026 Results
+[P1.21] Veralto (the “Company”), a global leader in essential water and product quality solutions dedicated to Safeguarding the World’s Most Vital Resources™, announced results for the…
+[P1.22] Strengthens ability to serve industrial water in high-growth markets with locally tailored UV treatment solutions WALTHAM, Mass., /PRNewswire/ — Veralto Corporation …
+[P1.23] Veralto Announces Pricing of Senior Notes Offering
+[P1.24] Working for a safer, cleaner, more vibrant future.
+[P1.25] At Veralto, you’ll make an impact that improves lives and communities every day—while experiencing endless opportunities to learn and grow.
+</source>
+
+<source id="P2">
+[P2.1] Who we are | Veralto
+[P2.2] Our operating companies are building on a long-standing legacy of success, innovation, and deep customer trust as they work to create a safer, cleaner, more vibrant future.
+[P2.3] Veralto is inspired by the Latin root words veri for truth and alto for height, reflecting our commitment to the higher truth that drives us to create a better future for all. Our name inspires us to stay true to our highest ideals and to continually raise the bar as we pursue our powerful purpose: Safeguarding the World’s Most Vital Resources™.
+[P2.4] At Veralto, we hold ourselves accountable to fostering a culture of trust, support, and authenticity where every associate feels empowered to make their unique mark.
+[P2.5] Inclusion and belonging at Veralto
+[P2.6] Their diversity of perspectives and backgrounds, deep customer knowledge, and proven experience create a strong foundation for continued excellence and growth.
+[P2.7] I can’t imagine a better place to grow as a leader and as a human being.
+</source>
+
+<source id="P3">
+[P3.1] Ott | Veralto
+[P3.2] Ott, a Veralto Water Quality company: Protecting the world's water resources by equipping the people who manage them with trusted, decision-ready intelligence
+[P3.3] Protecting the world’s water resources by equipping the people who manage them with trusted, decision-ready intelligence
+[P3.4] Ott provides water professionals with trusted, connected intelligence to manage environmental and process water systems with confidence. Its integrated instrumentation and software deliver scalable, network-ready data—from single sites to global operations—while maintaining compatibility and consistency. Designed for simplicity and clarity, Ott’s solutions help users at every level focus on meaningful decisions from complex data.
+[P3.5] Backed by more than 150 years of expertise, Ott combines field-proven technology with a collaborative, by-your-side approach. Its systems are trusted by national agencies and regulatory bodies worldwide, meeting rigorous compliance standards. By transforming complex data into actionable insight, Ott empowers communities and organizations to better understand, manage, and protect dynamic water resources.
+[P3.6] Ludwigstraße 16 87437 Kempten Germany
+</source>

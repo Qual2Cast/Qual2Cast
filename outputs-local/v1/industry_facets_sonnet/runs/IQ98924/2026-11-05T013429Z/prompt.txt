@@ -1,0 +1,84 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Par Pacific Holdings, Inc. (www.parpacific.com)
+Industry (SIC 29): Petroleum Refining and Related Industries
+
+Facets:
+- refining_related_activity (Refining / related activity). Examples: Crude-oil refining; Lubricant blending; Asphalt production.
+- crude_processing_capacity_refineries (Crude-processing capacity [refineries]). Examples: 250,000 barrels/calendar day; 180,000 barrels/stream day.
+- product_yield_mix (Product yield mix). Examples: Gasoline and diesel-led output; Jet-fuel-rich output; Heavy fuel-oil output.
+- feedstock_specification (Feedstock specification). Examples: Medium sour crude; Light sweet crude; Heavy crude blend.
+- margin_crack_spread_exposure (Margin / crack-spread exposure). Examples: Gulf Coast 3-2-1 crack spread; Regional diesel cracks; Feedstock-quality differentials.
+- conversion_refinery_complexity (Conversion / refinery complexity). Examples: Coking refinery; Hydrocracking refinery; Hydroskimming refinery.
+- throughput_utilization_refineries (Throughput / utilization [refineries]). Examples: 225,000 barrels/day actual throughput; 90% of stated operable capacity.
+
+Evidence:
+<source id="P1">
+[P1.1] Home | Par Pacific
+[P1.2] We are committed to conducting business in a safe and protective manner that promotes sustainable environments and respects community values.
+[P1.3] As sustainability focused company, growth expands Par Pacific’s ability to create a positive impact. As we deepen our operational focus, we remain dedicated to delivering safe, reliable, affordable, and increasingly low-carbon energy to support the needs of our local communities.
+[P1.4] We serve our local markets
+[P1.5] As a market leader, we actively seek opportunities to own and operate energy and infrastructure businesses in logistically-complex markets.
+[P1.6] We bring unique strengths to our markets
+[P1.7] Par Pacific combines experience in the oil and gas industry with corporate finance acumen. As a nimble entrepreneurial organization, we actively pursue operational excellence.
+[P1.8] Par Pacific Appoints Jerry Stumbo Executive Vice President, Refining and Logistics
+[P1.9] Par Pacific Announces Agreement to Sell Laramie Energy Assets
+[P1.10] Email Register for Email Alerts
+</source>
+
+<source id="P2">
+[P2.1] Mission & Values | Par Pacific
+[P2.2] Culture & Values
+[P2.3] We demonstrate this by investing in them personally and professionally to ensure they feel supported and heard.
+[P2.4] -- Matthew Legg, Senior Vice President, Chief Human Resources Officer
+[P2.5] We are a tight-knit company full of extraordinary individuals
+[P2.6] Working at Par Pacific is vibrant and fun. Since we are a smaller energy company, employees can make a meaningful impact on the business and to influence decisions.
+[P2.7] Our Mission Captures Who We Are & Guides Us Toward Who We Want to Become
+[P2.8] Our Mission, Humbly Serving Communities, is about people – our communities, our teams, and the purpose that binds us. Each word matters. We listen first, lead by lifting others, and we’re in this together in each of the communities that we serve.
+[P2.9] Par Pacific is a values-driven company. Our tight-knit community values respect for others, integrity, collaborative innovation, and heart. These four pillars support our successes and strengthen our ability to be an effective and fun place to work.
+[P2.10] We listen before we speak, yet understand action is needed for progress. We value the unique heritage, experiences, and contributions of everyone and everywhere we are blessed to work with and serve.
+[P2.11] Creativity drives innovation and fuels the generation of new ideas. We understand creativity alone is not enough. It is through collaborative innovation that we bring those ideas to life ! Through our collaborative efforts and effective systems, these ideas become impactful results that open new worlds of opportunity.
+[P2.12] An ounce of heart is worth more than a ton of intellect and talent. We care deeply about the communities in which we operate. We succeed when our hard work, grit and resilience is balanced with good rest. We root for each other, celebrate each other ’ s successes and learn from our mistakes.
+</source>
+
+<source id="P3">
+[P3.1] Products | Par Pacific
+[P3.2] The commercial team is charged with the acquisition of crudes and feedstocks used in the refinery, as well as the ultimate sale of products produced by the Refinery. Products that are produced are listed below and identified with the Specification Sheets and corresponding Safety Data Sheet.
+[P3.3] For over forty years, U.S. Oil has been a consistent supplier of high quality paving grade and emulsified asphalts to contractors in the Puget Sound region. Working with Federal, State and Local agencies, we have become a leader in the development of products designed to improve the quality of the area's highways and roads. U. S. Oil is also a key supplier of industrial grade asphalt to the roofing materials industry. Our industrial asphalt (Flux) is an integral component in the manufacture of high quality Asphalt Shingles, Rolled Goods and Coating Asphalts.
+[P3.4] Typical crude oils we process include:
+[P3.5] Bakken Blend crude | SDS
+[P3.6] Alaska North Slope crude | SDS
+[P3.7] Cold Lake Crude Blend | SDS
+[P3.8] From our truck loading facility in Tacoma, U.S. Oil markets the full range of transportation fuels. Products available at our rack include:
+[P3.9] Unleaded Clear and E10 Gasolines
+[P3.10] Ultra Low Sulfur, and Premium Grade Ultra Low Sulfur Diesel Fuels and Bio Fuels
+[P3.11] Dyed Ultra Low and Premium Grade Ultra Low for off-highway and Heating fuel uses
+[P3.12] Since our entry into the marine fuels market U. S. Oil has had the reputation of being a supplier of high quality fuels to the maritime industry. From our marine terminal located in Tacoma, WA, we are well situated to meet the increasing demands for marine fuels generated by the rapidly expanding port areas of Seattle and Tacoma. Our Marine Fuels Department is available on a 24 x 7 basis, working with our customers to ensure that their requirements are met on a timely and cost efficient basis. Through our continued commitment to Quality, Service and Performance U.S. Oil has earned its position as the premiere supplier of marine fuels in the Puget Sound. U.S. Oil has the capability to deliver into barges or vessels at our Tacoma dock.
+[P3.13] PG 70 & 76 Grades
+[P3.14] PG Grades for M332 (S,H,V,E)
+[P3.15] General Terms for Exchange and Sale of Light Products
+[P3.16] Marine Provisions for Delivery and Loading
+[P3.17] New Customer Packet ASPHALT (Rack)
+[P3.18] New Customer Packet ASPHALT (Rail)
+[P3.19] New Customer Packet LP (Non-Carrier)
+[P3.20] U.S. Oil & Refining Co.
+[P3.21] 1735 Port of Tacoma Road Tacoma, WA
+[P3.22] Terminal has two docks. Dock #1 handles ships and barges. Dock #2 handles only barges. Oil products handled at this terminal are crude oil, gasoline, jet fuel, diesel, vacuum gas oil, and marine fuels.
+[P3.23] Maximum manifold height above MLLW:
+[P3.24] Minimum parallel mid-body (flat side):
+[P3.25] Dock #1 has mooring and fendering capacity for 125k DWT vessels. Draft, tankage and offloading rate combine at present to limit vessels larger than 70k DWT to less than full cargo.
+[P3.26] Services: Marine Fuels available at 3000 B/hr. Fresh water available if ship provides hose. There are no facilities at this terminal for dirty ballast, slop reception or hazardous waste.
+[P3.27] Dock #2 has mooring and fendering capacity for 16,700 MT vessels. Products that can loaded/unloaded at Dock #2: Jet, Fuel Oil, MDO, Cutter, Diesel.
+</source>

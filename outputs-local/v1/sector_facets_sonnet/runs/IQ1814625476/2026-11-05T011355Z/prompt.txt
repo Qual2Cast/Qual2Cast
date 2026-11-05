@@ -1,0 +1,39 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Madison Square Garden Entertainment Corp. (www.msgentertainment.com)
+Sector: Retail, restaurants, hotels and entertainment
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- product_category (Product category): What consumers buy from it. Example: food: snacks and frozen meals. Any that apply of: food; beverages; apparel and footwear; household and personal care; home and furnishings; electronics; recreation and leisure goods; general merchandise; restaurant meals; lodging and travel; entertainment and gaming; automotive; other.
+- market_position (Market position): Where it sits on price. Example: mass-market: mainstream national brands. Exactly one of: value / discount; mass-market; premium; luxury.
+- distribution_model (Distribution model): How it reaches consumers. Example: wholesale: sells through grocery and mass retailers. Any that apply of: direct to consumer; wholesale to retailers; franchise; company-operated locations; licensing.
+- purchase_frequency (Purchase frequency): How often consumers buy. Example: daily: staple groceries. Exactly one of: daily / staple; periodic; discretionary / occasional.
+
+Evidence:
+<source id="P1">
+[P1.1] Madison Square Garden Entertainment Corp.
+[P1.2] MSG Entertainment is a world leader in live entertainment, featuring brands including Madison Square Garden, Radio City Music Hall and more.
+[P1.3] MSG Entertainment is a world leader in live entertainment.
+</source>
+
+<source id="P2">
+[P2.1] Our Company | History, Portfolio & Structure | Madison Square Garden Entertainment Corp.
+[P2.2] Learn about Madison Square Garden Entertainment Corp. and find details about the company's purpose, history, portfolio and structure.
+[P2.3] About Madison Square Garden Entertainment Corp.
+[P2.4] MSG Entertainment is a world leader in live entertainment, comprised of world-renowned venues and marquee brands. Utilizing our powerful assets and expertise, we produce, present, or host a variety of entertainment and sports events, delivering unforgettable experiences for millions of fans each year. Across our venues and brands, MSG Entertainment sets the standard for excellence and innovation while forging deep connections with diverse and passionate audiences.
+[P2.5] Our Company includes our portfolio of iconic venues: New York’s Madison Square Garden, the Infosys Theater at Madison Square Garden, Radio City Music Hall, and Beacon Theatre; and The Chicago Theatre – each a prominent destination for unforgettable experiences and events. With flexible seating capacities and configurations that range from 2,800 to 21,000, our venues enable us to showcase a broad array of compelling sporting events, concerts, family shows, and special events that cover a wide spectrum of genres. This includes at Madison Square Garden, known as “The World’s Most Famous Arena,” which serves as home to the New York Knicks and New York Rangers – two of the most recognized franchises in professional sports – and perennially hosts the biggest names in music and entertainment.
+[P2.6] MSG Entertainment also features the wholly-owned original production, the Christmas Spectacular Starring the Radio City Rockettes, which has been a holiday tradition for generations of fans at Radio City Music Hall. The show’s enduring popularity is driven by the world-famous Radio City Rockettes, the longest-running precision dance company in America.
+</source>

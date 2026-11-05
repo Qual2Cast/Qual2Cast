@@ -1,0 +1,71 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Deckers Outdoor Corporation (www.deckers.com)
+Industry (SIC 31): Leather & Leather Products
+
+Facets:
+- leather_material_type (Leather / material type). Examples: Full-grain bovine leather; Suede; Finished hides.
+- leather_product_category (Leather-product category). Examples: Footwear; Handbags; Industrial leather goods.
+- tanning_fabrication_activity (Tanning / fabrication activity). Examples: Tanning and finishing; Footwear manufacturing; Cut-and-sew leather goods.
+- material_production_sourcing (Material / production sourcing). Examples: Purchased finished leather; Captive tannery; Third-party contract stitching.
+- brand_manufacturing_role (Brand / manufacturing role). Examples: Own-brand footwear producer; Contract manufacturer for luxury brands.
+
+Evidence:
+<source id="P1">
+[P1.1] Deckers Homepage | Deckers Brands
+[P1.2] Welcome to Deckers Brands.
+[P1.3] Distinctive Brands Inspired by the Human Spirit
+</source>
+
+<source id="P2">
+[P2.1] Our Brands | Deckers Brands
+[P2.2] Deckers’ portfolio of brands combines style, comfort, and performance, each with its unique spirit. Whether navigating the rugged outdoors or strolling urban streets, our brands inspire individuals to embark on their unique journeys and express their true selves.
+[P2.3] by an Australian surfer on the coast of California, UGG® is a global lifestyle brand renowned for its iconic Classic boot. First worn by Hollywood royalty, fashion editors and then the world, UGG® designs and retails footwear, apparel, accessories and homewares with an uncompromising attitude toward quality and craftsmanship. UGG® partners with the best retailers globally and owns over 130 concept and outlet stores worldwide in key markets including New York, San Francisco, Los Angeles, Paris, London, Tokyo, Shanghai and Beijing.
+[P2.4] HOKA produces premium performance footwear and apparel for athletes of all types. With a bold and unexpected approach, HOKA empowers a world of athletes to fly over the Earth.
+[P2.5] Pioneered Teva® stands for freedom in footwear. Teva believes that how you choose to live is the ultimate form of personal expression and our products are crafted to be accessible, versatile and a celebration of the independent spirit.
+</source>
+
+<source id="P3">
+[P3.1] Responsibility page | Deckers Brands
+[P3.2] Equally significant is our responsibility to employ socially conscious operations and sustainable business practices.
+[P3.3] As a global leader, Deckers is deeply committed to responsibility in everything we do.
+[P3.4] As a global leader in the footwear and apparel sector, our worldwide reach and impact are significant. Deckers is committed to delivering quality products while employing sustainable business practices.
+[P3.5] Deckers has established a robust Environmental and Social Governance (ESG) program. Through global community initiatives, mindful product creation, and our thoughtful supply chain efforts, sustainability is not just a goal, it’s what we do.
+[P3.6] Read our Creating Change report to learn more.
+[P3.7] VIEW REPORT Pathway to Creating Change
+[P3.8] As a leader in the footwear, apparel and accessories industry, our worldwide scope and impact is significant. Equally significant is our responsibility to employ socially conscious operations and sustainable business practices.
+[P3.9] We embrace each of our unique experiences, knowing that they help us foster connections, drive innovation and create a culture of belonging.
+[P3.10] The world has been very good to us. In turn, we want to be good to the world.
+[P3.11] At Deckers, we focus on positive change, innovate with purpose, and work to reduce our impact on the environment.
+[P3.12] Deckers operates in transparency of purpose and updates our policies regularly, in line with global standards and best practice.
+[P3.13] Adam Druckman, Event Manager, Deckers Brands
+[P3.14] “I feel blessed and grateful to be at Deckers. The business and life lessons gained from my years here are too many to count. I like to say that the future at Deckers is so bright we need to wear sunglasses… I truly envy the young folks that will be here to celebrate 100 years of Deckers. I wish I could produce that party…”
+[P3.15] Jhon Cosgrove, HOKA Field Experience Representative
+[P3.16] “Together, we are inspired to be part of an organization that creates opportunities to make a positive impact on the communities around us.”
+[P3.17] Kay Story, Customer Service Director EMEA
+[P3.18] “We’re all capable of learning something new, reinventing ourselves, and pushing boundaries—no matter how long we’ve been in the game. If you’re someone who feels stuck or stagnant, let me reassure you: it’s never too late to wake up and reignite that fire. And if you’re a leader, remember how powerful it is to create an environment where others feel safe and inspired to do the same.”
+[P3.19] Lauren Allen, UK - PX Data Coordinator
+[P3.20] “Deckers is one of the very few places that is truly as open as they say that they are. The work environment has always been very open, friendly, and flexible ensuring that everyone is accommodated for, and can achieve their goals in a constant enriching environment.”
+[P3.21] Lisa Stolp, Assistant Trade Marketing Manager
+[P3.22] “For me, personally, it’s really meaningful to be part of an organization that emphasizes community involvement, such as voluntary work—doing good for others. In this way, we could help people and organizations that need support. Also, we’re engaging in this with colleagues, which is fun and leads to a bonding within our team. This helps us work harmoniously together. Teamwork makes the dream work!”
+[P3.23] Lupe Lopez, Office Operations Manager, HOKA
+[P3.24] “I’ve cherished the opportunities for continuous learning and skill development that Deckers Brands has provided, enabling me to evolve professionally over the years. Overall, it’s been the combination of friendships, learning, and skill development that has made my tenure at Deckers Brands truly rewarding and fulfilling.”
+[P3.25] Mone Akita, DTC Merchandiser Coordinator
+[P3.26] “Working in retail gave me a front-row seat to customer behavior and product trends. While our work as Merchandising Coordinators consists mostly of analyzing and crunching numbers, I believe my hands-on experience provides me with a unique perspective on how to interpret that data.”
+[P3.27] Travis Jones, Senior Manager, Brand Showcase
+[P3.28] “Do Good and Do Great is probably my favorite value. By being good stewards to our community, we are not only able to make a substantial impact on so many of the lifeline organizations in our area, but it also helps grow our business.”
+[P3.29] Jane Marshall, Senior Executive Assistant
+[P3.30] "I have been with Deckers EMEA London and feel extremely lucky to be part of such an exciting, ever-evolving company.
+</source>

@@ -1,0 +1,93 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Huron Consulting Group Inc. (www.huronconsultinggroup.com)
+Sector: Business and personal services
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- service_category (Service category): What service it sells. Example: outsourcing: payroll and benefits administration. Any that apply of: consulting and advisory; outsourcing / BPO; staffing; facilities and field services; engineering and technical services; marketing and information services; education and training; personal and consumer services; other.
+- engagement_model (Engagement model): How clients engage it. Example: managed service: multi-year outsourced contracts. Any that apply of: project; retainer; managed service; per transaction / per visit.
+- labor_specialization (Labor specialization): Who delivers it. Example: specialist: licensed technicians. Exactly one of: generalist / low-skill; skilled trades; licensed professionals; technical / IT specialists.
+- client_segment (Client segment): Its typical client. Example: enterprise: large employers. Any that apply of: consumers; SMB; enterprise; government.
+
+Evidence:
+<source id="P1">
+[P1.1] Huron | Global Consulting for Healthcare, Education, Digital & More
+[P1.2] Businesses must be agile in their approach to understanding their customers — meeting today’s demands while also looking ahead to the future.
+[P1.3] Explore how our industry expertise and our capabilities can power your organization.
+[P1.4] Today’s strategic mandate: meet short-term imperatives while building for what’s next. We work alongside your teams to turn ambition into lasting performance across key dimensions.
+[P1.5] Create bold, actionable growth strategies and define a clear path to move your organization forward.
+[P1.6] Power performance across your business.
+[P1.7] Harness AI and automation, modernize core systems, and enable faster, data-driven decisions.
+[P1.8] Build capabilities for what’s next.
+[P1.9] We work side by side with your teams to create alignment and momentum that turns change into results.
+[P1.10] Artificial Intelligence | Care Transformation | Digital
+[P1.11] Transforming care delivery: Unlocking capacity with intelligent care
+[P1.12] Intelligent care connects people, processes, and technology across the enterprise to help health systems unlock capacity, strengthen the workforce, and improve care delivery and patient outcomes.
+[P1.13] Care Transformation | Healthcare | Healthcare
+[P1.14] Tampa General Hospital improves intensive care unit (ICU) operations using an intensivist-led model
+[P1.15] Consistent, coordinated ICU care is critical to performance and patient outcomes.
+[P1.16] Artificial Intelligence | Change Management | Digital
+[P1.17] Why your AI and your ERP layers need to work together
+[P1.18] AI is changing what organizations expect from ERP. Learn why modernization is now the foundation for scalable AI, better decision-making, and long-term business value.
+[P1.19] Business Operations | Education & Research | Higher Education
+[P1.20] Financial resilience in higher education starts with making room to evolve before crisis forces change.
+[P1.21] Reliable, scalable AI that moves your business forward
+[P1.22] Huron is a global professional services firm that collaborates with organizations to help solve their most complex challenges and achieve their most ambitious goals. Working across the private and public sectors, we partner closely with clients to improve performance, accelerate transformation, and unlock new opportunities for growth.
+[P1.23] Our clients choose us because of our deep industry and technical expertise and proven track record of turning sound strategies into action. By combining practical experience, innovative thinking, and advanced analytics and technology, Huron helps organizations translate today’s ideas into tangible results and long-term value.
+</source>
+
+<source id="P2">
+[P2.1] About Us - Huron
+[P2.2] Huron is a global professional services firm that collaborates with organizations to help solve their most complex challenges and achieve their most ambitious goals.
+[P2.3] We believe that meaningful, lasting change happens when the right expertise, collaboration, and innovation meet. We work shoulder-to-shoulder with our clients, taking the time to understand their unique business, culture, challenges, and long-term goals. That context helps shape what we do from the solutions we design to how we implement them.
+[P2.4] Our approach blends deep industry and technical knowledge with data-informed insights and practical, proven experience. We work with agility and transparency, engaging stakeholders throughout the process and adapting as needs and the market evolve so solutions are effective and sustainable.
+[P2.5] By fostering trust, encouraging collaboration, and focusing on measurable outcomes, we help organizations not only address immediate needs but also build resilience and own the future.
+[P2.6] We collaborate with leading technology providers to stay on the cutting edge of a rapidly evolving landscape and implement the right solutions faster—integrating people, processes, data, and platform together to optimize operations and leverage technology investments to deliver measurable outcomes and scalable change.
+[P2.7] People that make transformation real
+[P2.8] We foster a culture of collaboration, curiosity, and innovation, equipping our teams to solve complex challenges and deliver exceptional results.
+[P2.9] Digital | Education & Research | Education Cloud
+[P2.10] Future-ready: Rochester's Workday success story
+[P2.11] The University of Rochester modernized its HR and payroll systems by implementing Workday HCM, Payroll, and Effort Reporting, streamlining operations, enhancing employee experience, and unifying finance, student, and HR systems into a future-ready cloud platform.
+[P2.12] Transforming financial operations with ERP and EPM at a leading insurance firm
+[P2.13] An insurance organization partnered with Huron to modernize its ERP and enterprise risk management environment. By aligning systems, processes, and governance, the firm improved reporting accuracy, enhanced risk visibility, and created a more integrated, scalable financial operations model to support long-term growth.
+</source>
+
+<source id="P3">
+[P3.1] Our Expertise & Capabilities - Huron
+[P3.2] With decades of first-hand experience across multiple industries, we bring a deep knowledge of enhancing digital capabilities, fostering organizational transformation, and driving innovation no matter the environment. Together, we can help you put what’s possible into practice.
+[P3.3] Find the expertise you need
+[P3.4] Engage donors, strengthen relationships, and turn strategy into sustainable growth.
+[P3.5] Activate your data, apply AI, and build tailored tech solutions to move faster and make smarter decisions.
+[P3.6] Change management adoption and enablement
+[P3.7] Adopt new ways of working and make the change stick, so transformation delivers real results.
+[P3.8] Navigate complex disputes with objective insights and clear guidance, so you can move forward with confidence.
+[P3.9] Strengthen capital strategy, elevate financial performance, and build a modern finance function that’s ready for what’s next.
+[P3.10] Fortify defenses against financial crimes and fraud by building programs that strengthen compliance, improve transaction monitoring, and reduce exposure.
+[P3.11] Human capital and people strategy
+[P3.12] Attract, develop, and retain talent while aligning your workforce to your strategy.
+[P3.13] Stay focused on what matters most, while we deliver scalable support and operational expertise.
+[P3.14] Operational excellence and performance improvement
+[P3.15] Improve efficiency, reduce costs, and drive measurable performance across your organization.
+[P3.16] Expand your future growth potential with an optimized real estate portfolio built on real-world strategies and aligned to your core business goals.
+[P3.17] Strengthen controls, meet regulatory demands, and build resilience in a changing environment.
+[P3.18] Define where to go next and make a plan for how to get there with practical strategies that drive growth.
+[P3.19] Build a more resilient supply chain grounded in proactive responses, better visibility, and more intentional technology investments.
+[P3.20] From diligence to integration, navigate transactions and realize value at every stage.
+[P3.21] Navigate complexity, improve performance, and position your organization for recovery and growth.
+[P3.22] Explore the industries we serve and the capabilities our team can bring to solve your unique challenges.
+[P3.23] Field-tested expertise that delivers real, measurable results
+[P3.24] Grounded in our lived industry experiences and delivered with a side-by-side approach, our services are built to solve your real-world challenges and deliver tangible results.
+</source>

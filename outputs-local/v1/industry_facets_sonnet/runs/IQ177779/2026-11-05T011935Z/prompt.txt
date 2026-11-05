@@ -1,0 +1,61 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Allient Inc. (allient.com)
+Industry (SIC 36): Electronic and Electrical Equipment, Except Computer Equipment
+
+Facets:
+- electrical_electronic_product_family (Electrical / electronic product family). Examples: Power-management chips; Switchgear; Household electrical appliances.
+- operating_model (Operating model). Examples: Fabless chip designer; Integrated semiconductor manufacturer; Electrical-equipment producer.
+- design_fabrication_assembly_split (Design / fabrication / assembly split). Examples: In-house IC design with outsourced wafer fabrication; Captive wafer fabrication; Outsourced assembly and test.
+- product_design_in_lifecycle (Product / design-in lifecycle). Examples: Annual consumer-electronics redesign; Five-year automotive design-in; Long-life industrial component.
+- oem_design_win_exposure (OEM / design-win exposure). Examples: Smartphone OEM design win; Industrial automation customers; Automotive platform nomination.
+- process_technology_capability_semiconductors (Process / technology capability [semiconductors]). Examples: 5 nm logic design; 300 mm mature-node fabrication; Advanced packaging.
+- manufacturing_supply_capacity_semiconductors (Manufacturing / supply capacity [semiconductors]). Examples: Contracted foundry wafer capacity; 40,000 wafer starts/month; Outsourced test capacity.
+
+Evidence:
+<source id="P1">
+[P1.1] Allient Inc. | Solutions for Motion, Controls & Power
+[P1.2] Allient is a global leader in precision solutions for motion, controls, and power quality, serving OEMs and end users across a range of industries.
+[P1.3] Our Allied Motion Technology Pillar offers solutions including component parts and integrated systems that make movement possible, such as precision motors and drives.
+[P1.4] Our Allient Controls Technology Pillar is focused on industrial automation, control systems, and solutions that streamline functionality throughout countless applications.
+[P1.5] Our Allient Power Technology Pillar brings solutions that concentrate on the consistency and reliability issues associated with industrial power conversion, such as harmonics or transients in waveforms.
+[P1.6] Allient is a global leader in precision solutions for Motion, Controls, and Power Quality, serving OEMs and end users across Aerospace, Defense, Medical, Industrial, Vehicles, and more.
+[P1.7] We help clients overcome challenges and seize opportunities with reliable, high-performance technologies. As one unified team, we combine motion, controls, and power to deliver the most robust and high-value systems—driving progress and making a global impact.
+</source>
+
+<source id="P2">
+[P2.1] Who We Are | Allient Inc.
+[P2.2] Allient is a global leader in engineered solutions that power the world's most advanced technologies. Our expertise spans motion, controls, and power.
+[P2.3] Allient is a global leader in engineered solutions that power the world’s most advanced technologies. Our expertise spans Motion, Controls, and Power, supporting mission-critical applications across Aerospace, Defense, Medical, Industrial, Vehicles, and other demanding applications.
+[P2.4] We partner with OEMs and system integrators to solve the most complex challenges and unlock new possibilities with reliable, high-performance systems. As a unified team operating across multiple global locations, we integrate our core disciplines to deliver tailored solutions that drive real results and global impact.
+[P2.5] we changed our name from Allied Motion Technologies to Allient (Allient Nexus Technologies) to reflect the expanded breadth of capabilities and products we offer that go beyond motion. This is a truly exciting time for Allient and made possible by our outstanding employees, partners and customer base.
+[P2.6] Since the change, the brands within our organization have continued to provide motion solutions under their individual brand identity. As part of our continued growth journey, these names and branding will be retired and changed to Allient and their location name based on where each facility is located.
+[P2.7] Over the coming months, you will see updates being made to our existing websites and branding to reflect this new direction.
+[P2.8] United States | Canada | Mexico
+[P2.9] Allient Acuna ( formerly Allied Motion) Allient Bellevue (formerly Spectrum Controls) Allient Buffalo (formerly Allied Motion) Allient Dayton (formerly Allied Motion) Allient Denver (formerly ALIO Industries) Allient Dothan (formerly Allied Motion) Allient London (formerly FPH) Allient Los Angeles (formerly Thin Gap) Allient Milwaukee (formerly TCI)
+[P2.10] Czech Republic | Germany | Netherlands Portugal | Sweden | United Kingdom
+[P2.11] Allient Dordrecht (formerly Allied Motion) Allient Kelheim (formerly Heidrive) Allient Kidderminster (formerly Dynamic Controls) Allient Mrakov (formerly Heidrive) Allient Porto (formerly Allied Motion) Allient Stockholm (formerly Allied Motion)
+[P2.12] Allient Oshkosh (formerly SNC) Allient Owosso (formerly Allied Motion) Allient Reynosa (formerly Allied Motion) Allient Rochester (formerly ORMEC) Allient Sacramento (formerly Sierramotion) Allient Sterling Heights (formerly FPH) Allient Tulsa (formerly Allied Motion) Allient Watertown (formerly Allied Motion)
+[P2.13] Allient Changzhou (formerly Allied Motion) Allient New Zealand (formerly Dynamic Controls) Allient Suzhou (formerly Dynamic Controls)
+</source>
+
+<source id="P3">
+[P3.1] Our Locations & Brands | Allient Inc.
+[P3.2] Explore Allient locations and brands worldwide serving customers across global markets, including North America, Asia, Europe and more.
+[P3.3] Kelheim, Germany Mrakov, Czech Republic
+[P3.4] Christchurch, New Zealand Kidderminster, UK | Suzhou, China
+[P3.5] Oshkosh, Wisconsin Acuna, Mexico | Changzhou, China
+[P3.6] Sterling Heights, Michigan London, Ontario, Canada
+</source>

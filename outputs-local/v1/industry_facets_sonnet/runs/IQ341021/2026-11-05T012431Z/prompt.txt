@@ -1,0 +1,70 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Core Laboratories Inc. (www.corelab.com)
+Industry (SIC 13): Oil & Gas Extraction
+About this industry group: E&P and oilfield-service contractors share this broad major group but need different rows. Reserve/production fields apply to resource-owning operations; day rates and fleet utilization apply to service operations. Natural-gas pipeline activities can instead route to SIC 49. Scope.
+
+Facets:
+- operating_activity (Operating activity). Examples: Crude-oil E&P; Natural-gas production; Contract drilling and field services.
+- production_mix_e_p (Production mix [E&P]). Examples: 65% oil by boe; Gas-weighted production; NGL-rich production.
+- basin_field_exposure_e_p (Basin / field exposure [E&P]). Examples: Permian Basin; Gulf of Mexico offshore; Appalachian gas basin.
+- reserve_measure_life_e_p (Reserve measure / life [E&P]). Examples: Proved developed producing reserves; Proved undeveloped reserves; 10-year reserves-to-production ratio.
+- well_field_decline_e_p (Well / field decline [E&P]). Examples: 25% first-year well decline; 8% mature-field annual decline.
+- development_intensity_e_p (Development intensity [E&P]). Examples: 40 wells drilled/year; 25 completed wells/year; Offshore tie-back development.
+- production_cost_price_basis_e_p (Production cost / price basis [E&P]). Examples: Lifting cost: $12/boe; Brent-linked realized oil prices; Henry Hub-linked gas sales.
+- service_line_fleet_oilfield_services (Service line / fleet [oilfield services]). Examples: Land drilling rigs; Pressure-pumping fleets; Well-maintenance crews.
+- contract_utilization_oilfield_services (Contract / utilization [oilfield services]). Examples: $25,000 rig day rate; 80% marketed-rig utilization; Multiwell service agreement.
+
+Evidence:
+<source id="P1">
+[P1.1] Core Lab: Leaders in Reservoir Optimization Solutions
+[P1.2] For 90 years, Core Lab has provided advanced core and fluid analysis, production optimization solutions, and expert consulting to the petroleum industry.
+[P1.3] Trusted by the World’s Leading Energy Companies for 90 Years
+[P1.4] Engineered to unlock higher reservoir connectivity, improve breakdown performance, and faster stage execution.
+[P1.5] Developing best-in-class tools to maximize results for the world’s leading energy companies.
+[P1.6] Core Predict™ – AI Analog Data Search
+[P1.7] Core Predict is an artificial intelligence tool that analyzes thin section images and searches our global rock catalog for measured petrophysical and geological analog data.
+[P1.8] Core Lab’s Saybolt team provides independent quantity and quality inspection of all types of refined products drawn from vessels, tanks, barges, and other bulk storage facilities to help with loss control.
+[P1.9] Tracer diagnostics provide operators long term, data-driven insights to optimize well spacing and enhance overall field development strategies.
+[P1.10] 3AB™ – Process Driven A/B Testing
+[P1.11] Field trials, lab testing, and data analytics combine to de-risk decision making, creating a statistically relevant data set in just two to three wells.
+[P1.12] Core Lab is the premiere partner for energy companies for Carbon Capture and Storage (CCS) subsurface characterization.
+[P1.13] Now into its 40th year, the consortium focuses on investigating methods to optimize recovery from hydraulically fractured oil and gas wells.
+[P1.14] Core Lab has delivered innovative technologies and data-driven insights that help clients derisk decisions across complex energy environments around the world.
+[P1.15] Beyond Today’s Wells: Exploring the Future of Resource Recovery
+[P1.16] Supporting Innovation and Knowledge Sharing Across the Energy Industry
+[P1.17] The leading provider of proprietary and patented reservoir description and production enhancement services and products.
+</source>
+
+<source id="P2">
+[P2.1] About Core Lab - 90 Years of Petroleum Industry Innovation
+[P2.2] Explore Core Lab’s legacy of technical excellence, advanced analytical services, and industry-leading solutions for optimizing reservoir performance.
+[P2.3] Core Lab has built a strong global reputation for delivering proprietary and patented reservoir description and production enhancement services. We develop innovative, tailored solutions and advanced products that optimize reservoir performance, maximize hydrocarbon recovery, and meet the evolving needs of the oil and gas industry.
+[P2.4] They simply define “how we do things around here”.
+[P2.5] We provide a work environment where employees are empowered to manage their work safely and responsibly.
+[P2.6] We behave consistently, acting in accordance with moral, ethical, and professional guidelines.
+[P2.7] We build and maintain the highest levels of customer service and satisfaction internally and externally.
+[P2.8] We promote an atmosphere of openness, respect, and dignity, producing confidence in our intentions.
+[P2.9] Strong corporate governance is the cornerstone of our success. This begins with solid leadership.
+[P2.10] Our commitment to sustainability includes careful consideration of social and environmental impacts and dedication to the highest standards of governance.
+[P2.11] We continue to build and maintain a workforce of talented and diverse individuals.
+</source>
+
+<source id="P3">
+[P3.1] Products, Services and Solutions - Core Lab
+[P3.2] Explore Core Lab's full range of products and services supporting energy, laboratory testing, and technical solutions worldwide.
+[P3.3] Core Lab is a leading provider of proprietary and patented reservoir description and production enhancement services and products. If you’re looking for documentation, you can also search our catalog.
+[P3.4] RDS™ – Rapid Deployment System
+</source>

@@ -1,0 +1,123 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Team, Inc. (www.teaminc.com)
+Sector: Business and personal services
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- service_category (Service category): What service it sells. Example: outsourcing: payroll and benefits administration. Any that apply of: consulting and advisory; outsourcing / BPO; staffing; facilities and field services; engineering and technical services; marketing and information services; education and training; personal and consumer services; other.
+- engagement_model (Engagement model): How clients engage it. Example: managed service: multi-year outsourced contracts. Any that apply of: project; retainer; managed service; per transaction / per visit.
+- labor_specialization (Labor specialization): Who delivers it. Example: specialist: licensed technicians. Exactly one of: generalist / low-skill; skilled trades; licensed professionals; technical / IT specialists.
+- client_segment (Client segment): Its typical client. Example: enterprise: large employers. Any that apply of: consumers; SMB; enterprise; government.
+
+Evidence:
+<source id="P1">
+[P1.1] TEAM, Inc | Asset Integrity, Inspection, Mechanical & Heat Treating
+[P1.2] TEAM, Inc. delivers asset integrity solutions, including advanced NDT, post-weld heat treating, rope access, leak repair, and on-stream field services.
+[P1.3] To Get the Most From Your Assets, It Takes a TEAM
+[P1.4] The Leading Global Asset Integrity & Performance 360 Solutions Provider​
+[P1.5] Built for the Full Asset Lifecycle
+[P1.6] TEAM unifies inspection, detection, repair, heat treating and digital solutions into one integrated service system
+[P1.7] is a global asset integrity and performance solutions provider focused on helping clients operate more efficiently and with greater confidence.
+[P1.8] TEAM, Inc. is available 24 hours a day, 7 days a week, 365 days a year to provide the support you need—whenever you need it.
+[P1.9] For over 50 years, TEAM has delivered trusted multi-service solutions that protect assets and improve performance worldwide. Our capabilities span NDT inspection, precision heat treating, and specialty mechanical services, all designed to reduce downtime, control costs, and strengthen safety. We provide advanced detection programs for leak identification, repair, and greenhouse gas control, ensuring compliance and reliability across industries. Rope access extends our inspection, maintenance, and repair solutions to challenging locations with efficiency and safety.
+[P1.10] Our legacy of innovation, exceptional service and unity drives us forward. With pride in our history and an unwavering TEAM, we're committed to delivering leading services and products, with more to come.
+[P1.11] Valves are a key component in the operations of most industrial processes. Our solutions ensure your valves provide protection in an emergency, performing instantly and without a hitch every time they’re needed.
+[P1.12] We pledge to continue to invest in developing methods and technologies that inspect for and reduce greenhouse gas emissions and other environmentally hazardous leaks.
+[P1.13] At TEAM we place a strong emphasis on the continuous development of new services, capabilities and technologies to assist clients with meeting their rapidly evolving asset integrity challenges.
+[P1.14] Our team is standing by to address your service needs or answer any questions you may have. Fill out the form below to have one of our service members reach out with a follow up.
+</source>
+
+<source id="P2">
+[P2.1] Industrial Asset Integrity Services | TEAM, Inc.
+[P2.2] Explore TEAM's industrial asset integrity services, including NDT inspection, emissions control, on-stream repair, heat treating, and rope access.
+[P2.3] More Than the Sum of Our Parts
+[P2.4] We don’t just check boxes. We connect the dots. TEAM360 unites top-tier technicians, advanced robotics, and real-time digital insight to eliminate handoffs, guesswork, and gaps in your asset strategy. Repair360 is already en route. Heat360 locks it in with precision thermal treatment. Every phase supports the next—so you move faster, decide smarter, and extend asset life without compromise.
+[P2.5] At TEAM, we don’t do generalists. Every technician is service-certified and field-tested, whether it’s advanced NDT, PWHT, or high-risk on-stream repair. Backed by AWS, API, NACE, and ASNT credentials, our crews bring 50+ years of performance and global reach to every project. From pipelines to process plants, we show up with the right skills, tools, and standards—every time.
+[P2.6] 360° Asset Integrity Starts With Continuity
+[P2.7] With one TEAM that specializes in every facet of asset health, less is lost in translation, more is accomplished, and every move builds safer, faster, and more reliable outcomes.
+[P2.8] You can’t improve what you don’t know is broken. TEAM’s Inspect360 provide meticulous asset health insight in the hardest-to-reach places. We combine one of the industry’s broadest inspection portfolios with expert-certified technicians and technologies built for complex environments. From tanks and valves to welds and wall thickness, we turn uncertainty into action-ready intelligence.
+[P2.9] Catch it early. Control it fast.
+[P2.10] Leaks, emissions, and invisible losses don’t just cost you — they complicate compliance. Detect360 equips you with early-warning systems that pinpoint problems before they escalate. Our field-proven tools and expert teams help you detect fugitive emissions, locate gas releases, and take decisive action—all while supporting your integrity, safety, and sustainability goals.
+[P2.11] Leak Detection and Repair (LDAR)
+[P2.12] Repair360 delivers engineered, code-compliant fixes that keep your assets running without taking them offline. From leak sealing and valve repair to composite wraps and field machining, our on-stream solutions are built to perform — fast, safe, and right the first time. We design and execute on-stream repairs that protect uptime and extend asset life without the delays of shutdown or replacement.
+[P2.13] Hot Tap, Line Intervention, Equipment and Parts
+[P2.14] Vapor Barrier and Hydrostatic Weld Testing
+[P2.15] Valve Repair Solutions and OEM Parts
+[P2.16] After you’ve found and fixed the defect, the Heat360 ensures asset integrity stands the test of time. Our heat treatment services reduce residual stress, restore material properties, and future-proof critical components. Whether it’s PWHT, annealing, or monitored bake-outs, we apply precision heat — where and when it matters most.
+[P2.17] Post Weld Heat Treating and Pre Heat Applications
+[P2.18] Paint and Refractory Curing Solutions
+[P2.19] Real-Time Remote Monitoring and Control
+[P2.20] Mobile and Configurable Heat Treat Setups
+[P2.21] OneInsight® is the digital command center that connects our TEAM360 from inspection to heat treatment to advanced asset and project solutions. It serves as your single source of truth — digitizing every touchpoint across every process phase. From live dashboards and audit logs to connected workflows and mobile reporting, our platform turns data into educated decisions.
+[P2.22] Bridge the gap between plans and performance
+[P2.23] When the work gets tricky, we get creative. From rope access and engineered lifts to turnkey turnarounds, we solve complex problems and boost performance across every TEAM360.
+[P2.24] Here’s what happens when you align people, process and precision from start to finish with fewer vendors and fewer delays.
+[P2.25] During a major turnaround at a high-volume hydrocarbon processing facility, TEAM delivered a smarter way to execute. We deployed a cross-trained, blended crew to eliminate idle time, reduce headcount, and streamline coordination across disciplines.
+[P2.26] You Have Questions. We Have Answers.
+[P2.27] From à la carte to 360° asset integrity life cycle support, our TEAM does it better.
+[P2.28] A: By staying with you from first flaw to final QA, TEAM360 builds context across every phase of the asset lifecycle. That means smarter decisions, fewer surprises, and repairs that last longer—because every action is informed by what came before.
+[P2.29] A: We’re built for that. TEAM360 includes Advanced Asset and Project Solutions like rope access, engineered lifts, robotic inspections, unmanned vehicles, and remote monitoring. Whether it’s confined space, extreme heat, or elevation challenges, we bring the tools and teams to get it done safely.
+[P2.30] A: We operate across North America with local crews ready to respond. Many of our services—including leak sealing, hot tapping, and heat treating—can be mobilized same-day depending on the location and scope.
+[P2.31] A: Absolutely. Our Detect360 is purpose-built to support emissions control, leak detection, and data logging for environmental compliance. We also provide full documentation trails through OneInsight® for audits, QA, and reporting.
+[P2.32] A: Yes. TEAM360 isn’t just reactive—it’s proactive. Our asset integrity experts can help build long-term programs using predictive analytics, inspection insights, 3D Laser Scanning, and real-time monitoring data to reduce risk and optimize performance.
+[P2.33] A: Yes, OneInsight® was created to seamlessly supplement every phase of TEAM’s asset integrity management. From digital inspection logs and real-time emissions tracking to thermal cycle validation and repair documentation, our OneInsight platform can assist with this. Additionally, the implementation of Digital Twins that connect to OneInsight can provide accurate visualization of the locations for our integrity management data. You get connected insights, automated workflows, and live dashboards that bring clarity and control to your entire asset strategy—no matter where you start.
+[P2.34] A: Pipelines, power plants, refineries, chemical facilities—you name it. Our solutions are built for high-risk, high-complexity environments, and we’re equipped to handle scopes from single-component interventions to full-plant turnarounds.
+[P2.35] We understand the value of your time, money, and peace of mind. Our team of experts is ready to guide you through the process of integrating services that streamline your operations, reduce unnecessary costs, and eliminate the stress of managing multiple vendors.
+</source>
+
+<source id="P3">
+[P3.1] Valve Repair Solutions & OEM Parts
+[P3.2] Restore valve performance fast with OEM-grade parts, expert repairs, and integrated support. On-site, on time, and built for long-term reliability.
+[P3.3] Home | Repair | Valve Repair Solutions & OEM Parts
+[P3.4] Protect Uptime, Extend Service Life, and Secure OEM-Grade Reliability Without the Wait.
+[P3.5] Valves are the gatekeepers of your process. When they falter, so does everything else. TEAM’s Valve Repair Solutions and OEM Parts services help you regain control — quickly, safely, and with confidence. Whether you’re facing an emergency leak, preparing for a turnaround, or upgrading aging infrastructure, we deliver certified technicians, OEM-grade components, and fully integrated support directly to your site.
+[P3.6] Our teams repair and refurbish all valve types, sizes, and brands, from pressure seal and gate valves to complex actuators and control systems. Using precision machining, verified testing, and code-compliant procedures, we restore sealing surfaces, rebuild internals, and return your valves to spec with speed and total traceability. Through trusted partnerships, we source genuine OEM parts to ensure long-term reliability without the delays of multi-vendor coordination.
+[P3.7] And because valve work rarely stands alone, we integrate every repair with TEAM360’s broader suite of services. From field machining and NDT to pressure testing, heat treatment, and OneInsight® digital reporting, TEAM delivers a connected repair strategy that works on your timeline, with fewer handoffs and greater accountability. Backed by more than 50 years of experience, we don’t just fix valves—we help you protect uptime, improve planning, and reinforce long-term performance across your entire operation.
+[P3.8] Here’s how we combine field expertise, genuine parts, and digital traceability to deliver code-compliant valve repairs without compromise.
+[P3.9] Simplify critical valve repairs with one trusted TEAM
+[P3.10] TEAM offers a comprehensive portfolio of valve repair services designed for high-pressure, high-risk environments. From single valve restorations to plant-wide repair programs, we tailor our solutions to match your scope, compliance needs, and performance targets.
+[P3.11] Repair and refurbish all valve types, sizes, and brands
+[P3.12] Source OEM parts through trusted vendor relationships
+[P3.13] Restore sealing surfaces with precision machining and lapping
+[P3.14] Perform pressure testing and recertification to meet compliance
+[P3.15] Deploy mobile service units for fast, in-field support
+[P3.16] Track assets in real time with Digital Valve Management Solutions (DVMS)
+[P3.17] Integrate valve services with TEAM360’s holistic maintenance approach
+[P3.18] Maximize uptime, compliance, and long-term value
+[P3.19] When you work with TEAM, you get more than a repair — you get a performance partner. Our rapid mobilization, certified crews, and OEM-grade parts ensure reliability under pressure. We streamline field execution, simplify vendor coordination, and bring digital transparency to every repair.
+[P3.20] Reduce operational disruptions with efficient, on-site repairs
+[P3.21] Ensure quality with OEM parts and certified valve technicians
+[P3.22] Extend valve life with expert refurbishment and service
+[P3.23] Maintain compliance with thorough testing and digital documentation
+[P3.24] Leverage predictive insights with integrated digital tools
+[P3.25] Streamline execution with a single-source provider
+[P3.26] Trust proven specialists with decades of experience
+[P3.27] TEAM has been restoring critical valve performance for more than 40 years—across refineries, pipelines, chemical plants, utilities, and more. Our technicians are trained to handle everything from legacy infrastructure to advanced control valves, combining field-savvy insight with precision engineering.
+[P3.28] We are authorized service providers for leading OEMs and apply the same high standards whether we’re replacing a stem seal or rebuilding a valve under pressure. When system integrity is on the line, our expertise becomes your peace of mind.
+[P3.29] Align valve repair with a connected maintenance strategy
+[P3.30] Valve services are a core offering within TEAM360 — our integrated platform for total asset reliability. By combining valve repair with NDT, field machining, heat treatment, and digital reporting, we create a cohesive plan that reduces handoffs, improves execution, and drives long-term performance.
+[P3.31] Link valve services with NDT, machining, and heat treatment
+[P3.32] Ensure full asset visibility through integrated reporting
+[P3.33] Coordinate multi-scope work for fewer delays and smoother execution
+[P3.34] Build long-term reliability through connected service planning
+[P3.35] Track every valve. Plan every move.
+[P3.36] Every repair, part replacement, test result, and compliance cert is logged in a centralized, cloud-based system — accessible from anywhere, anytime. DVMS enables proactive maintenance planning, simplifies audits, and ensures no detail slips through the cracks. It’s asset intelligence, built into every repair.
+[P3.37] Access full digital records for each asset and action
+[P3.38] Centralize valve specs, maintenance logs, and test results
+[P3.39] Support compliance with digital QA/QC documentation
+[P3.40] Enable predictive planning across your valve inventory
+[P3.41] Unlocking the Flow of Innovation in Pipeline Maintenance
+</source>

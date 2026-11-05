@@ -1,0 +1,82 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Green Thumb Industries Inc. (www.gtigrows.com)
+Sector: Healthcare (providers, devices, pharmaceuticals)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- healthcare_segment (Healthcare segment): Part of healthcare. Example: services: home health and hospice care. Any that apply of: pharma; biotech; medtech / devices; diagnostics and tools; provider services; healthcare IT; payer; distribution / pharmacy; other.
+- product_stage (Product stage): Whether its products are on the market. Example: commercial: sells approved products. Exactly one of: commercial; clinical; research; not applicable (services).
+- customer_payer (Customer / payer): Who pays. Example: Medicare and Medicaid: government programs pay for most visits. Any that apply of: hospitals and providers; private insurance; Medicare and Medicaid; patients / consumers; pharma and biotech companies; employers; other.
+- therapeutic_area (Therapeutic area): Main clinical area. Example: cardiovascular: heart rhythm devices. Any that apply of: oncology; cardiovascular; neurology and behavioral health; orthopedics and spine; metabolic and diabetes; infectious disease; ophthalmology; dental; general / multiple; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Green Thumb | Health, Happiness & Wellbeing with Cannabis
+[P1.2] Explore the safe, quality cannabis products Green Thumb Industries brings to market at our retail locations nationwide.
+[P1.3] Well-being through the power of cannabis.
+[P1.4] At Green Thumb, we believe in the plant’s potential to improve health, happiness, and comfort.
+[P1.5] The gold standard for green
+[P1.6] we’ve championed brands that give people choice in safe and quality cannabis on their journey to well-being.
+[P1.7] A growing team with deep roots
+[P1.8] At Green Thumb, we believe in creating a more inclusive cannabis culture, shaping the industry in a way that makes all of us proud and normalizing well-being through the power of the plant. As we continue to grow, our shared values keep us grounded—we are humble, hardworking, grateful people who value transparency and integrity.
+[P1.9] As a team, we strive to create lasting, positive change in the communities we serve. Our Growing for Good social impact program is how we put our beliefs into practice and focus on four key pillars of progress: Restorative Justice, Inclusion & Belonging, Environmental Stewardship and Community Engagement.
+[P1.10] Catch up on all the latest ways we’re leaving our thumbprint on the industry.
+[P1.11] Cannabis Goes Mainstream: Big Brands and Bold Moves to Break Stigmas
+[P1.12] The kids of 1993 have grown up, discarding the thinking of generations past and accepting cannabis as a part of everyday society.
+[P1.13] Cannabis-friendly music festival returning to Chicago’s northwest suburbs
+[P1.14] A two-day immersive outdoor festival that merges the worlds of cannabis and music will again return to Chicagoland for its third consecutive year this September.
+[P1.15] Dogwalkers Launches a Twist on a Seasonal Staple with The Summer 6-Pack
+[P1.16] The Summer 6-Pack’ by Dogwalkers is redefining what it means to grab a six-pack for your next beach trip or backyard gathering.
+[P1.17] The “Delicious” Snacks That Are Taking Over Grocery Shelves
+[P1.18] As marijuana legalization spreads across the country — 24 states and counting! — there’s been a noticeable shift not just in policy, but also in culture.
+</source>
+
+<source id="P2">
+[P2.1] Our Story - Green Thumb Industries
+[P2.2] Our story We believe everyone has a right to well-being we founded Green Thumb with a mission to promote well-being through the power of cannabis. As a national consumer packaged goods company and retailer, we’ve always strived to create the most authentic cannabis brands and consumer experiences while treating people well and giving […]
+[P2.3] We believe everyone has a right to well-being
+[P2.4] we founded Green Thumb with a mission to promote well-being through the power of cannabis. We’re headquartered in Chicago with operations across 14 markets, serving multiple customers and patients each year. As our company continues to grow, we stay grounded by holding ourselves to the industry’s highest possible standards.
+[P2.5] We’re leaving our thumbprint on the industry
+[P2.6] It’s our way of bringing humanity to an industry that’s about helping people first and foremost — and always has been.
+[P2.7] A family of cannabis brands
+[P2.8] Featuring high-quality products cultivated and hand-crafted by the industry’s leading experts, our expansive brand portfolio empowers consumers of all stages on their path to well- being.
+[P2.9] As RISE expands into new communities, our retail team remains committed to creating welcoming spaces where all guests and patients from all experiences feel supported in their cannabis journey.
+[P2.10] We acknowledge the complex history of cannabis and strive to take meaningful actions that help right the wrongs of the failed War on Drugs, while shaping a more inclusive, equitable industry.
+[P2.11] A trusted voice in the industry
+[P2.12] This business is all about innovation and growth—and Green Thumb remains an authentic presence at the forefront of cannabis.
+[P2.13] Rise Cannabis Retailer Says ‘Everybody’s Doing It’ in 420 Ads
+[P2.14] A saucy campaign promotes the holiday, the biggest weed sales day of the year, and touts 50 million American canna fans.
+[P2.15] More Adults Rely on Cannabis Than Prescription Sleep Aids for Better Sleep, Survey Says
+[P2.16] A survey finds 16% of adults turn to cannabis for better sleep, while 12% opt for prescription sleep aids.
+[P2.17] Growing up, my grandfather sparked my imagination and appreciation for puzzles and problem solving. We learned that if one could “remove all assumptions” and stay open to possibilities, it could lead to new ways of thinking and often interesting solutions.
+[P2.18] At Green Thumb, we are here because we believe deeply in a new way of well-being. We believe strongly that cannabis can enable that change and that we can achieve it by working together.
+[P2.19] Before this business existed, I voted for Prop 215 while going to school in California back. This was the country’s first ballot initiative to pass and legalize medical marijuana statewide. It was a privilege to be part of this American process.
+[P2.20] Since then, the end of cannabis prohibition has fascinated me. I studied the parallels with the repeal of alcohol prohibition ’s. It became clear that in fact, “history does not repeat, it rhymes.” – Mark Twain. We were entering Prohibition 2.0.
+[P2.21] We have a once in a lifetime opportunity to create something important: to provide access to a product that can curb the opioid epidemic, to create jobs, to generate tax revenue to fund underfunded education programs, and most importantly, to help people live happier, healthier, more comfortably.
+[P2.22] This progress starts and ends with people. People who believe in change. People who believe in what we do. In short, people like you.
+[P2.23] We are grateful to those who have done this hard work before us. They have made it possible for us to exist. They remind us that when others are wary, we can be bold. We can remove all assumptions to do things differently – how would we want to have done it if we’re going to do it forever – and help even more people along the way.
+[P2.24] Thank you for joining our journey to well-being.
+</source>
+
+<source id="P3">
+[P3.1] Who We Are - Green Thumb Industries
+[P3.2] What unites us all today, tomorrow and twenty years from now is our passion for the plant and people’s well-being. Our leadership […]
+[P3.3] We win because of the team
+[P3.4] What unites us all today, tomorrow and twenty years from now is our passion for the plant and people’s well-being.
+[P3.5] To be an "employee" of GTI I feel is an understatement. We are a family filled with talented amazing people and daily we uplift and radiate positivity within our facility. A culture created that is ultimately life changing to many. Before working at Green Thumb, I've always felt as if I had to prove myself, but since becoming a member of this community I've learned that is not the case. The opportunities to grow within Green Thumb are endless. I have gained knowledge that will open opportunities that I had only dreamed of previously. The joy and fulfilment I have every day is indescribable. I carry being a member of this family as a badge of honor, and I am always proud to say I work for Green Thumb.
+[P3.6] My experience working at GTI has been so positive and uplifting. The moment I set foot in the door, I felt comfortable being my authentic self and that my differences were celebrated instead being restrained. I love the drive and teamwork our entire facility puts forth on a daily basis. We all have different tasks to complete throughout the day, but our end goal is the same: to provide our patients with the highest quality cannabis. I have never in my life witnessed a group of people work with the same passion, drive and determination that my co-workers exhibit every day. It is truly a pleasure to work with each and every one of them, and at the end of the day, it feels good to go home, knowing that we are positively changing peoples lives!
+[P3.7] Green Thumb has provided me a journey for personal and professional growth. I work in an environment where not knowing the answer is considered ok and being able to go create the answer is the ultimate empowerment. Green Thumb’s greatest resources are the incredible and unique people who work here. I’ve discovered first-hand how inclusive cannabis is to all people from every walk of life, and together, we can accomplish anything.
+</source>

@@ -29,6 +29,12 @@ Tests: `uv run pytest v1/scripts/tests v1/scripts/verification/tests -q` (209 pa
 
 ## Changes in v1 since the clone
 
+**2026-11-04 (evening), a stronger model, and Barbara's industry facets** (Matthew; plan item 3 with Richard).
+- **`--backend claude-cli`** on `fill_facets.py`, `fill_sector_facets.py`, `fill_industry_facets.py`, `cosine_then_llm.py` and `direct_llm.py`: the call goes through the Claude Code CLI under your own subscription (`cli_models.call_cli`), default model Claude Sonnet 5.5, no API key. New runs never write into the saved Haiku folders.
+- **Sonnet fills, all 533 companies:** `outputs-local/v1/facets_sonnet/` (the twelve facets), `sector_facets_sonnet/` (Fiona's, training and holdout), `industry_facets_sonnet/` (Barbara's, new).
+- **`industry_facets.py` + `fill_industry_facets.py`** (new): Barbara's SIC2 facet dictionary (`scripts/reference/sic2_industry_facet_dictionary.md`, 83 groups) as free-text facets per company, filled evidence-first from the saved pages and cited. Table: `industry_facets_long.csv`, one row per company and facet.
+- **Sonnet vs Haiku on the selectors**, same B3 lists, same facets, same prompt: `cosine_then_llm/…_{sonnet,haiku}/`, `direct_llm/…_{sonnet,haiku}/`. **`model_selection_eval.py`** (new) scores both against the reviewers' labels, measures how often the two models agree, and compares the two facet fills facet by facet. Short version: the screen barely changes with the model (92% same verdict; both strict); the direct picks do (Sonnet 4/4 WEN and 6/7 PCTY good comps vs Haiku 1/4 and 4/7). Handoff: `conversations/2026-11-04-sonnet-model-selection.md`.
+
 **2026-11-04, v1 baseline, prompt versions, round 2.**
 - **B3 (method 1) is the v1 baseline** (team decision). It is chosen on comp quality: it keeps every reviewed direct comp, recovers the adjacent comps v0 missed, and lists none of the reviewed non-comps. It is not chosen on valuation, where it is within noise of v0 (30.0% vs 28.8% median APE). `facet_weighting.method1_similarity` computes it.
 - **`method1_candidates.py`** (new) writes B3's lists in the selectors' candidates format. **`cosine_then_llm.py --b3`** screens them.

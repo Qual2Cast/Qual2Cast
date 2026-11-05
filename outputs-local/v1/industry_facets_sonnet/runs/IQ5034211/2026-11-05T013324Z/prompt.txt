@@ -1,0 +1,103 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Niagen Bioscience, Inc. (www.niagenbioscience.com)
+Industry (SIC 28): Chemicals & Allied Products
+About this industry group: This major group includes pharmaceuticals and biological products as well as industrial chemicals. Use clinical-stage and drug-platform extensions only for the relevant life-science business; do not impose drug approval or patent dependence on all commodity chemicals.
+
+Facets:
+- chemical_life_science_product_family (Chemical / life-science product family). Examples: Specialty coatings; Fertilizers; Prescription pharmaceuticals.
+- specialty_commodity_positioning (Specialty / commodity positioning). Examples: Customer-qualified specialty formulations; Bulk commodity chemicals.
+- formulation_synthesis_complexity (Formulation / synthesis complexity). Examples: Custom additive formulation; Multistep chemical synthesis; Standardized bulk production.
+- patent_exclusivity_dependence (Patent / exclusivity dependence). Examples: Patented active ingredient; Process know-how; Product-exclusivity expiry in 2029.
+- product_specific_regulatory_route (Product-specific regulatory route). Examples: TSCA chemical compliance; REACH registration; FDA-approved medicine.
+- r_d_intensity (R&D intensity). Examples: Annual R&D: 6% of sales; Annual R&D: 18% of sales.
+- clinical_commercialization_stage_pharma (Clinical / commercialization stage [pharma]). Examples: Phase II trial program; Phase III registration study; Commercialized medicine.
+- biologic_small_molecule_platform_pharma (Biologic / small-molecule platform [pharma]). Examples: Monoclonal antibodies; Small molecules; Vaccines.
+- manufacturing_supply_model_pharma (Manufacturing / supply model [pharma]). Examples: Own GMP drug manufacturing; Outsourced API manufacturing; Contract development and manufacturing.
+
+Evidence:
+<source id="P1">
+[P1.1] Niagen Bioscience, Formerly ChromaDex | The Leader in NAD+ Science – Niagen Bioscience | The Leading NAD+ Science and Research Company | There's a Better Way to Age
+[P1.2] Niagen Bioscience (formerly ChromaDex) is the premier leader in NAD+ research, clinical science, and ingredient innovation. Our ISO-accredited labs and peer-reviewed publications establish us as the gold standard for NAD+ supplementation and NAD+ precursors, delivering breakthrough cellular health solutions.
+[P1.3] Don't get old. Age Better®. Learn More
+[P1.4] New Clinical Study Explores Tru Niagen's Role in Long COVID Symptom Management
+[P1.5] ChromaDex is now Niagen Bioscience
+[P1.6] Niagen Bioscience | The Leading NAD+ Science and Research Company | There's a Better Way to Age
+[P1.7] A leader in NAD+ science. Trusted by Kelly Slater.
+[P1.8] After decades in the water, Kelly knows what his body needs. Research-backed cellular support for healthy aging.
+[P1.9] We set the standard for NAD+ science
+[P1.10] we've built a foundation of scientific rigor—and for nearly a decade, we've led the field of NAD+ science. We're committed to following the science of NAD+ wherever it leads, and to letting new discoveries shape what comes next.
+[P1.11] The Science of NAD+ in Aging Goes Deeper Than Blood
+[P1.12] Blood and tissue NAD+ tell different parts of the same story. A new Niagen Bioscience white paper examines age-related NAD+ changes across the brain, skin, skeletal muscle, and liver—and the evidence for NAD+ precursors like Niagen® NR in whole-body restoration.
+[P1.13] There's a better way to age
+[P1.14] Uncovering the potential of NAD+ with precision science.​
+[P1.15] We exist to improve healthspan by restoring and optimizing NAD+ levels, empowering people to live healthier and more vibrant lives as they age.
+[P1.16] With over 25 years of innovation, Niagen Bioscience is the global leader in NAD+ research and technology. Our solutions are backed by world-class science, clinical research, and unmatched quality.
+[P1.17] Discover our industry leadership, Nobel Prize-winning research expertise, and market-leading position in the rapidly expanding NAD+ sector.
+[P1.18] Download Our Corporate Fact Sheet
+[P1.19] Most dietary supplement ingredients have no independent quality standard. Niagen Bioscience spent over six years sponsoring the scientific work required to create one. The U.S. Pharmacopeia—the independent authority behind prescription drug standards—has now published an official monograph for NR Chloride. Niagen, our patented ingredient, is compliant with that standard. Tested, trusted, and recognized by global regulatory bodies. The gold standard in NAD+ science is here.
+[P1.20] We pioneer NAD+ innovation with groundbreaking research and uncompromising quality.
+[P1.21] Science-backed, research-driven Our discoveries are backed by clinical studies, proprietary patents, and world-class expertise.
+[P1.22] Partners with industry leaders We collaborate with top universities and researchers to advance NAD+ science and healthy aging.
+[P1.23] Unmatched quality and innovation Every ingredient we make is clinically researched and held to the highest standards, ensuring efficacy.
+[P1.24] Backed by 25+ years of research & innovation
+[P1.25] We've led the way in healthy aging science, pioneering discoveries in NAD+ with Niagen®.
+[P1.26] Discover our innovative, quality-tested, research-backed NAD-enhancement solutions.
+[P1.27] America's trusted NAD-boosting supplement. Our award-winning Tru Niagen products power your cells to thrive with clinically proven daily support.
+[P1.28] For health enthusiasts seeking advanced treatments, Niagen Plus delivers pharmaceutical-grade, fast-acting NAD+ enhancement therapies.
+[P1.29] "In the supplement industry, where claims often outpace evidence, scientific rigor is paramount. This is why I'm particularly impressed by the work being done at Niagen Bioscience."
+[P1.30] Roger Kornberg, Ph.D., Niagen Bioscience Scientific Advisory Board Chairman
+[P1.31] Nobel Prize Winner in Chemistry (2006) and Winzer Professor in Medicine at Stanford University
+[P1.32] "Disturbances in NAD coenzymes can leave tissues unable to repair themselves, generate energy, and perform their normal homeostatic functions. In many conditions of metabolic stress, the genes that convert NR to NAD are up-regulated, which provides unique value over all other NAD precursors."
+[P1.33] Charles Brenner, Ph.D., Niagen Bioscience Chief Scientific Advisor
+[P1.34] Charles Brenner, PhD, Professor of Metabolic Regulation, Faculties of Medicine, Pharmacy and Helsinki Institute of Life Science, University of Helsinki, Finland, and Chief Scientific Advisor at Niagen Bioscience
+[P1.35] "Niagen, ChromaDex's patented nicotinamide riboside product, is one of the most well-studied, carefully controlled, and indeed, the gold standard in the supplement industry."
+[P1.36] Nobel Prize Winner in Chemistry
+[P1.37] We leverage our complementary business units to discover, acquire, develop and commercialize patented and proprietary ingredient technologies that address the dietary supplement, food, beverage, skin care, and pharmaceutical markets.
+</source>
+
+<source id="P2">
+[P2.1] About Niagen Bioscience, Formerly ChromaDex | Pioneering NAD+ Science – Niagen Bioscience | The Leading NAD+ Science and Research Company | There's a Better Way to Age
+[P2.2] Niagen Bioscience (formerly ChromaDex) is advancing cellular health through innovative NAD+ science and research. Our ISO-accredited laboratories and gold-standard Niagen supplement reflect our mission to transform healthy aging through breakthrough nicotinamide riboside (NR) technology.
+[P2.3] The future of cellular health
+[P2.4] Science that moves humanity forward
+[P2.5] At Niagen Bioscience, we are uncovering the potential of NAD+ with precision science. Together, we're building a healthier future for all.
+[P2.6] Health begins at the cell. At Niagen Bioscience, we are pioneering the future of healthy aging through NAD+ science. At the heart of our breakthroughs is Niagen® (nicotinamide riboside, NR), the gold standard in NAD+ support. Backed by world-class research and a global patent portfolio, Niagen is clinically shown to increase NAD+ levels efficiently and effectively, and is the key ingredient powering our suite of Niagen brands.
+[P2.7] Where traditional science sees aging as an inevitable decline, we see a vast frontier of cellular possibility.
+[P2.8] A culture of innovation and impact
+[P2.9] laboratory fosters a culture of curiosity, collaboration, and purpose, where every voice matters and every research milestone advances our understanding of healthy-aging science. With a foundation built on integrity, transparency, and scientific excellence, we are united by a shared purpose: to improve healthspan by restoring and optimizing NAD+ levels, empowering people to live healthier and more vibrant lives as they age.
+[P2.10] We proudly hold an A2LA accreditation to ISO/IEC 17025:2017, representing a comprehensive assessment of different aspects of our laboratory operations. A2LA's rigorous evaluation process examines everything from technical competence and precision to quality management systems.
+[P2.11] 3rd party assessments ensure compliance to international standards.
+[P2.12] Our laboratories uphold the gold standard in scientific integrity and safety excellence.
+[P2.13] We stay at the forefront of industry best practices.
+</source>
+
+<source id="P3">
+[P3.1] Niagen Brands | Niagen Bioscience | Clinically Proven NAD+ Products – Niagen Bioscience | The Leading NAD+ Science and Research Company | There's a Better Way to Age
+[P3.2] Discover our Niagen brands from Niagen Bioscience (formerly ChromaDex), the gold standard in NAD+ supplementation. Our products are backed by 35+ clinical studies and 50+ patents, supporting cellular energy, repair, and healthy aging through scientifically researched nicotinamide riboside.
+[P3.3] Our clinically proven, patented NAD+ precursor powers two specialized brands: Our trusted Tru Niagen supplements for daily use, and Niagen Plus for fast-acting pharmaceutical-grade therapies.
+[P3.4] Cells need NAD+ to survive. Niagen® is proven to restore it.
+[P3.5] Niagen® is one of the most scientifically researched NAD+ precursors, clinically shown to increase NAD+ levels that decline with age. Backed by 45+ clinical studies, protected by global patents, trusted by leading researchers, and compliant with the published U.S. Pharmacopeia monograph for NR Chloride—the science behind cellular NAD+ restoration.
+[P3.6] Tru Niagen® — Powered by Niagen®
+[P3.7] Elevate your NAD+ levels daily with Tru Niagen, our premium food-grade oral supplement for cellular vitality. Clinically proven to boost NAD+ by up to 150%, this bestselling daily supplement fuels your body from within—supporting cellular energy and repair, so you can be your best at any age. Backed by decades of research, Tru Niagen is one of the most scientifically researched, efficient, trusted NAD+ boosters available. With flexible serving options and superior bioavailability, Tru Niagen makes it easy to maintain optimal cellular health and support healthy aging every day.
+[P3.8] Niagen® Plus – The future of NAD+ therapy
+[P3.9] For those seeking advanced NAD+ enhancement benefits, Niagen Plus delivers premium, fast-acting therapy solutions available exclusively through healthcare providers with pharmaceutical-grade Niagen. Our Niagen™ IV and injectables combine superior bioavailability with increased efficiency and tolerability, supporting cellular energy, resilience, and renewal. Niagen Plus delivers NAD+ benefits more quickly and effectively than traditional NAD+ IV therapies. Discover the gold standard in pharmaceutical-grade NAD-boosting therapies.
+[P3.10] Scientific credibility Award-winning innovation Backed by 500+ scientific studies Safeguarded by global patents 300+ global research collaborations
+[P3.11] Rooted in research, recognized for innovation, Niagen® continues to advance NAD+ and cellular health science.
+[P3.12] Niagen® is recognized for its excellence in longevity science, earning the 2024 NutraIngredients EU Healthy Ageing Ingredient of the Year for unmatched quality, safety, and innovation.
+[P3.13] NR has been extensively researched in published, peer-reviewed studies for its potential to support a variety of health areas, including cellular health and healthy aging.
+[P3.14] Patents safeguard progress and those who rely on it. With 50+ patents, Niagen® stands on rigorous science, ensuring purity, efficacy, and protection in every serving.
+[P3.15] In partnership with leading research institutions, Niagen® is rigorously studied, continuously validating its impact on cellular health and longevity.
+</source>

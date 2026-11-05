@@ -1,0 +1,107 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Consensus Cloud Solutions, Inc. (www.consensus.com)
+Sector: Software and internet
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- software_category (Software category): What the software does. Example: HR and payroll: payroll, benefits and time tracking. Any that apply of: ERP and finance; HR and payroll; CRM, marketing and sales; cybersecurity; data, analytics and AI; IT and developer infrastructure; collaboration and content; industry-specific (vertical) software; payments and fintech; consumer internet and marketplaces; IT services and consulting; other.
+- deployment_model (Deployment model): How the software is delivered. Example: SaaS: cloud subscription. Exactly one of: SaaS / cloud; on-premise; hybrid; not applicable (services or internet).
+- customer_size (Customer size): Its typical customer. Example: mid-market: employers with tens to a few thousand staff. Any that apply of: consumers; SMB; mid-market; enterprise; government.
+- product_architecture (Product architecture): One product or a suite. Example: platform: payroll, HR, time and benefits on one system. Exactly one of: platform / suite; point solution; API / infrastructure.
+
+Evidence:
+<source id="P1">
+[P1.1] Consensus | Healthcare Interoperability Simplified
+[P1.2] We deliver comprehensive cloud-based, healthcare data interoperability platforms, with streamlined workflows to power the future of sustainable care.
+[P1.3] The trusted global source for the transformation, enhancement, and secure exchange of digital information.
+[P1.4] Advancing digital maturity and the evolution of healthcare interoperability, by unlocking essential data and delivering it securely when, where and how you need it.
+[P1.5] HIPAA Compliant Digital Cloud Faxing
+[P1.6] The only fax service that guides you to better forms of electronic and interoperable exchange
+[P1.7] Send and receive any patient information over a trusted healthcare network with over a million addresses.
+[P1.8] Electronically query records and retrieve patient information on demand from Carequality including those connected through the CommonWell Health Alliance.
+[P1.9] Connectivity access to referral networks, ACOs and HIEs across the nation.
+[P1.10] Interface engine and complete interoperability platform provides seamless integration technology
+[P1.11] Effortlessly sign, send, track, and manage the entire e-signature process.
+[P1.12] Natural Language Processing / AI
+[P1.13] Go from unstructured documents to actionable, analytics-ready structured data that can be sent to the right person at the right time.
+[P1.14] Access numerous endpoints, securely and simply with one API connectivity and avoid developing one-offs to disparate healthcare systems.
+[P1.15] Easily connect numerous endpoints to meet your data exchange needs
+[P1.16] Achieve boundless possibilities with healthcare interoperability.
+[P1.17] Provides easy interoperability, with streamlined workflows in an easy to use platform that keeps you connected through each patient’s continuum of care.
+[P1.18] Secure Cloud Faxing Relied on by Organizations of All Sizes
+[P1.19] Enables a secure, cost-effective alternative to in-house fax hardware that boosts productivity and enhances regulatory compliance.
+[P1.20] One Integrated API for Healthcare
+[P1.21] Go from unstructured to structured data with our NLP and AI tools, unveiling valuable information that can be sent to the right place, right person, and at the right time.
+[P1.22] The easiest way to electronically sign documents online
+[P1.23] Associate Vice President, Primary Care at UAB Medicine
+[P1.24] Founder and CEO, Apex Health Innovations
+</source>
+
+<source id="P2">
+[P2.1] About | Consensus
+[P2.2] Consensus Cloud Solutions, Inc. is the world’s largest digital fax provider and a trusted global source for comprehensive cloud-based interoperability.
+[P2.3] Delivering life’s essential data when, where, and how you need it
+[P2.4] Consensus Cloud Solutions, Inc. is the world’s largest digital fax provider and a trusted global source for the transformation, enhancement and secure exchange of digital information. We leverage our 25-year history of success by providing advanced solutions for regulated industries such as healthcare, finance, insurance, real estate and manufacturing, as well as state and federal government, which result in improved outcomes.
+[P2.5] HITRUST CSF ® Certified digital cloud faxing
+[P2.6] Digital signature with automated form fill
+[P2.7] Intelligent data extraction using natural language processing (NLP) and artificial intelligence (AI)
+[P2.8] Interoperability for healthcare IT, including real-time event notification and direct secure messaging (DSM)
+[P2.9] Our solutions can be combined with best-in-class managed services for optimal implementations. For more information about Consensus, visit consensus.com and follow @ConsensusCS on Twitter to learn more.
+</source>
+
+<source id="P3">
+[P3.1] Fax Online with eFax | Secure, Scalable, Enterprise Cloud Fax
+[P3.2] eFax provides secure, scalable, enterprise-grade cloud faxing with HIPAA, HITRUST, and SOC compliance. Send and receive faxes from any device—computer, tablet, or smartphone.
+[P3.3] A better experience starts here.
+[P3.4] Fax Online with eFax ® The Brand Trusted by Millions
+[P3.5] For 30 years, eFax ® has powered secure information exchange for the world’s most regulated organizations, combining HIPAA-compliant online faxing with intelligent automation, cloud integrations, and workflow optimization.
+[P3.6] Start Faxing Now Compare All Plans
+[P3.7] Recognized by leaders, trusted by experts
+[P3.8] An eFax ® solution for every level of your business
+[P3.9] Pick the plan that fits how you work. Online faxing from your inbox or mobile, with fax-to-email, email-to-fax, and a free local or toll-free fax number. Send a fax online from any device, no machine required. HIPAA compliant cloud fax across Personal, Business, and Corporate plans.
+[P3.10] For Individuals & Small Business
+[P3.11] for individuals: 200 monthly pages to the US and Canada, one user license, and local or toll-free fax number
+[P3.12] for growing teams: 500 monthly pages to multiple countries, five user licenses, and a local or toll-free fax number with scalable options and volume discounts that grow with your team.
+[P3.13] What our portfolio makes possible
+[P3.14] Turn Documents Into Intelligent Data
+[P3.15] eFax ® Clarity uses purpose-built healthcare AI to extract and structure data from inbound faxes, scans, and PDF’s. No manual rekeying. Faster intake, referrals, and clinical workflows.
+[P3.16] eFax ® Conductor and eFax ® Unite bridge your EHRs, networks, and applications with FHIR, HL7, REST, and DirectTrust support. Critical information stays visible and accessible across the continuum of care.
+[P3.17] Learn About eFax® Conductor Learn About eFax® Unite
+[P3.18] Modernize Legacy Federal Fax Systems
+[P3.19] ECFax ®, powered by eFax ®, is the FedRAMP ® High Authorized cloud fax solution built specifically for U.S. federal government use. Hosted on AWS GovCloud, ECFax scales on-demand to hundreds of millions of pages per month. ECFax provides secure data transfer for vital, regulated documents with a modern, cloud-native design.
+[P3.20] Embed eFax ® in Every System You Run
+[P3.21] Connect eFax ® to your existing tech stack with our developer-first API and 100+ integrations across CRMs, ERPs, and EHRs. SDK support for Python, Java, and C#. REST, FHIR, HL7, and DirectTrust supported. 99.9% uptime, AES 256-bit storage, TLS 1.2 transmission.
+[P3.22] Enterprise Deployment and Integration Specialists
+[P3.23] The eFax ® Managed Services Team helps you architect, deploy, and optimize our technology across your entire enterprise. From custom API setups and EHR migrations to compliance support and complex multi-site rollouts, our experts work alongside your team from day one.
+[P3.24] For Regulated Industries & Enterprise
+[P3.25] Secure Cloud Fax with Advanced AI and Interoperability
+[P3.26] Global leaders across healthcare, finance, and government trust eFax ® to power high-volume document logistics. By combining our secure routing network with AI-driven processing and seamless data transformation, we turn unstructured documents into actionable business intelligence.
+[P3.27] Enterprise Cloud Faxing – HITRUST Certified and trusted by the Fortune 500.
+[P3.28] FedRAMP® Authorized – Secure cloud faxing engineered for government agencies.
+[P3.29] AI-Powered Processing – Automated clinical data extraction and parsing at scale.
+[P3.30] Data Transformation – Seamless FHIR and HL7 integration across disparate systems.
+[P3.31] Unified Enterprise Inbox – Direct secure messaging and consolidated workflows.
+[P3.32] Seamless Workflow Integration – Directly embed secure cloud faxing into your existing enterprise applications.
+[P3.33] Customer success across every scale
+[P3.34] From solo practitioners to multi-state health systems, eFax ® delivers a better experience for the people who depend on us.
+[P3.35] Community Health Centers of the Central Coast, Inc.
+[P3.36] We were averaging 121 fax errors per week. I was handling 15 complaints a week from all levels of our organization and external partners. It was non-stop…[the eFax ® integration with athenaOne®] just works! I’ve gone from 121 fax errors per week down to 12, and so far every one of those errors I’ve chased down has turned out to be a problem on the sender’s side. It is literally like night and day!”
+[P3.37] Alvin Yip Director of Informatics Community Health Centers of the Central Coast, Inc.
+[P3.38] *eFax ® estimates that healthcare organizations can save up to 70% on fax infrastructure costs.
+[P3.39] Definitely. With online fax services like eFax®, you can easily send faxes from your computer or any internet-enabled device, eliminating the need for a traditional fax machine or phone line.
+[P3.40] Yes, online fax services like eFax® are secure and use encryption to protect your documents.
+[P3.41] Millions of users rely on eFax® for their digital faxing needs, drawn by our two-decade legacy as the world’s leading online fax service. Our reputation is solidified through the trust of Fortune 500 corporations and thriving small businesses globally. eFax® facilitates efficient online faxing and provides HIPAA-compliant plans tailored to regulated industries.
+</source>

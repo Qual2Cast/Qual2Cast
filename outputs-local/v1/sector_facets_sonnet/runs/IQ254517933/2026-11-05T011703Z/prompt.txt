@@ -1,0 +1,135 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Sabre Corporation (www.sabre.com)
+Sector: Software and internet
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- software_category (Software category): What the software does. Example: HR and payroll: payroll, benefits and time tracking. Any that apply of: ERP and finance; HR and payroll; CRM, marketing and sales; cybersecurity; data, analytics and AI; IT and developer infrastructure; collaboration and content; industry-specific (vertical) software; payments and fintech; consumer internet and marketplaces; IT services and consulting; other.
+- deployment_model (Deployment model): How the software is delivered. Example: SaaS: cloud subscription. Exactly one of: SaaS / cloud; on-premise; hybrid; not applicable (services or internet).
+- customer_size (Customer size): Its typical customer. Example: mid-market: employers with tens to a few thousand staff. Any that apply of: consumers; SMB; mid-market; enterprise; government.
+- product_architecture (Product architecture): One product or a suite. Example: platform: payroll, HR, time and benefits on one system. Exactly one of: platform / suite; point solution; API / infrastructure.
+
+Evidence:
+<source id="P1">
+[P1.1] Sabre: the open platform powering modern travel
+[P1.2] Open, modular, and AI-powered from the ground up. Sabre gives the entire travel industry the tools to retail smarter, distribute further, and build faster.
+[P1.3] Technology that takes you wherever you want to go
+[P1.4] Open. Modular. Al-native. The success platform for all of travel
+[P1.5] Sabre Mosaic ® gives you all the benefits of an enterprise system with all the flexibility of a startup stack.
+[P1.6] The widest content, smart automation and revenue controls in one AI-powered platform. Built to grow with you, not hold you back.
+[P1.7] One experience, from first search to final change
+[P1.8] The fastest path from search to sold
+[P1.9] Payments that work harder for you
+[P1.10] Post-booking you can count on
+[P1.11] The intelligence to move faster than the market
+[P1.12] Open, modular technology that plays well with other systems. Retail your way to billions of travelers.
+[P1.13] From booking to boarding and beyond, the Experience Suite lets travelers own their trip and airlines own the relationship
+[P1.14] From where you fly to how you price and bundle, the Retail Suite covers all of it
+[P1.15] When every team works from one record, service holds together under any pressure
+[P1.16] One suite for pay-in and pay-out, so your team runs payments as a strategy, not a series of workarounds
+[P1.17] Remove the blind spots that fragmented data creates to give airlines real visibility. So teams act on what’s happening, not what already happened
+[P1.18] Everyone loves a success story
+[P1.19] We are excited to partner with Sabre to lead the industry in modern airline retailing
+[P1.20] Their [Sabre] expertise, innovation, and commitment to excellence make them the ideal partner as we embark on this journey to become the first airline to operate on full offer and order technology.
+[P1.21] At Priceline, we are focused on giving consumers access to the best deals, best inventory, and best tools to book their travel. Ensuring that we have access to the broadest air content is a prerequisite to achieving that vision. Sabre’s robust content and technology solutions will help Priceline deliver on our vision for our customers.
+[P1.22] What Sabre brings to the table, it’s consistency, it’s being right there for us, helping us problem-solve, and more importantly, helping us continue to push the envelope in terms of innovation. [Sabre’s] been great partners for us. Looking forward to the next ten years with [them].
+[P1.23] We started Mindtrip with one clear goal: to make the end-to-end travel journey seamless. In partnership with PayPal and Sabre, we’re realizing that vision. Rather than bouncing between search tools, booking sites and payment screens, travelers will have the ability to discover, plan, book, and pay for a trip in one continuous, intuitive, trusted, conversational experience.
+[P1.24] Travel is a highly complex purchase decision for consumers, and ease, speed, and flexibility at checkout matter. This next generation of agentic AI finally connects discovery to decision-making and booking without leaving the experience. By integrating PayPal’s agentic commerce offerings directly into the experience, we’re transforming inspiration into action – giving consumers more choice, control and confidence, while helping partners convert more of the demand they generate.
+[P1.25] The technical synergy between Sabre’s robust marketplace technology and our Travel Brain AI creates unprecedented possibilities. The Sabre Mosaic platform and MCPs provide the scalable foundation we need to serve thousands of TMCs globally, while our agentic AI delivers the personalization and automation that modern travelers and travel managers demand. This is enterprise AI at global scale.
+[P1.26] Spotnana is committed to delivering a frictionless travel experience for corporate travelers, and this expanded partnership with Sabre is a significant step forward. By integrating Sabre’s NDC content, we’re empowering travel management companies to offer their clients a wider variety of flight options, including more choices for amenities and preferred seating, while streamlining the shopping booking process.
+[P1.27] What we do for your industry
+[P1.28] We’re the technology partner to the world’s travel companies. And we’re built around one thing: your success. Here to take you wherever you want to go.
+[P1.29] About us Why choose Sabre
+[P1.30] The fog is real. So is the path through it
+[P1.31] How the travel industry is holding the line, finding its footing, and making its next moves.
+[P1.32] What the 2025 IATA Airline Consortium revealed about who’s actually delivering.
+[P1.33] Secure AI isn’t a feature. It’s a foundation
+[P1.34] Sabre’s security experts on the controls that make agentic AI safe to scale.
+[P1.35] Agentic AI in travel, from theory to reality
+[P1.36] The practical blueprint behind Sabre’s approach to autonomous AI in travel.
+[P1.37] Why agentic AI will reshape travel
+[P1.38] The conversational commerce shift that travel brands can’t afford to miss.
+[P1.39] Data from 117 million bookings on the gap between the promise and the reality.
+[P1.40] Too many systems. Not enough clarity.
+[P1.41] Global research reveals the hidden cost of managing too many systems and sources.
+</source>
+
+<source id="P2">
+[P2.1] About Sabre: technology that takes travel further
+[P2.2] Cloud-native, modular, and built with AI at its core. Sabre has led every shift in travel technology, and rebuilt from the ground up to lead what comes next.
+[P2.3] We rebuilt Sabre from the ground up: cloud-native technology, AI baked into the foundation, one goal in mind. Your success.
+[P2.4] Our open, modular platform is the backbone for established leaders and bold new disruptors alike. We meet you where you are and take you where the industry is going, at your speed.
+[P2.5] Most platforms treat AI like an aftermarket car part. At Sabre, AI is structural. Powered by Google Gemini, trained on over 50 petabytes of travel data, and woven into everything we build.
+[P2.6] Open is better. For everyone
+[P2.7] Travel is about freedom. The technology powering it should be, too. Connect what you need, build what you want, and integrate with anything in your stack, without paying a penalty for it.
+[P2.8] Sabre Mosaic is modular by design. Adopt what you need, modernize at your pace, with decades of travel expertise and an AI foundation that gets smarter with every signal.
+[P2.9] From the first computerized reservation system to online retailing to the industry’s first agentic APIs, Sabre has been at the forefront of every shift that redefined how the world travels. That history isn’t nostalgia. It’s the foundation we rebuilt on.
+[P2.10] Join the network of travel companies choosing our team, our approach & our products
+[P2.11] Let’s put that in measurable terms
+[P2.12] of travel data, transformed into smarter decisions across every part of the platform
+[P2.13] shopping signals processed every month across the Travel Data Cloud
+[P2.14] flight signals processed every second, keeping the platform sharp and responsive
+[P2.15] in additional revenue with Airline Concierge
+[P2.16] airlines accessible through a single intelligent platform connection
+[P2.17] cache bookability rate, ensuring accurate, bookable offers at speed
+[P2.18] shopping response times across all content types through intelligent cache
+[P2.19] Meet the Executive team driving Sabre forward
+[P2.20] Decades of travel expertise with a single mission: your success.
+[P2.21] almatar taps AI-native Sabre Mosaic ® platform to fuel growth and smarter traveler servicing
+[P2.22] Sabre’s technology continues to drive almatar’s momentum – including new markets, rising New Distribution Capability (NDC) bookings, and smoother servicing for travelers
+[P2.23] Kenya Airways Partners with Sabre to Enhance Customer Experience through Upgrade to Modern Retailing Platform
+[P2.24] New platform will modernise reservations, ticketing and check-in, and advance the airline’s move to personalised, offer-and-order-based retailing on Sabre Mosaic ®
+[P2.25] While competitors announce plans to modernize, Sabre already has — and its customers are live and benefiting from AI because of it.
+[P2.26] New Sabre industry study finds travel companies making next AI moves amid maneuvering macroeconomic ‘fog’
+[P2.27] ‘Compass: Navigating the Fog’ shows travel executives across the industry are protecting and, in many cases, accelerating AI and modernization roadmaps while prioritizing near-term efficiency, automation and workforce tools.
+[P2.28] Sabre appoints experienced travel technology executive Derek Sharp to lead growing Lodging, Ground and Media business
+[P2.29] Sabre announced the appointment of Derek Sharp as Senior Vice President, Lodging, Ground and Media, where he will lead one of the company’s key growth initiatives.
+[P2.30] New research reveals travelers are two years ahead of the travel industry on AI
+[P2.31] Mindtrip, Sabre, Sojern and MMGY Travel Intelligence study finds more than half of travelers already use AI to plan trips, while many destination marketing organizations remain unprepared for the shift
+[P2.32] Air Tanzania Selects Sabre to Power Future Growth and Accelerate Modern Airline Retailing
+[P2.33] Rapidly expanding East African carrier adopts SabreSonic Passenger Service System (PSS) and Sabre Mosaic ® NDC IT to establish a future-ready retailing foundation and accelerate commercial transformation.
+[P2.34] Sabre opens travel infrastructure to Silicon Valley developers building the next AI agents at Bay Area hackathon
+[P2.35] The July 18 event in Mountain View will challenge developers to build travel AI agents using Sabre production APIs, Vocal Bridge voice AI technology and support from partners including American Airlines, PayPal, DeepLearning.AI, LandingAI and AI Fund.
+[P2.36] Over 5,000 innovators, problem-solvers, and customer champions.
+</source>
+
+<source id="P3">
+[P3.1] Resources | Sabre
+[P3.2] Real businesses. Real results. See how agencies are building with Sabre.
+[P3.3] ISON Travel: Fivefold growth. One intelligent platform
+[P3.4] Direct Travel: AI that turns complexity into experience
+[P3.5] How Direct Travel reimagined customer service for the age of AI with Sabre.
+[P3.6] Duluth Travel: High-stakes migration. Zero disruption
+[P3.7] How Duluth Travel migrated to Sabre without missing a beat for their clients.
+[P3.8] The partner behind JTB's global growth
+[P3.9] How Sabre's consulting expertise helped JTB expand into new markets and boost revenue.
+[P3.10] LATAM’s NDC content reaches travel agents worldwide​
+[P3.11] Sabre Mosaic® NDC brings 6 LATAM carriers to the marketplace​
+[P3.12] Wego chooses Sabre to tackle the growing look-to-book challenge
+[P3.13] A 24-month collaboration brings Cache-powered Intelligent Shopping to Wego​
+[P3.14] Peakwork: Agents compare and book holidays in one view​
+[P3.15] Sabre Mosaic® Vacations Europe runs on Peakwork's technology across German-speaking Europe​
+[P3.16] Priceline offers travelers more flight deals​
+[P3.17] Sabre Shopping APIs and Sabre Mosaic® Virtual Cards back an expanded, multi-year agreement.​
+[P3.18] BizTrip AI reaches 50,000 TMCs with Sabre​
+[P3.19] Sabre's minority investment connects Travel Brain AI to Sabre Mosaic®​
+[P3.20] Mindtrip turns flight search into one chat​
+[P3.21] Sabre Mosaic® agentic-ready Air APIs power the booking experience with PayPal​
+[P3.22] Linex Travel automates servicing with Sabre MCP​
+[P3.23] Linex Travel (formerly Ultra Group), one of the first to run Sabre's MCP server on Sabre Mosaic®​
+[P3.24] Atriis expands flight choice without fragmenting the booking experience​
+[P3.25] Sabre Mosaic® NDC lets travelers and agents shop, compare, book and self-service within the Atriis platform.​
+</source>

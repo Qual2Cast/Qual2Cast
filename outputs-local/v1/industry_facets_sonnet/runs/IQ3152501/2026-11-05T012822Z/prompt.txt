@@ -1,0 +1,57 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: GCI Liberty, Inc. (www.gciliberty.com)
+Industry (SIC 48): Communications
+About this industry group: Choose telecom, broadband or broadcast rows by operating activity. Subscription ARPU/churn are not universal broadcast-company measures. Network coverage, population coverage and homes passed use different denominators.
+
+Facets:
+- communications_activity (Communications activity). Examples: Mobile telecom; Fixed broadband; Radio / television broadcasting.
+- network_distribution_assets (Network / distribution assets). Examples: Owned mobile network; Fiber access network; Leased broadcast distribution.
+- subscriber_audience_measure (Subscriber / audience measure). Examples: Five million mobile connections; One million broadband accounts; Television households reached.
+- license_spectrum_rights (License / spectrum rights). Examples: Mid-band mobile spectrum; Broadcast station licenses; Cable franchise rights.
+- arpu_arpa_subscription_telecom (ARPU / ARPA [subscription telecom]). Examples: $55/month per mobile user; $70/month per broadband account.
+- customer_churn_subscription_telecom (Customer churn [subscription telecom]). Examples: 1.2% monthly mobile-account churn; 0.8% monthly broadband-account churn.
+- coverage_distribution_reach (Coverage / distribution reach). Examples: 95% population coverage; Two million fiber homes passed; 40 broadcast markets.
+- advertising_carriage_economics_broadcasting (Advertising / carriage economics [broadcasting]). Examples: Local advertising revenue; Retransmission-consent fees; Network-affiliate payments.
+
+Evidence:
+<source id="P1">
+[P1.1] Liberty Capital Corporation
+[P1.2] Liberty Capital Corporation consists of its wholly owned subsidiary GCI. GCI is Alaska’s largest communications provider, providing data, mobile, voice and managed services to consumer and business customers throughout Alaska, serving more than 200 communities.
+[P1.3] Add to Calendar View IR Calendar
+</source>
+
+<source id="P2">
+[P2.1] Company History :: Liberty Capital Corporation
+[P2.2] Liberty Capital consists of its wholly owned subsidiary GCI Holdings. GCI provides a full range of data, mobile, voice, and managed services to residential customers, businesses, governmental entities, and educational and medical institutions primarily in Alaska under the GCI brand. Due to the unique nature of the markets it serves, including harsh winter weather and remote geographies, its customers rely extensively on its systems to meet their communication, public safety and entertainment needs. Since its founding as a competitive long-distance provider, GCI Holdings has consistently expanded its product portfolio and facilities to become the leading integrated communication services provider in markets it serves. Its facilities include redundant and geographically diverse digital undersea fiber optic cable systems linking its Alaska terrestrial networks to the networks of other carriers in the lower 48 contiguous states and a statewide wireless network.
+[P2.3] GCI incorporated in Alaska, founded by Bob Walp and Ron Duncan.
+[P2.4] GCI constructs facilities and carries its first long distance call Thanksgiving Day.
+[P2.5] GCI purchases capacity on the North Pacific Cable linking Alaska to the Lower 48 States.
+[P2.6] GCI purchases cable television companies, allowing GCI to add Video to service suite.
+[P2.7] GCI begins construction of Alaska United Fiber Optic Cable System linking Alaska to the Lower 48 states.
+[P2.8] GCI signs agreement to sell Dobson Communications wireless services in Alaska.
+[P2.9] GCI launches 4G through HSPA+.
+[P2.10] GCI and ACS form the Alaska Wireless Network (“AWN”).
+[P2.11] One gigabit residential data speeds launched in Anchorage.
+[P2.12] GCI purchases ACS’ remaining 1/3rd interest in AWN.
+[P2.13] FCC approves the “Alaska Plan” for High-Cost support reform.
+[P2.14] GCI signs long-term roaming and backhaul agreements with wireless roaming partners.
+[P2.15] Liberty Interactive announces agreement to acquire GCI.
+[P2.16] Transaction with Liberty Interactive closes and GCI Liberty trades publicly.
+[P2.17] Liberty Broadband and GCI Liberty merged.
+[P2.18] GCI launches Alaska’s first 5G service in partnership with Ericsson.
+[P2.19] Liberty Broadband Corporation and GCI Liberty, Inc. completes the spin-off of GCI Liberty from Liberty Broadband.
+[P2.20] GCI Liberty changes its name to Liberty Capital Corporation.
+</source>

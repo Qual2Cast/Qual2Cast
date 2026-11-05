@@ -1,0 +1,69 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Bowhead Specialty Holdings Inc. (bowheadspecialty.com)
+Industry (SIC 63): Insurance Carriers
+About this industry group: Combined ratio is an underwriting measure for P&C operations, not a universal life-insurance profitability metric. Preserve gross/net, calendar/accident-year, catastrophe exclusions and the issuer’s expense-ratio basis. Life/annuity and health businesses need liability/benefit measures instead. NAIC terminology.
+
+Facets:
+- insurance_business_line (Insurance business line). Examples: Commercial P&C; Life and annuity insurance; Health insurance.
+- risk_underwriting_distribution_model (Risk underwriting / distribution model). Examples: Direct primary insurer; Reinsurer; Delegated underwriting with retained risk.
+- premium_exposure_mix (Premium / exposure mix). Examples: 60% commercial auto and 40% property premiums; Individual annuity-led sales.
+- combined_ratio_p_c_underwriting (Combined ratio [P&C underwriting]). Examples: Calendar-year combined ratio: 96%; Accident-year ratio excluding catastrophes: 91%, separately defined.
+- loss_lae_ratio_p_c_underwriting (Loss / LAE ratio [P&C underwriting]). Examples: Net loss and LAE / net earned premiums: 64%; Accident-year loss and LAE ratio: 60%.
+- medical_benefit_ratio_health_insurers (Medical benefit ratio [health insurers]). Examples: Medical benefits / premium revenue: 82%; Issuer-defined medical loss ratio: 85%.
+- reinsurance_catastrophe_protection (Reinsurance / catastrophe protection). Examples: Quota-share cessions; Excess-of-loss catastrophe cover; Retained catastrophe limit.
+- liability_duration_guarantees_life_and_annuity (Liability duration / guarantees [life and annuity]). Examples: Fixed deferred annuities; Variable annuities with guarantees; Long-duration protection liabilities.
+- investment_liability_matching (Investment / liability matching). Examples: Duration-matched bond portfolio; Interest-rate hedges for annuity guarantees; Separate-account investment assets.
+- regime_specific_solvency_measure (Regime-specific solvency measure). Examples: U.S. insurance RBC ratio, denominator identified; EU Solvency II coverage ratio.
+
+Evidence:
+<source id="P1">
+[P1.1] Bowhead Specialty | Specialty Insurance & Underwriting Experts
+[P1.2] Bowhead Specialty provides tailored specialty insurance solutions. Expertise in professional, casualty, & healthcare liability coverage.
+[P1.3] Tailored underwriting for standard and complex risks. We offer Directors & Officers, Management Liability, Cyber, and Errors & Omissions coverage on admitted and non-admitted paper, serving public, private, and not-for-profit organizations, including financial institutions.
+[P1.4] Broad casualty coverage with the expertise to handle complex, high-hazard risks. Our core industries include construction, hospitality, public entity, manufacturing, real estate, and environmental.
+[P1.5] Medical Malpractice, Management Liability, and Errors & Omissions coverage specifically designed for healthcare organizations, including hospitals, medical facilities, senior care providers, and managed care organizations.
+[P1.6] Surface promises are easy. Depth is earned. We deliver what others don’t.
+[P1.7] We created Bowhead Specialty with a clear-eyed view of the market, seeing opportunity where others pulled back.
+[P1.8] Bowhead blends deep expertise with advanced technology and first-class service to enable the underwriting of risks with varying levels of complexity. Our capabilities span a range of product lines that support our brokers’ needs.
+[P1.9] Amid declining capacity, mispriced risk, and retreating carriers, we saw the need for a better approach.
+[P1.10] A specialty lines company led by experienced underwriters, focused on quality risk selection, and grounded in a culture that values character as much as capability.
+[P1.11] We have a firm belief that underwriting excellence starts with people, so we built a team of respected industry veterans, united by a commitment to excellence and superior service.
+[P1.12] Bowhead can help you navigate your specialty insurance needs with clarity and confidence.
+</source>
+
+<source id="P2">
+[P2.1] About Us | Bowhead Specialty | Custom Specialty Insurance
+[P2.2] Learn about Bowhead Specialty, our mission, team, and custom insurance coverage solutions. We offer tailored primary and excess coverage.
+[P2.3] At Bowhead Specialty, we aim to to make the complex manageable and the experience consistent for every client, partner, and employee.
+[P2.4] We do that by building with purpose: underwriting with precision, communicating with clarity, and operating with consistency from start to finish.
+[P2.5] We’re committed to a culture where collaboration transcends titles and departments. Every perspective is valued and ideas are strengthened through seamless partnerships across teams. By challenging one another with respect and celebrating shared wins, we create an environment of consistent growth and innovation.
+[P2.6] Brokers and insureds know exactly what to expect when they work with Bowhead Specialty: consistency, confidence, and care in the products and services we deliver.
+[P2.7] Bowhead Specialty provides tailored primary and excess insurance coverage solutions across multiple core divisions: Professional Liability, Healthcare Liability, and Casualty. Visit our appetite page for details of coverages offered.
+[P2.8] We serve a wide range of clients, from well-established public companies to growing private businesses and nonprofits. Our underwriters work to provide custom coverage for complex risks across multiple industries.
+[P2.9] We don’t believe in one-size-fits-all policies. Our underwriting-first model is backed by deep sector expertise, advanced analytics, and technology. Our core craft solutions are custom-built to meet the specific needs, risk profiles, and goals of our clients.
+[P2.10] Bowhead Specialty has expertise across a wide array of industries, including but not limited to construction, manufacturing, financial services, healthcare, hospitality, distribution, and technology.
+[P2.11] Yes. We offer both primary and excess coverage across multiple lines, including General Liability, Professional Liability, and Healthcare Liability, giving clients the flexibility to build layered programs that align with their risk management strategies.
+[P2.12] We offer both admitted and non-admitted coverage options, depending on the line of business and jurisdiction. This allows us to provide flexible solutions tailored to regulatory and client-specific needs.
+[P2.13] Bowhead Specialty offers solutions in all 50 US states. Our business is primarily written on an E&S (Excess and Surplus) basis. We have offices in New York City, and Chicago, and teams located across over 30 states.
+[P2.14] Bowhead Specialty is an affiliate of American Family Mutual Insurance Company, S.I., Our products are offered through American Family Mutual Insurance Company, S.I., affiliates on an admitted and surplus lines basis.
+</source>
+
+<source id="P3">
+[P3.1] American Family Insurance Partnership | Bowhead Specialty
+[P3.2] Learn about the partnership between Bowhead Specialty and American Family Insurance. Bowhead is an affiliate of American Family Insurance.
+[P3.3] American Family Mutual Insurance Company, S.I. (American Family Insurance) is the nation’s 12th-largest property and casualty mutual insurer, ranking No. 202 on the Fortune 500 list. American Family has a current ‘a+’ credit rating through AM Best, and has distinction as a “Standing the Test of Time” company, which is represented by having an AM Best financial strength rating of ‘A’ or better for at least 75 years.
+[P3.4] Bowhead Specialty Underwriters, Inc., a licensed agency nationwide, is an affiliate of American Family Insurance. Bowhead Specialty offers products through American Family Insurance affiliates on an admitted and surplus lines basis. Bowhead Insurance Company Inc. is a fully capitalized reinsurer that assumes risks from American Family Insurance.
+</source>

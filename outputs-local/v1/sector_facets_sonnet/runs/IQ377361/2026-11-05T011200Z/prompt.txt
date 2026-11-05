@@ -1,0 +1,176 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Greif, Inc. (www.greif.com)
+Sector: Manufacturing (industrial, materials, electronics)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- manufacturing_type (Manufacturing type): How it makes products. Example: discrete: builds individual units on assembly lines. Any that apply of: discrete; process; assembly; outsourced / fabless.
+- production_model (Production model): Built for an order or for stock. Example: make-to-order: each unit configured to the customer's order. Exactly one of: make-to-order; make-to-stock; both.
+- product_complexity (Product complexity): How engineered its products are. Example: engineered: custom-configured equipment. Exactly one of: commodity; engineered; precision / high-spec.
+- production_role (Production role): Where it sits in its customers' supply chain. Example: final manufacturer: sells finished units to contractors. Any that apply of: final manufacturer / OEM; tier 1 supplier; tier 2 or component supplier; contract manufacturer; materials producer.
+- end_market_exposure (End-market exposure): Which end markets drive demand. Example: industrial: factories and commercial buildings. Any that apply of: aerospace and defense; automotive and transportation; industrial; construction and buildings; energy; electronics and semiconductors; healthcare and life sciences; consumer; agriculture; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Innovative Industrial Packaging That Moves the World | Greif
+[P1.2] Greif is an industrial packaging products and services leader with a vision to be the best performing customer service company in the world.
+[P1.3] Greif is a global leader in industrial packaging products and services, striving to be the advantage that helps our customers win.
+[P1.4] Greif is committed to partnering with you to provide a comprehensive and innovative product portfolio to protect and safely transport customers' products worldwide.
+[P1.5] Greif is unwavering in its commitment to the wise use of financial, natural, and human resources to afford future generations the ability to meet their needs.
+[P1.6] At Greif, your work has purpose, colleagues care about your well-being and you have the opportunity to grow and thrive. Service and leadership are the core of everything we do.
+[P1.7] Creating packaging solutions for life's essentials.
+[P1.8] Greif is a global leader in industrial packaging products and services — pursuing its vision to be the best customer service company in the world.
+[P1.9] Greif is a global leader in packaging products and services and is pursuing its vision: be the best performing customer service company in the world. We produce steel, plastic and fibre drums, intermediate bulk containers, reconditioned containers, flexible products, containerboard, uncoated recycled paperboard, coated recycled paperboard, tubes and cores and a diverse mix of specialty products.
+[P1.10] We also manufacture packaging accessories and provide filling, packaging and other services for a wide range of industries, along with managing timber properties in the southeastern United States. Greif is strategically positioned in multiple countries to serve customers of all sizes and needs.
+[P1.11] These targets set specific and measurable goals that build on the company’s announcement to reduce absolute Scope 1 and 2 greenhouse gas (GHG) emissions 28% by the end of the decade.
+[P1.12] Reach Zero Waste to Landfill at 97% of its Production Facilities
+[P1.13] By reducing, recycling, composting, reusing, and incinerating with energy recovery, Greif targets 97% of its production facilities achieving zero-waste to landfills.
+[P1.14] Make 100% of its Products Recyclable
+[P1.15] Working across a vast portfolio of raw materials and products, Greif recyclability targets will be benchmarked by weight, and consolidated at a company level.
+[P1.16] Achieve an Average of 60% Recycled Raw Material Content Across Products
+[P1.17] Recycled content targets for Greif products are minimum averages benchmarked across a portfolio of materials and products by weight, consolidated at a company level.
+[P1.18] Attain Global Gender Pay Parity
+[P1.19] Greif is on track to ensure colleagues receive equal pay for equal work and is committed to maintaining gender pay parity.
+[P1.20] Evaluate the Sustainability Performance for 80% of Total Spend with Suppliers
+[P1.21] By aiming to increase the evaluation of the sustainability performance of its suppliers, Greif can have a greater impact across its value chain.
+[P1.22] GREIF LAUNCHES 2023 SUSTAINABILITY REPORT
+[P1.23] This report is prepared in accordance with the GRI Standards and SASB Application Guidance and fulfills the United Nations Global Compact’s (UNGC) annual Communication on Progress (COP).
+[P1.24] Behind every glowing candle, festive meal, and cherished decoration is packaging that makes it all possible. We’re proud to support celebrations across the globe, bringing joy from our hands to yours.
+[P1.25] To our colleagues and customers, your dedication and partnership make everything possible. We couldn’t do it without you!
+[P1.26] ModCan™ is an innovation born in a lab and brought to you for maximizing space in a modular use case of a barrel or drum.
+[P1.27] Maximized Space and Cost Efficiency
+[P1.28] GCUBE IBC Shield helps protect oxygen-sensitive and solvent-based products from gas permeation during storage and transport. With barrier technology built into both the bottle and valve, it helps preserve product quality, extend shelf life, and maintain effectiveness while offering the same flexibility as a standard GCUBE IBC.
+[P1.29] Extends shelf life by reducing oxygen ingress and protecting product quality
+[P1.30] Minimizes solvent, aroma, and volatile compound loss to maintain product effectiveness
+[P1.31] Delivers complete barrier protection across both the bottle and valve, eliminating weak points
+[P1.32] Offers the same configuration flexibility as a standard GCUBE IBC, including specialized food-contact, light-protection, and antistatic options
+[P1.33] Meets ADR permeability standards for demanding applications while remaining fully recyclable
+[P1.34] Greif paper packaging is a net-positive recycler. Creating materials from scratch has a significant impact on the environment.
+[P1.35] Calculate your carbon footprint with Greif. Both easy and cost-effective, the Greif Green Tool provides insight into the environmental impact of packaging used for fillers and emptiers. It makes local reporting seamless and empowers smart sustainability choices.
+[P1.36] We design and manufacture containers that do more than hold products, they actively protect what matters most. Greif’s expertise in barrier science and technology helps keep your product exactly where it belongs: inside the package, not absorbed into the container walls or released into the surrounding environment.
+[P1.37] Reduces Emissions And Leakage Risks
+[P1.38] Maintains Product Purity During Storage And Transport
+[P1.39] Protects Against Oxygen, Moisture And Chemical Exposure
+[P1.40] Customizable Barrier Solutions For Your Specific Needs
+[P1.41] Your drums don’t have to blend in, make them bold. Drum360 gives you the freedom to showcase vibrant, full-color designs that amplify your brand wherever it goes. From events to retail displays to everyday packaging needs, these drums are more than containers, they’re your next big marketing moment.
+[P1.42] Full-spectrum printing for maximum visual impact
+[P1.43] Tailored designs that reflect your brand identity
+[P1.44] Endless creative possibilities for packaging and beyond
+[P1.45] Safety, Sustainability & Performance: Water Cooler Bottles Built for What’s Next
+[P1.46] As the European water cooler market evolves, beverage distributors face a double imperative: guaranteeing pristine water purity for consumers while…
+[P1.47] Beyond the Package: The Greif Advantage
+[P1.48] A customer may first come to Greif for a drum, an IBC, a jerrycan or another packaging solution. Over time,…
+[P1.49] How the Greif Green Tool Is Evolving to Deliver Even Greater Sustainability Value
+[P1.50] At Greif, we know that sustainability progress depends on clear data, credible insights, and partners who help you make confident…
+[P1.51] 2026 World of Concrete Tradeshow, Las Vegas, NV
+[P1.52] Greif at FACHPACK 2025: Shaping the Future of Sustainable Packaging
+[P1.53] October 24–26, 2023 Johannesberg, South Africa Hall Number: 3 Stand Number: B73
+[P1.54] Visit us at Hall 3, B73
+[P1.55] November 27-30, 2023 Corferias, Bogata
+[P1.56] September 4 -8, 2023 Booth B6: Greif Chile S.P.A
+[P1.57] Apimondia 48th International Apicultural Congress 2023 Chile
+[P1.58] Greif will be at booth B06
+[P1.59] OCTOBER 24–26, 2023 Auditorium Building, Gate 2, Expo Centre, Cnr Rand Show & Nasrec Roads, Johannesburg, 2013
+[P1.60] May 4-10, 2023 Dusseldorf, Germany
+[P1.61] Greif will be at booth B07/B17
+[P1.62] OCTOBER 25 – 27, 2022 Hyatt Regency Orange County, Garden Grove, CA
+[P1.63] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.
+[P1.64] JUNE 28 – 30, 2022 Charleston, South Carolina
+[P1.65] Specialty & Agro Chemicals America
+[P1.66] The PPWR is not just another regulatory directive, it is a legally binding framework across all EU member states, designed…
+[P1.67] GCUBE Flex is a packaging solution designed to meet the evolving needs of the food and pharmaceutical industries. GCUBE Flex…
+[P1.68] All-fibre drums require more than just fibre, but in outward appearance, you'd never know. There's no metal...
+[P1.69] We create packaging solutions for life’s essentials. The delicious, necessary, or fun products end-users delight in or rely on come to the global market in our packaging. We make a difference in getting them to their intended use as the global community needs them to be.
+[P1.70] Packaging Success Together perfectly describes how we serve customers, who we are, and where we want to go – together
+[P1.71] At Greif, we aim to create thriving communities where we live and work.
+[P1.72] Greif is proud to serve a wide range of global industries’ unique needs, from the products that keep the world moving to those that add beauty.
+[P1.73] Packaging must protect product purity, comply with regulations, and support safety. We have the right technology, capabilities, and people to meet all specialty chemical industry requirements.
+[P1.74] We are a reliable partner to those who supply the wellness, fragrance, food and beverage, and home and personal care markets with the materials to enhance their products.
+[P1.75] Greif offers large, intermediate, and specialty fibre, plastic or steel drums, and IBCs that offer a truly customized solution with the appropriate components for the paint, coating, or ink market.
+[P1.76] Greif gets it – you need packaging that meets stringent technical and regulatory requirements.
+[P1.77] Greif has the right technology, capabilities, and people to meet all of appropriate technical and regulatory requirements of the lubricant industry.
+[P1.78] Our EasyPour TM concrete forming tubes are one of the leading brands in the industry. Additionally, we make blast tubes for dry and wet mining.
+[P1.79] At Greif, we have decades of experience designing and producing packaging that protects food from contamination sources and is compliant with strict food safety regulations.
+[P1.80] Greif’s network of sheet feeders and industrial packaging plants provides corrugated sheets, bulk boxes, corner protectors and pallet cover for your fulfillment and distribution needs.
+[P1.81] Greif understands your requirements and can offer solutions that minimize risk of contamination during storage and transportation of your product in our packaging solutions.
+[P1.82] Greif partners with distributors across the globe to offer our products on a one-off basis. We build to the spec of the distributor or supply
+[P1.83] Safe and reliable solutions are crucial for the waste and nuclear energy industry. Greif offers steel drums with appropriate components that meet regulatory and safety requirements.
+[P1.84] At Greif we have decades of experience designing and producing packaging that protects food from contamination sources and is compliant with strict food safety regulations.
+[P1.85] With Greif’s complete range of industrial packaging for Flavors & Fragrances, you not only find solutions that meet your requirements, but also maintain your high-quality standards.
+[P1.86] Find a Location Near You
+</source>
+
+<source id="P2">
+[P2.1] About - Greif
+[P2.2] Greif gets its name from a family who built a packaging business that would grow into Greif Inc. The name Greif rhymes with life and is
+[P2.3] Greif gets its name from a family who built a packaging business that would grow into Greif Inc. The name Greif rhymes with life and is pronounced “gryfe.”
+[P2.4] Greif is a leading supplier of industrial packaging products and services, growing from its beginnings in Cleveland, Ohio, to a global footprint across multiple countries and 200-plus locations.
+[P2.5] View Greif at a Glance >
+[P2.6] To be the advantage that helps our customers win.
+[P2.7] Creating packaging solutions for life’s essentials.
+[P2.8] We are innovators – building packaging that’s sustainable, innovative, and focused on circularity.
+[P2.9] William Greif and Albert Vanderwyst open a cooperage shop, “Vanderwyst and Greif,” in Cleveland, Ohio.
+[P2.10] The first bitumen steel drum is produced, which is still part of the product portfolio today.
+[P2.11] Greif transitions from key and barrel heading, and stave mills and cooperage facilities to manufacturing fibre drums and corrugated containers.
+[P2.12] Greif officially enters the containerboard manufacturing business with the purchase of Massillon, Ohio, paper mill
+[P2.13] Greif buys Van Leer Industrial, giving Greif an international footprint and doubling the size of the company. The company’s name is changed to Greif, Inc.
+[P2.14] Greif receives Gold Recognition from EcoVadis due to their ongoing commitment to sustainability and corporate social Responsibility for the first time.
+[P2.15] Greif Bros. Company becomes the largest cooperage plant in the world.
+[P2.16] Under the leadership of John C. Dempsey the headquarters moves from Cleveland to Delaware, Ohio.
+[P2.17] Greif purchases technology from Haveg Industries for blow-molding liners, which are inserts for steel and fibre drums, creating a whole new line.
+[P2.18] The Greif Way is first published. Greif’s vision is clear and simple: “In industrial packaging, be the best performing customer service company in the world.
+[P2.19] Greif acquires four Flexible Intermediate Bulk Containers (FIBC) companies including Storsack Group, the largest company in the FIBCs industry.
+[P2.20] Greif's values are the same, wherever we are in the world.
+[P2.21] We think safety in every situation. Zero Harm is about each of us finishing the day safe and happy - going home better than we arrived.
+[P2.22] We believe in servant leadership, and as a result, we prioritize the needs and growth of our colleagues and customers.
+[P2.23] We prioritize the needs of our customers.
+[P2.24] We are proactive, not reactive.
+[P2.25] The Standards We Hold For Ourselves
+[P2.26] Personal Accountability Greif is known around the world for integrity.
+[P2.27] Stay Alert for Safety We take responsibility to be safe in everything we do. We are diligent in protecting our own safety as well as the safety of our co-workers. We correct unsafe practices or conditions when we see them and stop any activity that brings unnecessary risk.
+[P2.28] Be Part of the Solution When we see something that needs to be done, we do it. When an issue arises, we work together toward a resolution. We put Company goals ahead of our personal agendas in the workplace.
+[P2.29] The Standards We Hold For Customers
+[P2.30] Build in Quality Quality is our hallmark. Each of us takes responsibility for it.
+[P2.31] Remain above Reproach We compete honestly and adhere to the highest standards of conduct.
+[P2.32] Meet and Exceed Our Customers’ Needs We listen to our customers to learn about their challenges and help them determine their best solutions. We deliver products and services at fair value.
+[P2.33] Our future depends on it.
+[P2.34] We will continue to be one of those companies.
+[P2.35] The Standards We Hold For Suppliers
+[P2.36] Cultivate Supplier Loyalty We treat our suppliers as vital partners to our business.
+[P2.37] Expect Equal Treatment We constantly evaluate all aspects of the products and services that we purchase. We expect quality at a fair cost.
+[P2.38] Remain Free of Obligation We do not accept lavish entertainment or excessive gifts from suppliers.
+[P2.39] The Support We Expect From Our Company
+[P2.40] The Company is committed to providing a safe working environment.
+[P2.41] Equitable Treatment of All Regardless of race, color, sex, creed, national origin, age, or any other protected class under the law, each Greif employee will be treated fairly.
+[P2.42] Appropriate Rewards Compensation and benefits will be competitive and commensurate with the value received.
+[P2.43] Executive Vice President, Chief Financial Officer
+[P2.44] Executive Vice President, Chief Human Resources Officer
+[P2.45] Senior Vice President, Chief Commercial Officer
+[P2.46] Senior Vice President, Chief Operations Officer
+[P2.47] Senior Vice President, Chief Information & Digital Officer
+[P2.48] Senior Vice President, General Counsel and Secretary
+[P2.49] Senior Vice President & General Manager – Customized Polymers Solutions
+[P2.50] Senior Vice President & General Manager – Durable Metal Solutions
+[P2.51] Senior Vice President & General Manager – Sustainable Fiber Solutions
+[P2.52] Senior Vice President & General Manager – Innovative Closure Solutions
+[P2.53] Leadership Council The Greif Leadership Council includes top leaders of the company who are responsible for modeling The Greif Way and fostering our diverse and inclusive company culture.
+[P2.54] By investing in education, health and basic needs, the Greif Foundation is helping to create thriving communities through sustainable philanthropic support.
+</source>
+
+<source id="P3">
+[P3.1] Innovative Packaging Solutions for Diverse Industrial Markets | Greif
+[P3.2] From retail to food and beverages to specialty chemicals and beyond, Greif serves a wide range of global industries’ unique needs. Learn how we can help your uniqute business thrive.
+</source>

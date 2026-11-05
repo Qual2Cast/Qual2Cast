@@ -1,0 +1,55 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: The Toro Company (www.thetorocompany.com)
+Industry (SIC 35): Industrial and Commercial Machinery and Computer Equipment
+About this industry group: Computer equipment is included here in the historical U.S. SIC structure; semiconductor devices are in SIC 36. Aftermarket and installed-base metrics apply to the equipment business, not automatically to every computer-related subsidiary.
+
+Facets:
+- machinery_computer_equipment_category (Machinery / computer-equipment category). Examples: Industrial compressors; Construction machinery; Computer servers.
+- installed_equipment_base (Installed equipment base). Examples: 20,000 active compressors; 50,000 installed machine tools.
+- aftermarket_sales_mix (Aftermarket sales mix). Examples: 35% parts and service revenue; Maintenance-led recurring revenue; Equipment-only sales.
+- equipment_replacement_cycle (Equipment replacement cycle). Examples: 10–15-year machinery life; 3–5-year server refresh cycle.
+- engineering_customization (Engineering / customization). Examples: Engineered-to-order machines; Configurable standard machines; Catalogue equipment.
+- service_maintenance_requirement (Service / maintenance requirement). Examples: Quarterly preventive servicing; Remote condition monitoring; Customer-performed maintenance.
+
+Evidence:
+<source id="P1">
+[P1.1] With roots dating back to 1914, The Toro Company was built on a tradition of quality and caring relationships. Today, the company is a leading worldwide provider of innovative solutions for the outdoor environment including turf and landscape maintenance, snow and ice management, underground utility construction, rental and specialty construction, and irrigation and outdoor lighting solutions.
+[P1.2] The Toro Company is a leading worldwide provider of innovative solutions for the outdoor environment including turf and landscape maintenance, snow and ice management, underground utility construction, rental and specialty construction, and irrigation and outdoor lighting solutions.
+[P1.3] More events are coming soon.
+[P1.4] D.A. Davidson 25th Annual Diversified Industrials & Services Conference - Fireside chat with Edric Funk
+[P1.5] At The Toro Company, we take great pride in helping our customers enrich the beauty, productivity, and sustainability of the land. The Toro Company was built on a tradition of quality and caring relationships. Today, the company is a leading worldwide provider of innovative solutions for the outdoor environment including turf maintenance, snow and ice management, landscape, rental and specialty construction equipment, and irrigation and outdoor lighting solutions. Through a strong network of professional distributors, dealers and retailers in multiple countries, we proudly offer a wide range of products across a family of global brands to help golf courses, professional contractors, groundskeepers, agricultural growers, rental companies, government and educational institutions, and homeowners – in addition to many leading sports venues and historic sites around the world.
+</source>
+
+<source id="P2">
+[P2.1] Our Story
+[P2.2] Learn about The Toro Company's rich history of innovation in outdoor solutions, wide range of quality products, and our commitment to customer satisfaction.
+[P2.3] With roots The Toro Company was built on a tradition of quality and caring relationships. Today, the company is a leading worldwide provider of innovative solutions for the outdoor environment including turf and landscape maintenance, snow and ice management, underground utility construction, rental and specialty construction, and irrigation and outdoor lighting solutions. Through a strong network of professional distributors, dealers, rental stores and retailers in multiple countries, we proudly offer a wide range of products across a family of global brands to help golf courses, professional contractors, underground construction professionals, groundskeepers, agricultural growers, rental companies, government and educational institutions, and homeowners – in addition to many leading sports venues and historic sites around the world.
+[P2.4] The Toro Company American Augers Ditch Witch Exmark HammerHead Perrot Radius Spartan Mowers Subsite Toro Toro Australia Ventrac
+[P2.5] BOSS: The Snowplow Blogger Exmark: A Cut Above Spartan Mowers Toro: Advantage Toro: Grounds for Success Toro: Yardcare
+</source>
+
+<source id="P3">
+[P3.1] Autonomous Technology | Robotic Mowers and More | The Toro Company
+[P3.2] Learn about the innovative autonomous technology being developed across the brands of The Toro Company.
+[P3.3] We are committed to driving autonomous solutions in the markets we serve to increase productivity, deliver more consistent results and alleviate some of the challenges our customers face. That includes developing a variety of autonomous solutions for residential, golf and commercial applications and beyond. These solutions are targeted at enabling our customers to do more with less as they face ongoing labor challenges. Our goal is not to replace labor with autonomous products, but to allow staff to focus where they’re needed most — doing more detailed work that requires more skill and decision-making.
+[P3.4] When it comes to autonomous technology, it’s not just about innovation – it’s about knowing the turf. Backed by over 100 years of experience in golf course maintenance, Toro’s Greensmaster® eTriflex™ 3360 with GeoLink® Mow delivers with precision, efficiency and superior results. Ideal for intensive fairway mowing, this machine helps golf courses do more with less by allowing superintendents to supervise one or more units while performing other high-value work on the golf course.
+[P3.5] With Exmark’s undeniable track record of durability, longevity and ease-of-use, the Turf Tracer with XiQ autonomous technology unleashes a new generation of innovation for landscape professionals. Capable of mowing in manual or autonomous modes and featuring a fully integrated safety system, this machine enables landscapers to leverage their labor resources to do more, more efficiently.
+[P3.6] When productivity matters most, the PROLINE™ AMI with autonomous mowing intelligence helps contractors maximize their time and resources, while delivering precise and consistent results. In autonomous mode, crews can map the property, set their mow pattern, and focus on tasks like trimming while the PROLINE mows with repeatable accuracy.
+[P3.7] Cutting-Edge Technology for Effortless Mowing
+[P3.8] Engineered with cutting performance at its core, the Toro® Turf Pro™ autonomous mower can mow up to 18.5 acres with precision and efficiency. Designed for rough mowing on the golf course, the Turf Pro leverages GNSS+RTK technology for a consistent mowing pattern with minimal overlap. The mobile app allows superintendents to remotely control their fleet of robots at anytime from anywhere.
+[P3.9] The Toro® Range Pro™ autonomous golf ball picking robot is designed to streamline the labor-intensive task of collecting golf balls from the driving range. Capable of collecting an impressive 19,500 balls in 24 hours, the Range Pro is a game-changer for golf courses looking to save time and labor while maintaining a clean range for golfers.
+[P3.10] Alternative Power & Electrification Smart-Connected Products
+</source>

@@ -1,0 +1,80 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: J.B. Hunt Transport Services, Inc. (www.jbhunt.com)
+Sector: Wholesale distribution and transportation
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- logistics_role (Role): What it moves or distributes. Example: industrial distributor: MRO parts to factories. Any that apply of: industrial distributor; consumer goods distributor; healthcare distributor; technology distributor; trucking; less-than-truckload; rail; air; marine; freight brokerage / logistics; passenger transport.
+- asset_intensity (Asset intensity): Whether it owns the fleet or warehouses. Example: asset-heavy: owns its fleet and terminals. Exactly one of: asset-heavy; asset-light; mixed.
+- value_added (Value added): What it adds besides moving goods. Example: value-added services: inventory management and repair. Any that apply of: pure distribution; value-added services; contract logistics.
+
+Evidence:
+<source id="P1">
+[P1.1] Logistics Services and Freight Shipping | J.B. Hunt
+[P1.2] Our mode-neutral shipping solutions make moving freight easy. We're creating the most efficient transportation network in North America.
+[P1.3] Read our latest white paper: Structural Forces Reshaping the Freight Market
+[P1.4] Change the way you do business with the J.B. Hunt 360 °® platform. We're eliminating inefficiencies by creating one place for you to manage every step of the transportation process.
+[P1.5] Easily quote and book shipments
+[P1.6] Access to thousands of qualified carriers
+[P1.7] Take advantage of the cost-effective and sustainable solutions from North America’s leading intermodal provider.
+[P1.8] Move over-the-road shipments with flexibility and efficiency through our J.B. Hunt 360box® drop-and-hook solution.
+[P1.9] Receive access to nationwide reach, visibility into performance, streamline shipments and more with less-than-truckload (LTL).
+[P1.10] Get best-in-class safety, route planning and optimization capabilities for your dedicated fleet when you work with J.B. Hunt teams.
+[P1.11] We’ve got you covered from the first mile all the way through last-mile deliveries to homes and job sites.
+[P1.12] Get customized support, supply chain visibility and seamless transloading service with over-the-road and rail options available.
+[P1.13] Get a provider that creates a custom supply chain for your business and handles the day-to-day operations for you.
+[P1.14] Get the capacity you need for your over-the-road freight, supported by thousands of qualified third-party carriers.
+[P1.15] That's why we have a passionate pursuit of excellence and are always striving for more. We listen, innovate and invest in order to provide you with excellence. J.B. Hunt is driven for you.
+[P1.16] "Technology in the global transportation space to me means real-time visibility and the 360 platform does a very nice job of providing that for me."
+[P1.17] Director of Global Transportation and Trade Compliance at a global fishing company
+[P1.18] "J.B. Hunt takes the time up front to really get to know our business, our pain points and then customize a tailored solution to meet those."
+[P1.19] Chief Executive Officer for a wholesale hardware and industrial supplies distributor
+</source>
+
+<source id="P2">
+[P2.1] Our Company | Creating Transportation Efficiency | J.B. Hunt
+[P2.2] J.B. Hunt provides a variety of freight transportation services to customers throughout the United States, Canada, and Mexico.
+[P2.3] We got our start with five trucks, seven trailers and Mr. Hunt’s vision to create something big. We’ve grown a lot but our legacy of innovation and impact lives on. Together, we’re working toward our vision to create the most efficient transportation network in North America.
+[P2.4] "To get where we’re gonna go, it takes all of us. I can’t do it, you can’t do it, but we can do that."
+[P2.5] Our vision is to create the most efficient transportation network in North America. This statement keeps us focused on the future and what we’re aspiring for as a company. It encourages us to not only innovate solutions that make our company better, but to find ways to improve the greater supply chain.
+[P2.6] After more than 60 years in transportation, we’ve found everything we do comes back to these core foundations:
+[P2.7] People you trust. Technology that empowers. Capacity to deliver.
+[P2.8] Investing in these areas fuels our growth as a company so we can continue to innovate and drive transportation forward.
+[P2.9] Whether you’re managing a small business or a global supply chain, we have the infrastructure and capacity to meet your business where it is today and work with you to build a supply chain that helps your business grow in the future.
+[P2.10] We strive to be good stewards of their investments and deliver compounding returns for them.
+[P2.11] Our company values – integrity, respect, innovation, safety and excellence – are rooted in what Mr. and Mrs. Hunt stood for and how they treated people. These values represent the behaviors that define who we are and guide how we work.
+[P2.12] Every day, our goal is to deliver excellence to the people we work with and serve. We have a passionate pursuit of excellence because we believe you deserve the very best. That’s why we are driven for you.
+[P2.13] We’ve worked hard to distinguish our company as an industry leader. Powered by our foundations, we create innovative supply chain solutions and follow through on our commitments to our customers, finding new ways to drive value, boost efficiency and optimize their operations. It’s why our customers trust us as their transportation provider.
+[P2.14] Our proprietary Customer Value Delivery ® methodology was borne out of our desire for continuous improvement. We use it to learn about each customer’s unique needs so we can develop customized supply chain solutions that deliver value and help them meet their goals.
+[P2.15] We’re pioneering new standards for sustainable shipping by exploring alternative energy, creating efficiencies, driving out waste and reducing carbon emissions.
+[P2.16] We believe in sound and transparent corporate governance that positions us for long-term growth and establishes trust with our stakeholders.
+[P2.17] Discover the various ways you can work with the teams at J.B. Hunt.
+[P2.18] Join a team of elite drivers delivering value every day.
+[P2.19] Grow your business with flexibility and support.
+[P2.20] Find your next load with the J.B. Hunt 360° ® platform.
+[P2.21] Trust us to find the solution for all your shipping needs.
+[P2.22] Your logistics success starts with J.B. Hunt.
+</source>
+
+<source id="P3">
+[P3.1] Shippers | J.B. Hunt
+[P3.2] Transform your shipping strategy with efficient, multimodal solutions for shipments and businesses of every size.
+[P3.3] A Logistics Provider that is Driven for You™
+[P3.4] Our goal is to deliver excellence to the people we work with and serve. We build a supply chain that works for you today and grows with you tomorrow.
+[P3.5] Your supply chain is covered through every mile with our multimodal solutions that deliver the right mode at the right time, meaning you can trust that your freight is moving as efficiently as possible from end-to-end.
+[P3.6] J.B. Hunt 360°® Helps You Ship Smarter
+[P3.7] Streamline your shipping strategy by managing all your shipments from one easy-to-use resource. J.B. Hunt 360° technology matches your shipment with the right truck at the right time. Book your next less-than-truckload, truckload, temperature-controlled or intermodal shipment in just three minutes.
+</source>

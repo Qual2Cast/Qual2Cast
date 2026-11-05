@@ -1,0 +1,119 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: biote Corp. (www.biote.com)
+Industry (SIC 80): Health Services
+About this industry group: Use setting-specific units: visits, discharges, staffed beds and dialysis stations are not interchangeable. Distinguish an organization delivering medical care from one only underwriting medical insurance. Provider/insurer boundary.
+
+Facets:
+- healthcare_provider_setting (Healthcare-provider setting). Examples: Hospital; Outpatient clinic; Home-health provider.
+- clinical_specialty (Clinical specialty). Examples: Orthopedics; Oncology; Primary care.
+- patient_activity_volume (Patient activity / volume). Examples: 200,000 outpatient visits/year; 15,000 inpatient discharges/year; 500,000 home-health visits/year.
+- payer_revenue_mix (Payer revenue mix). Examples: 40% commercial insurance; 35% Medicare; 20% Medicaid.
+- payment_reimbursement_model (Payment / reimbursement model). Examples: Fee-for-service; Case-based bundled payment; Per-member capitation.
+- setting_specific_capacity (Setting-specific capacity). Examples: 250 staffed hospital beds; 25 clinics; 100 outpatient treatment stations.
+- patient_acuity_case_mix (Patient acuity / case mix). Examples: Routine outpatient visits; High-acuity inpatient care; Reported case-mix index.
+- clinical_operating_quality (Clinical operating quality). Examples: 30-day readmission rate; Hospital-acquired infection rate; Documented patient-safety measure.
+
+Evidence:
+<source id="P1">
+[P1.1] Address Hormone Imbalance with Biote Hormone Replacement Therapy
+[P1.2] Biote can help you find a bioidentical hormone replacement provider in your area, who will work with you to see if hormone optimization is right for you.
+[P1.3] Optimize your hormones to help optimize your well-being
+[P1.4] Restore your hormones to help restore your vitality
+[P1.5] Revitalize your hormones to help revitalize your relationships
+[P1.6] FIND A PROVIDER BECOME A PROVIDER
+[P1.7] Biote is a leading innovator in precision and preventive medicine and therapeutic wellness. For patients, it is a way for them to take control of their health through hormone optimization. For providers, it’s a way to learn how to identify and address the earliest indicators of aging.*
+[P1.8] When your body’s ability to produce hormones is disrupted—such as a natural decline with age—you may notice a difference in how you feel.* Click below to explore the signs and symptoms of a hormone imbalance.
+[P1.9] With approximately 6 million pellet insertions in our company’s history in over a decade, we have the knowledge and expertise to help integrate precision and preventive medicine at any certified clinic, regardless of specialty or patient demographic.
+[P1.10] For patients with a hormone imbalance, hormone therapy may help provide relief from challenging symptoms. When balance is restored, and hormone levels are optimized, the entire body can function at its full potential.*
+[P1.11] Having the right balance of hormones may help regulate your body and maintain normal energy levels.*
+[P1.12] For individuals with a hormone imbalance, optimizing hormones may help promote a positive mood.*
+[P1.13] Having too much or too little of a hormone can disrupt sleep. By balancing hormones, normal sleep may be achieved.*
+[P1.14] Fluctuations in your hormone levels can make it difficult to maintain your weight. Hormone optimization may help better control your weight.*
+[P1.15] Low and high levels of hormones can cause brain fog. As you optimize your hormone levels, you may experience normal mental clarity.*
+[P1.16] Shifts in hormones can cause your libido to crash. Hormone replacement therapy may help you restore your libido to normal levels.*
+[P1.17] Every person is unique, and so are their hormones. Biote believes in personalized care, helping deliver a personalized experience for each patient based on their health goals, lab results and the medical judgment of their provider.
+[P1.18] At Biote, we’re focused on changing healthcare for the better, and that starts by providing high-quality products that empower you to take control of your health. From maintaining hormone balance to boosting your energy and immune system, we’ve got a variety of health solutions to help you accomplish your wellness goals.*
+</source>
+
+<source id="P2">
+[P2.1] Biote Nutraceuticals | Hormone Supplements | Biote
+[P2.2] Check out the variety of supplements offered by Biote called Nutraceuticals! Biote's line of nutraceuticals have been specifically chosen to go hand-in-hand with pellet therapy.
+[P2.3] Biote Nutraceuticals & Cosmeceuticals have been expertly formulated to promote healthy aging and enhance overall wellness. Backed by more than 80 years of science and medical data, these products have been selected for superior bioavailability and can help ensure a complete and personalized approach towards meeting your health goals.
+[P2.4] Essential Vitamins A, D3, & K2
+[P2.5] Maintains Vitamin D Levels* May Promote Strong Bones* Supports the Immune System*
+[P2.6] Contributes to Healthy Vascular Function
+[P2.7] May Promote a Healthy Heart* Helps Maintain Healthy Artery Walls* May Support a Strong & Vital Glycocalyx
+[P2.8] Single-Strain Probiotic for Healthy Digestion
+[P2.9] Supports Normal Digestive Health* Promotes Healthy Gut Flora* Encourages a Strong Immune System*
+[P2.10] Sleep Through the Night* Fall Asleep Faster* Calm the Mind*
+[P2.11] Support a healthy, balanced immune system* Support a healthy gut* Support healthy muscle, tendon, ligament, and wound healing*
+[P2.12] Antioxidant, Joint, & Hormonal Support
+[P2.13] May Reduce Some Types of Inflammation* Supports Relief of Occasional Joint & Muscle Soreness* Helps Maintain Hormone Balance*
+[P2.14] Hormone Balance & Detoxification Support
+[P2.15] Encourages Normal Estrogen Metabolism* Helps Control Appetite* May Promote Detoxification*
+[P2.16] May Reduce DHT-Induced Hair Follicle Miniaturization* Aims to Promote Hair Cell Proliferation* Encourages Normal Hair Follicle Development*
+[P2.17] May Help Retain Hair Follicles for a Longer Duration* Aims to Increase Hair Count & Hair Mass Index* Tries to Reduce Hair Loss Associated With Zinc Deficiency*
+[P2.18] Healthy Testosterone Balance Support for Women
+[P2.19] Supports healthy testosterone balance* Supports balanced cortisol levels* Supports health and longevity*
+[P2.20] Healthy Testosterone Balance Support for Men
+[P2.21] Thyroid Support with Iodine, Zinc, and Selenium
+[P2.22] Supports healthy thyroid function* Supports healthy hormone balance* Supports healthy detoxification*
+[P2.23] Support for Energy and Healthy Thyroid Function
+[P2.24] Supports Healthy Iron Levels* Supports Healthy Thyroid Function* Promotes Healthy Energy Production*
+[P2.25] 5-MTHF & Active B Vitamins for Methylation & Energy Support
+[P2.26] May Promote Normal Methylation* Aims to Support a Healthy Heart* Encourages Energy & Focus
+[P2.27] Probiotic Mix for Healthy Digestion
+[P2.28] Promotes Healthy Microbiome Balance* Supports Digestive Health* Encourages a Strong Immune System*
+[P2.29] NAD+ 300 & NAD+ 1000
+[P2.30] Supports Cellular Energy & Vitality* Helps Maintain Cellular Resilience* Healthy Inflammatory Response*
+[P2.31] Daily Packets For Hormone Balance + Vitality Support
+[P2.32] Convenient grab-and-go packets with DIM SGS+, ADK, and Methyl Factors+ Daily support for healthy hormone balance, a healthy immune system, and a healthy cardiovascular system*
+[P2.33] Convenient grab-and-go packets with DIM SGS+, ADK, and Methyl Factors+ Contains one extra DIM SGS+ for those who need more support Daily support for healthy hormone balance, a healthy immune system, and a healthy cardiovascular system*
+[P2.34] EPA/DHA Fish Oil With CoQ10
+[P2.35] Aims to Support Cardiovascular Health* Encourages Normal Cholesterol Levels* May Promote Cognitive Health*
+[P2.36] Designed to Optimize Body Function* May Protect From Cell Damage* Aim at Optimizing Brain Function*
+[P2.37] Supports a Healthy Stress Response*
+[P2.38] Supports healthy cortisol* Supports healthy appetite*
+[P2.39] Minimize Feelings of Urgency Lessen or End Leaks and Accidents Reduce Frequency of Urination
+[P2.40] Sustained Nitric Oxide + Supports Cardiovascular Health†
+[P2.41] Support cardiovascular health* Promote healthy blood pressure* Decrease inflammation*
+[P2.42] Vaginal Health + Microbiome Support
+[P2.43] Reduce itching, burning, discharge, and odor Improve vaginal bacterial balance Promote overall vaginal health
+</source>
+
+<source id="P3">
+[P3.1] Case Studies - Biote
+[P3.2] Read these case studies to learn how hormone optimization is changing lives.
+[P3.3] Case Studies From Practicing Biote Certified Providers
+[P3.4] Every day, we hear amazing stories from our network of certified providers. Below are a few case studies which feature outcomes from BHRT patients.
+[P3.5] Hormone Optimization & Menopause: Ruthann Rees, MD, PhD
+[P3.6] L. D. is a 48-year-old gravida 3 para 3 white female with a history of stage 0 intraductal carcinoma in situ found serendipitously at the time of a reduction mammoplasty many years ago. Before her breast reduction, her mammograms were normal. Because of her mother’s history of colon cancer, she decided to undergo a prophylactic bilateral mastectomy with immediate reconstruction. L. D. had BRCA and Colaris gene testing and was negative.
+[P3.7] She came to discuss menopausal symptoms she had been experiencing for many years. Her symptoms of vaginal atrophy were so severe that she had not been able to have sex for over a year. She had daily hot flashes, night sweats, difficulty sleeping, and fatigue. Her prior Gynecologist had refused even to discuss hormone replacement therapy.
+[P3.8] After an extensive discussion of her personal history of breast cancer, she decided to try testosterone therapy. She started on testosterone hormone optimization. At her 6-week follow-up, she was elated with the vast improvement she experienced in relief of menopausal symptoms, especially with her sexual relations with her husband. She felt they were able to reconnect now on a physical and emotional level like they had not done in years. She reports this has saved her marriage.
+[P3.9] Hormone Optimization & Heart Health: Christina M. Bove, MD FACC
+[P3.10] Several years ago, after almost two decades of practicing traditional cardiology, I began a new, more functional medicine approach to cardiovascular disease. This started with a new focus on nutrition and diet, followed by the addition of bioidentical hormone replacement (BHRT) to my services.. I have been able to get my patients off anti-hypertensives, statins, and diabetic medications while improving their overall health, functional capacity, and quality of life. As a cardiologist, my daily focus is on cardiovascular prevention, as well as treatment of established disease. As CV disease is a disease of inflammation, I focus on metabolic markers, advanced cardiac inflammatory panels, CIMT (measures the thickness of the inner two layers of the carotid artery and alerts physicians to any thickening when patients are asymptomatic), and coronary calcium scores, rather than traditional lipid panels to establish patient’s cardiovascular risk and treatment protocols.
+[P3.11] I have seen first-hand in my patients the reversal of metabolic syndrome, diabetes, obesity, abnormal body composition, abnormal inflammatory markers, and dyslipidemia. Clinical studies have shown improvements in atherosclerosis and beneficial changes in heart muscle structure and function on CV imaging in patients receiving BHRT. From a cardiovascular standpoint, the anti-inflammatory, vasodilatory, endothelial function, vascular remodeling, and atherosclerosis benefits of testosterone therapy are compelling. I believe that, with proper screening and follow up, women using non-oral bioidentical hormones may benefit not only with marked symptom improvement, but reduction in atherosclerosis and CV and overall mortality.
+[P3.12] A New Focus On CV Prevention
+[P3.13] As a cardiologist, my daily focus is on cardiovascular prevention, as well as treatment of established disease. As CV disease is a disease of inflammation, I focus on metabolic markers, advanced cardiac inflammatory panels, CIMT (measures the thickness of the inner two layers of the carotid artery and alerts physicians to any thickening when patients are asymptomatic), and coronary calcium scores, rather than traditional lipid panels to establish patient’s cardiovascular risk and treatment protocols.*
+[P3.14] I have seen first-hand in my patients the reversal of metabolic syndrome, diabetes, obesity, abnormal body composition, abnormal inflammatory markers, and dyslipidemia. Clinical studies have shown improvements in atherosclerosis and beneficial changes in heart muscle structure and function on CV imaging in patients receiving BHRT.*
+[P3.15] “What a relief for the patient and her husband.” Brian Cox, MD
+[P3.16] Hormone Optimization & Bone Health: G. DeAn Strobel, MD, FACOG*
+[P3.17] I am a Board-Certified OB/GYN and practice in an area with a large geriatric population. When I first started my practice I was overwhelmed with the number of osteopenia and osteoporosis patients I encountered. I became so intrigued with the spectrum of disease, that I pursued certification with the International Society of Clinical Densitometry (ISCD). I purchased my first DEXA machine.
+[P3.18] Once ISCD-certified, I began to appreciate the nuances of DEXA interpretation and began to discover many otherwise asymptomatic patients with osteoporosis-related fractures. From what I understand, I was the first gynecologist in the state approved to prescribe and use teriparatide for patients with severe osteoporosis. I have also used all the various bone medications including SERMs, bisphosphonates, PTH-analogs, and even calcitonin. I have followed patients with serial DEXA scans for many years.
+[P3.19] When I was initially trained by Dr. Donovitz and learned that pellet therapy may increase bone mineral density by up to 8.3% per year, I was apprehensive. It wasn’t until a year or so after I began to use the pellets in patients that I began to see such dramatic improvements in their bone density scans. I have had many patients who have had DEXA scans change from T-scores in the osteopenia range to normal range, I am now a true believer!
+[P3.20] My prescription numbers for bisphosphonates and other osteoporosis medications have dramatically decreased, and my patients’ results have dramatically increased since I started using bioidentical hormone pellets and hormone optimization in my practice.
+[P3.21] * Individual results may vary, and these case studies may not represent typical outcomes. These case studies involve real patients and may not reflect the typical patient’s experience, and are not intended to represent or guarantee same or similar outcomes. These case studies have not been evaluated by the Food and Drug Administration.>
+</source>

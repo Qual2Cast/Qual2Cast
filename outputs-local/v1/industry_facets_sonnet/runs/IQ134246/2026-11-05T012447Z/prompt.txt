@@ -1,0 +1,76 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Crawford & Company (www.crawco.com)
+Industry (SIC 64): Insurance Agents, Brokers & Services
+About this industry group: Distinguish policy-count renewal, client-count retention and premium/revenue retention. Commissions and contingent commissions are intermediary compensation, not underwriting profit.
+
+Facets:
+- insurance_intermediary_role (Insurance intermediary role). Examples: Independent broker; Exclusive agent; Third-party administrator.
+- insurance_placement_niche (Insurance placement niche). Examples: Commercial P&C; Employee benefits; Personal lines.
+- intermediary_compensation (Intermediary compensation). Examples: Carrier-paid commissions; Client advisory fees; Contingent commissions.
+- policy_account_renewal (Policy / account renewal). Examples: 92% of expiring policies renewed; 90% of expiring client accounts renewed.
+- carrier_market_access (Carrier / market access). Examples: Multiple carrier appointments; Wholesale placement relationships; Single-carrier distribution.
+- client_retention_by_measure (Client retention by measure). Examples: Annual client-count retention: 92%; Renewal-premium retention: 95%.
+
+Evidence:
+<source id="P1">
+[P1.1] Home | Crawford & Company
+[P1.2] For over 85 years, Crawford has led the industry through a relentless focus on people and the innovative tools that empower them.
+[P1.3] Solving claims challenges through innovation and expertise.
+[P1.4] Our quality sets industry standards
+[P1.5] We leverage our extensive experience to go beyond the claim, solving complex challenges that drive our clients' successes and protect their brand reputations. With Crawford, you can expect consistent, quality service, delivered promptly.
+[P1.6] We've spent nearly a century handling every type of claim in nearly every part of the world. This extensive global expertise allows us to drive better outcomes for our clients and their customers around the globe. Here are just a few stories of the people we serve.
+[P1.7] At Crawford, we're not just embracing change, we're leading it. We're thinking beyond the traditional and bringing together digital solutions to meet our customers' needs today while anticipating the needs of tomorrow.
+[P1.8] Leading the digital revolution means not just thinking like a technology company but actually being a technology company. We're driving forward-thinking progress across all areas of claims management to support our workforce, and our clients, today and for decades to come.
+[P1.9] Our purpose is to restore
+[P1.10] At Crawford, we know that behind every claim there's a story... a person, a child, a friend. Behind every claim there are people who look to us on their worst days. And by helping to restore their lives, we are helping to restore our community — one claim at a time.
+</source>
+
+<source id="P2">
+[P2.1] Our Story | Crawford & Company
+[P2.2] Honesty and integrity above all
+[P2.3] Jim Crawford opened the first Crawford & Company office in Columbus, Georgia. He founded the company on three principles.
+[P2.4] For over 80 years, these principles have been embedded in Crawford’s culture, shaping the company’s ongoing commitment to putting people first and delivering the highest quality service for its customers.
+[P2.5] Restoring lives, businesses and communities.
+[P2.6] What started as an attempt to make milk truck deliveries more efficient has evolved into a global enterprise, solving claims-handling challenges for thousands of businesses around the world. It’s a long, proud history, and you can review many of the highlights below.
+[P2.7] Jim Crawford opens the first Crawford & Company office in Columbus, Georgia.
+[P2.8] Jim Crawford creates an employee training program that would later evolve into Crawford Educational Services and set the standard for education of claims adjustment in the insurance industry.
+[P2.9] Crawford establishes new company slogan — "Top quality, promptly"
+[P2.10] Crawford opens an office in London, beginning its international expansion.
+[P2.11] Crawford expands to Canada, initially with offices in Vancouver and Toronto.
+[P2.12] Crawford’s MAYDAY, a 24/7 claims referral service revolutionizes the industry and solidifies Crawford as the leading innovator of claims solutions.
+[P2.13] Rehabilitation, risk management, and catastrophe support are added to the Crawford service catalog as Crawford expands beyond property and casualty.
+[P2.14] Crawford debuts Risk Sciences Group (RSG), a risk management service that gives self-funded corporations the ability to better understand their risk situations and manage them more effectively.
+[P2.15] Crawford begins a decade of global expansion, acquiring Graham Miller Group, Brocklehurst Group and Thomas Howell Group.
+[P2.16] Crawford celebrates 50 years in business.
+[P2.17] - Broadspire, Crawford’s largest acquisition to date, adds global TPA services, medical management, and more to the Crawford portfolio. - Specialist Liability Services acquired in the UK to ensure continued growth in the Lloyd's and London market.
+[P2.18] Contractor Connection launches in Canada
+[P2.19] The Company's second largest acquisition, GAB Robins, significantly increases Crawford's claims handling business across a wide range of product lines and bolsters its global specialty claims services.
+[P2.20] Crawford establishes its Global Business Service Center (GBSC) in Manila, Philippines, to consolidate and scale business functions and services.
+[P2.21] - Crawford celebrates 75 years in business. - Crawford Innovative Ventures (CIV) begins its work researching and investing in partnerships and acquisitions to support Crawford’s strategic plan.
+[P2.22] Through CIV, Crawford acquires a majority interest in WeGoLook, an on-demand field services company combining technology with the gig economy to gather and validate information anytime, anywhere.
+[P2.23] - WeGoLook launches in the UK, pushing forward ongoing innovations in claims management and significantly enhancing claims responsiveness. - Crawford & Company (Canada), Inc.
+[P2.24] Crawford introduces the industry’s first smart water-detection product.
+[P2.25] - Rohit Verma named CEO and Joseph Blanco named president.
+[P2.26] - Crawford celebrates its 80th anniversary.
+[P2.27] W. Bruce Swain, Jr. named President & CEO of Crawford & Company.
+</source>
+
+<source id="P3">
+[P3.1] Industries | Crawford & Company
+[P3.2] Crawford serves a variety of industries through tailored solutions and dedicated expertise.
+[P3.3] For Digital Infrastructure & Data Centers
+[P3.4] For Power and Renewable Energy
+</source>

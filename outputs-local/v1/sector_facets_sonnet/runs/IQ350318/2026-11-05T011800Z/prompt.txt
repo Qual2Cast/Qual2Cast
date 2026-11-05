@@ -1,0 +1,80 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Suburban Propane Partners, L.P. (www.suburbanpropane.com)
+Sector: Retail, restaurants, hotels and entertainment
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- product_category (Product category): What consumers buy from it. Example: food: snacks and frozen meals. Any that apply of: food; beverages; apparel and footwear; household and personal care; home and furnishings; electronics; recreation and leisure goods; general merchandise; restaurant meals; lodging and travel; entertainment and gaming; automotive; other.
+- market_position (Market position): Where it sits on price. Example: mass-market: mainstream national brands. Exactly one of: value / discount; mass-market; premium; luxury.
+- distribution_model (Distribution model): How it reaches consumers. Example: wholesale: sells through grocery and mass retailers. Any that apply of: direct to consumer; wholesale to retailers; franchise; company-operated locations; licensing.
+- purchase_frequency (Purchase frequency): How often consumers buy. Example: daily: staple groceries. Exactly one of: daily / staple; periodic; discretionary / occasional.
+
+Evidence:
+<source id="P1">
+[P1.1] Suburban Propane | Residential and Commercial Propane
+[P1.2] Suburban Propane delivers reliable propane for homes and businesses nationwide. Trusted service, flexible plans, and 24/7 support for over 95 years.
+[P1.3] Serving communities today, leading the way to a sustainable tomorrow.
+[P1.4] Power your indoor and outdoor fuel needs with Propane
+[P1.5] Take advantage of all we have to offer.
+[P1.6] Quickly access, view, and pay your propane bill.
+[P1.7] A diverse array of products to meet your energy needs
+[P1.8] Browse our residential offerings and services.
+[P1.9] Leading the way to a sustainable tomorrow.
+[P1.10] Browse our commercial and industrial offerings and services.
+[P1.11] Suburban Renewables houses our existing family of renewable assets
+[P1.12] It leads our long-term strategic growth and diversification efforts to identify new areas of investment, strategic partnerships, and collaborations within the renewable energy space.
+[P1.13] Employees who are trained with your safety as their #1 priority
+[P1.14] Locations providing exceptional service to local communities across 42 states
+[P1.15] Years serving our customers and their communities. Customer satisfaction
+[P1.16] Dedicated employees ready to assist you with quality service for all your fuel needs
+[P1.17] We are here for you with customer service representatives standing by to take your call
+[P1.18] With multiple locations across the country, we invite you to apply to be a part of the Suburban Propane family.
+[P1.19] Customers Love Working with Suburban Propane
+[P1.20] Suburban Propane in is more than just a great propane store. The employees are some of the most caring people on this place earth. They help me out in a personal time of need and insured I was safe and taken care of. Thank you from the bottom of my heart.
+[P1.21] I am very pleased with the service I receive from Suburban Propane. The Wildwood office is always helpful, and the service technicians are very pleasant. I would highly recommend this office for your propane needs.
+[P1.22] We couldn't be more pleased with our new service with suburban propane. They are quick, friendly, and knowledgeable and even work on Saturday. If you are going to use propane, suburban propane should be your first call.
+[P1.23] Manage Your Account with Our Mobile App
+[P1.24] When you think about propane around your home or business, heating probably comes to mind first. Furnaces. Boilers. Water heaters. Maybe a fireplace, cooking equipment [...]
+[P1.25] Using Propane to Heat Your Home
+[P1.26] Every home needs reliable heating to stay comfortable year-round, and few energy sources match propane’s reliability, performance, and efficiency. Whether you are powering a single [...]
+[P1.27] If you use propane for outdoor living, grilling, RV travel, and other portable propane-powered applications, you may wonder whether it makes more sense to exchange [...]
+[P1.28] Become part of the Suburban Propane family and enjoy our unwavering commitment to safety and customer satisfaction.
+[P1.29] Please call us 24/7/365 at 1-800-PROPANE
+</source>
+
+<source id="P2">
+[P2.1] Commercial Propane Delivery | Suburban Propane
+[P2.2] Reliable propane delivery for your business. Agriculture, forklifts, restaurants, fleets, construction, & more. Get dependable service from Suburban Propane.
+[P2.3] The ability to meet your business needs.
+[P2.4] Our business is customer satisfaction and serving the needs of families and businesses for nearly 100 years.
+[P2.5] Find out how Suburban Propane can fuel your business.
+[P2.6] Propane cylinder cages provide safe and secure storage for your propane cylinders at your business and on job sites. Contact your nearest location regarding availability.
+[P2.7] Our reliable and safe onsite propane cylinder filling service keeps your business running smoothly, even during peak demand.
+[P2.8] Safety barriers provide peace of mind knowing that your propane tanks are safe and secure. Call your local office today to learn more and to check on availability.
+[P2.9] Our reliable cylinder delivery service keeps your business running smoothly, without the hassle of managing your own fleet.
+[P2.10] What Our Customers are Saying
+[P2.11] I am thrilled with Suburban Propane. When it comes to making sure I always have propane, they're literally more on top of it than I am and I own food trucks so there's little room for an excuse on my end. Their pricing is more than fair, their service is impeccable, and the techs that I've met have been professional and friendly. Thanks!
+[P2.12] This is a local propane distributor in the Myrtle Beach area. They are also a national company. I get great service from these people. They service my tank & will refill anytime I ask. They have been nothing but polite and professional with me and my wife.
+[P2.13] Peace of mind with dependable fuel supply, when you need it
+</source>
+
+<source id="P3">
+[P3.1] Propane Near Me: Delivery & Refill Locations
+[P3.2] Find your nearest Suburban Propane location for reliable propane delivery, tank refills, and expert service. Serving homes and businesses nationwide.
+[P3.3] Propane Delivery and Refill Locations
+[P3.4] Select from one of multiple Suburban Propane locations
+[P3.5] View All Locations or Find a Nearby Service Area
+</source>

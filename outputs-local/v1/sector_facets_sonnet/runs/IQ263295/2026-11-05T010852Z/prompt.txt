@@ -1,0 +1,53 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Consolidated Edison, Inc. (www.conedison.com)
+Sector: Energy, utilities, mining and agriculture
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- industry_position (Industry position): Where it sits in the chain. Example: regulated utility: electric and gas distribution. Any that apply of: upstream / production; midstream; downstream; regulated utility; independent power; mining; agriculture; services to producers.
+- commodity_exposure (Commodity exposure): What it produces or delivers. Example: electricity and natural gas. Any that apply of: oil; natural gas; electricity; water; metals; minerals and aggregates; crops and livestock; other.
+- revenue_structure (Revenue structure): How prices are set. Example: regulated: rates approved by state commissions. Any that apply of: spot; contracted; regulated.
+- energy_transition (Energy transition exposure): Fossil or renewable. Example: mixed: gas plants and solar. Exactly one of: renewables; fossil fuels; mixed; not applicable.
+
+Evidence:
+<source id="P1">
+[P1.1] Con Edison - Energy Company
+[P1.2] Consolidated Edison, Inc. provides energy-related products and services through multiple regulated utility subsidiaries, three competitive energy businesses, and Con Edison Transmission, Inc.
+[P1.3] We’re building a climate-resilient grid that will deliver 100% clean energy.
+[P1.4] Get information specifically for Con Edison investors.
+[P1.5] Track Con Edison's current and historical stock performance.
+</source>
+
+<source id="P2">
+[P2.1] Our Businesses | Con Edison
+[P2.2] Explore the business segments that make up the Con Edison company and revenue for each segment.
+[P2.3] Con Edison's principal business segments are Consolidated Edison Company of New York, a regulated electric, gas, and steam utility; Orange & Rockland Utilities (O&R), a regulated electric and gas utility; and Con Edison Transmission, Inc.
+[P2.4] Con Edison of New York provides electric service to multiple million customers and gas service to multiple million customers in New York City and Westchester County. The company also provides steam service in parts of Manhattan. Visit Con Edison’s website.
+[P2.5] Orange & Rockland provides electric service to multiple customers in southeastern New York and adjacent areas of northern New Jersey and gas service to multiple customers in southeastern New York. Visit Orange & Rockland’s website.
+[P2.6] Con Edison Transmission invests in electric and natural gas transmission projects that offer customers access to diverse, low-cost energy supplies. Visit Con Edison Transmission’s website.
+</source>
+
+<source id="P3">
+[P3.1] Corporate Policies & Practices | Con Edison Inc
+[P3.2] We are committed to protecting and advancing the human rights of all people.
+[P3.3] We endeavor to create best-in-class digital products and experiences for everyone.
+[P3.4] How we’re reducing environmental impact while increasing clean energy investments within our community.
+[P3.5] How we evaluate direct and indirect lobbying related to our Clean Energy Commitment.
+[P3.6] We go to great lengths to protect our computer systems and equipment from the threat of a cyberattack.
+[P3.7] We protect the information we collect from our customers while doing business together.
+[P3.8] These terms apply to websites, mobile apps, and online services that link back to them.
+[P3.9] This policy applies to the text message service and short message service programs.
+</source>

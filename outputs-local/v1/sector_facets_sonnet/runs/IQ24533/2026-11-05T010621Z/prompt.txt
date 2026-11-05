@@ -1,0 +1,59 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Alamo Group Inc. (www.alamo-group.com)
+Sector: Manufacturing (industrial, materials, electronics)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- manufacturing_type (Manufacturing type): How it makes products. Example: discrete: builds individual units on assembly lines. Any that apply of: discrete; process; assembly; outsourced / fabless.
+- production_model (Production model): Built for an order or for stock. Example: make-to-order: each unit configured to the customer's order. Exactly one of: make-to-order; make-to-stock; both.
+- product_complexity (Product complexity): How engineered its products are. Example: engineered: custom-configured equipment. Exactly one of: commodity; engineered; precision / high-spec.
+- production_role (Production role): Where it sits in its customers' supply chain. Example: final manufacturer: sells finished units to contractors. Any that apply of: final manufacturer / OEM; tier 1 supplier; tier 2 or component supplier; contract manufacturer; materials producer.
+- end_market_exposure (End-market exposure): Which end markets drive demand. Example: industrial: factories and commercial buildings. Any that apply of: aerospace and defense; automotive and transportation; industrial; construction and buildings; energy; electronics and semiconductors; healthcare and life sciences; consumer; agriculture; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Alamo Group - Alamo Group Inc.
+[P1.2] Alamo Group, the parent company ofglobal brands focused in infrastructure maintenance
+[P1.3] Built for Operators. Trusted Worldwide.
+[P1.4] Alamo Group is a leading global manufacturer of high-quality industrial and vegetation management equipment essential for public and private infrastructure maintenance and responsible land management. With more than 40 trusted brands and a worldwide network of manufacturing facilities, we support municipalities, contractors, utilities, and agricultural professionals who keep communities clean, safe, and productive. Our equipment powers essential work across every environment, from roadside mowing and field maintenance to snow and ice removal, tree care, sweeping, and hydro-excavation. To deliver focused expertise, Alamo Group operates through multiple strategic divisions: • Industrial Equipment Division • Vegetation Management Division
+[P1.5] Alamo Group’s broad portfolio supports essential industries with steady demand, consistent replacement cycles, and durable equipment that performs over time.
+[P1.6] Our sustainability focus remains on initiatives that create long-term value by positively impacting our communities, minimizing environmental impact, and supporting the continued growth of our business.
+[P1.7] We're not just a company; we're a family of diverse minds united by a shared mission: To provide our customers with innovative equipment solutions.
+[P1.8] We take pride in building strong relationships with customers, investors, and partners and providing information about our company, brands, and investment opportunities.
+</source>
+
+<source id="P2">
+[P2.1] About Us
+[P2.2] Alamo Group Inc. is a leader in the design, manufacture, distribution and service of high quality equipment for infrastructure maintenance, agriculture and other applications
+[P2.3] Alamo Group is the parent company of 40+ global brands that service communities across 6 continents.
+[P2.4] Alamo Group is a global manufacturer of more than 40 brands that provide essential industrial and vegetation management equipment for maintaining infrastructure and land. Our equipment supports roadway maintenance, vegetation and tree care, snow and ice control, and public works.
+[P2.5] Alamo Group delivers equipment solutions through seven market-driven Solution Groups that reflect how customers use our products across industrial and vegetation management applications. Industrial Equipment Division • Excavators and Vacuum Trucks • Sweepers and Debris Collectors • Snow and Ice Removal • Roadway Safety Vegetation Management Division • Municipal Mowing • Biomass Recycling and Tree Care • Field, Turf and Land These Solution Groups help us deliver complete, purpose-built equipment that supports essential work in communities around the world.
+[P2.6] Our executives bring deep experience across industrial manufacturing, global operations, finance, and market development, ensuring the company is positioned for sustainable growth across all economic cycles. We maintain a consistent commitment to accountability, transparency, and sound decision-making.
+[P2.7] The Company Alamo Group Inc. is founded in the state of Texas.
+[P2.8] Alamo Group adds to their product line by acquiring flail cutting technology.
+[P2.9] Alamo Group adds to their product line by acquiring sickle-bar cutting technology.
+[P2.10] pothole patcher product line, and merged the line into the Schwarze operation.
+[P2.11] and Multidrive Tractors Ltd., a U.K.-based manufacturer and merged assets into McConnel.
+[P2.12] a U.S. equipment dealership, as part of the Specialized Industries LP acquisition.
+[P2.13] Alamo Group Inc. Alamo Group Inc.
+</source>
+
+<source id="P3">
+[P3.1] Alamo Group
+[P3.2] Super Products, Combination Sewer Cleaner, Industrial Vacuum Loader, Liquid Vacuum Truck, Truck Mounted Jetter, Vacuum Excavator
+[P3.3] Super Products leads the way in vacuum truck innovation, providing contractors and municipalities with top-of-the-line equipment. Their extensive product lineup includes highly efficient vacuum excavators, combination sewer cleaners, industrial vacuum loaders, truck-mounted jetters, and liquid vacuum trucks. With their advanced technology and superior performance, Super Products sets the standard for excellence in the industry. Contractors and municipalities can rely on Super Products to deliver the most efficient and reliable solutions for their vacuum truck needs.
+[P3.4] Over the past 50 years, Super Products LLC, an Alamo Group Company, has grown from a small manufacturing company to a nationally recognized supplier of vacuum trucks. Super Products gives contractors and municipalities access to the industry’s most efficient and progressive vacuum exavators, combination sewer cleaners, industrial vacuum loaders, truck mounted jetters, and liquid vacuum trucks on the market.
+</source>

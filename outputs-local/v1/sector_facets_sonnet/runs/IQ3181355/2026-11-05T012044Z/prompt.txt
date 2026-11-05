@@ -1,0 +1,121 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: XPO, Inc. (www.xpo.com)
+Sector: Wholesale distribution and transportation
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- logistics_role (Role): What it moves or distributes. Example: industrial distributor: MRO parts to factories. Any that apply of: industrial distributor; consumer goods distributor; healthcare distributor; technology distributor; trucking; less-than-truckload; rail; air; marine; freight brokerage / logistics; passenger transport.
+- asset_intensity (Asset intensity): Whether it owns the fleet or warehouses. Example: asset-heavy: owns its fleet and terminals. Exactly one of: asset-heavy; asset-light; mixed.
+- value_added (Value added): What it adds besides moving goods. Example: value-added services: inventory management and repair. Any that apply of: pure distribution; value-added services; contract logistics.
+
+Evidence:
+<source id="P1">
+[P1.1] XPO – LTL Freight Quotes and Logistics Services
+[P1.2] XPO is one of the largest providers of asset-based less-than-truckload (LTL) freight transportation shipping in North America. Get LTL Freight Quotes today.
+[P1.3] We're a leading LTL freight company with a world-class network, technology, and service. Our platform simplifies LTL shipping, offering instant freight quote options. Experience our network's power and get your LTL quote today!
+[P1.4] LTL Freight Shipping Is Mission-Critical to Your Business Operations
+[P1.5] On-Time Freight Pickup & Delivery
+[P1.6] So we put your freight first
+[P1.7] We’ve built a powerful LTL freight network with nationwide capacity, advanced technology, and a world-class team. We continue to improve and expand to deliver faster, smarter, and more reliable shipping solutions.
+[P1.8] We’re one of the largest LTL freight providers in North America, with coverage that spans the US, Canada, Mexico and the Caribbean.
+[P1.9] We're growing to ensure we always say "yes" to customers, no matter how large the volume.
+[P1.10] Make your freight shipping more efficient and your experience simpler, with technology that works for you.
+[P1.11] shipments moved by our linehaul team last year
+[P1.12] linehaul miles run last year
+[P1.13] Data science and machine learning:
+[P1.14] Freight flows managed in real time
+[P1.15] Our local reps know your market and your industry. They work with you to deliver services that meet your specific timing and handling needs.
+[P1.16] “We offer the complete package and are there for customers from the beginning to the end of the freight movement, no matter what.”
+[P1.17] "XPO's strengths lie in their ability to problem-solve. They proactively reached out to us, pointed something out in our data and told us how they'd be able to help. XPO put in the work ahead of time."
+[P1.18] Join Us in Delivering World-Class LTL
+[P1.19] We reward experienced drivers with benefits and schedules that get you home each night.
+[P1.20] We value our dockworkers and forklift operators. Join a safe workplace where you have access to opportunities to learn new skills.
+[P1.21] We give you opportunities to work on all types of equipment.
+</source>
+
+<source id="P2">
+[P2.1] About Us - XPO
+[P2.2] XPO upholds unrivaled standards for our clients. Read about our safety, customer service and operational excellence here.
+[P2.3] We put your freight first
+[P2.4] XPO is a leading LTL carrier
+[P2.5] Our extensive network covers 99% of all US zip codes through a single source, plus Canada, Mexico and the Caribbean.
+[P2.6] Our proprietary software gives customers easy-to-use tools that streamline their experience. We use data science and machine learning to optimize for efficiency.
+[P2.7] We’re adding new terminals and expanding existing sites. We also build our own trailers in-house, and train new drivers at our 130 XPO driver school locations so we can quickly add capacity.
+[P2.8] With over three decades in the LTL business, and 18 billion pounds of freight moved last year, we know exactly what it takes to deliver results for our multiple customers.
+[P2.9] Creating new ways to put your freight first
+[P2.10] We’re always expanding our network, capacity and technology, so we can serve every customer with excellence.
+[P2.11] We’re one of the largest LTL carriers in North America, and we’re investing in more growth: adding equipment and doors, and training drivers to expand our team.
+[P2.12] Our job is to help you succeed. We understand your business needs and treat your freight like it’s our own.
+[P2.13] We’re always working on the next great idea to deliver value for customers with our LTL network technology, web tools and EDI/API integrations.
+[P2.14] We communicate constantly with customers to make sure you’re getting the excellent service you deserve.
+[P2.15] We prioritize safety, a customer-centric culture and operational excellence.
+[P2.16] We've created an LTL network equipped with national capacity, leading technology and a world-class team. And we're always building and improving.
+[P2.17] That means staying up-to-date on the latest protocols, technologies and equipment so we can continue to do what we do best.
+[P2.18] We take pride in doing things the right way, which means speaking up when we see opportunities to improve and owning mistakes.
+[P2.19] We build a collaborative culture that emphasizes respect, honesty and making sure every teammate has a voice.
+[P2.20] Be world-class in every way
+[P2.21] We’re eager to be #1 in LTL.
+[P2.22] We turn values into action
+[P2.23] We stay focused on safety through training, technology and the oversight of safety leaders stationed throughout our network.
+[P2.24] We not only embrace inclusion, we make sure our teams reflect the diverse communities we serve. Diverse backgrounds and ways of thinking are key to how we innovate and succeed.
+[P2.25] Operational efficiency is good for the environment and for our business. We invest in fuel management, LED lighting, electronic reduction of paper waste and pilot programs for electric vehicles.
+[P2.26] Recognized as an industry leader
+[P2.27] Named to the FreightTech 100 by FreightWaves (2025, 2024, 2023, 2022)
+[P2.28] Named one of America’s Most Responsible Companies by Newsweek (2024, 2023, 2022)
+[P2.29] Named one of America’s Best Large Employers by Forbes (2023, 2022)
+[P2.30] Named a Top Company for Women to Work for in Transportation by Women in Trucking Association (2024, 2023, 2022, 2021)
+[P2.31] Named a Top 25 Veteran Employer by Military.com (2024)
+[P2.32] Named one of America’s Most Innovative Companies by Fortune (2025)
+[P2.33] Named one of America’s Most Reliable Companies by Newsweek (2025)
+[P2.34] Named Less-Than-Truckload Carrier of the Year by Total Quality Logistics (2024)
+[P2.35] Named National Less-Than-Truckload Carrier of the Year by MODE Global (2023, 2022)
+[P2.36] Named LTL Carrier Partner of the Year by GlobalTranz (2023, 2022, 2021)
+[P2.37] Named Top 100 Trucker by Inbound Logistics (2023, 2022, 2021)
+[P2.38] Every employee – from drivers, to dockworkers, to technologists – is critical to our success. Let’s connect!
+[P2.39] Be part of our success. Invest in us.
+[P2.40] LTL is an industry with substantial barriers to entry, durable end markets, secular tailwinds and strong pricing dynamics.
+[P2.41] XPO Opens Two New Service Centers
+[P2.42] Facilities in Arizona and Missouri expand capacity for customers and strengthen XPO’s North American network.
+[P2.43] XPO has been named to the 2026 FreightTech 100 list by FreightWaves.
+[P2.44] Three drivers from XPO took home awards at the 2026 National Truck Driving Championships (NTDC).
+[P2.45] Stay connected to get the latest news
+</source>
+
+<source id="P3">
+[P3.1] World-Class LTL Freight Transportation Services - XPO
+[P3.2] XPO offers world-class services to fulfill LTL shipping requirements.
+[P3.3] Services to strengthen your supply chain performance
+[P3.4] Our coast-to-coast network is designed to deliver your freight on-time and damage-free. Our best-in-class services help you manage transportation needs with maximum efficiency.
+[P3.5] One network, one team delivering national coverage
+[P3.6] We run one of the largest LTL networks in North America.
+[P3.7] Our network covers 99% of US zip codes. We offer efficient cross-border and offshore service to Canada, Mexico, Alaska, Hawaii and Puerto Rico.
+[P3.8] With 9,700 tractors, 34,400 trailers and more than 13,000 professional drivers, we manage volume for customers of every size. And we’re adding to our fleet, so we can scale as customers grow.
+[P3.9] Share your shipping challenges, and we’ll deliver the right solutions.
+[P3.10] Simplify your Must Arrive by Date (MABD) shipments with XPO. Choose from two service options tailored to meet retailer delivery windows. Gain peace of mind with priority handling, dedicated care, simple flat-rate pricing, 24/7 tracking visibility, and more.
+[P3.11] Choose XPO’s Trade Show Service and experience worry-free pickup and delivery service when shipping your trade show booth and exhibit materials.
+[P3.12] Get unparalleled support and priority service for your product rollouts. Give us your rollout distributions and we’ll create a program tailored to your unique needs. Our customized solutions will unlock the full potential of your brand!
+[P3.13] Shipping to and from Mexico
+[P3.14] Get a safe, secure cross border shipping solution with a hassle-free customs clearance process, a single invoice and assistance from our knowledgeable Mexico support team.
+[P3.15] Whether it’s to protect your LTL freight that can’t be commingled or handled during shipping, or to increase security on your delicate, fragile, and high-value freight, our Exclusive Use Service gives you a private trailer and instant capacity so you can rest easy.
+[P3.16] Our Guaranteed Services help you avoid costly shutdowns and missed deadlines. Shipments receive enhanced visibility throughout transit in the network. Choose from day-definite Guaranteed Service or Guaranteed by Noon Service for your priority shipments.
+[P3.17] As a preferred carrier for leading grocers in the US and Canada, we provide upfront, all-in-one pricing, door-to-door visibility and the expertise required to avoid claims and added charges.
+[P3.18] Simplify LTL pickups for inbound shipments and returns with our Coordinated Pickup Service. We manage scheduling, paperwork, monitoring and issue resolution, helping you reduce complexity and keep freight moving on schedule.
+[P3.19] With no appointment or signature required, XPO's service streamlines deliveries to private residences, condos, apartments, farms, or businesses located at a residence.
+[P3.20] We have thousands of service pros laser-focused on delivering operational excellence and providing world-class customer service. We make sure we know our customers' businesses and needs, and we ensure on-time pickup and delivery, damage-free delivery and accurate invoicing.
+[P3.21] Our web tools give you control over your shipping, providing real-time visibility and detailed analytics.
+[P3.22] Custom rate quotes based on your pricing agreement
+[P3.23] Manifest and shipment summary reports
+</source>
