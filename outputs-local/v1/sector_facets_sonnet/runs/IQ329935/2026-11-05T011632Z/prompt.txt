@@ -1,0 +1,81 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Rayonier Inc. (www.rayonier.com)
+Sector: Banks, insurance and other financials
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- financial_business_type (Financial business type): What kind of financial firm. Example: insurance brokerage: places commercial insurance for clients. Any that apply of: banking; specialty lending; property and casualty insurance; life and health insurance; insurance brokerage; asset / wealth management; exchanges and market infrastructure; payments; other.
+- revenue_driver (Revenue driver): What it earns on. Example: fees: commissions on placed premiums. Any that apply of: net interest income; fees and commissions; premiums; investment income.
+- customer_type (Customer type): Who its clients are. Example: corporate: small and mid-sized businesses. Any that apply of: retail; corporate; institutional; government.
+- balance_sheet_dependence (Balance sheet dependence): Whether it carries the risk. Example: fee-based: no underwriting risk. Exactly one of: balance-sheet intensive; fee-based; mixed.
+
+Evidence:
+<source id="P1">
+[P1.1] Rayonier - Home
+[P1.2] Highly productive, geographically diverse lands.
+[P1.3] Portfolio Map > Our Approach >
+[P1.4] We are committed to forest sustainability and are on a quest to provide what the world needs most from our land.
+[P1.5] Forest Management > Wood Products > Real Estate > Land-Based Solutions > Complementary Land Uses >
+[P1.6] Being a responsible corporate citizen is integrated in the way we do business every day.
+[P1.7] Join a team that empowers you to make an impact from your first day.
+[P1.8] Our focused long-term strategy, coupled with our strong culture and values, will chart the path to achieving our mission.
+[P1.9] It's taken more than trees to make our company a success for over a century.
+[P1.10] Our forests are carefully planned long before the first seedling breaks through the soil.
+[P1.11] Highly Productive, Geographically Diverse Lands
+[P1.12] Rayonier owns over 4 million acres of land across the United States. We seek to optimize our portfolio value and deliver land to its highest and best use through forest management, wood products manufacturing, real estate, land-based solutions, and complementary land uses.
+[P1.13] Our goal is to realize the full potential of our land resources in meeting the needs of society and delivering value to our stakeholders.
+[P1.14] Rayonier’s timberlands are in highly attractive and productive regions across 11 states. We are a leader in forest stewardship and sustainability with rigorous independent auditing and certification of our practices.
+[P1.15] Rayonier ranks as a top-10 softwood lumber producer in the United States, with strategic customer relationships and an established market position with scale. Several of our wood products facilities source a portion of their logs from our sustainably managed forests. Virtually 100% of the log is used and nothing is wasted in the manufacturing process.
+[P1.16] As communities around Rayonier’s land grow, sometimes our properties become more valuable for alternate uses, including conservation. That’s where our real estate business comes in–creating places with a purpose that meet the needs of the communities around us.
+[P1.17] Leveraging Land for Climate Solutions
+[P1.18] As natural climate solutions emerge to solve global climate challenges, our land base offers various solutions — such as supporting renewable energy growth, subsurface solutions like carbon capture and storage, carbon offsets, and nature initiatives.
+[P1.19] Camp, Hunt, Play, Connect with Nature
+[P1.20] Rayonier’s lands deliver more than timber. Through complementary land uses, our team finds ways to maximize the land’s potential while the trees grow, supporting recreation, beekeeping, hunting, and other sustainable activities that generate value from the forest.
+[P1.21] Sustainability is central to our business model. We are committed to responsible corporate stewardship, which we believe is crucial to securing the future of our industry and our leadership position in it.
+[P1.22] At Rayonier, people work together, grounded in teamwork, deep community ties, and pride in creating something that makes a lasting difference.
+[P1.23] Find out more about us–whether you want to explore our history, find our locations, login to our customer portals or find key contacts or hotline information.
+</source>
+
+<source id="P2">
+[P2.1] Rayonier - About
+[P2.2] Elevating Land Resources for a Sustainable Future
+[P2.3] Rayonier is a land resources Real Estate Investment Trust (REIT). Our high-quality timberlands are managed on a sustainable basis, and our forestry practices are independently certified to high standards in sustainability. We are also a leading lumber producer in the U.S., with facilities focused on responsible manufacturing and resource efficiency. We continuously seek to unlock the value of our portfolio by delivering lands to their highest and best use, including rural real estate and land-based solutions.
+[P2.4] President & Chief Executive Officer,
+[P2.5] Built on Trust. Driven by Purpose.
+[P2.6] We choose safety as a way of life. We act with integrity, respect every voice, and take ownership of our impact. We strive to be an integral part of the communities where we live, work, and play. Through teamwork, empowerment, operational excellence, and responsible stewardship, we make thoughtful decisions that create value today while protecting what matters for generations to come.
+[P2.7] Rayonier operates a premier portfolio of timberlands across the U.S. South and Pacific Northwest, integrated with a platform of multiple wood products facilities in four states and a robust real estate program. Soon to be headquartered in Atlanta, Georgia, we maintain regional operations in Wildlight, Florida, Spokane, Washington and El Dorado, Arkansas. The company also manages a network of forestry and real estate offices across its ownership.
+[P2.8] Two Legacies. One Strong Foundation.
+[P2.9] United by shared values, a commitment to community, and a strategic long-term view, this combined history strengthens our ability to grow, innovate, and create lasting value.
+[P2.10] Consistent with its strong committment to customer service, Rayonier is offering its customers tailored solutions and services via secure web applications. Click a link below: Legacy PotlatchDeltic Log & Fiber Suppliers 2018 and Later Legacy PotlatchDeltic Wood Products Customers Rayonier New Vendor Setup Rayonier New Customer Setup Rayonier ACH Payment Instructions (PDF) Insurance
+[P2.11] If you're a member of the media and would like to talk, please get in touch with the appropriate team.
+[P2.12] Vice President, Capital Markets & Strategic Planning
+[P2.13] For General Inquiries and All Other Media Inquiries:
+[P2.14] Senior Vice President, Chief Sustainability Officer
+</source>
+
+<source id="P3">
+[P3.1] Rayonier - Wood Products
+[P3.2] Rayonier has approximately 1.2 billion board feet of lumber capacity and produces a wide array of lumber products. We also operate an industrial grade plywood mill with approximately 150 million square feet of capacity. Our wood products facilities in Arkansas, Idaho, Michigan, and Minnesota are focused on product reliability and dedicated to customer service.
+[P3.3] “We are committed to safety and compliance as foundational values in our mill operations. We practice continuous improvement in every facility and every shift.
+[P3.4] Rayonier operates three Southern yellow pine mills in Arkansas located in Ola, Waldo and Warren which have the combined capacity to produce 645 MMBF in dimension lumber, machine-stress-rated (“MSR”) lumber and small timbers. Capital investments have kept the mills updated and efficient, including the modernization of the Waldo mill. The Ola sawmill has 150 MMBF capacity producing 4x4 and 4x6 timbers and 2x4 through 2x8 lumber. The Waldo sawmill has 275 MMBF capacity and produces 2x4 through 2x12 and MSR lumber. The Warren sawmill has 220 MMBF capacity and produces 2x4 through 2x12 and MSR lumber. Mills source a portion of their logs from Rayonier timberlands and are strategically located with dependable rail and favorable trucking routes.
+[P3.5] Douglas-Fir / Larch and Hem-Fir
+[P3.6] The St. Maries, Idaho sawmill was built and shares a site with our industrial plywood mill. In Idaho, we use a wide range of highly desirable species sourced partially from our timberlands to produce a variety of lumber products. Our primary species include Douglas fir-Larch and Hem-fir. The sawmill has 185 MMBF capacity and manufactures 2x4 and 2x6 framing lumber in 8’ to 18’ lengths. Shipping is via railroads and favorable trucking routes.
+[P3.7] We offer precision-cut studs at our mills in Bemidji, Minnesota and Gwinn, Michigan with 325 MMBF combined capacity. All our studs are kiln-dried to a moisture content of 19% or less. Bearing the spruce, pine, fir (SPF-S) grade stamp, our precision-cut studs are available for mixed shipments in a variety of lengths, ranging from 7 to 9 feet. These products can be shipped by truck or rail to major Midwest, Eastern and Southern U.S. markets.
+[P3.8] Rayonier owns a plywood facility in St. Maries, Idaho that manufactures a wide range of plywood products, principally for industrial grades such as panels for boats, truck beds, and RV applications. The St. Maries facility has annual capacity of 150 million square feet (MMSF 3/8” basis). The secret to our plywood’s strength, integrity, and appearance are the high-quality veneers we use, and a composed core technology called Precision Core™, which essentially provides a one-piece core veneer. We supply high-quality western-fir panels in a variety of proprietary and APA grades. Our panels are produced with no-added urea formaldehyde (NAUF) exterior grade resin.
+[P3.9] Great Lakes Studs Brochure (PDF)
+[P3.10] Dimenisional Cedar and Non-Cedar Lumber MSDS Sheet (PDF)
+[P3.11] APA - The Engineered Wood Association
+</source>

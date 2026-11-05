@@ -1,0 +1,83 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Expeditors International of Washington, Inc. (www.expeditors.com)
+Sector: Wholesale distribution and transportation
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- logistics_role (Role): What it moves or distributes. Example: industrial distributor: MRO parts to factories. Any that apply of: industrial distributor; consumer goods distributor; healthcare distributor; technology distributor; trucking; less-than-truckload; rail; air; marine; freight brokerage / logistics; passenger transport.
+- asset_intensity (Asset intensity): Whether it owns the fleet or warehouses. Example: asset-heavy: owns its fleet and terminals. Exactly one of: asset-heavy; asset-light; mixed.
+- value_added (Value added): What it adds besides moving goods. Example: value-added services: inventory management and repair. Any that apply of: pure distribution; value-added services; contract logistics.
+
+Evidence:
+<source id="P1">
+[P1.1] Expeditors | Home
+[P1.2] Expeditors is a global logistics company headquartered in Bellevue, Washington. The company employs trained professionals seamless worldwide network through an
+[P1.3] Built for time-critical situations, our expanded AOG solutions help aviation and aerospace customers minimize disruption and keep critical operations moving when every minute matters.
+[P1.4] Enter your shipment tracking number.
+[P1.5] Enter a city, ZIP code, or country.
+[P1.6] LOG IN TO EXP.O NOW
+[P1.7] Booking, visibility, and tracking tools for easier supply chain management.
+[P1.8] The EXP.O NOW Tariff Calculator
+[P1.9] Quick, reliable insight into U.S. duty rates, trade‑remedy impacts, and cost differences across sourcing scenarios.
+[P1.10] Building resilient and adaptable global strategies through the lens of geopolitics and macroeconomics.
+[P1.11] Get real-time visibility of your cargo with IoT sensors that track location and help you stay informed, involved, and in control.
+[P1.12] Integrated & Value-Added Warehousing and Distribution
+[P1.13] Real-time visibility and inventory reporting, connecting your global operations virtually anywhere in the world.
+[P1.14] Quality data, in the hands of dedicated teams, combined with our global network, ensures we can help you stay on target for every shipment.
+[P1.15] Goodyear: Technology Solutions to Support Tire Manufacturers
+[P1.16] We were able to help Goodyear to be more efficient and cut costs by helping them to harness the power of their data.
+[P1.17] Expeditors was able to walk Nissan through the U.S. Customs and Border Protection’s system upgrade, ensuring uninterrupted flow of product.
+[P1.18] We joined Toyota's annual Kaizen Challenge, where our teams collaborated to bring improvements to the current processes.
+[P1.19] The Kooples: Fashion Forward Freight
+[P1.20] The retail industry is constantly changing, we developed custom solutions to help The Kooples stay ahead of the curve.
+[P1.21] Pak Suzuki: Finished Vehicles by Air
+[P1.22] We helped move their fully-assembled vehicles via air, damage-free and on-time.
+</source>
+
+<source id="P2">
+[P2.1] About Us - Expeditors
+[P2.2] Expeditors is a Fortune 500 global logistics company headquartered in Bellevue, Washington. Visit our website today.
+[P2.3] Global logistics excellence through rich industry expertise, best-in-class customer service, and leading-edge technology
+[P2.4] Expeditors is a Fortune 500 service-based logistics company with headquarters in Bellevue, Washington, USA. At Expeditors, we generate highly optimized and customized supply chain solutions for our clients through unified technology systems integrated across a global network of multiple locations in multiple countries on six continents.
+[P2.5] As a service-based company, we don’t own the aircraft, ships, or trucks we use every day. This means we can be highly flexible in our approach to supply chain management and very effective at finding the best route and pricing options.
+[P2.6] See key facts and figures about Expeditors
+[P2.7] At the core of our cultural philosophy is a mission to exceed customers’ expectations through excellence in global logistics. And we’re unwavering in our commitment to that mission.
+[P2.8] Expeditors first enters the Fortune 500 list
+[P2.9] Locations worldwide in multiple countries
+[P2.10] Expeditors was by true logistics visionaries.
+[P2.11] We’re committed to the people and places where we live and work.
+</source>
+
+<source id="P3">
+[P3.1] Technology Products - Expeditors
+[P3.2] At Expeditors, our systems are built by innovative, market-leading logistics experts. Visit our website to learn more today!
+[P3.3] At Expeditors, our technology is built to elevate your supply chain. With real-time visibility, predictive control, and actionable insight, you gain the clarity and confidence to move faster, plan smarter, and stay ahead across every shipment, lane, and region.
+[P3.4] Network Optimization Tools help analyze your logistics network to identify cost-saving and service-enhancing opportunities through scenario modeling for sourcing, routing, and inventory placement.
+[P3.5] Gain visibility into your carbon emissions with a centralized dashboard that tracks CO₂e output across transportation modes and regions.
+[P3.6] Monitor performance over time, support ESG reporting requirements, and identify opportunities to reduce emissions while advancing your sustainability goals.
+[P3.7] Our technology helps you gain end-to-end visibility across your supply chain, reduce risk with proactive alerts, and improve efficiency through automation and analytics.
+[P3.8] With the insights needed to meet sustainability and compliance objectives, you can make smarter, more informed decisions with confidence.
+[P3.9] Your centralized dashboard for shipment tracking, document access, and performance metrics.
+[P3.10] Customize views and alerts to stay informed and agile.
+[P3.11] IoT-enabled sensors track location, temperature, humidity, shock, and light.
+[P3.12] Gain real-time alerts and condition monitoring for high-value, sensitive cargo.
+[P3.13] Submit, manage, and resolve claims in one digital platform.
+[P3.14] Simplify the process and speed up resolutions.
+[P3.15] Automate customs compliance and trade documentation.
+[P3.16] Reduce risk, improve accuracy, and streamline cross-border operations.
+[P3.17] With Expeditors’ living model and sensor technology, we’ve reduced spoilage by 30% and improved on-time delivery by 15%. Their tech is a true differentiator.
+[P3.18] Global Logistics Manager, Pharmaceutical Company
+</source>

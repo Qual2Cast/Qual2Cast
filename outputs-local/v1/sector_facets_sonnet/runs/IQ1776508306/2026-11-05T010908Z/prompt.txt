@@ -1,0 +1,60 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Crane NXT, Co. (www.cranenxt.com)
+Sector: Manufacturing (industrial, materials, electronics)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- manufacturing_type (Manufacturing type): How it makes products. Example: discrete: builds individual units on assembly lines. Any that apply of: discrete; process; assembly; outsourced / fabless.
+- production_model (Production model): Built for an order or for stock. Example: make-to-order: each unit configured to the customer's order. Exactly one of: make-to-order; make-to-stock; both.
+- product_complexity (Product complexity): How engineered its products are. Example: engineered: custom-configured equipment. Exactly one of: commodity; engineered; precision / high-spec.
+- production_role (Production role): Where it sits in its customers' supply chain. Example: final manufacturer: sells finished units to contractors. Any that apply of: final manufacturer / OEM; tier 1 supplier; tier 2 or component supplier; contract manufacturer; materials producer.
+- end_market_exposure (End-market exposure): Which end markets drive demand. Example: industrial: factories and commercial buildings. Any that apply of: aerospace and defense; automotive and transportation; industrial; construction and buildings; energy; electronics and semiconductors; healthcare and life sciences; consumer; agriculture; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Industrial Technology Company - Crane NXT, Co.
+[P1.2] As a premier industrial technology company, CraneNXT provides advanced technologies and services to customers throughout the world.
+[P1.3] Providing trusted technology solutions to secure, detect, and authenticate what matters most
+[P1.4] Our deep expertise, propriety technologies and aftermarket services help our customers protect their most important assets and ensure secure, seamless transactions.
+[P1.5] Our growth is driven by our focus on continuous improvement, investing in our core business, and expanding our portfolio through value-enhancing acquisitions.
+[P1.6] It all starts with our team. We believe that attracting passionate people, excited and energized about our mission and giving them the ability to achieve their goals is the key to success.
+</source>
+
+<source id="P2">
+[P2.1] Our Story - Crane NXT, Co.
+[P2.2] A foundation built on more than 200 years of innovation
+[P2.3] But the spirit of entrepreneurship and innovation that drives our business traces its origin to the early 1800s. While much has changed in nearly two hundred years, our unique ability to evolve and innovate remains our key advantage.
+[P2.4] Crane NXT was by the separation of Crane Holdings Company into two separate companies: Crane NXT and Crane Company.
+[P2.5] Our unique technologies deliver advanced solutions to secure, detect, and authenticate our customers’ most important assets. We are focused on driving growth through continued investment in our businesses and solving our customers most important challenges.
+[P2.6] At Crane NXT, we continue to follow the high standards set for the company over 150 years ago.
+[P2.7] Doing great things requires great people.
+[P2.8] We give people confidence every day in moments that matter.
+[P2.9] How we work is just as critical as what we do. Discover how we drive innovation and continuous improvement.
+[P2.10] We believe that teamwork and shared values are the key to our success.
+</source>
+
+<source id="P3">
+[P3.1] CraneNXT Business Capabilities
+[P3.2] Industry leading technologies and services to secure, detect and authenticate what matters most to our customers.
+[P3.3] Our patented micro-optic technology protects the world’s most valuable brands from counterfeiters and fraud, ensuring that consumers get the authenticity they deserve, every time. We are the world’s leading micro-optic producer wielding powerful in-house software and a mastery of specialized materials and equipment to generate the most secure and engaging visual effects. We have created a family of features that are differentiated by ease of use and incomparably resilient against simulation and counterfeiting.
+[P3.4] Our state-of-the-art detection and sensing technologies ensure the highest level of security and authentication for our customers’ most critical applications. Our advanced image recognition software analyzes over 5 million data points in more than 1,000 dimensions while simultaneously referencing 20 proprietary algorithms. The result is a best-in-class technology platform that delivers the highest level of security to our customers. Coupled with our integration and assembly expertise, as well as a vast in-house service network, we are uniquely qualified to deliver one of the industry’s most comprehensive systems offerings.
+[P3.5] Our cloud-based architecture is configured to give our customers seamless access to their devices – enabling real-time machine management and performance alerts. With our comprehensive management platform, our customers benefit from remote diagnostics, payment transaction data, live machine monitoring, consumer analytics, and the potential for added revenue streams from our proprietary in-house advertising network.
+[P3.6] Consumers want fast, flexible solutions that keep them moving. Our customers want smart automation that enables their employees to perform on high-value work. At CPI, we want it all. Explore the integrated technologies that keep our markets moving.
+[P3.7] As a partner to businesses and governments, Crane Authentication offers expertise and cutting-edge innovations that protect and enhance products, secure identities, safeguard revenues and enforce compliance.
+[P3.8] Crane Currency is a fully integrated supplier of secure, durable and beautifully designed banknotes for central banks all over the world. A pioneer in advanced micro-optics technology, Crane Currency provides a wide range of engaging visual effects in features that increase the level of security and public trust in banknotes.
+[P3.9] Antares Vision is a global leader in detection, inspection, and track and trace software that ensures the quality, safety and transparency of products throughout the supply chain. Antares Vision’s advanced solutions enhance efficiency, productivity, and visibility for life sciences, food and beverage, and government customers while safeguarding products for end users.
+[P3.10] Nippon Conlux is a pioneer in the development of coin and currency validation technology used in integrated payment systems in Japan. Conlux provides customers with market leading systems and connectivity solutions for the retail, transport and amusement markets.
+</source>

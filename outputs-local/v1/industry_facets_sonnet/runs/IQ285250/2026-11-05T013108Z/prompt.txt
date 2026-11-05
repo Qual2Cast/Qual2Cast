@@ -1,0 +1,63 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Lee Enterprises, Incorporated (www.lee.net)
+Industry (SIC 27): Printing, Publishing and Allied Industries
+About this industry group: Commercial printers, book publishers and periodical publishers have different operating drivers. Paid circulation and advertising dependence are publisher rows, not mandatory metrics for a commercial-printing plant.
+
+Facets:
+- printing_publishing_activity (Printing / publishing activity). Examples: Commercial printing; Newspaper publishing; Book publishing.
+- print_digital_revenue_mix_publishers (Print / digital revenue mix [publishers]). Examples: 40% print and 60% digital revenue; Digital-subscription-led publisher.
+- publication_print_market (Publication / print market). Examples: Trade journals; Educational books; Commercial packaging print.
+- advertising_circulation_dependence_publishers (Advertising / circulation dependence [publishers]). Examples: 50% advertising revenue; Paid digital subscriptions; Newsstand copy sales.
+- print_output_format_printers (Print output / format [printers]). Examples: 100,000 magazines/month; Web-offset printing; Short-run digital printing.
+- paid_circulation_periodicals (Paid circulation [periodicals]). Examples: 75,000 paid print subscriptions; 200,000 paid digital subscriptions.
+- rights_distribution_publishers (Rights / distribution [publishers]). Examples: Owned publishing rights; Third-party titles under license; Direct digital distribution.
+
+Evidence:
+<source id="P1">
+[P1.1] Lee Enterprises | Leading Provider of Local News
+[P1.2] Leading source of local news, information, and advertising in 72 US markets.
+[P1.3] Lee Enterprises is a leading provider of local news and information and a major subscription and advertising platform with 193 owned and managed brands across 28 states.
+[P1.4] Stephen Pingry / Tulsa World
+[P1.5] We have far more journalists than all our competitors and provide information vital to our communities.
+[P1.6] Our digital and print products reach more than 75% of the adults in our largest markets each week.
+[P1.7] Casey Page / Billings Gazette
+[P1.8] Lee Enterprises can be the one-stop solution for all your marketing needs including data insights, creative services, content creation, engagement, media distribution and reputation management. Our agencies specialize in delivering new customers and growing your business.
+[P1.9] Our publishing platform, Blox CMS, gives our properties the tools they need to create incredible value for readers and advertisers.
+[P1.10] Lee Enterprises and USA TODAY Co. Realign Local Newspaper Portfolios
+[P1.11] Lee Enterprises and Hudl Partner to Expand Access to High School Sports, Connecting Fans, Athletes and Coaches to Local Communities at Scale
+[P1.12] Lee Enterprises Hosts Live Drawing Series with VeeFriends and Award-Winning Editorial Cartoonists May 20 and May 22
+[P1.13] Lee Enterprises’ Amplified Digital Agency Launches Expansive Suite of AI Solutions to Serve Local Businesses
+[P1.14] LEE ENTERPRISES PARTNERS WITH GARY VAYNERCHUK’S VEEFRIENDS TO PRODUCE EXCLUSIVE WEEKLY COMICS
+</source>
+
+<source id="P2">
+[P2.1] About Us | Lee Enterprises | lee.net
+[P2.2] Leading provider of local news, information and advertising in 73 US markets.
+[P2.3] Larry Mayer / Billings Gazette
+[P2.4] Leading provider of local news and information and a major subscription and advertising platform with 193 owned and managed brands across 28 states.
+[P2.5] Our dedicated focus on local audiences allows us to better engage and make meaningful connections, while making the company less susceptible to macroeconomic trends. In addition, we provide a full suite of digital marketing services, content management platforms and custom content creation on a national scale. Lee is consistently among the top performing companies in our industry.
+[P2.6] Lee was in Iowa, by A.W. Lee. Most of our local news platforms trace their beginnings to the mid-1800s. Among our alumni, teenage Sam Clemens wrote for the Muscatine Journal in Iowa before becoming world-renowned as Mark Twain. A reporter from our newspaper in Bismarck, North Dakota, died with George Custer at the Battle of the Little Big Horn. our newspaper in Davenport, Iowa, became the first in the world to be produced totally by computer.
+[P2.7] Today, as throughout our history, in every one of the communities we serve, no competitor can match the indispensable local news, information and advertising we deliver to huge audiences of all ages.
+</source>
+
+<source id="P3">
+[P3.1] Brands | Lee Enterprises | lee.net
+[P3.2] Leading provider of local news, information and advertising in 73 US markets and communities
+[P3.3] Albany Auburn Baraboo Billings Beatrice Beaver Dam Bismarck Bloomington Butte Carlisle Casper Columbus Corvallis Davenport Decatur Elko Fremont Glens Falls Helena La Crosse Lincoln Longview Madison Mason City Mattoon Missoula Moline Munster Muscatine Orangeburg Portage Racine Rapid City Hamilton Sioux City St. Louis Twin Falls Waterloo Winona Kenosha Dothan Opelika Council Bluffs Omaha Grand Island Scottsbluff North Platte Kearney York Pleasantville Buffalo Winston-Salem Greensboro Morganton Marion Statesville Hickory Tulsa Florence Bryan Waco Richmond Charlottesville Roanoke Bristol Lynchburg Martinsville Danville Fredericksburg Culpeper Waynesboro Aberdeen Watertown Sioux Falls Great Falls
+[P3.4] Moline Dispatch & Rock Island Argus
+[P3.5] Danville Register Bee/Go Dan River
+[P3.6] Bristol Herald Courier - Tricities
+</source>

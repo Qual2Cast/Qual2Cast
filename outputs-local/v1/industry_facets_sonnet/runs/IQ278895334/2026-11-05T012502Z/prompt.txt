@@ -1,0 +1,88 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: CSW Industrials, Inc. (www.csw.com)
+Industry (SIC 35): Industrial and Commercial Machinery and Computer Equipment
+About this industry group: Computer equipment is included here in the historical U.S. SIC structure; semiconductor devices are in SIC 36. Aftermarket and installed-base metrics apply to the equipment business, not automatically to every computer-related subsidiary.
+
+Facets:
+- machinery_computer_equipment_category (Machinery / computer-equipment category). Examples: Industrial compressors; Construction machinery; Computer servers.
+- installed_equipment_base (Installed equipment base). Examples: 20,000 active compressors; 50,000 installed machine tools.
+- aftermarket_sales_mix (Aftermarket sales mix). Examples: 35% parts and service revenue; Maintenance-led recurring revenue; Equipment-only sales.
+- equipment_replacement_cycle (Equipment replacement cycle). Examples: 10–15-year machinery life; 3–5-year server refresh cycle.
+- engineering_customization (Engineering / customization). Examples: Engineered-to-order machines; Configurable standard machines; Catalogue equipment.
+- service_maintenance_requirement (Service / maintenance requirement). Examples: Quarterly preventive servicing; Remote condition monitoring; Customer-performed maintenance.
+
+Evidence:
+<source id="P1">
+[P1.1] Home - CSW Industrials
+[P1.2] Our solutions encompass brands you know, and brands you may be using right now.
+[P1.3] Our employee-centric culture is recognized as a Great Place to Work® and a Cigna Healthy Workforce.
+[P1.4] CSW Industrials, Inc. is a diversified industrial growth company with a strategic focus on providing niche, value-added products in the end markets we serve.
+[P1.5] Our solutions span a wide range of industrial and construction applications.
+[P1.6] Contractor Solutions Engineered Building Solutions Specialized Reliability Solutions
+[P1.7] For 185 years combined, RectorSeal, TRUaire and Shoemaker Manufacturing have manufactured and supplied thousands of products for commercial and residential applications, primarily for professional tradesmen who have used them for generations.
+[P1.8] A leading provider of quality solutions for the professional trades serving heating, ventilation, and air conditioning (HVAC/R), plumbing, electrical, and construction markets.
+[P1.9] A leading manufacturer of reliable residential and commercial grilles, registers, and diffusers.
+[P1.10] A leading manufacturer of high-quality, affordable residential and commercial grilles, registers, and diffusers.
+[P1.11] For decades, Smoke Guard, Balco, and Greco have created products that protect people and are engineered to provide aesthetically-pleasing solutions for the construction, refurbishment, and modernization of buildings.
+[P1.12] A leading manufacturer of innovative, code-compliant, aesthetically-pleasing, proprietary, fire-rated and smoke-rated opening protective systems. In some regions we serve, Smoke Guard also provides installation and service of our products.
+[P1.13] A leading manufacturer and supplier of pre-engineered and custom architectural building components and firestopping products specified by engineers, architects, and contractors for commercial buildings.
+[P1.14] A leading manufacturer of corrosion-resistant aluminum, stainless steel, and glass railing systems that meet the desired aesthetics, performance, and requirements of any building.
+[P1.15] With two centuries of experience between them, Whitmore and Jet-Lube have long-established reputations for solving equipment maintenance challenges and increasing the reliability, performance, and lifespan of industrial assets.
+[P1.16] A leading provider of high-performance lubricants, innovative products, and services that increase the reliability, performance, and lifespan of industrial assets.
+[P1.17] A globally-recognized manufacturer of lubricants, sealants, and compounds for oilfield, water well, and industrial maintenance, repair, and operations customers.
+[P1.18] Jul 30, 10:00 AM EDT
+[P1.19] Last updated: Oct 17, 12:50 PM EDT
+[P1.20] We maintain a diverse and inclusive environment where employees are encouraged to contribute and develop.
+[P1.21] Safety is our top priority.
+[P1.22] A focus on safety is built into our operations and our products, extending beyond our walls to improve safety through end applications.
+[P1.23] We take a forward-looking approach to making our products increasingly renewable and eco-friendly.
+[P1.24] Be a part of the team leading the industrial product market.
+</source>
+
+<source id="P2">
+[P2.1] Our Company - CSW Industrials
+[P2.2] A diversified, industrial growth company.
+[P2.3] Headquartered in Dallas, Texas, with operating companies located across the United States, CSW Industrials is a diversified industrial growth company with industry-leading operations in three segments:
+[P2.4] A history of our operating companies:
+[P2.5] RectorSeal: Innovative products for the trades
+[P2.6] Jet-Lube: Advanced lubrication technology and eco-certified products
+[P2.7] Jet-Lube products have helped people solve equipment maintenance problems.
+[P2.8] Whitmore: Lubricants for rail, mining and heavy industry
+[P2.9] Balco: Products that protect people and beautify commercial buildings worldwide
+[P2.10] Balco is a leading manufacturer of pre-engineered and custom architectural building components.
+[P2.11] Smoke Guard: Protection for hospitals, hotels and airports
+[P2.12] Deacon: An industry leader in the distribution of pipe, valves, fittings and many other related products and services
+[P2.13] CSW Industrials: A growth-oriented, diversified industrial Company
+[P2.14] through a spin-off from CSWC, with operating companies that are long established names in their respective end markets.
+[P2.15] Greco Aluminum Railings: Leaders in North American, high-quality engineered railing and safety systems for multi-family and commercial structures
+[P2.16] Greco is a leading manufacturer of high quality, corrosion resistant aluminum railing systems in North America.
+[P2.17] Petersen Metals: A leader in architectural metal products
+[P2.18] Petersen Metals was a regional specialty manufacturer and installer of architectural metal products with more than 30 years of manufacturing experience in stainless steel, fabricated aluminum, mild steel railing assemblies, and other custom architectural building components. CSW combined Petersen with Greco Aluminum Railings to become Greco Architectural Metals.
+[P2.19] TRUaire: A leading manufacturer of grilles, registers, and diffusers for the residential and commercial HVAC market
+[P2.20] Shoemaker Manufacturing: A leading manufacturer of reliable residential and commercial grilles, registers, and diffusers
+[P2.21] Shoemaker Manufacturing’s strong reputation is built upon the quality of its manufactured products, innovation in its customized online ordering process, and relentless focus on customer service.
+[P2.22] Cover Guard and AC Guard expanded HVAC market leadership, while the Falcon Stainless acquisition expanded CSW’s plumbing and HVAC connector product lines. Cover Guard is a patented, adjustable, innovative lineset cover. AC Guard is a product line extension that enhances the security of outdoor HVAC condenser units. Falcon provides high-quality, full port, corrugated stainless steel, and flexible water and gas connectors that are used extensively in the plumbing and HVAC/R end markets.
+[P2.23] CSW Industrials earns Great Place to Work® certification
+[P2.24] Dust Free manufactures innovative solutions in purification, filtration, and inactivation to improve indoor air quality and positively impact the health of our customers. PSP Products offers a superior line of surge protection devices and industry leading load management systems to perform in extreme conditions for decades. PF WaterWorks develops and manufactures revolutionary, problem-solving plumbing products targeting public health and safety while providing dependable performance.
+[P2.25] Aspen is a leading manufacturer of evaporator coils and air handlers within the HVAC end market and is a recognized leader in product quality and indoor comfort.
+[P2.26] An industry-spanning reputation built on uncommon reliability.
+[P2.27] CSW provides value to our customers through a broad, yet complementary range of leading products that provide performance-optimizing solutions for diverse industrial and construction applications that enable enhanced customer service through scalability, operational efficiencies, and extensive distribution networks. The end markets we serve with our well-known brands include HVAC/R, general industrial, plumbing, construction, energy, mining, and rail. Our solutions have two essential commonalities: performance and reliability, earning us the enduring confidence of our customers in every industry we serve.
+</source>
+
+<source id="P3">
+[P3.1] Contractor Solutions - CSW Industrials
+[P3.2] RectorSeal leads CSW’s Contractor Solutions segment and provides a wide range of quality products that increase efficiency and improve reliability for professional contractors in the HVAC/R, plumbing, electrical, and construction markets. We leverage our sales channels and distribution networks in every market we serve, which strategically positions us for growth and success. Consistently recognized for innovation, RectorSeal delivers top-tier brands for HVAC, plumbing, electrical, and firestopping applications. Visit RectorSeal.com/brands to view them all.
+</source>

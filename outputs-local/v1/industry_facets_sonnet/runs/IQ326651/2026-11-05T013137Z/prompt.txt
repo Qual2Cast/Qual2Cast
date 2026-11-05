@@ -1,0 +1,71 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: LTC Properties, Inc. (www.LTCreit.com)
+Industry (SIC 67): Holding & Other Investment Offices
+About this industry group: Distinguish operating holding companies, investment vehicles, equity REITs and mortgage REITs. Use look-through operating-segment modules for controlled businesses; do not treat fund AUM, NAV and consolidated operating revenue as equivalent scale. Property extensions can be shared with SIC 65 without changing the source’s official code. REIT scope.
+
+Facets:
+- holding_investment_office_structure (Holding / investment-office structure). Examples: Operating holding company; Closed-end investment vehicle; Equity REIT.
+- investment_operating_asset_mix (Investment / operating asset mix). Examples: Controlled industrial subsidiaries; Listed securities portfolio; Income-producing property.
+- control_look_through_ownership (Control / look-through ownership). Examples: Majority-owned subsidiaries; Minority equity stakes; Noncontrolling fund investments.
+- portfolio_concentration (Portfolio concentration). Examples: Three holdings: 70% of NAV; Single-sector investment portfolio.
+- management_incentive_fees_externally_managed_vehicles (Management / incentive fees [externally managed vehicles]). Examples: No external manager fee; 1% of NAV annual management fee; Performance fee above stated hurdle.
+- nav_basis_investment_vehicles (NAV basis [investment vehicles]). Examples: Reported NAV/share at quarter-end; Reported portfolio NAV at year-end.
+- parent_funding_subsidiary_recourse (Parent funding / subsidiary recourse). Examples: Parent-only net debt; Ring-fenced subsidiary borrowings; Parent-guaranteed subsidiary debt.
+- market_discount_listed_investment_vehicles (Market discount [listed investment vehicles]). Examples: Share price 15% below disclosed NAV/share; Share price 5% above disclosed NAV/share.
+- reit_business_model_6798 (REIT business model [6798]). Examples: Equity REIT owning properties; Mortgage REIT holding loan assets.
+- property_portfolio_equity_reits (Property portfolio [equity REITs]). Examples: Multifamily apartments; Industrial warehouses; Data-center properties.
+- property_occupancy_equity_reits (Property occupancy [equity REITs]). Examples: 95% physically occupied units; 92% leased floor area.
+- same_property_noi_growth_equity_reits (Same-property NOI growth [equity REITs]). Examples: Annual same-property NOI: +3%; Quarterly same-property NOI: −1%.
+- lease_expiry_equity_reits (Lease expiry [equity REITs]). Examples: 20% of annual base rent expires within two years; Rent-weighted unexpired lease term: 6.5 years.
+- mortgage_asset_mix_mortgage_reits (Mortgage asset mix [mortgage REITs]). Examples: Agency residential MBS; Commercial mortgage loans; Nonagency mortgage securities.
+- financing_hedge_model_mortgage_reits (Financing / hedge model [mortgage REITs]). Examples: Repo-funded MBS portfolio; Match-funded commercial mortgages; Interest-rate swap hedges.
+
+Evidence:
+<source id="P1">
+[P1.1] Financing Senior Housing Since 1992 | LTC Properties Inc.
+[P1.2] LTC Properties is a REIT investing in seniors housing and health care through sale-leasebacks, mortgage financing, joint-ventures, construction financing and structured finance solutions.
+[P1.3] LTC Properties is a real estate investment trust (REIT) investing in seniors housing and care properties, primarily through SHOP, as well as triple-net leases and joint ventures. Our portfolio includes nearly 200 properties across the U.S. — approximately 70% seniors housing and 30% skilled nursing.
+[P1.4] (As of 6/30/26 and as disclosed in our Supplemental Operating and Financial Data report.)
+[P1.5] We've taken bold steps to completely transform our business approach into a SHOP-forward REIT.
+[P1.6] Your vision. Our capital. Let’s GROW!
+[P1.7] We’d love to hear from you, we’re constantly thinking outside of the REIT box to develop creative financing solutions.
+</source>
+
+<source id="P2">
+[P2.1] Leadership and BOD for LTC Properties
+[P2.2] We're a relationship-driven company, through and through. Partnership and alignment aren't just values — they're how we win together. Because our business isn't just real estate. It's the operators bringing our communities to life, and the residents calling them home.
+[P2.3] (As of 6/30/2026 and as disclosed in our Supplemental Operating and Financial Data report.)
+[P2.4] Executive Vice President and Chief Investment Officer
+[P2.5] Executive Vice President, Chief financial Officer, Treasurer and secretary
+[P2.6] eXECUTIVE Vice President, Asset Management
+[P2.7] Vice President, Asset Management (SHOP)
+[P2.8] Vice President and Director of Tax
+[P2.9] Vice President, Facilities and Capital Projects
+[P2.10] Lead Director – LTC Board member
+</source>
+
+<source id="P3">
+[P3.1] Senior housing and health care properties portfolio of LTC Properties
+[P3.2] At LTC our goal is to be the strategic capital partner aligning interests with creative capital solutions, ultimately generating shared success.
+[P3.3] Our deliberately curated SHOP portfolio is designed to compete effectively today, and well into the future. That means newer buildings in strong established markets, and unit and common-area configurations built around contemporary consumer preferences.
+[P3.4] Click on state for more detail
+[P3.5] Property count as of and as disclosed in our Supplemental Operating and Financial Data report.
+[P3.6] Download a List of Properties
+[P3.7] We invite you to step inside.
+[P3.8] Arbor Terrace Hamilton Mill, Dacula, GA
+[P3.9] Charter Senior Living of Paducah, Paducah, KY
+[P3.10] Cloverland Park Senior Living, Brentwood, TN
+</source>

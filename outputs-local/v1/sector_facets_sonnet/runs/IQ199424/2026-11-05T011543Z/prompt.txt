@@ -1,0 +1,98 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Parsons Corporation (www.parsons.com)
+Sector: Software and internet
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- software_category (Software category): What the software does. Example: HR and payroll: payroll, benefits and time tracking. Any that apply of: ERP and finance; HR and payroll; CRM, marketing and sales; cybersecurity; data, analytics and AI; IT and developer infrastructure; collaboration and content; industry-specific (vertical) software; payments and fintech; consumer internet and marketplaces; IT services and consulting; other.
+- deployment_model (Deployment model): How the software is delivered. Example: SaaS: cloud subscription. Exactly one of: SaaS / cloud; on-premise; hybrid; not applicable (services or internet).
+- customer_size (Customer size): Its typical customer. Example: mid-market: employers with tens to a few thousand staff. Any that apply of: consumers; SMB; mid-market; enterprise; government.
+- product_architecture (Product architecture): One product or a suite. Example: platform: payroll, HR, time and benefits on one system. Exactly one of: platform / suite; point solution; API / infrastructure.
+
+Evidence:
+<source id="P1">
+[P1.1] Parsons Corporation
+[P1.2] Parsons is a digitally enabled solutions provider and leader in many markets with a focus on national security and global infrastructure.
+[P1.3] Empowering warfighters in every domain. Learn More
+[P1.4] Decision advantage at mission speed. Learn More
+[P1.5] Growing our regional capabilities and footprint in the Middle East. Learn More
+[P1.6] When challenges arise, we say, “Challenge Accepted.” We're a leading global solutions provider in the national security and critical infrastructure markets. We deliver integrated program management solutions that turn complex initiatives into measurable results. Learn More
+[P1.7] Delivering mission-ready, scalable technologies that advance national security and operational resilience.
+[P1.8] The World’s Leading Infrastructure Company
+[P1.9] Featured Project: Hudson River Tunnel – New York City, NY/NJ Explore More
+[P1.10] With offices and projects spanning the globe, we're making a difference worldwide. 🌎📍 Our team is at the forefront of innovation, from cutting-edge infrastructure to advanced defense solutions. ”
+[P1.11] Trusted in EMEA for 70 years.
+[P1.12] Our experts don’t just provide the world’s smartest solutions—they write about it, too. Read Now
+[P1.13] Be the first to receive updates about Parsons news, events, and innovations. Subscribe Today!
+</source>
+
+<source id="P2">
+[P2.1] Products | Parsons Corporation
+[P2.2] Our products strike a balance between big ideas and the technical ability to bring them to life.
+[P2.3] We’re driven to solve our customers’ most complex challenges. By combining innovation with our cutting-edge technology solutions, we deliver on our mission to deliver a better world. Our products strike a balance between big ideas and the technical ability to bring them to life.
+</source>
+
+<source id="P3">
+[P3.1] Life At Parsons | Parsons Corporation
+[P3.2] We are a digitally enabled solutions provider focused on defense, intelligence, and infrastructure.
+[P3.3] Parsons Corporation, a digitally enabled solutions provider, is focused on creating the future of the defense, intelligence, and critical infrastructure markets. From Earth to outer space, we deliver tomorrow’s solutions today. Equipped with the capabilities required to take on any defense, intelligence, or critical infrastructure challenge, our agile, innovative, and disruptive approach enables us to deliver solutions at the speed of relevance.
+[P3.4] As connectivity increases, geopolitical conditions shift, near-peer threats loom, and technology advances, we stand ready to help confront rapidly evolving security challenges in every domain—land, sea, air, space, and cyber. Learn More
+[P3.5] For more than 75 years, our experts have designed and delivered the critical infrastructure that connects and protects communities around the world. Using our technological expertise, we deliver a cleaner and safer planet for our customers and for future generations. Learn More
+[P3.6] Our presence spans from North America, including extensive projects and offices across the United States and Canada, to Europe, the Middle East, and beyond. Learn More
+[P3.7] As connectivity increases, geopolitical conditions shift, near-peer threats loom, and technology advances, we stand ready to help confront rapidly evolving security challenges in every domain—land, sea, air, space, and cyber.
+[P3.8] For more than 75 years, our experts have designed and delivered the critical infrastructure that connects and protects communities around the world. Using our technological expertise, we deliver a cleaner and safer planet for our customers and for future generations.
+[P3.9] Our presence spans from North America, including extensive projects and offices across the United States and Canada, to Europe, the Middle East, and beyond.
+[P3.10] We’re a company of thinkers and innovators.
+[P3.11] A post shared by Parsons (@parsonscorporation)
+[P3.12] Missile Defense And C5ISR Software Developer
+[P3.13] View this post on Instagram
+[P3.14] Defense And Intelligence Sr. Business Development Director
+[P3.15] The result is a thriving culture and a number of programs and initiatives we all can be proud of.
+[P3.16] Through our Internship Program, students can obtain real-world experience while making valuable impact on our teams through the work that they do.
+[P3.17] Through our employee-driven program, we serve the communities in which we live, work, and play.
+[P3.18] Employees are our number one asset, which is why we created our Parsons Distinguished Recognition and Incentive (DRIVE) Program to recognize and reward employees who go above and beyond in their work and their projects, their clients, and their team.
+[P3.19] Transitioning from the military can be difficult, which is why at Parsons you will find a community of support, camaraderie, and appreciation. Our goal is to make all transitions as smooth as possible through our specifically tailored MILVET program.
+[P3.20] Regardless Of Your View, You're Always Parsons
+[P3.21] Flexible work options (FWOs), including remote working on a permanent or hybrid basis, help us drive productivity, expand our talent pools, and improve sustainability. They enable us to deliver on our mission and vision in new ways. We formally made FWOs our standard operating procedure in the United States and Canada and support flexibility where the nature of work, customer requirements, and corporate regulations and compliance allow for such considerations.
+[P3.22] From TRS To Parsons: A Personal Reflection On Growth, Innovation, And One Parsons
+[P3.23] Explore TRS integration with Parsons through the insights of Emily Crownover, highlighting innovation in environmental solutions.
+[P3.24] Beyond the Drawings: My Journey Into Project Management At Parsons
+[P3.25] Discover Abdulla Alawadhi’s journey into UAE infrastructure project management at Parsons, from civil engineering graduate to assistant project manager.
+[P3.26] Leadership Doesn’t Wait Until You’re Ready
+[P3.27] Meet Rebecca “Becky” Wong: Principal Project Manager At The Transbay DTX/Portal Program
+[P3.28] Delve into the evolution of the Transbay DTX project and its meaningful contributions to civil engineering and communities.
+[P3.29] Creating Opportunity Through Infrastructure And People
+[P3.30] Learn how opportunity through infrastructure and people enabled Donna’s transition from technical work to effective leadership.
+[P3.31] Explore the challenges of a leukemia diagnosis through the Lopez family’s journey and their hopes for the future.
+[P3.32] Becoming: A 2,745-Mile Cycling Adventure
+[P3.33] Explore the personal journey of Rob Maple during The Tour Divide, where unbecoming leads to self-discovery and growth.
+[P3.34] Blueprints of Success: My Path To Engineering At Parsons
+[P3.35] Explore the life of a parsons engineer, where problem-solving meets innovation to improve daily life and transform perspectives.
+[P3.36] This Is Just The Beginning
+[P3.37] Explore the journey of an Emirati Engineer and discover how passion for infrastructure drives sustainable development in the UAE.
+[P3.38] As we become more interconnected around the world, follow our latest updates and journey to creating the future.
+[P3.39] Our success comes from the talented people we hire.
+[P3.40] From Earth to outer space, we deliver tomorrow’s solutions today.
+[P3.41] Solving the world's most complex problems
+[P3.42] Delivering solutions through innovation with agility.
+[P3.43] Employees from our Doha, Qatar office celebrating Pakistan and Indian independence day.
+[P3.44] Members of our bridge team, checking out the views from the Mackinac Bridge.
+[P3.45] Members of our team located at McMurdo Station, Antarctica, pose for a group photo.
+[P3.46] We've teamed up with the 24 Foundation to raise money and positively impact the lives of those affected by cancer.
+[P3.47] Heidi Wright, Defense and Intelligence VP, in Svalbard, Norway at the KSAT Tenant's meeting.
+[P3.48] Our team at McMurdo Station, Antarctica, playing softball after work.
+[P3.49] Our Creative and Brand Management team participating in the annual Adobe Conference.
+</source>

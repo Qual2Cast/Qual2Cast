@@ -1,0 +1,63 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Bowhead Specialty Holdings Inc. (bowheadspecialty.com)
+Sector: Banks, insurance and other financials
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- financial_business_type (Financial business type): What kind of financial firm. Example: insurance brokerage: places commercial insurance for clients. Any that apply of: banking; specialty lending; property and casualty insurance; life and health insurance; insurance brokerage; asset / wealth management; exchanges and market infrastructure; payments; other.
+- revenue_driver (Revenue driver): What it earns on. Example: fees: commissions on placed premiums. Any that apply of: net interest income; fees and commissions; premiums; investment income.
+- customer_type (Customer type): Who its clients are. Example: corporate: small and mid-sized businesses. Any that apply of: retail; corporate; institutional; government.
+- balance_sheet_dependence (Balance sheet dependence): Whether it carries the risk. Example: fee-based: no underwriting risk. Exactly one of: balance-sheet intensive; fee-based; mixed.
+
+Evidence:
+<source id="P1">
+[P1.1] Bowhead Specialty | Specialty Insurance & Underwriting Experts
+[P1.2] Bowhead Specialty provides tailored specialty insurance solutions. Expertise in professional, casualty, & healthcare liability coverage.
+[P1.3] Tailored underwriting for standard and complex risks. We offer Directors & Officers, Management Liability, Cyber, and Errors & Omissions coverage on admitted and non-admitted paper, serving public, private, and not-for-profit organizations, including financial institutions.
+[P1.4] Broad casualty coverage with the expertise to handle complex, high-hazard risks. Our core industries include construction, hospitality, public entity, manufacturing, real estate, and environmental.
+[P1.5] Medical Malpractice, Management Liability, and Errors & Omissions coverage specifically designed for healthcare organizations, including hospitals, medical facilities, senior care providers, and managed care organizations.
+[P1.6] Surface promises are easy. Depth is earned. We deliver what others don’t.
+[P1.7] We created Bowhead Specialty with a clear-eyed view of the market, seeing opportunity where others pulled back.
+[P1.8] Bowhead blends deep expertise with advanced technology and first-class service to enable the underwriting of risks with varying levels of complexity. Our capabilities span a range of product lines that support our brokers’ needs.
+[P1.9] Amid declining capacity, mispriced risk, and retreating carriers, we saw the need for a better approach.
+[P1.10] A specialty lines company led by experienced underwriters, focused on quality risk selection, and grounded in a culture that values character as much as capability.
+[P1.11] We have a firm belief that underwriting excellence starts with people, so we built a team of respected industry veterans, united by a commitment to excellence and superior service.
+[P1.12] Bowhead can help you navigate your specialty insurance needs with clarity and confidence.
+</source>
+
+<source id="P2">
+[P2.1] About Us | Bowhead Specialty | Custom Specialty Insurance
+[P2.2] Learn about Bowhead Specialty, our mission, team, and custom insurance coverage solutions. We offer tailored primary and excess coverage.
+[P2.3] At Bowhead Specialty, we aim to to make the complex manageable and the experience consistent for every client, partner, and employee.
+[P2.4] We do that by building with purpose: underwriting with precision, communicating with clarity, and operating with consistency from start to finish.
+[P2.5] We’re committed to a culture where collaboration transcends titles and departments. Every perspective is valued and ideas are strengthened through seamless partnerships across teams. By challenging one another with respect and celebrating shared wins, we create an environment of consistent growth and innovation.
+[P2.6] Brokers and insureds know exactly what to expect when they work with Bowhead Specialty: consistency, confidence, and care in the products and services we deliver.
+[P2.7] Bowhead Specialty provides tailored primary and excess insurance coverage solutions across multiple core divisions: Professional Liability, Healthcare Liability, and Casualty. Visit our appetite page for details of coverages offered.
+[P2.8] We serve a wide range of clients, from well-established public companies to growing private businesses and nonprofits. Our underwriters work to provide custom coverage for complex risks across multiple industries.
+[P2.9] We don’t believe in one-size-fits-all policies. Our underwriting-first model is backed by deep sector expertise, advanced analytics, and technology. Our core craft solutions are custom-built to meet the specific needs, risk profiles, and goals of our clients.
+[P2.10] Bowhead Specialty has expertise across a wide array of industries, including but not limited to construction, manufacturing, financial services, healthcare, hospitality, distribution, and technology.
+[P2.11] Yes. We offer both primary and excess coverage across multiple lines, including General Liability, Professional Liability, and Healthcare Liability, giving clients the flexibility to build layered programs that align with their risk management strategies.
+[P2.12] We offer both admitted and non-admitted coverage options, depending on the line of business and jurisdiction. This allows us to provide flexible solutions tailored to regulatory and client-specific needs.
+[P2.13] Bowhead Specialty offers solutions in all 50 US states. Our business is primarily written on an E&S (Excess and Surplus) basis. We have offices in New York City, and Chicago, and teams located across over 30 states.
+[P2.14] Bowhead Specialty is an affiliate of American Family Mutual Insurance Company, S.I., Our products are offered through American Family Mutual Insurance Company, S.I., affiliates on an admitted and surplus lines basis.
+</source>
+
+<source id="P3">
+[P3.1] American Family Insurance Partnership | Bowhead Specialty
+[P3.2] Learn about the partnership between Bowhead Specialty and American Family Insurance. Bowhead is an affiliate of American Family Insurance.
+[P3.3] American Family Mutual Insurance Company, S.I. (American Family Insurance) is the nation’s 12th-largest property and casualty mutual insurer, ranking No. 202 on the Fortune 500 list. American Family has a current ‘a+’ credit rating through AM Best, and has distinction as a “Standing the Test of Time” company, which is represented by having an AM Best financial strength rating of ‘A’ or better for at least 75 years.
+[P3.4] Bowhead Specialty Underwriters, Inc., a licensed agency nationwide, is an affiliate of American Family Insurance. Bowhead Specialty offers products through American Family Insurance affiliates on an admitted and surplus lines basis. Bowhead Insurance Company Inc. is a fully capitalized reinsurer that assumes risks from American Family Insurance.
+</source>

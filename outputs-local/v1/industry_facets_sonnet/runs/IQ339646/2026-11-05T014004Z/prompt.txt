@@ -1,0 +1,81 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Virtus Investment Partners, Inc. (corporate.virtus.com)
+Industry (SIC 62): Security and Commodity Brokers, Dealers, Exchanges and Services
+About this industry group: Separate asset managers, brokers, dealers and exchanges. AUM, AUA and assets under custody describe different roles and may overlap; do not add them together or treat them as interchangeable company scale.
+
+Facets:
+- financial_market_service (Financial-market service). Examples: Retail brokerage; Investment advisory; Securities market making.
+- client_instrument_exposure (Client / instrument exposure). Examples: Retail equities and ETFs; Institutional fixed income; Listed derivatives.
+- assets_under_management_asset_managers (Assets under management [asset managers]). Examples: $80 billion discretionary AUM; $20 billion non-discretionary AUM.
+- assets_under_administration_custody_platforms (Assets under administration / custody [platforms]). Examples: $100 billion client AUA; $300 billion assets under custody.
+- revenue_fee_economics (Revenue / fee economics). Examples: Asset-based advisory fees; Brokerage commissions; Principal trading revenue.
+- client_trading_activity (Client trading activity). Examples: One million executed trades/day; Ten million options contracts/month.
+
+Evidence:
+<source id="P1">
+[P1.1] Home Page | Virtus Investment Partners
+[P1.2] Welcome to Virtus Investment Partners
+[P1.3] Virtus Investment Partners is a distinctive partnership of boutique investment managers, singularly committed to the long-term success of individual and institutional investors.
+[P1.4] Please select your investor type.
+[P1.5] Individual Investor Financial Professional Institutional Investor or Consultant International Investor Non-U.S. Investor (UCITS & QIAIFs)
+</source>
+
+<source id="P2">
+[P2.1] About Us | Virtus Investment Partners
+[P2.2] A distinctive company with a multi-manager, multi-strategy model
+[P2.3] A Message from George R. Aylward President and Chief Executive Officer
+[P2.4] Welcome to Virtus Investment Partners, a company dedicated to being a distinctive and trusted provider of asset management solutions for individual and institutional investors.
+[P2.5] Our goal is to offer clients high-quality investment strategies that have generated compelling performance and meet multiple financial needs. To accomplish this, we employ a multi-manager, multi-strategy approach that delivers a broad array of solutions.
+[P2.6] Each of our investment partners has a distinct investment philosophy and style, with talent and discipline that have been tested through market cycles and validated by performance over time. Importantly, they all share an unwavering commitment to investor success.
+[P2.7] We hope you will consider joining us as a client.
+[P2.8] Our multi-manager, multi-strategy approach gives clients access to distinctive investment strategies from independent managers.
+[P2.9] We have the flexibility, agility, and responsiveness of a boutique asset management firm with the product breadth, distribution reach, and resources of larger firms.
+[P2.10] Our multi-boutique model is based on the fundamental belief that investment professionals who operate in an environment that allows for the appropriate focus and culture can generate sustainable, superior returns for our clients.
+</source>
+
+<source id="P3">
+[P3.1] AlphaSimplex Group, LLC | Virtus Investment Partners
+[P3.2] AlphaSimplex is a systematic alternatives manager focused on delivering quantitative investment strategies that are attuned to changing market dynamics.
+[P3.3] Adaptive strategies for evolving markets
+[P3.4] AlphaSimplex strives to help investors meet their long-term goals in ever-evolving markets by analyzing market behavior and risk. Our investment philosophy is based on the Adaptive Markets Hypothesis, an innovative theory of market behavior.
+[P3.5] Virtus AlphaSimplex Global Alternatives Fund
+[P3.6] Virtus AlphaSimplex Managed Futures Strategy Fund
+[P3.7] Virtus GF AlphaSimplex Managed Futures Fund
+[P3.8] Virtus AlphaSimplex Global Macro ETF
+[P3.9] Virtus AlphaSimplex Managed Futures ETF
+[P3.10] Chief Investment Officer, Portfolio Manager Industry Start Date: 2007
+[P3.11] Alexander Healy is the chief investment officer and a portfolio manager at AlphaSimplex, an affiliated manager of Virtus Investment Partners. Dr. Healy is responsible for the day-to-day supervision of the research team and the implementation of the firm’s investment strategies. He is the chair of the firm’s investment committee and a member of the operating and risk committees. Additionally, he serves as a co-portfolio manager of certain funds.
+[P3.12] Dr. Healy joined AlphaSimplex and held the roles of senior research scientist, director of strategic research, and deputy chief investment officer. He has developed various key elements of AlphaSimplex’s investment platform, including non-parametric investment models, volatility management overlays, and dynamic approaches to portfolio construction.
+[P3.13] Dr. Healy earned an A.B. in mathematics and computer science from Harvard University, where he also received a Ph.D. in theoretical computer science. His doctoral research focused on the uses of randomness in algorithms and cryptography and introduced novel approaches to generating pseudo-random numbers together with new applications of these methods. Dr.
+[P3.14] Chief Research Strategist, Portfolio Manager Industry Start Date: 2008
+[P3.15] Kathryn Kaminski is chief research strategist and a portfolio manager at AlphaSimplex, an affiliated manager of Virtus Investment Partners. Dr. Kaminski conducts applied research, leads strategic research initiatives, focuses on portfolio construction and risk management, and engages in product development. Dr. Kaminski is a member of the investment committee. Additionally, she serves as a co-portfolio manager for the AlphaSimplex Managed Futures Strategy and AlphaSimplex Global Alternatives Strategy.
+[P3.16] Prior to joining AlphaSimplex Dr. Kaminski was a visiting scientist at the MIT Laboratory for Financial Engineering. Previously, she held portfolio management positions as a director, investment strategies at Campbell and Company and as a senior investment analyst at RPM, a CTA fund of funds.
+[P3.17] Dr. Kaminski co-authored the book Trend Following with Managed Futures: The Search for Crisis Alpha (2014). Her research and industry commentary have been published in a wide range of industry publications as well as academic journals. She is a contributory author for both the CAIA® and CFA® reading materials. Dr. Kaminski is a Senior Lecturer at the MIT Sloan School of Management and has taught at the Stockholm School of Economics and the Swedish Royal Institute of Technology, KTH.
+[P3.18] Dr. Kaminski earned an S.B. in electrical engineering and a Ph.D. in operations research from MIT where her doctoral research focused on stochastic processes, stopping rules, and investment heuristics. She is a Chartered Alternative Investment Analyst® (CAIA®) charterholder. Dr.
+[P3.19] Senior Research Scientist, Senior Portfolio Manager Industry Start Date: 2008
+[P3.20] Tansu Demirbilek is a senior research scientist and a senior portfolio manager at AlphaSimplex, an affiliated manager of Virtus Investment Partners. Mr. Demirbilek focuses on portfolio management, conducts applied research, advises product development, and leads other key strategic initiatives focusing on research, portfolio construction, risk management, and trading. Mr. Demirbilek is a member of the Investment Committee. He also serves as a co-portfolio manager of certain funds advised by AlphaSimplex.
+[P3.21] Mr. Demirbilek joined AlphaSimplex. Prior to this, he was a systematic portfolio manager at Brevan Howard, focusing on systematic global macro. He also served as managing director of research and head of the systematic macro team at Campbell and Company, and as a managing director of research and modeling at Windhaven Investment Management. Mr. Demirbilek has also held research and analyst roles at Anderson Global Macro, AHL Man Investments, Soros Fund Management, and North Asset Management.
+[P3.22] Mr. Demirbilek earned a B.Sc. in Electrical Engineering from Middle East Technical University and an M.Sc. in Electrical Engineering from Ohio State University. He also earned an M.B.A. from Babson College and a Masters in Finance in Quantitative Finance from the London Business School. Mr.
+[P3.23] Senior Research Scientist, Portfolio Manager Industry Start Date: 2007
+[P3.24] Peter Lee is a senior research scientist and a portfolio manager at AlphaSimplex, an affiliated manager of Virtus Investment Partners. As a co-portfolio manager for the AlphaSimplex Global Alternatives Strategy, he focuses on portfolio management, applied research in hedge fund related strategies, and overall capability development.
+[P3.25] Mr. Lee joined AlphaSimplex. He specializes in systematic single-name equity trading strategies, hedge fund factor replication, and modeling probabilistic dynamic systems using perspectives from probability, information theory, economics, and engineering. Much of Mr. Lee’s recent work involves designing representations of latent information that drive trading decisions.
+[P3.26] Mr. Lee earned an A.B. in applied mathematics (decision and control focus) with a minor in economics from Harvard University. He also earned an S.M. in operations research from MIT. His master’s thesis presented a novel technique for constructing sparse high-dimensional Gaussian models. He is a Chartered Financial Analyst® (CFA®) charterholder. Mr.
+[P3.27] Senior Research Scientist, Portfolio Manager Industry Start Date: 2006
+[P3.28] Philippe Lüdi is a senior research scientist and a portfolio manager at AlphaSimplex, an affiliated manager of Virtus Investment Partners. As a co-portfolio manager for certain AlphaSimplex portfolios, he focuses on portfolio management, applied research, and overall capability development.
+[P3.29] Dr. Lüdi joined AlphaSimplex. He has been involved in system engineering as well as global macro strategies.
+[P3.30] Dr. Lüdi earned the equivalent of an M.A. in molecular and computational biology from the University of Basel. He also received a M.Sc. in statistics and a Ph.D. in bioinformatics, both from Duke University. In his doctoral program, Dr. Lüdi applied a Monte Carlo approach to risk analysis and developed a machine-learning algorithm applied to medicine that was subsequently featured in The Wall Street Journal. He is a Chartered Financial Analyst® (CFA®) charterholder. Dr.
+[P3.31] Please consider a Fund’s investment objectives, risks, charges, and expenses carefully before investing. Read it carefully before investing.
+</source>

@@ -1,0 +1,229 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Ribbon Communications Inc. (www.ribboncommunications.com)
+Industry (SIC 73): Business Services
+About this industry group: This is not a SaaS-only template. Choose the relevant 731 advertising, 734 building-services, 735 rental, 736 staffing, 737 computer-services/software or 738 specialist-services branch. SIC4 examples are routing aids, not new official business-model categories. NRR, ARR and software implementation fields are conditional software rows. Official scope and detailed groups.
+
+Facets:
+- business_service_specialization (Business-service specialization). Examples: Packaged HCM software; Temporary staffing; Building cleaning.
+- service_operating_model (Service operating model). Examples: Subscription software; Labor-based outsourcing; Project-based agency.
+- charging_unit (Charging unit). Examples: Per employee/month; Per billable labor hour; Per processed transaction.
+- customer_contract_term (Customer contract term). Examples: Month-to-month service; Annual subscription; Three-year managed-service agreement.
+- contracted_repeat_revenue (Contracted / repeat revenue). Examples: 80% subscription revenue; Recurring cleaning contracts; Repeat usage-based processing fees.
+- implementation_transition_work (Implementation / transition work). Examples: Payroll data migration; Outsourcing transition; Customer-site service mobilization.
+- client_count_retention (Client-count retention). Examples: Annual paying-client retention: 92%; Annual retained service accounts: 90%.
+- software_deployment_737_software_services (Software deployment [737 software/services]). Examples: Multi-tenant SaaS; Customer-hosted software; Hybrid deployment.
+- software_functional_scope_737 (Software functional scope [737]). Examples: Payroll and HCM; Cybersecurity; ERP / accounting.
+- net_revenue_retention_subscription_software (Net revenue retention [subscription software]). Examples: Annual NRR: 115%; Annual constant-currency NRR: 108%, separately defined.
+- arr_recurring_base_definition_subscription_software (ARR / recurring-base definition [subscription software]). Examples: Subscription ARR at year-end; Annualized contracted recurring fees, issuer-defined.
+- processing_transaction_platform_7374 (Processing / transaction platform [7374]). Examples: Payroll processing; Card-transaction processing; Data preparation services.
+- staffing_placement_model_736 (Staffing / placement model [736]). Examples: Temporary staffing; Permanent placement; Recruitment process outsourcing.
+- temporary_staffing_activity_temporary_staffing (Temporary staffing activity [temporary staffing]). Examples: 10,000 workers on assignment; Two million billed temporary-worker hours/year.
+- permanent_placement_volume_employment_agencies (Permanent placement volume [employment agencies]). Examples: 3,000 placements/year; 1,500 placements/year.
+- temporary_labor_billing_economics_temporary_staffing (Temporary labor billing economics [temporary staffing]). Examples: Bill rate $40/hour versus pay rate $28/hour; Stated markup on direct labor cost.
+- advertising_agency_economics_731 (Advertising / agency economics [731]). Examples: Media-placement commission; Creative-service retainer; Performance-marketing fee.
+- building_security_service_model_734_7381_7382 (Building / security service model [734, 7381–7382]). Examples: Contract janitorial routes; On-site guarding; Monitored security installations.
+- rental_fleet_utilization_735 (Rental fleet / utilization [735]). Examples: Construction-equipment rental; Medical-equipment rental; Time utilization: 70% of eligible rental days.
+
+Evidence:
+<source id="P1">
+[P1.1] IP Optical Networking and Communications | Ribbon
+[P1.2] Ribbon offers innovative IP and optical networking solutions and cloud-to-edge communications solutions. These solutions include optical and IP systems for 5G networks, mobile back-haul, metro aggregation and wholesale carriers. Our cloud-to-edge solutions include enabling Microsoft teams using the Ribbon SBC and UC.
+[P1.3] Your Path to Autonomous Networks
+[P1.4] AIOps and Automation Platform. Ribbon Acumen™ provides a faster, smarter approach for implementing AI-driven automation to lower the cost of operating your multi-vendor network.
+[P1.5] Cloud Native SBC. Transition to a Session Border Controller in a secure, scalable cloud. No hardware.
+[P1.6] IP Routing & Optical Networking. Transport services intelligently according to their performance needs.
+[P1.7] Rockin' Autonomous Networks at the Hard Rock in Ft. Lauderdale - Register today.
+[P1.8] Ribbon’s Cloud Native Technology Partners with Agentforce Contact Center in the Public Cloud
+[P1.9] Integrated cloud native solution, available on AWS Marketplace, delivers secure session control and centralized management
+[P1.10] Optimum Integrates Ribbon's AIOps Platform Acumen
+[P1.11] Verizon Selects Ribbon to Provide Advanced Voice Network Platform and Services.
+[P1.12] Brightspeed Invests in Next Generation Services with Ribbon’s Network Transformation Solution
+[P1.13] Interview: Bruce McClelland on how operators can benefit from network modernization
+[P1.14] AIOps & Automation for Your Network
+[P1.15] A comprehensive solution that leverages AI for deployment automation and operational insights.
+[P1.16] “In service” Upgradable From 7.2Tbs to 14.4Tbs
+[P1.17] Powered by Ribbon's IP rNOS and with IPoDWDM capabilities, the NPT 2714 is a 6RU modular, centralised aggregation router which combines the redundancy and I/O diversity of a modular router with the simplicity and cost efficiency of a fixed router.
+[P1.18] When you need to connect Teams to the rest of the world seamlessly - Ribbon's SBCs allow you to securely make business calls outside of your organization.
+[P1.19] Ribbon Can help you migrate off Metaswitch. We are the only vendor offering comprehensive Metaswitch replacement options.
+[P1.20] Unlock Network Value Through Automation
+[P1.21] Unify IP/MPLS and optical layers with real-time automation—simplify, accelerate, and optimize with Muse Multilayer Automation Platform.
+[P1.22] Rural Broadband - Rural DCI
+[P1.23] Get greater long-term value from your broadband investment and BEAD funding – a 100G middle mile isn’t enough to meet future needs, such as rural data center interconnect (DCI)
+[P1.24] We’ve built a complete ecosystem using Ribbon data… consumed by my central quality teams as well as the larger ecosystem.
+[P1.25] Ajay Jain, EVP of Digitization, Bharti Airtel
+[P1.26] Optimum shares Ribbon’s vision for building AIOps solutions that can dramatically transform the way networks are managed and maintained.
+[P1.27] Luciano Ramos, AIOps & Automation, Optimum
+[P1.28] Ribbon has proven itself as a paragon of reliability, demonstrating adaptability and responsiveness in deploying SBCs and DWDM solutions across our markets
+[P1.29] Dirk Karl, Sourcing and Supply Chain, MTN
+[P1.30] Randeep Sekhon, CTO, Bharti Airtel
+[P1.31] Muse was really the game-changer, ten button clicks in Muse and it’s built! It’s a game-changer for us operationally.
+[P1.32] Andrew Kalkbrenner, IT Manager, Vibrant Broadband
+[P1.33] You Need Faster Service Delivery - Go Cloud Native
+[P1.34] Go cloud-native to continuously deliver faster services and revenue, from public or private cloud. Give your customers a better experience with secure, carrier-grade, automated, communications services.
+[P1.35] Our heritage precedes us, but it does not define us. We leverage our experience to develop more reliable network solutions, as we continually innovate.
+[P1.36] The Ribbon family has grown over the years, bringing together the best talent in our industry. Our team’s innovative drive and deep engagement are vital to your success -- and ours.
+[P1.37] Countries Represented by our Customers
+[P1.38] Patents developed by our team
+</source>
+
+<source id="P2">
+[P2.1] Ribbon About Us | Voice, IP and Optical Networking
+[P2.2] Ribbon is a global leader of voice, IP and and optical networking solutions -- switching, security, networking and professional services.
+[P2.3] About Ribbon Ribbon Communications delivers, AIOps and automation, secure cloud communications and IP and optical networking solutions to service providers, enterprises, mission-critical defense, and critical infrastructure sectors globally. We engage deeply with our customers, helping them modernize their networks for improved competitive positioning and business outcomes in today's smart, always-on, and data-hungry world. Our end-to-end portfolio of communications software, IP routing, and optical networking solutions delivers superior value and innovation by leveraging cloud-native architectures, automation and analytics tools, and leading-edge security. We maintain a keen focus on our commitments to Environmental, Social, and Governance (ESG) matters, offering an annual Sustainability Report to our stakeholders.
+[P2.4] Intelligent IP Optical Solutions Portfolio Brochure
+[P2.5] Ribbon has customers in virtually every region of the world, including North America, Central and Latin America, Asia Pacific, Europe, and the Middle East. Some of Ribbon's customers include leading service providers such as Verizon, Bharti Airtel, Rogers, MTN, BT, Deutsche Telekom, Softbank, Optimum, and Tata, as well as large enterprises such as Liberty Mutual Insurance and Texas A&M, along with critical infrastructure providers such as American Electric Power and the US Department of Defense.
+[P2.6] Ribbon takes products to market via service providers, channel partners, and Independent Software Vendors (ISVs).
+[P2.7] Ribbon also boasts a world-class ecosystem of technology partners, including global brands like Amazon Web Services, Microsoft, IBM and Intel.
+[P2.8] The Ribbon name reflects the company's mission to deliver an unparalleled suite of best-in-class solutions and services to its growing list of global customers and partners. Ribbon Communications embodies the company's ambition to continue moving the real-time communications industry forward. Ribbon isn't just about connecting point "a" to point "b." It is about encompassing the ability to ensure our contact points are elegantly and seamlessly simple to create, manage and automate. With the world more complexly woven together than ever before, the real-time communications we rely on must become automated and driven by AI operations. That is what Ribbon stands for.
+[P2.9] Bruce McClelland - President, CEO & Director
+[P2.10] Bruce McClelland is CEO and President of Ribbon Communications, a global communications and network solutions provider to service providers, enterprises, and critical infrastructure sectors. Bruce is a technical business leader with a proven history of developing and growing sustainable, profitable businesses through technology and business cycles.
+[P2.11] No matter where you are, Ribbon is nearby. We fancy ourselves as a global company with a local touch. Ready to stand up your network and ready to stand by your side -- Ribbon is ready!
+[P2.12] Ribbon is Here for You
+[P2.13] We have built and serviced networks for decades and we have established a reputation as a trusted vendor. Our 450 member support team is dedicated to you and your network even when unexpected outages occur. Around the globe or around the corner -- Ribbon is here for you.
+[P2.14] 2025 – Ribbon Launches Acumen, an AIOps and Automation Platform
+[P2.15] 2020 – Ribbon Merges with ECI Telecom
+[P2.16] 2017 – Sonus and GENBAND Merge to form Ribbon Communications, a Global Leader in Real-time Communications and Security Solutions
+[P2.17] 2016 – GENBAND Application Server Receives Department of Defense JITC Certification
+[P2.18] 2015 – Sonus Completely Virtualizes Product Portfolio
+[P2.19] 2014 – GENBAND Launches Kandy Platform-as-a-Service
+[P2.20] 2013 – Sonus Launches SBC SWe; Named a Leader in Gartner's "Magic Quadrant for SBCs" for Second Consecutive Year
+[P2.21] 2010 – GENBAND Named #1 Supplier in the Global Service Provider VoIP Market (Softswitches, Media Gateways, Session Border Controllers, Media Servers and Applications)
+[P2.22] 2007 – Sonus Surpasses One Trillion VoIP Minutes; Named "Outstanding Vendor" by AT&T
+[P2.23] 2006 – Sonus Announces First Session Border Controller, SBC 9000; Named a Leader in Gartner's "Magic Quadrant for Softswitch Architecture"
+[P2.24] 2006 – General Bandwidth becomes GENBAND
+[P2.25] 2004 – Sonus Surpasses 500 billion VoIP minutes
+[P2.26] 1999 – General Bandwidth founded
+[P2.27] 1998 – Sonus Unveils World's First Carrier-Class IP Telephony Switch, GSX 9000
+[P2.28] 1997 – Sonus Networks founded
+[P2.29] Ribbon helps the world's leading communications service providers and enterprises embrace the next generation of communications technologies With multiple customers around the globe and 50 years of experience transforming and securing networks, Ribbon enables service providers and enterprises to transform their communications networks, quickly deploy new optical and IP networks, and capture and retain customers and generate a significant related return on investment.
+[P2.30] Ribbon's industry-leading product portfolio ranges from IP Systems, Optical Systems, and session border controllers ("SBCs") for service providers and enterprises, intelligent edge with SD-WAN, Network Edge Orchestration, policy and routing, call controllers or softswitches, media gateways, applications platforms, communications clients, and signaling controllers to cloud communications "as a Service" solutions. The company's comprehensive portfolio also includes unrivaled end-to-end service assurance, security, fraud management and analytics solutions. All of these solutions are supported by a global services team with extensive experience in design, deployment and maintenance of some of the world's largest IP and optical networks.
+[P2.31] The company is also focused on providing secure carrier-class enterprise communications capabilities to industry verticals including the financial, government, education and healthcare sectors. All of these industries already benefit from Ribbon's secure, unified, reliable and embedded communications capabilities, which enhance their ability to collaborate and improve productivity.
+[P2.32] Ribbon’s comprehensive Secure Cloud Communications and IP Optical Networks portfolio provides fixed,mobile, cable (MSO), wholesale and data center interconnect providers of all sizes with the latest in:
+[P2.33] 5G Mobile Backhaul and Analytics
+[P2.34] Metro Aggregation and Access-to-Core Optical Networking
+[P2.35] Session Security, Policy and Identity Assurance
+[P2.36] Managed Enterprise Edge for Cloud Communications Services
+[P2.37] Analytics for Network Insights and Security
+[P2.38] Network Transformation for Transport & Voice Services
+</source>
+
+<source id="P3">
+[P3.1] Key Solutions and Products | Ribbon Communications
+[P3.2] Digital Warfare - Moving at the Speed of DataRibbon provides secure, interoperable communications and resilient IP/optical transport for mission‑critical defense networks. The portfolio covers secure voice and SIP interoperability (including large-scale PBX modernization), survivable deployments, and high-capacity IP/packet + optical backbones with multilayer automation. This page maps mission needs → solution building blocks → products, and links to deeper product and application resources.
+[P3.3] Building State of the Art Mission-Critical Defense Networks
+[P3.4] Digital Warfare - Moving at the Speed of Data
+[P3.5] Ribbon provides secure, interoperable communications and resilient IP/optical transport for mission‑critical defense networks. The portfolio covers secure voice and SIP interoperability (including large-scale PBX modernization), survivable deployments, and high-capacity IP/packet + optical backbones with multilayer automation. This page maps mission needs → solution building blocks → products, and links to deeper product and application resources.
+[P3.6] JITC Solutions at a Glance Solution Brief
+[P3.7] Muse Service Provisioning with Optimized Link Utilization Solution Solution Brief
+[P3.8] Muse Multilayer Automation Platform Overview White Paper
+[P3.9] Moving at the Speed of Data
+[P3.10] Digital Operations Demand “Secure, Real-time, Everywhere"
+[P3.11] Modern operations require secure transport, pooling, and real-time delivery of data to decision points, with reliability as a non-negotiable. Ribbon’s portfolio is secure and field-proven across all communications and transport layers.
+[P3.12] Session Border Controllers Application Servers Media Gateways Automation, Management and Control Systems
+[P3.13] Core SBC, Edge SBC Application Server G5 Line Access Gateway Analytics RAMP Application Management LEAP Test Automation
+[P3.14] Resilient, Automated IP‑Routing, Packet & Optical Transport
+[P3.15] IP Routers / Packet Switches Optical Transport and Switching Nodes Automation and Multi‑Layer Management
+[P3.16] NPT 1K, 2K Series IP Routers/Switches Apollo Optical Products Muse Multilayer Automation
+[P3.17] Analog Line Gateways TDM to IP and Circuit Emulation Solutions
+[P3.18] G5 Line Access Gateway NPT for CES/CEM and TDM to IP
+[P3.19] Secure Communications: Allow the secure exchange of mission-critical information, enabling users to communicate reliably under attack, disruption or extreme operating conditions.
+[P3.20] Resilient, Automated IP-Routing, Packet & Optical Transport: Networks for secure capacity and low latency, powered by our multilayer design/analysis/planning and low-code automation platform
+[P3.21] Legacy Modernization: Analog and TDM-to-IP migration options
+[P3.22] Evidence You Can Rely On
+[P3.23] Government and defense deployments demand proven, certified solutions. Ribbon backs key claims with DoD interoperability approvals, strong assurance signals, and large-scale deployments.
+[P3.24] Ribbon supports defense missions with certified, interoperable communications and transport solutions. Ribbon products have achieved DISA JITC certification and are listed on the DISA/DoDIN Approved Products List (APL), including SBC and gateway platforms as well as PSX, RAMP, and Analytics. Ribbon was selected as the technology provider for DISA’s Soft Switch Backbone (SSBB) modernization program, our SBCs are FIPS compliant, JITC certified, and certified for Microsoft Teams, with Ribbon’s SBCs included in the Microsoft Teams DoDIN APL System Under Test. Ribbon is CMMC Certified with maximum number of points.
+[P3.25] Secure Communications Solutions - FIPS Compliant and JITC Certified
+[P3.26] Both civilian and military organizations deploy our Session Border Controllers (SBCs), Application Servers, and high-density Media Gateways as part of an end-to-end solution or as part of a Microsoft Teams migration.
+[P3.27] Ribbon solutions use industry-standard SIP to simplify integration and migration, while protecting long-term investments. Ribbon Session Border Controllers are FIPS compliant, JITC certified, certified for Microsoft Teams and the only SBCs on the DODIN Approved Products list as part of the Microsoft Teams SUT. Ribbon’s Application Server is JITC certified for both LSC and ESC deployments and also the core of the largest VoIP deployment in the US Department of Defense.
+[P3.28] Mission needs: Secure, policy-controlled real-time communications across coalition/legacy environments, with survivability at the edge.
+[P3.29] Session Border Controller (SBCs): secure SIP interconnect, policy enforcement, interoperability.
+[P3.30] Application Server: scalable call control and survivable architectures.
+[P3.31] High-density media gateways: preserve legacy interfaces while modernizing to IP/SIP.
+[P3.32] Automation, Management and Control Systems to centrally configure, monitor, and remediate issues across the communications portfolio, and to deliver end‑to‑end observability and actionable insights (threat/fraud detection.
+[P3.33] Secure and monitor networks with service assurance and deep network insights.
+[P3.34] Streamline network management, forecast network growth, and troubleshoot network issues while reducing operational costs.
+[P3.35] Upgrade with confidence and ensure network compatibility, while mitigating risk through test automation.
+[P3.36] Resilient, Automated IP-Routing, Packet & Optical Transport Solutions
+[P3.37] Decision-making on the modern battlefield requires real-time information to be made available when and where it is required. IP, Packet, and Optical networking provides both the agility to link the data generated from various sources to multiple destinations as well as the capacity required to transport bulk data over long distances with ultra-low latency.
+[P3.38] Ribbon provides tailor-made, secure, hardened, field-proven defense solutions. These solutions integrate intelligent optical networking with agile IP/Packet connectivity to provide a converged, secure communication network.
+[P3.39] Mission needs: High-capacity, low-latency, secure transport for sensor-to-decision-to-effect chains across distributed environments. A single automated communications network supporting video surveillance systems, command and control networks, sensors, radar, and smart IoT devices. Building blocks:
+[P3.40] Muse Multilayer Automation Platform: Control/analysis/design/planning plus low-code automation and customization
+[P3.41] Neptune/NPT IP Routing & Packet platform: Multi-service aggregation and packet transport
+[P3.42] Apollo Optical Platform: Scalable optical layer for growing secure bandwidth demands
+[P3.43] Automation & AI Defense Solutions
+[P3.44] The only practical answer to giant data growth
+[P3.45] What it is: A Session Border Controller (SBC) is a security and interoperability control point for SIP-based real-time communications, used to connect domains, enforce policy, and protect voice/UC services.
+[P3.46] FIPS compliant and JITC certified
+[P3.47] Carrier grade reliability with high availability deployment options
+[P3.48] Up to 150,000 sessions per element
+[P3.49] What it is: A virtualized communications platform delivering VoIP and unified communications services across IP networks, with deployment flexibility from on‑prem data centers to private or public cloud.
+[P3.50] Incredible scale – up to 2 million users per instance
+[P3.51] JITC certified and DoW accepted
+[P3.52] Carrier grade reliability – five 9s uptime, including upgrades
+[P3.53] SIP-based with no vendor lock-in
+[P3.54] What it is: Ribbon Media Gateways provide secure, high-density, carrier-grade interworking between legacy TDM voice and IP networks, enabling phased voice modernization.
+[P3.55] Broad interface and network support
+[P3.56] Management and Control of Voice Networks
+[P3.57] What it is: Ribbon’s Voice Management solutions secure and monitor your networks with service assurance and in-depth insights.
+[P3.58] Ribbon Voice Networks Management includes:
+[P3.59] RAMP to centrally configure, monitor, and remediate issues
+[P3.60] LEAP for GenAI-guided automation and shortened time-to-restore
+[P3.61] Analytics delivering end-to-end observability and actionable insights
+[P3.62] KPI/QoE monitoring, root-cause analysis, and capacity forecasting.
+[P3.63] Resilient, Automated IP Routing, Packet & Optical Transport Products
+[P3.64] Muse – Multilayer Automation Platform
+[P3.65] What it is: A multilayer automation platform for control, analysis, design, and planning, with low-code automation and customization to improve operational efficiency. The Muse™ software suite allows seamless operation across Apollo and Neptune.
+[P3.66] Real-time orchestration and automation across all layers
+[P3.67] Intent-based provisioning and rapid service activation
+[P3.68] Network slicing for mission-specific isolation and QoS
+[P3.69] Geo-redundancy to meet sovereignty and security requirements
+[P3.70] NPT – Multi-service IP Routing & Packet Platform
+[P3.71] What it is: A multi-service IP/Packet platform supporting both modern devices and legacy systems. Neptune’s Multistack MPLS supports mission-critical and non-mission-critical traffic on the same network.
+[P3.72] Redundancy and high availability architecture
+[P3.73] Guaranteed low latency and jitter for radar and C2 connectivity
+[P3.74] Circuit emulation for legacy system integration
+[P3.75] Integrated IP rNOS security framework
+[P3.76] Apollo – Programmable Optical Platform
+[P3.77] What it is: An optical networking foundation designed to satisfy growing secure bandwidth demands.
+[P3.78] High-capacity programmable line rates (100G–1.2T)
+[P3.79] Modular growth and energy efficiency
+[P3.80] Layer 1 encryption, quantum-ready, FIPS 140-2 compliant
+[P3.81] Multi-service support: Ethernet, OTN, TDM, SA
+[P3.82] What it is: A high-density analog-to-SIP gateway designed to enable VoIP migration without replacing entire legacy estates.
+[P3.83] High-density ports and long loop length
+[P3.84] Broad standards and protocol support
+[P3.85] What it is: A secure and efficient solution to migrate legacy communications to IP-based or cloud-based platforms, including Microsoft® Teams for Government.
+[P3.86] High availability SBC enabling secure DISA network access
+[P3.87] Modular analog gateways for PBXs and analog devices
+[P3.88] T1/E1 gateway modules for SIP trunk migration
+[P3.89] IPv6-compliant enterprise edge routing (up to 10 Gbps)
+[P3.90] V.150 support for legacy STE and vIPer terminals
+[P3.91] Voice optimization over satellite links
+[P3.92] PSTN fallback for WAN or cloud outages
+[P3.93] NPT for Circuit Emulation & SDH/SONET Transition
+[P3.94] What it is: Risk-managed migration for legacy circuit services while modernizing the transport underlay.
+[P3.95] Comprehensive circuit emulation services (CES)
+[P3.96] Smart SFP pluggables and service cards
+[P3.97] Support for SAToP, CESoPSN, and CEP
+[P3.98] Ribbon Provides IP, Optical & Voice Security
+[P3.99] Frequently Asked Defense Solutions Questions
+[P3.100] A mission-critical defense network is engineered for assured availability, secure interoperability, and resilient communications and transport across distributed environments. It supports real-time exchange of voice and data needed for command, coordination, and operations continuity.
+[P3.101] Use standards-based SIP interconnect and policy control to integrate disparate systems while protecting long-term investments and enabling staged modernization rather than “rip and replace.”
+[P3.102] SBCs sit at trust boundaries and interconnect points to secure and control SIP-based real-time communications, supporting interoperability, policy enforcement, and protection of voice/UC services during migrations and steady-state operations.
+[P3.103] High-density analog-to-SIP gateways and phased migration patterns can reduce barriers to VoIP modernization by converting legacy endpoints and preserving existing cabling/estates while moving to standards-based SIP.
+[P3.104] IP/Packet provides agility for routing and service differentiation, while the Optical layer provides scalable secure capacity; together they support low-latency and high-bandwidth transport across long distances.
+[P3.105] Multilayer automation reduces operational complexity across IP and optical layers by improving planning, analysis, and workflow automation, enabling faster and more reliable change execution at scale.
+</source>

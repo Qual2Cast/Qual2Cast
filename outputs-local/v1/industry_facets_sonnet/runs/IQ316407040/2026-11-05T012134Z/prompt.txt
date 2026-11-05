@@ -1,0 +1,62 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: BKV Corporation (bkv.com)
+Industry (SIC 13): Oil & Gas Extraction
+About this industry group: E&P and oilfield-service contractors share this broad major group but need different rows. Reserve/production fields apply to resource-owning operations; day rates and fleet utilization apply to service operations. Natural-gas pipeline activities can instead route to SIC 49. Scope.
+
+Facets:
+- operating_activity (Operating activity). Examples: Crude-oil E&P; Natural-gas production; Contract drilling and field services.
+- production_mix_e_p (Production mix [E&P]). Examples: 65% oil by boe; Gas-weighted production; NGL-rich production.
+- basin_field_exposure_e_p (Basin / field exposure [E&P]). Examples: Permian Basin; Gulf of Mexico offshore; Appalachian gas basin.
+- reserve_measure_life_e_p (Reserve measure / life [E&P]). Examples: Proved developed producing reserves; Proved undeveloped reserves; 10-year reserves-to-production ratio.
+- well_field_decline_e_p (Well / field decline [E&P]). Examples: 25% first-year well decline; 8% mature-field annual decline.
+- development_intensity_e_p (Development intensity [E&P]). Examples: 40 wells drilled/year; 25 completed wells/year; Offshore tie-back development.
+- production_cost_price_basis_e_p (Production cost / price basis [E&P]). Examples: Lifting cost: $12/boe; Brent-linked realized oil prices; Henry Hub-linked gas sales.
+- service_line_fleet_oilfield_services (Service line / fleet [oilfield services]). Examples: Land drilling rigs; Pressure-pumping fleets; Well-maintenance crews.
+- contract_utilization_oilfield_services (Contract / utilization [oilfield services]). Examples: $25,000 rig day rate; 80% marketed-rig utilization; Multiwell service agreement.
+
+Evidence:
+<source id="P1">
+[P1.1] Home | BKV Corporation
+[P1.2] Paving the way for the safe and profitable production of measured net-zero natural gas.
+[P1.3] Turning What’s Next Into What’s Now
+[P1.4] At BKV, we combine thinking fast and thinking forward. This unique combination empowers us to meet tomorrow’s energy demands today—strategically, responsibly, reliably.
+[P1.5] An Energy Chain With No Weak Links
+[P1.6] This is energy reengineered. BKV’s business lines don’t operate in silos. Instead, they operate as a system. Spanning natural gas, midstream, power generation and carbon capture, our closed-loop model is designed to outperform, driving resilience, expanding opportunity and redefining how energy is produced, delivered and sustained.
+[P1.7] Bold Gets Down to Business
+[P1.8] BKV is built to perform. Big ideas don’t sit on the sidelines here. They scale. Fueled by collaboration and disciplined execution, we’re not just growing; we’re transforming what energy can be.
+[P1.9] We’re meeting growing electricity demand head-on. With existing power generation assets and clear pathways to scale, we’re perfectly positioned at the nexus of AI, data-center and industrial expansion in Texas.
+[P1.10] BKV Announces Power Generation Equipment Supply Contract Backed by Agreement with a Leading Investment-Grade Hyperscaler
+[P1.11] Scaling Power for BKV's Next Phase of Growth
+[P1.12] Unlocking More Potential in the Barnett
+[P1.13] At BKV, progress comes with receipts. Which is why our sustainability approach supports responsible operations and verifiable emissions management without sacrificing reliability.
+</source>
+
+<source id="P2">
+[P2.1] BKV's History | BKV Corporation
+[P2.2] Changing energy takes energy.
+[P2.3] We believe the production of low-impact, sustainable energy isn’t simply a good idea, it’s good business.
+[P2.4] As part of an industry that plays a significant role in transitioning to a sustainable future, we are passionately dedicated to making advancements in the production of sustainable energy and being a force for good in our society. Our mission is to lead the energy industry toward the safe and profitable production of net-zero natural gas.
+[P2.5] How we got here, and where we’re going.
+[P2.6] See how we got here
+[P2.7] Advancing sustainable and profitable energy solutions, targeting net-zero emissions
+[P2.8] Every company talks about community engagement.
+[P2.9] Winter Storm Uri Relief in Texas
+[P2.10] BKV Announces Two New Carbon Capture and Sequestration Facilities Now Operational
+[P2.11] Why Old Wells Could Become Part of Integrated Energy Hubs
+[P2.12] BKV Bets on Gas-to-Power Strategy as It Expands Beyond Upstream
+[P2.13] Modern Strategies and Connected Infrastructure Drive Momentum in the Barnett
+[P2.14] Built for Reliability. Ready to Scale.
+</source>

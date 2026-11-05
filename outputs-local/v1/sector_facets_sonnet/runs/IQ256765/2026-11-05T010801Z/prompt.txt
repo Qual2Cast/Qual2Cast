@@ -1,0 +1,72 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Butler National Corporation (butlernational.com)
+Sector: Business and personal services
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- service_category (Service category): What service it sells. Example: outsourcing: payroll and benefits administration. Any that apply of: consulting and advisory; outsourcing / BPO; staffing; facilities and field services; engineering and technical services; marketing and information services; education and training; personal and consumer services; other.
+- engagement_model (Engagement model): How clients engage it. Example: managed service: multi-year outsourced contracts. Any that apply of: project; retainer; managed service; per transaction / per visit.
+- labor_specialization (Labor specialization): Who delivers it. Example: specialist: licensed technicians. Exactly one of: generalist / low-skill; skilled trades; licensed professionals; technical / IT specialists.
+- client_segment (Client segment): Its typical client. Example: enterprise: large employers. Any that apply of: consumers; SMB; enterprise; government.
+
+Evidence:
+<source id="P1">
+[P1.1] Butler National Corporation
+[P1.2] Butler National Corporation specializes in aerospace solutions and management services, including modifications.
+[P1.3] AVCON RECEIVES FAA STC FOR HONEYWELL AEROSPACE REPLACEMENT EGPWS ON BOMBARDIER AND LEARJET AIRCRAFT
+[P1.4] BUTLER NATIONAL CORPORATION ANNOUNCES INCREASE TO STOCK REPURCHASE PROGRAM
+[P1.5] Butler National Corporation is an aerospace-focused holding company that delivers engineering, aircraft modifications, electrical systems integration, commercial and defense electronics, and professional management services. Our businesses support commercial operators, defense partners, and original equipment manufacturers.
+[P1.6] Our primary operations include Avcon Industries, BNC Tempe, and the professional services segment anchored by the Boot Hill Casino. Together, these businesses combine advanced engineering with reliable service delivery to support long-term growth.
+[P1.7] Our Business Segments & Subsidiaries
+[P1.8] Butler National Corporation is comprised of multiple key subsidiaries operating across industries such as aerospace, avionics, defense, and professional services.
+[P1.9] Avcon provides FAA-approved aircraft modifications, engineering, avionics and electrical systems integration, and special mission solutions.
+[P1.10] BNC Tempe supplies commercial and defense electronics, wiring harnesses, and system controls to OEMs and government agencies.
+[P1.11] Our professional services segment provides management and operational expertise in gaming and hospitality.
+[P1.12] Butler National offers opportunities across engineering, avionics, electronics manufacturing, and management services. Explore open roles across our business units.
+[P1.13] Subscribe to receive Butler National Corporation updates and investor communications.
+</source>
+
+<source id="P2">
+[P2.1] About Us - Butler National Corporation
+[P2.2] Aerospace expertise in designing, manufacturing, and servicing aviation products and professional services, managing Boot Hill Casino.
+[P2.3] Butler National Corporation is a public holding company with more than six decades of experience in aerospace engineering, aircraft modifications, avionics integration, special purpose electronics design and manufacturing, and professional gaming management services.
+[P2.4] Butler National is OTCQX listed under the ticker BUKS.
+[P2.5] Butler National oversees subsidiaries that provide:
+[P2.6] Aircraft modifications, avionics and electrical systems integration, and special mission solutions
+[P2.7] Commercial and defense electronics, wire/cable harness assemblies, and system components
+[P2.8] Professional management services for gaming operations
+[P2.9] This combination of engineering capability and disciplined operational management supports sustainable growth across our business segments.
+[P2.10] Our governance framework includes established committees, corporate policies, charters, and a code of ethics that guide responsible conduct across all subsidiaries.
+[P2.11] Our operating subsidiaries focus on aerospace engineering and modifications, commercial electronics, and professional management services.
+[P2.12] Avcon provides FAA approved aircraft modifications, engineering, avionics and electrical systems integration, and special mission solutions.
+</source>
+
+<source id="P3">
+[P3.1] Our Businesses - Butler National Corporation
+[P3.2] Operates Avcon Inc. and Butler Avionics, supplies commercial and defense electronics, manages Boot Hill Casino & Resort, and runs KC Machine.
+[P3.3] Butler National Corporation oversees a group of aerospace and professional services subsidiaries that support commercial operators, defense partners, original equipment manufacturers and agencies around the world. Our primary operations focus on aircraft engineering and modifications, avionics integration, and commercial electronics design and manufacturing, with additional services provided through our professional management segment.
+[P3.4] Our aerospace subsidiaries deliver engineering, FAA-approved aircraft modifications, avionics integration, commercial electronics, wiring systems, and special mission solutions. These businesses support a broad range of commercial, defense, and government programs.
+[P3.5] Avcon provides FAA-approved aircraft modifications, engineering, systems integration and avionics for commercial and defense operators. The team delivers reliable airframe upgrades and mission solutions for a wide range of aircraft.
+[P3.6] New Century, KS | Newton, KS
+[P3.7] +1 (913) 780-9595 | +1 (316) 284-2842
+[P3.8] Butler National – Tempe manufactures commercial and defense electronics, wiring and cabling harnesses, and system components for OEMs and government agencies. The team produces both custom assemblies and commercial off-the-shelf solutions.
+[P3.9] Explore Butler National – Tempe
+[P3.10] Butler Avionics provides avionics sales, installations, upgrades, and repair services, supporting Avcon’s engineering and aircraft modification programs as well as general aviation customers.
+[P3.11] Butler Machine is an ITAR registered, ISO certified machine shop providing precision CNC machining, laser marking, and quality inspection services. The team produces high-tolerance components that support aerospace and defense programs.
+[P3.12] Our professional services segment provides management and operational support for gaming facilities. Through Butler National Service Corporation (BNSC), we deliver reliable, compliant, and quality-focused management solutions.
+[P3.13] Boot Hill Casino and Resort, managed by BHCMC, LLC and BNSC, provides professional management and operational services for state-regulated gaming facilities. The property offers gaming on behalf of the state as well as dining & guest services.
+[P3.14] How Our Businesses Work Together
+</source>

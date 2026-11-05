@@ -1,0 +1,79 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Masimo Corporation (www.masimo.com)
+Sector: Healthcare (providers, devices, pharmaceuticals)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- healthcare_segment (Healthcare segment): Part of healthcare. Example: services: home health and hospice care. Any that apply of: pharma; biotech; medtech / devices; diagnostics and tools; provider services; healthcare IT; payer; distribution / pharmacy; other.
+- product_stage (Product stage): Whether its products are on the market. Example: commercial: sells approved products. Exactly one of: commercial; clinical; research; not applicable (services).
+- customer_payer (Customer / payer): Who pays. Example: Medicare and Medicaid: government programs pay for most visits. Any that apply of: hospitals and providers; private insurance; Medicare and Medicaid; patients / consumers; pharma and biotech companies; employers; other.
+- therapeutic_area (Therapeutic area): Main clinical area. Example: cardiovascular: heart rhythm devices. Any that apply of: oncology; cardiovascular; neurology and behavioral health; orthopedics and spine; metabolic and diabetes; infectious disease; ophthalmology; dental; general / multiple; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Masimo - Home
+[P1.2] Masimo is a global medical technology company that develops and manufactures innovative noninvasive patient monitoring technologies, medical devices, and a wide array of sensors.
+[P1.3] Accurate pulse oximetry for all patients and all clinical settings
+[P1.4] Reducing cost and waste—without compromising care
+[P1.5] Empowering Care Through Intelligent Monitoring
+[P1.6] Join Masimo at ASA 2026
+[P1.7] smart SET ™ Pulse Oximetry
+[P1.8] SedLine ® Brain Function Monitoring
+[P1.9] Root ® Patient Monitoring and Connectivity Platform
+[P1.10] It began in the NICU, where a breakthrough in pulse oximetry helped save the lives of the most fragile patients.
+[P1.11] What started as a fight for accuracy in critical moments has grown into a global mission—delivering life-saving technologies that empower clinicians and protect patients around the world.
+[P1.12] Masimo O3 ® Regional Oximetry Receives FDA Clearance for Expanded Indication of Its Unique Delta Hemoglobin Parameters
+[P1.13] Masimo’s smart SET ™ FDA Clearance Offers Breakthrough Innovation in Pulse Oximetry to Help Improve Critical Patient Outcomes
+[P1.14] Masimo Receives FDA 510(k) Clearance for Root with LiDCO ® and the Masimo LiDCO Sensor to Provide Continuous Oxygen Delivery (DO₂)
+[P1.15] Masimo Receives CE Mark for AI-Powered smartSedLine ™ Brain Function Monitor to Advance Anesthetic Management
+[P1.16] Masimo Appoints Tim Benner as President
+[P1.17] Masimo Receives FDA 510(k) Clearance for the Pediatric Patient State Index, the First-and-Only Sedation Score Specifically Designed for the Unique Physiology of the Pediatric Brain
+[P1.18] Masimo Receives FDA 510(k) Clearance for AI-Enabled Opioid-Induced Respiratory Depression (OIRD) Detection on Radius VSM ® to Help Identify Respiratory Risk Sooner
+[P1.19] Connecting With Nurses at NTI 2026
+[P1.20] SET and Patient SafetyNet Reduce Costs
+[P1.21] UCI BME Students Visit Masimo HQ
+[P1.22] Welcome Dr. Sam Ajizian, VP Medical Affairs
+[P1.23] Quality & Regulatory Leadership Gives Back
+[P1.24] Large NICU Study Confirms SET ® Accuracy Across Skin Tones
+[P1.25] Masimo Global Sales Meeting 2026
+[P1.26] A Patient-Centered Vision at JPM Healthcare
+[P1.27] Chino High School BST Students Visit Masimo HQ
+[P1.28] From NICU to Home: Patient Story
+[P1.29] SDSU Students Visit Masimo HQ
+[P1.30] AARC Congress 2025 — Recap & Awards
+[P1.31] New Research: Accurate Pulse Oximetry Matters
+[P1.32] AHA Innovators’ Network with Dr. Cantillon, Chief Medical Officer
+[P1.33] Equitable Care Starts with Accurate Data
+[P1.34] Celebrating World Quality Week at Masimo!
+[P1.35] In Feasibility Study for Large, Prospective, Real-World
+[P1.36] New Study Finds That Using Masimo Technologies to
+[P1.37] Masimo Announces Expansion of Strategic Partnership
+[P1.38] “Screening all babies in maternity units with Masimo SET ® pulse oximetry significantly improves CCHD detection.”
+[P1.39] “Conventional pulse oximeters are a fair-weather friend. Masimo SET ® is a foul-weather friend.”
+[P1.40] “The Masimo Patient SafetyNet system makes it possible to identify patient distress earlier—preventing codes and rescues—and initiate appropriate intervention more rapidly to improve patient outcomes, recoveries and clinician efficiencies. All of this contributes to a safer general care floor for our patients.”
+[P1.41] “When we started to look for pulse oximetry technology, we found that the Masimo sensor had a lot of technology for rejecting noise and motion.”
+[P1.42] “SedLine [Brain Function Monitoring] gives me a better idea of where I stand at each phase of anesthesia. The PSi number helps guide me to make subtle changes in my anesthetic appropriate for the patient’s heart rate and blood pressure, and thus arrive at the end where I want to be.”
+[P1.43] “Masimo SET ® [pulse oximetry] has played a critical role in helping to virtually eliminate severe infant eye damage.”
+[P1.44] Designed to reduce waste, cost, and complexity
+[P1.45] Guiding Masimo into the next era of innovation and patient impact.
+[P1.46] We deliver innovations that empower clinicians to transform patient care. Guided by our commitment to patients first, innovation, and integrity, Masimo develops noninvasive monitoring solutions that help improve outcomes, reduce costs, and raise the standard of care worldwide.
+[P1.47] See how we’re building long-term value through innovation.
+[P1.48] At Masimo, curiosity drives breakthroughs—and people make the difference.
+[P1.49] Get the latest Masimo news, product updates and clinical insights
+[P1.50] This website may contain links to information, content, photos, videos, and other copyrighted materials that are owned by others. Masimo Corporation does not own such materials and they are provided for educational and newsworthy purposes.
+[P1.51] Masimo is now part of Danaher
+[P1.52] Check out Danaher.com and Masimo.com to read about our news here
+</source>

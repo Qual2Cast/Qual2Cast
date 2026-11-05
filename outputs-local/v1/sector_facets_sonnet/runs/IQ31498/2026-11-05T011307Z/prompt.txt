@@ -1,0 +1,89 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Ironwood Pharmaceuticals, Inc. (ironwoodpharma.com)
+Sector: Healthcare (providers, devices, pharmaceuticals)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- healthcare_segment (Healthcare segment): Part of healthcare. Example: services: home health and hospice care. Any that apply of: pharma; biotech; medtech / devices; diagnostics and tools; provider services; healthcare IT; payer; distribution / pharmacy; other.
+- product_stage (Product stage): Whether its products are on the market. Example: commercial: sells approved products. Exactly one of: commercial; clinical; research; not applicable (services).
+- customer_payer (Customer / payer): Who pays. Example: Medicare and Medicaid: government programs pay for most visits. Any that apply of: hospitals and providers; private insurance; Medicare and Medicaid; patients / consumers; pharma and biotech companies; employers; other.
+- therapeutic_area (Therapeutic area): Main clinical area. Example: cardiovascular: heart rhythm devices. Any that apply of: oncology; cardiovascular; neurology and behavioral health; orthopedics and spine; metabolic and diabetes; infectious disease; ophthalmology; dental; general / multiple; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Ironwood Pharmaceuticals | Leaders in GI Health Innovation
+[P1.2] Explore Ironwood Pharmaceuticals' commitment to GI health with innovative therapies, patient-focused research, and a vision to improve digestive disease treatment.
+[P1.3] Ironwood Pharmaceuticals is a leading gastrointestinal (GI) healthcare company on a mission to advance the treatment of GI diseases and redefine the standard of care for GI patients.
+[P1.4] One in five Americans suffer from GI diseases, resulting in millions of hospital visits and tens of billions in healthcare costs each year.
+[P1.5] people affected by all digestive diseases 1
+[P1.6] Ambulatory care visits (2010) 2–4
+[P1.7] Thoughtfully Approaching GI Drug Discovery
+[P1.8] Through our singular focus on GI and seasoned GI leadership, we have amassed a great understanding of the unique GI patient journey.
+[P1.9] -- Sheetal Clothe, Senior Manager, Formulation Development
+[P1.10] -- Anthony Wajda, Regional Sales Manager
+[P1.11] -- Christine Brackins, Clinical Sales Specialist, Los Angeles, CA
+[P1.12] Ironwood Pharmaceuticals Appoints Tammi Gaskins as Chief Executive Officer
+[P1.13] Ironwood Pharmaceuticals to Participate in the Wells Fargo 21st Annual Healthcare Conference
+[P1.14] Ironwood Pharmaceuticals Raises 2026 Full-Year Financial Guidance Building on Strong Second Quarter Results
+[P1.15] Ironwood Pharmaceuticals to Host Second Quarter 2026 Investor Update Call
+</source>
+
+<source id="P2">
+[P2.1] Company Overview | Ironwood Pharmaceuticals
+[P2.2] Get an overview of Ironwood Pharmaceuticals. Discover our mission, focus on GI therapies, and commitment to improving patients’ lives through innovation.
+[P2.3] At Ironwood, how we do things is as important as what we do.
+[P2.4] Ironwood Pharmaceuticals is a patient-focused, biopharmaceutical company on a mission to push the boundaries of the gastrointestinal (GI) field by advancing the treatment of GI diseases and redefining the standard of care for millions of patients.
+[P2.5] We are one of the few biopharmaceutical companies that has discovered, developed, and now commercialize a blockbuster drug, LINZESS® (linaclotide).
+[P2.6] Leverage our insights,capabilities,and expertise to see the most critical patient needs
+[P2.7] Leveraging our insights, capabilities and expertise with a sense of urgency to serve the needs of GI patients
+[P2.8] Advancing bold opportunities to make a difference in patients’ lives as a committed GI-innovator
+[P2.9] Striving continuously to be patient-centric to meet the most critical needs of our patients
+[P2.10] Think boldly, experiment proactively, and take initiative to create new possibilities in the GI world
+[P2.11] Proactively experimenting, taking initiative to create new possibilities
+[P2.12] Being agile to quickly advance solutions aligned with how our customers seek to experience emerging healthcare trends
+[P2.13] Fostering a ‘can do’ environment by turning challenges/setbacks into new ideas, services
+[P2.14] Acting with inclusion — diverse perspectives, office/remote employees
+[P2.15] Encourage different opinions and points of views in decision-making
+[P2.16] Openly encouraging diverse opinions, opposing points of views to make rapid, timely decisions
+[P2.17] Cultivating relationships, networks within the GI/healthcare ecosystem to develop shared solutions
+[P2.18] Generating transparency, trust, and cooperation among and across teams
+[P2.19] Embracing differing ways of working together
+[P2.20] Relying on each other to accelerate progress, find solutions with colleagues, our biggest challengers and our loudest supporters
+[P2.21] Honor our commitments to our patients, stakeholders and one another by upholding a performance-driven culture
+[P2.22] Honoring our commitments to our patients, stakeholders and to one another, even when it is uncomfortable or hard
+[P2.23] Using metrics to objectively measure progress/accountability
+[P2.24] Investing in professional development at all levels to achieve our full potential
+[P2.25] Committing to a performance-driven culture
+[P2.26] Delivering only the highest quality outcomes, on-time
+[P2.27] Creating opportunities to have fun, maintaining work-life balance and play an active role in making our communities a better place to live and work
+[P2.28] Performing our work with integrity by being honest and treating one another with respect
+</source>
+
+<source id="P3">
+[P3.1] Patients Resources Overview | Ironwood Pharmaceuticals
+[P3.2] Discover resources for patients from Ironwood Pharmaceuticals. Learn about our treatments, support programs, and commitment to improving GI health.
+[P3.3] Patients are at the center of everything we do
+[P3.4] One in five Americans suffer from GI diseases, resulting in millions of hospital visits and tens of billions in healthcare costs each year. GI diseases often have limited treatment options, creating urgency for new and innovative medicines. At Ironwood, we are on a mission to advance the treatment of GI diseases and redefine the standard of care for GI patients.
+[P3.5] We keep patients’ needs top of mind in all that we do. We’re committed to clinical trial diversity in all aspects, including race, sex, and age, because we understand how important it is in achieving meaningful data outcomes for our patients. Data generated in our clinical studies and insights we receive from our scientists, physicians, and patient-reported outcomes help drive our decision making.
+[P3.6] We are conducting clinical studies of investigational medicines for serious, rare disorders. We remain committed to making our medicines available as quickly as we can to appropriate patients following regulatory authority approval, which depends, in part on positive Phase III data from our clinical studies and the evaluation of these data by regulatory and reimbursement authorities.
+[P3.7] Pre-approval access, sometimes known as Expanded Access or Compassionate Use refers to the provision of an investigational medicine outside of a clinical trial and ahead of regulatory or reimbursement body approval.
+[P3.8] At this current time, we believe that participating in clinical studies is the safest way to access our new investigational medicines, under the close monitoring by a specialist clinical research team. Therefore, we do not provide access to our medicines through Pre-approval access programs, or outside of clinical studies more generally. This policy may be reviewed and amended in the future.
+[P3.9] If you have further questions, please contact our Medical Information Team at [email protected].
+[P3.10] Quality is also a key priority in our daily operations to develop high-quality transformational products that are safe and improve the lives of our patients.
+[P3.11] We register all interventional trials conducted with patients prior to study initiation on www.clinicaltrials.gov and comply with other clinical trial disclosure requirements.
+[P3.12] Please contact our partner AbbVie regarding U.S. patient assistance programs.
+[P3.13] For additional information, please the link below
+</source>

@@ -1,0 +1,69 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: The Timken Company (www.timken.com)
+Sector: Manufacturing (industrial, materials, electronics)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- manufacturing_type (Manufacturing type): How it makes products. Example: discrete: builds individual units on assembly lines. Any that apply of: discrete; process; assembly; outsourced / fabless.
+- production_model (Production model): Built for an order or for stock. Example: make-to-order: each unit configured to the customer's order. Exactly one of: make-to-order; make-to-stock; both.
+- product_complexity (Product complexity): How engineered its products are. Example: engineered: custom-configured equipment. Exactly one of: commodity; engineered; precision / high-spec.
+- production_role (Production role): Where it sits in its customers' supply chain. Example: final manufacturer: sells finished units to contractors. Any that apply of: final manufacturer / OEM; tier 1 supplier; tier 2 or component supplier; contract manufacturer; materials producer.
+- end_market_exposure (End-market exposure): Which end markets drive demand. Example: industrial: factories and commercial buildings. Any that apply of: aerospace and defense; automotive and transportation; industrial; construction and buildings; energy; electronics and semiconductors; healthcare and life sciences; consumer; agriculture; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Advanced Motion Technology Solutions | The Timken Company
+[P1.2] The Timken Company designs advanced motion technologies, engineered bearings and industrial motion systems that power performance across industries.
+[P1.3] See how we apply our engineering expertise to support people and communities, reduce environmental impact and develop solutions that help our customers operate more sustainably.
+[P1.4] “Our Elevate to Outperform strategy is focused on optimizing our portfolio, investing decisively in our strategic verticals, and better leveraging our multinational footprint as we operate as One Timken.” – Lucian Boldea, President & CEO
+[P1.5] Leveraging our specialized expertise, we design and manufacture fully integrated, application-specific industrial motion systems that deliver value throughout the application lifecycle.
+[P1.6] As demand for small satellites accelerates, Timken is investing in new efficiencies and working closely with leading manufacturers to enhance performance and quality. See how these advancements are solving real challenges for New Space innovators.
+[P1.7] As a trusted design partner with a comprehensive advanced motion portfolio, we power the next generation of industrial performance.
+[P1.8] Our newest Groenveld-BEKA automatic lubrication technology brings together advanced engineering and digitization to help customers reduce waste and extend equipment life.
+[P1.9] From strong communities to sustainable solutions, we focus on people, planet and products to build a more efficient world for generations to come.
+[P1.10] See how we’re bringing modern manufacturing to life for the next generation of problem solvers.
+[P1.11] Every R&D investment we make is focused on driving breakthroughs in advanced motion technology.
+[P1.12] Surgical robots and automation are transforming the medical industry. See how our precision drive systems support the next generation of medical automation, helping customers create solutions never seen before.
+[P1.13] Our team of problem solvers does work that matters for industries and the world. Read the latest stories on our advancements in product innovation, technical expertise, and global community impact.
+[P1.14] Our global team of problem solvers does work that matters for industries and the world. Read the latest stories on our advancements in product innovation, technical expertise, and global community impact.
+</source>
+
+<source id="P2">
+[P2.1] Portfolio - The Timken Company
+[P2.2] The Timken Company designs a growing, market-leading portfolio of engineered bearings and power transmission products.
+[P2.3] We design and manufacture highly engineered systems and components, powering performance across the application lifecycle.
+[P2.4] We operate as One Timken, applying our specialized expertise to engineer the next generation of advanced motion technology for strategic end markets.
+[P2.5] Our portfolio of brands advances industries worldwide.
+</source>
+
+<source id="P3">
+[P3.1] About Us, An Overview of a Strong Brand - The Timken Company
+[P3.2] Timken's growing portfolio of products and services help power industries from renewable energy to food production.
+[P3.3] A Trusted Advanced Motion Technologies Partner
+[P3.4] The needs of our customers drive our innovations and solutions. We combine cutting-edge engineering with more than 125 years of specialized expertise to solve complex industrial motion challenges and advance strategic end markets worldwide. Our multinational footprint allows us to think globally but act locally, delivering the systems engineering and motion technology our customers need — where and when it matters most.
+[P3.5] Our Timken R&D is driven by real-world challenges and emerging opportunities. We combine our expertise in materials science, friction management, and power transmission to develop and engineer motion technology solutions that enhance performance, reliability and efficiency across the application lifecycle.
+[P3.6] See how we innovate to transform industries.
+[P3.7] We engineer fully integrated systems for critical applications in strategic end markets, including aerospace and defense, power and electrification, and automation and industrial solutions to lead the next frontier of industrial motion.
+[P3.8] Explore the markets we serve.
+[P3.9] A Team of Problem Solvers
+[P3.10] Our multinational team drives our innovations and customer success. With diverse perspectives and a culture that fosters collaboration, we design and manufacture the next generation of industrial motion solutions and systems, strengthen the communities where we live and work, and develop future leaders for our company and the manufacturing industry.
+[P3.11] Discover how you can make an impact at Timken.
+[P3.12] Our shared values define how we do business and treat others.
+[P3.13] As a trusted partner, we are transparent and do what’s right.
+[P3.14] Our technologies, systems and solutions set the standard for mission-critical applications.
+[P3.15] Our growth culture demands superior performance and relentless execution.
+[P3.16] Our team of innovators collaborate to transform how the world moves.
+</source>

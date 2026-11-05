@@ -1,0 +1,79 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: RGC Resources, Inc. (www.rgcresources.com)
+Sector: Energy, utilities, mining and agriculture
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- industry_position (Industry position): Where it sits in the chain. Example: regulated utility: electric and gas distribution. Any that apply of: upstream / production; midstream; downstream; regulated utility; independent power; mining; agriculture; services to producers.
+- commodity_exposure (Commodity exposure): What it produces or delivers. Example: electricity and natural gas. Any that apply of: oil; natural gas; electricity; water; metals; minerals and aggregates; crops and livestock; other.
+- revenue_structure (Revenue structure): How prices are set. Example: regulated: rates approved by state commissions. Any that apply of: spot; contracted; regulated.
+- energy_transition (Energy transition exposure): Fossil or renewable. Example: mixed: gas plants and solar. Exactly one of: renewables; fossil fuels; mixed; not applicable.
+
+Evidence:
+<source id="P1">
+[P1.1] RGC Resources - Roanoke Gas
+[P1.2] Investing in energy solutions. RGC Resources is an energy services company engaged in the sale and distribution of natural gas to approximately 64,500 residential, commercial and industrial customers in Roanoke, Virginia, and the surrounding localities, through its Roanoke Gas subsidiary. In addition to Roanoke Gas, RGC Midstream is a subsidiary that
+[P1.3] RGC Resources is an energy services company engaged in the sale and distribution of natural gas to approximately 64,500 residential, commercial and industrial customers in Roanoke, Virginia, and the surrounding localities, through its Roanoke Gas subsidiary. In addition to Roanoke Gas, RGC Midstream is a subsidiary that invests in natural gas transportation infrastructure including the Mountain Valley Pipeline (MVP), MVP Southgate and MVP Boost.
+[P1.4] ROANOKE, Va. –RGC Resources, Inc.
+</source>
+
+<source id="P2">
+[P2.1] About Us - Roanoke Gas
+[P2.2] one year after Roanoke became a city, Roanoke Gas Company is proud to deliver safe, reliable, and affordable energy. Our mission is to improve the quality of life for the communities and customers we serve, and we joyfully honor that commitment every day. In those early years, gas replaced the oil and
+[P2.3] We grew up with the city.
+[P2.4] one year after Roanoke became a city, Roanoke Gas Company is proud to deliver safe, reliable, and affordable energy. Our mission is to improve the quality of life for the communities and customers we serve, and we joyfully honor that commitment every day.
+[P2.5] In those early years, gas replaced the oil and kerosene used to light the city’s streetlamps. As demand increased, we expanded to serve Salem and Vinton.
+[P2.6] Roanoke Gas Company transitioned from producing manufactured gas in local plants to tapping into natural gas pipelines throughout the region for distribution. Today, we serve more than 60,000 households, and the demand for clean, sustainable energy has never been higher.
+[P2.7] Our commitment extends beyond providing energy, though. In addition, all our officers serve on the boards of nonprofit organizations.
+[P2.8] One year after Roanoke was proclaimed a city, Roanoke Gas Company was founded by key leaders in an effort to develop the community. Founders included the first President, Peyton L. Terry, Secretary-Treasurer John H. Dunston, J.B. Austin, Alexander S. Asbury, Mortimer M. Rogers, John P. Pettyjohn, and William Welch.
+[P2.9] Roanoke City Extends Contract for 30 Years
+[P2.10] The Company’s franchise with the City of Roanoke, whose provisions included authorization for the City to purchase the gas property, was set to expire. The City chose to extend the franchise for another 30 years. With that, the leadership guided the Company through expansion and improvements.
+[P2.11] Coal Gas Plant is Built
+[P2.12] A new coal gas plant was constructed in order to provide the Gas Company with the most modern and efficient gas plant design available. The new holder was capable of storing 1,500,000 cubic feet and was at the time, one of the largest in Virginia
+[P2.13] Roanoke Gas Company Extends Service Area
+[P2.14] Gas mains are extended to Salem, Vinton, and other outlying suburbs at the time, including South Roanoke.
+[P2.15] The name of the gas company changed from Roanoke Gas Light Company to Roanoke Gas Company.
+[P2.16] Roanoke Gas Company Continues to Expand
+[P2.17] Growth continued as plans were developed to bring natural gas to Roanoke. Roanoke Gas received its certificate from the Federal Power Commission and organized the Roanoke Pipe Line Company to build a 30-mile pipeline from Gala, Virginia to Roanoke. It was completed in the late summer of 1950 and natural gas was introduced to homes and businesses. New natural gas rates were 20% lower than the manufactured gas rates and the BTU content was nearly double that of manufactured gas.
+[P2.18] Roanoke Gas Company Merges with Roanoke Pipe Line Company
+[P2.19] Roanoke Gas Company and Roanoke Pipe Line Company merge under the name Roanoke Gas, with Parrott still serving as president.
+[P2.20] To alleviate dependence on one Atlantic Seaboard Corporation pipeline, the Company entered into discussions with the East Tennessee Natural Gas Company about extending a pipeline from Bristol to Roanoke.
+[P2.21] Roanoke Gas Company Builds LNG Plant
+[P2.22] Roanoke Gas Company enters a 20 year lease with the Industrial Development Authority of Botetourt County for the location of a new gas liquefaction and storage facility. The plant would enable the Company to move away from reliance on propane air for natural gas peak shaving.
+[P2.23] Roanoke Gas Company Celebrates 100 Years
+[P2.24] Roanoke Gas celebrated its 100th Anniversary.
+[P2.25] Holding Company, RGC Resources, Inc. is Established
+[P2.26] With the company reorganization and establishment of the holding company, RGC Resources, Inc., John Williamson became President & CEO of RGC Resources.
+[P2.27] Roanoke Gas Welcomes New President and CEO
+[P2.28] John Williamson retires and John D’Orazio became the President and CEO of RGC Resources and Roanoke Gas Company.
+[P2.29] 25 Year Pipeline Renewal Project Completed
+[P2.30] Roanoke Gas completes 25 year pipeline renewal program replacing 200 miles of aging gas lines.
+[P2.31] John D’Orazio retires and Paul Nester became the President and CEO of RGC Resources and Roanoke Gas Company.
+[P2.32] Roanoke Gas Company and the Western VA Water Authority open RNG facility
+[P2.33] The Western Virginia Water Authority and Roanoke Gas Company entered into a cooperative agreement to produce commercial quality renewable natural gas, or RNG, from biogas produced at the Roanoke Regional Water Pollution Control Plant. This RNG product is the first of its kind in the Commonwealth.
+[P2.34] Roanoke Gas Company receives gas from the MVP
+[P2.35] The Roanoke Valley has access to a new interstate natural gas pipeline, the Mountain Valley Pipeline (MVP). Roanoke Gas has two interconnects with the new pipeline and began receiving delivery of natural gas from MVP.
+[P2.36] According to the American Gas Association, there are more than 2.4 million miles of pipelines that deliver gas safely and securely to customers all over the United States
+</source>
+
+<source id="P3">
+[P3.1] The Science of Gas - Roanoke Gas
+[P3.2] Natural gas runs at a 92% efficiency rate, meaning 92% of all energy created through natural gas is delivered and used by homes and businesses. Extracted from within the crust of the earth, natural gas is one of the cleanest ways to generate energy with a fuel, producing fewer CO2 emissions than coal and oil.
+[P3.3] Natural gas runs at a 92% efficiency rate, meaning 92% of all energy created through natural gas is delivered and used by homes and businesses.
+[P3.4] Extracted from within the crust of the earth, natural gas is one of the cleanest ways to generate energy with a fuel, producing fewer CO2 emissions than coal and oil. It is lighter than air, colorless, odorless and tasteless. Before it is distributed through the main lines, an odorant, typically mercaptan, is added to allow users to smell and distinctly identify its presence in the event of a leak.
+[P3.5] Because natural gas can be compressed, it can easily be transmitted in large quantities through relatively small pipe diameters when under pressure. This allows for efficiency in delivery and a safer flow of gas in your home or business.
+[P3.6] When natural gas is mixed with air and ignited, it burns a blue flame between 800 and 1200 BTU’s per cubic foot. If your flame is burning any color other than the signature blue, there could be a serious problem with your gas appliance. Contact a licensed professional to inspect your equipment for any potential issues.
+</source>

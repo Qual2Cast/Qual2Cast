@@ -1,0 +1,79 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Bio-Techne Corporation (www.bio-techne.com)
+Industry (SIC 28): Chemicals & Allied Products
+About this industry group: This major group includes pharmaceuticals and biological products as well as industrial chemicals. Use clinical-stage and drug-platform extensions only for the relevant life-science business; do not impose drug approval or patent dependence on all commodity chemicals.
+
+Facets:
+- chemical_life_science_product_family (Chemical / life-science product family). Examples: Specialty coatings; Fertilizers; Prescription pharmaceuticals.
+- specialty_commodity_positioning (Specialty / commodity positioning). Examples: Customer-qualified specialty formulations; Bulk commodity chemicals.
+- formulation_synthesis_complexity (Formulation / synthesis complexity). Examples: Custom additive formulation; Multistep chemical synthesis; Standardized bulk production.
+- patent_exclusivity_dependence (Patent / exclusivity dependence). Examples: Patented active ingredient; Process know-how; Product-exclusivity expiry in 2029.
+- product_specific_regulatory_route (Product-specific regulatory route). Examples: TSCA chemical compliance; REACH registration; FDA-approved medicine.
+- r_d_intensity (R&D intensity). Examples: Annual R&D: 6% of sales; Annual R&D: 18% of sales.
+- clinical_commercialization_stage_pharma (Clinical / commercialization stage [pharma]). Examples: Phase II trial program; Phase III registration study; Commercialized medicine.
+- biologic_small_molecule_platform_pharma (Biologic / small-molecule platform [pharma]). Examples: Monoclonal antibodies; Small molecules; Vaccines.
+- manufacturing_supply_model_pharma (Manufacturing / supply model [pharma]). Examples: Own GMP drug manufacturing; Outsourced API manufacturing; Contract development and manufacturing.
+
+Evidence:
+<source id="P1">
+[P1.1] Bio-Techne - Together, we elevate science to the next level of possibility
+[P1.2] Bio-Techne empowers researchers by providing high-quality reagents, instruments, custom manufacturing, and testing services with our family of brands.
+[P1.3] Empowering Scientists and Clinicians to Reach Better Answers
+[P1.4] We believe better science starts with better solutions. From discovery through translational research to clinical applications, we empower scientists and clinicians to advance science faster.
+[P1.5] Introducing Our Portfolio of Brands:
+[P1.6] With decades of innovation and attentive support, our trusted protein analysis reagents and instruments enable science to move forward with confidence.
+[P1.7] From tissue to insight, our targeted spatial biology solutions enable clear, confident decisions across biomarker discovery, translational research, and patient care.
+[P1.8] When results matter most, clinical labs and assay developers rely on our precision product suite and expertise to deliver consistent, accurate answers that enable confident decisions.
+[P1.9] For 50 years, we have supported your breakthroughs, providing the products, tools, and scientific partnership you need to test ideas, replicate results, and prove the impossible. Guided by our mission, we improve quality of life worldwide by catalyzing advances in science and medicine.
+[P1.10] Advance Your Research with Our Solutions
+[P1.11] Access tools that reveal protein behavior, from expression to interactions, to advance disease insights, biomarker discovery, and therapeutic development.
+[P1.12] Providing reliable phase-appropriate reagents and flexible technologies, along with expert support, to streamline development and scale-up manufacturing processes.
+[P1.13] Enabling scalable and reliable workflows for RNA, protein, and multiomic detection with our best-in-class reagents, instruments, and analysis solutions.
+[P1.14] Delivering quality controls, reagents, and assay development & manufacturing, plus molecular kits that simplify workflows and resolve hard-to-detect targets.
+[P1.15] Bio-Techne tools are having quite a significant impact on life science research, and they're able to help accelerate discoveries by making complex analysis more accessible and reliable.
+</source>
+
+<source id="P2">
+[P2.1] Closed Process Solutions for Cell Therapy | Bio-Techne
+[P2.2] ProPak™ GMP cytokines and GMP T cell media are supplied in ready-to-use bags with weldable tubing for closed process T cell manufacturing.
+[P2.3] NEW! ProPak™ GMP Cytokines and GMP T Cell Media Bags
+[P2.4] The ideal closed process solutions for your T cell manufacturing process.
+[P2.5] Simplify with ProPak GMP Cytokines and Media Bags | Closed Process Benefits | Data | Request More Information
+[P2.6] Designed to Simplify Your Cell Therapy
+[P2.7] ProPak GMP cytokines and bagged GMP T cell media were created to help reduce variability and risk in your T cell therapy. GMP IL-2, IL-7, IL-15, and Human T Cell Media are now available in single-use bags, designed to integrate seamlessly into your closed process workflow. IL-2 is available by mass or IU.
+[P2.8] View all available ready-to-use protein formats and see how optimal cytokine dosing was determined with data from a cytokine titration study.
+[P2.9] ProPak™ GMP Cytokines and GMP T Cell Media Bags
+[P2.10] Benefits of Closed Process Solutions
+[P2.11] To minimize risk, ProPak GMP cytokines and GMP T cell media bags are designed to integrate seamlessly into a closed system process, mitigating the risk of contamination.
+[P2.12] Each bag is outfitted with weldable tubing, so you can connect a ProPak directly to your media bag. Industry standard PVC tubing creates a fully closed cytokine addition step that can then be added to a 1 L bioreactor, such as the G-Rex.
+[P2.13] After extensive investigation, our scientists identified 10 µg as the optimal dose of IL-2, IL-7, and IL-15 in a 1 L cell culture process. Each single-use ProPak supplies the perfect amount of protein, removing an unwanted source of variability in your process.
+[P2.14] Removal of reconstitution and aliquot steps leads to less hands-on technician time. This reduces risks of error while streamlining your journey to the clinic.
+[P2.15] ProPak GMP cytokines can be stored at -20 °C for long term storage* or at 2-8 °C for up to 2 weeks.
+[P2.16] *Accelerated stability testing currently underway to support a 2 year shelf-life at -20 °C.
+[P2.17] GMP Human T Cell Media can be stored at 2-8 °C and protected from light, up to the use by date on the Certificate of Analysis.
+[P2.18] A Partnership to Bring You Closed Process Solutions
+[P2.19] ProPak GMP cytokines and GMP T cell media bags have been optimized for a 1 L G-Rex bioreactor process (or similar) and will also be available through our partnership with ScaleReady.
+[P2.20] T Cell Expansion with ProPak Cytokines
+[P2.21] ProPak Cytokines Support Robust T Cell Growth
+[P2.22] ProPak, liquid, or lyophilized IL-7 and IL-15 were added to Xeno-free GMP Human T Cell Media (Catalog # CCM038-GMP) with 5% huAB Serum. T cells from 3 donors were activated and expanded in G-Rex bioreactors for 9 days and assessed for fold expansion and cell viability. Data is the average of 4 independent experiments with 3 donors per experiment, error bars ± SD.
+[P2.23] Contact Our Experts to Learn More
+</source>
+
+<source id="P3">
+[P3.1] Distributors for all Bio-Techne Brands | Bio-Techne
+[P3.2] Distributors contact information for all Bio-Techne Brands, including R&D Systems, Novus Biologicals, Tocris, ACD, ProteinSimple, Asuragen, ExosomeDx and Namocell.
+[P3.3] Find a Distributor or Bio-Techne Portfolio Brands Locations
+</source>

@@ -1,0 +1,132 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Proto Labs, Inc. (www.protolabs.com)
+Sector: Manufacturing (industrial, materials, electronics)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- manufacturing_type (Manufacturing type): How it makes products. Example: discrete: builds individual units on assembly lines. Any that apply of: discrete; process; assembly; outsourced / fabless.
+- production_model (Production model): Built for an order or for stock. Example: make-to-order: each unit configured to the customer's order. Exactly one of: make-to-order; make-to-stock; both.
+- product_complexity (Product complexity): How engineered its products are. Example: engineered: custom-configured equipment. Exactly one of: commodity; engineered; precision / high-spec.
+- production_role (Production role): Where it sits in its customers' supply chain. Example: final manufacturer: sells finished units to contractors. Any that apply of: final manufacturer / OEM; tier 1 supplier; tier 2 or component supplier; contract manufacturer; materials producer.
+- end_market_exposure (End-market exposure): Which end markets drive demand. Example: industrial: factories and commercial buildings. Any that apply of: aerospace and defense; automotive and transportation; industrial; construction and buildings; energy; electronics and semiconductors; healthcare and life sciences; consumer; agriculture; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Protolabs | Rapid Prototyping & On-demand Production Services
+[P1.2] Protolabs is your custom manufacturing resource from rapid prototyping to end-use production. Get an interactive quote with free design analysis within hours for parts in days.
+[P1.3] Check out our Periodic Table of Materials for a quick snapshot of plastic and metal materials at Protolabs! | Explore Materials arrow_right_alt
+[P1.4] Digital Manufacturing for Early Prototyping to Final Production
+[P1.5] We are the fastest and most comprehensive manufacturer in the world. Get an online quote for parts within days or talk with a production expert for solutions across your entire product life cycle
+[P1.6] Get Instant Quote Start Production Quote
+[P1.7] Certification + Compliance ISO 9001:2015 | ISO 13485:2016 | AS9100D | ITAR
+[P1.8] Get affordable, high-quality molded parts and bridge tooling within days. With our free moldability consultation, the design and molding process is rapidly accelerated to save you time and money.
+[P1.9] Low-volume molding up to 100,000+ parts with volume pricing available—no MOQ required
+[P1.10] 100+ plastic, elastomeric, and silicone rubber materials
+[P1.11] Automated CMM for fast, in-house quality documentation
+[P1.12] Leverage the same speed, precision, and reliability in machining that you’re accustomed to at Protolabs but unlock advanced machining capabilities like tighter tolerances and volume pricing through our manufacturing network.
+[P1.13] Machined parts in as fast as 1 day with optional plating and anodizing in as fast as 4 days
+[P1.14] Cost-efficient machined parts at higher volumes
+[P1.15] Tolerances down to ±0.001 in. (0.020mm) through our digital network
+[P1.16] Choose from seven different additive manufacturing technologies for cost-effective prototyping and highly precise, repeatable production parts.
+[P1.17] Additive technologies include metal 3D printing, SLA, SLS, FDM, and more
+[P1.18] 30 plastic and metal materials in a range of finishes
+[P1.19] 25 years of additive manufacturing expertise
+[P1.20] Sheet Metal Fabrication expand_less expand_more
+[P1.21] From easy quoting to quick-turn production and finishing options, get up to 500 quality sheet metal parts in your hands in days from a single supplier.
+[P1.22] Instant quotes with interactive manufacturability feedback
+[P1.23] Six sheet metal materials including aluminum, stainless steel, steel, brass, and copper
+[P1.24] Finishing options from welding and hardware insertion to powder coating and silk screening
+[P1.25] Led by technology and backed by human support, our approach to production manufacturing can be tailored to your project, industry, budget and timeframe.
+[P1.26] 24 New CNC Materials Just Landed on Protolabs Network
+[P1.27] We’ve expanded our CNC machining range from 52 to 76 materials, which is a ~50% increase.
+[P1.28] The Next Wave of Manufacturing Innovation
+[P1.29] Explore how the latest digital technologies are transforming every stage of the product life cycle from early concept to end-of-life.
+[P1.30] Our enhanced digital platform for quoting, ordering, and managing custom parts. Get real-time pricing and AI-enabled DFM feedback, with easy options to configure materials and lead times. ProDesk helps your team stay aligned and move faster from prototype to production.
+[P1.31] Get parts delivered in as fast as 4 days with our expanded CNC milling services—now accepting 2D technical drawings for greater flexibility on higher‑requirement projects.
+[P1.32] A Trusted Partner for Full-Scale Production
+[P1.33] Our team is ready to help you get your production project started with help from our experts at every step of the process.
+[P1.34] Two new materials, Ceramic-filled and Tough Black, have been added to our material library alongside our newly launched HPS 3D printing process.
+[P1.35] Our critical-to-quality inspections are now easily configured within your injection molding quote. We also provide a range of additional quality documentation.
+[P1.36] New Material Tool for Injection Molding
+[P1.37] Compare materials for injection molding with our new tool. Sort by material type, attributes, flame rating, and color to find the right material for your project.
+[P1.38] Design for Manufacturing Analysis Available for Sheet Metal Quotes
+[P1.39] Our quoting platform will automatically detect any potential advisories such as features near bends, flange lengths, and hardware-to-material compatibility.
+[P1.40] MANUFACTURE LIKE A PRO ™
+[P1.41] We're your single resource from prototyping to production. Partner with Protolabs to accelerate product development and get to market faster than ever before. When you're ready for production, get complete program management with a team of manufacturing experts who will help optimize your project around cost, quantity, and quality.
+[P1.42] How to Work With Us
+[P1.43] To start, simply select a manufacturing process and upload a 3D CAD file.
+[P1.44] Within a few hours we'll send you design for manufacturability (DFM) analysis and real-time pricing.
+[P1.45] Once you review your quote and place your order, we'll start the manufacturing process. We also offer finishing options.
+[P1.46] Our digital manufacturing process allows us to produce parts in as fast as 1 day.
+[P1.47] We offer both automated and live manufacturing support.
+[P1.48] Digital Manufacturing Across Your Product Life Cycle
+[P1.49] Whether you need prototype parts in one day or full-service production, you can partner with us across your entire product life cycle for speed, quality, and cost-efficiency in every project.
+[P1.50] Take advantage of DFM feedback in our instant quotes to make adjustments to part design before any actual manufacturing begins, then navigate quickly through prototyping with ease.
+[P1.51] You’ll find complete program management at Protolabs with a team of manufacturing experts who will help optimize your project around cost, quantity, and quality.
+[P1.52] Tap into our production capabilities for short-term needs like jigs, fixtures, and industrial components, or managing inventory and financial costs towards the end of the product life cycle.
+[P1.53] High-quality components from early prototyping to hot-fire testing to launch
+[P1.54] Rapid prototyping and ramp-up production for traditional, electric, and autonomous vehicles
+[P1.55] Functional prototyping and on-demand production of consumer and computer electronics parts
+[P1.56] Accelerated development of medical devices and health care products
+[P1.57] Choose from hundreds of commercial-grade plastic, metal, elastomer, and liquid silicone rubber materials suitable for both prototyping and production.
+[P1.58] Plastic Manufacturing: Common Processes and Materials
+[P1.59] Learn how to select the best manufacturing process and material for your custom plastic parts
+[P1.60] Get in-depth design advice to optimise your plastic and metal parts for CNC machining. Designing with machinng in mind can accelerate production time and reduce production costs.
+[P1.61] Exploring the multiple ways you can lower your part costs at all stages when developing parts.
+</source>
+
+<source id="P2">
+[P2.1] About Us | Protolabs
+[P2.2] Advancing Global Innovation Through Digital Manufacturing
+[P2.3] Hello! Welcome to the digital manufacturing revolution. Protolabs is the world’s fastest manufacturing service enabling companies across every industry to streamline production of quality parts throughout the entire product life cycle. we radically reduced the time needed to produce molded prototypes through complex software that automated the manufacturing process. Over the next two decades, we added CNC machining, 3D printing, and sheet metal fabrication, and later launched Protolabs Network, our global network of manufacturing partners. Our 25+ years of growth and expanding capabilities provide customers with the best digital manufacturing experience in the industry.
+[P2.4] We shape the future by bringing customer ideas to life across every stage of the product life cycle.
+[P2.5] Accelerating innovation by revolutionizing manufacturing.
+[P2.6] Global Manufacturing for Regional Onshoring
+[P2.7] Our digital factories produce low-volume parts in days while our digital network of manufacturing partners unlocks advanced capabilities and volume pricing at higher quantities.
+[P2.8] We’re here from start to finish to support you throughout your manufacturing journey. From custom prototyping to end-use production and every phase in-between, we're your trusted manufacturing partner helping you drive product development and innovation forward.
+[P2.9] Optimize part design and accelerate iterative development with our rapid prototyping and low-volume production services. Benefit from automated online quoting, real-time pricing with design for manufacturability (DFM) feedback, and quality parts delivered in as fast as a day.
+[P2.10] Partner with our support team to gain improved cost-efficiencies with lower piece-part prices as volumes increase, benefit from quality certifications like ISO 9001, ISO 13485, and AS9100D, and access advanced capabilities for tighter tolerances, larger part sizes, enhanced finishes, and more.
+[P2.11] We've purposefully cultivated a culture where employees feel valued, heard, and appreciated. Our company values reflect who we are as a company and to each other. We’re seeking dynamic, smart, and creative individuals to help us grow and shape the future manufacturing.
+[P2.12] Chief Technology & AI Officer
+[P2.13] Vice President of Sales & Customer Service, Americas
+[P2.14] Vice President of Sales & Customer Service, Europe
+</source>
+
+<source id="P3">
+[P3.1] ProDesk | Protolabs
+[P3.2] ProDesk simplifies the entire manufacturing process with seamless collaboration, AI-driven manufacturability analysis, real-time pricing, and more.
+[P3.3] ProDesk: An AI-enabled Resource to Accelerate Innovation
+[P3.4] ProDesk simplifies the entire manufacturing process with seamless collaboration, AI-driven manufacturability analysis, real-time pricing, and more
+[P3.5] ProDesk is your go-to digital manufacturing resource to accelerate prototype and production projects from start to finish. The intuitive platform elevates the tasks you do most: get quotes fast, reorder with ease, connect with production experts, access recent activity, and stay up to date on the latest platform enhancements. Simply put: ProDesk is your smarter home for more efficient work.
+[P3.6] A Comprehensive Platform from Prototyping to Production
+[P3.7] Select materials, secondary operations, and finishing options, and ProDesk automatically calculates the final price and generates an accurate quote in real time.
+[P3.8] Keep your team aligned from order to delivery by collaborating on active and past orders, so nothing gets missed when roles shift.
+[P3.9] Lead times are configured within the quoting process, allowing users to select depending on turn-time needs and budget. Once a lead time is chosen, the quote will be updated instantly.
+[P3.10] Get instant, AI-driven feedback on your CAD model to improve part quality and accelerate production. ProDesk flags risks with interactive 3D visuals, allowing you to optimize manufacturability early.
+[P3.11] Transition from prototyping to production by organizing and reordering production-ready parts in one place.
+[P3.12] Get help with orders, documents, changes, billing, and quality in one centralized hub. Submit a request, call, chat, or email. Design Guides are also available for each service line.
+[P3.13] ProDesk helps you move faster with seamless navigation, configurable quotes, robust DFM analysis, and easy collaboration across teams, plus direct access to ordering support and engineering expertise.
+[P3.14] ProDesk streamlines production ordering with simplified navigation, a Production Catalog for easy reordering, built-in collaboration, and a Support Center for quality documents and customer support.
+[P3.15] Explore Sample Quotes by Service
+[P3.16] Our sample quotes let you test drive our digital manufacturing platform. See how pricing updates in real time as you adjust materials, quantity, and lead times. Explore interactive design analysis on different features with our AI-enabled DFM feedback. Each service line has unique considerations, so try them all out.
+[P3.17] Look for the in-depth moldability analysis and our prototyping vs. ODM pricing comparison feature.
+[P3.18] See how easy it is to assign threads to holes and check out some of the machining advisories you may encounter.
+[P3.19] Explore our material feature that lets you compare the cost of 3DP processes, materials, and resolutions.
+[P3.20] Get in-depth design advice to optimize your plastic parts for injection molding. Designing with moldability in mind can accelerate production time and reduce production costs.
+[P3.21] Digital Manufacturing from Prototyping to Production
+[P3.22] We’re here from start to finish to support you throughout your manufacturing journey. From custom prototyping to end-use production and every phase in-between—we are your trusted manufacturing partner helping you drive product development and innovation forward. Now that’s progress!
+[P3.23] We are your manufacturing partner to scale projects to production. Get complete program management with a team who can tailor our capabilities to optimize cost, quantity, and quality control of your production order.
+</source>

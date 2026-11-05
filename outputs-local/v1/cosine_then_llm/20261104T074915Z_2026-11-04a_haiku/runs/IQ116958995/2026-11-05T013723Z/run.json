@@ -1,0 +1,67 @@
+{
+ "backend": "claude-cli",
+ "model": "claude-haiku-5-5",
+ "effort": "",
+ "prompt_version": "2026-11-04a",
+ "fingerprint": "690e833b62e69978",
+ "finished_at": "2026-11-05T01:37:27Z",
+ "llm_status": "ok",
+ "command": [
+  "/Users/matthewpisinski/.local/bin/claude",
+  "-p",
+  "--output-format",
+  "json",
+  "--json-schema",
+  "{\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"comps\"], \"properties\": {\"comps\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"label\", \"good\", \"reason\"], \"properties\": {\"label\": {\"type\": \"string\", \"enum\": [\"C1\", \"C2\", \"C3\"]}, \"good\": {\"type\": \"boolean\"}, \"reason\": {\"type\": \"string\"}}}}}}",
+  "--tools",
+  "",
+  "--no-session-persistence",
+  "--strict-mcp-config",
+  "--mcp-config",
+  "{\"mcpServers\":{}}",
+  "--setting-sources",
+  "",
+  "--max-turns",
+  "3",
+  "--system-prompt-file",
+  "/Users/matthewpisinski/work/school/grad_school/F_26/IEOR_Capstone/Work/outputs-local/v1/cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/runs/IQ116958995/2026-11-05T013723Z/system.txt",
+  "--model",
+  "claude-haiku-5-5"
+ ],
+ "returncode": 0,
+ "seconds": 4.35,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 3772,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 663,
+  "output_tokens_details": {
+   "thinking_tokens": 407
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 3772,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 663,
+    "cache_read_input_tokens": 0,
+    "cache_creation_input_tokens": 3772,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 3772
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ }
+}

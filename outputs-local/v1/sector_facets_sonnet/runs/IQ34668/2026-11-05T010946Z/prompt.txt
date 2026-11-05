@@ -1,0 +1,66 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: DMC Global Inc. (www.dmcglobal.com)
+Sector: Manufacturing (industrial, materials, electronics)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- manufacturing_type (Manufacturing type): How it makes products. Example: discrete: builds individual units on assembly lines. Any that apply of: discrete; process; assembly; outsourced / fabless.
+- production_model (Production model): Built for an order or for stock. Example: make-to-order: each unit configured to the customer's order. Exactly one of: make-to-order; make-to-stock; both.
+- product_complexity (Product complexity): How engineered its products are. Example: engineered: custom-configured equipment. Exactly one of: commodity; engineered; precision / high-spec.
+- production_role (Production role): Where it sits in its customers' supply chain. Example: final manufacturer: sells finished units to contractors. Any that apply of: final manufacturer / OEM; tier 1 supplier; tier 2 or component supplier; contract manufacturer; materials producer.
+- end_market_exposure (End-market exposure): Which end markets drive demand. Example: industrial: factories and commercial buildings. Any that apply of: aerospace and defense; automotive and transportation; industrial; construction and buildings; energy; electronics and semiconductors; healthcare and life sciences; consumer; agriculture; other.
+
+Evidence:
+<source id="P1">
+[P1.1] DMC Global
+[P1.2] DMC Global is a diversified family of technology businesses
+[P1.3] DMC Global's family of innovative, asset-light manufacturing companies provide differentiated products and services to niche segments of the energy, industrial and building products markets. We empower our companies to lead the markets they serve and believe in localized decision making versus centralized control.
+[P1.4] Arcadia - Architectural Building Products
+[P1.5] DynaEnergetics - Well Completion Solutions
+[P1.6] NobelClad - Composite Metal Solutions
+[P1.7] HERE WHEN YOU NEED US —
+[P1.8] Outstanding companies are built by outstanding people who commit to one another and to a common goal. We value the power of collaboration, integrity, courage and humility, and we believe in going beyond to support the people, companies and communities touched by DMC.
+[P1.9] DMC recognizes the value of creating a positive impact on our local and global communities.
+</source>
+
+<source id="P2">
+[P2.1] About
+[P2.2] DMC enables its companies to continually innovate, creating differentiated products and services that advance the industries we serve.
+[P2.3] DMC operates three innovative manufacturing businesses that are:
+[P2.4] Established leaders in their industries
+[P2.5] Technology, product and market development
+[P2.6] We believe the most valuable expertise comes from listening, learning and evolving.
+[P2.7] President & CEO, James O’Leary
+[P2.8] Chief Financial Officer, Eric Walter
+[P2.9] Chief Accounting Officer, Brett Seger
+[P2.10] Senior VP of Human Resources, Adam McCoy
+[P2.11] We challenge people to innovate, excel and transform business through their work. And we engage our best resources to help the people and business of DMC thrive.
+[P2.12] We stand by our word and own our decisions. We are fair in how we treat customers, peers, partners and the communities we work in. We treat our company like it’s our own.
+[P2.13] We believe being a part of one team, one community. We count on each other to do our part. We stand by one another when things are tough, learning from our failures and celebrating together when we get the job done.
+[P2.14] We are entrepreneurs, with the courage to act when we see something that needs doing. We believe in pursuing the right path forward, even if it’s the most difficult one.
+[P2.15] We believe that inspiration can come from anywhere and remain open to new ideas. We are proud of our work and how it helps our customers, but are never boastful.
+</source>
+
+<source id="P3">
+[P3.1] Arcadia
+[P3.2] Arcadia develops beautiful, high-performance architectural building products for commercial interiors and exteriors and the luxury residential market. Its multiple divisions include Arcadia, Arcadia Custom and Wilson.
+[P3.3] Arcadia's commercial architectural products business provides exterior framing systems, windows, curtain walls and door systems to a diverse range of end markets that include commercial offices, health care, higher education, retail and civic facilities.
+[P3.4] Arcadia Custom provides premium, energy-efficient steel, aluminum and wood windows and doors to the fast-growing, high-end residential market. The division works closely with architects, contractors and installers, and sells through a national network of approximately 140 high-end window and door dealers.
+[P3.5] Wilson, Arcadia's commercial interiors business, provides custom interior architectural framing systems for new construction and repair and remodel projects. These systems address noise control, fire rating, functionality and aesthetics.
+[P3.6] Arcadia Custom steel, aluminum and wood window and door systems
+[P3.7] The Gore Group headquarters in Beverly Hills, CA
+[P3.8] Arizona Western College Community Building And Science + Agriculture Center
+</source>

@@ -1,0 +1,73 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Graco Inc. (www.graco.com)
+Sector: Manufacturing (industrial, materials, electronics)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- manufacturing_type (Manufacturing type): How it makes products. Example: discrete: builds individual units on assembly lines. Any that apply of: discrete; process; assembly; outsourced / fabless.
+- production_model (Production model): Built for an order or for stock. Example: make-to-order: each unit configured to the customer's order. Exactly one of: make-to-order; make-to-stock; both.
+- product_complexity (Product complexity): How engineered its products are. Example: engineered: custom-configured equipment. Exactly one of: commodity; engineered; precision / high-spec.
+- production_role (Production role): Where it sits in its customers' supply chain. Example: final manufacturer: sells finished units to contractors. Any that apply of: final manufacturer / OEM; tier 1 supplier; tier 2 or component supplier; contract manufacturer; materials producer.
+- end_market_exposure (End-market exposure): Which end markets drive demand. Example: industrial: factories and commercial buildings. Any that apply of: aerospace and defense; automotive and transportation; industrial; construction and buildings; energy; electronics and semiconductors; healthcare and life sciences; consumer; agriculture; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Graco Inc.
+[P1.2] Graco is one of the world’s leading suppliers of fluid management products and packages. We manufacture equipment to move, measure, mix, control, dispense and spray fluids that are part of your daily life.
+[P1.3] Two brothers, a garage and the tenacious pursuit for an exceptional solution. That’s where the Graco story began. For nearly 100 years, Graco has expertly engineered products that support the movement of the world’s materials, from the paint that makes a house feel like a home to the food that fuels us for the day ahead.
+[P1.4] Homeowners and do-it-yourself consumers use our time-saving paint sprayers to finish weekend projects inside and outside of the home. Doors, trim, decks, ceilings, fences, and more.
+[P1.5] Professional contractors in a broad range of specialties consider Graco their go-to for hardy and reliable equipment that helps them save time and deliver high-quality results.
+[P1.6] Customers rely on our expertise in service and repair solutions for dealerships, service garages, lube trucks, maintenance centers and on-road vehicles.
+[P1.7] For customers in industries such as automotive, aerospace, packaging, sanitary and many others.
+[P1.8] Celebrating a Century of Ingenuity
+[P1.9] For 100 years, Graco has powered progress through every era, adapting and succeeding with our customers. Learn how that resilience has enabled the breakthroughs that built our legacy and will guide the next century of innovation.
+[P1.10] Join a team that moves what matters, no matter what. Graco offers opportunities to support the people moving the world forward with our industry-leading manufacturing and technology.
+[P1.11] Explore the Latest Graco Product and Company News
+[P1.12] Browse news releases, executive speeches, photographs, and find media contacts.
+[P1.13] Outstanding Customer Service for any Graco product is only a call or email away.
+</source>
+
+<source id="P2">
+[P2.1] Graco Brands
+[P2.2] Graco owns a portfolio of brands to support our growth strategies of investing in new products and targeting new markets and applications.
+[P2.3] Graco owns a portfolio of brands to support our key growth strategies of investing in innovative new products, targeting new markets and applications, making strategic acquisitions and expanding geographically.
+[P2.4] Families of paint sprayers designed for residential and commercial work, line stripers, texture sprayers and accessories.
+[P2.5] RentalPro's family of pressure washers, airless paint and texture sprayers offers a complete line of spray equipment designed and built for the rental industry.
+[P2.6] Smith makes and sells scarifying and grinding equipment for both interior and exterior surface preparation for striping, road construction, road maintenance and concrete flooring applications.
+[P2.7] Professional automotive refinishers choose Sharpe's RAZOR spray guns for premium performance and Finex guns for overall value.
+[P2.8] ETM’s breakthrough in electric motor technology delivers unmatched torque and power density in a compact, efficient package. It’s electrifying systems and changing industries.
+[P2.9] A broad line of products and solutions designed for powder coating applications. Includes automatic booth systems, manual equipment and guns and powder management centers and hoppers.
+[P2.10] Valves, fittings, accessories, reactors, pressure vessels and pumping systems for high pressure applications in industries like oil and gas and chemical and petrochemical.
+[P2.11] Leading manufacturer of innovative environmental products. For over 35 years, its expertise has included pumping systems, landfill products and air strippers.
+[P2.12] Global provider of adhesive application, vision inspection, and quality assurance solutions for manufacturing and packaging.
+[P2.13] White Knight specializes in fluid handling products and solutions that serve a range of narrow industries such as semiconductor manufacturing, solar cell fabrication, and displays, LEDs and electronics.
+[P2.14] {"links":[{"url":"https://www.graco.com/us/en/about-graco/locations/usa-minneapolis.html", "anchor_text":"Graco USA - Minneapolis, MN"},{"url":"https://www.graco.com/us/en/about-graco/foundation.html", "anchor_text":"Graco Foundation"},{"url":"https://www.graco.com/us/en/about-graco.html", "anchor_text":"WORLDWIDE LEADERS IN FLUID HANDLING"}]}
+</source>
+
+<source id="P3">
+[P3.1] Building Products & Construction Manufacturing | Graco
+[P3.2] Sealant & adhesive solutions that deliver consistent and reliable results for building products manufacturing such as window and door, OEM glass, and more..
+[P3.3] Solutions for Building Products Manufacturing
+[P3.4] Learn how to achieve high-speed lamination efficiency with fast, accurate and consistent adhesive dispense from Graco SAE dispense equipment.
+[P3.5] Consistent heat control and on-ratio mixing is critical for proper sealant application. Learn how Graco equipment delivers proper adhesion every time.
+[P3.6] Learn how to achieve precise application of sealants and adhesives in glazing and back-bedding applications for durability and leak-free performance.
+[P3.7] Curtain Wall / Structural Glazing
+[P3.8] Learn how to consistently achieve a quality seal when manufacturing high-performing insulated glass panels with structural integrity.
+[P3.9] Reduce Manufacturing Costs with Advanced Foam Dispense Process
+[P3.10] Real-time Ratio Monitoring Critical for Adhesives in the Glass Industry
+[P3.11] Discover the importance of real-time ratio monitoring in the glass industry. Learn how accurate mixing and on-ratio dispensing of adhesive components impact the success of bonding and sealing processes for insulated glass and curtain wall applications.
+[P3.12] {"links":[{"url":"https://www.graco.com/us/en/in-plant-manufacturing/products/mortar/concrete-mixers.html", "anchor_text":"Concrete Mixers"},{"url":"https://www.graco.com/us/en/in-plant-manufacturing/products/lubrication/fluid-handling/hose-reels/ldx-series-hose-reels.html", "anchor_text":"LDX Series Hose Reels"},{"url":"https://www.graco.com/us/en/in-plant-manufacturing/solutions/articles/how-probell-atomisers-deliver-consistent-results-in-any-spraying-context.html", "anchor_text":"How ProBell atomisers deliver consistent results in any spraying context"}]}
+</source>

@@ -1,0 +1,104 @@
+{
+ "IQ_COMPANY_ID": "IQ1108195",
+ "company_name": "Addus HomeCare Corporation",
+ "website": "www.addus.com",
+ "sic4": "8082",
+ "sic2": "80",
+ "industry": "Health Services",
+ "model": "claude-sonnet-5-5",
+ "prompt_version": "2026-11-04a",
+ "fingerprint": "46ea0d7fb5ad328a",
+ "llm_status": "ok",
+ "run_dir": "runs/IQ1108195/2026-11-05T011847Z",
+ "created_at": "2026-11-05T01:18:55Z",
+ "facets": {
+  "healthcare_provider_setting": {
+   "label": "Healthcare-provider setting",
+   "status": "stated",
+   "value": "Home-based care provider: personal care, home health and hospice services",
+   "cites": [
+    "P1.6",
+    "P1.7",
+    "P1.8"
+   ],
+   "source": "evidence"
+  },
+  "clinical_specialty": {
+   "label": "Clinical specialty",
+   "status": "stated",
+   "value": "Home care for elderly, disabled and chronically ill: personal care, skilled home health, hospice",
+   "cites": [
+    "P2.5",
+    "P1.7"
+   ],
+   "source": "evidence"
+  },
+  "patient_activity_volume": {
+   "label": "Patient activity / volume",
+   "status": "stated",
+   "value": "Personal care to a large base of patients; home health and hospice to a much smaller patient base",
+   "cites": [
+    "P2.8"
+   ],
+   "source": "evidence"
+  },
+  "payer_revenue_mix": {
+   "label": "Payer revenue mix",
+   "status": "stated",
+   "value": "Predominantly state Medicaid and other government programs for personal care; smaller Medicare, managed care and private pay shares",
+   "cites": [],
+   "source": "model knowledge"
+  },
+  "payment_reimbursement_model": {
+   "label": "Payment / reimbursement model",
+   "status": "stated",
+   "value": "Government contracts and fee-for-service hourly rates for personal care; Medicare episodic/per-diem payment for home health and hospice",
+   "cites": [],
+   "source": "model knowledge"
+  },
+  "setting_specific_capacity": {
+   "label": "Setting-specific capacity",
+   "status": "stated",
+   "value": "Multiple branch offices across about two dozen states",
+   "cites": [
+    "P2.8",
+    "P3.5"
+   ],
+   "source": "evidence"
+  },
+  "patient_acuity_case_mix": {
+   "label": "Patient acuity / case mix",
+   "status": "stated",
+   "value": "Elderly, disabled and chronically ill patients at risk of hospitalization; mostly non-medical personal care, plus skilled and hospice care",
+   "cites": [
+    "P2.5",
+    "P1.6"
+   ],
+   "source": "evidence"
+  },
+  "clinical_operating_quality": {
+   "label": "Clinical operating quality",
+   "status": "unknown",
+   "value": "",
+   "cites": [],
+   "source": ""
+  }
+ },
+ "issues": [
+  "from_memory:payer_revenue_mix",
+  "from_memory:payment_reimbursement_model"
+ ],
+ "notes": "Payer mix and reimbursement are from general knowledge, not the website evidence.",
+ "evidence": {
+  "kinds": [
+   "P"
+  ],
+  "scrape_status": "ok",
+  "sources": {
+   "P1": "https://addus.com/",
+   "P2": "https://addus.com/why-addus/",
+   "P3": "https://addus.com/locations/"
+  }
+ },
+ "knows_company": true
+}

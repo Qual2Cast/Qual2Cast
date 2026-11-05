@@ -1,0 +1,51 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Concrete Pumping Holdings, Inc. (www.concretepumpingholdings.com)
+Sector: Construction and real estate
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- construction_role (Role): Its role in building or property. Example: specialty contractor: mechanical and electrical work. Any that apply of: homebuilder; general contractor; specialty contractor; engineering and design; land developer; property owner / REIT; property services.
+- project_type (Project type): What kind of projects. Example: infrastructure: roads and bridges. Any that apply of: residential; commercial / institutional; industrial; infrastructure; energy and utilities.
+- public_funding (Public funding): How much of its work is publicly funded. Example: high: mostly state transportation departments. Exactly one of: high; medium; low.
+
+Evidence:
+<source id="P1">
+[P1.1] Concrete Pumping Holdings, Inc.
+[P1.2] Concrete Pumping Holdings is the leading provider of concrete pumping services and concrete waste management solutions in the U.S. and U.K., operating under the only established, national brands in both countries.
+[P1.3] Concrete Pumping Holdings is the leading provider of concrete pumping services in the highly fragmented U.S. and U.K. markets, operating under the only established, national brands in both markets (Brundage-Bone and Camfaud, respectively). Concrete pumping is a "mission-critical" method of concrete placement that requires highly-skilled operators to position a truck-mounted fully-articulating boom for precise delivery of ready-mix concrete from mixer trucks to placing crews on a job site. CPH's large fleet of specialized pumping equipment and highly-trained operators position CPH to deliver concrete placement solutions that facilitate substantial labor cost savings to customers, shorten concrete placement times, enhance worksite safety and improve construction quality. CPH operates a fee-based revenue model with no bonding requirements.
+[P1.4] CPH is also the leading provider of concrete waste management services in the U.S. market, operating under the only established, national brand, Eco-Pan. Highly complementary to its core concrete pumping service, Eco-Pan provides a full-service, cost-effective, regulatory-compliant solution to manage environmental issues caused by concrete washout.
+[P1.5] As of, the Company provided concrete pumping services in the U.S. from a footprint of multiple branch locations across approximately 20 states, concrete pumping services in the U.K. from multiple branch locations, and route-based concrete waste management services from multiple operating locations in the U.S. and 1 shared location in the U.K.
+[P1.6] For more information, please visit www.concretepumpingholdings.com or the Company’s brand websites at www.brundagebone.com, www.camfaud.co.uk, or www.eco-pan.com.
+[P1.7] U.S. Concrete Pumping - Brundage-Bone
+[P1.8] Brundage-Bone is the largest concrete pumping and material placement service provider in the United States.
+[P1.9] U.S. Concrete Pumping – Capital Pumping
+[P1.10] Capital Pumping is a leading provider of concrete pumping services in Texas.
+[P1.11] U.K. Concrete Pumping - Camfaud
+[P1.12] Camfaud is the largest concrete pumping and material placement service provider in the United Kingdom.
+[P1.13] Concrete Waste Management Services - Eco-Pan
+[P1.14] Eco-Pan is the leading provider of environmental waste management services to the concrete industry in the United States. We specialize in concrete cleanup and disposal services across the country.
+[P1.15] Our team has extensive expertise in providing top-notch concrete pumping service in the U.S. under the Brundage-Bone brand, concrete pumping service in the U.K. under the Camfaud brand, and concrete waste management services in the U.S. under the Eco-Pan brand.
+</source>
+
+<source id="P2">
+[P2.1] U.K. Concrete Pumping - Camfaud :: Concrete Pumping Holdings, Inc.
+[P2.2] Camfaud is the largest concrete pumping company in the U.K. As of, the Company provides concrete pumping services from multiple locations throughout the U.K., offering the largest, most diverse fleet in the country.
+</source>
+
+<source id="P3">
+[P3.1] U.S. Concrete Pumping - Brundage-Bone :: Concrete Pumping Holdings, Inc.
+[P3.2] Brundage-Bone is the largest concrete pumping and material placement service in the United States. with just one location in Denver, Colorado, Brundage-Bone provides concrete pumping services in the U.S. with a fleet of 482 equipment units from a highly diversified footprint of multiple locations across 22 states (as of). Since our origin we have more experience pumping concrete than anyone. Brundage-Bone supplies the largest and most diverse fleet of concrete pumping vehicles and equipment with the most multi-regional locations across the nation. Due to our vast knowledge of concrete pumping, we continue to lead the industry in technology, customer service, fleet and location size, training, and safety.
+</source>

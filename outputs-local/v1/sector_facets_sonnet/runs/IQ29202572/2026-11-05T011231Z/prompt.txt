@@ -1,0 +1,62 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Highwater Ethanol, LLC (www.highwaterethanol.com)
+Sector: Manufacturing (industrial, materials, electronics)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- manufacturing_type (Manufacturing type): How it makes products. Example: discrete: builds individual units on assembly lines. Any that apply of: discrete; process; assembly; outsourced / fabless.
+- production_model (Production model): Built for an order or for stock. Example: make-to-order: each unit configured to the customer's order. Exactly one of: make-to-order; make-to-stock; both.
+- product_complexity (Product complexity): How engineered its products are. Example: engineered: custom-configured equipment. Exactly one of: commodity; engineered; precision / high-spec.
+- production_role (Production role): Where it sits in its customers' supply chain. Example: final manufacturer: sells finished units to contractors. Any that apply of: final manufacturer / OEM; tier 1 supplier; tier 2 or component supplier; contract manufacturer; materials producer.
+- end_market_exposure (End-market exposure): Which end markets drive demand. Example: industrial: factories and commercial buildings. Any that apply of: aerospace and defense; automotive and transportation; industrial; construction and buildings; energy; electronics and semiconductors; healthcare and life sciences; consumer; agriculture; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Highwater Ethanol
+[P1.2] CORN (Dec 26) 474'2 -3'6
+[P1.3] CORN (Mar 27) 486'2 -4'4
+[P1.4] CORN (May 27) 493'4 -4'4
+[P1.5] CORN (Jul 27) 498'6 -4'2
+[P1.6] CORN (Sep 27) 493'4 -3'4
+[P1.7] CORN (Dec 27) 506'4 -2'4
+[P1.8] CORN (Mar 28) 519'4 -2'2
+[P1.9] CORN (May 28) 527'6 -2'2
+[P1.10] SOYBEANS (Nov 26) 1260'4 -1'6
+[P1.11] SOYBEANS (Jan 27) 1275'2 -2'0
+[P1.12] SOYBEANS (Mar 27) 1283'2 -2'0
+[P1.13] WHEAT (Dec 26) 659'6 -9'4
+[P1.14] WHEAT (Mar 27) 674'4 -9'2
+[P1.15] WHEAT (May 27) 681'0 -8'4
+[P1.16] WHEAT (Jul 27) 682'4 -7'0
+[P1.17] WHEAT (Sep 27) 688'4 -6'0
+[P1.18] LIVE CATTLE (Oct 26) 227.525 1.600
+[P1.19] LIVE CATTLE (Dec 26) 228.450 1.100
+[P1.20] LIVE CATTLE (Feb 27) 231.075 1.250
+[P1.21] LEAN HOGS (Dec 26) 66.875 0.350
+[P1.22] LEAN HOGS (Feb 27) 69.100 0.775
+[P1.23] LEAN HOGS (Apr 27) 74.475 1.250
+[P1.24] Farmer Online Portal - CIH https://highwater.cihedging.com/cih/grower/login.cfm
+[P1.25] Our current DP Program for Fall 2026 is in effect from Friday, October 9th, 2026 to Monday, August 30th, 2027. These bushels MUST be priced out by Monday, August 30th, 2027 or they will be automatically priced out and payment will be sent. We will maintain our normal discount schedule (no shrink). You may NOT move DP bushels to forward contracts. You may not roll an old DP Program into a new DP Program.
+[P1.26] Please sign up to receive Highwater Ethanol Corn Bids via text or email.
+[P1.27] Mission Statement: To successfully operate a bio-energy facility, which will be profitable to our investor owners while contributing to the economic growth in the region. Highwater Ethanol is committed to the present while focusing on the future. Vision Statement: Highwater Ethanol will identify opportunities that position the business to provide sustainable competitive advantages through short and long term core investments.
+[P1.28] @C - CORN - CBOT
+[P1.29] @S - SOYBEANS - CBOT
+[P1.30] @W - WHEAT - CBOT
+[P1.31] @LE - LIVE CATTLE - CME
+[P1.32] @HE - LEAN HOGS - CME
+[P1.33] 7:30 am to 3:30 pm
+[P1.34] 7:30 am to 4:30 pm
+</source>

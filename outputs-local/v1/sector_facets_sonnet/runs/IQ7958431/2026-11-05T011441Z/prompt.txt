@@ -1,0 +1,59 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: National CineMedia, Inc. (www.ncm.com)
+Sector: Business and personal services
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- service_category (Service category): What service it sells. Example: outsourcing: payroll and benefits administration. Any that apply of: consulting and advisory; outsourcing / BPO; staffing; facilities and field services; engineering and technical services; marketing and information services; education and training; personal and consumer services; other.
+- engagement_model (Engagement model): How clients engage it. Example: managed service: multi-year outsourced contracts. Any that apply of: project; retainer; managed service; per transaction / per visit.
+- labor_specialization (Labor specialization): Who delivers it. Example: specialist: licensed technicians. Exactly one of: generalist / low-skill; skilled trades; licensed professionals; technical / IT specialists.
+- client_segment (Client segment): Its typical client. Example: enterprise: large employers. Any that apply of: consumers; SMB; enterprise; government.
+
+Evidence:
+<source id="P1">
+[P1.1] National CineMedia | Movie Advertising Leader| Drive business results
+[P1.2] National CineMedia (NCM) is the leading cinema ad platform in the US, connecting brands with young, diverse audiences through the power of movies and pop culture. A premium video, full-funnel marketing solution for advertisers, NCM enhances marketers' ability to measure and drive results.
+[P1.3] From pre-show advertising to lobby activations, we deliver the engagement and results that drive performance.
+[P1.4] Your Largest Cinema Advertising Opportunity in the US
+[P1.5] Anchored by the only three national theater chains and prominent regional exhibitors, our best-in-class cinema advertising platform reaches hundreds of millions of moviegoers each year. This unrivaled scale leads to some of the highest ratings with Gen Z and young Millennials and connects to incremental audiences.
+[P1.6] Programmatic Ads: Now Playing on the Big Screen
+[P1.7] Brands now have unprecedented access to premium inventory in front of high-quality, opt-in, brand-safe content. Garner 100% human-viewed impressions via Programmatic Guaranteed (PG) or Private Marketplace (PMP) campaigns, all in real-time.
+[P1.8] It’s one thing to believe in the power of advertising at the movie theater. It’s another to have the data that backs it up. NCMx, our proprietary dataset, transforms moviegoing behavior into actionable marketing intelligence to deliver on your campaign KPIs, from pre-campaign planning to post-campaign reporting and everything in between.
+[P1.9] Cinema is #1 in Attention
+[P1.10] Attention matters. The follow-up report we published on consumer attention reaffirms that ads on the big screen top all other premium video platforms for attention.
+[P1.11] Two witches must confront the dark curse that threatens to unravel their family once and for all.
+[P1.12] The most powerful man in the world embarks on a frantic mission to prove that he's humanity's savior.
+[P1.13] Hired to be a ghostwriter for renowned author Verity Crawford, Lowen Ashleigh's assignment takes a dark turn when she discovers chilling autobiographical notes.
+[P1.14] Facebook engineer Frances Haugen and The Wall Street Journal reporter Jeff Horwitz blow the whistle on the social network's most guarded secrets.
+[P1.15] National CineMedia (NCM) is the largest cinema advertising platform in the US. With unparalleled reach and scale, we connect brands to young, diverse audiences through the power of movies and pop culture. A premium video, full-funnel marketing solution for advertisers, NCM enhances marketers' ability to measure and drive results. NCM’s leading preshow, The Noovie® Show is presented exclusively in 42 leading national and regional theater circuits – including the only three national chains: AMC Entertainment Inc., Cinemark Holdings, Inc. and Regal Entertainment Group. NCM’s cinema platform consists of 17,500+ screens in more than 1,350 theaters in 184 Designated Market Areas® (all of the Top 50).
+</source>
+
+<source id="P2">
+[P2.1] About | National CineMedia
+[P2.2] NCM is a movie theater advertising company that offers local, regional, and national opportunities at several top theaters in the U.S. as well as digital and digital out-of-home platforms.
+[P2.3] NCM is the most effective brand and performance marketing platform in today’s media landscape. We unite brands with young, diverse moviegoers through the power of pop culture and shared experiences, providing access to our unrivaled scale and brand-safe platform. All while driving your specific business outcomes.
+[P2.4] Chief Legal Officer & Secretary
+[P2.5] EVP & Chief Revenue Officer
+[P2.6] Chief Data & Innovation Officer
+[P2.7] EVP – Chief Corporate Development Officer
+[P2.8] SVP – Operations & EIS
+[P2.9] SVP – Chief Information Officer
+[P2.10] SVP – Deputy General Counsel
+[P2.11] Interested in joining our movie-loving crew to help enhance the cinema advertising experience for brands and moviegoers alike? Whether you’re looking for an opportunity in Sales, Operations, Creative, Digital, or something entirely different, we invite you to come join a fun, vibrant culture with passionate people who thrive on propelling us forward.
+[P2.12] We’re a company, so you can own a piece of the action, too.
+[P2.13] As the U.S. representative for the Cannes Lions Festival of Creativity, NCM hosts the annual Young Lions competition, challenging top under-30 talent to answer a nonprofit brief. The winning Team USA heads to Cannes, France to compete—expenses paid. It’s kind of a big deal.
+[P2.14] National CineMedia (NCM) is the largest cinema advertising platform in the US. With unparalleled reach and scale, we connect brands to young, diverse audiences through the power of movies and pop culture. A premium video, full-funnel marketing solution for advertisers, NCM enhances marketers' ability to measure and drive results. NCM’s leading preshow, The Noovie® Show is presented exclusively in 42 leading national and regional theater circuits – including the only three national chains: AMC Entertainment Inc., Cinemark Holdings, Inc. and Regal Entertainment Group. NCM’s cinema platform consists of 17,500+ screens in more than 1,350 theatres in 184 Designated Market Areas® (all of the Top 50).
+</source>

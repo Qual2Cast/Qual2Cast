@@ -1,0 +1,58 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Flanigan's Enterprises, Inc. (www.flanigans.net)
+Industry (SIC 58): Eating & Drinking Places
+About this industry group: Keep system, franchised and company-operated unit counts separate. AUV, same-store sales, traffic, average check and restaurant contribution margin have different populations and definitions. Franchisee system sales are not the franchisor’s recognized revenue. Official scope.
+
+Facets:
+- restaurant_drinking_place_format (Restaurant / drinking-place format). Examples: Quick-service; Full-service casual dining; Alcohol-focused bar.
+- franchise_company_operated_footprint (Franchise / company-operated footprint). Examples: 90% of system restaurants franchised; Company-operated chain; Mixed franchised and operated units.
+- comparable_unit_sales_growth (Comparable-unit sales growth). Examples: Annual same-store sales: +3%; Quarterly comparable sales: −1%.
+- comparable_traffic_average_check (Comparable traffic / average check). Examples: Transactions: −2%; Average check: +5%.
+- average_unit_volume_defined_cohort (Average unit volume [defined cohort]). Examples: $1.8 million annual sales/eligible restaurant; $2.5 million annual franchised-unit sales.
+- system_operated_unit_counts (System / operated unit counts). Examples: 2,400 system restaurants; 180 company-operated units; 600 franchised units.
+- menu_beverage_focus (Menu / beverage focus). Examples: Burgers and sandwiches; Pizza; Coffee and bakery.
+- ordering_delivery_sales_mix (Ordering / delivery sales mix). Examples: 20% of sales through delivery; Drive-through-led sales; Third-party delivery partnerships.
+- store_level_economics_company_operated (Store-level economics [company-operated]). Examples: Restaurant contribution margin: 18%, issuer-defined; Food and labor cost: 60% of restaurant sales.
+
+Evidence:
+<source id="P1">
+[P1.1] Flanigan's - Laid back Family-run Restaurants in South Florida
+[P1.2] Beloved South Florida institution serving great food, drink, and fun; collection of family-run restaurants + sports bars open 365 days a year, lunch - late night.
+[P1.3] Treat yourself to the same great food you know in our restaurants, wherever you please.
+[P1.4] Pick up your ToGo order at any Flanigan's location.
+[P1.5] Lunchtime Legends is Flanigan’s NEW rewards program. Receive 5 points for every qualifying dollar spent between 11 AM and 4 PM when dining in the restaurant. Earn 5 points
+[P1.6] Wing It Wednesdays, Joe’s Meal Deals, Best Happy Hour In Town – take a look at these seriously stellar specials on offer. We’ve got you covered every day of the week!
+[P1.7] Touchdown. Slam Dunk. Homerun. Hole-In-One. Ace. Score. However you want to play it, Saturdays & Sundays are a total win with Happy Hour 11 AM - 7 PM & 9 PM to close.
+[P1.8] Welcome to the club! Join the Flan Club to receive the latest and greatest (think weekly specials, exclusive offers, news, special ‘gifts’ from us to you). Let’s be friends with benefits, sign up today.
+[P1.9] My how the family has grown! Come say hi at one of our multiple hyper-local locations sprinkled around South Florida. We’re always here for you, welcoming guests 365 days a year!
+[P1.10] It's 5 O'Clock Somewhere. Visit our sister shop, Big Daddy's Wine & Liquors, for beer, wine, and liquor needs at the best prices around. Cheers!
+</source>
+
+<source id="P2">
+[P2.1] Our Story
+[P2.2] The founding vision of Joe “Big Daddy” Flanigan – a come one, come all, home-away-from-home for friends old and new – is alive and well today. Over the years, Flanigan’s evolved from popular Big Daddy’s lounges and liquor stores into a group of over 20 restaurants.
+[P2.3] Flanigan’s is a laidback family-run restaurant anchored by a commitment to exceptional food and drink, warm hospitality, great value, and good fun. A beloved South Florida institution the Flanigan’s name is pretty much synonymous with good times. Flanigan’s welcomes guests from near and far every day of the year, serving continuously from lunch to late night.
+[P2.4] The founding vision of Joe “Big Daddy” Flanigan – a come one, come all, home-away-from-home for friends old and new – is alive and well today. Over the years, Flanigan’s evolved from popular Big Daddy’s lounges and liquor stores into a group of over 20 restaurants. An appreciation for shared meals with family and friends is at the heart of the Flanigan’s experience.
+[P2.5] Flanigan’s is very much a local neighborhood spot, and we exist to serve each community in which we make our home. The design of our bars and restaurants is all about the island vibes and saltwater adventures that reflect our deep South Florida roots. Our walls are lined with memories of family and friends playing in their natural nautical element – fishing, diving, beaching, and boating.
+[P2.6] And, oh yeah, those Legendary Baby Back Ribs…
+</source>
+
+<source id="P3">
+[P3.1] Locations
+[P3.2] Our restaurants are open 365 days a year, serving continuously from 11:00 AM to late night. Whether you’re joining us in the dining room, bar (full menu available), or for take away – our team always looks forward to seeing your smiling face!
+[P3.3] Open Until Midnight (or Later)
+[P3.4] Open So Flippin' Late (1am or Later, Every Night)
+</source>

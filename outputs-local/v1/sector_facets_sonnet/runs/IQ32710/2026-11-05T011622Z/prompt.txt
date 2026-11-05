@@ -1,0 +1,86 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: PTC Inc. (www.ptc.com)
+Sector: Software and internet
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- software_category (Software category): What the software does. Example: HR and payroll: payroll, benefits and time tracking. Any that apply of: ERP and finance; HR and payroll; CRM, marketing and sales; cybersecurity; data, analytics and AI; IT and developer infrastructure; collaboration and content; industry-specific (vertical) software; payments and fintech; consumer internet and marketplaces; IT services and consulting; other.
+- deployment_model (Deployment model): How the software is delivered. Example: SaaS: cloud subscription. Exactly one of: SaaS / cloud; on-premise; hybrid; not applicable (services or internet).
+- customer_size (Customer size): Its typical customer. Example: mid-market: employers with tens to a few thousand staff. Any that apply of: consumers; SMB; mid-market; enterprise; government.
+- product_architecture (Product architecture): One product or a suite. Example: platform: payroll, HR, time and benefits on one system. Exactly one of: platform / suite; point solution; API / infrastructure.
+
+Evidence:
+<source id="P1">
+[P1.1] Global Leader in Product Lifecycle Management Software | PTC
+[P1.2] PTC accelerates digital transformation with a new generation of technology that powers the ways you engineer, manufacture, and service your physical products.
+[P1.3] See What’s NEXT: PTC On Demand
+[P1.4] Explore PTC NEXT On Demand for recorded keynotes, product launch highlights, demos, and technical content—all in one place. Don’t miss the latest updates in Intelligent Product Lifecycle innovation.
+[P1.5] FY25 Impact Report: Read about our ongoing sustainability efforts
+[P1.6] Product Sustainability For Dummies, PTC Special Edition
+[P1.7] AI is fueling what’s possible in product development
+[P1.8] Deliver more value through your products
+[P1.9] With PTC solutions, you can reduce product development friction and complexity, creating downstream benefits that improve quality, boost revenue, and accelerate innovation.
+[P1.10] Manage product complexity with the right solutions
+[P1.11] Overcome product complexity with solutions for managing configurations and product variants, software and hardware requirements, technical documentation, and more.
+[P1.12] Reduce costs by transforming your product development processes
+[P1.13] Deliver high quality products with consistency
+[P1.14] Exceed quality expectations with an enterprise-wide approach to quality management where everyone plays a role in driving continuous quality improvements.
+[P1.15] Innovate faster with a digital foundation that supports collaborative product development and concurrent work across the entire product lifecycle.
+[P1.16] Win over customers by differentiating your product and service offerings through software-driven innovation, streamlined product customization, service optimization and more.
+[P1.17] See the latest in PTC innovation—from emerging advancements and new product experiences—so you can explore what’s new and see what’s next shaping the future for your business.
+[P1.18] The latest in asset intelligence and enterprise collaboration
+[P1.19] Brands you rely on, rely on PTC
+[P1.20] You can’t go a single day without encountering a product engineered, manufactured, or serviced with PTC software. In fact, 95% of Fortune 500 discrete manufacturing companies are PTC customers.
+[P1.21] Our customers rely on our best-in-class solutions, open software philosophy, extensive partner network, and deep industry expertise to drive digital transformation across the entire product lifecycle.
+</source>
+
+<source id="P2">
+[P2.1] About PTC. | PTC
+[P2.2] PTC helps companies achieve their digital transformation goals through technologies that deliver the “Power To Create” more innovative, sustainable, and cost-effective products and solutions...
+[P2.3] Companies That Make Products the World Relies on, Rely on PTC
+[P2.4] From planes to medical devices to wind turbines to computers, our unique portfolio of software solutions enables companies to transform how they design, make, and maintain their products.
+[P2.5] How We Help Our Technologies Our Purpose Our Impact Resources
+[P2.6] How we help our customers
+[P2.7] With global supply chains, software-driven innovation, and ever-evolving customer demands, how these products are designed, manufactured, and serviced is more complicated than ever.
+[P2.8] Our portfolio of software solutions manages data throughout a product’s lifecycle – driving excellence in engineering and design, efficiency in manufacturing and supply chain, and optimization in operations and service.
+[P2.9] For nearly 40 years, PTC has consistently innovated in the product development space. Our customers are market leaders and disruptors across major manufacturing verticals, including auto, A&D, industrials, and life sciences.
+[P2.10] Knowing the critical role our solutions play in the success of our customers, PTC has a comprehensive approach to working with customers, including embracing an open ecosystem, where our technologies can integrate with other vendor’s solutions.
+[P2.11] To deliver comprehensive support, PTC enables an extensive global partner network to ensure customers have the tools and expertise necessary for success. By working together, we boost design, development, implementation, and production time.
+[P2.12] The world’s best companies that design, make, and service products rely on PTC technologies, including 95% of the Fortune 500 discrete manufacturing companies. Top analyst firms consistently rank PTC as a leader in each of our technology categories.
+[P2.13] Establish the foundation for digital thread and provide stakeholders across the extended enterprise with access to an authoritative source of real-time data.
+[P2.14] Create 3D digital models of real-world products to define, share, review, simulate, and modify your designs before they’re manufactured.
+[P2.15] Align and support hardware/software development processes and product regulatory compliance with traceability, transparency, and advanced workflows.
+[P2.16] Maximize customer uptime by aligning your service parts management, technical communication, field service management, and product support operations.
+[P2.17] Monitor, analyze, and act on your industrial data with real-time operational insights that enable bottleneck analysis, predictive maintenance, and energy efficiency.
+[P2.18] Deliver highly visual training and work instructions to frontline employees or customers by overlaying 3D digital content onto their real-world environment.
+[P2.19] Our purpose at PTC is to do more than just imagine a better world, it’s to help create it.
+[P2.20] Our products enable manufacturers to design, build, and service their products more sustainably, while also considering other requirements.
+[P2.21] Our software is helping to advance products all around us. See how our modern SaaS technology is transforming product development.
+[P2.22] Our 2025 Impact Report highlights our initiatives in reducing emissions, enhancing our products, and improving our communities. This year, as we celebrate 40 years of innovation, we were certified as a Great Place to Work in multiple countries.
+</source>
+
+<source id="P3">
+[P3.1] PTC Case Studies | PTC Software in Action
+[P3.2] Read PTC's case studies from our customers who use our various products.
+[P3.3] Our solutions support digital transformation for companies of all sizes and ways of working, driving excellence in engineering and design, efficiency in manufacturing and supply chain, and optimization in operation and service. Our case studies explore success stories from leaders and disruptors in automotive, aerospace and defense, industrial machinery, med tech, and more.
+[P3.4] Application Lifecycle Management (ALM) Augmented Reality Computer-aided Design (CAD) Engineering Calculations Enterprise Asset Management (EAM) Integrated Product Development and Engineering Product Lifecycle Management (PLM) Service Lifecycle Management (SLM)
+[P3.5] Arena PLM Arena PLM for AWS GovCloud Arena QMS
+[P3.6] CADDS5 Creo+ Elements Direct Layout
+[P3.7] ServiceMax Contractor Management ServiceMax Core ServiceMax DataGuide ServiceMax Engage ServiceMax FieldFX ServiceMax Go ServiceMax Service Board ServiceMax Zinc
+[P3.8] Chalk Developer Engine Expert Capture Instruct Studio
+[P3.9] FlexPLM Modeler Navigate Quality Windchill+
+[P3.10] Aerospace and Defense Automotive Electronics and High-Tech Energy and Resources Industrial Equipment MedTech Retail and Consumer Products Software and Technology
+</source>

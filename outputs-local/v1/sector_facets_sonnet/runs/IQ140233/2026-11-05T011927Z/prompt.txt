@@ -1,0 +1,47 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Tripadvisor, Inc. (www.tripadvisor.com)
+Sector: Software and internet
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- software_category (Software category): What the software does. Example: HR and payroll: payroll, benefits and time tracking. Any that apply of: ERP and finance; HR and payroll; CRM, marketing and sales; cybersecurity; data, analytics and AI; IT and developer infrastructure; collaboration and content; industry-specific (vertical) software; payments and fintech; consumer internet and marketplaces; IT services and consulting; other.
+- deployment_model (Deployment model): How the software is delivered. Example: SaaS: cloud subscription. Exactly one of: SaaS / cloud; on-premise; hybrid; not applicable (services or internet).
+- customer_size (Customer size): Its typical customer. Example: mid-market: employers with tens to a few thousand staff. Any that apply of: consumers; SMB; mid-market; enterprise; government.
+- product_architecture (Product architecture): One product or a suite. Example: platform: payroll, HR, time and benefits on one system. Exactly one of: platform / suite; point solution; API / infrastructure.
+
+Evidence:
+<source id="P1">
+[P1.1] Tripadvisor: Over a billion reviews & contributions for Hotels, Attractions, Restaurants, and more
+[P1.2] Plan your next trip, read reviews and get travel advice from our community on where to stay and what to do. Find savings on hotels, book the perfect tour or attraction, and reserve a table at the best restaurants.
+[P1.3] Find things to do for everything you’re into
+[P1.4] Browse 400,000+ experiences and book with us.
+[P1.5] Find things to do by interest
+[P1.6] Whatever you're into, we’ve got it
+[P1.7] Travelers’ Choice Awards Best of the Best
+[P1.8] Early morning Chichen Itza Tour: Cenote and Tequila Tasting 4.8 4.8 of 5 bubbles (6,258)
+[P1.9] Show some love to small businesses
+[P1.10] Inspiration to get you going
+[P1.11] 15 U.S. fall-foliage trips—no car required
+[P1.12] The most magical towns in the Pacific Northwest
+[P1.13] 5 set-jetting adventures kids will love
+[P1.14] This is the best time to visit Italy’s lakes
+[P1.15] 6 U.S. wildlife experiences you can have right now
+[P1.16] How to hit multiple European countries on a one-day road trip
+[P1.17] Give yourself the chills on a ghost tour
+[P1.18] Iconic places you need to see
+[P1.19] Tripadvisor: join the largest travel community
+[P1.20] As the world's largest travel guidance platform, Tripadvisor helps you take better trips. Plus, you can check out hotels, restaurants, and more on our site or in the app—they're all backed by more than a billion reviews and opinions from travelers who have been there.
+</source>

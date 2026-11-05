@@ -1,0 +1,72 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Lumexa Imaging Holdings, Inc. (www.lumexaimaging.com)
+Industry (SIC 80): Health Services
+About this industry group: Use setting-specific units: visits, discharges, staffed beds and dialysis stations are not interchangeable. Distinguish an organization delivering medical care from one only underwriting medical insurance. Provider/insurer boundary.
+
+Facets:
+- healthcare_provider_setting (Healthcare-provider setting). Examples: Hospital; Outpatient clinic; Home-health provider.
+- clinical_specialty (Clinical specialty). Examples: Orthopedics; Oncology; Primary care.
+- patient_activity_volume (Patient activity / volume). Examples: 200,000 outpatient visits/year; 15,000 inpatient discharges/year; 500,000 home-health visits/year.
+- payer_revenue_mix (Payer revenue mix). Examples: 40% commercial insurance; 35% Medicare; 20% Medicaid.
+- payment_reimbursement_model (Payment / reimbursement model). Examples: Fee-for-service; Case-based bundled payment; Per-member capitation.
+- setting_specific_capacity (Setting-specific capacity). Examples: 250 staffed hospital beds; 25 clinics; 100 outpatient treatment stations.
+- patient_acuity_case_mix (Patient acuity / case mix). Examples: Routine outpatient visits; High-acuity inpatient care; Reported case-mix index.
+- clinical_operating_quality (Clinical operating quality). Examples: 30-day readmission rate; Hospital-acquired infection rate; Documented patient-safety measure.
+
+Evidence:
+<source id="P1">
+[P1.1] Lumexa Imaging • Shaping the Future of Imaging
+[P1.2] We’re building the nation’s premier partnership of physician-owned radiology practices and diagnostic imaging centers. Here, we come together to share best practices, optimize growth, support our hospital partners, and most importantly, elevate patient care—together. It’s the next generation of radiology.
+[P1.3] Shaping the Future of Imaging
+[P1.4] Making advanced diagnostic imaging more accessible nationwide.
+[P1.5] Demand for diagnostic imaging is growing rapidly.
+[P1.6] Lumexa Imaging is at the forefront, seeing beyond today’s challenges and shaping the future.
+[P1.7] Joint Ventures with Leading Health Systems
+[P1.8] across 13 states (85+ in Joint Ventures)
+[P1.9] Centralized scheduling to get every patient to the most convenient center at the first available appointment
+[P1.10] Convenient outpatient locations for easy access
+[P1.11] State-of-the-art equipment with the latest imaging software
+[P1.12] Subspecialized radiologists for fast, accurate interpretations
+[P1.13] Robust AI technology, amplifying clinical quality and operational efficiency to obtain imaging faster
+[P1.14] Comparable imaging services provided in imaging centers or physician’s offices are approximately 60% less expensive than those provided in HOPDs*
+[P1.15] Innovative, patient-friendly Scanslated ® reports educate and improve patient comprehension and engagement in their care
+[P1.16] *based on an analysis of 2019 claims performed by UnitedHealth Group
+[P1.17] Lumexa Imaging is building the nation’s premier imaging partnership. If your organization shares our Mission, let’s connect.
+</source>
+
+<source id="P2">
+[P2.1] Our Brands • Lumexa Imaging
+[P2.2] Lumexa Imaging is building the nation’s premier partnership of physician-owned radiology practices and diagnostic imaging services providers.
+[P2.3] Lumexa Imaging is one of the nation’s largest providers of outpatient imaging services, with multiple locations across 13 states.
+[P2.4] Our leading brands bring decades of experience delivering the highest quality care and exceptional patient satisfaction in diagnostic imaging.
+</source>
+
+<source id="P3">
+[P3.1] Our Services • Lumexa Imaging
+[P3.2] Connexia delivers high quality, subspecialized reads — fast.
+[P3.3] We Provide High Quality, Subspecialized Reads—Fast.
+[P3.4] Our goal is to help you deliver timely, effective patient care with high-quality reports for optimal treatment planning.
+[P3.5] As part of Lumexa Imaging, Connexia utilizes established technology, workflows, customer support, and clinical expertise to deliver the results that referring providers and patients need.
+[P3.6] Subspecialized reads across body, neuro, and musculoskeletal
+[P3.7] Fast turnaround times to optimize care delivery, with STAT workflow capability
+[P3.8] Proven IT infrastructure, platforms, and support
+[P3.9] Expert clinical operations team ensures smooth end-to-end workflows
+[P3.10] Robust quality infrastructure including peer learning and case review
+[P3.11] We collaborate and communicate as a team to provide an excellent experience to our partners.
+[P3.12] "Joining Connexia has been a wonderful fit, allowing me to thrive both professionally and personally. The practice enables radiologists to perform high-quality, subspecialty-focused radiology in an efficient and supportive setting. I cannot imagine a better work-life balance, and I am thrilled to be part of Connexia as we continue to grow and shape the future of the practice."
+[P3.13] “The best part about Connexia is the team I work with. I never expected to feel a part of a community as a telerad, but everybody always goes above and beyond to help - whether it’s needing an opinion on a case, or communicating a critical result. I continue to be blown away by how committed, approachable, kind, and helpful everyone is. Even though I work remotely, I never feel alone, and I always feel satisfied with my workday.”
+[P3.14] If you’d like to contact one of our Physician Recruiters directly, you are welcome to complete the form.
+</source>

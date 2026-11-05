@@ -1,0 +1,135 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Freshpet, Inc. (www.freshpet.com)
+Industry (SIC 20): Food & Kindred Products
+
+Facets:
+- food_beverage_category (Food / beverage category). Examples: Frozen potato products; Packaged bakery products; Nonalcoholic beverages.
+- brand_private_label_manufacturing (Brand / private-label manufacturing). Examples: Owned consumer brands; Retailer private-label production; Foodservice contract manufacturing.
+- shelf_life_storage_condition (Shelf life / storage condition). Examples: Seven-day chilled shelf life; 18-month frozen shelf life; Shelf-stable dry goods.
+- processing_technology (Processing technology). Examples: Freezing and packaging; Fermentation; UHT treatment.
+- temperature_controlled_logistics (Temperature-controlled logistics). Examples: Chilled production and distribution; Frozen warehousing; Ambient distribution.
+- customer_channel_sales_mix (Customer-channel sales mix). Examples: 80% foodservice sales; 60% grocery retail sales; Ingredient sales to manufacturers.
+- input_food_safety_exposure (Input / food-safety exposure). Examples: Milk-price pass-through; Wheat procurement contracts; Allergen-segregated production.
+
+Evidence:
+<source id="P1">
+[P1.1] All Natural Dog Food - Fresh Food for Dogs - Freshpet
+[P1.2] Fresh dog and cat food made with all-natural chicken or beef as the #1 ingredient. Refrigerated, preservative-free & trusted by pet parents!
+[P1.3] free welcome kit & free shipping on every order! free welcome kit & free shipping always!
+[P1.4] healthy food, fresh from the fridge ™
+[P1.5] Fiber-packed vegetables and antioxidant-rich fruits.
+[P1.6] All-natural, farm-raised poultry, beef, or fish.
+[P1.7] Steam-cooked to preserve nutrients and lock-in freshness.
+[P1.8] Everything about your pet is totally unique—including their nutritional needs. Developed by veterinary nutritionists, explore our fresh family of brands to discover what’s perfect for your pet. And, we deliver! Freshpet has a dog food subscription plan to make life simpler.
+[P1.9] Our signature recipes. Healthy, delicious meals made with fresh, high-quality ingredients.
+[P1.10] Clean nutrition. Simple ingredients with proven health benefits.
+[P1.11] Deliciousness delivered. Meal plans customized for your pet, fresh to your door.
+[P1.12] Home-cooked goodness. Tasty ready-to-serve meals, from our kitchens to yours.
+[P1.13] A smarter snack. Craveable protein-rich treats you can feel good about.
+[P1.14] Stock up on your pup’s favorites. Protein-rich, high-quality meals, available at Costco.
+[P1.15] get customized freshpet meal plans delivered
+[P1.16] Enjoy free shipping on every order - plus earn Freshpet Rewards with every loyalty milestone!
+[P1.17] Each recipe and meal plan is created to meet your dog’s health and wellness goals.
+[P1.18] the most personalized way to feed fresh
+[P1.19] Take the guesswork out of feeding. With our customized meal plan, you’ll always have the right amount of food on hand.
+[P1.20] enjoy amazing perks and rewards when you subscribe to Freshpet Custom Meals®
+[P1.21] Freshpet earns the Clean Label Project Purity Award
+[P1.22] Freshpet has received Clean Label Project’s Purity Award across our portfolio, which means our recipes meet their highest purity standard based on independent testing for contaminants. Clean Label Project is a non-profit that tests products beyond traditional food safety standards looking for “hidden” contaminants such as heavy metals (e.g., lead, mercury, arsenic, cadmium) as well as pesticides and plasticizers.
+[P1.23] Our nutrient-packed recipes are meticulously crafted by our board-certified veterinary nutritionists.
+[P1.24] learn more find in store
+[P1.25] loving the planet we all share
+[P1.26] We believe in respecting the planet and treating the natural resources we share with care. This is why we never stop pushing the boundaries of what’s possible. And, while we know we’re not perfect, we do all we can to lessen our environmental impact while giving pets the freshest, healthiest food.
+[P1.27] reviews from real pet parents
+[P1.28] loved by millions of happy eaters
+[P1.29] The excitement for the product is evident, it is devoured in minutes! My dogs have beautiful coats, clear eyes, no digestive or skin issues, are an ideal weight, and are happy & healthy. They have never had diarrhea or thrown up. I keep waiting for that to happen. I attribute it to the quality ingredients and the care that Freshpet puts into their product.
+[P1.30] We absolutely LOVE these treats! Meenie (aka "Puppy Girl") is 14 and she is the most pickiest eater we have ever had, but this she LOVES! She has always been slightly picky. We have also switched her to the Home Cooked Chicken Recipe for her breakfast and dinner. I swear it has given her more energy... She is almost puppy-like again when she gets treats! Meenie says "Yes mommy and daddy, tell everyone they are yummy!"
+[P1.31] I have a Maltese who is very picky and has skin allergies. This food is amazing, he loves it as a topper to his dry kibble and finally looks forward to eating! I'm very happy and so is he!
+[P1.32] Finally a treat my dogs will do anything for
+[P1.33] I bought this treat not thinking much because if you have a chihuahua you know they do what they want. Well my 2 little ones behave and search for these treats. I am so happy about these treats. The food is great too of course. These treats are a game changer for behavioral issues like barking.
+[P1.34] My German shepherd is pretty picky but since starting her on pet fresh she eats everything! Her coat is soft & shiny since I switched her to fp too! Highly recommend.
+[P1.35] pet parent to Marley Herbert
+[P1.36] I started my senior (13) Corgi on this two months ago. The old dog that was dragging all the time, is no more. He gallops when called, he gets excited for feeding times, his eyes are bright, and he has actually lost weight. I switch between the beef and the chicken with no problem. I am so thrilled with the remarkable difference in Jeb.
+[P1.37] Waffles was not happy with almost any food that we tried for several years. You could tell he did not feel good. After about a year on Freshpet he is doing great and really happy to eat every meal.
+[P1.38] Jim, pet parent to Waffles
+[P1.39] My boy Rooney had a weight problem and I tried everything including science diet nothing worked, finally tried fresh pet and 5 months later BOOM! He's at 24.6 lbs down from 33.3 lbs, one good meal a day and a couple of good walks and the results speak for themselves!!
+[P1.40] Danny, pet parent to Rooney
+[P1.41] My German Shepherd would not eat no matter what I tried feeding him. He was under weight for his size. Thanks to Fresh Pet, he has been eating now going on four days in a row. I’m really happy that he has been eating, and I know he is getting nutritious food.
+[P1.42] Finally eating and gaining weight
+[P1.43] My year old husky had a rough time, he constantly had diarrhea or just refused to eat. We went through a years worth of various dog food to only have the diarrhea return. He was underweight, only 45 pounds. Decided to try Freshpet, he has gained weight and is always ready to eat. He has gained 6 pounds and is now a happy dog.
+[P1.44] I bought your product about five weeks ago. My dog is about 20 lbs and I had given up on him eating any dog food--period. Now, he totally loves his food and his digestion is much better. He eats all of his food---never happened before. Thanks so much.
+[P1.45] Great food for picky eaters!
+[P1.46] I adopted my golden retriever from our shelter last week. I have tried 5 different high quality dog kibble brands, but she wouldn’t touch it. Finally I tried the Freshpet and she LOVES it! I can rest easy knowing that my sweet dog is getting the nutrients she needs. Thank you so much!
+[P1.47] My dog loves this food!! He has so much more energy than before. He is 13 years young. I would definitely recommend this food.
+[P1.48] My 11yo mixed breed, Mona seemed bored with her food and was also having some bowel issues. So we tried Freshpet. Oh my goodness, it's like heaven to her! Absolutely loves it. And no more bowel issues!
+[P1.49] Peanut is allergic to grain and as a small dog I worries about her getting the best food possible to ensure her energy levels stay high and she has a happy long life. Freshpet for small dogs grain free is doing just that! She won't eat anything else!
+[P1.50] Sarah, pet parent to ChiChi
+[P1.51] Best choice ever for sensitive tummies
+[P1.52] We have had troubles finding foods for sensitive stomach dogs that our senior dog liked. She not only likes Fresh Pet, it has given her more energy. It is like it’s given back 10 years to her life. She’s like a new dog. We are so thankful for Fresh Pet for Sensitive Stomach.
+[P1.53] Stopped our dog's itching immediately!
+[P1.54] Our black lab mix named Olive had itchy skin, was biting at her feet and legs, and licking her tummy. We tried everything. Nothing worked. We have two other dogs who eat nothing but Freshpet. One day my wife said, "the little dogs never seem to scratch and itch, why don't we try Olive on Freshpet?" So, we did. It was like flipping a switch. Her itching stopped, and we haven't looked back!
+[P1.55] Steve, pet parent to Olive
+[P1.56] My Waffles suffers from allergies had to change his diet and get him off the kibble. Since being on Freshpet his allergies are under control never again with kibble.
+[P1.57] Jenn, pet parent to Waffles
+[P1.58] My Alusky Smokey is 4yrs old and the kindest and happiest baby ever! We had a hard time finding a dog food that didn't upset his stomach, or that he would be excited to eat. He quit eating consistently he would just nibble here and there. Finding Freshpet has been a blessing as he is eating and when he sees the bag, he gets excited! He loves it. His stomach doesn't get upset and his bowel movements are back to normal!
+[P1.59] We have three large breed dogs (shepherd mix, poodle shepherd mix, American bulldog mix) and we use Freshpet as a dry food topper. It has helped the bulldog’s gastro issues immensely. Everyone seems to really like it, even the picky poodle mix.
+[P1.60] Shannon, pet parent to Axle
+[P1.61] Finally, a food my dog will eat!
+[P1.62] My standard poodle stopped eating her high-quality, pricey kibble, decided it was no longer palatable, and lost weight as I scrambled to find something else. After numerous foods and expensive vets bills, I bought Freshpet. I was hesitant to try it as it seemed very similar to The Farmers Dog, which gave her diarrhea and led to another vet visit with lab tests. She went full boar on the Freshpet, no transitioning needed. She's putting on weight, is less anxious and just seems healthier.
+[P1.63] Our puggle, Blue, is very picky and we’ve experimented with a LOT of foods and he inhales this food every single meal. He loves it so much! Licks his lips after, his fur and allergies are so much better now and he gets excited seeing the bag come out of the fridge. Best decision ever to buy this!
+[P1.64] Beth, pet parent to Blue
+[P1.65] The only food our dog will eat!
+[P1.66] Rosie is a Standard Poodle and a very picky eater. Poodles are very high energy and keeping her interested in food was always a challenge. Keeping he weight stable was very hard. We started her on Freshpet and she’s been a happy, healthy dog who eats all of her food. We are grateful for Freshpet.
+[P1.67] Dede, pet parent to Rosie
+[P1.68] My 15 year old poodle decided that he didn’t like his dry food anymore after having stomach issues the week before. The vet sent him home with prescription hill science wet food. He had never had wet & ate it the first day but not after that. So after cooking chicken rice & pumpkin…I tried this. He loves it & no stomach issues;
+[P1.69] He absolutely loves this dog food. We have no problem getting him to eat now. I love my dog and will continue to buy this food. It is working wonders for him. Thank You Freshpet for giving a great product. Highly recommend.
+[P1.70] I rescued this Pomeranian in. She was a mess. I tried various dog foods and was frustrated that she would not eat. Then I discovered Freshpet. Wow! She took to it and looks forward to every feeding. And the best thing is… She is a healthy, vibrant Pomeranian. Thank you Freshpet!
+[P1.71] Delicious, nutritious, and packed with only the good stuff. We are dedicated to bringing the power of fresh, real food to pets.
+[P1.72] find a fridge near you
+[P1.73] find in store ship to home
+</source>
+
+<source id="P2">
+[P2.1] Our Pet Food Company Philosophy – Freshpet
+[P2.2] Freshpet is on a mission to do the right thing, from funding pet adoption organizations to working towards a cleaner, more sustainable world.
+[P2.3] we’re inspired to do better every day
+[P2.4] We’ve always grown Freshpet by doing things differently. It comes from a profound love and respect for animals, people, and the planet we inhabit. This drives us as a team and inspires us to do better.
+[P2.5] we take every partnership to heart
+[P2.6] We celebrate, appreciate, and nurture these relationships with respect, friendship, and fair compensation.
+[P2.7] We believe we can help our pets live their longest and happiest lives while also being a force for good.
+[P2.8] Driven by our passion for protecting pets, people, and the planet, we never stop pushing the boundaries of what’s possible. And while we know we’re not perfect, we do all we can to lessen our environmental impact while giving pets the freshest, healthiest food there is.
+[P2.9] We strive to always source ingredients as locally as possible, while getting our pets all the nutrition they need. To reduce the amount of packaging we use while keeping food fresh. To protect the welfare of our four-legged friends with determination and devotion. To do what’s right.
+[P2.10] It’s why we love what we do every day.
+[P2.11] when you succeed, we all benefit
+[P2.12] Whether it’s the Kitchens team, the farmers who grow our ingredients, the drivers who deliver our food, or our retail partners who help us grow every day, each person who touches our lives is part of our Freshpet family. When one of us does well, we all do. We believe that’s how work—and life—should go hand in hand.
+[P2.13] we’re incredibly proud and humbled
+[P2.14] It’s amazing what can happen when you start fresh.
+[P2.15] Pet families now feed their pets Freshpet each year
+[P2.16] Freshpet fridges are now across North America
+[P2.17] Featured as the #1 Most Trusted Brand by Newsweek
+[P2.18] crafted by vets for your pets
+[P2.19] Every Freshpet recipe is formulated by veterinary nutritionists, to ensure all dogs and cats are getting the nutritious, fresh food they deserve.
+[P2.20] Senior Vice President of R&D at Freshpet
+[P2.21] Ph.D. in Pet Food Science and Nutrition
+[P2.22] Ph.D. in Immunology and Molecular Biology
+[P2.23] we’re driven to nourish pets while protecting our planet
+[P2.24] we do everything we can to keep pets healthy and happy
+</source>
+
+<source id="P3">
+[P3.1] Where to Buy Fresh Dog Food - Where to Buy Cat Food - Freshpet
+[P3.2] Find where to buy Freshpet’s healthy dog and cat food near you. Enter your city or zip code to discover local stores that carry our fresh, natural pet food.
+[P3.3] FREE welcome kit + ALWAYS free shipping
+</source>

@@ -1,0 +1,41 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: The Marcus Corporation (www.marcuscorp.com)
+Sector: Retail, restaurants, hotels and entertainment
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- product_category (Product category): What consumers buy from it. Example: food: snacks and frozen meals. Any that apply of: food; beverages; apparel and footwear; household and personal care; home and furnishings; electronics; recreation and leisure goods; general merchandise; restaurant meals; lodging and travel; entertainment and gaming; automotive; other.
+- market_position (Market position): Where it sits on price. Example: mass-market: mainstream national brands. Exactly one of: value / discount; mass-market; premium; luxury.
+- distribution_model (Distribution model): How it reaches consumers. Example: wholesale: sells through grocery and mass retailers. Any that apply of: direct to consumer; wholesale to retailers; franchise; company-operated locations; licensing.
+- purchase_frequency (Purchase frequency): How often consumers buy. Example: daily: staple groceries. Exactly one of: daily / staple; periodic; discretionary / occasional.
+
+Evidence:
+<source id="P1">
+[P1.1] The Marcus Corporation - Investor Relations
+[P1.2] Legacy of Leadership in Entertainment and Hospitality
+[P1.3] Headquartered in Milwaukee, Marcus Corporation is a leader in the entertainment and hospitality industries, with significant company-owned real estate assets. Marcus Corporation’s theatre division, Marcus Theatres®, is the fourth largest theatre circuit in the U.S. and currently owns or operates 975 screens at multiple locations in 17 states under the Marcus Theatres, Movie Tavern® by Marcus and BistroPlex® brands. The company’s hospitality division, Marcus® Hotels & Resorts, owns and/or manages 17 hotels, resorts and other properties in eight states.
+[P1.4] As the nation's fourth largest theatre circuit, Marcus Theatres leads with state-of-the-art amenities and the latest technologies that elevate the moviegoing experience. Marcus Hotels & Resorts is a leading force in hotel management, development and food and beverage – delivering exceptional service and long-term value for both hotel owners and guests. Together, these divisions create a balanced resilient platform.
+[P1.5] Restaurants, Bars, Lounges & Other F&B Outlets
+</source>
+
+<source id="P2">
+[P2.1] The Marcus Corporation - About - Company Profile
+[P2.2] Since our founding with a single theatre, Marcus Corporation has grown to 78 theatres and 17 hotels and resorts across 19 states with significant company-owned real estate assets.
+[P2.3] What began as a single-screen theatre in Ripon, Wisconsin, has become a nationwide leader in entertainment. From those humble beginnings, Marcus Theatres has grown into the fourth largest theatre circuit in the country.
+[P2.4] Over the years, the Marcus Theatres moviegoing experience has continued to evolve, embracing the latest technologies and amenities to deliver an outstanding moviegoing experience. Our guests enjoy luxury DreamLounger recliner seating, premium large format screens, amazing sound and compelling food and beverage offerings. Each innovation reflects a commitment to quality and connection – transforming a night at the movies into an experience to remember.
+[P2.5] We entered the hospitality industry and made our first major purchase with the iconic Pfister Hotel in Milwaukee. Since then, we have grown into a leading hotel, ownership and management company with a diverse portfolio across the country.
+[P2.6] Our properties span independent and branded upper upscale hotels, resorts and lifestyle destinations, limited service lodging, along with award-winning restaurants and bars. Over the decades, we have built deep expertise in hotel management, turnarounds, development and historic renovations. With more than 4,500 rooms and over 345,000 square feet of meeting and event space, our portfolio reflects a longstanding commitment to excellence, innovation and high-quality service.
+</source>

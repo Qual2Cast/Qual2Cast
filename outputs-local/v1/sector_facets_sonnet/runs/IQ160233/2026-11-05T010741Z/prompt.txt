@@ -1,0 +1,75 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Booz Allen Hamilton Holding Corporation (www.boozallen.com)
+Sector: Software and internet
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- software_category (Software category): What the software does. Example: HR and payroll: payroll, benefits and time tracking. Any that apply of: ERP and finance; HR and payroll; CRM, marketing and sales; cybersecurity; data, analytics and AI; IT and developer infrastructure; collaboration and content; industry-specific (vertical) software; payments and fintech; consumer internet and marketplaces; IT services and consulting; other.
+- deployment_model (Deployment model): How the software is delivered. Example: SaaS: cloud subscription. Exactly one of: SaaS / cloud; on-premise; hybrid; not applicable (services or internet).
+- customer_size (Customer size): Its typical customer. Example: mid-market: employers with tens to a few thousand staff. Any that apply of: consumers; SMB; mid-market; enterprise; government.
+- product_architecture (Product architecture): One product or a suite. Example: platform: payroll, HR, time and benefits on one system. Exactly one of: platform / suite; point solution; API / infrastructure.
+
+Evidence:
+<source id="P1">
+[P1.1] Booz Allen
+[P1.2] We transform missions with tomorrow’s technologies to advance the country’s most critical civil, defense, and national security priorities.
+[P1.3] Your browser does not support the video tag.
+[P1.4] Our commitment starts with country
+[P1.5] We use the most advanced technologies to build what nobody else can. Making America stronger, safer, faster.
+[P1.6] Together, our complementary capabilities in battle management, secure communications, encryption, and edge compute will accelerate delivery of interoperable, mission-ready technologies for national security.
+[P1.7] From 4,000 Hours to 40 Minutes
+[P1.8] Modelpoint analyzes threats 6,000 times faster than humans alone
+[P1.9] The Booz Allen Tech Making Mega Events Safer
+[P1.10] Enhancing security for large-scale sporting events and public gatherings.
+[P1.11] Mobile Decision Making for the American Military
+[P1.12] How Mobile Detachment Kit Edge accelerates battle management
+[P1.13] Make technology work for America
+[P1.14] Advanced tech. Deep domain know-how. Cutting-edge solutions engineered for impact.
+[P1.15] Real-world missions. Real-time results—on the battlefield, at the edge, and for the nation.
+[P1.16] Bold ideas. Expert takes. Breakthrough tech that actually delivers.
+[P1.17] Driven by purpose. Powered by people. Built to solve the nation’s toughest challenges.
+</source>
+
+<source id="P2">
+[P2.1] Accelerating Solution Innovations
+[P2.2] Leading-edge solutions in digital, cyber, artificial intelligence, cloud, and immersive
+[P2.3] Innovative Accelerators and Solutions for Critical Missions
+[P2.4] Sorry, your browser doesn't support embedded videos.
+[P2.5] Our products and packages solutions blend advanced technology with experience in operations across the harshest environments.
+[P2.6] Booz Allen offers a range of software platforms, analytical tools, and cybersecurity accelerators that seamlessly integrate today’s most advanced technology with bold thinking and unparalleled expertise. We specialize in designing intelligent, tailor-made solutions built to tackle the nation’s most critical missions.
+[P2.7] Whether you’re looking to safeguard your AI systems against cyberattacks or harness and share real-time intelligence at the tactical edge, we have the tools, technology accelerators, and solutions to help you meet today’s challenges head-on. Working with us, you won’t just keep pace with the 21st century, you’ll take command of it. Please choose from the categories below to explore our offerings.
+[P2.8] Sorry, we were not able to find any matches with the filters you have provided.
+[P2.9] Outpace the threat. Reverse the unknown
+[P2.10] Booz Allen Vellox Reverser is an AI-first malware reverse engineering product that automates evasive malware analysis.
+[P2.11] Situational Awareness in Real Time
+[P2.12] Sit(x) delivers TAK-Server-as-a-Service to connect military, law enforcement, and first responders for shared operations.
+[P2.13] See Our Technology Accelerators in Action
+[P2.14] Working closely with stakeholders, we reinvented Recreation.gov by building a modern, scalable, cloud-native, e-commerce platform transforming how millions of visitors discover public lands. The new site is a one-stop shop for trip information, planning, and reservations from coast to coast.
+</source>
+
+<source id="P3">
+[P3.1] About Us
+[P3.2] Booz Allen is a private sector leader building advanced technology to fast-track results for government—boosting efficiencies, saving money, and safeguarding America.
+[P3.3] Booz Allen has the right people and the right technology to help our clients get ahead in today’s competitive world and prepare for what’s next. We work with the best of the best—Silicon Valley partners, venture capitalists, innovative startups, and small businesses—to deliver tech superiority that outpaces and outperforms any challenge. Our future-focused tech makes America safer, faster, and greater.
+[P3.4] Our strength comes from a shared commitment to a singular purpose: Empower People to Change the World.® We believe that tomorrow can be better than today. And we have a role in making it so.
+[P3.5] Booz Allen is a technology leader trusted to accelerate change at the heart of our clients’ missions. See how we help solve some of the nation’s largest civil, defense, and national security challenges.
+[P3.6] How we lead with purpose and values every day.
+[P3.7] Accelerating Outcomes for the Nation
+[P3.8] We're delivering tech solutions to make the U.S. stronger, safer, and faster.
+[P3.9] Our engineers, scientists, software developers, technologists, and mission experts live to solve problems that matter.
+[P3.10] Join Us. The World Can't Wait.
+[P3.11] Explore our current job opportunities below.
+</source>

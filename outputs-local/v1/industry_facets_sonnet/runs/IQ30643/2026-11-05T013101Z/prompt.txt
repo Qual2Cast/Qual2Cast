@@ -1,0 +1,87 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Labcorp Holdings Inc. (www.labcorp.com)
+Industry (SIC 80): Health Services
+About this industry group: Use setting-specific units: visits, discharges, staffed beds and dialysis stations are not interchangeable. Distinguish an organization delivering medical care from one only underwriting medical insurance. Provider/insurer boundary.
+
+Facets:
+- healthcare_provider_setting (Healthcare-provider setting). Examples: Hospital; Outpatient clinic; Home-health provider.
+- clinical_specialty (Clinical specialty). Examples: Orthopedics; Oncology; Primary care.
+- patient_activity_volume (Patient activity / volume). Examples: 200,000 outpatient visits/year; 15,000 inpatient discharges/year; 500,000 home-health visits/year.
+- payer_revenue_mix (Payer revenue mix). Examples: 40% commercial insurance; 35% Medicare; 20% Medicaid.
+- payment_reimbursement_model (Payment / reimbursement model). Examples: Fee-for-service; Case-based bundled payment; Per-member capitation.
+- setting_specific_capacity (Setting-specific capacity). Examples: 250 staffed hospital beds; 25 clinics; 100 outpatient treatment stations.
+- patient_acuity_case_mix (Patient acuity / case mix). Examples: Routine outpatient visits; High-acuity inpatient care; Reported case-mix index.
+- clinical_operating_quality (Clinical operating quality). Examples: 30-day readmission rate; Hospital-acquired infection rate; Documented patient-safety measure.
+
+Evidence:
+<source id="P1">
+[P1.1] Lab Diagnostics, Drug Development, Global Life Sciences | Labcorp
+[P1.2] Labcorp helps patients, providers, organizations, and biopharma companies to guide vital healthcare decisions each and every day.
+[P1.3] Innovating to Advance Health and Improve Lives Around the World
+[P1.4] Powered by science and technology
+[P1.5] Your health story starts long before today's lab results. The Marker by Labcorp™ Genetic Health Panel helps you understand inherited health risks to make more informed decisions for the future.
+[P1.6] My results, trends, and more, all in MyLabcorp.
+[P1.7] Staying on top of your health just got easier. MyLabcorp is our AI-powered app that helps explain your Labcorp test results, tracks your trends over time, and lets you manage appointments and billing, in one place.
+[P1.8] Plain language, smarter support: AI that speaks clinician
+[P1.9] Labcorp's AI-enhanced Test Finder, a first-of-its-kind conversational search tool, is now integrated into EHRs using Labcorp Diagnostic Assistant™ and available through EHR companion platform Labcorp Link™, enabling seamless and intuitive test search at the point of care.
+[P1.10] Know yourself, inside and out.
+[P1.11] Purchase lab tests directly from Labcorp and get trusted, confidential results on key aspects of your health, including general wellness, allergy, hormones, and more.
+[P1.12] Everything we do has the power to change lives
+[P1.13] 0 Supported over 85% of the new drugs and therapeutic products approved by the FDA
+[P1.14] multiple countries served through our global network
+[P1.15] 0 highly specialized MDs/PhDs committed to advancing health
+[P1.16] 0 hospital and health system partnerships to expand access to essential and specialty testing
+[P1.17] Labcorp Launches MyLabcorp™, a New AI-Powered Mobile App Designed to Help Consumers Understand Lab Results and Track Health Trends Over Time
+[P1.18] Labcorp and Epic Expand Collaboration to Advance Diagnostic Integration across Hospitals and Health Systems
+[P1.19] Labcorp Introduces AI-Powered Real-World Data Platform with AWS and Datavant to Accelerate Alzheimer's Research
+[P1.20] How genetic testing supports personalized care decisions
+[P1.21] Insulin resistance: Testing, diabetes risk, expert insights
+[P1.22] Best foods for colon health and lower colorectal cancer risk
+[P1.23] Navigating a double cancer diagnosis: Don’s journey with prostate and lung cancer
+[P1.24] How genetic testing for a rare condition brought answers and community
+[P1.25] When preeclampsia strikes twice: A mother’s harrowing experience with preeclampsia recurrence
+[P1.26] Just tell us who you are, and we’ll get you to the right next step.
+</source>
+
+<source id="P2">
+[P2.1] About Labcorp: Global life sciences and healthcare | Labcorp
+[P2.2] Labcorp is a global life sciences and healthcare company harnessing science for human good. Every day, our mission is to improve health and improve lives.
+[P2.3] Every day, we help people around the world live healthier lives
+[P2.4] Improving health and improving lives
+[P2.5] The right insights make health decisions clearer. By pairing deep scientific expertise with advanced technology, we help our partners across healthcare take action with greater confidence. We work with health systems, providers, payers, and biopharma to expand access to testing, support affordability, and speed breakthroughs.
+[P2.6] Your browser does not support HTML5 video.
+[P2.7] We deliver the science and insights that make a difference
+[P2.8] We are a company of scientists, technologists, and innovators working tirelessly to advance health and improve lives for people at every stage of their health journey. As a global laboratory leader, we partner to bring technical and high-quality healthcare to the people and communities we serve.
+[P2.9] Your partner in advancing health
+[P2.10] Leading with science and technology
+[P2.11] Our deep scientific expertise is at the heart of everything we do. And technology is the spark that fuels our scale, speed, efficiency, and progress.
+[P2.12] Providing data & insights that matter
+[P2.13] Powered by the largest clinical global data set, we deliver critical insights that inform decisions, empower action, and create healthier communities.
+[P2.14] Everything we do starts with the people we serve. We design experiences that simplify complexity and support the people who count on us for answers.
+[P2.15] Fueled by technology, we bring scientific expertise and high-quality care to people when and where they need it, without compromises.
+[P2.16] Uphold our mission through ethics, integrity, and purpose
+[P2.17] Drive customer success through tailored solutions and experiences
+[P2.18] Advance scientific progress by reimagining what's possible
+[P2.19] Stay curious, embrace change, and act with urgency
+[P2.20] Deliver exceptional quality efficiently and at scale
+[P2.21] Bring your talents to Labcorp
+[P2.22] Advancing health on a global scale takes a wide range of perspectives and skills. Every day at Labcorp brings new opportunities to improve health and improve lives for people all over the world. If you're looking to play a part in advancing the future of healthcare, join us.
+</source>
+
+<source id="P3">
+[P3.1] Industries | Labcorp
+[P3.2] In addition to providing lab testing for healthcare and pharmaceutical companies, we also provide research testing for products in these industries.
+</source>

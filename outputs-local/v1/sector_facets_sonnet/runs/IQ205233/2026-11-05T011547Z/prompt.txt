@@ -1,0 +1,72 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Pediatrix Medical Group, Inc. (www.pediatrix.com)
+Sector: Healthcare (providers, devices, pharmaceuticals)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- healthcare_segment (Healthcare segment): Part of healthcare. Example: services: home health and hospice care. Any that apply of: pharma; biotech; medtech / devices; diagnostics and tools; provider services; healthcare IT; payer; distribution / pharmacy; other.
+- product_stage (Product stage): Whether its products are on the market. Example: commercial: sells approved products. Exactly one of: commercial; clinical; research; not applicable (services).
+- customer_payer (Customer / payer): Who pays. Example: Medicare and Medicaid: government programs pay for most visits. Any that apply of: hospitals and providers; private insurance; Medicare and Medicaid; patients / consumers; pharma and biotech companies; employers; other.
+- therapeutic_area (Therapeutic area): Main clinical area. Example: cardiovascular: heart rhythm devices. Any that apply of: oncology; cardiovascular; neurology and behavioral health; orthopedics and spine; metabolic and diabetes; infectious disease; ophthalmology; dental; general / multiple; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Specialized Care for Women, Babies and Children | Pediatrix & Obstetrix
+[P1.2] Led by physicians and trusted by patients, Pediatrix delivers advanced medical solutions across a variety of practice areas around the country.
+[P1.3] Specialized Care for Women, Babies and Children
+[P1.4] Led by physicians. Trusted by patients. We deliver advanced medical solutions nationwide, in-person and virtually.
+[P1.5] Be part of a nationwide team of physicians, advanced practitioners, and operational experts all working to support families and advance patient care.
+[P1.6] We are one of the nation's largest providers of prenatal, neonatal and pediatric services.
+[P1.7] We operate in 37 states, partner with nearly 400 hospitals, and work with 4,300+ affiliated clinicians.
+[P1.8] We bring more than 45 years of experience to help hospitals respond to shifting demands with flexible, patient-centered care strategies.
+[P1.9] We invest in clinical services, operations, technology, and education—giving our clinicians the tools, resources, and support they need to deliver exceptional patient care.
+[P1.10] Our Center for Research, Education, Quality and Safety is dedicated to advancing care through evidence-based medicine.
+[P1.11] Access accredited continuing education—available both live and on demand.
+[P1.12] Founded and led by physicians, we understand the importance of a supportive environment. Find your place with us.
+[P1.13] Hear from leading experts in neonatology as they explore the latest advances and critical issues in the field.
+[P1.14] Support for women’s health, pregnancy and high-risk care
+[P1.15] Highly specialized care for newborn babies
+[P1.16] Specialty and critical care for children
+</source>
+
+<source id="P2">
+[P2.1] About Pediatrix | Pediatrix & Obstetrix
+[P2.2] Our physician-led health care organization partners with hospitals and health care facilities to offer clinical services from birth through adulthood
+[P2.3] Get to Know Pediatrix & Obstetrix
+[P2.4] A network of experienced clinical specialists at your service
+[P2.5] Our physician-led health care organization partners with hospitals, health systems and health care facilities to offer clinical services. Together we make a difference in the lives of our patients and their families.
+[P2.6] Meet the leaders who provide differentiated value to our partners while guiding us on our mission to Take great care of the patient.®
+[P2.7] Customized solutions to meet your hospital's changing needs.
+[P2.8] Our Government Relations team collaborates with physician groups, professional societies and hospital partners to promote our public policy efforts.
+[P2.9] Experienced clinical specialists trusted by patients, hospitals and referring physicians to Take great care of the patient. ®
+[P2.10] Our skilled clinicians collaborate with health care partners and providers to develop customized solutions that benefit hospitals, patients and payors through:
+[P2.11] Optimizing clinical, financial and operational performance
+[P2.12] Improving patient care and the total patient experience
+[P2.13] Using advanced clinical tools, quality initiatives, training and robust data and research to optimize care quality and performance
+[P2.14] Our integrated network of solutions helps develop customized solutions for affordable, higher-quality care.
+</source>
+
+<source id="P3">
+[P3.1] Our Services | Pediatrix & Obstetrix
+[P3.2] Led by physicians and trusted by patients, Pediatrix offers extensive services that work together across the women’s, babies’ and children’s continuum of care.
+[P3.3] We provide world-class clinical expertise with compassion and a patient-first approach.
+[P3.4] Since starting as a single neonatology practice we have grown into a multi-specialty group spanning neonatology, maternal-fetal medicine, OB hospitalist medicine, and pediatric specialty care, delivering a continuum of care in the hospital, in our practices and virtually. Through communication and collaboration, our dedicated clinicians put patients first, partnering with expectant moms and new families to build healthy and happy futures.
+[P3.5] We deliver intuitive, customized solutions to meet your facility’s needs.
+[P3.6] Specialized care for complex and high-risk situations, including prematurity, serious illness, injury, and congenital abnormalities
+[P3.7] Our specialists deliver the highest level of care when you need it most
+[P3.8] We provide families a team that works together to ensure the best outcomes for mothers and babies
+[P3.9] Safe, efficient, high-quality care is at your fingertips with our robust telehealth programs
+</source>

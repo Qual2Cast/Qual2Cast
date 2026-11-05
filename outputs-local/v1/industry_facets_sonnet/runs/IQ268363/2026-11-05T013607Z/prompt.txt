@@ -1,0 +1,206 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Revvity, Inc. (www.revvity.com)
+Industry (SIC 38): Measuring, Medical, Optical and Related Instruments
+About this industry group: Medical devices and nonmedical instruments require different regulatory and performance fields. FDA 510(k) clearance, PMA approval and other routes are distinct statuses, not interchangeable certification labels. FDA device pathway.
+
+Facets:
+- instrument_device_family (Instrument / device family). Examples: Diagnostic imaging systems; Industrial sensors; Laboratory analytical instruments.
+- measurement_performance_specification (Measurement / performance specification). Examples: ±0.01°C temperature accuracy; 1 μm positional resolution; Stated imaging spatial resolution.
+- clinical_industrial_research_use (Clinical / industrial / research use). Examples: Hospital diagnostics; Factory process control; Research laboratories.
+- product_specific_regulatory_status (Product-specific regulatory status). Examples: FDA 510(k)-cleared device; FDA PMA-approved device; Nonmedical industrial instrument.
+- consumables_service_attachment (Consumables / service attachment). Examples: Proprietary reagent cartridges; Recurring calibration service; One-time equipment sales.
+- calibration_qualification_requirement (Calibration / qualification requirement). Examples: Annual traceable calibration; On-site validation; Factory-only recalibration.
+
+Evidence:
+<source id="P1">
+[P1.1] Revvity - Expanding the boundaries of human potential through science
+[P1.2] We provide health science technologies, expertise, and services that deliver complete workflow solutions from target to cure.
+[P1.3] Revvity brings together AI-powered informatics, automation, reagents, imaging, analytical technologies, and scientific expertise to power connected Lab-in-the-Loop workflows that transform biological data into actionable scientific insight.
+[P1.4] Antibodies & tools for target & hit discovery
+[P1.5] Assays & platforms for lead & process development
+[P1.6] Stratification and data management solutions
+[P1.7] Solutions supporting product quality and efficacy
+[P1.8] Screening tools for early detection
+[P1.9] End-to-end solutions for specialty diagnostics
+[P1.10] All your products and resources in one place.
+[P1.11] SAVE 10% on your first online order
+[P1.12] Use code HELLO10 at checkout. T&Cs apply.
+[P1.13] Opera Phenix OptIQ™ HCS system
+[P1.14] Our new system for 3D models and live-cell applications.
+[P1.15] new antibodies, kits, and reagents introduced annually for life science research.
+[P1.16] peer-reviewed publications using our In Vivo imaging systems.
+[P1.17] published citations of Dharmacon™ reagents.
+[P1.18] of the top 50 pharmaceutical companies worldwide use our innovative solutions.
+[P1.19] no-wash immunoassays and reagents for efficient screening.
+[P1.20] scientists across pharma, biotech, and academia utilize our software solutions.
+[P1.21] licensees across Revvity's technology and licensing organization.
+[P1.22] babies screened annually for life-threatening disorders with Revvity technologies.
+[P1.23] blood samples analyzed with EUROIMMUN solutions to identify autoimmune disorders.
+[P1.24] individuals tested for COVID-19 virus with Revvity tests.
+[P1.25] individuals tested for latent TB infection with the T-SPOT.TB test.
+[P1.26] mentions of the T-SPOT.TB test in peer reviewed publications.
+[P1.27] years of innovation in maternal, fetal, and neonatal health.
+[P1.28] genomic tests performed to detect rare inherited diseases and hereditary cancers.
+[P1.29] CROs use our reagents, instruments and software to support their clients in commercializing their discoveries.
+[P1.30] CDMOs utilize our proven life science technologies to support their clients in every part of their commercialization journey.
+[P1.31] Revvity offers comprehensive life science solutions, technologies, and services, covering workflows from discovery to cure. We revolutionize biomedical research with a focus on translational multi-omics, biomarker identification, imaging, prediction, screening, detection, diagnosis, informatics, and more.
+[P1.32] Licensing, Contract and Clinical Testing Services
+[P1.33] Collaborate with our skilled scientists and experts to reach your goals sooner. Our range of contract services supports preclinical oncology drug discovery, viral vector manufacture, omics discovery, the development of genetic disease treatments, and clinical genetic testing. We also provide novel licensable technologies for gene expression, editing, and delivery to help you bring safer, more effective treatments to patients.
+[P1.34] Our innovative laboratory solutions enhance reproductive health across all stages. Our cutting-edge research solutions drive innovation in reproductive health science, while our advanced screening technologies enable early detection and timely interventions, ultimately empowering improved outcomes globally.
+[P1.35] Our specialty portfolio delivers innovative, end-to-end solutions for identifying and investigating a broad range of immune system disorders. We integrate cutting-edge technologies, such as immunoassays, molecular assays, automation, and advanced software - to enable seamless workflow integration, ultimately expanding research and testing for these highly complex diseases.
+[P1.36] Integrating small RNA-seq and single-cell multiomics to investigate tumor-T-cell communication.
+[P1.37] See how small RNA-seq and single-cell multiomics connect exosomal miRNA profiles with T-cell responses in triple-negative breast cancer research.
+[P1.38] New meta-analysis of 307 studies finds that T-SPOT.TB is the most sensitive test for TB infection.
+[P1.39] New meta-analysis of 307 studies confirms T-SPOT.TB as the most sensitive TB infection test — in both HIV-negative and HIV-positive populations.
+[P1.40] High-efficiency in vivo editing with the Pin-point base editing system.
+[P1.41] This blog discusses how the Pin-point™ base editing platform achieves high-efficiency in vivo editing following lipid nanoparticle delivery at modest RNA doses.
+[P1.42] How to choose and analyze 3D culture.
+[P1.43] Get a clear breakdown of how to choose between spheroids and organoids, and see how Revvity's Celigo image cytometer can help improve your 3D culture workflows.
+[P1.44] Achieving dual-direction gene modulation with CRISPR activation and siRNA.
+[P1.45] Explore how combining CRISPR activation and siRNA knockdown enables simultaneous bidirectional gene modulation to uncover drug resistance mechanisms and restore chemotherapeutic sensitivity.
+[P1.46] CD34+ cells: characterization and quality assessment with the Cellaca PLX cytometer.
+[P1.47] Learn how to characterize CD34+ hematopoietic stem cell purity and viability using the Cellaca PLX automated cell counter. Explore Revvity’s research-grade HSC portfolio.
+[P1.48] A result you can act on: the evidence behind T-SPOT.TB's low indeterminate rates.
+[P1.49] An indeterminate TB result means repeat draws and delays. Discover how the T-SPOT.TB test keeps indeterminate rates low
+[P1.50] Automated imaging and analysis of patient-derived organoids supports high-throughput evaluation of cancer drug response.
+[P1.51] High-content imaging of patient-derived organoids can assist personalized cancer research using new approach methodologies.
+[P1.52] Products may not be licensed in accordance with the laws in all countries, such as the United States and Canada. Please check with your local representative for availability.
+[P1.53] Revvity to Present at Upcoming Investor Conferences
+[P1.54] Find your future at Revvity
+[P1.55] Stay informed on the company's financial performance.
+[P1.56] We are here to answer your questions.
+[P1.57] Request product information, quote/price request
+[P1.58] Order, shipping, invoice or service contact inquiry
+[P1.59] Order, shipping, service contact inquiry
+</source>
+
+<source id="P2">
+[P2.1] Pioneer groundbreaking discoveries for clinical translation | Revvity
+[P2.2] Empower your research with Revvity’s life sciences research solutions. Obtain predictive data, simplify processes, and collaborate with experts to accelerate discoveries.
+[P2.3] Pioneer groundbreaking discoveries for clinical translation
+[P2.4] Delve deeper into complex biology
+[P2.5] Obtain rich, predictive data from humanized model systems.
+[P2.6] Generate compelling evidence with trusted products
+[P2.7] Our dependable technologies have contributed to life sciences research for over eight decades.
+[P2.8] Overcome obstacles for faster insights
+[P2.9] Simplify processes and increase throughput with our comprehensive suite of solutions.
+[P2.10] Tackle problems with combined expertise
+[P2.11] Collaborate with our extensive team of scientists to address challenging research questions.
+[P2.12] Explore the complexities of disease onset and progression, utilizing our technologies and workflow solutions to support faster decisions in drug development.
+[P2.13] Technologies to support 3D cell projects, genetic modifications, workflow automation, and data analysis by providing more accurate representations of biological systems.
+[P2.14] Identify genetic pathways, cellular processes, mechanisms of action, and novel targets with our pooled and arrayed CRISPR screening capabilities.
+[P2.15] Get crucial insights with our single-cell sequencing solutions, designed to integrate with existing processes to simplify operation and enhance data accuracy.
+[P2.16] Gain insights into genomic vulnerabilities, functional responses, and predictive biomarkers with our precision medicine research solutions.
+[P2.17] Elevate your cell and gene therapy workflows, from gene editing and cell analysis to AAV and lentiviral vector optimization and manufacturing.
+[P2.18] Cell Counting and Image Cytometry
+[P2.19] Cellometer Ascend Automated Cell Counter
+[P2.20] Part number: PING11, PING12, PING13
+[P2.21] Login to view your price
+[P2.22] Omni Bead Ruptor Elite Bead Mill Homogenizer
+[P2.23] For research use only. Not for use in diagnostic procedures.
+[P2.24] Liquid Scintillation Counting with Confidence
+[P2.25] Better microplates means better results
+[P2.26] Cell painting: your questions answered
+[P2.27] 3D volumetric and zonal analysis of solid spheroids
+[P2.28] Product Information Sheet for PhenoVue Paraformaldehyde, 4% Solution
+</source>
+
+<source id="P3">
+[P3.1] Functional Genomic Screening Services | Revvity
+[P3.2] Identify drug discovery targets with functional genomic screening services, including CRISPR knockout, activation, inhibition, dual screening, and RNAi technologies.
+[P3.3] Identify targets with therapeutic potential through Revvity's functional genomic screening CRO services. Using advanced technologies such as CRISPR, RNAi, and base editing, we help drug discovery teams better understand the networks of genes and pathways regulating disease pathologies. Our functional genomic screening services deliver deep genetic insights, uncover novel synthetic lethal targets, provide an understanding of a therapeutic's MOA, stratify patients for responders and non-responders, and explore drug repurposing or combination strategies.
+[P3.4] Our integrated functional genomic screening CRO-style services are designed to enhance decision-making and help to increase the likelihood of clinical trial success by delivering comprehensive datasets to guide your strategy. With a full suite of technologies, including CRISPR knockout, CRISPR activation, CRISPR inhibition, Pin-point™ base editing platform, and RNAi, our screening platform offers a comprehensive approach, whether using cell lines or primary cell cultures, to empower you to confidently navigate the complexities of drug discovery.
+[P3.5] Our preclinical CRO functional genomic screening services
+[P3.6] We can perform pooled and arrayed screens, from unbiased whole-genome exploratory screens to multiplexed or single-cell screens for complex mechanism of action analysis using either cell lines or primary immune cell cultures. Additionally, with our flexible Dharmacon™ library technologies and formats which can be tailored to fit your assay question and budget, coupled with a myriad of assay readouts, Revvity's preclinical services for functional genomic screening can offer the right solution for your project with confidence and physiological relevance.
+[P3.7] Explore the range of gene modulation and functional genomic services
+[P3.8] Functional genomic screening for target identification
+[P3.9] Expand your gene perturbation with high-throughput screening capabilities.
+[P3.10] A functional genomic approach using CRISPR or RNAi connects gene perturbations to phenotypes, with pooled screening offering a robust, unbiased way to analyze thousands of genes simultaneously.
+[P3.11] In modern drug discovery, target identification requires a resource-intensive approach to identify and build confidence in novel targets. This becomes additionally challenging in primary cell systems, where non-immortalized cells are used, and cell numbers may be limiting, making data more variable. Functional genomics screening can provide scale, flexibility, and highly significant hits to help build confidence in your novel targets.
+[P3.12] Revvity's functional genomic screening service offering addresses these challenges with its reproducible and functionally relevant screening tools, allowing researchers to harness disease relevant cell line models and primary immune cells for therapeutic advancement.
+[P3.13] Pooled CRISPR screening: Easy scalability up to the whole genome for agnostic approaches for lower complexity phenotypes.
+[P3.14] Arrayed CRISPR and RNAi screening: Build complexity through the ability to measure multiplexed readouts, unraveling complex biological interactions.
+[P3.15] Pooled CRISPR screening is essential for unbiased target identification because it systematically knocks out each gene in the genome, allowing for comprehensive and high-throughput analysis. This method does not require prior knowledge of gene involvement, enabling the discovery of novel targets. It provides functional insights by observing the effects of gene knockouts on various phenotypes and is adaptable to different cell types and conditions, making it a versatile tool in drug discovery and biomedical research.
+[P3.16] It is a genetic screening approach that employs CRISPR-Cas9 gene-editing technology to systematically disrupt or "knock out" specific genes. In an arrayed screening setup, in each sample a single gene is targeted, enabling in-depth analysis of that specific gene with multiplexed readouts, including viability, surface and intracellular markers (FACS or high content imaging), and protein quantification (HTRF™). The automation of our high-throughput platform allows for rapid screening, even when complexity increases.
+[P3.17] Learn more how Revvity can help your drug development with the following resources:
+[P3.18] Leveraging multiplatform cell based screening for target ID
+[P3.19] CRISPRi: Transcriptional repression screening with genome-wide CRISPR interference
+[P3.20] Effectiveness of CRISPR-Cas9 using pools of Dharmacon™ Edit-R™ synthetic crRNAs in high-content analysis screening experiments
+[P3.21] CRISPR-Cas9 screening for target identification
+[P3.22] Decoding macrophage differentiation: A CRISPR-powered exploration
+[P3.23] Functional genomic screening for target validation
+[P3.24] Confirm putative screen hits to drive precise and effective therapeutic breakthroughs
+[P3.25] Functional genomic screening supports target validation by identifying and confirming the roles of specific genes in disease mechanisms, aiding in the discovery of more effective drugs.
+[P3.26] Functional genomic screening can impact target validation regardless of how putative screen hits have been identified. The versatility of the technologies and their application, alongside the high quality of data functional genomic screens, can help build confidence in novel hits while reducing the risk of chasing ineffective hits or false positives during the crucial early stages of drug development. Functional genomic screens, such as CRISPR or RNAi screens, can verify whether a gene is essential for a particular phenotype. By systematically knocking out, knocking down, or over-expressing genes, you can interrogate phenotypic changes from multiple angles, building confidence in putative hits while also building an understanding of the mechanism. Some genes may have redundant functions, meaning others can compensate for their loss. Functional screens can identify such redundancies, ensuring that the selected targets are essential and not compensated by other genes. Alternatively, functional genomics can be adapted to perturb multiple genes at once to investigate redundant gene networks specifically. With our FGS CRO services, these screens can be conducted on a large scale, testing thousands of genes simultaneously. This high-throughput capability allows for rapidly identifying viable targets while filtering out non-viable ones. They can also be conducted at smaller scales with high complexity. For example, RNAseq-linked CRISPR screening (CROPseq, CITEseq, etc.) can be applied to deeply understand a few high-confidence targets.
+[P3.27] CRISPR-Cas9 screening: a powerful approach to advance drug discovery
+[P3.28] Applying functional genomics strategies to high-content phenotypic screening
+[P3.29] CRISPRa and CRISPRi: tracing the origins and exploring the future.
+[P3.30] Dual-guide CRISPR Cas9-knockout screening for gene‑gene interaction analysis and beyond.
+[P3.31] Functional genomic screening to unveil mechanism of action
+[P3.32] Understand precisely how your compound works in cells
+[P3.33] Functional genomic approaches can be used to determine which gene perturbations influence the drug sensitivity or the development of acquired resistance due to prolonged drug treatment.
+[P3.34] Functional genomic screening is a powerful tool for uncovering gene interactions and biological pathways essential for achieving therapeutic synergy or understanding the mechanism of action.
+[P3.35] Techniques such as RNAi, CRISPR knockout, CRISPR activation (CRISPRa), and CRISPR inhibition (CRISPRi) allow gene expression modification, providing valuable insights into specific gene interactions that drive therapeutic effectiveness and biological activity. Additionally, functional genomic screening helps identify the clinical synergies needed to optimize treatment outcomes and target the right patient populations, given the biological differences between gene knockout and gene expression modification.
+[P3.36] Dual-direction screening involves pairing CRISPRa with a loss-of-function method, such as CRISPR knockout (CRISPRko) or CRISPR inhibition (CRISPRi). Combining gene-modulation technologies allows assessment of gene ablation and gene overexpression, meaning researchers can identify opposing phenotypic effects and gain deeper insights into biological pathways and mechanisms of action. Revvity's Dual screen CRISPRi/a service leverages the expertise used to perform whole-genome CRISPR screens and combines them into one service that allows for the identification of drug-gene interactions through paired gene perturbation analysis.
+[P3.37] CRISPRa: Transcriptional upregulation screening with genome-wide CRISPR activation
+[P3.38] The dual screen: Parallel genome-wide CRISPRi and CRISPRa screening
+[P3.39] Pooled phenotypic CRISPR screening enables the identification of synergistic drug combinations for cancer therapy
+[P3.40] Unlocking drug secrets: how functional genomic screening reveals valuable mechanism of action insights.
+[P3.41] Functional genomics for high-content phenotypic screening
+[P3.42] Correlate complex cellular phenotypes to genome profiles at high throughput.
+[P3.43] Identify compounds with desired effects by evaluating their overall impact on biological systems using advanced imaging and data analysis.
+[P3.44] Traditional high-content screening often focuses on specific, pre-defined features to identify drugs or targets that influence a particular phenotype. This approach relies on researchers having a prior assumption about the phenotype that they are interested in. As a result, most imaging studies extract only one or two cellular features, leaving a wealth of valuable quantitative data about the cellular state unexplored.
+[P3.45] By utilizing powerful data-intensive technologies like High-Content Imaging (HCI) image cytometry, it possible to significantly enhance our understanding of phenotypes linked to the genome with comprehensive and detailed insights into cellular behaviors and characteristics.
+[P3.46] Advantages of phenotypic functional genomic screening:
+[P3.47] High-Content Imaging and image cytometry collect extensive data from thousands of cells, analyzing multiple parameters simultaneously for a more complete view of cellular phenotypes.
+[P3.48] These technologies provide high-resolution, single-cell data to detect subtle phenotypic changes and better understand genetic modifications.
+[P3.49] They enable unbiased screens that identify a wide range of phenotypic responses without relying on predefined assumptions, leading to unexpected discoveries.
+[P3.50] Combining these data with genomic information helps correlate genetic variations with phenotypic outcomes, crucial for understanding diseases and identifying novel drug targets.
+[P3.51] Analyzing multiple phenotypic parameters reveals complex pathways and mechanisms of action, providing a deeper understanding of gene and drug interactions.
+[P3.52] Linking genes to phenotypes with CRISPR screening
+[P3.53] Relevance of multiparametric screening to drug discovery efforts
+[P3.54] Phenotypic analysis of CRISPR-Cas9 cell-cycle knockouts using cell painting
+[P3.55] Interrogate the phenotype of given genetic perturbations in detail
+[P3.56] With CRISPRsc you can combine the flexibility of pooled and arrayed screening with the power of transcriptomics at single cell resolution.
+[P3.57] Identifying the genetic factors that cause variability in cellular reactions to drugs is crucial to gaining a deeper understanding of drug responses and the development of treatment resistance.
+[P3.58] CRISPR single-cell (CRISPRsc) technology facilitates the discovery of critical regulators within a treated cell population, highlighting the genetic drivers of drug responses and interactions unique to specific cell subsets. This technology can be applied to pooled or arrayed screens, merging the flexibility of functional genomic screening with the detailed insights of single-cell transcriptomics and proteomics. By linking guide RNAs to whole-transcriptome and surface protein expression data at the single-cell level, CRISPRsc offers the ability to examine the phenotypic effects of genetic changes in detail.
+[P3.59] Single-cell analysis can provide detailed insights essential for tackling complex biological questions. This method provides high-resolution data, allowing us to examine how genes behave at the single-cell level closely. It helps specify key regulators crucial for understanding how genes interact in individual cells.
+[P3.60] Single-cell analysis offers unbiased phenotypic mapping and shows how different cell types react to various conditions. This is especially useful for analyzing drug responses, revealing drug effectiveness and resistance differences. When combined with transcriptomics and proteomics, the single-cell analysis uses guide RNA to direct perturbations. It integrates this with whole-transcriptome and proteomic data, giving us a more complete picture of cellular responses.
+[P3.61] Generate ultra-rich perturbation-linked whole-transcriptome and proteomic readouts
+[P3.62] Distinguish cell subpopulation-specific gene responses to perturbation
+[P3.63] Study variation in cellular differentiation pathways
+[P3.64] Identify gene interactions and networks
+[P3.65] Understand cellular resistance in detail
+[P3.66] Explore more with the following resources:
+[P3.67] CRISPRsc: Pooled CRISPR screening with single-cell transcriptome resolution
+[P3.68] You may also be interested in
+[P3.69] Preclinical screening services using primary human immune cells to address biologically relevant questions for target identification and lead optimization
+[P3.70] In the discovery of oncology therapeutics, Antibody-drug conjugates (ADCs) are rapidly gaining momentum, with hundreds of candidates advancing through clinical development.
+[P3.71] Choose base editing services that can improve cell viability and survival over traditional CRISPR methods by avoiding double strand DNA breaks.
+[P3.72] Are you looking for resources, click on the resource type to explore further.
+[P3.73] 2D OncoSignature™ long-term assay: extending the reach of cell panel screens
+[P3.74] A scalable and reproducible workflow for high-content analysis of cytotoxic effects in RASTRUM 3D…
+[P3.75] All-in-one CRISPR-knockout screening for identifying drug-sensitive genes linked to apoptosis and…
+[P3.76] Arrayed CRISPR screening solutions flyer
+[P3.77] Automated microRNA purification with chemagic 360 instrument
+[P3.78] Modern genomics needs updated tools: The power of updated library designs for CRISPR and RNAi screening.
+[P3.79] Discover how updated genome annotations and redesigned Dharmacon RNAi and CRISPR libraries improve on-target performance in functional genomics screens.
+[P3.80] How to achieve tight temporal control over CRISPRa, CRISPRi, and CRISPRko applications.
+[P3.81] Discover how Dharmacon™ Strict-R™ systems offer tight, reversible temporal control for CRISPRa, CRISPRi, and CRISPRko applications.
+[P3.82] Optimizing functional genomics research tools by aligning their design with the ongoing evolution of the genome.
+[P3.83] Revvity's Dharmacon reagents provide world-class RNAi and CRISPR tools with advanced oligonucleotide chemistry for precise gene modulation and editing research.
+[P3.84] Exploring the importance of sequencing guide RNAs in Functional Genomics.
+</source>

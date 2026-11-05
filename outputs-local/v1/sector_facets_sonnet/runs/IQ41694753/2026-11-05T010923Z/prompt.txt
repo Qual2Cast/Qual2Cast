@@ -1,0 +1,64 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: CVR Partners, LP (www.cvrpartners.com)
+Sector: Manufacturing (industrial, materials, electronics)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- manufacturing_type (Manufacturing type): How it makes products. Example: discrete: builds individual units on assembly lines. Any that apply of: discrete; process; assembly; outsourced / fabless.
+- production_model (Production model): Built for an order or for stock. Example: make-to-order: each unit configured to the customer's order. Exactly one of: make-to-order; make-to-stock; both.
+- product_complexity (Product complexity): How engineered its products are. Example: engineered: custom-configured equipment. Exactly one of: commodity; engineered; precision / high-spec.
+- production_role (Production role): Where it sits in its customers' supply chain. Example: final manufacturer: sells finished units to contractors. Any that apply of: final manufacturer / OEM; tier 1 supplier; tier 2 or component supplier; contract manufacturer; materials producer.
+- end_market_exposure (End-market exposure): Which end markets drive demand. Example: industrial: factories and commercial buildings. Any that apply of: aerospace and defense; automotive and transportation; industrial; construction and buildings; energy; electronics and semiconductors; healthcare and life sciences; consumer; agriculture; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Welcome to CVR Partners - CVR Partners, LP
+[P1.2] CVR Partners is a growth-oriented company focused on producing nitrogen fertilizer to help serve the needs of a growing population
+[P1.3] Annual Report & Proxy Information
+[P1.4] Reaching Out to Our Communities
+[P1.5] Product and Safety Data Sheets
+[P1.6] CVR Partners ( CVR Partners)
+[P1.7] We put Safety first, care for our Environment and require high business ethics and Integrity consistent with our Code of Ethics & Business Conduct. We embrace Corporate Citizenship as proud members of and good neighbors to the communities where we operate. We believe in Continuous Improvement for individuals to achieve their maximum potential through teamwork, diversity and personal development.
+[P1.8] 2024 Environmental, Social & Governance Report Learn More
+</source>
+
+<source id="P2">
+[P2.1] Who We Are - CVR Partners, LP
+[P2.2] We are a growth-oriented limited partnership formed by CVR Energy, Inc., to own, operate and grow our nitrogen fertilizer business. Our nitrogen fertilizer manufacturing facilities, which primarily produce ammonia and urea ammonium nitrate (UAN) fertilizers, are located in Coffeyville, Kansas, and East Dubuque, Illinois.
+[P2.3] Our Coffeyville plant is the only such operations in North America that uses a petroleum coke gasification process to make hydrogen, a key ingredient in its manufacturing process. Our East Dubuque nitrogen fertilizer plant uses natural gas as its feedstock to produce nitrogen fertilizer. our fertilizer facilities produced a combined 761,000 tons of ammonia, of which 243,000 net tons were available for sale, while the rest was upgraded to other fertilizer products, including 1,174,000 tons of UAN.
+</source>
+
+<source id="P3">
+[P3.1] Product and Safety Data Sheets - CVR Partners, LP
+[P3.2] Coming Soon: New Data Sheets for Urea Solid and Carbon Dioxide (CO2)
+[P3.3] Product Data Sheets and Safety Data Sheets (SDS) are listed below for products from East Dubuque Nitrogen Fertilizers and Coffeyville Resources Nitrogen Fertilizers.
+[P3.4] Simplest form of nitrogen fertilizer and feedstock for other nitrogen-based fertilizers
+[P3.5] Easy to use; highest concentration of nitrogen for direct application; pH control in a variety of industrial applications
+[P3.6] SDS Fertilizer Grade Data Sheet Industrial Grade Data Sheet
+[P3.7] Delivers nitrogen-rich benefits; no need to pressurize or refrigerate when transporting
+[P3.8] Premium curtain granulation dry granular for agriculture
+[P3.9] Curtain granulation allows for more consistent spherical sizing
+[P3.10] SDS Midsize Granular Data Sheet Coarse Granular Data Sheet
+[P3.11] Liquid for use in power, ethanol and diesel emissions markets
+[P3.12] Power, ethanol and diesel emissions markets
+[P3.13] SDS 32% Data Sheet 32% Spec Sheet 40% Data Sheet 50% Data Sheet 50% Spec Sheet
+[P3.14] Gaseous product co-manufactured with ammonia
+[P3.15] Converted into purified liquid CO2 for food and beverage industry. Also used in dry ice manufacturing and urea production
+[P3.16] High-purity urea solution used to reduce NOx emissions in diesel vehicles
+[P3.17] Reduces NOx emissions in diesel vehicles.
+[P3.18] Nitric acid in liquid form
+[P3.19] Metal finishing, industrial sanitation and commercial blends
+</source>

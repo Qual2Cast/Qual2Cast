@@ -1,0 +1,70 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Lindsay Corporation (www.lindsay.com)
+Industry (SIC 35): Industrial and Commercial Machinery and Computer Equipment
+About this industry group: Computer equipment is included here in the historical U.S. SIC structure; semiconductor devices are in SIC 36. Aftermarket and installed-base metrics apply to the equipment business, not automatically to every computer-related subsidiary.
+
+Facets:
+- machinery_computer_equipment_category (Machinery / computer-equipment category). Examples: Industrial compressors; Construction machinery; Computer servers.
+- installed_equipment_base (Installed equipment base). Examples: 20,000 active compressors; 50,000 installed machine tools.
+- aftermarket_sales_mix (Aftermarket sales mix). Examples: 35% parts and service revenue; Maintenance-led recurring revenue; Equipment-only sales.
+- equipment_replacement_cycle (Equipment replacement cycle). Examples: 10–15-year machinery life; 3–5-year server refresh cycle.
+- engineering_customization (Engineering / customization). Examples: Engineered-to-order machines; Configurable standard machines; Catalogue equipment.
+- service_maintenance_requirement (Service / maintenance requirement). Examples: Quarterly preventive servicing; Remote condition monitoring; Customer-performed maintenance.
+
+Evidence:
+<source id="P1">
+[P1.1] Global Partner For Irrigation & Infrastructure - Lindsay
+[P1.2] We expand the world's potential with advanced irrigation, infrastructure & industrial technology to benefit us all.
+[P1.3] Find a Dealer or Sales Rep
+[P1.4] Find a Dealer Find a Sales Rep
+[P1.5] Innovation that meets the world’s growing food, fuel, fiber and transportation needs with sustainable technology.
+[P1.6] Innovating and expanding our world's potential.
+[P1.7] Providing advanced irrigation, infrastructure, and industrial technology solutions that benefit us all.
+[P1.8] We know every drop—and every minute—matters. That’s why our irrigation solutions are built for growers who demand reliable performance. From durable Zimmatic pivots to smart, easy-to-use FieldNET water management technology, we help you increase yields, save time, and get more from every acre. With responsive support from trusted local dealers and a full lineup of innovative products, Lindsay is here to help you grow stronger—season after season.
+[P1.9] We’re shaping the future of transportation with innovative safety solutions and integrated systems that protect drivers, road workers, and entire communities. From advanced crash cushions and barrier systems to intelligent traffic management and remote asset monitoring, our infrastructure solutions are engineered to meet the evolving needs of today’s roadways. Whether you’re planning a major highway project, managing a busy work zone, or installing lifesaving hardware, we’re committed to helping you keep traffic moving—safely, efficiently, and sustainably.
+[P1.10] See how our products are transforming farms and roadways across the globe.
+[P1.11] At Lindsay, real-world results speak volumes. Lindsay’s case studies highlight real success across both irrigation and infrastructure. From boosting crop yields with precision technology to improving road safety and traffic flow, these stories show how our solutions deliver measurable results. Each case reflects our commitment to innovation, performance, and helping customers build more efficient, sustainable operations.
+[P1.12] On pipe when you re-pipe this winter.**
+[P1.13] Like TowerWatch, or Gearboxes, or more.*
+[P1.14] Find your nearest irrigation dealer or infrastructure sales rep.
+[P1.15] Use our interactive map to quickly connect with the right Lindsay dealer or sales rep in your area.
+[P1.16] Making the Most of the USDA Farmer Bridge Assistance Program
+</source>
+
+<source id="P2">
+[P2.1] About Lindsay Corporation | Our Company Vision & Values
+[P2.2] Learn how Lindsay advances irrigation, infrastructure and tech through innovation, values and a commitment to progress.
+[P2.3] Lindsay prides itself on innovating state-of-the-art technology, manufacturing dependable products, and cultivating genuine partnerships with our customers and each other. Our purpose is simple—to conserve natural resources, expand our world’s potential, and enhance the quality of life for people. we’ve led in the development of innovative products that save time and deliver peace of mind—because real progress isn’t just about technology; it’s about making a tangible difference in people’s lives.
+[P2.4] Boldly powering change. Bravely creating opportunity.
+[P2.5] Our vision is to be the innovation and market leader in our core segments, including irrigation and infrastructure equipment and technology. We are at the forefront of research and development of sustainable solutions to meet the food, fuel, fiber, and transportation needs of the world’s rapidly growing population.
+[P2.6] A global leader with small town values.
+[P2.7] At Lindsay, we are committed to building relationships with customers and each other. Our global footprint is driven by our commitment to fostering personal connections and maintaining reliability and trustworthiness.
+[P2.8] Through trusted long-lasting relationships, innovative, dependable products, and truly caring support, we help make our customers’ work and lives easier, safer, and more fulfilling so the world can keep progressing. Together.
+[P2.9] The people who make progress possible.
+[P2.10] Lindsay is driven by a team of more than 1,300 hardworking individuals across the globe who are united by pride and passion for our work. We want to ensure every person returns home safely every night.
+[P2.11] Are you ready to help us preserve natural resources, feed the global population, and improve road safety?
+[P2.12] Solving global challenges from agriculture to road safety.
+[P2.13] For over 50 years, Lindsay has been a global leader in irrigation and infrastructure. Every day we’re expanding the potential of operations around the world to create a safer, more sustainable future for us all.
+</source>
+
+<source id="P3">
+[P3.1] Find An Irrigation Dealer Near You – Lindsay
+[P3.2] Use Lindsay’s Dealer Locator to quickly find authorized dealers near your location.
+[P3.3] Enter your postal code to find the closest dealers in your area.
+[P3.4] Country --Country-- Afghanistan Aland Islands Albania Algeria American Samoa Andorra Angola Anguilla Antarctica Antigua and Barbuda Argentina Armenia Aruba Australia Austria Azerbaijan Bahamas Bahrain Bangladesh Barbados Belarus Belgium Belize Benin Bermuda Bhutan Bolivia Bonaire, Sint Eustatius and Saba Bosnia and Herzegovina Botswana Bouvet Island Brazil British Indian Ocean Territory British Virgin Islands Brunei Bulgaria Burkina Faso Burundi Cambodia Cameroon Canada Cape Verde Cayman Islands Central African Republic Chad Chile China Christmas Island Cocos (Keeling) Islands Colombia Comoros Congo (DRC) Congo (Republic) Cook Islands Costa Rica Côte d'Ivoire Croatia Cuba Curacao Cyprus Czech Republic Denmark Djibouti Dominica Dominican Republic Ecuador Egypt El Salvador Equatorial Guinea Eritrea Estonia Ethiopia Falkland Islands (Islas Malvinas) Faroe Islands Fiji Finland France French Guiana French Polynesia French Southern Territories Gabon Gambia Georgia Germany Ghana Gibraltar Greece Greenland Grenada Guadeloupe Guam Guatemala Guernsey Guinea Guinea-Bissau Guyana Haiti Heard Island and McDonald Islands Honduras Hong Kong Hungary Iceland India Indonesia Iran Iraq Ireland Isle of Man Israel Italy Jamaica Japan Jersey Jordan Kazakhstan Kenya Kiribati Kosovo Kuwait Kyrgyzstan Laos Latvia Lebanon Lesotho Liberia Libya Liechtenstein Lithuania Luxembourg Macau Macedonia (FYROM) Madagascar Malawi Malaysia Maldives Mali Malta Marshall Islands Martinique Mauritania Mauritius Mayotte Mexico Micronesia Moldova Monaco Mongolia Montenegro Montserrat Morocco Mozambique Myanmar (Burma) Namibia Nauru Nepal Netherlands New Caledonia New Zealand Nicaragua Niger Nigeria Niue Norfolk Island North Korea Northern Mariana Islands Norway Oman Pakistan Palau Palestinian Territories Panama Papua New Guinea Paraguay Peru Philippines Pitcairn Islands Poland Portugal Puerto Rico Qatar Réunion Romania Russia Rwanda Saint Barthelemy Saint Helena Saint Kitts and Nevis Saint Lucia Saint Pierre and Miquelon Saint Vincent and the Grenadines Samoa San Marino São Tomé and Príncipe Saudi Arabia Senegal Serbia Seychelles Sierra Leone Singapore Slovakia Slovenia Solomon Islands Somalia South Africa South Georgia and the South Sandwich Islands South Korea South Sudan Spain Sri Lanka Sudan Suriname Svalbard and Jan Mayen Swaziland Sweden Switzerland Syria Taiwan Tajikistan Tanzania Thailand Timor-Leste Togo Tokelau Tonga Trinidad and Tobago Tunisia Turkey Turkmenistan Turks and Caicos Islands Tuvalu U.S. Minor Outlying Islands U.S. Virgin Islands Uganda Ukraine United Arab Emirates United Kingdom United States Uruguay Uzbekistan Vanuatu Vatican City Venezuela Vietnam Wallis and Futuna Western Sahara Yemen Zambia Zimbabwe
+[P3.5] Search by postal code to find nearby dealers
+[P3.6] View additional dealers on the map.
+</source>

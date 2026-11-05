@@ -1,0 +1,98 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Amentum Holdings, Inc. (www.amentum.com)
+Sector: Business and personal services
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- service_category (Service category): What service it sells. Example: outsourcing: payroll and benefits administration. Any that apply of: consulting and advisory; outsourcing / BPO; staffing; facilities and field services; engineering and technical services; marketing and information services; education and training; personal and consumer services; other.
+- engagement_model (Engagement model): How clients engage it. Example: managed service: multi-year outsourced contracts. Any that apply of: project; retainer; managed service; per transaction / per visit.
+- labor_specialization (Labor specialization): Who delivers it. Example: specialist: licensed technicians. Exactly one of: generalist / low-skill; skilled trades; licensed professionals; technical / IT specialists.
+- client_segment (Client segment): Its typical client. Example: enterprise: large employers. Any that apply of: consumers; SMB; enterprise; government.
+
+Evidence:
+<source id="P1">
+[P1.1] Amentum | Global Government & Private-Sector Critical Solutions
+[P1.2] Amentum is a global leader in advanced engineering and innovative technology solutions, trusted by the United States and its allies to address their most...
+[P1.3] Amentum Opens Global Nuclear Headquarters in Oak Ridge, Tennessee
+[P1.4] Amentum plays a crucial role in flagship NASA missions
+[P1.5] Advancing Space Exploration, Empowering Discovery
+[P1.6] Amentum Wins Key Role on the U.S. Space Force Test and Training Complex’s Technology and Engineering Contract
+[P1.7] Advancing Engineering and Innovating Technology Solutions
+[P1.8] In 30 seconds, discover how Amentum supports nuclear programs with rigorous safety, specialized engineering, and end-to-end program management. From design engineering, operations to regulatory compliance, security and decommissioning, our globally integrated teams bring local insight and disciplined execution throughout the entire lifecycle. See how we deliver safe and reliable nuclear solutions.
+[P1.9] Golden Dome: Strengthening Our Nation’s Defense
+[P1.10] Golden Dome delivers a resilient, multi-layered shield against hypersonic, ballistic, cruise missiles and advanced threats. This initiative integrates cutting-edge technologies to enhance national security.
+[P1.11] Amentum and the Artemis Program: Powering Humanity’s Return to the Moon and Beyond
+[P1.12] NASA’s Artemis Program represents a bold new chapter in human spaceflight—rekindling the spirit of exploration and setting our sights beyond Earth’s orbit. With its upcoming launch, Artemis continues to advance the vision of returning astronauts to the lunar surface, including the historic goal of landing the first woman and the first person of color on the Moon. More than just a mission, Artemis is laying the groundwork for sustainable lunar exploration and future crewed journeys to Mars, reshaping our understanding of space and what’s possible for generations to come.
+[P1.13] Creating a secure and vibrant future
+[P1.14] Amentum is a global leader in advanced engineering and innovative technology solutions, trusted by the United States and its allies to address their most significant and complex challenges in science, security and sustainability. Our commitments are underpinned by the belief that safety, collaboration and well-being are integral to success. More About Us
+[P1.15] We bring advanced engineering and technology solutions to our customer’s most significant challenges around the world.
+[P1.16] We believe in fostering employee engagement, welcoming all perspectives and contributions, and providing equal access to opportunities and resources for everyone.
+[P1.17] MORE ABOUT WHO WE ARE
+[P1.18] We are committed to advancing energy initiatives providing expertise in renewable energy development, energy efficiency, and resilience projects.
+[P1.19] More about Energy & Environment
+[P1.20] Amentum offers comprehensive aerospace capabilities, including design, construction, integration, program support, launch and mission operations, and asset management.
+[P1.21] Amentum delivers advanced solutions to support national security and intelligence operations.
+[P1.22] Amentum focuses on providing advanced engineering, technology solutions, and mission support to enhance our military readiness and national security.
+[P1.23] Amentum focuses on delivering high-quality technical and operational support to federal agencies and commercial clients.
+[P1.24] Amentum’s international business extends its expertise in engineering, technology, and mission support services to clients across the globe.
+[P1.25] Amentum focuses on delivering innovative solutions and technical expertise to a wide range of industries, including energy, manufacturing, and infrastructure.
+[P1.26] Robotics Design and Development for Harsh Environments
+[P1.27] Amentum’s expertise in robotics was born in the harshest environment possible – the interior of nuclear reactors. The skills we have developed are now being used to gather data to inform how we can extend the life of infrastructure from roads to waterways and energy networks.
+[P1.28] SIAL® technology, developed by Amentum, allows on-site, room temperature conditioning of various standard and problematic radioactive waste streams including resins
+[P1.29] Amentum’s radiation protection specialists supplied the crucial know-how for a clean-up operation on Scotland’s most radioactive beach. Radioactive residues were
+[P1.30] Amentum is combining innovative engineering and deep nuclear knowledge to create equipment needed to advance the Fukushima cleanup. We designed
+[P1.31] Mission and operational excellence are part of our DNA.
+[P1.32] We are fiercely committed problem-solvers. Our team is excited to help customers solve today’s and tomorrow’s problems, giving confidence and reassurance that together we’ll achieve success.
+</source>
+
+<source id="P2">
+[P2.1] Innovative Advanced Energy Solutions | Amentum
+[P2.2] Revolutionizing energy systems with resilient, low-carbon solutions that meet sustainability goals and adapt to modern power demands.
+[P2.3] Amentum provides innovative energy solutions to drive the energy transition. Explore how our advanced capabilities promote sustainability and resilience.
+[P2.4] Amentum is a leading provider of innovative energy solutions, committed to advancing the transition to a sustainable energy future. With a focus on advanced technologies and integrated systems, we deliver high-performance energy solutions that meet the evolving needs of our clients across various sectors.
+[P2.5] Nuclear offers reliable energy to accelerate the shift away from fossil fuels and power a range of other uses including space exploration, desalination plants and data centers. We deliver safe, innovative solutions for high-risk, technically complex nuclear projects worldwide.
+[P2.6] Amentum is at the forefront of conceptual design and optimization of new nuclear technologies like Generation IV, small modular and advanced reactors and fusion power.
+[P2.7] We support clients with strategic advice, program and project management, siting and environmental assessment, regulatory compliance, full lifecycle design and engineering. We also help with remote handling and robotics, testing and rigs, construction and commissioning, field services, maintenance and visual engineering. By combining engineering and technical excellence with innovation, research and development, we’re helping clients solve the world’s most complex nuclear challenges safely and effectively.
+[P2.8] Amentum is sharing its multi-technology expertise, deep nuclear knowledge, skills in advanced engineering and licensing, and special technical capabilities with small modular and advanced reactor developers from the USA, UK and continental Europe.
+[P2.9] We have a decades-long involvement in ITER, the world’s largest nuclear fusion project, where our work ranges from designing prototypes for key components to complex remote handling systems essential for reactor operations. For the UK Atomic Energy Authority, we supported the Joint European Torus throughout its operational life and continue to work on other key fusion research programmes.
+[P2.10] Commissioning, Operational Support and Life Extension
+[P2.11] Regulatory, Site Licensing and Permitting
+[P2.12] Research, Laboratory and Energy Test Bed Operations
+[P2.13] Developing a clean energy roadmap requires a team of experts that understand how to assess your existing energy mix and provide a smart, scalable strategy to transition your operations to achieve your long-term energy goals.
+[P2.14] An important part of any clean energy solution is the ability to successfully navigate a growing list of regulatory and funding requirements. With a portfolio of projects across federal, state, and local sectors Amentum knows how to navigate the complex landscape of regulatory and funding requirements to achieve successful outcomes for our clients.
+[P2.15] We believe we’re better together. That’s why we are actively partnering with companies who offer specialized solutions for each building block in the clean energy value chain. This allows us to leverage the strengths of each partner and connect them in a way that increases overall value to our clients.
+[P2.16] As existing technologies mature and new technologies emerge, knowing how to identify, integrate, install, and manage these technologies is critical. We specialize in doing just that.
+[P2.17] We solve the world’s most complex challenges. We want to help take your clean energy goals from aspiration to reality. Our team of qualified engineers, subject matter experts, government cleared workers are eager to help you through each step of the process. Not only can we help you identify the solution, but we can also help you build, install, and manage it.
+[P2.18] CHANTILLY, Va., Amentum today opened its Global Nuclear headquarters in Oak Ridge, Tennessee. The facility, which houses Amentum’s Nuclear Center of Excellence, now serves as a centralized hub for the company’s international nuclear business operations.
+[P2.19] Amentum Selected for Projects to Upgrade and Protect the UK Energy Grid
+[P2.20] Company to Deliver Digital and Cybersecurity Solutions to Boost Grid Resilience CHANTILLY, Va., Amentum, a global leader in advanced engineering and technology solutions, has been selected for strategic positions on two significant UK energy frameworks awarded by Scottish and Southern Electricity Networks (SSEN) Transmission. SSEN Transmission is the owner…
+[P2.21] Westinghouse and Amentum Partner to Expand Delivery Capacity for APX Fleet Deployment
+[P2.22] CHANTILLY, VA., Westinghouse Electric Company and Amentum, a global leader in advanced engineering and technology solutions, have entered into a series of agreements supporting the Westinghouse APX technology platform. These agreements augment Westinghouse capabilities to support fleet-scale deployment of its AP1000® reactor while also advancing the development of the…
+[P2.23] We specialize in the design, construction, commissioning, and operations of innovative solutions for the world’s most complex challenges. We’re positioned to deliver hydrogen technology through a series of demonstration projects to achieve a secure, resilient, and clean energy source. We’re eager to partner with you to build a clean, resilient, secure energy future.
+</source>
+
+<source id="P3">
+[P3.1] Our Capabilities | Amentum
+[P3.2] Delivering solutions to strengthen the warfighter’s competitive advantage, by providing end-to-end lifecycle solutions across all domains…
+[P3.3] Amentum is a provider and integrator of full lifecycle aerospace capabilities, including research, design and development, test and evaluation…
+[P3.4] Amentum is a leading provider of sustainable solutions and environmental solutions, dedicated to enhancing the resilience of communities and ecosystems.
+[P3.5] Amentum’s data analytics and cyber capabilities provide clients with robust solutions to enhance decision-making, security, and operational efficiency.
+[P3.6] More About Data Analytics & Cyber
+[P3.7] Delivering solutions to strengthen the warfighter’s competitive advantage, by providing end-to-end lifecycle solutions across all domains and environments around the world to support our customers.
+[P3.8] Amentum is a provider and integrator of full lifecycle aerospace capabilities, including research, design and development, test and evaluation, program and project management, launch and mission operations, and asset management. We provide engineering, technology, and scientific services to the Department of Defense, NASA, U.K. Ministry of Defence and commercial space companies.
+[P3.9] Amentum is a leading provider of sustainable solutions and environmental solutions, dedicated to enhancing the resilience of communities and ecosystems. We leverage cutting-edge technology, innovative practices, and a commitment to sustainability to deliver comprehensive solutions that address global complex challenges of the modern world.
+[P3.10] Amentum’s data analytics and cyber capabilities provide clients with robust solutions to enhance decision-making, security, and operational efficiency. Our advanced data analytics leverage artificial intelligence and machine learning to extract actionable insights from complex datasets, driving innovation across sectors. In cybersecurity, we offer comprehensive protection against emerging threats, safeguarding critical systems and infrastructure.
+</source>

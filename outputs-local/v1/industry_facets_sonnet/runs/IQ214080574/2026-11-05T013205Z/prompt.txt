@@ -1,0 +1,68 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: MasterCraft Boat Holdings, Inc. (www.mastercraft.com)
+Industry (SIC 37): Transportation Equipment
+
+Facets:
+- transport_equipment_activity (Transport-equipment activity). Examples: Commercial aircraft components; Passenger vehicles; Marine propulsion equipment.
+- oem_supplier_role (OEM / supplier role). Examples: Vehicle OEM; Tier-one systems supplier; Tier-two component supplier.
+- platform_program_concentration (Platform / program concentration). Examples: Two major aircraft programs; Single heavy-truck platform; Diversified vehicle platforms.
+- product_production_qualification (Product / production qualification). Examples: FAA production approval; Automotive IATF 16949 certification; Marine classification-society approval.
+- program_backlog (Program backlog). Examples: Four years of contracted deliveries; $2 billion of firm orders.
+- aftermarket_original_equipment_mix (Aftermarket / original-equipment mix). Examples: 30% aircraft aftermarket sales; OEM production parts; Maintenance and overhaul services.
+
+Evidence:
+<source id="P1">
+[P1.1] MasterCraft | Wakesurfing, Wakeboarding & Ski Boats
+[P1.2] Discover MasterCraft boats—premium performance, innovation, and comfort for wakesurfing, wakeboarding, skiing, and unforgettable days on the water.
+[P1.3] The flagship by every measure. Available in 23' and 25', the XStar brings world-class wakeboard and surf performance together with supercharged power, flagship technology, premium comfort—and three decades of influence on the watersports industry itself.
+[P1.4] Refined where it matters, relentless everywhere else. The X Family pairs serious SurfStar performance and horsepower with precise handling, premium interiors, and deeply considered design across 22', 23', and 24' models.
+[P1.5] Four models from 20' to 24' deliver the surf performance world champions trust, with the adjustability to suit riders at every level. Versatile layouts, thoughtful features, and extensive customization give owners more freedom to build an XT around exactly how they want to use it.
+[P1.6] NXT lowers the barrier without lowering the bar. Across four models, best-in-class waves, intuitive tech, and smarter updates for 2027 make the MasterCraft experience easier to own, easier to use, and easier to enjoy.
+[P1.7] One obsession, refined over decades. The 20' ProStar delivers exceptionally flat, clean wakes, true centerline tracking, and the precision that has made it the benchmark in purpose-built waterski performance.
+[P1.8] BUILT WITH YOU IN MIND
+[P1.9] There’s a lot you can measure on a MasterCraft. The horsepower. The ballast. The wave. The technology. You can count the 78 patents and more than 49 awards earned across innovation, customer service, and manufacturing. But the real measure of a boat is what it makes possible. For 2027, MasterCraft continues pushing the experience forward with smarter tech, refined performance, and thoughtful improvements across the lineup. Together, they make the boat more intuitive to use and your time on the water more enjoyable.
+[P1.10] The specs tell you what it can do. The memories show you why it matters.
+[P1.11] For nearly 60 years, MasterCraft has built boats around a simple belief: performance should open the door to what comes next. It’s why every MasterCraft is engineered with purpose, from the wave and power to the technology, comfort, and details you notice every time you’re onboard. Because performance isn’t just a number on a spec sheet. It’s the confidence to push further, the freedom to change course, and the opportunity to turn an ordinary day into something worth remembering.
+[P1.12] Create the perfect boat for your lifestyle. Explore endless upgrades and customization options in our design center.
+[P1.13] Find an event near you.
+[P1.14] Explore options with side-by-side comparisons.
+</source>
+
+<source id="P2">
+[P2.1] MasterCraft Innovative Technology | Leading Features for Every Ride
+[P2.2] Explore MasterCraft’s innovative technology designed for ultimate control and convenience. From advanced connectivity to smart systems, experience cutting-edge boating solutions.
+[P2.3] MasterCraft boats are smarter, faster, and more connected than ever. With standard keyless ignition, Bluetooth, telematics, wireless chargers at the helm and cockpit, and the MasterCraft Connect app, you’re not just driving—you’re running the show.
+[P2.4] Spend more time doing what you love and less time dealing with the details. Got it. Obviously. Just press, go, and don’t look back.
+[P2.5] With our advanced onboard telematics and the MasterCraft Connect app, you can monitor your boat’s health and vitals, discover local spots, track activities, and even remotely switch off your battery. It’s like having a pit crew in your pocket.
+[P2.6] From wireless Bluetooth tech to GPS tracking to an onboard battery charger plug, we make it easier than ever to stay locked, loaded, and ready to launch.
+[P2.7] Cockpit phone holders can be upgraded to wireless phone chargers to keep you easily charged up all day long.
+[P2.8] With the MasterCraft Connect App, you can spend more time on the water and less time preparing for your day. Telematics enhancements keep you and your dealer more connected to your boat’s status and vitals.
+[P2.9] A helm wireless phone charger comes standard on all models—because fumbling for cords is not the way you want to spend your time on the water.
+[P2.10] Passcodes don’t sink. Every 2027 MasterCraft comes standard with keyless ignition.
+[P2.11] For nearly 60 years, MasterCraft has been the pioneer of performance on the water.
+[P2.12] Ergonomic seating, premium materials, and deep hull designs for a smooth, comfortable ride.
+[P2.13] The perfect blend of form and function, MasterCraft’s towers provide strength, security, and style.
+[P2.14] Every MasterCraft comes equipped with state-of-the-art MasterCraft SoundStage audio system.
+[P2.15] Every MasterCraft comes equipped with the most intuitive dashes.
+[P2.16] Outfitted to provide the most powerful and reliable driving experience in the industry.
+[P2.17] The only towboat brand with trailer-specific engineers and in-house trailer manufacturing.
+[P2.18] MasterCraft offers the most comprehensive saltwater solution in the towboat segment.
+</source>
+
+<source id="P3">
+[P3.1] MasterCraft Dealer Locator | Find a Boat Dealer Near You
+[P3.2] Locate an authorized MasterCraft dealer near you. Explore local inventory, schedule a demo, and connect with experts to find the perfect boat for your on-water adventures.
+</source>

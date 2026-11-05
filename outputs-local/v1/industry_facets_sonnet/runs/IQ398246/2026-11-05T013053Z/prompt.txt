@@ -1,0 +1,36 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Kingstone Companies, Inc. (www.kingstonecompanies.com)
+Industry (SIC 63): Insurance Carriers
+About this industry group: Combined ratio is an underwriting measure for P&C operations, not a universal life-insurance profitability metric. Preserve gross/net, calendar/accident-year, catastrophe exclusions and the issuer’s expense-ratio basis. Life/annuity and health businesses need liability/benefit measures instead. NAIC terminology.
+
+Facets:
+- insurance_business_line (Insurance business line). Examples: Commercial P&C; Life and annuity insurance; Health insurance.
+- risk_underwriting_distribution_model (Risk underwriting / distribution model). Examples: Direct primary insurer; Reinsurer; Delegated underwriting with retained risk.
+- premium_exposure_mix (Premium / exposure mix). Examples: 60% commercial auto and 40% property premiums; Individual annuity-led sales.
+- combined_ratio_p_c_underwriting (Combined ratio [P&C underwriting]). Examples: Calendar-year combined ratio: 96%; Accident-year ratio excluding catastrophes: 91%, separately defined.
+- loss_lae_ratio_p_c_underwriting (Loss / LAE ratio [P&C underwriting]). Examples: Net loss and LAE / net earned premiums: 64%; Accident-year loss and LAE ratio: 60%.
+- medical_benefit_ratio_health_insurers (Medical benefit ratio [health insurers]). Examples: Medical benefits / premium revenue: 82%; Issuer-defined medical loss ratio: 85%.
+- reinsurance_catastrophe_protection (Reinsurance / catastrophe protection). Examples: Quota-share cessions; Excess-of-loss catastrophe cover; Retained catastrophe limit.
+- liability_duration_guarantees_life_and_annuity (Liability duration / guarantees [life and annuity]). Examples: Fixed deferred annuities; Variable annuities with guarantees; Long-duration protection liabilities.
+- investment_liability_matching (Investment / liability matching). Examples: Duration-matched bond portfolio; Interest-rate hedges for annuity guarantees; Separate-account investment assets.
+- regime_specific_solvency_measure (Regime-specific solvency measure). Examples: U.S. insurance RBC ratio, denominator identified; EU Solvency II coverage ratio.
+
+Evidence:
+<source id="P1">
+[P1.1] Investor Relations - Kingstone Companies, Inc.
+[P1.2] Kingstone Companies, Inc.
+[P1.3] Kingstone Companies, Inc. (“Kingstone”) is a northeast regional property and casualty insurance holding company whose principal operating subsidiary is Kingstone Insurance Company (“KICO”). KICO is a New York domiciled carrier writing business through retail and wholesale agents and brokers. KICO is actively writing personal lines and commercial auto insurance in New York, and was the 11th largest writer of homeowners insurance in the State of New York. Kingstone is also licensed in New Jersey, Rhode Island, Massachusetts, Connecticut, Pennsylvania, New Hampshire, and Maine.
+</source>

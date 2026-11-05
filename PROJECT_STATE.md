@@ -3,6 +3,17 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
+_2026-11-04 (evening), stronger model for the fills and the selectors (plan item 3, Matthew and Richard).
+- **New `claude-cli` backend** (`v1/scripts/cli_models.py`): the fill scripts and both LLM selectors can run through the Claude Code CLI under a student's own subscription (`--backend claude-cli`, default Claude Sonnet 5.5), with no API key. No MCP servers, settings or CLAUDE.md are loaded (about 1k tokens of overhead per call instead of 300k); the instructions go in the system prompt so the cache covers them.
+- **Three fills with Sonnet, all 533 companies:** the twelve general facets (`outputs-local/v1/facets_sonnet/`), Fiona's sector facets including the holdout (`sector_facets_sonnet/`), and **Barbara's SIC2 industry facets** (new `industry_facets.py` + `fill_industry_facets.py`, reading `v1/scripts/reference/sic2_industry_facet_dictionary.md`; `industry_facets_sonnet/`: 5,331 facet rows, 48% stated, 29% not applicable, 23% unknown). The Haiku fills in `facets/` are untouched.
+- **Both selectors with Sonnet and with Haiku on identical inputs** (B3 lists, Haiku facets, prompt `2026-11-04a`; 373 targets each): `cosine_then_llm/20261104T074915Z_2026-11-04a_{sonnet,haiku}/`, `direct_llm/20261027T204930Z_2026-11-04a_{sonnet,haiku}/`.
+- **Results** (`model_selection_eval.py` → `outputs-local/v1/model_selection/`): the fills agree on the leading category 73–92% of the time per facet (customer segment 92%, company size 73%). The screen gives the same verdict on 92% of 2,396 pairs; both models are strict (Haiku leaves 161 targets with no comp, Sonnet 106) and both drop the adjacent comps. The direct picks are where the model matters: Sonnet lists 4.9 comps per target (Haiku 2.8), and on the round 1 labels finds 4/4 WEN and 6/7 PCTY good comps (Haiku 1/4 and 4/7) with no labeled non-comp.
+- **Not done:** the selectors still read the Haiku facets; B3 and the valuation have not been re-run on the Sonnet or industry facets. F9 is still filled (schema), dropped downstream.
+- **Tests:** 209 pass. No API spend; CLI calls under a subscription.
+- **Next:** re-run B3 + valuation on the Sonnet fills; score both models' direct picks on round 2.
+
+Details: `conversations/2026-11-04-sonnet-model-selection.md`._
+
 _2026-11-04, v1 baseline = B3, F9 out of the selector prompts, golden set round 2, `outputs-local/v1/` shared.
 - **Decisions:**
   - B3 (method 1) is the v1 baseline, chosen on comp quality, not valuation.

@@ -1,0 +1,74 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: PRA Group, Inc. (www.pragroup.com)
+Sector: Banks, insurance and other financials
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- financial_business_type (Financial business type): What kind of financial firm. Example: insurance brokerage: places commercial insurance for clients. Any that apply of: banking; specialty lending; property and casualty insurance; life and health insurance; insurance brokerage; asset / wealth management; exchanges and market infrastructure; payments; other.
+- revenue_driver (Revenue driver): What it earns on. Example: fees: commissions on placed premiums. Any that apply of: net interest income; fees and commissions; premiums; investment income.
+- customer_type (Customer type): Who its clients are. Example: corporate: small and mid-sized businesses. Any that apply of: retail; corporate; institutional; government.
+- balance_sheet_dependence (Balance sheet dependence): Whether it carries the risk. Example: fee-based: no underwriting risk. Exactly one of: balance-sheet intensive; fee-based; mixed.
+
+Evidence:
+<source id="P1">
+[P1.1] PRA Group Home - PRA Group • PRA Group
+[P1.2] PRA Group delivers nonperforming loan solutions that drive success through a long-term focus and customer care.
+[P1.3] With its global headquarters located in Norfolk, Virginia, PRA Group, Inc. is a company that has grown to become one of the largest acquirers of nonperforming loans in the world. Its portfolio operations span multiple countries, 12 languages and 12 currencies. Through its subsidiaries, PRA Group returns essential capital to banks and other lenders, helping expand financial services available to consumers and businesses.
+[P1.4] PRA Group went public on, and has since grown to become one of the largest purchasers of nonperforming loans in the world.
+[P1.5] Read our company’s latest news.
+[P1.6] Unexpected Costs Leave Many Households Vulnerable, New Research Finds
+[P1.7] New data highlights the challenge of building financial buffers and resilience, with many UK households vulnerable to financial shocks LONDON, 7 October, 2026 – Households experiencing financial difficulties are struggling to build the financial resilience needed to cope with unexpected costs, leaving many vulnerable to being unable to pay for expenses such as car repairs, […]
+[P1.8] PRA Group and StepChange Unite Stakeholders in UK Parliament to Strengthen Financial Inclusion
+[P1.9] Cross‑sector dialogue highlights practical ways to support people in financial difficulty NORFOLK, Va., PRA Group, Inc. […]
+[P1.10] PRA Group Announces Opening of Uptown Charlotte Office
+[P1.11] NORFOLK, Va., PRA Group, Inc., a global leader in acquiring and collecting nonperforming loans, will open an Uptown Charlotte office in early. Located in One South, a landmark 40-story office tower at the intersection of Trade and Tryon, the new space marks a strategic expansion into one of the nation’s fastest-growing financial markets. Charlotte will join London, United Kingdom; Oslo, Norway; Warsaw, Poland; and the company’s global headquarters in Norfolk, Va., as a PRA […]
+</source>
+
+<source id="P2">
+[P2.1] About Us - PRA Group • PRA Group
+[P2.2] 30 years of redefining the nonperforming loan industry.
+[P2.3] Doing things the right way, for the right reasons, with a long-term focus.
+[P2.4] To deliver nonperforming loan solutions that drive success through a long-term focus and customer care.
+[P2.5] From a single employee to the global footprint of PRA Group and its subsidiaries, our company is built on this mission. It gives purpose to, and is the foundation of, everything we do.
+[P2.6] To be the trusted leader, changing the world’s perception of the nonperforming loan industry.
+[P2.7] This shared vision fuels our pursuit of redefining the nonperforming loan industry, is our guiding light to the future of PRA Group and sets our bar for success.
+[P2.8] Steve Fredrickson and Kevin Stevenson had a vision for a professional business in the nonperforming loan industry. With four employees in Norfolk, Virginia, they set out to found a company that would do things differently. They took Portfolio Recovery Associates, Inc. public in and changed the parent company name to PRA Group, Inc. in. Today, PRA Group has grown to become a global leader in the nonperforming loan industry with operations and thousands of employees around the world. Nearly three decades since our founding, we remain focused on doing things the right way, for the right reasons, for the long term.
+[P2.9] Better Business Bureau Recognition for 25 Years of Accreditation
+[P2.10] Federation of European National Collection Associations (FENCA) Industry Partner
+[P2.11] Center for Personal Protection and Safety’s (CPPS) Safe Workplace Certification
+[P2.12] Global Biorisk Advisory Council STAR™ Facility Accredited (GBAC STAR)
+[P2.13] CoVaBIZ Magazine 2025 Social Responsibility Champion
+[P2.14] Elizabeth River Project River Star Business
+[P2.15] United Way of South Hampton Roads 2022, 2023 and 2024 Bronze Trailblazer Award & 2024 Campaign of The Year
+[P2.16] Silver Stevie® Award Winner International Business Awards®
+[P2.17] CESSIO Laurel Award 2024 Investors Category
+[P2.18] Finalist, 2025 Debt Purchaser of the Year in Credit Strategy’s Credit Awards
+[P2.19] Bronze Stevie® Award Winner for Large Financial Services Company of the Year International Business Awards®
+[P2.20] Gold Winner for Best Large Business and Best Local Company with a National Presence CoVaBIZ Magazine Best of Business Awards
+</source>
+
+<source id="P3">
+[P3.1] Our Clients - PRA Group • PRA Group
+[P3.2] At PRA Group, our clients can trust that we will do things the right way and deliver quality service for their customers once they sell their accounts to us — providing the tools to make debt repayment flexible and affordable.
+[P3.3] Through our subsidiaries, our primary business is the purchase, collection and management of nonperforming loan portfolios. We acquire nonperforming credit cards and loans, insolvency accounts, and auto loans. We also offer revenue and recovery services to our business clients.
+[P3.4] We purchase nonperforming loans from banks and credit issuers in the Americas, Europe and Australia and collaborate with customers to help them resolve their debt.
+[P3.5] We purchase and file securities and antitrust class action claims and provide fee-based recovery services to institutional investors and corporate clients in the U.S. and Europe.
+[P3.6] Our business was as an acquirer and collector of U.S. consumer nonperforming loans. Over time and by design, PRA Group has expanded and diversified to become a global leader in the industry. Through its subsidiaries, PRA Group has portfolio operations in multiple countries around the world.
+[P3.7] London, Ontario Montréal, Québec Newmarket, Ontario
+[P3.8] Denmark Duisburg, Germany Eisenstadt, Austria Helsinki, Finland Kilmarnock, United Kingdom London, United Kingdom Madrid, Spain Milan, Italy Netherlands Oslo, Norway Portugal Solna, Sweden Warsaw, Poland Zug, Switzerland
+[P3.9] Bogotá, Colombia São Paulo, Brazil
+[P3.10] Charlotte, North Carolina Norfolk, Virginia
+</source>

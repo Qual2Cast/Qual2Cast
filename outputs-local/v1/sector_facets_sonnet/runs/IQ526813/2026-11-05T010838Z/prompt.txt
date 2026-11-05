@@ -1,0 +1,64 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Coca-Cola Consolidated, Inc. (www.cokeconsolidated.com)
+Sector: Consumer products (food, beverages, household, apparel)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- product_category (Product category): What consumers buy from it. Example: food: snacks and frozen meals. Any that apply of: food; beverages; apparel and footwear; household and personal care; home and furnishings; electronics; recreation and leisure goods; general merchandise; restaurant meals; lodging and travel; entertainment and gaming; automotive; other.
+- market_position (Market position): Where it sits on price. Example: mass-market: mainstream national brands. Exactly one of: value / discount; mass-market; premium; luxury.
+- distribution_model (Distribution model): How it reaches consumers. Example: wholesale: sells through grocery and mass retailers. Any that apply of: direct to consumer; wholesale to retailers; franchise; company-operated locations; licensing.
+- purchase_frequency (Purchase frequency): How often consumers buy. Example: daily: staple groceries. Exactly one of: daily / staple; periodic; discretionary / occasional.
+
+Evidence:
+<source id="P1">
+[P1.1] Home - Coca-Cola Consolidated
+[P1.2] Coca-Cola Consolidated, headquartered in Charlotte, North Carolina, is the largest independent Coca-Cola bottler in the United States.
+[P1.3] The Nation's Largest Coca-Cola Bottler
+[P1.4] Coca-Cola Consolidated is the largest Coca-Cola bottler in the United States. For 124 years, we have been deeply committed to the consumers, customers, and communities we serve and are passionate about the broad portfolio of beverages and services we offer.
+[P1.5] We make, package, and deliver a variety of beverages to stores, restaurants, entertainment venues, offices, and more. We have multiple manufacturing facilities, 60 distribution and sales centers, and our corporate offices are located in Charlotte, North Carolina. We’re in your neighborhood every day, interacting with and supporting you and your community members.
+[P1.6] Your Favorite Brands and Flavors
+[P1.7] We make, sell, and d istribute beverages of The Coca-Cola Company and other partner companies. As the largest Coca-Cola bottler in the United States, we are proud to provide nearly 300 brands and flavors to 60 million consumers across 14 states and Washington, D.C. We make a wide selection of refreshment for every taste and lifestyle.
+[P1.8] Behind every bottle, every sparkling new flavor, and every timeless classic is something much greater – our Teammates.
+[P1.9] Important Update on Recent False Allegations
+[P1.10] Recent claims that The Coca-Cola Company coordinated with U.S. immigration authorities to identify teammates as undocumented workers and lead to their deportation are unequivocally false.
+[P1.11] Actualización Importante sobre Recientes Acusaciones Falsas
+[P1.12] Las recientes afirmaciones de que The Coca-Cola Company coordinó con las autoridades de inmigración estadounidenses para identificar a sus compañeros como trabajadores indocumentados y propiciar su deportación son rotundamente falsas.
+</source>
+
+<source id="P2">
+[P2.1] About Us - Coca-Cola Consolidated
+[P2.2] Dedicated to honoring God, pursuing excellence, and growing profitably.
+[P2.3] Coca-Cola Consolidated is the largest Coca-Cola bottler in the United States. For more than 124 years, we have been deeply committed to the consumers, customers, and communities we serve and are passionate about the broad portfolio of beverages and services we offer.
+[P2.4] We make, sell, and distribute beverages of The Coca-Cola Company and other partner companies in nearly 300 brands and flavors across 14 states and the District of Columbia to approximately 60 million consumers. We are based in the Southeast, Midwest, and Mid-Atlantic portion of the United States.
+[P2.5] Behind every new flavor and timeless classic is something bigger. Some say you can’t bottle this kind of passion, but we do it every day for you.
+[P2.6] At Coca-Cola Consolidated, we strive to fulfill our Purpose — to honor God in all we do, to serve others, to pursue excellence, and to grow profitably. Our teammates have a passion for serving each other along with our consumers, our customers, and our communities.
+[P2.7] We offer a range of nonalcoholic beverage products and flavors, including both sparkling and still beverages, designed to meet the demands of our consumers. Our sparkling, or carbonated, beverages include the trademark Coca-Cola brand and our still beverages include energy products and non-carbonated beverages such as bottled water, tea, ready to drink coffee, enhanced water, juices, and sports drinks.
+</source>
+
+<source id="P3">
+[P3.1] Order Products - Coca-Cola Consolidated
+[P3.2] Use our quick form to place your order. You'll need your basic information and customer number to get started. If you have a 7-digit customer ID, please use the form below. All others, please visit www.mycoke.com.
+[P3.3] At Coke Consolidated, providing excellent service for our customers is our top priority.
+[P3.4] Whether you prefer email, phone, or ordering online, we are here to serve you.
+[P3.5] If you are a current Coca-Cola Consolidated customer with an account or order inquiry, please call 1-800-260-COKE (2653) or email our Customer Care Center.
+[P3.6] Once your account has been set up, you’ll be able to place orders through our Order Builder, keep track of up to two years of order history, and receive live support from a myCoke representative via chat. Once registered, please visit myCoke.com to log in and enjoy the benefits of a Coca-Cola Consolidated myCoke account.
+[P3.7] Please note: We are working to expand our myCoke service area. Please continue to check back with us regularly if your area is not currently serviced. Thank you for allowing us to serve you!
+[P3.8] We deliver happiness to 14 states and the District of Columbia.
+[P3.9] We are honored to make, sell, and deliver Coca-Cola products in the following states: North Carolina, South Carolina, Virginia and West Virginia, and portions of Arkansas, Delaware, Illinois, Indiana, Kentucky, Maryland, Mississippi, Ohio, Pennsylvania, and Tennessee.
+[P3.10] * Off-schedule deliveries for special events, out-of-stocks, etc. may be requested in urgent situations only. Delivery on a specified day is not guaranteed due to existing truck capacity and routing. We will make every effort to accommodate where possible and will contact you directly via e-mail or telephone with confirmation.
+[P3.11] * Scheduled call dates are subject to change due to seasonal re-routes and holidays, with notice.
+[P3.12] * Product availability is subject to change – Not ALL products available in your area.
+</source>

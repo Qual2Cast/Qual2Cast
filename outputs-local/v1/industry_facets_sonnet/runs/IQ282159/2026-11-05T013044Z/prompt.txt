@@ -1,0 +1,115 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Jacobs Solutions Inc. (www.jacobs.com)
+Industry (SIC 87): Engineering, Accounting, Research & Management Services
+About this industry group: This major group is broader than engineering consulting: it also covers accounting, scientific research and management services. Select service-specific qualifications and project metrics; do not impose an engineering backlog metric on an audit-only practice.
+
+Facets:
+- professional_service_specialty (Professional-service specialty). Examples: Engineering design; Accounting; Scientific research.
+- engagement_delivery_model (Engagement / delivery model). Examples: Fixed-scope engineering project; Recurring audit engagement; Consulting retainer.
+- billable_utilization (Billable utilization). Examples: Billable hours / available professional hours: 72%; 80% utilization for a stated staff population.
+- workforce_expertise_mix (Workforce / expertise mix). Examples: Licensed professional engineers; Audit partners and associates; PhD research scientists.
+- client_industry_project_domain (Client industry / project domain). Examples: Energy infrastructure clients; Financial-services audit clients; Biotechnology research sponsors.
+- contracted_work_backlog (Contracted work backlog). Examples: $500 million signed project backlog; 12 months of contracted engineering work.
+- professional_liability_accreditation (Professional liability / accreditation). Examples: Professional indemnity cover; Named professional licenses; Laboratory accreditation.
+
+Evidence:
+<source id="P1">
+[P1.1] Jacobs | Challenging Today. Reinventing Tomorrow.
+[P1.2] We are a global professional services company delivering engineering, design, consulting and infrastructure solutions that solve complex challenges and create lasting impact. Discover Jacobs.
+[P1.3] Shaping the future of life sciences manufacturing
+[P1.4] Jacobs connects pharmaceutical facility design, automation and operations, accelerating the path to autonomous production.
+[P1.5] Jacobs is a global professional services company delivering science-based, digitally enabled, end-to-end solutions — from consulting and advisory to design and implementation — across the world’s most complex infrastructure, advanced manufacturing, environmental and technology challenges.
+[P1.6] Solutions that solve complex challenges
+[P1.7] We bring together the right services, expertise and technology to deliver forward-thinking and sustainable solutions that are built to last.
+[P1.8] We combine global expertise in flood risk management, digital tools and infrastructure design and delivery to reduce exposure and build long-term resilience.
+[P1.9] From early feasibility and technology selection through to design, delivery and long ‑ term operation, we support the full gas power generation project lifecycle, including natural gas fired power generation and long ‑ term maintenance.
+[P1.10] Engage AI is our AI-enabled platform for managing public input at scale — enabling teams to process, understand and act on feedback faster. What took months now takes days, enabling clear public communications, informed decisions and impactful delivery.
+[P1.11] We bring clarity and confidence to navigate a changing regulatory landscape, strengthening foundations and protecting long-term value to unlock sustainable growth.
+[P1.12] W e deliver projects ranging from targeted system upgrades to major urban transit programs, positioning mass transit as a driver of regeneration and sustainable economic growth.
+[P1.13] Our data center digital twin models real-world system behavior before challenges surface as operational risk — enabling owners, developers and technical teams to reduce uncertainty and make faster, better-informed decisions from early feasibility through live operations.
+[P1.14] Regulatory Resilience & Permitting Advisory
+[P1.15] Discover how we bring complex projects to life, delivering practical, lasting outcomes for the communities and clients we serve.
+[P1.16] Powering the next generation of AI infrastructure
+[P1.17] Cleaning up the River Thames through the UK’s largest ever water infrastructure program
+[P1.18] Driving economic growth through a smart, green industrial city in India
+[P1.19] Delivering flood protection in the U.S. Midwest with an innovative funding model
+[P1.20] Accelerating smarter growth and service delivery for local government
+[P1.21] Enabling a more resilient and sustainable Great Lakes port
+[P1.22] Creating a therapeutic space that respects culture, ensures patient safety and promotes clinical recovery
+[P1.23] Smart infrastructure at scale: Riyadh’s AI-driven coordination breakthrough
+[P1.24] Jacobs to deploy data center digital twin for NVIDIA’s R&D facility
+[P1.25] Jacobs has been selected by NVIDIA to deploy its Data Center Digital Twin for a large-scale R&D facility in the United States. Under a three-year software-as-a-service agreement, Jacobs will deploy a digital twin environment to enhance operational planning and improve facility performance across one of NVIDIA's most advanced artificial intelligence research and development facilities.
+[P1.26] Jacobs to enhance wastewater system performance for Oklahoma City
+[P1.27] Jacobs has been selected by the Oklahoma City Water Utilities Trust (OCWUT) to provide operations and maintenance (O&M) services for the city’s wastewater facilities and solids management program under a five-and-a-half-year contract, supporting reliable wastewater services for Oklahoma City and six neighboring communities.
+[P1.28] Jacobs extends role on German hydrogen-capable direct reduction plant
+[P1.29] Jacobs was selected to extend its role on thyssenkrupp Steel's direct reduction plant in Duisburg, Germany, continuing to provide project management office, construction management and assembly management services as the hydrogen-capable facility moves toward first iron production.
+[P1.30] Supporting safer, smoother travel across Georgia
+[P1.31] As transportation demands grow across metropolitan Atlanta, Jacobs will deliver roadway, bridge and safety improvements that keep people and goods moving. Discover how data-driven insights and construction expertise are supporting one of Georgia’s busiest transportation corridors.
+[P1.32] Read practical perspectives that turn complex challenges and emerging trends into real-world outcomes.
+[P1.33] Bridging the disconnect: aligning utility planning with fleet electrification deployment in North America
+[P1.34] How automated material handling systems are redefining the future of pharmaceutical manufacturing
+[P1.35] Securing the next generation of data centers: Integrating cybersecurity and operational technology resilience from the ground up
+[P1.36] From the first applications of advanced water treatment to city-scale deep tunnel sewers, our work includes the world’s most iconic water projects. Today, we’re shaping what’s next: potable reuse, renewable energy generation, AI-enabled water solutions and beyond.
+[P1.37] From cities and corridors to ports and people, Jacobs delivers the infrastructure, innovation and design that keeps the world moving. We do more than build transportation systems. We move people, goods and communities — safely and efficiently.
+[P1.38] What it takes to guide complex infrastructure programs
+[P1.39] For nearly 80 years, Jacobs has been trusted with some of the world’s most complex programs — bringing together the approach, solutions, people and experience required to guide them with clarity and confidence.
+</source>
+
+<source id="P2">
+[P2.1] Company Overview | Jacobs
+[P2.2] At Jacobs, we challenge today to reinvent tomorrow. Together we transform advanced manufacturing and life sciences facilities, reimagine transportation networks, secure water and energy systems, and shape the environments where people live and work.
+[P2.3] We connect insight with action, combining advisory, design, delivery and lifecycle management expertise to turn ideas into outcomes with clarity and purpose.
+[P2.4] Together, we’re building a more connected, resilient and sustainable future.
+[P2.5] Venk Nathamuni Chief Financial Officer
+[P2.6] Joanne Caruso Chief Legal and Administrative Officer
+[P2.7] Cheryl Lim Chief Human Resources Officer
+[P2.8] Patrick Hill President, Global Operations
+[P2.9] Louis Pinkham Lead Independent Director
+[P2.10] ENR Top 500 Design Firms
+[P2.11] Consecutive year on the Dow Jones Sustainability World Index
+[P2.12] Ranked on The Wall Street Journal’s Top 250 Best-Managed Companies of 2025
+[P2.13] Projects in action, impact that lasts
+[P2.14] Discover how we bring complex projects to life, delivering practical, lasting outcomes for communities, clients and the environments we serve.
+[P2.15] Delivering Europe’s largest and most sustainable data center
+[P2.16] Reimagining water security in California
+[P2.17] Shaping India’s first net zero emissions airport
+[P2.18] Delivering one of North America’s largest biomanufacturing facilities for next-generation therapies
+[P2.19] Restoring and Renewing the UK Parliament at the Palace of Westminster for future generations
+[P2.20] Upgrading Singapore's grid for tomorrow
+[P2.21] Powering the UK with low-carbon nuclear energy at Hinkley Point C
+[P2.22] Shaping the future of children’s healthcare with a transformational hospital campus
+[P2.23] Find out how we’re challenging today and reinventing tomorrow.
+[P2.24] See how we’re accelerating growth and driving value for our clients.
+</source>
+
+<source id="P3">
+[P3.1] Solutions | Jacobs
+[P3.2] Secure mission environments for national security
+[P3.3] Infrastructure planning software that helps you plan with evidence and deliver with confidence.
+[P3.4] AI & Software Solutions for Data Centers
+[P3.5] AI & Software Solutions for National Security
+[P3.6] AI & Software Solutions for Transportation
+[P3.7] AI applications that help transportation agencies plan, design, deliver and operate modern infrastructure
+[P3.8] AI & Software Solutions for Water
+[P3.9] A powerful, flexible tool that enables you to seamlessly combine Building Information Model (BIM) data with external data sources in one customizable experience.
+[P3.10] Alluvial, a cloud-based hosting and insights platform developed by Jacobs to securely publish and share data and digital solutions across our company and with our clients.
+[P3.11] Driving better bridge project outcomes through smarter delivery models
+[P3.12] Shaping cutting-edge airports that perform today and are adaptable for tomorrow
+[P3.13] AI-driven asset planning for sewer and stormwater networks
+[P3.14] Faster, smarter decisions for complex national security missions
+[P3.15] Extending asset life while reducing risk and lifecycle costs
+[P3.16] Developing sustainable, resilient buildings that perform better, last longer and adapt to change
+</source>

@@ -1,0 +1,100 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Corebridge Financial, Inc. (www.corebridgefinancial.com)
+Industry (SIC 63): Insurance Carriers
+About this industry group: Combined ratio is an underwriting measure for P&C operations, not a universal life-insurance profitability metric. Preserve gross/net, calendar/accident-year, catastrophe exclusions and the issuer’s expense-ratio basis. Life/annuity and health businesses need liability/benefit measures instead. NAIC terminology.
+
+Facets:
+- insurance_business_line (Insurance business line). Examples: Commercial P&C; Life and annuity insurance; Health insurance.
+- risk_underwriting_distribution_model (Risk underwriting / distribution model). Examples: Direct primary insurer; Reinsurer; Delegated underwriting with retained risk.
+- premium_exposure_mix (Premium / exposure mix). Examples: 60% commercial auto and 40% property premiums; Individual annuity-led sales.
+- combined_ratio_p_c_underwriting (Combined ratio [P&C underwriting]). Examples: Calendar-year combined ratio: 96%; Accident-year ratio excluding catastrophes: 91%, separately defined.
+- loss_lae_ratio_p_c_underwriting (Loss / LAE ratio [P&C underwriting]). Examples: Net loss and LAE / net earned premiums: 64%; Accident-year loss and LAE ratio: 60%.
+- medical_benefit_ratio_health_insurers (Medical benefit ratio [health insurers]). Examples: Medical benefits / premium revenue: 82%; Issuer-defined medical loss ratio: 85%.
+- reinsurance_catastrophe_protection (Reinsurance / catastrophe protection). Examples: Quota-share cessions; Excess-of-loss catastrophe cover; Retained catastrophe limit.
+- liability_duration_guarantees_life_and_annuity (Liability duration / guarantees [life and annuity]). Examples: Fixed deferred annuities; Variable annuities with guarantees; Long-duration protection liabilities.
+- investment_liability_matching (Investment / liability matching). Examples: Duration-matched bond portfolio; Interest-rate hedges for annuity guarantees; Separate-account investment assets.
+- regime_specific_solvency_measure (Regime-specific solvency measure). Examples: U.S. insurance RBC ratio, denominator identified; EU Solvency II coverage ratio.
+
+Evidence:
+<source id="P1">
+[P1.1] Corebridge Financial
+[P1.2] Take action today to build a bridge for tomorrow—from planning to outcomes, from meeting today’s financial needs to attaining your aspirations.
+[P1.3] Life insurance can help protect what matters most
+[P1.4] A few minutes today can help create a stronger financial future for the people who depend on you.
+[P1.5] You worked hard to save for retirement. Spending your savings well deserves the same attention — and a clear plan. Explore Corebridge research, resources, and real-life stories to help you make the most of your retirement.
+[P1.6] Financial solutions that inspire action
+[P1.7] Our flexible solutions are here to support you, wherever you are in your journey. Explore the options that fit your needs and take the next step toward financial security.
+[P1.8] Turn your savings into guaranteed income you can count on in retirement.
+[P1.9] Safeguard what matters by offering financial security for your loved ones and peace of mind for you.
+[P1.10] We manage retirement plans for non-profit organizations and help their employees take action towards a secure retirement.
+[P1.11] Discover how our offerings can help organizations build financial resilience and support goals.
+[P1.12] Ideas that power financial progress
+[P1.13] Discover resources designed to help people take action with confidence.
+[P1.14] Taxes don't retire when you do
+[P1.15] Foster relationships and new connections that help support a longer, fuller life
+[P1.16] Get ahead of your required minimum distributions
+[P1.17] From Fortune Magazine. Used under license.
+</source>
+
+<source id="P2">
+[P2.1] About us | Corebridge Financial
+[P2.2] Corebridge Financial is one of the largest and most established providers of retirement solutions and insurance products in the United States, with a long and proven track record of serving our clients. At Corebridge, we’re passionate about giving people the power to help them reach their financial goals.
+[P2.3] Every day, we proudly partner with financial professionals, institutions and communities to help people take action in their financial lives—for today and tomorrow.
+[P2.4] Corebridge Financial is one of the largest and most established providers of retirement solutions and insurance products in the United States, with a long and proven track record of serving our clients.
+[P2.5] in assets under management and administration as of
+[P2.6] retirement plans across 50 states*
+[P2.7] in claims and benefits between 2021 and 2025
+[P2.8] *As of. **Ratings are subject to change.
+[P2.9] Stay informed with the latest updates, announcements, and stories from Corebridge Financial.
+[P2.10] Corebridge Financial Ranked #1 in Partner Satisfaction for Annuity Distribution by JD Power
+[P2.11] Corebridge Financial ranked #1 among annuity providers in the JD Power 2026 Life & Annuity Distribution Partner Experience Study SM, based on feedback from financial professionals who sell and service annuities and life insurance products.
+[P2.12] Navigating the path to 100
+[P2.13] Half of Americans think it’s possible they could live to be 100 years old. The latest Corebridge research includes action steps individuals can take as they plan for a retirement that could last for three or more decades.
+[P2.14] Corebridge partners with Kids In Need Foundation to provide school supplies
+[P2.15] Partnership focuses on supporting teachers and students in under-resourced communities through the distribution of supplies.
+[P2.16] Our flexible solutions are here to support you, wherever you are on your journey. Explore the options that fit your needs and take the next step toward financial security.
+</source>
+
+<source id="P3">
+[P3.1] Plan Participant | Corebridge Financial
+[P3.2] At Corebridge Financial, we believe everyone deserves financial security. We work hard to make it possible for people to take action in their financial lives—because action is the bridge from planning to outcomes, from today’s financial needs to tomorrow’s aspirations.
+[P3.3] Put your future in motion
+[P3.4] Turn your financial goals into action with resources focused on retirement readiness and financial well-being.
+[P3.5] Explore the Action Planner Series
+[P3.6] Not every request is what it seems.
+[P3.7] Some messages may use familiar names or information to appear legitimate.
+[P3.8] Big goals start with a smart plan
+[P3.9] From short-term wins to long-term milestones, the right plan can help you move forward.
+[P3.10] Enroll in your employer's retirement plan in a few quick clicks online or on our app. It's easy and only takes a few minutes.
+[P3.11] Set up online account access
+[P3.12] Track progress, make changes and more with ease.
+[P3.13] Step into the future you've imagined
+[P3.14] At Corebridge Financial, we believe everyone deserves financial security. Every day, we work hard to make it possible for more people to take action in their financial lives—because action is the bridge from planning to outcomes, from today’s financial needs to tomorrow’s aspirations.
+[P3.15] Our webinars led by professionals give you the tools and insights to take action today so you can make more informed decisions about your future.
+[P3.16] Take the Financial Wellness Check
+[P3.17] Get your personalized path to financial wellness.
+[P3.18] Bring the future into focus
+[P3.19] Let Retirement Pathfinder be your guide to the future—set goals, adjust strategies and model scenarios to take action for tomorrow.
+[P3.20] In as little as five minutes, you can gain clarity on complex topics and take action with confidence.
+[P3.21] Explore articles, engage calculators and use planning tools designed to help you turn financial dreams into realities.
+[P3.22] Get help on retirement planning or everyday finances.
+[P3.23] You will now be leaving our website and entering Corebridge University Powered by EverFi.
+[P3.24] EVERFI, INC. IS NOT AFFILIATED WITH AIG RETIREMENT SERVICES. THIS INFORMATION PROVIDED ON COREBRIDGE UNIVERSITY WEBSITE IS PROVIDED FOR EDUCATIONAL PURPOSES ONLY
+[P3.25] Help when you need it.
+[P3.26] For website assistance: Check-out our guide to help you quickly and easily navigate the website.
+[P3.27] Call us. We’re here to help.
+[P3.28] THIS SITE IS NOT AFFILIATED WITH COREBRIDGE FINANCIAL. THIS INFORMATION PROVIDED ON COREBRIDGE UNIVERSITY WEBSITE IS PROVIDED FOR EDUCATIONAL PURPOSES ONLY
+</source>

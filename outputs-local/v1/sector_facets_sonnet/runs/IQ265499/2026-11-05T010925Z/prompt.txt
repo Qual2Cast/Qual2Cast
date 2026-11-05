@@ -1,0 +1,124 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Daily Journal Corporation (www.dailyjournal.com)
+Sector: Software and internet
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- software_category (Software category): What the software does. Example: HR and payroll: payroll, benefits and time tracking. Any that apply of: ERP and finance; HR and payroll; CRM, marketing and sales; cybersecurity; data, analytics and AI; IT and developer infrastructure; collaboration and content; industry-specific (vertical) software; payments and fintech; consumer internet and marketplaces; IT services and consulting; other.
+- deployment_model (Deployment model): How the software is delivered. Example: SaaS: cloud subscription. Exactly one of: SaaS / cloud; on-premise; hybrid; not applicable (services or internet).
+- customer_size (Customer size): Its typical customer. Example: mid-market: employers with tens to a few thousand staff. Any that apply of: consumers; SMB; mid-market; enterprise; government.
+- product_architecture (Product architecture): One product or a suite. Example: platform: payroll, HR, time and benefits on one system. Exactly one of: platform / suite; point solution; API / infrastructure.
+
+Evidence:
+<source id="P1">
+[P1.1] Homepage
+[P1.2] The Daily Journal has more journalists covering the California legal profession than any other publication. Comprehensive coverage of litigation, arbitration, and mediation results from California state and federal trial courts for attorneys and legal professionals.
+[P1.3] It is made available only to Daily Journal subscribers for personal or collaborative purposes and may not be distributed, reproduced, modified, stored or transferred without written permission. Please click "Reprint" to order presentation-ready copies to distribute to clients or use in commercial marketing materials or for permission to post on a website.
+[P1.4] Commissioner James Atkins brings a human approach to family law
+[P1.5] San Diego County Superior Court
+[P1.6] For Stuart Rice, resolving disputes means staying nimble
+[P1.7] Kendall Brill & Kelly bets the future on staying small
+[P1.8] California's billionaire tax puts residency under the microscope
+[P1.9] California's proposed billionaire tax could trigger legal...
+[P1.10] The cost of incivility: When lawyers cross the line
+[P1.11] Incivility in litigation comes at a price, from unnecessa...
+[P1.12] When ministerial approvals become discretionary under CEQA
+[P1.13] A lot line adjustment is ordinarily exempt from CEQA as a...
+[P1.14] Today's News More News Enewsletter Sign-up
+[P1.15] California faces uphill battle in courthouse ICE lawsuit, experts say
+[P1.16] Legal scholars say California has a legitimate interest in protecting witnesses and victims from immigration enforcement at courthouses, but federal supremac...
+[P1.17] California courts confront interpreter crisis as AI fears grow
+[P1.18] With a third of certified court interpreters at retirement age and exam pass rates plunging, the Judicial Council approved recruitment and certification chan...
+[P1.19] Dominguez Channel plaintiffs seek more time as trial deadline approaches
+[P1.20] A Los Angeles judge will consider whether California's five-year trial deadline can be extended in Dominguez Channel odor litigation involving 13,000 plainti...
+[P1.21] Bonta sues to block closure of National Archives in San Bruno
+[P1.22] California Attorney General Rob Bonta sued to block the closure of a federal archives facility in San Bruno, arguing that relocating historical records would...
+[P1.23] The Forest Service Roadless Rule, revisited
+[P1.24] What 17 states' opposition to the rule's proposed rescission signals for the road ahead.
+[P1.25] Federal law does not preempt state tort suits against energy companies for their role in climate change. Yet Supreme Court ora...
+[P1.26] Prevailing wages, unexpected bills: Two lessons from Nabors
+[P1.27] Mistakenly treating a project as exempt from prevailing wages can leave contractors facing increased costs. Nabors prov...
+[P1.28] Verdicts & Settlements Submit a Verdict
+[P1.29] The State of California; Th...
+[P1.30] Dangerous Condition of Public Property
+[P1.31] Hong Lee v. Los Angeles Cou...
+[P1.32] Danielle Womack v. City of...
+[P1.33] Emily Cyre v. AG Trans LLC,...
+[P1.34] Carmen Velovici v. City of...
+[P1.35] Jane Doe v. Roe Acute Care...
+[P1.36] Mauricio De Leon v. State o...
+[P1.37] On the Move Submit Your News
+[P1.38] Helen Gilbert joined Jenner & Block as a partner in San Francisco. The move was.
+[P1.39] Gilbert spent more than 10 years at the U.S. Attorney's Office for the Northern District of California, where she served as chief of the National Security, Cyber, and Special Prosecutions Section. She supervised prosecutions involving national security, cybersecurity, trade secret theft, economic espionage and public corruption. Her experience also includes wire fraud, tax fraud, government program fraud and evaluating qui tam cases for potential criminal prosecution. In private practice, she represents clients in government investigations, white-collar criminal matters and corporate crises, including companies in the artificial intelligence, semiconductor, cybersecurity and advanced mobility industries.
+[P1.40] Jenner & Block has 500 attorneys in multiple offices including San Francisco, Los Angeles, Century City. Among the law firm’s key practice areas are Appellate and Supreme Court; Investigations, Compliance and Defense, Media and Entertainment Litigation; Intellectual Property; Energy. The firm’s website is http://https//www.jenner.com/en
+[P1.41] Building the Path to Resolution in Complex Construction Mediation
+[P1.42] When the Feeding Hand Bites the Dog
+[P1.43] Insurance defense attorneys have long been on the front lines for their clients. Now they're facing a new threat: the carriers...
+[P1.44] Inside Wage-and-Hour Mediations: What Neutrals Are Seeing Now
+[P1.45] JAMS neutrals examine how evolving PAGA reforms, shifting case law and data-driven claims are reshaping mediation strategies i...
+[P1.46] Riverside Bar honors 2 veteran criminal defense attorneys
+[P1.47] Virginia M. Blumenthal and Steven L. Harmon presented each other with the association's top service awards as Elisabeth A. Lor...
+[P1.48] San Joaquin Facilities Management, Inc. v. Dept. of Conservation
+[P1.49] A pre-CEQA oil field does not exempt new 4,500-foot injection wells when modern approval gives regulators materially greater control over the project.
+[P1.50] Modification: Bombardini v. Board of Psychology
+[P1.51] Board of Psychology's denial of petition to terminate probationary period early was subject to substantial evidence review because it did not concern a fundamental vested right.
+[P1.52] Writ of mandamus imposing deadline on FCC to resolve application for review was improper because it interfered with internal workings of coordinate branch of government over which it had...
+[P1.53] Juror's incapacitating mental distress from pressure to reach a particular verdict required a mistrial, not replacement.
+[P1.54] Temporary spousal support order over which trial court expressly retained jurisdiction to retroactively modify was not final and was not appealable.
+</source>
+
+<source id="P2">
+[P2.1] Daily Journal
+[P2.2] We have the capabilities to handle all of your printing and reprographic needs: * manuals * workbooks * brochures * reports * newsletters * carbonless and standard forms * presentation binders and folders * color and black & white digital printing * media conversion * all papers all bindings all finishings * custom and standard index tabs * foam board mounting * transparencies * shipping, packing, postage services
+[P2.3] We serve all of Southern California Free local pick-up and delivery
+</source>
+
+<source id="P3">
+[P3.1] Meet the professionals helping to resolve disputes — and reduce court caseloads — through the program.
+[P3.2] Stephen Lobbin says trust is key to effective mediation
+[P3.3] Intellectual property and business litigator Stephen M. Lobbin draws on 31 years of experience to help parties confront the pr...
+[P3.4] Ellen Kim brings deal-making mindset to mediation
+[P3.5] As a technology transactions lawyer, Ellen Kim negotiated software licensing agreements with customers and learned to persever...
+[P3.6] Michael Leb brings executive experience to the mediation table
+[P3.7] Michael H. Leb draws on 41 years as a lawyer, corporate executive and entrepreneur to help parties look beyond their positions...
+[P3.8] Aimee Kirby sees mediation as part of the solution to court backlogs
+[P3.9] Douglas Gilliland brings civil rights focus to mediation
+[P3.10] After 35 years as a civil rights litigator, Douglas S. Gilliland uses his courtroom experience to help parties assess risk, ov...
+[P3.11] Corey Hanrahan brings trial-tested view of risk to mediation
+[P3.12] Exploring that uncertainty is central to Hanrahan's mediation approach. When parties are entrenched, he reminds them that both...
+[P3.13] Dormer has practiced plaintiff's personal injury law for nearly 35 years.
+[P3.14] John Libby brings prosecutor's perspective to mediation
+[P3.15] Libby, founder of LibbyADR LLC, has spent 41 years practicing law, focusing on healthcare and commercial mediation and arbitra...
+[P3.16] Craig Breitman brings decades of trial experience to mediation
+[P3.17] Breitman's practice focuses on personal injury, property damage, habitability and product liability matters.
+[P3.18] Drawing on 24 years as a litigator, mediator Jeremy E. Shulman says successful dispute resolution depends on listening, persis...
+[P3.19] Mediator Christine Kurek finds common ground, one case at a time
+[P3.20] Mediator Christine Kurek draws on 30 years of legal experience--including decades as an in-house employment attorney--to help...
+[P3.21] Gerry DeSimone draws on four decades of trial experience to help litigants find common ground
+[P3.22] The former trial lawyer represented both plaintiffs and defendants in personal injury, employment, construction defect and hab...
+[P3.23] Murray Sinclair brings decades of environmental litigation experience to mediation
+[P3.24] A Los Angeles attorney for 35 years, Sinclair has built a niche practice in environmental litigation, toxic torts and insuranc...
+[P3.25] Veteran litigator Nicholas Connon helps ease court burdens through mediation
+[P3.26] Former trial lawyer James Fitzgerald focuses on respect and resolution in mediation
+[P3.27] James E. Fitzgerald draws on decades of litigation and mediation experience to help parties navigate complex disputes through...
+[P3.28] After 31 years representing both plaintiffs and defendants, ADR Services neutral Steven Sepassi says successful mediation begi...
+[P3.29] Physician-lawyer Paul Molinaro brings technical expertise to mediation work
+[P3.30] Paul J. Molinaro emphasizes neutrality, active participation and practical problem-solving in disputes...
+[P3.31] Maurice J. Attie says one of the greatest rewards of mediation is helping parties untangle difficult disputes while easing pre...
+[P3.32] Mayra Fornos says understanding parties' motivations is key to settlement
+[P3.33] Mediator Mayra M. Fornos believes effective dispute resolution requires balancing legal acumen with patience, professionalism,...
+[P3.34] Los Angeles Superior Court's MVP program eases soaring civil caseloads
+</source>

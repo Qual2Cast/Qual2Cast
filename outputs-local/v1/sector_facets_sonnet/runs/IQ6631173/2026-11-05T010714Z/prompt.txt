@@ -1,0 +1,55 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: B&G Foods, Inc. (bgfoods.com)
+Sector: Consumer products (food, beverages, household, apparel)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- product_category (Product category): What consumers buy from it. Example: food: snacks and frozen meals. Any that apply of: food; beverages; apparel and footwear; household and personal care; home and furnishings; electronics; recreation and leisure goods; general merchandise; restaurant meals; lodging and travel; entertainment and gaming; automotive; other.
+- market_position (Market position): Where it sits on price. Example: mass-market: mainstream national brands. Exactly one of: value / discount; mass-market; premium; luxury.
+- distribution_model (Distribution model): How it reaches consumers. Example: wholesale: sells through grocery and mass retailers. Any that apply of: direct to consumer; wholesale to retailers; franchise; company-operated locations; licensing.
+- purchase_frequency (Purchase frequency): How often consumers buy. Example: daily: staple groceries. Exactly one of: daily / staple; periodic; discretionary / occasional.
+
+Evidence:
+<source id="P1">
+[P1.1] Home - B&G Foods
+[P1.2] Our Family of Brands Our portfolio of more than 50 trusted brands has something for everyone.
+[P1.3] Our portfolio of more than 50 trusted brands has something for everyone.
+[P1.4] check out some of our key initiatives and policies
+</source>
+
+<source id="P2">
+[P2.1] Our Company - B&G Foods
+[P2.2] Our Company Bringing your family delicious food for more than 125 years. Our Purpose We’re committed to acquiring and investing in established food brands and making them more relevant for our customers and consumers. Our growth strategy ensures that we change from one day to the next, always improving, but one thing remains constant: delicious […]
+[P2.3] Bringing your family delicious food for more than 125 years.
+[P2.4] We’re committed to acquiring and investing in established food brands and making them more relevant for our customers and consumers. Our growth strategy ensures that we change from one day to the next, always improving, but one thing remains constant: delicious food from our family to yours.
+[P2.5] Everything we do is about making sure you get great-tasting, high-quality foods that you can feel good about feeding your family.
+[P2.6] Together with our predecessors, we have been doing so since the 1800s.
+[P2.7] We love food and bringing our family of brands to you and your family. We pursue excellence in everything we do. We are energized by new challenges.
+[P2.8] We are ethical, honest and transparent. We hold ourselves accountable for our decisions and actions. We believe in being a good corporate citizen, and we do the right thing because we care.
+[P2.9] We strive to consistently exceed our customers’ and consumers’ expectations. We proactively seek customer and consumer insights. We deliver what we promise.
+[P2.10] Safety & Health at Work
+[P2.11] We are committed to preventing accidents, injuries and illnesses related to the workplace.
+[P2.12] We make food safety our number one priority. We are committed to providing great-tasting, high-quality and safe foods to you and your family.
+[P2.13] We leverage diverse backgrounds and perspectives to achieve outstanding results. We are committed to fostering an inclusive work environment where all employees have the opportunity to share their ideas, grow with our company, and realize their full potential.
+[P2.14] We believe in team first, individuals second. We believe in timely and personal communication. We support each other professionally and personally without being asked.
+[P2.15] We strive to hire people more talented than we are.
+</source>
+
+<source id="P3">
+[P3.1] B&G Foods
+[P3.2] With our diverse portfolio of more than 50 brands you know and love, there’s a little something for everyone.
+[P3.3] Please wait while the brand info loads
+</source>

@@ -1,0 +1,55 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Heartland Express, Inc. (www.heartlandexpress.com)
+Sector: Wholesale distribution and transportation
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- logistics_role (Role): What it moves or distributes. Example: industrial distributor: MRO parts to factories. Any that apply of: industrial distributor; consumer goods distributor; healthcare distributor; technology distributor; trucking; less-than-truckload; rail; air; marine; freight brokerage / logistics; passenger transport.
+- asset_intensity (Asset intensity): Whether it owns the fleet or warehouses. Example: asset-heavy: owns its fleet and terminals. Exactly one of: asset-heavy; asset-light; mixed.
+- value_added (Value added): What it adds besides moving goods. Example: value-added services: inventory management and repair. Any that apply of: pure distribution; value-added services; contract logistics.
+
+Evidence:
+<source id="P1">
+[P1.1] Heartland Express - We’re giving truck drivers the best pay, the best trucks, and the best experience.
+[P1.2] Heartland Express drivers are key to the success of our company. Our drivers are known to be some of the best in the business so we offer the most attractive driving positions, backed by a commitment to safety and better driver CSA scores, a commitment to keeping drivers busy and productive, a commitment to meeting home-time schedules, and the very best pay available.
+[P1.3] “Service for Success” is what we stand for
+[P1.4] Heartland Express is known for the best in class service to our customers. This comes from having the best drivers, equipment, and technology to offer the best. Service for Success is who we are, it’s what we’re all about.
+[P1.5] newest trucks in the industry
+</source>
+
+<source id="P2">
+[P2.1] Industry Solutions — Heartland Express
+[P2.2] Delivering exceptional results to our customers.
+[P2.3] Heartland Express customers represent the most successful businesses in the world. The top shippers in America depend on Heartland Express to improve business performance, deliver exceptional results to their customers, and drive overall value into their transportation supply chain.
+[P2.4] As the performance needs of our shippers increase, Heartland Express has even more opportunity to differentiate our service and demonstrate the strength that our company was built on. FedEx and other top shippers have recently awarded Heartland as their carrier of the year.
+[P2.5] Another consistent contributor to the economy, we appreciate the opportunity to serve our customers in the consumer goods space. Unilever and other leaders in the consumer goods market have recently awarded Heartland Express as their best-in-class performer.
+[P2.6] As an essential and consistent segment of the American economy, food distribution makes up a substantial portion of the customers we serve. Heartland Express has been honored to accept performance awards recently from Quaker Oats, Gatorade, Kellogg Company, Nestle Waters, and many more.
+[P2.7] Heartland Express serves the supply chain needs of many manufacturers in America, including supply operations, DC transfers, and vendor deliveries. As supply-to-cash cycles get shorter and faster in the JIT environment, Heartland has excelled in meeting difficult requirements. Whirlpool and other leading producers have recently recognized Heartland Express as their supplier of the year.
+[P2.8] We serve many shippers that manufacturer and supply paper, plastic, and packaging products. Cups, bowls, plates, containers, napkins, tissues, home and office paper - some of the many products that our drivers protect and deliver every day.
+[P2.9] Heartland Express excels at time-sensitive store replenishment, and has recently won performance awards from Sears, Walmart, Lowes, and many more. We value this business and the strategic relationships that we have developed to execute for the retailers that we serve.
+[P2.10] Measure our performance against our peers in these key value drivers and demonstrate Heartland's capability to increase customer satisfaction in your business. Learn More >
+[P2.11] Heartland Express customers represent the most successful businesses in the world. The top shippers in America depend on Heartland Express to improve business performance, deliver exceptional results to their customers, and drive overall value into their transportation supply chain. Learn More >
+</source>
+
+<source id="P3">
+[P3.1] Services — Heartland Express
+[P3.2] The top shippers in America depend on Heartland Express.
+[P3.3] Heartland Express brings together industry experience, state of the art equipment and technology, and good people with a vision to be the best, to serve the truckload transportation needs of the top shippers in America. Our services improve the daily lives of people by moving goods and supplies to where they are needed, to the super-market shelves, to the manufacturing production lines, to the home improvement stores in our communities.
+[P3.4] With a large fleet of over the road drivers, we provide truckload transportation service to virtually all markets east of the Rocky Mountains at any length of haul.
+[P3.5] With operating centers located in key markets nation-wide, our regional operations serve the short to medium haul needs of shippers (see who we serve), ranging from local shuttle operations to one or two day transits. Loads are executed by regionally based drivers, customer service, dispatch managers, and shop maintenance facilities.
+[P3.6] These specialized divisions allow us to provide continuous service on long length of haul loads to the West Coast and the Northwest, as well as other regions. We also provide dedicated tour or round-trip oriented service in various markets nation-wide.
+[P3.7] The top shippers in America depend on Heartland Express to improve business performance, deliver exceptional results to their customers, and drive overall value. Learn More >
+</source>

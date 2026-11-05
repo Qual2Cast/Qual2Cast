@@ -1,0 +1,43 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: DHI Group, Inc. (www.dhigroupinc.com)
+Sector: Software and internet
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- software_category (Software category): What the software does. Example: HR and payroll: payroll, benefits and time tracking. Any that apply of: ERP and finance; HR and payroll; CRM, marketing and sales; cybersecurity; data, analytics and AI; IT and developer infrastructure; collaboration and content; industry-specific (vertical) software; payments and fintech; consumer internet and marketplaces; IT services and consulting; other.
+- deployment_model (Deployment model): How the software is delivered. Example: SaaS: cloud subscription. Exactly one of: SaaS / cloud; on-premise; hybrid; not applicable (services or internet).
+- customer_size (Customer size): Its typical customer. Example: mid-market: employers with tens to a few thousand staff. Any that apply of: consumers; SMB; mid-market; enterprise; government.
+- product_architecture (Product architecture): One product or a suite. Example: platform: payroll, HR, time and benefits on one system. Exactly one of: platform / suite; point solution; API / infrastructure.
+
+Evidence:
+<source id="P1">
+[P1.1] DHI Group, Inc. - Investor Relations
+[P1.2] DHI Group, Inc. is a family of purpose-built talent platforms - each built for a specific professional community, not a one-size-fits-all marketplace. DHI Group powers ClearanceJobs and Dice, the platforms top tech talent turn to and employers rely on. Our AI-powered tools and proprietary skills algorithm do the heavy lifting, matching the right candidate to the right opening, fast.
+[P1.3] Dice is the largest technology-focused talent marketplace in the United States, built over more than 35 years with nearly 8 million technology profiles. Unlike generalized professional networking platforms, Dice organizes talent around more than 100,000 distinct technology skills, allowing recruiters to identify candidates based on the precise capabilities they need.
+[P1.4] ClearanceJobs is the leading marketplace for professionals with active U.S. security clearances, serving multiple customers, including Lockheed Martin, Booz Allen Hamilton, Leidos, Raytheon, and many others. ClearanceJobs has 2 million cleared candidate profiles, reinforcing our position as the industry's premier destination for cleared technology talent.
+</source>
+
+<source id="P2">
+[P2.1] DHI Group, Inc. - About - Company Profile
+[P2.2] At DHI Group, Inc., we operate a family of purpose-built talent platforms, each built for a distinct professional community, not a one-size-fits-all marketplace.
+[P2.3] Each platform keeps the focus and identity that earned it category leadership. What we provide underneath is shared scale, capital discipline, an M&A engine, and centralized corporate functions, so each platform can invest fully in the customers it knows best.
+[P2.4] We believe DHI is uniquely positioned at the intersection of two powerful, durable trends: rising global defense spending and growing demand for highly specialized technology talent, particularly in AI.
+[P2.5] We are successfully extending our platforms into adjacent services, creating new monetization opportunities and deepening our relationships with customers.
+</source>
+
+<source id="P3">
+[P3.1] DHI Group, Inc. - Our Brands
+</source>

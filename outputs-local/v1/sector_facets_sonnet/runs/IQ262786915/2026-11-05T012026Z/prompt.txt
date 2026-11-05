@@ -1,0 +1,53 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Westlake Chemical Partners LP (www.wlkpartners.com)
+Sector: Manufacturing (industrial, materials, electronics)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- manufacturing_type (Manufacturing type): How it makes products. Example: discrete: builds individual units on assembly lines. Any that apply of: discrete; process; assembly; outsourced / fabless.
+- production_model (Production model): Built for an order or for stock. Example: make-to-order: each unit configured to the customer's order. Exactly one of: make-to-order; make-to-stock; both.
+- product_complexity (Product complexity): How engineered its products are. Example: engineered: custom-configured equipment. Exactly one of: commodity; engineered; precision / high-spec.
+- production_role (Production role): Where it sits in its customers' supply chain. Example: final manufacturer: sells finished units to contractors. Any that apply of: final manufacturer / OEM; tier 1 supplier; tier 2 or component supplier; contract manufacturer; materials producer.
+- end_market_exposure (End-market exposure): Which end markets drive demand. Example: industrial: factories and commercial buildings. Any that apply of: aerospace and defense; automotive and transportation; industrial; construction and buildings; energy; electronics and semiconductors; healthcare and life sciences; consumer; agriculture; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Company Profile | Westlake Chemical Partners
+[P1.2] Westlake Chemical Partners is a limited partnership formed by Westlake Corporation to operate, acquire and develop ethylene production facilities and other qualified assets. Our business and operations are conducted through OpCo, a recently-formed partnership between Westlake Corporation and Westlake Chemical Partners. Our assets include multiple ethylene production facilities in Calvert City, Kentucky, and Lake Charles, Louisiana, with an annual capacity of approximately 3.7 billion pounds and a 200-mile ethylene pipeline.
+[P1.3] Calvert City, KY and Lake Charles, LA
+[P1.4] Westlake Chemical Partners LP Announces Second Quarter 2026 Results
+[P1.5] Westlake Chemical Partners LP Announces Second Quarter 2026 Distribution
+[P1.6] Westlake Chemical Partners LP Announces First Quarter 2026 Results
+[P1.7] Westlake Chemical Partners LP Announces First Quarter 2026 Distribution
+</source>
+
+<source id="P2">
+[P2.1] About Us | Westlake Chemical Partners
+[P2.2] Westlake Chemical Partners is a limited partnership formed by Westlake Corporation to operate, acquire and develop ethylene production facilities and other qualified assets.
+[P2.3] Our business and operations are conducted through OpCo, a recently-formed partnership between Westlake Corporation and Westlake Chemical Partners. Assets include multiple ethylene production facilities in Calvert City, Kentucky, and Lake Charles, Louisiana, with an annual capacity of approximately 3.7 billion pounds and a 200-mile ethylene pipeline.
+[P2.4] Ethylene is a key building block used to produce a number of key derivatives, including polyethylene (“PE”) and polyvinyl chloride (“PVC”). These derivatives are used in a wide variety of end markets including packaging, construction and transportation, which in turn make life better for people every day. Like our parent company, Westlake, we are a quality manufacturer and dependable global supplier of ethylene.
+[P2.5] Our parent, Westlake Corporation, is a global diversified industrial company that manufactures and supplies essential products that enhance the daily lives of people around the globe..
+[P2.6] HEALTH, SAFETY & ENVIRONMENT ("HSE")
+[P2.7] Our commitment to quality products and service is so strong that both are symbolized as the two check marks that form the Westlake "W" in our logo. We seek to maintain this commitment through an intensive practice of "never-ending process of improvement".
+[P2.8] We are committed to enhancing the lives of people in the global marketplace every day. We do this by providing innovative and useful products, maintaining high standards of customer service and operational excellence with a constant focus on managing costs.
+[P2.9] We recognize the importance of supporting the communities in which we work and live and make it a priority to take an active role in making these communities better.
+</source>
+
+<source id="P3">
+[P3.1] Operations | Westlake Chemical Partners
+[P3.2] Westlake Chemical Partners assets include: multiple ethylene production facilities, which primarily convert ethane into ethylene, with an annual capacity of approximately 3.4 billion pounds and a 200-mile ethylene pipeline.
+[P3.3] Click on asset for details.
+</source>

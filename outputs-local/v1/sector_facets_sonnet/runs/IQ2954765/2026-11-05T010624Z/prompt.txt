@@ -1,0 +1,113 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Alaska Power & Telephone Company (www.aptalaska.com)
+Sector: Energy, utilities, mining and agriculture
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- industry_position (Industry position): Where it sits in the chain. Example: regulated utility: electric and gas distribution. Any that apply of: upstream / production; midstream; downstream; regulated utility; independent power; mining; agriculture; services to producers.
+- commodity_exposure (Commodity exposure): What it produces or delivers. Example: electricity and natural gas. Any that apply of: oil; natural gas; electricity; water; metals; minerals and aggregates; crops and livestock; other.
+- revenue_structure (Revenue structure): How prices are set. Example: regulated: rates approved by state commissions. Any that apply of: spot; contracted; regulated.
+- energy_transition (Energy transition exposure): Fossil or renewable. Example: mixed: gas plants and solar. Exactly one of: renewables; fossil fuels; mixed; not applicable.
+
+Evidence:
+<source id="P1">
+[P1.1] Alaska Power & Telephone | Internet, Phone & Power
+[P1.2] Alaska Power & Telephone delivers reliable Internet, phone, and power services across Alaska, connecting communities with dependable local service.
+[P1.3] Alaska’s Best Fiber Internet & Energy Provider
+[P1.4] Sustainable Energy & Power Solutions
+[P1.5] Welcome to Alaska Power & Telephone
+[P1.6] We are an employee-owned utility dedicated to serving over 40 Alaska communities with reliable power, broadband, and telephone services. we’ve built our reputation on trust, innovation, and a deep commitment to the people and places we serve.
+[P1.7] Whether you’re a residential customer looking for dependable energy, a business seeking enterprise connectivity, or a visitor checking local conditions via our popular webcam feature, AP&T is here to support your journey.
+[P1.8] Our fiber and microwave networks connect homes and businesses with speeds up to 2.5 Gbps—competitive with national providers.
+[P1.9] We deliver reliable energy from the Arctic Circle to Southeastern Alaska, with hydroelectric power playing a key role of our sustainable solution.
+[P1.10] Use SmartHub to pay & manage your account, find quick answers to common questions, and check the weather with Live Webcams.
+[P1.11] Empowering our communities empowers us all.
+[P1.12] AP&T delivers reliable utility services to over 40 remote Alaska communities and villages across 1,100 linear miles. With a strong commitment to sustainability, approximately 75% of AP&T’s energy is generated from renewable hydropower. In select areas, surplus energy supports beneficial electrification initiatives—such as heat pump installations and electric vehicle adoption—driving clean energy growth and long-term environmental resilience.
+</source>
+
+<source id="P2">
+[P2.1] AP&T Business Services | Reliable Solutions for Your Business
+[P2.2] AP&T Business Services delivers reliable, scalable solutions to help your business operate efficiently and grow with confidence.
+[P2.3] Business Internet, Data Services, Calling Solutions, & Energy Solutions
+[P2.4] We deliver the personalized service of a small, local company, but offer advanced technology solutions and resources of a large enterprise.
+[P2.5] At AP&T, we provide the advanced connectivity and energy solutions businesses need to thrive. From high-speed broadband and custom data services to reliable telephone and energy services, our business solutions are built on cutting edge infrastructure—including regional fiber networks and 24/7 support.
+[P2.6] With local technicians, dedicated account monitoring, and dependable, Alaska proven technology, we deliver the performance of a major provider with the hands on support of a local partner.
+[P2.7] Broadband business internet is a high-speed internet connection specifically tailored to businesses. Broadband business internet makes sure to have enough bandwidth, connectivity, and connection for your business needs throughout the entire process. Broadband also offers reliable download and upload speeds to accommodate your needs.
+[P2.8] The below Standard Business Broadband Tiers plans are available in all AP&T service areas, except for Wrangell & Metlakatla.
+[P2.9] View Standard Business Broadband Tiers
+[P2.10] Usage: 3 TB Download: 1 Gig Upload: 250 Mbps
+[P2.11] Highest speeds and usage for large businesses
+[P2.12] Usage: 1.5 TB Download: 250 Mbps Upload: 100 Mbps
+[P2.13] Great for businesses with multiple connected devices
+[P2.14] Usage: 1 TB Download: 10 0 Mbps Upload: 50 Mbps
+[P2.15] Ideal for small offices and remote workers
+[P2.16] Usage: 600 GB Download: 50 Mbps Upload: 25 Mbps
+[P2.17] Good for e-mail and basic internet browsing
+[P2.18] Usage: 1.5 TB Download: 50 Mbps Upload: 10 Mbps
+[P2.19] Ideal for remote learning and working from home
+[P2.20] Usage: 1 TB Download: 20 Mbps Upload: 4 Mbps
+[P2.21] Optimal for working or streaming on 1-2 devices
+[P2.22] Exceeding the monthly usage limit will result in slower download/upload speeds for additional data used. This will not incur additional fees or interrupt your internet service. For unlimited full-speed data, see the Unlimited Upgrade option above.
+[P2.23] The below Business Broadband Tiers plans are available in only Wrangell.
+[P2.24] View Wrangell Business Broadband Tiers
+[P2.25] Usage: 3 TB Download: 500 Mbps Upload: 250 Mbps
+[P2.26] The below Business Broadband Tiers plans are available in only Metlakatla.
+[P2.27] View Metlakatla Business Broadband Tiers
+[P2.28] Benefit from a complimentary static IP, ensuring stable equipment maintenance without worrying about address changes.
+[P2.29] Get Plume, our mesh Wi-Fi solution, to have reliable and consistent connection.
+[P2.30] Eliminate the constraints of data caps in your business connectivity. Stream and access data for your professional needs without limitations.
+[P2.31] Dedicated Internet Access (DIA) is a high-speed private internet connection which is highly secure. Offering untethered bandwidth and uninterrupted services, DIA allows for a seamless and reliable connection for any needs you may have. Where digital access is imperative for business and personal endeavors, having Dedicated Internet Access (DIA) by your side is not just a suggestion, but a necessity.
+[P2.32] Ethernet (ETS) connects devices over a unified network incorporating local area networks (LANs) and can also be used for wide area networks (WANs). Ethernet services connect devices over a cable, whereas Wi-Fi connects devices over wireless signals, providing faster, more stable and more secure connections than Wi-Fi networks. Ethernet can act as the bridge between your endless networks.
+[P2.33] Managed service internet involves a third-party monitoring and managing a business’s internet connection. Managed service internet aspires to identify items of interest before the business team can, leading to increased productivity and growth in the business. Managed service internet assists in finding the best possible connection in the nearby area, promoting enhanced productivity.
+[P2.34] Powering Your Business with Reliable Energy
+[P2.35] At AP&T, we provide large commercial consumers with bulk power rates regulated by the Regulatory Commission of Alaska (RCA).
+[P2.36] Our energy is generated through a dependable mix of diesel generation and hydroelectric plants, ensuring both stability and sustainability.
+[P2.37] Alaska is one of the most challenging places to live and work—but our dedicated line crews make it easier. Through harsh weather and rugged terrain, they work tirelessly to keep you connected. Their commitment ensures that your business has the reliable power it needs, no matter the conditions.
+[P2.38] If you’re establishing a new commercial service, simply complete our online form, and an AP&T representative will contact you to schedule a site visit.
+[P2.39] Check out other services offered by AP&T.
+[P2.40] Check out our Frequently Asked Questions sections for each service.
+</source>
+
+<source id="P3">
+[P3.1] Alaska High Speed Internet Plans | AP&T Alaska
+[P3.2] Explore fast, reliable Alaska high speed internet plans from AP&T Alaska. Affordable options for homes and businesses statewide.
+[P3.3] High-Speed Residential Internet in Alaska
+[P3.4] High-Speed Internet for the entire family!
+[P3.5] Stay connected with AP&T—your trusted local provider of high-speed, reliable residential internet across Alaska.
+[P3.6] Whether you’re streaming movies, gaming online, working remotely, or video chatting with loved ones, AP&T delivers Alaska high speed internet solutions that keep your household connected with dependable service you can count on.
+[P3.7] Our fiber internet options offer faster speeds and greater reliability, all backed by local support you can trust. Choosing AP&T means choosing a provider that’s right here with you, every step of the way.
+[P3.8] AP&T proudly provides High-Speed Internet service to the following communities:
+[P3.9] View Internet Service Area Maps
+[P3.10] Residential Internet Plans & Pricing
+[P3.11] Choose the AP&T Internet plan that fits your household. Whether you need lightning-fast fiber for st re aming and gaming, or a budget-friendly copper plan, we’ve got you cove re d.
+[P3.12] Download: 1,000 Mbps Upload: 200 Mbps
+[P3.13] Download: 750 Mbps Upload: 150 Mbps
+[P3.14] Download: 500 Mbps Upload: 100 Mbps
+[P3.15] Download: 250 Mbps Upload: 50 Mbps
+[P3.16] Download: 50 Mbps ¹ Upload: 1 0 Mbps ¹
+[P3.17] Download: 25 Mbps ² Upload: Up to 3 Mbps ²
+[P3.18] ¹ The Best Short Loop tier depends on location and may include speeds of up to 50 Mbps download with 10 Mbps upload, 75 Mbps download with 20 Mbps upload, or 100 Mbps download with 20 Mbps upload.
+[P3.19] ² The Best Long Loop tier depends on location and may include speeds of up to 6 Mbps download with 1 Mbps upload, 10 Mbps download with 2 Mbps upload, or 25 Mbps download with 3 Mbps upload.
+[P3.20] More features of AP&T Internet services
+[P3.21] Mesh WiFi Pods are included in your plan to enhance your experience.
+[P3.22] If you exceed your monthly optimized usage limit, there’s no need for concern. You can upgrade your plan anytime to enjoy more high-speed data and keep your experience seamless!
+[P3.23] Optional phone lines offer extra peace of mind, but you can connect with or without them.
+[P3.24] Fast Speeds with Fiber & Wireless Options
+[P3.25] Enjoy ultra-fast downloads and streaming with fiber technology that keeps you ahead. Speeds up to 2.5 Gig.
+[P3.26] We specialize in keeping Alaska connected — even in hard-to-reach locations.
+[P3.27] Locally Operated & Community Focused!
+[P3.28] Speak with real, local people who understand your internet service needs. Serving Alaskans for almost 70 years (est. 1957).
+</source>

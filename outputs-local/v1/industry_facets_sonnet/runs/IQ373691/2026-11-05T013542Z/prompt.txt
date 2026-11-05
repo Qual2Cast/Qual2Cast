@@ -1,0 +1,79 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: RadNet, Inc. (www.radnet.com)
+Industry (SIC 80): Health Services
+About this industry group: Use setting-specific units: visits, discharges, staffed beds and dialysis stations are not interchangeable. Distinguish an organization delivering medical care from one only underwriting medical insurance. Provider/insurer boundary.
+
+Facets:
+- healthcare_provider_setting (Healthcare-provider setting). Examples: Hospital; Outpatient clinic; Home-health provider.
+- clinical_specialty (Clinical specialty). Examples: Orthopedics; Oncology; Primary care.
+- patient_activity_volume (Patient activity / volume). Examples: 200,000 outpatient visits/year; 15,000 inpatient discharges/year; 500,000 home-health visits/year.
+- payer_revenue_mix (Payer revenue mix). Examples: 40% commercial insurance; 35% Medicare; 20% Medicaid.
+- payment_reimbursement_model (Payment / reimbursement model). Examples: Fee-for-service; Case-based bundled payment; Per-member capitation.
+- setting_specific_capacity (Setting-specific capacity). Examples: 250 staffed hospital beds; 25 clinics; 100 outpatient treatment stations.
+- patient_acuity_case_mix (Patient acuity / case mix). Examples: Routine outpatient visits; High-acuity inpatient care; Reported case-mix index.
+- clinical_operating_quality (Clinical operating quality). Examples: 30-day readmission rate; Hospital-acquired infection rate; Documented patient-safety measure.
+
+Evidence:
+<source id="P1">
+[P1.1] RadNet | Outpatient Radiology Centers (MRI, Ultrasound, 3D Mammography, etc.)
+[P1.2] RadNet has 350 outpatient imaging centers in California, New York, Maryland, Delaware, New Jersey & Florida.
+[P1.3] RadNet completes more than 12 m outpatient imaging procedures annually.
+[P1.4] Total number of our imaging centers across AZ, CA, DE, FL, ID, IN, MD, NJ, NY, TX & VA.
+[P1.5] Years leading the imaging industry.
+[P1.6] We are the largest provider of freestanding, fixed-site outpatient diagnostic imaging in the country, with 442 ctr (as of 6/30/26).
+[P1.7] Our IT division, eRAD, delivers integrated, web-based, cloud solutions for medical imaging workflow.
+[P1.8] We pioneer research, leverage radiology best practices, and align resources in our specialty centers of excellence.
+[P1.9] RadNet forges strategic joint ventures with hospitals, health systems, and ACOs.
+[P1.10] Our utilization and reimbursement models help us achieve operating efficiency and strong outcomes.
+[P1.11] RadNet’s stringent quality programs address federal and state regulations and promote patient and clinician safety.
+</source>
+
+<source id="P2">
+[P2.1] RadNet | Our Mission. Our Values. - Leading Radiology Forward
+[P2.2] RadNet is leading radiology forward by working with our partners to deliver medical imaging services.
+[P2.3] RadNet is the national leader in outpatient imaging. Backed by 45+ years of experience, we deliver high-quality, cost-effective solutions for all 442 ctr (as of 6/30/26) in our network—and for our strategic partners.
+[P2.4] RadNet’s mission — comprehensive radiology solutions — aligns with the future of healthcare.
+[P2.5] We are the only radiology provider with the resources to create greater opportunities for our strategic partners. We leverage our national profile and a broad portfolio of clinical and technical services to support best outcomes.
+[P2.6] We make it easy for everyone involved in healthcare decisions — administrators, physicians, IT professionals, technologists — to work together. Above all, that includes patients. Recent findings show that patients who are actively involved in their healthcare experience better outcomes and incur lower costs.
+[P2.7] Our focus is simple. We deliver high quality, conveniently accessible care in the most cost effective manner possible. Quality, access, and value are at the core of what we do — in every new imaging center we establish, every health system that we partner with, every patient we encounter. That is the RadNet difference.
+[P2.8] RadNet and WIN-NextGen™ Form a Collaboration to Inspire the Next Generation of Medical Imaging Professionals
+[P2.9] RadNet to Host Free Prostate Cancer Webinar on
+[P2.10] RadNet's success is based on strong leadership, exemplary business acumen, and a drive to be the best.
+[P2.11] – over 4 decades of experience.
+[P2.12] Company has quadrupled in size.
+[P2.13] Publically Traded; RadNet’s management owns over 25% of common stock.
+[P2.14] Largest provider of radiology clinical AI solutions worldwide.
+[P2.15] Regional networks in Arizona, California, Delaware, Idaho, Indiana, Florida, Maryland, New Jersey, New York, Texas and Virginia.
+[P2.16] Emphasis placed on scale and multi-modality strategy – one stop shopping for referral sources and health plans.
+[P2.17] Facilities offer state-of-the-art equipment in a modern and patient friendly setting.
+[P2.18] Top 100 in InformationWeek’s 500 Most Innovative Companies.
+[P2.19] Voted one of the “Most Wired” Imaging Companies by Imaging Technology News.
+[P2.20] Reported as #1 Imaging Center Chain by Radiology Business Journal.
+[P2.21] The leader in quality imaging, RadNet has more than
+</source>
+
+<source id="P3">
+[P3.1] Radiology Outpatient Centers | RadNet
+[P3.2] RadNet serves patients, providers and payors through its network of 290+ radiology outpatient centers in California, New York, Maryland and other states.
+[P3.3] Right Image, Right Setting, Right Cost
+[P3.4] Reliable results—that’s what you count on. Our patients and referring physicians get appropriate, accurate, cost-effective procedures. Payors benefit from our flexibility and geo-access base.
+[P3.5] The top radiologists in the country, IT innovation, strategic relationships, 45+ yrs of imaging experience, research leadership— this is the expertise we leverage across all of RadNet, for every exam, in every location.
+[P3.6] As the largest provider of outpatient imaging in the U.S., RadNet brings the most advanced equipment, flexible hours, extensive payor participation, and convenience to patients and providers.
+[P3.7] RadNet participates with hundreds of insurance plans and offers the most competitive pricing for out-of-pocket and self-pay expenses. You get results you can trust, often at a lower price.
+[P3.8] In an increasingly confusing healthcare landscape, RadNet aligns the resources necessary for clear decisions and patient-centered care.
+[P3.9] From technology innovation to clinical decision tools, we deliver the services you need for better clinical outcomes and business success.
+[P3.10] RadNet participates with every major healthcare plan in the market. That depth makes us a total imaging solution partner with proven results.
+</source>

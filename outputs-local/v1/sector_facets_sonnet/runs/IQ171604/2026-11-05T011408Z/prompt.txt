@@ -1,0 +1,93 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: MasTec, Inc. (www.mastec.com)
+Sector: Construction and real estate
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- construction_role (Role): Its role in building or property. Example: specialty contractor: mechanical and electrical work. Any that apply of: homebuilder; general contractor; specialty contractor; engineering and design; land developer; property owner / REIT; property services.
+- project_type (Project type): What kind of projects. Example: infrastructure: roads and bridges. Any that apply of: residential; commercial / institutional; industrial; infrastructure; energy and utilities.
+- public_funding (Public funding): How much of its work is publicly funded. Example: high: mostly state transportation departments. Exactly one of: high; medium; low.
+
+Evidence:
+<source id="P1">
+[P1.1] Mastec Corporate
+[P1.2] MasTec | Infrastructure Construction | Electric Power, Oil & Gas, Communications, Power Generation, Technology
+[P1.3] We handle everything from solar, wind and battery storage to decarbonization efforts, power generation, manufacturing and mining.
+[P1.4] MasTec delivers fully integrated data center solutions across power, construction and communications.
+[P1.5] Introducing MasTec EVi - Electric Vehicle Charging Solutions for residential, dealerships, and fleet hubs.
+[P1.6] MasTec constructs a full range of oil & natural gas pipelines and transmission systems, from the wellhead to the end user.
+[P1.7] MasTec is one of the nation's top power plant and renewable energy construction companies, specializing in building and engineering of natural gas power plants, alternative fuel power plants, wind farms and solar energy facilities.
+[P1.8] From the electric power plant, to the substations and to your business and home, MasTec consistently delivers successful electrical transmission and distribution services.
+[P1.9] MasTec provides turnkey solutions for a variety complex civil and industrial construction projects or specialized foundation construction.
+[P1.10] MasTec Advanced Technologies is the leader in last mile fulfillment services for the deployment and installation of technology and IoT devices.
+[P1.11] MasTec provides turnkey solutions for water & sewer, and distribution transmission systems, including treatment plants and facilities.
+[P1.12] Communication technology is constantly evolving, and MasTec is not only keeping pace with that evolution, we're driving it.
+[P1.13] MasTec has been involved in some of the largest and most complex infrastructure construction projects across the country.
+[P1.14] At MasTec, safety isnât just a priority, itâs a core value.
+[P1.15] Safety is a mindset and an attitude that all MasTec employees carry with them on a daily basis. As a member of the NCCR, National Safety Council, OSHA Electrical Transmission & Distribution Safety Partnership and numerous other safety organizations and safety auditing programs, MasTec is committed to continuous improvement in safety with a common goal of zero injuries.
+[P1.16] Watch MasTec CEO Jose Mas on the Season Finale of CBSâ âUndercover Bossâ
+</source>
+
+<source id="P2">
+[P2.1] MasTec companies have been involved in some of the largest and most complex infrastructure construction projects across the country.
+[P2.2] Our experience has given us a deep and comprehensive understanding of the markets we serve, as well as the ability to effectively manage people, projects and equipment; proactively identify challenges; avoid pitfalls; and overcome obstacles to meet expectations for schedule and budget.
+[P2.3] Our geographic reach, scalability and overall financial stability also enable us to meet our customers' changing needs.
+[P2.4] As a culture, our focus on innovation and smart solutions influences everything we do. We continually seek ways to improve efficiencyâboth in our projects and within our organization. Our commitment to staying at the forefront of safety and environmentally responsible construction ensures we deliver quality work and dependable service.
+[P2.5] Additionally, MasTec is currently certified as a Minority-Controlled Company by the National Minority Suppliers Development Council (NMSDC). This certification allows MasTec to be recognized as a minority contractor throughout the United States and across a range of industries that we serve.
+[P2.6] Our mission at MasTec is to be recognized as a company that achieves customer expectations safely, profitably and in a manner that is rewarding for both our customers and our team.
+[P2.7] two unemployed carpenters â Russell Burnup and Riley Sims â envisioned creating a construction company that would serve the growing telecommunications and civil construction market in Florida and, eventually, the Southeast.
+[P2.8] Meet Jorge and Jose Mas, and the rest of the Directors on the Board.
+[P2.9] At MasTec, safety isn't just a priority - it's a core value. Safety is a mindset and an attitude that all MasTec employees carry with them on a daily basis.
+[P2.10] As the MasTec family continues to grow, we have aligned ourselves with a variety of respected industry associations, and worked to benefit from their support.
+[P2.11] Access our contract license numbers, by state.
+</source>
+
+<source id="P3">
+[P3.1] Stringent safety regulations are the standard at MasTec.
+[P3.2] At MasTec, safety isn't just a priority - it's a core value. Safety is a mindset and an attitude that all MasTec employees carry with them on a daily basis. As a member of the NCCR, National Safety Council, OSHA Electrical Transmission & Distribution Safety Partnership and numerous other safety organizations and safety auditing programs, MasTec is committed to continuous improvement in safety with a common goal of zero injuries. As well as taking an active part in initiatives that include the development of "Best Practices" and training programs.
+[P3.3] Through our risk management programs, we educate our reliable staff, our subcontractors and our vendors to promote training and safety as a cornerstone of our company culture.
+[P3.4] Our training centers in North Carolina, South Carolina, Florida, and Texas are operated by experienced safety and training managers.
+[P3.5] We are committed to reinforcing safety and risk management through mandatory training and skill-level improvement programs, including:
+[P3.6] Safety orientation for newly hired employees
+[P3.7] Defensive and DOT seminars for fleet drivers
+[P3.8] Trench safety classes for employees
+[P3.9] In-depth training programs for electric linemen
+[P3.10] Tailgate and Pre-job Briefing safety meetings at the onset of each project
+[P3.11] Safety and risk management also assist to positively influence our bottom line, as well as those of our customers. We strive to manage costs by resolving outstanding issues in a timely manner, quickly investigating any incidents, regularly reporting financial impact, and immediately correcting any issues to prevent re-occurrences.
+[P3.12] It is based upon the following principles:
+[P3.13] Incidents and injuries can be prevented and all workplace hazards can be safeguarded.
+[P3.14] Each member of our organization, from management on down, is responsible for preventing, incidents, injuries, and occupational illnesses and will be held accountable.
+[P3.15] Training employees to work safely is essential and is the responsibility of management and supervisors.
+[P3.16] Occupational safety and health is part of every employee's total job performance.
+[P3.17] Working safely is a condition of employment.
+[P3.18] The prevention of personal injuries and incidents is good business.
+[P3.19] It's one thing to be internally focused on safety, but another entirely to be a lead voice in the establishment of national safety standards. MasTec begin doing just that for the power transmission and distribution industry. We joined with OSHA and various industry groups (IBEW, EEI, NECA), and other national utility contractors as a member of the OSHA Electrical Transmission & Distribution Safety Partnership.
+[P3.20] The Partnerships goal is to establishing guidelines that reduce the number of fatalities, injuries, and illnesses in the Industry. As well as develop a common vision and commitment to provide employees with a safe and healthful workplace, and to demonstrate leadership, responsibility and accountability in furthering worker health and safety.
+[P3.21] Some of the ways the partnerships aims to reduce the number of fatalities, injuries and illnesses in the industry are through the following:
+[P3.22] Perform data analysis as a means to establish causes of fatalities, injuries, and illnesses for electrical work in the Industry
+[P3.23] Develop recommended Best Practices to reduce the number of fatalities, injuries and illnesses that directly correspond to the identified causes, as well as any other significant hazards identified by the Partnership
+[P3.24] Ensure that the Industry Partners' employees are effectively trained to utilize the established Best Practice
+[P3.25] Effectively communicate safety and health Best Practices, and other useful safety and health information, within the Industry
+[P3.26] Establish an effective evaluation strategy to ensure that the goals of the OSP are met
+[P3.27] MasTec employees from our Chief Executive Officer, Jose Mas, to numerous key positions serve on various Partnership working committees and groups. The Partnership has published various best practices for members of the Partnership to adopt, such as:
+[P3.28] Pre-Use Inspection of Rubber Protective Equipment
+[P3.29] Lock-to-Lock Use of Insulating Rubber Gloves and Sleeves
+[P3.30] Insulate and Isolate Safety Performance
+[P3.31] National Utility Contractors Association (NUCA)
+[P3.32] National Center for Construction Education and Research (NCCER)
+[P3.33] Electrical Transmission & Distribution Safety Partnership
+[P3.34] Guided by experience. Empowered by resources. Driven by innovation.
+</source>

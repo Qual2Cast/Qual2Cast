@@ -1,0 +1,128 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Equifax Inc. (www.equifax.com)
+Sector: Business and personal services
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- service_category (Service category): What service it sells. Example: outsourcing: payroll and benefits administration. Any that apply of: consulting and advisory; outsourcing / BPO; staffing; facilities and field services; engineering and technical services; marketing and information services; education and training; personal and consumer services; other.
+- engagement_model (Engagement model): How clients engage it. Example: managed service: multi-year outsourced contracts. Any that apply of: project; retainer; managed service; per transaction / per visit.
+- labor_specialization (Labor specialization): Who delivers it. Example: specialist: licensed technicians. Exactly one of: generalist / low-skill; skilled trades; licensed professionals; technical / IT specialists.
+- client_segment (Client segment): Its typical client. Example: enterprise: large employers. Any that apply of: consumers; SMB; enterprise; government.
+
+Evidence:
+<source id="P1">
+[P1.1] Equifax | Credit Bureau | Check Your Credit
+[P1.2] Get credit reports and credit scores for businesses and consumers from Equifax today! We also have identity protection tools with daily monitoring and alerts
+[P1.3] We monitor your Equifax credit report, provide you with alerts, and help you recover from ID theft so you can focus on living your financial best.
+[P1.4] Cancel at any time; no partial month refunds. 1
+[P1.5] Sign Up Now Learn More
+[P1.6] Checking your own credit will NOT harm it.
+[P1.7] Get robust identity theft protection and feel more secure from fraud
+[P1.8] Our products help keep you informed and better protected.
+[P1.9] Equifax credit monitoring & ID theft protection features for one adult.
+[P1.10] Equifax credit report lock 2
+[P1.11] Cancel at any time. Refund provided for any fully unused months; no partial month refunds. 3
+[P1.12] 3-bureau credit features & extra ID theft protection features for one adult.
+[P1.13] All features of Equifax Complete
+[P1.14] Personal data removal from multiple people search sites
+[P1.15] Credit and ID theft protection features for the family.
+[P1.16] All features of Premier for two adults
+[P1.17] Equifax credit monitoring for four kids
+[P1.18] Plan your next big purchase
+[P1.19] Life is a series of milestones, and when it comes to finances, knowledge is your most valuable asset. If you're planning to buy a home, purchase a car, or take out a loan, find out what potential lenders are looking for.
+[P1.20] Don't fall prey to identity theft
+[P1.21] Find out how identity theft happens, and whether you or your loved ones may be at risk. Learn how to better protect your identity, and what you should look out for. And if you've been the victim of identity theft, find out what you can do immediately to begin the recovery process.
+[P1.22] Navigate your credit journey with the myEquifax app
+[P1.23] Visit the Equifax Consumer Services Center
+[P1.24] Access helpful services and useful information to help you take control of your credit report, and better protect yourself from identity theft and fraud.
+[P1.25] Get a Free Credit Report
+[P1.26] Place or Manage a Freeze
+[P1.27] Add a Fraud or Active Duty Alert
+[P1.28] We will require you to provide your payment information when you sign up. We will immediately charge your card the price stated and will charge the card the price stated for each month you continue your subscription. You may cancel at any time; however, we do not provide partial month refunds.
+[P1.29] Locking your Equifax credit report will prevent access to it by certain third parties. Locking your Equifax credit report will not prevent access to your credit report at any other credit reporting agency. Entities that may still have access to your Equifax credit report include: companies like Equifax Consumer Services LLC, which provide you with access to your credit report or credit score, or monitor your credit report as part of a subscription or similar service; companies that provide you with a copy of your credit report or credit score, upon your request; federal, state and local government agencies and courts in certain circumstances; companies using the information in connection with the underwriting of insurance, or for employment, tenant or background screening purposes; companies that have a current account or relationship with you, and collection agencies acting on behalf of those whom you owe; companies that authenticate a consumer's identity for purposes other than granting credit, or for investigating or preventing actual or potential fraud; and companies that wish to make pre-approved offers of credit or insurance to you. To opt out of such pre-approved offers, visit www.optoutprescreen.com.
+[P1.30] We will require you to provide your payment information when you sign up. We will immediately charge your card the price stated and will charge the card the price stated for each year you continue your subscription. You may cancel at any time. You will receive a refund for any fully unused months of your annual subscription; sorry, we do not provide partial month refunds.
+</source>
+
+<source id="P2">
+[P2.1] Who We Are | About Us | Equifax
+[P2.2] Discover who we are and how Equifax positively impacts pivotal moments in people's lives. As a global data, analytics, and technology company, we empower businesses in diverse industries, provide insights to make smarter decisions, and strive to create economically healthy individuals and communities. Watch our video to see the difference we make
+[P2.3] We help people live their financial best
+[P2.4] As a trusted global leader in data, analytics, and technology we deliver insights that power decisions to move people forward.
+[P2.5] Positive Economic Change Starts With a Single Opportunity
+[P2.6] See how Equifax insights drive and support life’s pivotal moments.
+[P2.7] We are nearly 15,000 bright minds determined to do the right thing and put people first as we strive to create economically healthy individuals and communities everywhere we do business.
+[P2.8] 29.5 Million U.S. consumers obtained loans to buy a car and 9.2M U.S. consumers secured a mortgage or home equity loan¹
+[P2.9] We Help Businesses Make Smarter Decisions Faster
+[P2.10] We are constantly driving technological change to meet the evolving needs of our customers and consumers around the world.
+[P2.11] Our unique blend of differentiated data and advanced analytics enables us to deliver insights that power intelligent decisions and create opportunity.
+[P2.12] See How We Do It
+[P2.13] Explore Our Latest News and More
+[P2.14] Nurturing a culture of inclusivity and innovation
+[P2.15] Helping people take control of their financial well-being
+[P2.16] ¹BASED ON ACTUAL AND ESTIMATED RESULTS FROM JANUARY- Sources: Data and analytics captured by Equifax business units (U.S. Information Solutions, Workforce Solutions, and International) ²As reported in the Equifax 2026 Proxy Statement.
+[P2.17] As a global data, analytics, and technology company, we play an essential role in the economy by helping companies in diverse industries such as automotive, communications, utilities, financial services, fintech, healthcare, insurance, mortgage, professional services, retail, e-commerce, and government agencies, make critical decisions with greater confidence.
+[P2.18] Our unique blend of differentiated data, analytics, and technology lets us create the insights that power decisions to move people forward. We help businesses provide a seamless and positive experience during life’s pivotal moments — like applying for a job or mortgage, financing an education, or buying a car.
+[P2.19] Watch this video to learn how we help move people forward by powering our customers with the insights they need to make smarter decisions for their customers, and for consumers around the world.
+[P2.20] Latin American consumers gained access to credit
+[P2.21] People in the United States secured a loan to further their education
+[P2.22] Completed know-your-customer verification checks for customers in Canada
+[P2.23] United States consumers secured a mortgage or a home equity loan
+[P2.24] Consumer credit card files were delivered to United States lenders
+[P2.25] Helped United Kingdom consumers get a credit card
+[P2.26] BASED ON ACTUAL AND ESTIMATED RESULTS FROM JANUARY- Sources: Data and analytics captured by Equifax business units (U.S. Information Solutions, Workforce Solutions, and International)
+[P2.27] Be leaders in security and trusted data stewards. Lead with integrity, be personally accountable. Hold high standards in markets around the world.
+[P2.28] Exceed customer expectations every day. Deliver value and quality so we grow together. Aspire to be our customers' first call.
+[P2.29] Deliver results and play to win. Drive excellent execution. Have a sense of urgency, agility and grit.
+[P2.30] Work together as one global team. Assume best intentions from each other. Foster optimism and have fun together.
+[P2.31] Be intellectually curious and insights driven. Optimize data and technology to sustain leadership.
+[P2.32] Take initiative to develop ourselves, and others. Value diversity of experience and thought. Proudly show Equifax spirit at work and in communities.
+[P2.33] We are a group of the best and brightest in our fields. Our team of experts encourage each other to be our best and are passionate about helping people.
+[P2.34] Your growth is our team’s success.
+[P2.35] Powered by the Equifax Cloud
+[P2.36] We've transformed our company and how we work with the Equifax Cloud™, bringing our team the agility, flexibility and opportunity to innovate faster.
+[P2.37] Equifax serves consumers and business customers through three business units. Each business unit focuses on the needs of unique market segments, putting customers first in everything they do. They are each aligned to our strategic priorities — accelerating innovation and driving new products and services built on the Equifax Cloud ™.
+[P2.38] Providing U.S. consumers and businesses with a wide range of solutions — from consumer credit monitoring and identity theft prevention to business risk information, commercial identity & fraud solutions, financial marketing and analytical services.
+[P2.39] Workforce Solutions Partnering with thousands of businesses across the U.S. and government entities to provide human resource, employment, tax, management, and payroll-related services.
+[P2.40] International Leveraging unique data sources and analytics to provide consumers, business, government entities around the world with more access to credit and financial opportunity.
+[P2.41] The Equifax Cloud™ is the foundation of our business. It is the result of our investment to create a world class enterprise-wide infrastructure tailored to highly regulated data workloads.
+[P2.42] Only Equifax has a powerful combination of differentiated data, advanced analytics, a cloud-native data fabric and scalable global platforms. Equifax brings unrivaled decision intelligence to a wide spectrum of global customers in industries ranging from lending and fraud detection and prevention to HR management, marketing and more.
+[P2.43] Gain more predictive power. Make smarter, faster decisions with direct access to superior data and analytics to understand business and consumer behavior for better lending outcomes.
+[P2.44] Confidently verify employment, income, and education information for credit products, mortgages, and government programs with more comprehensive insights delivered seamlessly and quickly.
+[P2.45] Turn marketing precision into customer value with data-driven solutions and a unique understanding of household economics. From prospect identification and qualification through origination, and activation — we can help navigate each phase of the acquisition path.
+[P2.46] Deliver a great employee experience and meet compliance needs with award-winning HR technology that supports every stage of the employment life cycle; from talent acquisition and onboarding through active service and post-employment.
+[P2.47] Better insights mean better business. Gain visibility into customers and prospects at the point of interaction — verify and authenticate identity, assess fraud risk, understand device risk, and help ensure regulatory compliance. We offer powerful solutions to mitigate fraud risk.
+[P2.48] We’ve completely rebuilt our security and technology systems and are continuously investing in the very best processes, technology and protocols to secure your information.
+[P2.49] We conduct rigorous, frequent and thorough technology and regulatory auditing which gives us full visibility into the data that is coming in and out of our environment.
+[P2.50] A cloud-native technology stack provides the opportunity to exceed an on-premise security posture when combined with the implementation of our rigorous security controls.
+[P2.51] We can quickly and more accurately devalue data to the point that it is useless to attackers.
+[P2.52] Our state-of-the-art cyberfusion center and cybersecurity talent successfully defend against millions of threats every day.
+[P2.53] At Equifax, innovation is built into our data and analytics. Our data scientists, engineers and developers use artificial intelligence and machine learning to enrich the solutions our customers need to grow, protect and manage their businesses. We innovate with speed at scale to accelerate results for our customers and help them bring new opportunities to consumers. Many Equifax innovative technologies are patented or patent pending. Learn More.
+[P2.54] Active patents and current patent applications across the enterprise.
+[P2.55] More consumers with little to no credit history can gain access to credit when lenders use our patented explainable AI technology and alternative data.
+[P2.56] We believe that credit building can be a tool for tackling income inequality and decreasing the racial wealth gap. We are proud to have helped thousands of our neighbors through our multi-year partnerships with Greater Atlanta Builds Credit and St. Louis Builds Credit. In addition to our significant relationships with Invest America, MoCaFi, Prosperity Connection, Quest Communities, the Tower Grove Neighborhood CDC and the Westside Future Fund, Equifax has heavily invested in the On the Rise Financial Center. Through On the Rise, we are helping people in the Atlanta area earn economic independence through free financial coaching, homebuyer education and money management tools.
+</source>
+
+<source id="P3">
+[P3.1] Equifax Consumer Services LLC Licenses and Disclosures | Equifax
+[P3.2] Equifax Consumer Services LLC Licenses and Disclosures
+[P3.3] ECS provides lead generation services for banks, state licensed lenders, marketers and brokers to market loan products to consumers in certain states, including personal loans, auto loans, and credit cards through various Equifax channels, including through the Equifax public website ( https://equifax.com), the myEquifax account center website available to certain consumers, and by email.
+[P3.4] In some states, our services may require us to obtain licenses or register as a loan broker or hold some similar state license in order to advertise or market the availability of credit offers or generate leads for credit products, and we have provided the list of licenses and registrations we currently hold below.
+[P3.5] However, we are not a lender and we do not take applications for credit, make any credit decisions, negotiate loans, issue loan approvals, fund loans, service loans, or enter into loan broker agreements with consumers. We do not charge consumers any fees or other consideration in connection with our lead generation services.
+[P3.6] If you visit a loan broker’s or lender’s website through an offer or advertisement we present to you, you will be required to provide additional information to the loan broker or lender to complete an application for credit.
+[P3.7] North Carolina Loan Broker Registration No. 1044
+[P3.8] DISCLOSURES REQUIRED BY NORTH CAROLINA LAW
+[P3.9] THE STATE OF NORTH CAROLINA HAS NOT REVIEWED AND DOES NOT APPROVE, RECOMMEND, ENDORSE OR SPONSOR ANY LOAN BROKERAGE CONTRACT. THE INFORMATION CONTAINED IN THIS DISCLOSURE HAS NOT BEEN VERIFIED BY THE STATE. IF YOU HAVE ANY QUESTIONS SEE AN ATTORNEY BEFORE YOU SIGN A CONTRACT OR AGREEMENT.
+</source>

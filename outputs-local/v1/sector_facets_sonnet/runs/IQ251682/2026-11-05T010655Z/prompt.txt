@@ -1,0 +1,72 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Artesian Resources Corporation (www.artesianwater.com)
+Sector: Energy, utilities, mining and agriculture
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- industry_position (Industry position): Where it sits in the chain. Example: regulated utility: electric and gas distribution. Any that apply of: upstream / production; midstream; downstream; regulated utility; independent power; mining; agriculture; services to producers.
+- commodity_exposure (Commodity exposure): What it produces or delivers. Example: electricity and natural gas. Any that apply of: oil; natural gas; electricity; water; metals; minerals and aggregates; crops and livestock; other.
+- revenue_structure (Revenue structure): How prices are set. Example: regulated: rates approved by state commissions. Any that apply of: spot; contracted; regulated.
+- energy_transition (Energy transition exposure): Fossil or renewable. Example: mixed: gas plants and solar. Exactly one of: renewables; fossil fuels; mixed; not applicable.
+
+Evidence:
+<source id="P1">
+[P1.1] Artesian Water | Water services company
+[P1.2] Artesian will be closed Wednesday,, in observance of Veteran's Day. The Office will reopen Thursday,, at 8:00 a.m.
+[P1.3] Thank you for being an Artesian customer. We are dedicated to quality and committed to providing our customers with superior service at a reasonable cost.
+[P1.4] Superior Service Water and Wastewater
+[P1.5] For over 115 years Artesian has been providing high quality water service and environmentally friendly wastewater solutions.
+[P1.6] Education & Comminty Lead & Copper Information
+[P1.7] Artesian Water is committed to protecting the future of our national and local water supply through water-efficient practices, products, and services.
+[P1.8] Artesian provides safe and environmentally beneficial wastewater treatment and recycling alternatives, providing valuable nutrients to the agricultural community while protecting and conserving local and regional groundwater supplies.
+[P1.9] Artesian provides PEACE OF MIND to our customers by offering protection plans for external water and sewer lines.
+[P1.10] Artesian Resources began to serve customers in small communities in northern Delaware more than 115 years ago. Our mission then was the same as it is now: to provide the best quality water, environmentally friendly wastewater solutions and the best customer service.
+[P1.11] 8.8 billion gallons of water per year
+[P1.12] Providing high quality reliable drinking water and fire protection.
+[P1.13] The oldest and largest regulated water utility on the Delmarva Peninsula
+[P1.14] Read the latest news, releases and thought leadership!
+[P1.15] NEWARK, DE Artesian Resources Corporation today announced several leadership changes designed to align the…
+[P1.16] Artesian Reports Second Quarter and Year-To-Date 2026 Results
+[P1.17] Newark, Delaware, Artesian Resources Corporation, a leading provider on the Delmarva Peninsula of water…
+</source>
+
+<source id="P2">
+[P2.1] About Artesian | Artesian Water
+[P2.2] Artesian Resources began to serve customers in small communities in northern Delaware over 115 years ago.
+[P2.3] Our mission then was the same as it is now: to provide the best quality water and the best customer service. In fact, Artesian is the eighth largest investor-owned water utility in the United States by total capitalization.
+[P2.4] We provide consistently high-quality, reliable water and we do so economically. Our customers pay about a penny for each gallon of water they receive from Artesian. We know this business very well, as our consistently excellent performance demonstrates.
+[P2.5] As a total water resource management company, we are focusing on a wide spectrum of activities, which include identifying new and dependable sources of water supply; developing wells, treatment plants and delivery systems to get water to customers; educating customers on the wise use of water; and providing responsible wastewater management to assist with recharge of the aquifers.
+[P2.6] Artesian Resources operates as the holding company of wholly owned subsidiaries offering water, wastewater services and related services.
+[P2.7] Artesian Water Company, the principal subsidiary, is the oldest and largest regulated water utility on the Delmarva Peninsula and has been providing water service.
+[P2.8] Other subsidiaries include Artesian Water Maryland, Inc.; Artesian Wastewater Maryland, Inc.; Artesian Water Pennsylvania, Inc.; Artesian Wastewater Management, Inc.; Artesian Utility Development, Inc.; and Artesian Development Company.
+[P2.9] Artesian supplies over 9.7 billion gallons of water per year through more than 1,515 miles of water mains
+[P2.10] Storage capacity – 178 million gallons
+[P2.11] Water service territory – 305 square miles
+[P2.12] Wastewater service territory – 58 square miles
+[P2.13] Through public-private partnerships, Artesian is providing a variety of water- and wastewater-related services to several municipalities
+</source>
+
+<source id="P3">
+[P3.1] My Bills & Services | Artesian Water
+[P3.2] Customer Service Center My Bill & Services
+[P3.3] ARTESIAN WATER COMPANY, INC. FILES APPLICATION FOR INCREASE IN CUSTOMER RATES WITH DELAWARE PUBLIC SERVICE COMMISSION.
+[P3.4] Thank you for being an Artesian customer.
+[P3.5] We are dedicated to quality and committed to providing our customers with superior service at a reasonable cost.
+[P3.6] Report Emergencies or Service Issues
+[P3.7] Tips for Lowering Your Bill
+[P3.8] How to Read Your Meter
+[P3.9] At Artesian we provide consistently high-quality, reliable water and are proud to present our Annual Water Quality Reports for your review. Artesian provides these reports each spring in a mailing to our customers.
+</source>

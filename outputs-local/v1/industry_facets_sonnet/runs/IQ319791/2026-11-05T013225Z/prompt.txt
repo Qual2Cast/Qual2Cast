@@ -1,0 +1,102 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Merit Medical Systems, Inc. (www.merit.com)
+Industry (SIC 38): Measuring, Medical, Optical and Related Instruments
+About this industry group: Medical devices and nonmedical instruments require different regulatory and performance fields. FDA 510(k) clearance, PMA approval and other routes are distinct statuses, not interchangeable certification labels. FDA device pathway.
+
+Facets:
+- instrument_device_family (Instrument / device family). Examples: Diagnostic imaging systems; Industrial sensors; Laboratory analytical instruments.
+- measurement_performance_specification (Measurement / performance specification). Examples: ±0.01°C temperature accuracy; 1 μm positional resolution; Stated imaging spatial resolution.
+- clinical_industrial_research_use (Clinical / industrial / research use). Examples: Hospital diagnostics; Factory process control; Research laboratories.
+- product_specific_regulatory_status (Product-specific regulatory status). Examples: FDA 510(k)-cleared device; FDA PMA-approved device; Nonmedical industrial instrument.
+- consumables_service_attachment (Consumables / service attachment). Examples: Proprietary reagent cartridges; Recurring calibration service; One-time equipment sales.
+- calibration_qualification_requirement (Calibration / qualification requirement). Examples: Annual traceable calibration; On-site validation; Factory-only recalibration.
+
+Evidence:
+<source id="P1">
+[P1.1] Merit Medical Systems | Global Medical Device Innovation
+[P1.2] Explore Merit Medical's complete portfolio of disposable medical devices — designed and manufactured for interventional radiology, cardiovascular, endoscopy, oncology, dialysis access, and critical care procedures. Find products, IFUs, and clinical resources.
+[P1.3] An introduction to Merit Medical
+[P1.4] Our diverse product portfolio is continuously evolving, helping healthcare systems around the globe provide care that leads to positive patient outcomes.
+[P1.5] Advance patient care with Merit solutions. Find resources on products, procedures and techniques, clinician education opportunities, and patient awareness.
+[P1.6] Discover how we deliver excellence, providing the highest-quality products, and bringing additional value to your healthcare system.
+[P1.7] Designed and taught by physicians, Merit's Think Education provides an enjoyable education experience, and the clinical support needed when you return to your practice.
+[P1.8] At Merit, our mission is to create innovative medical devices that improve lives. Our goal is to hire and develop people who want to build something special through hard work, team effort, and commitment. Together, we are making a difference in the lives of patients around the world.
+[P1.9] Our environment, social and governance (ESG) priorities are more critical than ever to our shared success at Merit and to our relationship with the world.
+</source>
+
+<source id="P2">
+[P2.1] Procedural Solutions | Understand Innovate Deliver | Merit Medical
+[P2.2] Explore Merit’s resources around specific procedures and techniques, including patient awareness, products, and valuable practice support.
+[P2.3] An assortment of reliable soft tissue and bone biopsy systems offer you the advantage of full-core samples and ergonomic designs, helping you optimize diagnostic yield.
+[P2.4] Our cardiac catheterization solutions provide you with a variety of tools to help you accurately diagnose and successfully treat patients with heart problems.
+[P2.5] Merit Medical offers a broad spectrum of tools designed for patients being treated in the critical care unit. Merit’s Critical Care technologies aim to reduce contaminant exposure, accurately monitor patient blood pressure, and decrease workplace injury, helping clinicians provide treatment that is safe, effective, and efficient.
+[P2.6] Our dialysis access solutions provide you with the devices, accessories, and products you need for successful dialysis procedures—from stick to stitch. We’re committed to offering you better dialysis treatment options, so your patients have more time to do the things they love.
+[P2.7] Advancing patient care requires leading-edge products and procedural techniques. Our distal radial access solutions include the first-to-market PreludeSYNC DISTAL™, our renowned virtual and hands-on radial courses, and more. Your place is at the forefront of medicine. Let us help you stay there.
+[P2.8] For two decades, we’ve stayed committed to expanding our drainage portfolio, delivering the solutions you need for optimal patient care. We provide systems for quick access, catheters for less-traumatic placement, compassionate home drainage options, efficient procedure kits, and more.
+[P2.9] Merit Medical’s Embolotherapy Portfolio reflects a commitment to delivering clinically proven and data-backed embolization results. Our proprietary embolic products are the most studied on the market and allow for efficient and safe delivery and predictable outcomes.
+[P2.10] Merit is committed to helping healthcare professionals solve tough clinical challenges. By delivering breakthroughs in electrophysiology and cardiac rhythm management, physicians are able to offer solutions that help more patients live longer, healthier lives.
+[P2.11] Merit Endoscopy’s fully covered, laser-cut esophageal stent technology provides for virtually no foreshortening nor elongation allowing for accurate placement. Our novel anti-migration struts provide increased mucosal wall contact and friction, minimizing migration.
+[P2.12] Merit Medical has been designing and improving inflation devices to meet the need for faster inflation, greater capacity, versatility, and reliability.
+[P2.13] Designed to bring convenience and efficiency to your cath lab, our kits and packs solutions can help simplify prep and procedure, support quality patient care, and reduce inventory levels.
+[P2.14] Home dialysis options like peritoneal dialysis (PD) offer several patient advantages over in-center dialysis, including better kidney disease-related quality of life.1 We’re committed to PD at home and offer virtual and hands-on physician training, a wide range of catheter sizes, accessories, kits, and patient resources.
+[P2.15] Prostatic artery embolization (PAE) gives patients living with benign prostatic hyperplasia (BPH) a viable nonsurgical option clinically proven to reduce symptoms and improve quality of life.2 To help support your PAE practice, we offer virtual and hands-on training, trusted products, clinical resources, patient materials, and more.
+[P2.16] For patients with tracheobronchial strictures, stent technology can provide rapid palliation and improve quality of life.3 We offer fully covered, laser-cut tracheobronchial stents and advanced over-the-wire and direct visualization delivery systems. Download case studies, participate in virtual and hands-on training—all designed to help you advance patient care.
+[P2.17] At Merit Medical, we support radial access with a diverse portfolio of innovative products and a world-renowned hands-on physician education program, helping you offer the advantages of radial to your patients.
+[P2.18] Be at the forefront of patient care with Merit spine solutions. Our steerable technologies offer bipedicular results via a unipedicular approach while our bone biopsy systems help you optimize diagnostic yield.
+[P2.19] Our uterine fibroid embolization (UFE) solutions offer trusted products that deliver predictable clinical results as well as long-term symptom control. Browse our patient education and physician resources, each designed to support your UFE practice.
+[P2.20] Offer your patients minimally invasive venous solutions designed to treat symptoms, minimize post-operative pain, and provide faster recovery. Explore products, accessories, and kits, packs, and trays—each complementing the next to provide you with better patient outcomes.
+[P2.21] Hohmann SE. 2019. “Home Dialysis Options Can Assist In Clinical Decision-Making. Nephrol News Issues. Retrieved from https://www.healio.com/nephrology/kidney-care-community/news/print/nephrology-news-and-issues/%7Bdfac0f88-1d95-48bc-bc56-87070b4e611e%7D/home-dialysis-options-can-assist-in-clinical-decision-making.
+[P2.22] Uflacker A et al. 2016. “Meta-Analysis of Prostatic Artery Embolization for Benign Prostatic Hyperplasia. J Vasc Interv Radiol 27, no. 11 (Nov): 1686-1697. PMID: 27742235.
+[P2.23] Himeji D et al. 2018. “Successful Treatment of Life-Threatening Tracheal Stenosis Caused by Malignancy with a Self-Expanding Stent.” Intern Med 57, no. 2 (Jan): 259–263. PMID: 29093400.
+[P2.24] “Uterine Fibroids,” US Department of Health and Human Services, Office on Women’s Health, last modified, https://www.womenshealth.gov/a-z-topics/uterine-fibroids.
+[P2.25] Please Note: These products may not be approved, cleared or available for sale or use in your country or region. Contact your local Sales Representative for more information.
+</source>
+
+<source id="P3">
+[P3.1] About Us | Understand. Innovate. Deliver. | Merit Medical
+[P3.2] Our vision is to be the most customer-focused company in healthcare. Each day we are determined to make a difference by understanding our customers’ needs, and innovating and delivering a diverse range of products that improve the lives of people, families, and communities throughout the world.
+[P3.3] It honors the past, celebrates what has made our company successful today, and also sets our expectations for the future.
+[P3.4] By embracing The Merit Way, we aim to strengthen the culture within our company while serving customers, patients, and communities.
+[P3.5] The Merit Way is the H.E.A.R.T. of our organization:
+[P3.6] Committed to employee and patient well-being
+[P3.7] Deliver your best with the highest of standards
+[P3.8] Decide, act, and adapt to change
+[P3.9] Own your decisions, actions, and results
+[P3.10] Collaborate and communicate to achieve a common goal
+[P3.11] At Merit Medical, our mission is to understand, innovate, and deliver.
+[P3.12] President and Chief Executive Officer
+[P3.13] Martha Aronson was appointed President and Chief Executive Officer of Merit Medical Systems, Inc., in.
+[P3.14] Raul Parra, CPA, was appointed Merit’s Chief Financial Officer and Treasurer in, having served as Interim Chief Financial Officer from to. He also served as Merit’s Vice President of Accounting and Corporate Controller.
+[P3.15] Adam Smith joined Merit Medical and became Chief Commercial Officer leading the development and expansion of Merit’s global commercial activities.
+[P3.16] Chief Legal Officer and Corporate Secretary
+[P3.17] Brian G. Lloyd was appointed Merit’s Chief Legal Officer and Corporate Secretary in. Prior to joining Merit, Lloyd served as a member of the business transactions group at Parr Brown Gee & Loveless for more than 20 years.
+[P3.18] Mike Voigt joined Merit with more than 20 years of progressive global human resources (HR) leadership experience in diverse industries, including medical device, pharmaceutical, and technology.
+[P3.19] Sheri Lewis serves as Chief Operations Officer and is responsible for manufacturing, supply chain, distribution, engineering, and operational excellence for Merit’s global operations organization.
+[P3.20] Vicky Brunk joined Merit bringing over 20 years of experience in medical device clinical trials. She has held multiple leadership roles across large and medium sized corporations, as well as venture capital backed start-up organizations.
+[P3.21] Executive Vice President, Global Enterprise Excellence
+[P3.22] Pete Dankwerth joined Merit in as Executive Vice President, Global Enterprise Excellence. He leads enterprise-wide initiatives focused on operational effectiveness, continuous improvement, global execution, and change management.
+[P3.23] Executive Vice President, Global Research & Development
+[P3.24] John Hall joined Merit Medical and became Executive Vice President of Global R&D leading the company’s global innovation efforts and business strategy.
+[P3.25] John Knorpp came to Merit as Director of Regulatory Affairs of the Endotek Division and was promoted to Chief Regulatory Affairs Officer. In this role he directs all global regulatory and medical affairs activities.
+[P3.26] Neil Peterson serves as Senior Advisor at Merit, after more than 32 years with the company, including his most recent role as Chief Operating Officer through.
+[P3.27] Kim Ruzek joined Merit as the Senior Vice President of Global Quality Assurance. She has more than 20 years of experience in the pharmaceutical and medical device industry.
+[P3.28] Jason Treft serves as the Chief Information Officer (CIO) and is responsible for the company’s global information technology organization, functions and strategy.
+[P3.29] A medical innovation designed for the most extreme environments on Earth—and space—brings…
+[P3.30] As 2025 draws to a close, we’re counting down to the New…
+[P3.31] What you should know about this innovative technology and how it helps…
+[P3.32] Think Education™ proctors discuss the purpose continuing education serves in an evolving…
+[P3.33] Timely and relevant information about Merit products, education opportunities, tradeshows and events.
+</source>

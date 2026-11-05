@@ -1,0 +1,148 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Thryv Holdings, Inc. (www.thryv.com)
+Industry (SIC 27): Printing, Publishing and Allied Industries
+About this industry group: Commercial printers, book publishers and periodical publishers have different operating drivers. Paid circulation and advertising dependence are publisher rows, not mandatory metrics for a commercial-printing plant.
+
+Facets:
+- printing_publishing_activity (Printing / publishing activity). Examples: Commercial printing; Newspaper publishing; Book publishing.
+- print_digital_revenue_mix_publishers (Print / digital revenue mix [publishers]). Examples: 40% print and 60% digital revenue; Digital-subscription-led publisher.
+- publication_print_market (Publication / print market). Examples: Trade journals; Educational books; Commercial packaging print.
+- advertising_circulation_dependence_publishers (Advertising / circulation dependence [publishers]). Examples: 50% advertising revenue; Paid digital subscriptions; Newsstand copy sales.
+- print_output_format_printers (Print output / format [printers]). Examples: 100,000 magazines/month; Web-offset printing; Short-run digital printing.
+- paid_circulation_periodicals (Paid circulation [periodicals]). Examples: 75,000 paid print subscriptions; 200,000 paid digital subscriptions.
+- rights_distribution_publishers (Rights / distribution [publishers]). Examples: Owned publishing rights; Third-party titles under license; Direct digital distribution.
+
+Evidence:
+<source id="P1">
+[P1.1] Small Business Marketing Software | Thryv
+[P1.2] Get found online, accelerate your growth, and know exactly what's working with our small business marketing software and marketing services.
+[P1.3] Less Stress. More Bookings. Faster Growth.
+[P1.4] Get found online, accelerate your growth, and know exactly what's working with our small business marketing software and done-for-you marketing services.
+[P1.5] Trusted by 100,000+ small businesses
+[P1.6] 40% Increase in leads ¹
+[P1.7] 54% Increase in online visibility ¹
+[P1.8] 40% More revenue per client ²
+[P1.9] Thryv ® helps fill your CRM with new customers, keeping your pipeline full and your team booked solid.
+[P1.10] Build a strong online presence, so you get found and chosen by more customers.
+[P1.11] Turn more leads into customers by focusing on the opportunities most likely to convert.
+[P1.12] Know what's driving growth, so you can invest with confidence and keep growing.
+[P1.13] Our customers call this their unfair advantage.
+[P1.14] Go from being hard to find to the first choice every time.
+[P1.15] Thryv helps you rise above competitors in search results with tools that make it easy for people to find and choose you.
+[P1.16] Know which leads are ready to convert and what to do next.
+[P1.17] Thryv's AI Lead Insights helps customers generate 40% more revenue per client and convert leads at 1.5× the rate. 2
+[P1.18] Drive clicks, calls, and customers with campaigns that are continuously optimized to ensure you maximize your return on your investments every time.
+[P1.19] We've helped local service businesses for over 125 years
+[P1.20] Thryv AI™: The Secret to Getting More Done
+[P1.21] Prioritize the leads that matter most. AI automatically scores each lead and tags every interaction by type, intent, and tone, so you can focus on the ones most likely to convert.
+[P1.22] Stop wasting money on marketing that doesn’t work. AI optimizes your ad spend to direct your dollars towards the campaigns that drive the best results. It gets more powerful over time and shows you your ROI every step of the way.
+[P1.23] Respond to customer reviews in less time and with far less effort. AI instantly generates three responses you can use to reply to reviews on Yelp, YP.com, Trustpilot, and 20 other popular review sites.
+[P1.24] “Thryv took me from invisible to #1 locally — the visibility has never gone down.”
+[P1.25] Robert Karwin — Law Office of Robert P. Karwin
+[P1.26] “We went from being invisible online to our lead volume skyrocketing.”
+[P1.27] Mark Martin — Interior Tropical Gardens
+[P1.28] “Within 3 or 4 months I went from page 5 to page 1 on Google.”
+[P1.29] Steven Sullivan — K&L Roofing
+[P1.30] We'll scan your online presence and show you exactly what to fix to win more AI-referred customers. All for free.
+[P1.31] Thryv is an AI-powered growth platform that helps local service businesses get found online, win more customers, and grow faster. With software and done-for-you marketing services working together, you can choose how hands-on you want to be while AI helps you make the most of every marketing dollar.
+[P1.32] Thryv helps strengthen your online presence across search engines, review sites, online directories, and social media so customers can find and choose your business more easily. Our tools and services work together to increase your visibility where people are already searching.
+[P1.33] Thryv helps you turn more opportunities into customers with tools that help you identify which leads are ready to convert and what to do next. Spend less time chasing leads and more time on growing your business.
+[P1.34] Thryv gives you visibility into your marketing performance so you can see what's driving leads, customers, and revenue. Instead of guessing where to invest, you'll have the insights you need to make more informed decisions.
+[P1.35] Thryv is designed specifically for local service businesses across a wide range of industries, including home services, health and wellness, legal, insurance, pet services, and more. If growing your business is a top priority, Thryv can help.
+[P1.36] Yes. Every Thryv customer has access to free onboarding, training, and ongoing support from our team of experts. We're committed to helping you get up and running quickly and achieve your business goals.
+[P1.37] Data based on a 2026 internal client study of 96 participants. Individual results may vary.
+[P1.38] Results based on an internal Thryv analysis of multiple potential customers active in the Thryv Marketing Center and Thryv Business Center systems between and. Leads generated through Thryv Marketing Center (including paid and organic lead sources) were traced to revenue recorded in Thryv Business Center. AI scoring performance is compared against non-AI-scored leads within the same dataset. Individual results will vary, and conversion rates and revenue per client numbers can shift over time.
+</source>
+
+<source id="P2">
+[P2.1] AI for Small Businesses - AI Tools & Software | Thryv
+[P2.2] AI isn't just for big business anymore. Learn how your small business can leverage AI tools to help automate marketing and improve customer communication.
+[P2.3] Grow More Efficiently With AI.
+[P2.4] From attracting and converting customers to keeping them loyal, our AI-powered tools make it easier to grow your business.
+[P2.5] Get the AI Advantage for Smarter Business Growth
+[P2.6] With our AI-powered tools, it’ll feel like you hired a marketing and sales director, customer support team, website designer, copywriter, and SEO pro without the expensive salaries. And they’ll work hard for you 24/7.
+[P2.7] AI Content Assistant and CaptionAI
+[P2.8] Know which leads are ready to convert — and what to do next.
+[P2.9] AI Lead Insights automatically scores each lead and tags every interaction by type, intent, and tone — so you can prioritize the leads that matter most.
+[P2.10] Turn conversations into next steps: Get clear action items for every interaction so you can follow up with confidence, not guesswork.
+[P2.11] Say goodbye to manual lead scoring and wasted follow-ups: AI Lead Insights does the listening and learning for you, so you can focus on converting your best leads.
+[P2.12] Quickly launch a stunning website that helps your business get discovered and win more customers.
+[P2.13] Thryv’s AI-Powered Website Builder creates your site for you — complete with SEO/AEO optimized content — so you can focus on running your business, not building your website.
+[P2.14] Get online fast and stand out where customers search so your business gets found on Google Search™, ChatGPT, and voice search.
+[P2.15] Turn website visitors into customers with built-in tools like contact forms, booking pages, and online stores.
+[P2.16] Respond to customer reviews in less time and with far less effort.
+[P2.17] Responding to reviews is crucial for improving your online presence and attracting new leads. AI Review Response takes this task off your plate, so you get it done in a fraction of the time.
+[P2.18] AI Review Response instantly generates three responses to choose from when replying to reviews.
+[P2.19] Easily respond to positive and negative feedback on Yelp, YP.com, Trustpilot, and 20 other popular review sites in less time.
+[P2.20] Create scroll-stopping social media images in seconds — no design skills required.
+[P2.21] Describe the image you want, and AI generates polished, custom visuals tailored to your style, industry, and social platform — helping you stay active on social media without spending hours creating content.
+[P2.22] Get multiple, on-brand image options. Customize your prompts and receive ready-to-use visuals perfectly sized for Instagram, Facebook, LinkedIn, and Google Business Profile.
+[P2.23] Feel confident before you post. Preview, refine, or generate new images in one click — so every post feels intentional.
+[P2.24] Create and publish in one place. Access ImageAI inside the Thryv ® platform, where you can create your image and then schedule or publish your post — all without switching tools.
+[P2.25] Being visible on Google isn’t enough anymore.
+[P2.26] AI-powered search tools are changing how customers discover local businesses. Even if you rank well on Google™ Search, your business may not appear at all in AI-generated answers.
+[P2.27] With our professional SEO/AEO services:
+[P2.28] We’ll optimize your content and listings to build brand authority and help you show up in voice, predictive, and conversational search results in addition to traditional local searches.
+[P2.29] We’ll help improve your technical SEO and build high-quality backlinks to help you stay ahead of the competition as search evolves.
+[P2.30] See how your business shows up online.
+[P2.31] Enter your website URL to get your AI Digital Marketing Score, plus a personalized, downloadable report — all for free.
+[P2.32] Use AI to write your social media posts and emails.
+[P2.33] Leverage AI to quickly craft content that connects with your audience.
+[P2.34] Save time by adjusting the tone, language, and length of your message so it fits your brand instead of starting from scratch.
+[P2.35] Automatically format social captions based on the platform and customize copy with hashtags and emojis.
+[P2.36] Success Stories That Speak for Themselves
+[P2.37] See why our users love to work with Thryv
+[P2.38] Google visibility when using Thryv
+[P2.39] Hours saved per week when using Thryv
+[P2.40] Increase in revenue since using Thryv
+[P2.41] Yes! Thryv offers several great AI-powered tools to help with your marketing, sales, customer support, review generation, and more. From attracting and converting customers to keeping them loyal, Thryv AI makes it easier to grow your business. Some of our AI tools include AI Lead Insights, AI-Powered Website Builder, AI Review Response, AI Automation Assistant, AI Content Assistant, and CaptionAI.
+[P2.42] Our AI-powered tools help you attract and capture more customers, respond faster to leads, build trust online, and improve how your business looks across search results, AI-answer engines, review sites, and more.
+[P2.43] Start by checking your AI Digital Marketing Score. It takes just a few minutes and shows exactly where your business stands and what to do next. You can also meet with a Thryv specialist for a free personalized demo to see how our AI tools can help your business grow.
+[P2.44] Absolutely! AI Review Response generates three thoughtful, on-brand responses for you, while still allowing you to review or edit each message. Once your message is all set, hit submit, and you’ve responded to a Google Review in far less time.
+[P2.45] Thryv AI Lead Insights helps you uncover the leads that are ready to convert and gives you clear, actionable next steps to help you do just that. AI Content Assistant and CaptionAI help you write engaging social media posts and emails.
+[P2.46] 1. Results from a 2024 Thryv customer case study. Individual results may vary.
+[P2.47] 2. Based on Thryv survey sample of multiple clients. Calculations assume a 40-hour work week. Results may vary.
+[P2.48] 3. Results from a 2023 Thryv customer case study. Individual results may vary.
+[P2.49] Press O for more options
+</source>
+
+<source id="P3">
+[P3.1] About Thryv - All-in-One Small Business Software | Thryv
+[P3.2] Thryv, Inc. provides marketing automation software for hundreds of thousands of local businesses. Try Thryv's small business management software today!
+[P3.3] When it comes to small business software, there’s no comparison. Hi! We’re Thryv ®.
+[P3.4] We’ve been around in one form or another for more than 125 years, always with one goal in mind — helping small businesses compete and win.
+[P3.5] We provide the technology, software and local business automation tools small business owners need to better manage their time, communicate with clients, and get paid, so they can take control of their business and be more successful.
+[P3.6] Everything you need to streamline your day-to-day business.
+[P3.7] Get the tools you need to market your business without the headaches.
+[P3.8] Ensure your business is found.
+[P3.9] We provide market-leading search, display, social and print directory solutions, and we can get your business in front of ready-to-buy consumers on our widely used proprietary search sites – Yellowpages.com®. Superpages.com® and Dexknows.com® – as well as our extended network of partner sites.
+[P3.10] Thryv enhances user experience across all hosting platforms with customizable designs and widgets. It facilitates CRM, payments, bookings, and social media connections. Additionally, it tracks internet referrals and integrates seamlessly with Thryv's software, ensuring one-click interactions for visitors and sustained engagement with your business.
+[P3.11] Consultant – Performance & Supplier Mgmt
+[P3.12] "Working for Thryv is very rewarding both on the job and in my life outside of work. It is a warm, friendly, supportive environment and the sense of community I feel here is unlike anything I've ever experienced.
+[P3.13] "Thryv has afforded not only me, but many people close to me, a place to grow and flourish with a fast moving company. Working with small businesses from all areas of the US has exposed me to some of the most unique and incredible people from all walks of life. I feel like I have found a home here. Straight Out of Thryv!"
+[P3.14] "Thryv has a fun and innovative work environment, with an emphasis on team motivation, and incredible support from our supervisors. We work with a wide variety of clients, and it is both challenging and extremely rewarding to help local businesses reach their goals. I love working at Thryv!"
+[P3.15] "The atmosphere is laid-back and fun [and] there is also an awesome management team here. Whenever I feel like I may need extra help in completing a task, I am always guided in the right direction. I always feel motivated to keep striving to reach my goals and surpass them.
+[P3.16] Ever since I started here, there hasn’t been a week where there hasn’t been an event that supports the teams. This company… holds a strong pathway for growth and fun!"
+[P3.17] "The owners and managers know it’s our company as much as theirs. I have the ability to take ownership and make lasting business relationships with our clients. Most importantly, Thryv employees are treated with respect and are empowered to maximize their strengths. I love what I do! We are Thryv!"
+[P3.18] "I love working for a company that is focused on local business owners marketing needs through cutting edge products and solutions. Thryv gives them a chance to compete with the major companies. Also they are focused on their employees by offering them a chance to grow their skills and flexibility to address our clients’ needs and concerns."
+[P3.19] "Thryv is a wonderful company to grow with. Our digital marketing products give clients powerful tools to grow. Digital marketing over the years has grown exponentially. This has actually inspired me to further my education in the field. I am currently seeking a degree in Web Development and Management."
+[P3.20] "Working here I have expanded my skills in taking care of the client and creating great websites. I work with great colleagues who have become great friends and there is never a boring day here in the Hub Harbor of Thryv. The facility has almost everything, from a workout center to a swimming pool. Thryv is truly a great place to work to gain new skills."
+[P3.21] Manager – Business Operations Support
+[P3.22] "Thryv is a wonderful company to work for. My three year goal was to come to the St Petersburg office to work, and after seventeen years I could not be happier. I have been given so many opportunities to broaden my knowledge base. The challenges that have been given to me only help me grow as a person and as a Supervisor."
+[P3.23] "I truly enjoy working here. I started in a lower position and have worked my way up to provide solutions for enterprise application development. It is inspiring to work for a company that encourages growth and offers opportunities for advancement. I am very proud to be a part of Thryv."
+[P3.24] There's a fresh, entrepreneurial mindset. The company is redefining itself and the market it serves. I've been given opportunity to lead people and exercise my technical skill set. I'm grateful to be part of the team and glad to come to work every day."
+[P3.25] We strive to ensure our work environment reflects diversity, fairness and meritocracy. We believe all employees should have the opportunity to perform effectively in their position. We value every employee and the authenticity they bring to their role and to the organization. As a result, our employee policies and internal practices focus on ability and merit as the standards for success.
+</source>

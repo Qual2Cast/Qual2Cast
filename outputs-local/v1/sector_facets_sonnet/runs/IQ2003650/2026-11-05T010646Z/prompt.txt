@@ -1,0 +1,52 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Amphastar Pharmaceuticals, Inc. (www.amphastar.com)
+Sector: Healthcare (providers, devices, pharmaceuticals)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- healthcare_segment (Healthcare segment): Part of healthcare. Example: services: home health and hospice care. Any that apply of: pharma; biotech; medtech / devices; diagnostics and tools; provider services; healthcare IT; payer; distribution / pharmacy; other.
+- product_stage (Product stage): Whether its products are on the market. Example: commercial: sells approved products. Exactly one of: commercial; clinical; research; not applicable (services).
+- customer_payer (Customer / payer): Who pays. Example: Medicare and Medicaid: government programs pay for most visits. Any that apply of: hospitals and providers; private insurance; Medicare and Medicaid; patients / consumers; pharma and biotech companies; employers; other.
+- therapeutic_area (Therapeutic area): Main clinical area. Example: cardiovascular: heart rhythm devices. Any that apply of: oncology; cardiovascular; neurology and behavioral health; orthopedics and spine; metabolic and diabetes; infectious disease; ophthalmology; dental; general / multiple; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Home | AMPHASTAR
+[P1.2] Amphastar Pharmaceuticals, Inc. is a biopharmaceutical company focused on developing, manufacturing, and marketing:
+[P1.3] â¢ Injectable, intranasal, and inhalation products;
+[P1.4] â¢ Complex medication including biologics that are derived from living cells or organisms, proteins, and interchangeable biosimilars;
+[P1.5] â¢ Various innovative drug delivery systems for different routes of administration; and
+[P1.6] â¢ Various proprietary products and technological platforms.
+[P1.7] BAQSIMI Â®: The #1 PRESCRIBED GLUCAGON IN THE US 1
+[P1.8] The First And Only Dry Nasal Spray to Treat Very Low Blood Sugar
+[P1.9] 1 Data on File. Amphastar Pharmaceuticals, Inc.
+[P1.10] 50mg/2.5mL, 100mg/5mL, and 200mg/10mL Single-dose vials: Iron sucrose injection is an iron replacement product indicated for the treatment of iron deficiency anemia (IDA) in patients with chronic kidney disease (CKD).
+[P1.11] 560 mcg/2.24 mL (250 mcg/mL) in a single-patient- use prefilled delivery device (pen) intended to deliver 28 daily doses of 20 mcg.
+[P1.12] International Medication Systems, Ltd. Receives FDA's Drug Shortage Assistance Award
+[P1.13] received a Drug Shortage Assistance Award from the U.S. Food and Drug Administration. This prestigious award recognizes IMS significant efforts in preventing and alleviating critical drug shortages, ensuring that patients have access to essential medications.
+[P1.14] Now available in stores near you!
+[P1.15] Ipratropium Bromide HFA Inhalation Aerosol
+[P1.16] This site is intended for residents of the United States
+</source>
+
+<source id="P2">
+[P2.1] About Us | AMPHASTAR
+</source>
+
+<source id="P3">
+[P3.1] Products/Pipeline | AMPHASTAR
+[P3.2] Emergency Kit for Low Blood Sugar
+</source>

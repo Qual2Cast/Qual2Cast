@@ -1,0 +1,79 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Balchem Corporation (www.balchem.com)
+Sector: Manufacturing (industrial, materials, electronics)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- manufacturing_type (Manufacturing type): How it makes products. Example: discrete: builds individual units on assembly lines. Any that apply of: discrete; process; assembly; outsourced / fabless.
+- production_model (Production model): Built for an order or for stock. Example: make-to-order: each unit configured to the customer's order. Exactly one of: make-to-order; make-to-stock; both.
+- product_complexity (Product complexity): How engineered its products are. Example: engineered: custom-configured equipment. Exactly one of: commodity; engineered; precision / high-spec.
+- production_role (Production role): Where it sits in its customers' supply chain. Example: final manufacturer: sells finished units to contractors. Any that apply of: final manufacturer / OEM; tier 1 supplier; tier 2 or component supplier; contract manufacturer; materials producer.
+- end_market_exposure (End-market exposure): Which end markets drive demand. Example: industrial: factories and commercial buildings. Any that apply of: aerospace and defense; automotive and transportation; industrial; construction and buildings; energy; electronics and semiconductors; healthcare and life sciences; consumer; agriculture; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Balchem - Making the World a Healthier Place
+[P1.2] Discover how Balchem is making the world a healthier place. Trusted, science-based solutions for nutrition, health & food markets.
+[P1.3] Making the World a Healthier Place.
+[P1.4] At Balchem, we are committed to making the world a healthier place by delivering trusted, innovative, and science-based solutions to the nutrition, health, and food markets.
+[P1.5] At Balchem Human Nutrition and Health, we offer solutions that nourish your body and delight your senses—from essential nutrition to sensory-rich experiences.
+[P1.6] With a growing portfolio of products and a dedication to innovation and sustainability, Animal Nutrition & Health is leading the charge to meet the nutritional needs of animals.
+[P1.7] Consisting of our Performance Gases and Plant Nutrition businesses, Specialty Products complements our vision of making the world a healthier place.
+[P1.8] Who We Are: About Balchem.
+[P1.9] For over five decades, Balchem has created innovative health and nutritional solutions for people and animals worldwide. Our diverse portfolio impacts millions, offering quality and technology that help our customers succeed. Balchem operates in three segments: Human Nutrition & Health, Animal Nutrition & Health, and Specialty Products.
+[P1.10] Our Human Nutrition & Health business leverages decades of expertise in market insights, proven science, and product development to create winning solutions in health, wellbeing, and nutrition.
+[P1.11] As a global leader of choline production and encapsulation technology, our Animal Nutrition & Health business provides a portfolio of nutrition products for ruminants, monogastrics, and companion animals.
+[P1.12] Our Performance Gases specializes in the packaging and global distribution of select gases. Our Plant Nutrition business provides Metalosate® chelated minerals to the agricultural market worldwide.
+[P1.13] At Balchem, innovation drives us to make the world a healthier place. Our R&D expertise fuels business growth and solves tough challenges. With eight Innovation Centers in the US and Europe, we create hundreds of new products annually. Discover our core technologies.
+[P1.14] Great solutions start with a problem and a solver. At Balchem, we value good ideas and seek talented individuals worldwide who are passionate about science and problem-solving.
+</source>
+
+<source id="P2">
+[P2.1] Animal Nutrition & Health - Balchem
+[P2.2] Explore Balchem Animal Nutrition & Health. We are leading the charge to meet the nutritional needs of ruminants, monogastrics & companion animals.
+[P2.3] Next Generation AminoShure-XM is Here.
+[P2.4] Powered by Balchem’s exclusive X-Technology, AminoShure®-XM delivers greater bioavailability and value than ever before.
+[P2.5] We are dedicated to innovation & industry sustainability, while leading the charge to meet the nutritional needs of ruminants, monogastrics & companion animals.
+[P2.6] Real People. Real Science. Real Results.
+[P2.7] Balchem Animal Nutrition & Health is the global leader in c holine production, nutrient encapsulation, chelated minerals and functional ingredients. With a growing portfolio of products and a dedication to innovation and industry sustainability, Balchem Animal Nutrition & Health is leading the charge to meet the nutritional needs of ruminants, swine, poultry, aquaculture and companion animals. Our product solutions work to fulfill the unique needs of various animal species including nutrition, gut health, and feed quality. We also understand that due to animal diversity and the ever-shifting environment in which they’re raised, no animal or situation is the same. Together, we can solve the animal nutritional challenges of today to shape a better tomorrow.
+[P2.8] Balchem Animal Nutrition & Health is a leader in innovative, sustainable solutions for animal nutrition, addressing the unique dietary needs of both ruminant and monogastric animals. Committed to advancing industry sustainability, Balchem provides cutting-edge nutrition solutions that support animal health and improve production efficiency.
+[P2.9] Balchem is a global leader in encapsulation, mineral chelation, and choline production, pioneering innovative precision technologies to improve efficiency and effectiveness. Through continuous research investments, Balchem drives advancements that define the future of sustainable and high-performance solutions in animal nutrition.
+[P2.10] Balchem is honored to bring you the Real Faces of Dairy project. The Real Faces of Dairy continues to increase awareness of the passion and commitment dairy producers, and industry enthusiasts share. Join the cause by sharing your dairy story with consumers and help show the world how much we care for our animals, our land and the legacy we leave behind.
+[P2.11] Our Latest Webinars and Podcasts.
+[P2.12] Student Showcase Kansas State: Pet Food Sustainability
+[P2.13] Strategies to Improve Heat Stress Resilience in Dairy Cows
+[P2.14] Student Showcase: Genetic influence on Colostrum Yield and Composition
+[P2.15] Dr. Jimena Laporta – Manejo del estrés por calor en el período seco: una estrategia que trasciende generaciones
+[P2.16] Dr. Exploring the Science Behind Rumen Health
+[P2.17] Austin Therrell – Fall AAFCO Regulatory Updates
+[P2.18] Dr. Francisco Peñagaricano – Reducing Methane Emissions from Dairy Cattle: Progress, Challenges, and Opportunities
+</source>
+
+<source id="P3">
+[P3.1] About Us - Balchem
+[P3.2] Discover the diverse businesses of Balchem, from human nutrition and health to animal nutrition and specialty products.
+[P3.3] At Balchem, we make a real difference. We are committed to finding innovative solutions to some of the most complex problems facing the nutrition, health, and food markets.
+[P3.4] Global R&D Technology Centers 8
+[P3.5] Specialty Products – Plant Nutrition
+[P3.6] Plant Nutrition provides Metalosate ® chelated minerals to the agricultural market worldwide.
+[P3.7] Specialty Products – Performance Gases
+[P3.8] Performance Gases specializes in the re packaging and global distribution of select gases.
+[P3.9] Meet the people behind Balchem’s vision and mission.
+[P3.10] Balchem was by a group consisting of entrepreneurs, investors, and Dr. Leslie Balassa, an expert in the field of encapsulation. The company was initially housed in a laboratory on the top floor of the Chemists Club in New York City until purchasing its first manufacturing site, a former dairy in Slate Hill, New York.
+[P3.11] Balchem has grown by developing unique technologies, by identifying novel applications for our science, and by acquiring new synergistic technologies and capabilities. All growth strategies are centered around our vision of making the world a healthier place.
+[P3.12] At Balchem, s ustainability is a key pillar of our company’s vision to make the world a healthier place.
+[P3.13] At Balchem, we are committed to a company culture of belonging. Our diversity is a catalyst for innovation and operational excellence.
+</source>

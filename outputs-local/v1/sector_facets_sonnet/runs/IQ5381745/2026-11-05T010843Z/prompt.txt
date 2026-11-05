@@ -1,0 +1,65 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Compass Minerals International, Inc. (www.compassminerals.com)
+Sector: Energy, utilities, mining and agriculture
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- industry_position (Industry position): Where it sits in the chain. Example: regulated utility: electric and gas distribution. Any that apply of: upstream / production; midstream; downstream; regulated utility; independent power; mining; agriculture; services to producers.
+- commodity_exposure (Commodity exposure): What it produces or delivers. Example: electricity and natural gas. Any that apply of: oil; natural gas; electricity; water; metals; minerals and aggregates; crops and livestock; other.
+- revenue_structure (Revenue structure): How prices are set. Example: regulated: rates approved by state commissions. Any that apply of: spot; contracted; regulated.
+- energy_transition (Energy transition exposure): Fossil or renewable. Example: mixed: gas plants and solar. Exactly one of: renewables; fossil fuels; mixed; not applicable.
+
+Evidence:
+<source id="P1">
+[P1.1] Compass Minerals | Salt - Plant Nutrients - Magnesium Chloride
+[P1.2] Compass Minerals produces salt, plant nutrients and magnesium chloride for distribution primarily in North America.
+[P1.3] They’re committed to meaningful, challenging work. And we’re dedicated to creating an inclusive team.
+[P1.4] ICE MELTERS FORMULATED FOR SLIPPERY SITUATIONS
+[P1.5] For more than 25 years, homeowners have trusted Safe Step ® ice melters to help effectively manage winter precipitation and clear the way to a beautiful home.
+[P1.6] We take pride in developing and safely delivering essential mineral products that fulfill our Core Purpose to help keep people safe, feed the world and enrich lives.
+[P1.7] THROUGH THE RESPONSIBLE TRANSFORMATION OF EARTH’S NATURAL RESOURCES, WE HELP KEEP PEOPLE SAFE, FEED THE WORLD AND ENRICH LIVES, EVERY DAY.
+[P1.8] OFFICIAL JERSEY FRONT PARTNER AND PLANT NUTRITION AND SALT PROVIDER OF SPORTING KC
+[P1.9] Compass Minerals Celebrates Global Fertilizer Day
+[P1.10] Two Operations Leaders Promoted to Vice President
+[P1.11] Compass Minerals Announces Fiscal 2026 Third-Quarter Results Reported
+[P1.12] Compass Minerals Names Brandon Risner Chief Operating Officer
+</source>
+
+<source id="P2">
+[P2.1] We Are Compass Minerals | Enhancing Lives Around The World
+[P2.2] For almost two centuries, Compass Minerals has provided essential minerals that enhance the lives of people around the world.
+[P2.3] THIS IS WHAT WE BELIEVE IN
+[P2.4] Each and every day they keep us grounded in the past and focused on the future.
+[P2.5] We are Compass to the Core.
+[P2.6] We are dedicated to fostering a diverse, safe and inclusive environment where everyone is treated with dignity.
+[P2.7] We believe in the power of teamwork, achieving more together through cooperation and mutual support.
+[P2.8] We strive for excellence through initiative, accountability and delivering superior results.
+[P2.9] The leadership at Compass Minerals is dedicated to excellence, innovation, sustainability and delivering long-term value to the company.
+[P2.10] View an illustrated history of Compass Minerals.
+[P2.11] With our success comes a daily commitment to safety, diversity and integrity, as well as a profound responsibility for stewardship of the environment.
+[P2.12] Compass Minerals has 11 production and packaging facilities throughout the U.S., Canada and the U.K.
+[P2.13] As a company, we’re intentional about what we value. That allows us to make sure every interaction people have with us represents who we truly are at our core. And because we’re clear about those values, we’re sharing them with you here.
+</source>
+
+<source id="P3">
+[P3.1] Leading Producer of Salt, Plant Nutrients, and Magnesium Chloride | Compass Minerals
+[P3.2] Compass Minerals produces salt, plant nutrients, and magnesium chloride for distribution in the United States and Canada.
+[P3.3] Compass Minerals is a leading global provider of essential minerals, including salt, sulfate of potash and magnesium chloride. We also provide secure records storage in a retired section of an underground mine in the U.K. Products from Compass Minerals serve a variety of applications in consumer, industrial, chemical and agricultural markets.
+[P3.4] Compass Minerals is the largest U.S. producer of magnesium chloride.
+[P3.5] Compass Minerals provides plant nutrients for improved yield and consistent crop quality.
+[P3.6] We’re the leading salt producer in North America and the United Kingdom.
+[P3.7] Our DeepStore Records Management reflects our focus on sustainability.
+</source>

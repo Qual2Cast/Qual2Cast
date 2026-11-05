@@ -1,0 +1,60 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Coty Inc. (www.coty.com)
+Industry (SIC 28): Chemicals & Allied Products
+About this industry group: This major group includes pharmaceuticals and biological products as well as industrial chemicals. Use clinical-stage and drug-platform extensions only for the relevant life-science business; do not impose drug approval or patent dependence on all commodity chemicals.
+
+Facets:
+- chemical_life_science_product_family (Chemical / life-science product family). Examples: Specialty coatings; Fertilizers; Prescription pharmaceuticals.
+- specialty_commodity_positioning (Specialty / commodity positioning). Examples: Customer-qualified specialty formulations; Bulk commodity chemicals.
+- formulation_synthesis_complexity (Formulation / synthesis complexity). Examples: Custom additive formulation; Multistep chemical synthesis; Standardized bulk production.
+- patent_exclusivity_dependence (Patent / exclusivity dependence). Examples: Patented active ingredient; Process know-how; Product-exclusivity expiry in 2029.
+- product_specific_regulatory_route (Product-specific regulatory route). Examples: TSCA chemical compliance; REACH registration; FDA-approved medicine.
+- r_d_intensity (R&D intensity). Examples: Annual R&D: 6% of sales; Annual R&D: 18% of sales.
+- clinical_commercialization_stage_pharma (Clinical / commercialization stage [pharma]). Examples: Phase II trial program; Phase III registration study; Commercialized medicine.
+- biologic_small_molecule_platform_pharma (Biologic / small-molecule platform [pharma]). Examples: Monoclonal antibodies; Small molecules; Vaccines.
+- manufacturing_supply_model_pharma (Manufacturing / supply model [pharma]). Examples: Own GMP drug manufacturing; Outsourced API manufacturing; Contract development and manufacturing.
+
+Evidence:
+<source id="P1">
+[P1.1] Coty - Official Website - Fearless. Forward. You.
+[P1.2] We are one of the world's largest beauty companies with an iconic portfolio of brands across fragrance, color cosmetics, skin and body care.
+[P1.3] This month, Coty brand and market leaders gathered in Paris to drive our shared priorities forward and compare notes on execution. We work as one team across markets and time zones every day — but nothing beats a few days in person, building momentum together. #TeamCoty #CotyNews #PowerPrestige #Beauty
+[P1.4] Strong brands know exactly who they serve best. For CoverGirl, that means reconnecting with a generation that has been central to the brand's story for decades. Gen X accounts for roughly one-third of beauty spending and is projected to remain the world's highest-spending generation across consumer categories through at least 2033 — a consumer group with real purchasing power and a clear appreciation for quality, accessibility, and value. Serving Gen X with greater focus, while remaining a brand for all generations, is what powers CoverGirl's next chapter of growth. Read the full story in Bloomberg Businessweek: https://lnkd.in/emFW-HNN #CotyNews #Coty #ConsumerBeauty #CoverGirl
+[P1.5] Behind every fragrance is a collaboration of creative minds. Meet the perfumers behind BOSS Bottled Beyond for Her: Quentin Bisch, Benoist Lapouza and Louise Turner. Each brought a distinct perspective, shaping a composition inspired by radiance, depth and determination, united in one unforgettable olfactive signature. A new trio. A new era. Crafted in duality: the radiance of Pink Peony meets the richness of Maple Syrup, balanced in perfect harmony. #CotyNews #BOSSRecognizeBOSS #FragranceCreation HUGO BOSS
+[P1.6] Step into the World of Burberry Beauty at Macy's Herald Square Flagship Store in New York City. Burberry's iconic fragrance collection and makeup range come to life in an immersive beauty experience inspired by British elegance, creativity, and effortless sophistication. ✨ #BurberryBeauty #CotyNews
+</source>
+
+<source id="P2">
+[P2.1] Our purpose : Together we unleash every vision of beauty - Coty
+[P2.2] At Coty, we believe that today, no one can control or dictate what is or is not beautiful. It's why kindness is at the heart of everything we do!
+[P2.3] Together, we unleash every vision Of beauty
+[P2.4] Over a century ago, Coty began a journey that helped transform beauty into the global industry it is today. A legacy of innovation and excellence has guided the business and driven our mission to enable and empower all visions of beauty, from our very first fragrance to the newest portfolio launch. It is a history we are proud to own and build upon…
+[P2.5] We believe science and passion are the driving force behind transformation.
+[P2.6] Our mission is to create forward-thinking beauty through products that provide new, innovative, and simply better science-based solutions.
+[P2.7] At Coty, we believe that no one can control or dictate what is or is not beautiful.
+[P2.8] Beauty is formless, like water, a constantly evolving and adapting concept.
+[P2.9] Beautiful is whatever makes us feel good in our own skin, and that can change day by day.
+[P2.10] We are here to unleash every vision of beauty that exists today and that will exist tomorrow.
+[P2.11] It’s why fearless kindness is at the heart of everything we do.
+[P2.12] We will be fearlessly kind to ourselves. We know that beauty starts from the inside. We will bring the best of who we are, including our quirks and our singularities, to the table.
+[P2.13] We will be fearlessly kind to others. We embrace and include – we don’t judge and we don’t divide. We are simply one.
+[P2.14] We will be fearlessly kind to the planet. We prioritize sustainability. We do better with less. We favor quality over quantity.
+</source>
+
+<source id="P3">
+[P3.1] Our Brands - Coty
+[P3.2] Our multiple divisions – Coty Luxury and Coty Consumer – are home to iconic global brands as well as much-loved regional brands.
+</source>

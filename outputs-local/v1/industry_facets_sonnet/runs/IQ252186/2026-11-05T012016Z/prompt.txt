@@ -1,0 +1,125 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Arthur J. Gallagher & Co. (www.ajg.com)
+Industry (SIC 64): Insurance Agents, Brokers & Services
+About this industry group: Distinguish policy-count renewal, client-count retention and premium/revenue retention. Commissions and contingent commissions are intermediary compensation, not underwriting profit.
+
+Facets:
+- insurance_intermediary_role (Insurance intermediary role). Examples: Independent broker; Exclusive agent; Third-party administrator.
+- insurance_placement_niche (Insurance placement niche). Examples: Commercial P&C; Employee benefits; Personal lines.
+- intermediary_compensation (Intermediary compensation). Examples: Carrier-paid commissions; Client advisory fees; Contingent commissions.
+- policy_account_renewal (Policy / account renewal). Examples: 92% of expiring policies renewed; 90% of expiring client accounts renewed.
+- carrier_market_access (Carrier / market access). Examples: Multiple carrier appointments; Wholesale placement relationships; Single-carrier distribution.
+- client_retention_by_measure (Client retention by measure). Examples: Annual client-count retention: 92%; Renewal-premium retention: 95%.
+
+Evidence:
+<source id="P1">
+[P1.1] Insurance, Risk Management and Consulting | Gallagher
+[P1.2] Gallagher Insurance offers business insurance solutions through trusted brokers specializing in comprehensive risk management and consulting services
+[P1.3] Your Trusted Partner for Insurance & Consulting
+[P1.4] Gallagher helps you face your future with confidence.
+[P1.5] Welcome to the New Cyber Reality | A Multi-Part Video Series
+[P1.6] As cyber risk, technology and innovation become increasingly interconnected, Gallagher brings you global perspectives and practical insights.
+[P1.7] Caring With Confidence: Senior Living Webinar Series
+[P1.8] Explore the trends, risks and opportunities shaping senior living.
+[P1.9] Turn Risk into a Competitive Advantage
+[P1.10] See how risk forecasting sharpens strategy, manages talent, cuts reputational risk and turns uncertainty into advantage.
+[P1.11] AI Adoption: Turning Insight Into Impact
+[P1.12] Gallagher’s AI survey explores AI adoption, key risks and why most leaders expect ROI in two to three years.
+[P1.13] Showing slide 1 of 4
+[P1.14] Forge ahead knowing Gallagher helps you face any risk, anywhere in the world.
+[P1.15] We understand the significance of having a trusted partner by your side. We'll be there through every decision, every challenge, every step of the way.
+[P1.16] Solutions to Fit Your Needs
+[P1.17] Protect your people and reduce your total cost of risk with Gallagher's innovative, industry-leading insurance and risk management solutions. We guide you through your unique risk profile and recommend products and services that are right for you.
+[P1.18] Benefits and Human Resources Consulting
+[P1.19] Put your people at the center of your customized benefits and HR programs with Gallagher's holistic approach to organizational wellbeing.
+[P1.20] The Gallagher Way leads to better client outcomes.
+[P1.21] "It's our attitude toward clients, our capabilities and our accessibility — that culture of working together, of supporting each other — that makes the best outcome for the client."
+[P1.22] At Gallagher, our industry specialists are passionate about sharing their depth and breadth of knowledge — providing thought leadership and a fresh perspective on topics that matter, so you can make confident decisions for your business, your employees and your community.
+[P1.23] Navigating Now: Commercial Insurance Trends for Spring 2026
+[P1.24] Gallagher explores key insurance trends shaping the Spring 2026 market, including supply chain risks, AI liability, and property and casualty market dynamics.
+[P1.25] How Litigation Financing Is Reshaping Real Estate Claims
+[P1.26] Funded litigation is a concern for multifamily and hospitality property owners. Learn how to mitigate the risk.
+[P1.27] How People-First Frameworks Protect Against Shadow AI Risk
+[P1.28] Discover how trust, communication and practical AI governance can help organizations reduce shadow AI risk and build lasting resilience.
+[P1.29] Executive and Financial Risk 61 mins
+[P1.30] The Biggest D&O Themes of 2026: Underwriters Weigh In
+[P1.31] Learn how securities litigation, AI investment trends and regulatory developments are influencing D&O risk and beyond.
+[P1.32] Occurrence and Claims-Made Insurance Explained for M&A Transactions
+[P1.33] Learn how occurrence and claims-made policies affect RWI coverage, run-off requirements, deal negotiations, and M&A transaction costs.
+[P1.34] Legal industry trends for 2026: AI adoption, cybersecurity, talent mobility, workforce risks and evolving insurance strategies.
+[P1.35] Gallagher Solutions Span the Industry
+[P1.36] Whether you are a business owner, an insurance broker, an insurance carrier or a re-insurer, there is a Gallagher company ready to serve you.
+[P1.37] Leveraging data & analytics to tailor the right reinsurance for you.
+[P1.38] Delivering the outcomes that matter most to your organization.
+[P1.39] Pioneering ways to reduce risk in today's competitive market.
+[P1.40] Making coverage for the impossible, possible.
+[P1.41] Protecting people & organizations across industry sectors.
+[P1.42] Guiding you through complex risk landscapes.
+[P1.43] We believe in the power of growth for our clients, communities and people. With a focus on business partnerships, strategic investments and professional development, we foster continued advancement and success for all.
+[P1.44] Unlock your full potential with Gallagher.
+[P1.45] You've worked hard to build a successful business and an experienced talented team. Discover how Gallagher can further invest in your business and empower your people for long-term success.
+</source>
+
+<source id="P2">
+[P2.1] Driving Employee Engagement and Listening Strategies | Gallagher
+[P2.2] From employee engagement surveys to multi-channel listening strategies and analytics, we help you turn insights into action.
+[P2.3] Driving Employee Engagement and Listening Strategies
+[P2.4] Start your journey with us today.
+[P2.5] Beyond engagement surveys: Building a culture of listening
+[P2.6] Build a thriving workplace on a foundation of employee engagement. When employees and clients feel heard, trust grows, innovation accelerates, and retention improves. Use annual survey data to inform listening strategies that create continuous feedback loops to drive meaningful change.
+[P2.7] Benefits of a strong listening strategy:
+[P2.8] Enhance engagement and motivation: Employees who feel heard are more committed and productive.
+[P2.9] Drive continuous improvement: Feedback uncovers inefficiencies and sparks innovation.
+[P2.10] Build trust and transparency: Listening signals openness and accountability.
+[P2.11] Support retention and reduce turnover: Identify dissatisfaction early and act before issues escalate.
+[P2.12] Inform strategic decision-making: Insights guide policies, programs and business priorities.
+[P2.13] Comprehensive solutions for people and workplace experiences
+[P2.14] Build a strong, cost-effective listening culture with access to expert insights and analytics without the complexity of a full-scale engagement program.
+[P2.15] Capture the full employee experience with multi-faceted programs that combine listening tools such as engagement surveys, pulse checks and focus groups. Our scientifically rigorous engagement metrics are twice as predictive as industry norms, ensuring actionable insights.
+[P2.16] Listening strategies: A seven-step approach to employee listening
+[P2.17] Advanced analytics: Key driver analysis, cluster analysis and business linkage analysis
+[P2.18] Proprietary benchmarks: Annual updates for accurate comparisons
+[P2.19] Predictive metrics: Identify challenges before they impact performance
+[P2.20] Action planning: A proven four-step model to close the feedback loop
+[P2.21] Use holistic listening to gather actionable data. Our team integrates insights from employee and client feedback channels to create a 360-degree view of your organization's performance. By combining these perspectives, we help you uncover connections between workforce engagement and customer experience, leading to smarter decisions and stronger business outcomes.
+[P2.22] The Gallagher KnowledgeNow platform delivers powerful reporting and action-planning tools. No problem. Our team can help you maximize your technology's capabilities and interpret results for meaningful action.
+[P2.23] Leverage data, technology and trusted expertise
+[P2.24] We combine proprietary data, cutting-edge technology and deep consulting expertise to deliver strategies that matter. Organizations trust us to turn insights into measurable outcomes.
+[P2.25] Using Gallagher's approach, our annual voluntary turnover rates fell from 22% to 11%.
+[P2.26] Let's build a listening strategy that drives engagement and business success. Talk to a Gallagher People and Workplace Experiences consultant today.
+[P2.27] Meet our Engagement Solutions Leadership
+[P2.28] People and Workplace Experiences Consulting Summary
+[P2.29] Listening strategies that foster trust, innovation and retention through continuous feedback loops
+[P2.30] Comprehensive solutions to support employee engagement, including surveys, pulse checks, advanced analytics and predictive metrics
+[P2.31] Multi-channel listening that integrates employee and client feedback for a 360-degree view, linking workforce engagement to customer experience
+[P2.32] Tailored subscription services and technology enablement to ensure accessible, cost-effective strategies for organizations of all sizes
+[P2.33] Human Resources and Organizational Effectiveness
+[P2.34] HR consulting solutions to help ensure your HR policies, processes and programs are compliant and align with your organization's goals
+[P2.35] Global compensation consulting solutions and technology help you achieve the business outcomes that matter most to you.
+[P2.36] Our leadership advisors work with you to empower the leaders in your organization with the skills and developmental training to lead with confidence. We help to ensure that your organization is structured for success from people to roles to skills.
+[P2.37] Why Employers Need an Employee Listening Strategy: 8 Moments That Demand Employee Feedback
+[P2.38] 5 Ways to Build Employee Development
+[P2.39] Case Study: How Collaboration and Data Drive Employee, Patient Care and Business Goals
+</source>
+
+<source id="P3">
+[P3.1] About Us: Global Insurance Brokers since 1927 | Gallagher
+[P3.2] Explore Gallagher and learn why we help business and communities thrive and face their future with confidence through risk management, hr and benefits consulting, and insurance solutions.
+[P3.3] We help you face your future with confidence.
+[P3.4] Gallagher is one of the world’s largest insurance brokerage, risk management and consulting firms.
+[P3.5] Founded by Arthur J. Gallagher in Chicago Gallagher has grown to be one of the leading insurance brokerage, risk management, and HR & benefits consulting companies in the world.
+[P3.6] Passionate service, strategic innovation, and ethical behavior form the basis of how we do business — The Gallagher Way. All with one purpose: To help you face your future with confidence.
+</source>

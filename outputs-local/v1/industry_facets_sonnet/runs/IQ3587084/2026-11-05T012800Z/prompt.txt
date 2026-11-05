@@ -1,0 +1,46 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Franklin Street Properties Corp. (www.fspreit.com)
+Industry (SIC 67): Holding & Other Investment Offices
+About this industry group: Distinguish operating holding companies, investment vehicles, equity REITs and mortgage REITs. Use look-through operating-segment modules for controlled businesses; do not treat fund AUM, NAV and consolidated operating revenue as equivalent scale. Property extensions can be shared with SIC 65 without changing the source’s official code. REIT scope.
+
+Facets:
+- holding_investment_office_structure (Holding / investment-office structure). Examples: Operating holding company; Closed-end investment vehicle; Equity REIT.
+- investment_operating_asset_mix (Investment / operating asset mix). Examples: Controlled industrial subsidiaries; Listed securities portfolio; Income-producing property.
+- control_look_through_ownership (Control / look-through ownership). Examples: Majority-owned subsidiaries; Minority equity stakes; Noncontrolling fund investments.
+- portfolio_concentration (Portfolio concentration). Examples: Three holdings: 70% of NAV; Single-sector investment portfolio.
+- management_incentive_fees_externally_managed_vehicles (Management / incentive fees [externally managed vehicles]). Examples: No external manager fee; 1% of NAV annual management fee; Performance fee above stated hurdle.
+- nav_basis_investment_vehicles (NAV basis [investment vehicles]). Examples: Reported NAV/share at quarter-end; Reported portfolio NAV at year-end.
+- parent_funding_subsidiary_recourse (Parent funding / subsidiary recourse). Examples: Parent-only net debt; Ring-fenced subsidiary borrowings; Parent-guaranteed subsidiary debt.
+- market_discount_listed_investment_vehicles (Market discount [listed investment vehicles]). Examples: Share price 15% below disclosed NAV/share; Share price 5% above disclosed NAV/share.
+- reit_business_model_6798 (REIT business model [6798]). Examples: Equity REIT owning properties; Mortgage REIT holding loan assets.
+- property_portfolio_equity_reits (Property portfolio [equity REITs]). Examples: Multifamily apartments; Industrial warehouses; Data-center properties.
+- property_occupancy_equity_reits (Property occupancy [equity REITs]). Examples: 95% physically occupied units; 92% leased floor area.
+- same_property_noi_growth_equity_reits (Same-property NOI growth [equity REITs]). Examples: Annual same-property NOI: +3%; Quarterly same-property NOI: −1%.
+- lease_expiry_equity_reits (Lease expiry [equity REITs]). Examples: 20% of annual base rent expires within two years; Rent-weighted unexpired lease term: 6.5 years.
+- mortgage_asset_mix_mortgage_reits (Mortgage asset mix [mortgage REITs]). Examples: Agency residential MBS; Commercial mortgage loans; Nonagency mortgage securities.
+- financing_hedge_model_mortgage_reits (Financing / hedge model [mortgage REITs]). Examples: Repo-funded MBS portfolio; Match-funded commercial mortgages; Interest-rate swap hedges.
+
+Evidence:
+<source id="P1">
+[P1.1] Franklin Street Properties Corp.
+[P1.2] Franklin Street Properties Corp. (FSP) is an investment firm based in Wakefield, Massachusetts, focused on achieving current income and long-term growth through investments in commercial properties.
+[P1.3] Franklin Street Properties Corp., based in Wakefield, Massachusetts, is focused on infill and central business district (CBD) office properties in the U.S. Sunbelt and Mountain West, as well as select opportunistic markets. FSP is focused on long-term growth and appreciation. FSP is a Maryland corporation that operates in a manner intended to qualify as a real estate investment trust (REIT) for federal income tax purposes. FSPâs real estate operations include property acquisitions and dispositions, short-term financing, leasing, development and asset management.
+</source>
+
+<source id="P2">
+[P2.1] Franklin Street Properties Corp. | About Us
+[P2.2] As of, the Company owned a portfolio of real estate consisting of 14 owned properties. The Company may also pursue, on a selective basis, the sale of its properties in order to take advantage of the value creation and demand for its properties, for geographic, property specific reasons or for other general corporate purposes.
+</source>

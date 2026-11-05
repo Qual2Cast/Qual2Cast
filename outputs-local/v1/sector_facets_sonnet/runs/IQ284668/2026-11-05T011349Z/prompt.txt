@@ -1,0 +1,66 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: LSB Industries, Inc. (www.lsbindustries.com)
+Sector: Manufacturing (industrial, materials, electronics)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- manufacturing_type (Manufacturing type): How it makes products. Example: discrete: builds individual units on assembly lines. Any that apply of: discrete; process; assembly; outsourced / fabless.
+- production_model (Production model): Built for an order or for stock. Example: make-to-order: each unit configured to the customer's order. Exactly one of: make-to-order; make-to-stock; both.
+- product_complexity (Product complexity): How engineered its products are. Example: engineered: custom-configured equipment. Exactly one of: commodity; engineered; precision / high-spec.
+- production_role (Production role): Where it sits in its customers' supply chain. Example: final manufacturer: sells finished units to contractors. Any that apply of: final manufacturer / OEM; tier 1 supplier; tier 2 or component supplier; contract manufacturer; materials producer.
+- end_market_exposure (End-market exposure): Which end markets drive demand. Example: industrial: factories and commercial buildings. Any that apply of: aerospace and defense; automotive and transportation; industrial; construction and buildings; energy; electronics and semiconductors; healthcare and life sciences; consumer; agriculture; other.
+
+Evidence:
+<source id="P1">
+[P1.1] Home - LSB Industries
+[P1.2] Solutions that Build, Feed, and Power the World
+[P1.3] Our innovative solutions drive critical industries forward, ensuring sustainable growth and development globally.
+[P1.4] Improving the quality of life for current and future generations by creating and delivering a variety of essential products across the industrial and agricultural end markets is nothing new for the people of LSB Industries, Inc. (LSB). But it doesn’t end there. We are committed to playing a leadership role in the production of low and no carbon products that not only build and feed the world, but power it, as well.
+[P1.5] Whether you’re a customer, a job seeker, an investor or are simply interested in our efforts to help decarbonize our world, we’re confident you will find what you are seeking at LSB.
+[P1.6] At LSB, our vision is to be a leader in the production of low and no carbon products that build, feed and power the world.
+[P1.7] We believe there is a substantial need for low carbon energy sources across various business sectors, and we are committed to helping meet that demand through the production and delivery of low and no carbon products to multiple end markets.
+[P1.8] LSB supplies industrial and high purity metallurgical grade ammonia and nitric acid for many specialty applications. Our knowledge, expertise, and supply position in the nitrogen products we market, when combined with our logistical advantages, provide us with the capability to offer significant value to our customers.
+[P1.9] Our fertilizer products – ammonia and derivative products – are used as nitrogen fertilizers that enable farmers to grow with efficacy, effectiveness, and efficiency.
+</source>
+
+<source id="P2">
+[P2.1] About - LSB Industries
+[P2.2] and headquartered in Oklahoma City, Oklahoma, LSB manufactures ammonia and ammonia-related products at our facilities in El Dorado, Arkansas, Cherokee, Alabama, and Pryor, Oklahoma. We also operate a facility for Covestro LLC in Baytown, Texas. We are a vital supplier to the world’s leading chemical and industrial companies and to the U.S. agricultural market. The chemicals we manufacture are included in hundreds of products used by thousands of people every day.
+[P2.3] LSB is committed to playing a leadership role in the production of low and no carbon products that build, feed and power the world. Our team is dedicated to building a culture of excellence in customer experiences as we deliver essential products across the industrial and agricultural end markets and, coming soon, the energy markets.
+[P2.4] Our Purpose, Vision and Values
+</source>
+
+<source id="P3">
+[P3.1] Products - LSB Industries
+[P3.2] At LSB, we leverage multiple competitive advantages to provide our customers with the products they need, while ensuring they receive the best value for their investment. Our manufacturing facilities are strategically located in close proximity to key user end markets with multiple transportation options to ensure timely delivery to our customers. Our energetic Commercial and Sales teams are dedicated to meeting our customers’ needs with quality products, security of supply and superior customer service.
+[P3.3] YOU MAY NOT SEE THEM, BUT YOU USE OUR PRODUCTS EVERY DAY
+[P3.4] LSB supplies industrial and high purity metallurgical grade ammonia for many specialty applications, including water treatment, refrigeration, and power plants emission abatement. Nitric acid is also an important product in our industrial portfolio that is used to manufacture semi-conductors, nylon, and polyurethane intermediates. Our knowledge, expertise, and supply position in the nitrogen products we market, when combined with our logistical advantages, provide us with the capability to offer significant value to our customers.
+[P3.5] MINING OPERATORS TRUST OUR PRODUCTS
+[P3.6] Industrial grade, prilled low-density AN and AN solutions are needed by mining customers around the world as they extract coal, copper, gold, and other vital minerals. Transported in a non-explosive state to their destination mining, quarry, or construction site, our products are then altered to suit the specific use for which they are intended.
+[P3.7] Chemical feedstock, emissions abatement, water treatments, refrigerants
+[P3.8] Semiconductor, nylon and polyurethane intermediates, ammonium nitrate, metals processing, DoD contractors- armaments
+[P3.9] Sulfuric Acid 93% Low Iron
+[P3.10] Bromine, pulp and paper, water treatment, metals processing (lithium, vanadium, aluminum, etc.)
+[P3.11] Food refrigeration, dry ice, enhanced oil recovery
+[P3.12] Ammonium Nitrate Solution (ANS) 83%-86%
+[P3.13] Ammonium Nitrate Solution (ANS) 50%
+[P3.14] Explosives for mining, quarries, and other blasting activities
+[P3.15] HELPING FARMERS TO GROW BETTER CROPS MORE EFFICIENTLY
+[P3.16] Our agricultural products are used for growing a variety of crops and grains including corn, cotton, wheat, alfalfa, vegetables, and citrus – all across North America. Our fertilizer products – ammonia and derivative products – are used as nitrogen fertilizers that enable farmers to grow with efficacy, effectiveness, and efficiency.
+[P3.17] Urea ammonium nitrate solutions (UAN)
+[P3.18] Liquid fertilizer for corn and other crops
+[P3.19] High nitrogen content fertilizer primarily used for corn
+</source>

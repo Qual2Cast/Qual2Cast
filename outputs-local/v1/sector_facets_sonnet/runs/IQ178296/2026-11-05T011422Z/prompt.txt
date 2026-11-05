@@ -1,0 +1,85 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Meritage Homes Corporation (www.meritagehomes.com)
+Sector: Construction and real estate
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- construction_role (Role): Its role in building or property. Example: specialty contractor: mechanical and electrical work. Any that apply of: homebuilder; general contractor; specialty contractor; engineering and design; land developer; property owner / REIT; property services.
+- project_type (Project type): What kind of projects. Example: infrastructure: roads and bridges. Any that apply of: residential; commercial / institutional; industrial; infrastructure; energy and utilities.
+- public_funding (Public funding): How much of its work is publicly funded. Example: high: mostly state transportation departments. Exactly one of: high; medium; low.
+
+Evidence:
+<source id="P1">
+[P1.1] Home | Meritage Homes
+[P1.2] Your New Home Is Closer Than You Think
+[P1.3] Explore new homes and helpful resources to understand your options, see what may be possible and take your next step with confidence.
+[P1.4] REAL ESTATE AGENTS GET MORE IN THE AGENT PORTAL
+[P1.5] Streamline your work and grow your business with the one-stop-shop tool inspired by real feedback from agents.
+[P1.6] Get the stylish design, energy efficiency and home warranty of a new home with the quick move-in timeline and turnkey experience you thought you’d only find with used homes.
+[P1.7] Here, energy efficiency isn’t just a feature, it’s a philosophy woven into every detail. From insulation to appliances, our homes are designed to help you lower costs and enjoy a more comfortable way of living.
+[P1.8] We’ve been pushing ourselves to higher standards for 40+ years. We don’t do it for the glory, though. We raise the bar on homebuilding because your home deserves the best.
+[P1.9] Having real estate agent representation offers major advantages when buying your dream home. Let their expertise work for you.
+[P1.10] It’s simple. The experience in buying anything, especially a home, comes down to customer service. The Meritage people were beyond reproach. An absolute pleasure! I won’t hesitate to buy a Meritage home if I get the chance again.
+[P1.11] Growing up in a small town, I always dreamt of owning my own home. After years of hard work and saving, I finally achieved that dream with the help of Meritage Homes. From the moment I walked into their sales office, I knew I was in good hands. The process was smooth, and their team guided me every step of the way. Now, as I sit in the comfort of my new home, I'm filled with gratitude for this milestone in my life. Thank you, Meritage Homes, for making my dream a reality.
+[P1.12] I bought my house over the internet looking at the video and to be honest I was not 100% sure about all the things but to my surprise, the house was exactly the way it was explained it to me. [The Meritage team] was extremely helpful with explaining all the do’s and don’ts for the house. [They] also helped to take care of some minor stuff swiftly. Always kept good communication and are always keeping tabs of the jobs that were scheduled to be done.
+[P1.13] As an agent, I'm always looking for builders who truly prioritize value, transparency, and thoughtful design—and Meritage Homes checks every box. From their energy-efficient features and included solar to their 'Everything's Included' approach, Meritage takes guesswork (and hidden costs!) out of [the] new-build process. Their homes are not only beautifully designed but also incredibly functional for modern families. [I] love referring clients to Meritage because [I] know they're in good hands. [This is a] builder that delivers quality, integrity, [and an] effortless buying experience every step [of the] way.
+[P1.14] Connect with a real estate agent
+[P1.15] Your dream home is just a few clicks away.
+</source>
+
+<source id="P2">
+[P2.1] About Meritage Homes | Meritage Homes
+[P2.2] Opening the door to a Life. Built. Better. ®.
+[P2.3] Building for you, at a higher standard.
+[P2.4] From money-saving energy efficiency to thoughtful design, we believe our homeowners deserve a Life. Built. Better. ® That’s why we’re raising the bar in the homebuilding industry.
+[P2.5] See what makes it possible
+[P2.6] Because your home is built with money-saving, energy-efficient features.
+[P2.7] Because your home is designed to help you enjoy fresher air, fewer allergens & less pests.
+[P2.8] Because we thoughtfully engineer every component from the foundation to the final shingle.
+[P2.9] Because your home is designed to keep you cozy & comfy, all year long.
+[P2.10] From the foundation to the final shingle, we thoughtfully engineer every component of the homes we build. And it makes a difference. Take a closer look at the whole-home benefits that set us apart from other builders.
+[P2.11] We're honored to be recognized for our building process, customer service and more.
+[P2.12] 35+ years of building strong communities.
+[P2.13] Supporting communities through giving is a cornerstone of our business and a belief that guides us. Building on a long tradition, we continue to shape stronger communities and neighborhoods across the country.
+[P2.14] Now that you’ve learned a little about us, get to know the homes we build from coast to coast.
+</source>
+
+<source id="P3">
+[P3.1] We value our real estate agent partners. So we treat you like rock stars. | Meritage Homes
+[P3.2] We value our real estate agent partners. So we treat you like rock stars.
+[P3.3] Since launching Agents Rock Meritage Homes has been strengthening its commitment to real estate agents. Now, we’re turning it up a notch with even more tools, rewards, and client advantages designed to help you grow your business.
+[P3.4] Your Key to Efficiency: Agents Rock Rewards Portal
+[P3.5] We've invested in technology to make your job easier. The Agent Portal is your central hub for everything Meritage:
+[P3.6] Access our entire inventory with enhanced search filters only found in the portal.
+[P3.7] Manage your clients and more – all in one place.
+[P3.8] Streamline your workflow and find dream homes faster with our user-friendly platform, a testament to our ongoing commitment over the past 10 years.
+[P3.9] As we celebrate 10 years of partnership, we're excited to showcase a robust rewards program designed to make growing your business easier. With exciting new benefits, opportunities to grow your business and more – all inspired by real feedback from agent partners, this is something you don’t want to miss. Sign up now to earn valuable rewards and unlock exclusive benefits as you grow with us.
+[P3.10] Rewards you can actually use.
+[P3.11] Some rewards programs give you a free pastry. Agents Rock Rewards gives you access to exclusive resources, practical tools, and support to grow your business.
+[P3.12] Give Your Clients the Best of Both Worlds
+[P3.13] Give your clients the stylish design, energy efficiency and home warranty of a new home with the quick-closing timeline and turnkey experience they thought they’d only find with used homes. When your clients buy with Meritage, they’ll open the door to a home that’s ready to start living.
+[P3.14] How to position Meritage energy efficiency in a simple, buyer-friendly way.
+[P3.15] With our Closing-Ready Guarantee, your client's new home is ready to close in 60 days or less.
+[P3.16] Our homes are Move-In Ready so your clients can go from house to home on Day 1 with:
+[P3.17] A full suite of new Whirlpool® appliances: Refrigerator, range, microwave, dishwasher, and washer/dryer.
+[P3.18] As a condition to the payment of any commission, the real estate agent must provide a completed and fully executed Broker Registration and Commission Addendum (in the form provided with the Purchase Agreement) within 24 hours after the buyer executes the applicable contract for the home.
+[P3.19] Any real estate agent representing the buyer in a transaction for the purchase of a Meritage home represents only the prospective buyer as a “Buyer Broker.” The agent does not represent, act on behalf of, or owe fiduciary duties to Meritage Homes Corporation or any of its affiliated entities.
+[P3.20] Real estate agent must hold an active real estate license in the state where the home is located.
+[P3.21] If Addendum is executed in connection with a contract for the sale of a home, the real estate agent shall be solely responsible for obtaining a signed release from the broker previously identified on the Broker Registration and Commission form as a condition precedent to changing the broker of record. Absent such release, Meritage Homes will not recognize any party other than the broker named in such form as sole to the original broker identified in section 5.
+[P3.22] The Agents Rock Rewards program and any benefits are subject to any applicable laws and governmental restrictions. Agents Rock Rewards Program is void in states where prohibited by law. Meritage Homes reserves the right to terminate or amend this program at any time, in part if such changes affect rewards payable under this program without prior notice or obligation; even if it affects points that conditions of participation, participation qualification criteria or benefits earned. Meritage Homes further reserves the right, in its sole discretion to revoke a participant's membership or status in Agents Rock Rewards Program at any time without prior notice or obligation.
+[P3.23] Closings required for promotion to Platinum and Diamond Tiers include closings for any homes. Meritage closings are automatically counted for the promotion to Platinum and Diamond Tiers. Closings that are not Meritage homes will count toward promotion to Platinum and Diamond Tiers upon documentation provided by agent to Meritage. In addition, Agents Rock Rewards members may inquire with Meritage regarding promotion to higher tiers on a trial basis.
+[P3.24] Meritage Homes retains all rights, title, and interest in and to its marketing materials, including photographs, renderings, floorplans, videos, virtual tours, and other promotional content. Participation in the Agents Rock Rewards Program, listing of Meritage homes, or receipt of any program benefits does not grant any license or authorization to use, reproduce, distribute, or republish such materials for the resale, lease, or other marketing of a home after its sale by Meritage Homes. Any such use requires the prior written consent of Meritage Homes, which may be withheld in its sole discretion.
+</source>

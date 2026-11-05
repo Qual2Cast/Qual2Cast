@@ -1,0 +1,84 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: American Financial Group, Inc. (www.afginc.com)
+Sector: Banks, insurance and other financials
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- financial_business_type (Financial business type): What kind of financial firm. Example: insurance brokerage: places commercial insurance for clients. Any that apply of: banking; specialty lending; property and casualty insurance; life and health insurance; insurance brokerage; asset / wealth management; exchanges and market infrastructure; payments; other.
+- revenue_driver (Revenue driver): What it earns on. Example: fees: commissions on placed premiums. Any that apply of: net interest income; fees and commissions; premiums; investment income.
+- customer_type (Customer type): Who its clients are. Example: corporate: small and mid-sized businesses. Any that apply of: retail; corporate; institutional; government.
+- balance_sheet_dependence (Balance sheet dependence): Whether it carries the risk. Example: fee-based: no underwriting risk. Exactly one of: balance-sheet intensive; fee-based; mixed.
+
+Evidence:
+<source id="P1">
+[P1.1] American Financial Group, Inc.
+[P1.2] Leader in the Specialty Property and Casualty Marketplace
+[P1.3] American Financial Group is committed to delivering financial solutions that fulfill today’s needs and tomorrow’s dreams. Our Specialty P&C Insurance Group offers specialized commercial products that help businesses manage financial risk with insurance products that meet their specific and ever-changing financial risk exposures.
+[P1.4] Our insurance operations are members of Great American Insurance Group, whose history dates back to 1872, with the founding of Great American Insurance Company.
+[P1.5] A Specialist in Property and Casualty Insurance
+[P1.6] Our Specialty P&C Insurance Group offers specialized commercial products that help businesses manage financial risk with insurance products that meet their specific and ever-changing financial risk exposures.
+[P1.7] Visit the Great American Website
+[P1.8] View All News View All Events
+[P1.9] American Financial Group, Inc. Announces Closing of the Sale of Charleston Harbor Resort & Marina
+[P1.10] 2026 Keefe, Bruyette & Woods Insurance Conference
+[P1.11] Piper Sandler Cincinnati Investor Meeting
+[P1.12] Because you are buying a promise, you want to know that the insurance company you choose is financially strong. One way to judge this is by the ratings assigned by outside rating agencies.
+</source>
+
+<source id="P2">
+[P2.1] About Us | American Financial Group, Inc.
+[P2.2] American Financial Group, Inc. is a holding company based in Cincinnati, Ohio and. Our insurance roots go back to 1872 with the founding of Great American Insurance Company. Today, through the operations of Great American Insurance Group, AFG is engaged in property and casualty (P&C) insurance, focusing on specialized commercial products for businesses. We are proud to provide insurance products that help businesses manage their unique financial risks and exposures.
+[P2.3] AFG’s Specialty P&C Group is comprised of over 35 diversified businesses offering a wide range of specialty commercial coverages in three major groupings: Property and Transportation, Specialty Casualty and Specialty Financial.
+[P2.4] Many of our businesses are among the top performers in their respective industries. Our business has entrepreneurial spirit at its core, with a focus on accountability. Business autonomy in our Specialty P&C operations facilitates agility in underwriting, claims and policy servicing, and enables these businesses to develop distribution strategies and relationships in the unique markets they serve.
+[P2.5] By following a consistent, opportunistic strategy over many years and changing economic conditions, we have outperformed market indices over the long term while effectively managing portfolio risk.
+[P2.6] With the power of generations behind it, AFG grows and changes with discipline and integrity. We're proud of who we are, where we've been and where we're going. Our industry is changing, and we continue to change as well.
+[P2.7] American Financial Group traces its history to 1959. In the early days, the Company was known as American Financial Corporation. At its inception, the Company’s principal business consisted of savings and loans. Although insurance and financial services have always been at the core of its businesses, nearly sixty-five years later, the Company has evolved into a holding company with over 35 market-leading insurance operations engaged in the sale of specialty commercial property and casualty (P&C) insurance across a variety of industries.
+[P2.8] Over the past 20 or so years, we have sharpened our focus on the businesses we know best. We’ve done this through carefully selected acquisitions, start-ups, and dispositions of non-core businesses. A sampling of transactions appears below:
+[P2.9] Sale of Commercial Lines Division
+[P2.10] Start-up of Financial Institution Services
+[P2.11] Acquired all minority shares of Great American Financial Resources, Inc.
+[P2.12] Start-up of Public Sector Division
+[P2.13] Sale of Medicare supplement & critical illness businesses
+[P2.14] Start-up of Professional Liability Division
+[P2.15] Sale of long-term care business
+[P2.16] Start-up of Great American's Singapore branch
+[P2.17] Start-up of M&A Liability Division
+[P2.18] Start-up of El Aguila Specialty P&C Division
+[P2.19] Start-up of Accident & Health Division
+[P2.20] Sale of Neon and exit from Lloyd’s market
+[P2.21] Sale of Annuity Business to MassMutual
+[P2.22] Start-up of Medical Stop Loss Business
+</source>
+
+<source id="P3">
+[P3.1] Corporate Social Responsibility | American Financial Group, Inc.
+[P3.2] Communities prosper when individuals and organizations demonstrate resilience in the face of challenges and possess the confidence to achieve the future they envision. At American Financial Group (AFG), we seek to instill that sense of assurance and greater possibilities—not only with our insurance products, but also by acting as a responsible corporate citizen.
+[P3.3] To learn more, download our Corporate Social Responsibility (CSR) Report.
+[P3.4] Operations and Financial Risk Management
+[P3.5] We operate our business with integrity and manage financial risk.
+[P3.6] We support organizations that make a positive impact in the communities where we live and work and promote social opportunity.
+[P3.7] We manage environmental risk and operate sustainably.
+[P3.8] Corporate Social Responsibility Report 12.8 MB
+[P3.9] Sustainability Accounting Standards Board Report 2025 545.1 KB
+[P3.10] Human Rights Statement and Our Commitment to Employees 156.3 KB
+[P3.11] Our corporate values form the foundation of our business, shape our priorities and set our expectations for how we conduct our business, serve our customers and interact with each other.
+[P3.12] For more information on our corporate values, please visit Great American Insurance Group.
+[P3.13] I understand the results expected of me in my job.
+[P3.14] The organization provides high quality products and services.
+[P3.15] I understand how my job contributes to the organization’s strategy and goals.
+[P3.16] I am treated with respect as an individual.
+[P3.17] I would recommend the organization as a good place to work.
+</source>

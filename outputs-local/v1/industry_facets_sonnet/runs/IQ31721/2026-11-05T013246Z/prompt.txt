@@ -1,0 +1,102 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Morningstar, Inc. (www.morningstar.com)
+Industry (SIC 62): Security and Commodity Brokers, Dealers, Exchanges and Services
+About this industry group: Separate asset managers, brokers, dealers and exchanges. AUM, AUA and assets under custody describe different roles and may overlap; do not add them together or treat them as interchangeable company scale.
+
+Facets:
+- financial_market_service (Financial-market service). Examples: Retail brokerage; Investment advisory; Securities market making.
+- client_instrument_exposure (Client / instrument exposure). Examples: Retail equities and ETFs; Institutional fixed income; Listed derivatives.
+- assets_under_management_asset_managers (Assets under management [asset managers]). Examples: $80 billion discretionary AUM; $20 billion non-discretionary AUM.
+- assets_under_administration_custody_platforms (Assets under administration / custody [platforms]). Examples: $100 billion client AUA; $300 billion assets under custody.
+- revenue_fee_economics (Revenue / fee economics). Examples: Asset-based advisory fees; Brokerage commissions; Principal trading revenue.
+- client_trading_activity (Client trading activity). Examples: One million executed trades/day; Ten million options contracts/month.
+
+Evidence:
+<source id="P1">
+[P1.1] Morningstar | Empowering Investor Success
+[P1.2] Morningstar is an investment research company offering mutual fund, ETF, and stock analysis, ratings, and data, and portfolio tools. Discover actionable insights today.
+[P1.3] Plus, four TIPS ETFs with top marks from Morningstar, and what you need to know before investing.
+[P1.4] Daniel Sotiroff and Ivanna Hampton
+[P1.5] Why Some Investors Are Better Off When They Stop Chasing Perfection
+[P1.6] Christine Benz makes the case for a ‘good enough’ portfolio.
+[P1.7] What’s Ahead for Stocks This Quarter—and Where to Invest
+[P1.8] Morningstar’s chief market strategist and economist share their outlooks for the fourth quarter of 2026.
+[P1.9] David Sekera, CFA, Preston Caldwell, and Susan Dziubinski
+[P1.10] The Diversified ETF of Your Dreams Doesn’t Exist. But Here’s How You Can Benefit from the Ones That Do
+[P1.11] Debunking 8 Myths About Private Credit and Semiliquid Funds
+[P1.12] 10 Best Blue-Chip Stocks to Buy for the Long Term
+[P1.13] This 1-Star Stock Trades at a 94% Premium.
+[P1.14] Smart Investor: A Risky Outlook for Stocks in Q4, Midterm Elections, and the Smartest Moves in Bonds
+[P1.15] Anthropic and OpenAI Face Commodification Threats. Here’s What to Watch For
+[P1.16] Weekly Market Update: Stocks Down as Consumer Defensives Climb and Technology Tumbles
+[P1.17] Lauren Solberg and Vikram Barhat
+[P1.18] What’s Happening in the Markets This Week
+[P1.19] Maoyuan Chen and Austin Taggart, CFA
+[P1.20] Netflix Stock Is Down 22% This Year.
+[P1.21] Spencer Look and Jack VanDerhei: The Assumptions That Can Put Your Retirement at Risk
+[P1.22] Jack VanDerhei, Spencer Look, Christine Benz, and Amy C. Arnott, CFA
+[P1.23] Investors Fled US Equity Funds in September. Here’s Where They Put Their Money Instead
+[P1.24] Rates, inflation, and valuations are all likely weighing on allocation decisions.
+[P1.25] Drew Carter and Joe Bullard, CFA
+[P1.26] 3 ETFs That Are Staging Big 2026 Comebacks
+[P1.27] 2 Stocks to Sell That Could Pay Off at Tax Time
+[P1.28] A beaten-down streaming stock and a popular name in the overvalued insurance sector could allow investors to put portfolio losses to work.
+[P1.29] David Sekera, CFA, Sarah Hansen, and Jess Bebel
+[P1.30] 33 Undervalued Stocks to Buy Before the Market Shifts Again
+[P1.31] Susan Dziubinski and Tori Brovet
+[P1.32] Venture Global: Data Center Entry Sends Shares Lower
+[P1.33] The Bond Selloff Story Has Shifted. Here’s How That Changes the Stakes for Investors
+[P1.34] Government debt worries are rising, but it’s still not time to panic. Here’s what to keep in mind if you’re worried about a debt crisis.
+[P1.35] CoreWeave and Data Center Bonds Slide on Capex and Debt Overhang Concerns
+[P1.36] 3 New Bond ETFs on Our Radar
+[P1.37] We wrap up our coverage of the markets and the week.
+[P1.38] Fake shopping sprees and 'happiness insurance': The latest fintech apps reveal our financial anxieties MarketWatch, 6:54:00 PM
+[P1.39] Fake shopping sprees and 'happiness -2- MarketWatch, 6:54:00 PM
+[P1.40] Investing, not homeownership, is the No. 1 milestone that makes Gen Z renters feel successful MarketWatch, 6:42:00 PM
+[P1.41] Oct 19 Crown Holdings Inc CCK
+[P1.42] Oct 19 Cleveland-Cliffs Inc CLF
+[P1.43] Oct 19 RLI Corp RLI
+[P1.44] Oct 19 SmartFinancial Inc SMBK
+[P1.45] Oct 19 CXJ Group Co Ltd ECXJ
+[P1.46] Economic Moat LOCK|D?$%^ Capital Allocation LOCK|#<&Y<# Read Analysis
+[P1.47] Economic Moat LOCK|%^ Capital Allocation LOCK|KJ^h#Xm Read Analysis
+[P1.48] Uncertainty LOCK|%MR Economic Moat LOCK|tCd Capital Allocation LOCK|^VR^@nt Read Analysis
+[P1.49] GLEN Glencore PLC Jon Mills, CFA Rating Price GBX583.10 Fair Value QnB Uncertainty LOCK|PK Economic Moat LOCK|Dv Capital Allocation LOCK|T!Z^gG Read Analysis
+[P1.50] What’s Ahead for Stocks This Quarter—and Where to Invest David Sekera, CFA
+[P1.51] The Warren Buffett Advice That Fidelity’s Will Danoff Didn’t Take Christine Benz
+[P1.52] 3 of the Best Growth Stocks to Own Susan Dziubinski
+[P1.53] 5 Stocks to Sell for Tax-Loss Harvesting David Sekera, CFA
+[P1.54] The Smartest Moves for Bond Investors Today, and What to Do When You Have Too Many Investments Amy C. Arnott, CFA
+[P1.55] Ask the Analyst, With Amy Arnott
+[P1.56] Amy C. Arnott, CFA and Valentina Djeljosevic
+[P1.57] Some Fund Investors Have Veered Off Course. It Could Cost Them
+[P1.58] September’s Hot CPI Report Shows Price Pressures Broadening
+[P1.59] September CPI Report Shows Inflation at a 3.7% Annual Rate
+[P1.60] The ESG Risks Clouding the Magnificent Seven’s AI Boom
+[P1.61] Melissa Bird, Alina Olaru, and Henzy Richter
+[P1.62] Trustworthy AI: How Investors Should Assess Key Risks Around the Anthropic and OpenAI IPOs
+[P1.63] US Sustainable Funds Returned to Positive Flows in Q2 2026
+[P1.64] Alyssa Stankiewicz and Mahi Roy
+[P1.65] Here’s When an RMD Must Be Taken Before a Transfer
+[P1.66] How to Retire: Tips for Entering Retirement
+[P1.67] Christine Benz and Margaret Giles
+[P1.68] Social Security Is Running Out of Time.
+[P1.69] Christine Benz: Why I Hired a Financial Planner
+[P1.70] Why Credit Risk Has Paid Off for Bond Investors
+[P1.71] Why Cash Is Still King for Short-Term Goals
+[P1.72] These ETFs Made a Bundle. For Their Managers
+[P1.73] The SEC Is Proposing Big Changes To Funds.
+</source>

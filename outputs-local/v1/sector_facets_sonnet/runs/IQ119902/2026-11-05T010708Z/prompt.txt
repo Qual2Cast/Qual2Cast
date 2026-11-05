@@ -1,0 +1,134 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Autodesk, Inc. (www.autodesk.com)
+Sector: Software and internet
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- software_category (Software category): What the software does. Example: HR and payroll: payroll, benefits and time tracking. Any that apply of: ERP and finance; HR and payroll; CRM, marketing and sales; cybersecurity; data, analytics and AI; IT and developer infrastructure; collaboration and content; industry-specific (vertical) software; payments and fintech; consumer internet and marketplaces; IT services and consulting; other.
+- deployment_model (Deployment model): How the software is delivered. Example: SaaS: cloud subscription. Exactly one of: SaaS / cloud; on-premise; hybrid; not applicable (services or internet).
+- customer_size (Customer size): Its typical customer. Example: mid-market: employers with tens to a few thousand staff. Any that apply of: consumers; SMB; mid-market; enterprise; government.
+- product_architecture (Product architecture): One product or a suite. Example: platform: payroll, HR, time and benefits on one system. Exactly one of: platform / suite; point solution; API / infrastructure.
+
+Evidence:
+<source id="P1">
+[P1.1] Autodesk | 3D Design, Engineering &amp; Construction Software
+[P1.2] Autodesk is a leader in 3D design, engineering and entertainment software. We help people imagine, design, and create a better world.
+[P1.3] Buy more, save more on Autodesk Fusion
+</source>
+
+<source id="P2">
+[P2.1] Buy Autodesk Software | Get Prices & Buy Online | Official Autodesk Store
+[P2.2] Buy official Autodesk software online and get the latest 3D design, engineering, and animation software.
+[P2.3] Prepay pricing for occasional use
+[P2.4] Design and make anything with Autodesk software
+[P2.5] Cloud-based product design software for manufacturing, 3D modeling, electronics, simulation, and data management
+[P2.6] Monthly 1 year 3 year
+[P2.7] Expand your advanced manufacturing capabilities with Autodesk Fusion and the Fusion Manufacturing Extension.
+[P2.8] Gain access to advanced design and simulation tools with our best value offering to get Autodesk Fusion, Fusion Design Extension, Fusion Simulation Extension, and Fusion Manage.
+[P2.9] Software for 2D and 3D CAD. Subscription includes AutoCAD, specialized toolsets, and apps.
+[P2.10] Cost-effective 2D CAD software for drafting, drawing, and documentation
+[P2.11] Prepay with tokens for flexible access to 100+ Autodesk products — ideal for project-based work and product exploration
+[P2.12] Architecture Engineering & Construction Collection
+[P2.13] Get AutoCAD, Revit, Civil 3D, Forma Site Design, and more, delivered in a single, cost-efficient purchase.
+[P2.14] Plan, design, construct, and manage buildings with powerful tools for Building Information Modeling.
+[P2.15] Civil engineering design and construction documentation
+[P2.16] Product Design & Manufacturing Collection
+[P2.17] Get Inventor + AutoCAD + Fusion + more—Professional-grade tools for product development and manufacturing planning
+[P2.18] Powerful product design and engineering tools for 3D mechanical design, simulation, visualization and documentation
+[P2.19] Professional 3D tools for animating characters and creating effects, built to grow with you
+[P2.20] Control outcomes with clash detection and advanced coordination, 5D analysis, and simulation tools.
+[P2.21] Simplified 3D BIM tool for producing 3D architectural designs and documentation
+[P2.22] Professional 3D tools for modeling worlds and visualizing designs, built for artists with big ambitions
+[P2.23] Get Maya, 3ds Max, Arnold, MotionBuilder, and more, delivered in a single, cost-efficient purchase.
+[P2.24] Free trials, educational access, and promotions
+[P2.25] Download a free trial and learn how a product will benefit you
+[P2.26] Find the best deals and limited time offers on Autodesk products
+[P2.27] Draft, annotate, and add field data to your drawings online via your web browser or mobile device. Access and edit DWG files, and quickly collaborate with AutoCAD users on designs.
+[P2.28] Forma Build Essentials brings the core jobsite tools contractors rely on together in one place. Projects are quick to set up and easy to access.
+[P2.29] Create accurate designs and documentation with Revit LT for 3D BIM and AutoCAD LT for drafting, together in one cost-efficient bundle.
+[P2.30] Enhance workflows and improve collaboration with configurable cloud-based PLM.
+[P2.31] Create stunning VFX with AI you control. Turn your footage into CG scenes you can direct, edit, and export - using AI-powered mocap, camera tracking, animation, and compositing tools.
+[P2.32] Image courtesy of Gearbox Software
+[P2.33] Architecture, Engineering & Construction products
+[P2.34] Site planning and analysis software to plan every site with confidence, with AI-powered analysis, contextual data, and 3D modeling.
+[P2.35] Building design software to explore more ideas before BIM. Shape options quickly, test performance, and move designs directly into Revit.
+[P2.36] Connected bundle of cloud tools for early building design combining site planning, design exploration, analysis, and collaborative review.
+[P2.37] Product Design & Manufacturing products
+[P2.38] Toolkit to train and apply prediction models for real time simulation and analysis
+[P2.39] Access and apply real time performance predictions and design optimizations
+[P2.40] A review and production tracking toolset for VFX, games, and animation teams
+[P2.41] High-performing tools for 3D visual effects, compositing, advanced graphics, color management and more.
+[P2.42] Powerful animation, modeling, and rendering tools that flex to your creative needs
+[P2.43] Reality capture and 3D scanning software and services
+[P2.44] Crowd simulation plug-in for Maya to populate worlds with characters from a few to thousands
+[P2.45] Available only as part of the Media & Entertainment Collection
+[P2.46] Digital painting and sculpting software
+[P2.47] CAD-aware cloud storage for individuals and small teams
+[P2.48] Autodesk’s broad portfolio of products and services enables our customers to foster innovation, optimize and improve their designs, save time and money, improve quality, communicate plans, and collaborate with others.
+[P2.49] Our software for architecture, engineering, and construction improves the way buildings, factories, and infrastructure are designed, built, and used.
+[P2.50] Our product development and manufacturing software provides manufacturers in automotive, transportation, industrial machinery, consumer products, and building products with comprehensive digital engineering solutions that bring together data from all phases of the product development and production lifecycle.
+[P2.51] Our digital media and entertainment products provide tools for digital sculpting, modeling, animation, effects, rendering, and compositing for design visualization, visual effects, and games production.
+[P2.52] Autodesk is the company that makes software for people who make things. AutoCAD is one of the software subscriptions that Autodesk has developed and offers to designers around the globe. AutoCAD is computer-aided design (CAD) software that architects, engineers, and construction professionals rely on to create precise 2D and 3D drawings.
+[P2.53] Your fastest option is to subscribe to any of our most popular Autodesk products directly on this page.
+[P2.54] Your subscription software can be installed on up to three devices. However, only the named user can sign in and use that software on a single computer at any given time. Please refer to the Terms of Use for more information.
+[P2.55] Autodesk software is only available as a subscription.
+[P2.56] Autodesk is a global leader in design and make software for the architecture, engineering, construction, media and entertainment, and manufacturing industries. If you’ve ever driven a high-performance car, admired a towering skyscraper, used a smartphone, or watched a great film, chances are you’ve experienced what multiple Autodesk customers have built with our software.
+</source>
+
+<source id="P3">
+[P3.1] About Us | Autodesk Company Info, Mission, and Values
+[P3.2] Get Autodesk company information and learn about our mission and values. Find out how we partner with our customers to change how the world is designed and made.
+[P3.3] Autodesk is changing how the world is designed and made
+[P3.4] From the buildings we live in to the products we use to the movies that inspire us, Autodesk software helps our customers design and make a better world for all.
+[P3.5] Stay up to date with Autodesk company news, stories, and announcements.
+[P3.6] The world is yours for the making
+[P3.7] Make something–a new thing, a bold thing, a lasting thing. With Autodesk, you can design and make the things that matter most.
+[P3.8] Image courtesy of BuildX Studio
+[P3.9] Discover what 5,500 industry leaders reveal about turning AI, digital transformation, and sustainability into business advantage in Autodesk’s 2027 State of Design & Make report.
+[P3.10] See everything we announced at AU 2026
+[P3.11] Explore every AI and product announcement from Autodesk University 2026, all in one place.
+[P3.12] Autodesk's mission is to empower everyone, everywhere to design and make anything
+[P3.13] Our technology spans architecture, engineering, and construction; product design and manufacturing; and media and entertainment, empowering Design and Make innovators to solve challenges big and small.
+[P3.14] We equip our customers to work fluidly across boundaries of project, discipline, and industry
+[P3.15] Over the past four decades, millions of people have trusted our Design and Make technology to transform how their products are made. In the process, we’ve transformed what can be made. Today our solutions span countless industries and empower innovators around the globe. But we’re restless to do more.
+[P3.16] Autodesk is your partner to design and make anything
+[P3.17] We don’t believe in waiting for progress, we believe in making it. We bring new experiences, ideas, and value to our customers, to help them advance their capabilities and create opportunities.
+[P3.18] Our global technology centers bring industry innovators together to collaborate on new possibilities for construction and fabrication.
+[P3.19] Learn about Autodesk Technology Centers
+[P3.20] Our solutions enable customers to make better energy and material choices, and create healthier, more resilient places, products, and systems.
+[P3.21] Learn about Autodesk technology for sustainability
+[P3.22] Shape the future of your industry
+[P3.23] Our researchers explore AI, robotics, simulation, and other emerging technologies that will shape the future of designing and making.
+[P3.24] See how Autodesk’s Design and Make Platform is transforming industries
+[P3.25] Industry innovators are using Autodesk’s Design and Make Platform to tap into automations, gain critical insights, and deliver better outcomes for their customers, business, and the planet.
+[P3.26] Explore trends and innovations with us
+[P3.27] Preview the future of the Design and Make industries with executive insights, industry research reports, and inspiring stories of the design and make leaders who are creating a better world.
+[P3.28] Visit Design & Make with Autodesk
+[P3.29] Find out how Autodesk customers are transforming their industries
+[P3.30] Meet the architects, designers, engineers, builders, manufacturers, and artists who are reshaping the design and make industries.
+[P3.31] We believe that a better world can be designed and made for all
+[P3.32] Progress demands that we work within our business, in partnership with our customers, and across our industries to accelerate positive impact—building trust and delivering better outcomes for our business, customers, and the world.
+[P3.33] Our annual impact report outlines our success and challenges in driving sustainable decision-making and how we support our customers in doing the same.
+[P3.34] See the FY26 Impact Report
+[P3.35] The Autodesk Foundation invests financial capital and facilitates in-kind support from Autodesk in a portfolio of nonprofits and start-ups scaling design and engineering solutions across three impact opportunity areas: Energy & Materials, Health & Resilience, and Work & Prosperity.
+[P3.36] Learn about the Autodesk Foundation
+[P3.37] Come shape a better future with us
+[P3.38] Help lead the future of design and make: Search jobs and learn about working at Autodesk.
+[P3.39] Connect with our global community
+[P3.40] Network with Autodesk customers, partners, and employees.
+[P3.41] Learn from global industry experts
+[P3.42] Grow and drive progress with our annual conference and free online classes.
+</source>

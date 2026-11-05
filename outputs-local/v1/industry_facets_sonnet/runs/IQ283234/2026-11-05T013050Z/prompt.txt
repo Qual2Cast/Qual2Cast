@@ -1,0 +1,110 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: KB Home (www.kbhome.com)
+Industry (SIC 15): Building Construction Contractors and Operative Builders
+
+Facets:
+- building_market_mix (Building-market mix). Examples: Single-family homes; Multifamily buildings; Commercial buildings.
+- project_building_type (Project / building type). Examples: Logistics warehouses; Office fit-outs; Residential subdivisions.
+- contracted_backlog (Contracted backlog). Examples: $600 million at year-end; 18 months of signed project work.
+- contract_pricing_risk (Contract pricing / risk). Examples: Guaranteed maximum price; Fixed-price construction contract; Cost-plus fee.
+- self_perform_subcontract_scope (Self-perform / subcontract scope). Examples: Structural work self-performed; Mechanical and electrical work subcontracted.
+- builder_contractor_role (Builder / contractor role). Examples: Fee-based general contractor; Land-owning operative builder; Design–build contractor.
+- land_inventory_exposure_operative_builders (Land / inventory exposure [operative builders]). Examples: Owned finished lots; Optioned land parcels; Speculative homes under construction.
+
+Evidence:
+<source id="P1">
+[P1.1] New Home Builders In Your Area - KB Home
+[P1.2] KB Home builds homes for the way you live. Find new homes for sale with open floor plans, energy-efficient features and personalize to fit your style.
+[P1.3] We build homes for all of life’s small but epic moments. That’s why we put our experience in the service of your dreams and partner with you to design a new home that reflects your style and budget. We devote our attention to you. We listen to you. And we do all of that before we even break ground. Because we see you.
+[P1.4] State AZ CA CO FL ID NV NC SC TX WA
+[P1.5] Please select a state and region
+[P1.6] You have a dream. We help you build it.
+[P1.7] Designing your dream home starts here.
+[P1.8] When it comes to turning your vision into a reality, the KB Design Studio is where the magic happens.
+[P1.9] Enjoy the convenience and security of smart tech.
+[P1.10] We offer lots of great ways to make daily life easier, thanks to smart home devices and appliances, like thermostats, wall switches, and garage door openers.
+[P1.11] Greater comfort, well-being and savings come standard.
+[P1.12] Home should be the best place of all, so ours are built to boost energy and water efficiency, lower utility costs and conserve natural resources. We also include quality materials and features for healthier indoor environments.
+[P1.13] Built to fit your life and budget.
+[P1.14] When you build a new home with us, you enjoy complete control and only pay for the things that matter most.
+[P1.15] Feel good about the company you keep.
+[P1.16] We believe in getting involved and contributing to the neighborhoods where we build to help support local residents. Making a difference for the greater good is something we can all feel good about.
+[P1.17] The sales staff was helpful and responsive, and our construction superintendent took us through the home in detail and has been available for questions even after buying our home. They follow up with us on a monthly basis to make sure that all is well. We love our KB home and the entire experience of purchasing our home.
+[P1.18] - June G., Princeton, TX
+[P1.19] I didn't know what to expect when buying from KB. The process was smooth, and the staff was communicative. The web portal with all the information was great, and then after closing, all of your documents are there to view.
+[P1.20] - Jamie M., Clermont, FL
+[P1.21] Bay Area - North Bay Area - South Central Valley Fresno Area Los Angeles and Ventura County Orange County Riverside County Sacramento San Bernardino County San Diego County
+[P1.22] Jacksonville / St. Augustine Area Lakeland Area Orlando Area Palm Bay/Titusville Palm Coast Area Sarasota-Bradenton Tampa Area
+[P1.23] Charlotte Area Raleigh / Durham / Chapel Hill
+[P1.24] Austin Dallas / Fort Worth Houston San Antonio / New Braunfels Temple / Belton
+[P1.25] KBHS Home Loans, LLC NMLS 1542802 For licensing information visit nmlsconsumeraccess.org. Applicant subject to credit and underwriting approval. Not all applicants will be approved for financing. Receipt of application does not represent an approval for financing or interest rate guarantee. Restrictions may apply. Equal Housing Lender. KB Home and KBHS share common ownership and because of this relationship may receive a financial or other benefit. You are not required to use KBHS as a condition of purchase or sale of any real estate.
+</source>
+
+<source id="P2">
+[P2.1] Who We Are | Customer‑Focused Homebuilder | KB Home
+[P2.2] Learn who we are at KB Home—an innovative, customer‑obsessed homebuilder focused on personalized homes, strong relationships, and a better shared future.
+[P2.3] At KB Home, everything we do is focused on our customers and providing a superior homebuying experience. For nearly 70 years, our business has been driven by the ideal that the best homes start with the people who live in them - an enduring foundation built on relationships.
+[P2.4] To be the most customer-obsessed homebuilder in the world.
+[P2.5] To give our customers the ability to purchase a new home that reflects what they value and how they want to live, at a price they can afford.
+[P2.6] We make relationships the foundation for all we do.
+[P2.7] It takes strong relationships to build a home. To build a strong relationship it takes respect, integrity, and open and honest communication.
+[P2.8] We build homes that make lives better.
+[P2.9] Innovative design and quality construction standards are the cornerstones of our brand. Behind our continuous drive to build exceptional homes is a passion for the wellbeing of those who live in them. From architecture to construction to customer service, we care about making our buyers’ lives more comfortable, convenient, and healthy. That’s how we lead the industry in customer satisfaction, and strive to keep it that way.
+[P2.10] We believe that everyone deserves a home that’s as unique as they are.
+[P2.11] Our business model is built on a simple, yet radical idea: a house becomes your home when it’s an expression of who you are. That’s why we give our customers the ability to choose - from homesite to elevation, from floor plan to design options - and a buying experience that’s personalized from end-to-end.
+[P2.12] We deliver more for less.
+[P2.13] We believe that every customer deserves a home that lives up to their dreams. That’s why it’s our shared responsibility to ensure that what we build delivers great value, so that every customer gets a home—and a homebuying experience— that can exceed their expectations without exceeding their budget. It’s a disciplined and responsible approach to homebuilding that’s good for our homebuyers and our business.
+[P2.14] We strive for a better shared future.
+[P2.15] From individuals, to families, to whole communities, our collective actions can have a beneficial impact on the world. We believe that every decision we make, from how we manage our workplace, to how we run our operations, has the potential to advance environmental, social, and economic sustainability.
+[P2.16] For us, sustainability is built on one essential idea: balance. In our pursuit of better homes, better communities and a better future, we remain mindful about the needs of generations to come. This enduring commitment encompasses our industry-leading initiatives to help protect the environment and keep homeownership affordable. And we are pleased to have been recognized for our sustainability leadership by being named to Newsweek®’s 2026 list of America’s Most Responsible Companies, the highest-ranked national homebuilder and the only one to receive this distinction six years in a row.
+[P2.17] At KB Home, everything we do is Built on Relationships. That’s why we believe that every action we take – from how we care for our communities to how we safeguard the planet – has the potential to make a positive impact for everyone. Our KB Cares program is one way we put that ideal into action in four key focus areas:
+[P2.18] Shelter: Helping find shelter for those in the most challenging circumstances.
+[P2.19] Community: Investing in the well-being of those who live in our communities.
+[P2.20] Sustainability & environment: Limiting our footprint on the planet and ensuring that our physical environment remains clean and beautiful.
+[P2.21] People are our foundation. And that defines how we work together as a team. We’re in the business of building communities, not just houses, and look for people who will come together and join us for a common purpose.
+</source>
+
+<source id="P3">
+[P3.1] Our Partners | Trusted Brands That Build Better Homes | KB Home
+[P3.2] Discover KB Home’s trusted partners—leading brands in building products, smart home technology, energy efficiency, and design that help create better homes.
+[P3.3] Allura proudly manufactures exterior building products, from siding, shingles and backerboards to panels, soffit and trim, with all the beauty, durability and strength you need for your home.
+[P3.4] Select KB Home communities are connected to AT&T FIBER℠.
+[P3.5] Boise Cascade is one of the largest U.S. wholesale distributors of building materials and a leading manufacturer of engineered wood products and plywood in North America.
+[P3.6] For more than a century, Carrier has helped shape modern life — pioneering technologies and solutions that enable how the world lives, works and grows. Carrier combines innovative technology with trusted local expertise to deliver personalized home comfort solutions, helping homeowners live more comfortably while using energy more intelligently.
+[P3.7] Cosentino is a global leader in premium stone surfaces for residential and commercial design.
+[P3.8] Get connected to everything you love. Cox offers TV, Internet, phone service and more in many KB Home communities. Check out special offers in your area.
+[P3.9] Dal-Tile is America’s leader in porcelain tile, natural stone and the world’s leading manufacturer of ceramic tile. Dal-Tile also provides quartz & granite countertop surfaces; all of these product types have desirable attributes, including slip- and fire-resistance, waterproof, stainproof, dentproof, scratchproof, and they’re easy to maintain.
+[P3.10] DuPont ™ Tyvek ® combines strength, flexibility, and moisture resistance to address the diverse performance needs of modern construction.
+[P3.11] ENERGY STAR was created to help consumers easily identify products, homes and buildings that save energy and money, and help protect the environment. As the government-backed, trusted symbol for energy efficiency, the ENERGY STAR label identifies highly efficient products and designates superior energy performance.
+[P3.12] The Honeywell Home thermostat portfolio makes home comfort easy to manage. Backed by over 130 years of trusted innovation, thermostat models range from simple non-programmable units to advanced smart thermostats, delivering reliable performance you can count on.
+[P3.13] Kohler Co. Kohler Co. has been improving the level of gracious living among its customers by providing exceptional products and services for the home. We believe better business and a better world go hand-in-hand. We strive to enhance the quality of life for current and future generations with our portfolio of proven, forward-thinking brands. The company leads the way in design, craftsmanship and innovation - knit together by uncompromising quality. The KOHLER® and STERLING® brands offer a breadth of kitchen and bath fixtures and faucets in a variety of designs and at price points to meet the needs of any project.
+[P3.14] Kwikset is the #1 Selling U.S. Lock Brand*. The company’s innovative lock portfolio includes patented SmartKey Security™ cylinders, door hardware with Microban® antimicrobial product protection, keyless entry combination locks, connected home technology, Bluetooth-enabled Aura™, Wi-Fi-enabled Halo™, and a wide variety of styles and finishes.
+[P3.15] MasterBrand Cabinets is one of the largest cabinet manufacturers in North America and offers a host of products to satisfy every budget and lifestyle. Each cabinetry line in their family of brands provides the same great service, product innovation, and quality.
+[P3.16] Moen Faucets offers a range of thoughtfully designed faucets and showerheads that are stylish and affordable. They offer many smart products, including a Wave Touchless Kitchen Faucet. They also offer a limited lifetime warranty which means you are covered for any maintenance or product needs on your Moen products.
+[P3.17] Mohawk Industries, Inc. is an American flooring manufacturer headquartered in Calhoun, Georgia, and is recognized as the world’s largest flooring company.
+[P3.18] Square D/Schneider Electric is the #1 supplier of electrical distribution equipment in the world. From the electrical panel and circuit breakers in your home to electrifying, digitizing and automating homes by driving efficiency and sustainability for all.
+[P3.19] Shaw Industries Group, Inc. supplies carpet, resilient, hardwood, laminate, tile and stone flooring products to residential and commercial markets worldwide. Shaw Industries is the world’s largest carpet manufacturer and design products that stand up to people and their pets. Almost 90 percent of their products made are Cradle to Cradle Certified.
+[P3.20] For 160 years, Sherwin-Williams has been an industry leader in the development of technologically advanced paint and coatings. As the nation's largest specialty retailer of paint and painting supplies, Sherwin-Williams is dedicated to supporting customers with exceptional and exclusive products.
+[P3.21] Simpson Strong-Tie Company focuses on creating structural products that help people build safer and stronger homes and buildings.
+[P3.22] TAMKO is a leading independent manufacturer of residential roofing shingles crafted for performance and protection.
+[P3.23] Therma-Tru Corporation provides inspired entry and patio doors from the brand professionals use most.
+[P3.24] Uponor is a leading global provider of solutions that efficiently and effectively move water through cities, buildings, and homes. Their durable plumbing provides comfort, health, and efficiency — and helps customers to consistently find new ways to conserve and manage water responsibly.
+[P3.25] Visual Comfort & Co. offers all categories of trend-conscious, residential indoor and outdoor lighting at an outstanding value. Meeting ENERGY STAR and California CEC Title 24 specifications.
+[P3.26] WaterSense-labeled features help people save water, energy, and money.
+[P3.27] Wayne-Dalton and Genie are Divisions of Overhead Door Corporation and has become the #1 supplier.
+[P3.28] Westlake Royal Roofing Solutions is a nationally recognized leader in durable and sustainable concrete, clay, steel, composite roofing systems and components. The company shares a vision with homeowners and building professionals to see roofing unlike anyone else.
+[P3.29] Whirlpool Corporation is the world’s leading manufacturer of major home appliances, with the overall mission of improving life in the home. With a focus on innovation and meaningful consumer technology, Whirlpool offers SMART appliances with an emphasis in Cooking and Laundry. 2-year warranty if purchased through KB Home.
+</source>

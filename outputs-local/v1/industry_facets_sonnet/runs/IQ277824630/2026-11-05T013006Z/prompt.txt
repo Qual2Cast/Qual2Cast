@@ -1,0 +1,96 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Indivior Pharmaceuticals, Inc. (www.indivior.com)
+Industry (SIC 28): Chemicals & Allied Products
+About this industry group: This major group includes pharmaceuticals and biological products as well as industrial chemicals. Use clinical-stage and drug-platform extensions only for the relevant life-science business; do not impose drug approval or patent dependence on all commodity chemicals.
+
+Facets:
+- chemical_life_science_product_family (Chemical / life-science product family). Examples: Specialty coatings; Fertilizers; Prescription pharmaceuticals.
+- specialty_commodity_positioning (Specialty / commodity positioning). Examples: Customer-qualified specialty formulations; Bulk commodity chemicals.
+- formulation_synthesis_complexity (Formulation / synthesis complexity). Examples: Custom additive formulation; Multistep chemical synthesis; Standardized bulk production.
+- patent_exclusivity_dependence (Patent / exclusivity dependence). Examples: Patented active ingredient; Process know-how; Product-exclusivity expiry in 2029.
+- product_specific_regulatory_route (Product-specific regulatory route). Examples: TSCA chemical compliance; REACH registration; FDA-approved medicine.
+- r_d_intensity (R&D intensity). Examples: Annual R&D: 6% of sales; Annual R&D: 18% of sales.
+- clinical_commercialization_stage_pharma (Clinical / commercialization stage [pharma]). Examples: Phase II trial program; Phase III registration study; Commercialized medicine.
+- biologic_small_molecule_platform_pharma (Biologic / small-molecule platform [pharma]). Examples: Monoclonal antibodies; Small molecules; Vaccines.
+- manufacturing_supply_model_pharma (Manufacturing / supply model [pharma]). Examples: Own GMP drug manufacturing; Outsourced API manufacturing; Contract development and manufacturing.
+
+Evidence:
+<source id="P1">
+[P1.1] Home | Indivior
+[P1.2] With science, compassion, and purpose, we are Powering Recovery, Renewing Hope.
+[P1.3] Weâre Supporting Long-Term Recovery for Those Affected by OUD
+[P1.4] Indivior is a specialty pharmaceutical company singularly focused on delivering evidence-based treatment and advancing understanding of opioid use disorder (OUD) as a chronic but treatable brain disease. For more than 25 years, we have revolutionized the science of addiction medicine â developing treatments that help people move toward long-term recovery with independence and dignity.
+[P1.5] Our commitment is unwavering: to expand access to effective treatment, dismantle stigma, and empower every person living with OUD to define their lives beyond the disease.
+[P1.6] Received Buprenorphine Medication Assisted Treatment (BMAT) 1
+[P1.7] People diagnosed with OUD in the U.S. 2
+[P1.8] People misuse opioids in the U.S. 2
+[P1.9] How We Make a Difference
+[P1.10] We partner with scientists, communities, clinicians, policymakers, people living with OUD, and caregivers to advance access to evidence-based treatment for OUD, dismantle stigma, and elevate the lived experience of individuals in recovery.Â Together, we are advancing recovery for OUD â one life, one family, and one community at a time.Â
+[P1.11] Explore how we are changing recovery
+[P1.12] Our vision is that millions of people across the globe suffering from opioid use disorder have access to evidence-based treatment to change lives.
+[P1.13] Our products are rooted in science, compassion and an unwavering commitment to help people with opioid use disorder (OUD) achieve long-term recovery.
+[P1.14] We lead the way in developing long-term treatment options for people who suffer from opioid use disorder (OUD), addressing the most urgent public health challenges of our time.
+[P1.15] We advocate for systemic change by working with policymakers, healthcare systems, justice institutions, and advocacy groups to eliminate stigma and barriers to OUD recovery.
+[P1.16] Our focus is singular and unwavering: to transform the lives of people affected by opioid use disorder (OUD) through the power of science, compassion, and advocacy.Â
+[P1.17] Explore the most recent insights and news from Indivior and the industry
+[P1.18] Explore upcoming events, news, and reports.
+[P1.19] 1. Symphony and Indivior analytics, patient treated over the last twelve months.
+[P1.20] 2.Â Â Key Substance Use and Mental Health Indicators in the United States: Results National Survey on Drug Use and Health
+</source>
+
+<source id="P2">
+[P2.1] Our Company | Indivior
+[P2.2] For more than 25 years, Indivior has been dedicated to advancing evidence-based treatment for people living with opioid use disorder (OUD).
+[P2.3] For more than 25 years, Indivior has been dedicated to advancing evidence-based treatment for people living with opioid use disorder (OUD). Today, we are entering a new era â one that honors our history while sharpening our purpose: to bring meaningful treatment within reach for every person living with OUD.
+[P2.4] Guided by science, compassion, and a belief that recovery should be possible for everyone, we continue to innovate so that effective treatment becomes more accessible and stigma becomes a barrier of the past.
+[P2.5] We are united by a profound commitment to people living with OUD and to the families and communities affected by the disease.
+[P2.6] Every day, our teams work to challenge stigma, expand access to evidence-based treatment, and accelerate progress toward a future where long-term recovery is the expectation â not the exception.
+[P2.7] Scientists, advocates, and innovators â each of us contributes to advancing OUD science and delivering treatments that support long-term recovery.
+[P2.8] We value integrity and collaboration, and we have a deep sense of responsibility to the people and communities we serve.Â We are always looking for passionate, mission-driven individuals who want to help restore hope, one life at a time.Â
+[P2.9] We believe OUD is a chronic but treatable brain disease â and that with the right combination of medication, therapy, and support, long-term recovery is possible.
+[P2.10] Our approach is grounded in uncompromising science, continuous innovation, and a commitment to making treatment more accessible. From research and clinical development to education and advocacy, everything we do is designed to restore hope and independence for the people we serve.Â
+[P2.11] Our company was founded to help combat the opioid crisis, one of the most urgent public health emergencies of our time.
+[P2.12] With offices and research centers in Virginia, North Carolina, and the UK, Indiviorâs network brings together some of the brightest minds in addictionÂ and recoveryÂ science. Explore our locations below.Â
+[P2.13] Located in the heart of Virginia, our Richmond office reflects the spirit of theÂ city itselfÂ â historic, innovative, and full of life.Â
+[P2.14] Our Raleigh office is a growing hub for innovation and research, where collaboration and purpose drive our work to expand access to treatment and improve patient outcomes.Â
+</source>
+
+<source id="P3">
+[P3.1] Our Products | Indivior
+[P3.2] Medications are designed to address the realities of addiction â helping people living with OUD regain control of their health, their dignity, and their future.
+[P3.3] At Indivior, every product we develop is rooted in science, compassion, and an unwavering commitment to help people with opioid use disorder (OUD) achieve long-term recovery. Our medications are designed to address the complex realities of addiction â helping people living with OUD regain control of their health, their dignity, and their future.
+[P3.4] We work closely with clinicians, researchers, and the individuals who depend on our treatments to ensure that every medicine supports a more independent and sustainable recovery journey.
+[P3.5] Product availability varies between countries
+[P3.6] Find labeling Information for our products. Product labeling is not available on this website for all countries for which our products are marketed.
+[P3.7] Select a region and market
+[P3.8] (buprenorphine extended-release) injection for subcutaneous use (CIII)
+[P3.9] U.S. Prescribing Information, including BOXED WARNING
+[P3.10] (buprenorphine and naloxone) Sublingual Film (CIII)
+[P3.11] Buprenorphine and Naloxone Sublingual Tablet and Buprenorphine and Naloxone Soluble Film
+[P3.12] compresse sublinguali (PIL) and Film Sublinguali (PIL)
+[P3.13] compresse sublinguali (SmPC) and Film sublinguali (SmPC)
+[P3.14] comprimé sublingual (PIL and SmPC)
+[P3.15] SUBOXONE® 2 mg / 0,5 mg
+[P3.16] SUBOXONE® 8 mg / 2 mg
+[P3.17] CMI - Consumer Medicines Information
+[P3.18] Long-Acting Injectables (LAIs) for OUD
+[P3.19] LAIs represent an innovative advancement in the treatment of OUD. Unlike daily oral medications, LAIs provide a consistent, extended release of medication over time to help maintain stability and reduce the challenges of daily dosing.
+[P3.20] By supporting adherence and minimizing the ups and downs associated with daily treatment, LAIs empower our patients to focus more on recovery and life beyond addiction. For many, they represent a vital bridge to long-term stability, independence, and meaningful recovery.
+[P3.21] Long-acting injectables (LAIs) for OUD are prescription medications administered by a healthcare professional that deliver medication continuously over a defined period of time. This steady delivery can help reduce cravings, minimize the risk of withdrawal, and support consistent recovery progress.
+[P3.22] Treatment decisions should always be made in partnership with your healthcare provider. Together, you can determine whether a long-acting injectable aligns with your treatment goals, medical history, and lifestyle needs.
+[P3.23] LAIs for OUD are backed by years of scientific research and clinical evidence. They are approved by health authorities and shown to be both safe and effective when used as prescribed under the supervision of a qualified healthcare provider.
+[P3.24] LAIs for OUD are administered as an injection by a healthcare professional in a clinical setting. Depending on the medication, injections may be scheduled over a period of time, offering flexibility and peace of mind for patients, caregivers, and providers alike.
+</source>

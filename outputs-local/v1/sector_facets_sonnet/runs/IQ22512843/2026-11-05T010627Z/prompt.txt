@@ -1,0 +1,87 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Alliance Laundry Holdings Inc. (alliancelaundry.com)
+Sector: Manufacturing (industrial, materials, electronics)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- manufacturing_type (Manufacturing type): How it makes products. Example: discrete: builds individual units on assembly lines. Any that apply of: discrete; process; assembly; outsourced / fabless.
+- production_model (Production model): Built for an order or for stock. Example: make-to-order: each unit configured to the customer's order. Exactly one of: make-to-order; make-to-stock; both.
+- product_complexity (Product complexity): How engineered its products are. Example: engineered: custom-configured equipment. Exactly one of: commodity; engineered; precision / high-spec.
+- production_role (Production role): Where it sits in its customers' supply chain. Example: final manufacturer: sells finished units to contractors. Any that apply of: final manufacturer / OEM; tier 1 supplier; tier 2 or component supplier; contract manufacturer; materials producer.
+- end_market_exposure (End-market exposure): Which end markets drive demand. Example: industrial: factories and commercial buildings. Any that apply of: aerospace and defense; automotive and transportation; industrial; construction and buildings; energy; electronics and semiconductors; healthcare and life sciences; consumer; agriculture; other.
+
+Evidence:
+<source id="P1">
+[P1.1] The Future of Laundry Starts Here | Alliance Laundry Systems
+[P1.2] Alliance Laundry Systems is the global leader in laundry solutions, serving both commercial laundry and residential laundry needs.
+[P1.3] A Legacy of Laundry Leadership
+[P1.4] As the industry leader in commercial laundry, our mission is simple:
+[P1.5] To create a cleaner, more sustainable world.
+[P1.6] Through exceptional performance, unmatched quality and continuous innovation, we deliver premier products designed to meet the changing needs of today—and the challenges of tomorrow.
+[P1.7] Our family of industry-leading brands reflects a deep commitment to quality, performance and the customers we serve every day*.
+[P1.8] *Not all brands may be available in your market. Contact your local distributor to learn more.
+[P1.9] Every decision we make is guided by sustainability. By reducing our environmental footprint, adhering to strict compliance policies and supporting global communities, our teams act as social stewards—creating products built to last, without leaving lasting negative impacts.
+[P1.10] Innovation is at the core of everything we do. By pushing the boundaries of design and technology, our teams are reshaping the commercial and residential laundry industry.
+[P1.11] Be Part of What’s Next
+[P1.12] From the factory floor to corporate offices, join an ever-evolving industry and start making a real impact every day.
+[P1.13] Why Partner with Alliance Laundry Systems
+[P1.14] Choosing us means more than just investing in laundry equipment—it means gaining a trusted partner.
+</source>
+
+<source id="P2">
+[P2.1] Who We Serve | Alliance Laundry Systems
+[P2.2] Alliance Laundry Systems delivers solutions built to meet the real-world demands of healthcare, hospitality, laundromat operations and more.
+[P2.3] Alliance Laundry Systems powers the world’s laundry.
+[P2.4] With a commitment to setting the global standard for clean, our industry-leading equipment and services deliver unmatched reliability, efficiency and innovation, ensuring laundry operations of all sizes run with total confidence.
+[P2.5] Discover how our legendary laundry solutions and integrated technology suite drive operational excellence, reduce costs and ensure consistent, exemplary performance across key markets—all while advancing our mission to create a cleaner world for all.
+[P2.6] Healthcare Laundry Solutions That Deliver the Highest Standard of Clean
+[P2.7] In healthcare, clean isn’t optional—it’s critical. From hospitals to senior care facilities, you need powerful, 24/7 machines that can handle relentless demands. Lessen your load with faster throughput, reliable equipment and technology designed to keep up with the intense, around-the-clock pace of healthcare.
+[P2.8] Five-Star Equipment to Help Your Hotel Land Five-Star Reviews
+[P2.9] From boutique hotels to luxury resorts, your guests expect nothing less than spa-quality linens. With industry-leading technology and effortless operation, your staff has the tools to help them turn rooms quickly and keep them impeccably clean.
+[P2.10] Grow a Loyal Laundromat Following with Industry-Leading Solutions
+[P2.11] Stand out and build a loyal, repeat customer base with large-capacity machines, intuitive controls and flexible payment options and incentives.
+[P2.12] Invest in Equipment You Can Trust and Freshness Your Family Deserves
+[P2.13] A hardworking home deserves a washer and dryer that work just as hard. With over 115 years of expertise, our brands deliver professional-quality results at home, ensuring laundry peace of mind for you and your loved ones, load after load.
+[P2.14] Elevate Your Laundry Room with Premium Commercial Laundry Care
+[P2.15] Managing laundry for your business comes with unique challenges and high expectations. That’s why our machines are designed for flexibility, with intuitive controls that make operations and training easy. Whether you’re running a restaurant, correctional facility, gym, fire station, spa, car wash, or any other commercial operation, our machines are built to handle the diverse demands of your industry. With maximum throughput and consistent, high-quality results, the right solution is always available to keep your business running smoothly and efficiently.
+[P2.16] *Some financing solutions may not be available in your market. Contact your local distributor to learn more. Loans will be arranged or made pursuant to a California Financing Law License.
+[P2.17] *Some financing solutions may not be available in your market. Contact your local distributor to learn more.
+</source>
+
+<source id="P3">
+[P3.1] Our Story | Leading the Future of Laundry
+[P3.2] Alliance Laundry Systems leads a global laundry legacy shaped by innovation, performance and responsibility to people and the planet.
+[P3.3] Our Commitment to a Clean, Sustainable Future
+[P3.4] Sustainability shapes every decision we make. It’s the driving force behind our commitment to reducing environmental impact, strengthening communities and delivering laundry solutions that work today and for generations to come. At Alliance Laundry Systems, we don’t just build laundry equipment. We build a future where progress and responsibility go hand in hand.
+[P3.5] As the global leader in laundry solutions, we set the bar for more than just clean laundry. We are pushing the boundaries of what’s possible—designing innovative solutions that minimize energy use, water consumption and waste. We are focused on reducing our environmental footprint through continuous improvements in our products, processes and operations.
+[P3.6] But our focus extends beyond products. We invest in communities, helping to create a world where businesses can grow responsibly, and people can thrive. We uphold the highest standards of corporate governance, ensuring that every action we take reflects our dedication to the environment and the people we serve.
+[P3.7] Through these efforts, we’re not just meeting today’s needs—we’re building a sustainable, more responsible future, one laundry solution at a time.
+[P3.8] Driven by People, Guided by Purpose
+[P3.9] Born in a Midwest basement laundry room, Alliance Laundry Systems has grown into a global powerhouse, driven by the same spirit of discovery that sparked its beginnings.
+[P3.10] At the heart of our legacy is a deep dedication to the people who move our company forward: the engineers innovating solutions for a cleaner future, the customers who trust those solutions and the global communities where our brands make a difference. Every Alliance machine and partnership is part of something bigger—a shared vision of a better tomorrow for all.
+[P3.11] Founded in Ripon, Wisconsin, U.S., Alliance Laundry Systems has spent over a century emphasizing the impact of innovation and the power of progress.
+[P3.12] From our first days as Barlow & Seelig Manufacturing, Co., to our current position as the global laundry leader, our mission remains the same: To make the world cleaner and more sustainable as the premier provider of laundry solutions.
+[P3.13] We look forward to growing and evolving for years to come.
+[P3.14] Barlow & Seelig Manufacturing, Co. is established in Ripon, WI.
+[P3.15] Speed Queen® becomes the brand name for Barlow & Seelig products.
+[P3.16] First automatic washer is manufactured.
+[P3.17] Company is renamed Alliance Laundry Systems.
+[P3.18] Alliance opens offices in Brazil, China and Spain.
+[P3.19] Speed Queen-branded laundromats launch around the world.
+[P3.20] Alliance Laundry Systems opens new production sites in Manitowoc, WI, and Chon Buri, Thailand.
+[P3.21] Alliance Laundry Systems is the world leader in laundry solutions for a reason—we do one thing, and we do it better than anyone else on the planet. While global competitors divide their focus across multiple appliances, we’re all in on laundry. That means we know it better, build it better and support our customers better.
+[P3.22] See our laundry solutions in action and discover how our advanced products, innovative technologies and exceptional customer care can help you streamline operations and drive success.
+</source>

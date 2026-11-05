@@ -1,0 +1,93 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Gen Digital Inc. (www.gendigital.com)
+Sector: Software and internet
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- software_category (Software category): What the software does. Example: HR and payroll: payroll, benefits and time tracking. Any that apply of: ERP and finance; HR and payroll; CRM, marketing and sales; cybersecurity; data, analytics and AI; IT and developer infrastructure; collaboration and content; industry-specific (vertical) software; payments and fintech; consumer internet and marketplaces; IT services and consulting; other.
+- deployment_model (Deployment model): How the software is delivered. Example: SaaS: cloud subscription. Exactly one of: SaaS / cloud; on-premise; hybrid; not applicable (services or internet).
+- customer_size (Customer size): Its typical customer. Example: mid-market: employers with tens to a few thousand staff. Any that apply of: consumers; SMB; mid-market; enterprise; government.
+- product_architecture (Product architecture): One product or a suite. Example: platform: payroll, HR, time and benefits on one system. Exactly one of: platform / suite; point solution; API / infrastructure.
+
+Evidence:
+<source id="P1">
+[P1.1] Powering Digital Freedom for people everywhere | Gen™
+[P1.2] Gen is a global leader in cybersecurity. Explore our trusted consumer brands including Norton, Avast, LifeLock, MoneyLion, Avira, AVG, ReputationDefender, and CCleaner.
+[P1.3] Helping people grow, manage, and secure their digital and financial lives.
+[P1.4] Your browser doesn't support video playback.
+[P1.5] Build trust in the digital world
+[P1.6] Across Norton, Avast, LifeLock and MoneyLion, Gen brings together security, privacy, identity, reputation and financial wellness in one connected customer relationship. All enabled by a common Gen platform.
+[P1.7] 10B+ digital attacks blocked annually
+[P1.8] Learn where scams and frauds are rising around the world.
+[P1.9] Trusted by hundreds of millions.
+[P1.10] Take on complex problems, turn bold ideas into products, and improve the digital lives of millions alongside talented teammates.
+</source>
+
+<source id="P2">
+[P2.1] Who We Are | Gen™
+[P2.2] We create innovative and easy-to-use technology solutions that help people grow, manage, and secure their digital and financial lives.
+[P2.3] "At Gen, our purpose is simple but profound: Powering Digital Freedom. We are building the platform that powers a more prosperous digital future — for generations to come." - Vincent Pilette, Gen Chairman & CEO
+[P2.4] Gen is a global leader dedicated to powering Digital Freedom through its trusted consumer brands — including Norton, Avast, LifeLock, and MoneyLion.
+[P2.5] Cyber Safety Delivering superior threat protection and innovative solutions in cybersecurity and online privacy, helping people navigate the digital world securely and with confidence. Includes our award-winning security, comprehensive cyber safety memberships, and privacy solutions across Norton and Avast.
+[P2.6] Trusted Solutions Providing identity, reputation, and financial wellness products that empower consumers to grow and manage their identity, reputation, and finances with confidence. Includes our LifeLock identity protection, restoration support services, digital reputation, and secure financial wellness solutions, including MoneyLion products and our Engine marketplace offerings.
+[P2.7] We are building a trusted platform that moves beyond protection into full empowerment and prosperity for the consumer — giving people the confidence, tools, and insights to control, manage and grow their digital and financial lives.
+[P2.8] Extending and deepening our leadership in Cyber Safety by leveraging technology innovation to protect consumers, families, and small businesses against an evolving and increasingly sophisticated threat landscape, while delivering proactive, personalized safety companion.
+[P2.9] Expanding our trusted solutions platform to empower consumers to protect, manage and grow their financial lives — deepening the customer relationship from protection into empowerment and financial decision-making and compounding lifetime value across the platform.
+[P2.10] Delivering a Trust Layer through Gen's AI-Powered Platform
+[P2.11] Connecting our ecosystem of brands, products, and partners through a unified data and AI layer t o deliver personalized, proactive, and increasingly automated experiences — closing the gap between what AI can do and what consumers trust it to do. Our platform turns data into trusted recommendations and actionable intelligence, positioning Gen as the trust layer for the AI economy.
+[P2.12] Secure against cyber threats – comprehensive, AI-powered cyber safety and scam protection, personalized for you.
+[P2.13] Safeguard your digital life – modular, a la carte Cyber Safety built for self-reliant, value conscious consumers.
+[P2.14] Protect your identity and finances – your personal asset guardian, from proactive identity monitoring to full restoration support.
+[P2.15] Manage and grow your finances – a full-featured financial wellness ecosystem delivering unrivaled personal financial management.
+[P2.16] Find the financial products you need – a B2B2C marketplace delivering financial solutions at the point of need.
+</source>
+
+<source id="P3">
+[P3.1] Partner | Gen™
+[P3.2] Partner with Gen, a global leader in Cyber Safety. Explore all our products and solutions offering robust cybersecurity and identity theft protection.
+[P3.3] A single benefit that grows with your employees
+[P3.4] Evolving protection that adapts to employees' digital and financial lives.
+[P3.5] 66% of employees say financial stress negatively affects their work*
+[P3.6] From first paychecks and growing families to retirement planning, offer employees digital protection and financial tools that stay relevant as their lives, responsibilities and risks change.
+[P3.7] How Norton LifeLock Benefit Solutions can help
+[P3.8] Reduce the friction of digital threats so your team stays secure, focused, and supported every single day.
+[P3.9] Safeguard personal and financial profiles from theft, fraud, and misuse at every stage of life.
+[P3.10] Defend against scams and security threats as digital exposure increases.
+[P3.11] Empower employees to take control of their personal data and help reduce ongoing risks
+[P3.12] Build confidence with tools to track, understand, manage, and grow finances over time.
+[P3.13] Solutions for brokers and employers
+[P3.14] One trusted benefit. Every life stage. Zero added complexity.
+[P3.15] Gain a competitive edge and grow your book of business by offering clients a modern, easy-to-adopt benefit that goes beyond traditional coverage.
+[P3.16] Protecting employees across the globe Essential digital and financial safety benefits for Canadian teams.
+[P3.17] Help safeguard the digital wellness of your Canadian employees. As digital risks grow, this program delivers the vital privacy, device, and identity protection they need. Add peace of mind to your benefit plans with a modern solution engineered to protect their financial and digital lives.
+[P3.18] Our Norton Benefit International Program protects the online privacy, devices, and identity of employees worldwide. By offering layered proactive safety measures, we help ensure your multi-generational global workforce can go online securely and with confidence
+[P3.19] Americans targeted by scams. 1
+[P3.20] Scam victims impacted financially. 2
+[P3.21] was lost by victims of AI-related cybercrime. 3
+[P3.22] of HR leaders worry that financial stress impacts productivity. 4
+[P3.23] Help every employee feel protected, confident, and prepared for what’s next.
+[P3.24] Connect with a representative today to offer one seamless benefit that meets an entire workforce exactly where they are — and grows with them.
+[P3.25] Attackers spent the first half of 2026 abusing trust that already exists: hotel workflows, messaging sessions, browser data, developer tools, AI agents, payment habits and identity signals.
+[P3.26] How Financial Institutions Play a Role in Helping Keep Their Account Holders Safe Online
+[P3.27] Learn about the cyberthreat landscape and what you can do to help protect your customers.
+[P3.28] See how HUB International serves employers who want to help protect their employees’ identity, security, and online privacy
+[P3.29] 5 Reasons Travelers Use VPNs – Why You Should Partner with Norton
+[P3.30] Why many travelers rely on VPNs – and why your hospitality business should provide one.
+[P3.31] Identity theft can happen to anyone. In Aaron’s identity theft story, Gen and LifeLock were there to help him protect his personal information.
+[P3.32] Request a callback to kickstart our partnership
+[P3.33] We can't wait to connect. Fill out the form below, and we will be in touch shortly.
+[P3.34] *Morgan Stanley at Work, State of the Workplace 2025 Financial Benefits Study 1 Based on a study of 1,000 adults in the United States conducted by Dynata on behalf of Gen from 24th April to 8th. 2 Based on a study of 1,000 adults in the United States conducted by Dynata on behalf of Gen from 24th April to 8th. 3 Federal Bureau of Investigation, Internet Crime Complaint Center's 2025 internet crime report. 4 State of the Workplace: 2025 Financial Benefits Study Morgan Stanley at Work,
+</source>

@@ -1,0 +1,64 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and sector, and evidence about it: lines from its own website and, when available, web search results. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3), [W2.4] (another page of its website) or [S3.1] (web search result 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. Describe the whole company as one business: if it has several lines, cover all of them, the largest first.
+
+For a category facet, choose categories only from its list (one, or any that apply, as the facet says) and add a short detail of at most twenty words in the company's own terms. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company, and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Use words, not digits.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: ADMA Biologics, Inc. (www.admabiologics.com)
+Sector: Healthcare (providers, devices, pharmaceuticals)
+
+Facets:
+- sub_sector (Sub-sector): The narrow industry niche the company competes in, in a few words. Example: commercial HVAC equipment; payroll and HR software for mid-sized employers; less-than-truckload freight. Name the niche a buyer would search for comps in, more specific than the industry: up to about eight words. For a company in several niches, name the largest first, separated by semicolons (at most three).
+- healthcare_segment (Healthcare segment): Part of healthcare. Example: services: home health and hospice care. Any that apply of: pharma; biotech; medtech / devices; diagnostics and tools; provider services; healthcare IT; payer; distribution / pharmacy; other.
+- product_stage (Product stage): Whether its products are on the market. Example: commercial: sells approved products. Exactly one of: commercial; clinical; research; not applicable (services).
+- customer_payer (Customer / payer): Who pays. Example: Medicare and Medicaid: government programs pay for most visits. Any that apply of: hospitals and providers; private insurance; Medicare and Medicaid; patients / consumers; pharma and biotech companies; employers; other.
+- therapeutic_area (Therapeutic area): Main clinical area. Example: cardiovascular: heart rhythm devices. Any that apply of: oncology; cardiovascular; neurology and behavioral health; orthopedics and spine; metabolic and diabetes; infectious disease; ophthalmology; dental; general / multiple; other.
+
+Evidence:
+<source id="P1">
+[P1.1] ADMA Biologics, Inc. - Official Website
+[P1.2] ADMA Biologics | FDA-Approved Immune Globulin Products
+[P1.3] Discover our proven immunotechnology. ADMA has forged a new path forward in improving the lives of the immune compromised and other patients at risk for certain infections.
+[P1.4] Explore our FDA-approved immune globulin product portfolio; ASCENIV™, BIVIGAM®, and Nabi-HB®.
+[P1.5] Our proprietary microneutralization assay quantitatively measures titer levels of neutralizing antibodies in plasma donor samples.
+[P1.6] We have created a robust, sustainable, and controlled manufacturing process for producing our commercially available specialty biologic products and offer contract manufacturing capabilities.
+[P1.7] See how ADMA is forging a new path forward
+[P1.8] We are dedicated to advancing a new age of specialty biologic products. Learn about the passion, values, and promise that drive ADMA Biologics. Watch our corporate video to learn more.
+[P1.9] View ALl News & Alerts
+</source>
+
+<source id="P2">
+[P2.1] What We Do - ADMA Biologics, Inc.
+[P2.2] Learn about our immune globulin product portfolio, our patented technology, our optimized manufacturing process, and CDMO capabilities
+[P2.3] ADMA Biologics is an end-to-end biopharmaceutical company leading the way as a producer of specialty biologic therapies
+[P2.4] ADMA Biologics is an end-to-end biopharmaceutical company leading the way as a producer of plasma-derived therapeutics.
+[P2.5] Explore our FDA-approved immune globulin product portfolio.
+[P2.6] We offer a full suite of CDMO and contract manufacturing organization (CMO) opportunities. Partner with us for your clinical-stage or commercial aseptic filling, packaging requirements, and our unique good manufacturing practice (GMP) testing.
+[P2.7] Discover our proven immunotechnology that has forged a new path forward in improving the lives of the immune compromised and other patients at risk for infection.
+[P2.8] We have created a robust, sustainable, and controlled manufacturing process for producing our commercially available specialty biologic products.
+[P2.9] ADMA BioCenters is an organization specializing in the collection of human plasma used to make special medications for the treatment and prevention of diseases.
+</source>
+
+<source id="P3">
+[P3.1] Our Products - ADMA Biologics, Inc.
+[P3.2] Learn about our three FDA-licensed approved products within our immune globulin (Ig) product portfolio
+[P3.3] Commercial products: Our immune globulin product portfolio
+[P3.4] With three FDA-approved products, the mission of ADMA Biologics is to continue to successfully commercialize specialty biologics, targeted to specific patient populations for the treatment and prevention of certain infectious diseases and management of immune compromised patient populations.
+[P3.5] Our dedicated patient support hub helps simplify access to ASCENIV™ and BIVIGAM®
+[P3.6] Maximize insurance benefits and minimize overall treatment costs
+[P3.7] Locate alternative funding and other payment options, such as nonprofit patient assistance foundations
+[P3.8] Supports providers and staff with:
+[P3.9] Benefits verification to determine coverage, including out-of-pocket costs, and payer requirements
+[P3.10] Claims, reimbursement support, and appeals
+[P3.11] ADMA is committed to helping patients with access to their therapy. If you need additional information on financial assistance or resources, the National Organization for Rare Disorders (NORD) may be able to assist.
+[P3.12] Helpline hours: Monday–Thursday 8:30am–7:00pm ET; Friday 8:30am–6:00pm ET
+[P3.13] Healthcare professionals, this guide can help you get started
+</source>

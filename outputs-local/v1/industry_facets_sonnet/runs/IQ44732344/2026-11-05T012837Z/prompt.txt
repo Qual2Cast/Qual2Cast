@@ -1,0 +1,80 @@
+You describe a company's business model for a private-equity analyst who is choosing comparable public companies. You get the company's name, website and two-digit SIC industry, the facets that matter inside that industry, and evidence about the company: lines from its own website. Every evidence line starts with a label, such as [P1.3] (saved website page 1, line 3).
+
+Base every facet on the evidence. For each facet you fill, cite the labels of the 1 to 3 lines that best support it in "cites". Only when the evidence says nothing about a facet may you use what you already know about this specific company; then leave "cites" empty. Never guess from the company's name, its web address or what is typical for similar companies: a facet that neither the evidence nor your knowledge of this company supports is "unknown".
+
+Describe the company as it is now: leave out businesses the evidence or your knowledge says it has sold, spun off or closed. If the company has several lines of business, cover the ones the facet applies to, the largest first.
+
+Each facet takes a short value in the company's own terms, at most twenty-five words, in the style of the facet's examples. Status is "stated" when you fill it, "not_applicable" when the facet does not apply to this company (for example, a facet about a product line the company does not have), and "unknown" otherwise.
+
+Also say whether you recognize this specific company from what you already know ("knows_company").
+
+Rules:
+- Never write financial figures, sizes, counts, percentages, tickers or valuations. Where the examples show numbers, describe the scale or mix in words instead.
+- Notes: one short sentence, only if something is uncertain; otherwise an empty string.
+
+Company: Global Water Resources, Inc. (www.gwresources.com)
+Industry (SIC 49): Electric, Gas & Sanitary Services
+About this industry group: Select the electric, gas, water, sanitary/waste, steam or irrigation branch. Generation mix and rate base are not universal requirements. MW capacity, GW peak demand, MWh generation, and generation capacity factor are different quantities. Waste disposal also needs permitted capacity and remaining airspace. Official scope; EIA capacity explanation.
+
+Facets:
+- utility_environmental_service (Utility / environmental service). Examples: Electricity distribution; Water supply; Solid-waste collection.
+- regulated_competitive_operating_model (Regulated / competitive operating model). Examples: Rate-regulated utility; Merchant generation; Contracted waste services.
+- generation_fuel_technology_mix_electric_generators (Generation fuel / technology mix [electric generators]). Examples: 60% of net generation from gas; Wind and solar generation; Nuclear generation.
+- approved_regulatory_rate_base_regulated_utilities (Approved regulatory rate base [regulated utilities]). Examples: $4 billion rate base at year-end; £2 billion regulated asset value.
+- connections_service_accounts (Connections / service accounts). Examples: 900,000 electricity accounts; 200,000 water connections; 50,000 waste-service customers.
+- service_specific_rated_capacity (Service-specific rated capacity). Examples: 2,500 MW nameplate generation; 50 million U.S. gallons/day water treatment; 1.2 million metric tonnes/year permitted waste throughput.
+- regulatory_jurisdiction (Regulatory jurisdiction). Examples: State public utility commission; Municipal water authority; Environmental permit authority.
+- electricity_output_generators (Electricity output [generators]). Examples: Net generation: 10 TWh/year; Net generation: 20 TWh/year.
+- generator_capacity_factor_generators (Generator capacity factor [generators]). Examples: 45% annual net capacity factor; 85% annual net capacity factor.
+- system_peak_demand_electric_networks (System peak demand [electric networks]). Examples: Annual peak demand: 3 GW; Summer peak demand: 5 GW.
+- gas_network_delivery_gas_utilities (Gas network / delivery [gas utilities]). Examples: 8,000 distribution-pipeline miles; 50 million MMBtu annual deliveries.
+- water_wastewater_operations (Water / wastewater operations). Examples: Drinking-water treatment; Wastewater treatment; Sewer-network operations.
+- water_system_performance (Water-system performance). Examples: Non-revenue water: 15% of system input; Effluent-permit compliance; Water-main replacement program.
+- waste_disposal_economics_sanitary_services (Waste / disposal economics [sanitary services]). Examples: Collection routes; Owned landfills; Transfer stations.
+- remaining_landfill_airspace_landfills (Remaining landfill airspace [landfills]). Examples: 20 million m³ of permitted remaining airspace; 30 million cubic yards of permitted remaining airspace.
+- waste_accepted_disposal (Waste accepted [disposal]). Examples: Five million metric tonnes/year; Two million short tons/year.
+- steam_irrigation_service (Steam / irrigation service). Examples: District steam distribution; Chilled-water supply; Irrigation canal delivery.
+
+Evidence:
+<source id="P1">
+[P1.1] Global Water Resources
+[P1.2] Global Water Resources, Inc. is a water resource management company. We provide water, wastewater, and recycled water utility services. Global Water Resources currently services Pinal, Pima, and Maricopa Counties.
+[P1.3] Global Water Resources, Inc. is a water resource management company. We provide water, wastewater, and recycled water utility services.
+[P1.4] Recycled water is what we produce when we treat and purify wastewater. We distribute recycled water throughout the communities we serve in a separate system of pipes. We use recycled water for a variety of outdoor uses.
+[P1.5] Total Gallons of Water Recycled
+[P1.6] Tomorrow's water future depends on the actions we take today. We must preserve, protect, and restore our limited and increasingly valuable water resources. Focused on this mission, we call our approach “Total Water Management.” Total Water Management protects supplies in areas where water is scarce, making supplies available for additional growth and long-term sustainability.
+[P1.7] Total Water Management is a comprehensive approach to smart water management that reduces demand on scarce non-renewable water sources and costly renewable water supplies, in a manner that ensures sustainability and best benefits communities both environmentally and economically.
+[P1.8] This approach employs a series of principles and practices that result in real reductions in community water use, while allowing for economic development and other quality of life goals.
+</source>
+
+<source id="P2">
+[P2.1] Global Water Resources Company Profile
+[P2.2] We are a water resource management company that owns, operates and manages water, wastewater and recycled water utilities in Arizona.
+[P2.3] Global Water Resources, Inc. is a leading water resource management company that owns and operates 39 systems which provide water, wastewater, and recycled water services. The company’s service areas are located primarily in growth corridors around metropolitan Phoenix and Tucson. Global Water recycles over 1 billion gallons of water annually.
+[P2.4] The company has been recognized for its highly effective implementation of Total Water Management (TWM). TWM is an integrated approach to managing the entire water cycle that involves owning and operating water, wastewater, and recycled water utilities within the same geographic area in order to maximize the beneficial use of recycled water. TWM also implements smart water management programs, including advanced and remote metering infrastructure. It enables smart water management programs such as 2 remote metering infrastructure and other advanced technologies, rate designs, and incentives that result in real conservation. TWM helps protect water supplies in water-scarce areas experiencing population growth.
+[P2.5] Global Water has received numerous industry awards, including national recognition as a ‘Utility of the Future Today’ for its superior water reuse practices by a national consortium of water and conservation organizations led by the Water Environment Federation (WEF). The company also received Cityworks’ 2022 Excellence in Departmental Practice Award for demonstrating leadership and creativity in applying public asset management strategies to daily operations and long-term planning.
+[P2.6] Leveraging advanced technologies to benefit our customers, employees, and the environment.
+[P2.7] Appropriately managing the entire water cycle through Total Water Management, protecting our most precious resource.
+[P2.8] Providing a safe, yet strong, investment opportunity focused on long term value creation.
+</source>
+
+<source id="P3">
+[P3.1] DEVELOPER RESOURCES | globalwater
+[P3.2] Welcome to the GWR Developer Resources Page. We look forward to working with you on your project!
+[P3.3] The Development Services Team works in conjunction with several departments within Global Water to ensure a seamless process for Developers. Our team acts as a point of contact in collaboration with the Construction & Engineering, Legal, and Finance teams to ensure agreements are put in place as requiredand we will coordinate on items such as:
+[P3.4] Inquiries regarding service territory and coverage areas
+[P3.5] New project kickoff and review
+[P3.6] Facilitating agreements and collecting payments prior to final plan approval
+[P3.7] Completion of the bill of sale once project is complete and approved by C onstruction & Engineering
+[P3.8] Facilitation of meter application, payment, and installation as approved by Construction & Engineering
+[P3.9] We always strive to do our best and work as quickly as possible to ensure your project is successful.
+[P3.10] The Meter Applications process begins at the end of the project and must be followed in accordance with our requirements. In order to have meters installed in a timely manner, all steps of the process must be followed, and all requirements must be met. Once the project is complete and the GWR Construction & Engineering team has given final approval, we will accept meter applications and payment.
+[P3.11] Global Water provides service to portions of 3 counties in the state of Arizona. Areas within Pinal, Pima, and Maricopa County are covered by our service territory. We will research the parcel and let you know if we can serve the parcel with water and/or wastewater service
+[P3.12] The property must be located within the service territory covered by our Certificate of Convenience & Necessity (CC&N). The rate tariffs, billing procedures, and terms of service for all Global Water utilities are regulated and approved by the Arizona Corporation Commission.
+[P3.13] APPENDIX B: ACCEPTANCE OF UNDERGROUND UTILITIES
+[P3.14] STANDARD DETAILS FOR UTILITY CONSTRUCTION
+[P3.15] AUTOMOBILE WASH AND REPAIR OPERATION
+[P3.16] ACCEPTANCE/RECOMMISSIONING OF GROUND STORAGE TANKS
+[P3.17] DETERMINATION OF CAPACITY FROM COMMERCIAL UNITS
+[P3.18] IRRIGATION AND LAND USE REQUIREMENTS
+</source>
