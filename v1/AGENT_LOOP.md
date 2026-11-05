@@ -69,45 +69,26 @@ not called again.
 4. **Valuation** (20+ targets only): median absolute % error of the similarity-weighted multiple for the same
    three lists, with bootstrap intervals.
 
-## Results so far (2026-11-05, Claude Sonnet, prompt `2026-11-05a`)
+## Results (2026-11-05, prompt `2026-11-05a`)
 
-**Current runs: Sonnet only** (`gold/`, `round2_targets/`): Sonnet grades, Sonnet's facet fills, and Sonnet for the web searches (`--search-model sonnet`, now the default). Round 1 still 31/32; compared with the `*_facets` runs, 1 round-1 grade and 4 round-2 grades moved by one point (run-to-run variation; 2 round-2 pairs used a web search). The older folders below are kept for comparison.
+Sonnet throughout: Sonnet grades, Sonnet's facet fills as context, Sonnet for web search.
 
-**Facet summaries: Sonnet's fills, since the second run.** The first runs (`gold_sonnet/`, `round2_targets_sonnet/`)
-showed Haiku's facet fills as context. Yifan's check found that Haiku's fills still describe businesses CSL, AFG and
-AZZ sold years ago, and the agent repeated AFG's sold annuity business in its reasons. Rerun with Sonnet's fills
-(`--facets outputs-local/v1/facets_sonnet/tables/facets.csv`, now the default):
-
-| run | Haiku fills | Sonnet fills | grades changed |
+| run | folder (`outputs-local/v1/agent_loop/`) | pairs | result |
 |---|---|---|---|
-| Round 1 (PCTY, WEN), 36 pairs | `gold_sonnet/`: 31/32 | `gold_sonnet_facets/`: 31/32 | 2 (PCTY-THRY, PCTY-DHX, 0 to 1; both pairs have no reviewer majority) |
-| Round 2 targets, 35 pairs | `round2_targets_sonnet/` | `round2_targets_sonnet_facets/` | 7 (AFG 5, BBCP 2); "annuity" in the reasons 9 times, now 1 |
+| Round-1 golden set (PCTY, WEN) | `gold/` | 36 (32 with a majority grade) | **31/32** exact with the reviewers' majority, 32/32 peer vs not-peer, 0 non-peers graded as peers (one-shot Sol on the same pairs: 26/32, 29/32, 3) |
+| Round-2 targets (CSL, AFG, AZZ, BBCP, BUKS), B3's lists | `round2_targets/` | 35 | 3 twos, 21 ones, 11 zeros; to be scored once `round2_filled.csv` exists |
 
-AFG with Sonnet's fills: ORI and ASIC 1 to 2, BOW 2 to 1, BRO (a broker) and SNFC.A (life insurance and funeral) 1 to 0.
-BBCP: IESC and GVA 1 to 0. CSL, AZZ and BUKS unchanged. **The Sonnet-fill runs are the current ones**; the figures
-below come from the first runs and hold for both on round 1.
+- The one round-1 miss is WEN-TXRH: the reviewers gave 2, the agent 1 (quick-service vs casual dining).
+- On B3's PCTY/WEN lists the agent keeps all 11 labelled peers and drops none; keeping only its 2s leaves 3 of the 4
+  direct comps.
+- For BUKS it gave the casino-only comps (CNTY, MCRI, RRR, ACEL) 1, as the multi-business rule says.
+- **It rarely looks things up:** 1 of 36 round-1 pairs and 2 of 35 round-2 pairs (BUKS-RRR, CSL-SSD, a web search
+  each). With the facet summaries and 450 words of each website, Sonnet was sure enough to answer at once.
+- About 6 to 7 seconds per pair.
 
-**Round-1 golden set (PCTY, WEN; 36 pairs, 32 with a majority grade)**, `agent_loop/gold_sonnet/`:
-
-| grader | exact agreement with the reviewers | peer vs not-peer | non-peers graded as peers |
-|---|---|---|---|
-| agent loop (Sonnet) | **31/32** | 32/32 | 0 |
-| one-shot Sol, same pairs (`graded_batch_check`) | 26/32 | 29/32 | 3 |
-
-The one miss is WEN-TXRH: the reviewers gave 2, the agent 1 (quick-service vs casual dining). On B3's own
-PCTY/WEN lists the agent keeps all 11 labelled peers and drops none; keeping only its 2s leaves 3 of the 4
-direct comps. About 8 seconds per pair.
-
-**Round-2 targets (CSL, AFG, AZZ, BBCP, BUKS; B3's lists, 35 pairs)**, `agent_loop/round2_targets_sonnet/`:
-grades are ready to compare once `round2_filled.csv` exists (rerun `agent_loop_eval.py`). The agent gave 1
-two, 24 ones and 10 zeros. For BUKS it gave the casino-only comps (CNTY, MCRI, RRR, ACEL) at most 1, as the
-multi-business rule says.
-
-**It rarely looks things up.** 1 of 36 round-1 pairs and 2 of 35 round-2 pairs used a lookup (RRR, SSD:
-two web searches each, which worked). With the facet summaries and 450 words of each website, Sonnet was
-sure enough to answer at once. Caveats: two targets is a small test; Sonnet and Sol differ in model and in
-what they see (Sol had 900 website words and no facet summary), so the gap is not only the loop; and a well-
-known company may be graded partly from the model's memory despite the instruction.
+Caveats: two labelled targets is a small test; Sonnet and Sol differ in model and in what they see (Sol had 900
+website words and no facet summary), so the gap is not only the loop; and a well-known company may be graded partly
+from the model's memory despite the instruction.
 
 ## Open questions
 
