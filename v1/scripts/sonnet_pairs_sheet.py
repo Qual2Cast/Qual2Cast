@@ -11,6 +11,7 @@ reviewers; `round2_pair` names the same pair in round2_sheet.csv, if it is there
 Writes, never overwriting:
   golden_set_showcase/labels/round2_sonnet_sheet.csv  (blind, for the reviewers)
   golden_set_showcase/labels/round2_sonnet_pairs.csv  (all pairs, with rank, similarity, agent grade; not for reviewers)
+  golden_set_showcase/labels/round2_sonnet_combined.csv  (the sheet plus the agent's grade side by side; not for reviewers)
 """
 
 from __future__ import annotations
@@ -71,8 +72,17 @@ def main(argv: list[str] | None = None) -> None:
     old_pair = old.set_index(["target_id", "comp_id"])["pair"]
     sheet.insert(1, "round2_pair", [old_pair.get((t, c), "") for t, c in zip(sheet["target_id"], sheet["comp_id"])])
 
+    extra = pairs[["target", "comp", "rank", "similarity", "agent_score", "agent_verdict", "agent_reason"]].rename(
+        columns={"target": "target_id", "comp": "comp_id"})
+    combined = sheet.merge(extra, on=["target_id", "comp_id"], how="left")
+    scores = [c for c in combined.columns if c.startswith(("score_", "reason_if_0_", "notes_"))]
+    first = [c for c in combined.columns if c not in scores + list(extra.columns)]
+    combined = combined[first + ["rank", "similarity", "agent_score", "agent_verdict", "agent_reason"] + scores
+                        + ["target_id", "comp_id"]]
+
     LABELS.mkdir(parents=True, exist_ok=True)
-    for path, frame in [(LABELS / "round2_sonnet_sheet.csv", sheet), (LABELS / "round2_sonnet_pairs.csv", pairs)]:
+    for path, frame in [(LABELS / "round2_sonnet_sheet.csv", sheet), (LABELS / "round2_sonnet_pairs.csv", pairs),
+                        (LABELS / "round2_sonnet_combined.csv", combined)]:
         if path.exists():
             print(f"kept {path.name} (never overwritten)")
         else:
