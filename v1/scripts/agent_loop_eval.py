@@ -1,4 +1,4 @@
-"""Score an agent_loop.py run (task 4b).
+"""Score an agent_loop.py run.
 
 Four checks, each on the pairs that have the needed labels:
   1. Agreement with the human reviewers: the round-1 majority grade (PCTY, WEN;

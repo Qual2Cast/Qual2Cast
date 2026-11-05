@@ -1,4 +1,4 @@
-"""Agent loop (similarity checks, task 4b): an LLM checks each high-scoring
+"""Agent loop: an LLM checks each high-scoring
 target-comp pair by looking things up before it grades it.
 
 Why: the one-shot graders (graded_peer_selection.py, peer_evaluation.py) see

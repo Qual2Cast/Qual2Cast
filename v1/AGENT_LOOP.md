@@ -1,4 +1,4 @@
-# Agent loop: checking high-scoring target-comp pairs (task 4b)
+# Agent loop: checking high-scoring target-comp pairs
 
 Code: [`scripts/agent_loop.py`](scripts/agent_loop.py) (the loop) and
 [`scripts/agent_loop_eval.py`](scripts/agent_loop_eval.py) (the scoring). Tests:
