@@ -1,0 +1,57 @@
+{
+  "split_run": "20261027T204930Z",
+  "b3_run": "20261104T074915Z",
+  "model": "all-mpnet-base-v2",
+  "rule": "B3 with mutual top 10, top up to 3; exactly one facet or facet bundle changed per variant",
+  "facets": [
+    "offering_description",
+    "primary_products",
+    "primary_services",
+    "customer_segment",
+    "end_markets",
+    "revenue_model",
+    "value_chain_position",
+    "geography_served",
+    "specialization",
+    "distribution_channels",
+    "regulatory_exposure"
+  ],
+  "additions": [
+    "FF49",
+    "SIC4",
+    "Fiona sub-sector",
+    "Fiona categories",
+    "Barbara SIC2 facets"
+  ],
+  "label_counts": {
+    "human_majority": 32,
+    "human_unanimous": 11,
+    "human_riya": 36,
+    "human_barbara": 36,
+    "human_matthew": 36,
+    "haiku_screen_diagnostic": 4996,
+    "sol_holdout_diagnostic": 1982
+  },
+  "saturation_k": {
+    "haiku": 41.84879778413833,
+    "sonnet": 44.90254000530018
+  },
+  "baseline_check": {
+    "saved_selected_pairs": 2396,
+    "reproduced_selected_pairs": 2396,
+    "max_similarity_difference": 8.012965080350654e-08,
+    "rank_mismatches": 0
+  },
+  "round2_included": false,
+  "sources_sha256": {
+    "golden_set/labels/reviewer_labels_20261028.json": "ee07b1c14feeeb7123a78bedf34ca970bff482d318471eebe6de73536da6f184",
+    "split/20261027T204930Z/split.csv": "0de7aa335563ec984bc035e25934d22b7210ffa211333bf10d16c1a06d48d724",
+    "universe/20261025T060358Z/universe.csv": "1b492b3d2181ec84a22a0fea4168eb2e2cd3017974eb54f12a6bbaf8a1523378",
+    "facets/tables/facets.csv": "86e067bc8e95a10db53414261f08e4fe5f53806430ecd974deca191928e64bf8",
+    "facets_sonnet/tables/facets.csv": "8619ecf21c329269464a0a1d288ae23fda29601aa52272555f91d15759128464",
+    "sector_facets_sonnet/tables/sector_facets.csv": "a7139d71efd655db4d6655a4c71d86d07c72e8123aa60f3ab4fd543f17e91ef8",
+    "industry_facets_sonnet/tables/industry_facets_long.csv": "8b7b986d8697996d55271659036795e9be44c62a630e3b9153c662c96984883f",
+    "judge/tables/judgments.csv": "0a14f82228f090635e1a8d38770dd598382a30081caaefd6d0e35b4bc3991192",
+    "holdout_completion/graded_peer_selection/grades.csv": "25593a544f8186ff564ef66c3502757d90ae0ba35241c5d0d82d36b4310bc5f8"
+  }
+}
