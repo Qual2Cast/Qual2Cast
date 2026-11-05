@@ -90,6 +90,15 @@ Caveats: two labelled targets is a small test; Sonnet and Sol differ in model an
 website words and no facet summary), so the gap is not only the loop; and a well-known company may be graded partly
 from the model's memory despite the instruction.
 
+## Haiku vs Sonnet facets
+
+Before the current runs, the agent loop was run twice with Sonnet grading: once reading Haiku's facet fills and once
+reading Sonnet's. On round 1 (PCTY, WEN) there was no difference: both matched the reviewers' majority on 31/32. On
+the 35 B3 pairs for the round 2 targets, 7 grades changed, mostly for AFG. With Haiku's facets the agent gave some comps
+credit for AFG's annuity business, which was sold years ago. With Sonnet's facets, BRO and SNFC.A dropped to 0, and
+BBCP's IESC and GVA also went from 1 to 0. Those runs are kept in `gold_sonnet/`, `round2_targets_sonnet/` (Haiku
+facets) and `gold_sonnet_facets/`, `round2_targets_sonnet_facets/` (Sonnet facets).
+
 ## Open questions
 
 - Web snippets are copied out by the search model, so a snippet can be paraphrased. The search answer is saved
