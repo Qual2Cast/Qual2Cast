@@ -69,29 +69,35 @@ not called again.
 4. **Valuation** (20+ targets only): median absolute % error of the similarity-weighted multiple for the same
    three lists, with bootstrap intervals.
 
-## Results so far (2026-11-05, Claude Sonnet, prompt `2026-11-05a`)
+## Results (2026-11-05, prompt `2026-11-05a`)
 
-**Round-1 golden set (PCTY, WEN; 36 pairs, 32 with a majority grade)**, `agent_loop/gold_sonnet/`:
+Sonnet throughout: Sonnet grades, Sonnet's facet fills as context, Sonnet for web search.
 
-| grader | exact agreement with the reviewers | peer vs not-peer | non-peers graded as peers |
+| run | folder (`outputs-local/v1/agent_loop/`) | pairs | result |
 |---|---|---|---|
-| agent loop (Sonnet) | **31/32** | 32/32 | 0 |
-| one-shot Sol, same pairs (`graded_batch_check`) | 26/32 | 29/32 | 3 |
+| Round-1 golden set (PCTY, WEN) | `gold/` | 36 (32 with a majority grade) | **31/32** exact with the reviewers' majority, 32/32 peer vs not-peer, 0 non-peers graded as peers (one-shot Sol on the same pairs: 26/32, 29/32, 3) |
+| Round-2 targets (CSL, AFG, AZZ, BBCP, BUKS), B3's lists | `round2_targets/` | 35 | 3 twos, 21 ones, 11 zeros; to be scored once `round2_filled.csv` exists |
 
-The one miss is WEN-TXRH: the reviewers gave 2, the agent 1 (quick-service vs casual dining). On B3's own
-PCTY/WEN lists the agent keeps all 11 labelled peers and drops none; keeping only its 2s leaves 3 of the 4
-direct comps. About 8 seconds per pair.
+- The one round-1 miss is WEN-TXRH: the reviewers gave 2, the agent 1 (quick-service vs casual dining).
+- On B3's PCTY/WEN lists the agent keeps all 11 labelled peers and drops none; keeping only its 2s leaves 3 of the 4
+  direct comps.
+- For BUKS it gave the casino-only comps (CNTY, MCRI, RRR, ACEL) 1, as the multi-business rule says.
+- **It rarely looks things up:** 1 of 36 round-1 pairs and 2 of 35 round-2 pairs (BUKS-RRR, CSL-SSD, a web search
+  each). With the facet summaries and 450 words of each website, Sonnet was sure enough to answer at once.
+- About 6 to 7 seconds per pair.
 
-**Round-2 targets (CSL, AFG, AZZ, BBCP, BUKS; B3's lists, 35 pairs)**, `agent_loop/round2_targets_sonnet/`:
-grades are ready to compare once `round2_filled.csv` exists (rerun `agent_loop_eval.py`). The agent gave 1
-two, 24 ones and 10 zeros. For BUKS it gave the casino-only comps (CNTY, MCRI, RRR, ACEL) at most 1, as the
-multi-business rule says.
+Caveats: two labelled targets is a small test; Sonnet and Sol differ in model and in what they see (Sol had 900
+website words and no facet summary), so the gap is not only the loop; and a well-known company may be graded partly
+from the model's memory despite the instruction.
 
-**It rarely looks things up.** 1 of 36 round-1 pairs and 2 of 35 round-2 pairs used a lookup (RRR, SSD:
-two web searches each, which worked). With the facet summaries and 450 words of each website, Sonnet was
-sure enough to answer at once. Caveats: two targets is a small test; Sonnet and Sol differ in model and in
-what they see (Sol had 900 website words and no facet summary), so the gap is not only the loop; and a well-
-known company may be graded partly from the model's memory despite the instruction.
+## Haiku vs Sonnet facets
+
+Before the current runs, the agent loop was run twice with Sonnet grading: once reading Haiku's facet fills and once
+reading Sonnet's. On round 1 (PCTY, WEN) there was no difference: both matched the reviewers' majority on 31/32. On
+the 35 B3 pairs for the round 2 targets, 7 grades changed, mostly for AFG. With Haiku's facets the agent gave some comps
+credit for AFG's annuity business, which was sold years ago. With Sonnet's facets, BRO and SNFC.A dropped to 0, and
+BBCP's IESC and GVA also went from 1 to 0. Those runs are kept in `gold_sonnet/`, `round2_targets_sonnet/` (Haiku
+facets) and `gold_sonnet_facets/`, `round2_targets_sonnet_facets/` (Sonnet facets).
 
 ## Open questions
 
