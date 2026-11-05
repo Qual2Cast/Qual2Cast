@@ -132,6 +132,9 @@ def describe(row: pd.Series, exclude: tuple[str, ...] = PROMPT_EXCLUDES[PROMPT_V
     sector_summary = row.get("sector_summary", "")
     if isinstance(sector_summary, str) and sector_summary:
         lines.append(f"- Sector-specific business characteristics: {sector_summary}")
+    sub_sector = row.get("sub_sector", "")
+    if isinstance(sub_sector, str) and sub_sector:
+        lines.append(f"- Sub-sector: {sub_sector}")
     return "\n".join(lines)
 
 
@@ -214,12 +217,21 @@ def load_inputs(candidates_run: Path, z: float, rule: str = "z") -> tuple[pd.Dat
     rule "selected": the rows marked `selected` (a method1_candidates.py run:
     the v1 baseline's comp lists)."""
     pairs = pick_pairs(pd.read_csv(candidates_run / "candidates.csv", dtype={"target": str, "comp": str}), z, rule)
-    universe_run = json.loads((candidates_run / "run.json").read_text(encoding="utf-8"))["universe_run"]
+    run = json.loads((candidates_run / "run.json").read_text(encoding="utf-8"))
+    universe_run = run["universe_run"]
     info = pd.read_csv(OUTPUTS_LOCAL / "v1" / "universe" / universe_run / "universe.csv",
                        dtype=str).set_index("IQ_COMPANY_ID")
-    facets = pd.read_csv(facet_paths(FACETS_OUT).tables / "facets.csv", dtype=str).fillna("")
+    facet_source = run.get("facet_source", "haiku")
+    if facet_source not in {"haiku", "sonnet"}:
+        raise ValueError(f"unsupported facet source: {facet_source}")
+    source_dir = FACETS_OUT if facet_source == "haiku" else OUTPUTS_LOCAL / "v1" / "facets_sonnet"
+    facets = pd.read_csv(facet_paths(source_dir).tables / "facets.csv", dtype=str).fillna("")
     facets = facets[(facets["prompt_version"] == fc.PROMPT_VERSION) & (facets["llm_status"] == "ok")
                     & (facets["business_id"] == "B1")].set_index("IQ_COMPANY_ID")
+    if "Fiona sub-sector" in run.get("method", ""):
+        sector = pd.read_csv(OUTPUTS_LOCAL / "v1" / "sector_facets_sonnet" / "tables" /
+                             "sector_facets.csv", dtype=str).fillna("").set_index("IQ_COMPANY_ID")
+        facets["sub_sector"] = sector["sub_sector"].where(sector["sub_sector_status"] == "stated").reindex(facets.index).fillna("")
     return pairs, info, facets
 
 

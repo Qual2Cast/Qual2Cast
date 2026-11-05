@@ -46,6 +46,22 @@ DEFAULT_SPLIT = "20261027T204930Z"          # the SIC2 split every v0/v1 result 
 TEXT_CACHE = V1 / "embeddings" / f"texts_{cd.EMBED_MODEL.split('/')[-1]}.npz"
 
 
+def tables_from_similarity(S, ids: list[str], target_ids: list[str], training: list[str],
+                           ticker: pd.Series) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Format any B3-compatible similarity matrix for the existing selector."""
+    ranking = cd.rank_candidates(S, ids, targets=target_ids, pool=training, k=fw.TOP_K)
+    ranking = ranking[["target", "rank", "comp", "similarity", "z", "in_top_k"]]
+    chosen = fw.mutual_top_k(S, ids, target_ids, training, k=fw.TOP_K, min_comps=fw.MIN_COMPS)
+    top = ranking[ranking["in_top_k"]].merge(chosen[["target", "comp", "mutual", "topped_up"]],
+                                              on=["target", "comp"], how="left")
+    top["selected"] = top["mutual"].notna()
+    top["mutual"] = top["mutual"].eq(True)
+    top["topped_up"] = top["topped_up"].eq(True)
+    top.insert(1, "target_ticker", top["target"].map(ticker))
+    top.insert(top.columns.get_loc("comp") + 1, "comp_ticker", top["comp"].map(ticker))
+    return ranking, top
+
+
 def build(split_run: str = DEFAULT_SPLIT, targets: str = "training") -> tuple[pd.DataFrame, pd.DataFrame, dict]:
     """The full ranking, the candidates table and the run record (not yet written)."""
     split_dir = V1 / "split" / split_run
@@ -62,17 +78,8 @@ def build(split_run: str = DEFAULT_SPLIT, targets: str = "training") -> tuple[pd
     vectors = fw.embed_texts({t for n in texts for t in texts[n].dropna()}, TEXT_CACHE)
     S, _, k_sat = fw.method1_similarity(texts, vectors)
 
-    ranking = cd.rank_candidates(S, ids, targets=target_ids, pool=training, k=fw.TOP_K)
-    ranking = ranking[["target", "rank", "comp", "similarity", "z", "in_top_k"]]
-    chosen = fw.mutual_top_k(S, ids, target_ids, training, k=fw.TOP_K, min_comps=fw.MIN_COMPS)
-    top = ranking[ranking["in_top_k"]].merge(chosen[["target", "comp", "mutual", "topped_up"]],
-                                              on=["target", "comp"], how="left")
-    top["selected"] = top["mutual"].notna()            # kept in the baseline list
-    top["mutual"] = top["mutual"].eq(True)            # every mutual comp is kept, so the rest are not mutual
-    top["topped_up"] = top["topped_up"].eq(True)
     ticker = universe.set_index("IQ_COMPANY_ID")["target_ciq_ticker"]
-    top.insert(1, "target_ticker", top["target"].map(ticker))
-    top.insert(top.columns.get_loc("comp") + 1, "comp_ticker", top["comp"].map(ticker))
+    ranking, top = tables_from_similarity(S, ids, target_ids, training, ticker)
     run = {"method": "B3 = method 1 (v1 baseline): 0.5 embedding cosine + 0.5 TF-IDF cosine per facet, "
                      "information weights, 'none' as missing, company size out; mutual top 10 topped up to 3",
            "universe_run": split_info["universe_run"], "split_run": split_run, "facets_version": fc.PROMPT_VERSION,

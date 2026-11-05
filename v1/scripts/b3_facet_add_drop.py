@@ -29,6 +29,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import facet_eval as fe  # noqa: E402
 import facet_weighting as fw  # noqa: E402
 import facets as fc  # noqa: E402
+import method1_candidates as mc  # noqa: E402
 import sectors as sc  # noqa: E402
 import similarity_eval as se  # noqa: E402
 from project_data import OUTPUTS_LOCAL  # noqa: E402
@@ -306,8 +307,9 @@ def chart(metrics: pd.DataFrame, path: Path) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("--output", type=Path, help="directory for results; default: a timestamped local run")
+    parser.add_argument("--export-variant", help="also write this variant as a candidates run for the existing LLM selector")
     args = parser.parse_args()
-    _, ids, training, sectors = read_inputs()
+    universe, ids, training, sectors = read_inputs()
     labels = load_labels(training)
     general, sector, industry = load_facet_sources(ids)
     vectors = vectors_for(required_texts(general, sector, industry))
@@ -326,6 +328,8 @@ def main() -> None:
     for name, matrix in additions.items():
         variants[f"Sonnet + {name}"] = fw.combine({**sonnet_per, name: matrix}, sonnet_info)
     variants["Sonnet + all additions"] = fw.combine({**sonnet_per, **additions}, sonnet_info)
+    if args.export_variant and args.export_variant not in variants:
+        parser.error(f"unknown variant {args.export_variant!r}; choose from: {', '.join(variants)}")
 
     results, target_results, lists = [], [], []
     for i, (name, S) in enumerate(variants.items(), 1):
@@ -367,6 +371,22 @@ def main() -> None:
                            for p in source_paths if p.exists()},
     }
     (out / "run.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    if args.export_variant:
+        variant = args.export_variant
+        candidate_dir = out / "selector_candidates"
+        candidate_dir.mkdir(parents=True, exist_ok=True)
+        ticker = universe.set_index("IQ_COMPANY_ID")["target_ciq_ticker"]
+        ranking, candidates = mc.tables_from_similarity(variants[variant], ids, training, training, ticker)
+        ranking.to_csv(candidate_dir / "ranking.csv.gz", index=False)
+        candidates.to_csv(candidate_dir / "candidates.csv", index=False, lineterminator="\n")
+        (candidate_dir / "run.json").write_text(json.dumps({
+            "run": out.name, "method": variant, "universe_run": split_info["universe_run"],
+            "split_run": SPLIT_RUN, "facet_source": "sonnet" if variant.startswith("Sonnet") else "haiku",
+            "evaluation": str(out), "targets": "training", "n_targets": len(training),
+            "selected_pairs": int(candidates["selected"].sum()),
+        }, indent=2), encoding="utf-8")
+        print(f"Selector input: {candidate_dir} ({len(training)} targets; "
+              f"{int(candidates['selected'].sum())} selected pairs)")
     print(f"Wrote {out}")
 
 

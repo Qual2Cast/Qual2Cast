@@ -25,7 +25,9 @@ Tests: `uv run pytest v1/scripts/tests v1/scripts/verification/tests -q` (209 pa
 | Have the LLM screen B3's lists (paid; Haiku by default) | `uv run python v1/scripts/cosine_then_llm.py --b3 --workers 4` (free first: add `--dry-run`) |
 | The selectors' prompt no longer lists company size; the saved answers keep the old prompt | [`PROMPT_VERSIONS.md`](PROMPT_VERSIONS.md); check with `uv run python v1/scripts/check_prompt_versions.py` |
 | **Golden set round 2** (CSL, AFG, AZZ, BBCP, BUKS + 2 WEN pairs; 67 pairs) | reviewer guide [`GOLDEN_SET_ROUND2.md`](GOLDEN_SET_ROUND2.md); sheet `outputs-local/v1/golden_set_showcase/labels/round2_sheet.csv`; notebook [`notebooks/golden_set_showcase.ipynb`](notebooks/golden_set_showcase.ipynb) |
-| The multi-business rule for BBCP and BUKS | **stub for Eric** in the guide and in the notebook's section 5 |
+| The multi-business rule for BBCP and BUKS | Source-checked scope and company-level 0–2 scoring in the guide and notebook section 5; reviewer grades remain blank |
+
+**Local facet experiment (2026-11-05).** Section 10 of `similarity_methods.ipynb` evaluates 30 B3 facet variants against the existing peer labels. `b3_facet_add_drop.py --export-variant "Sonnet + Fiona sub-sector"` writes a compatible candidates run; pass its `selector_candidates/` directory to `cosine_then_llm.py --b3 --candidates`. A dry run generated all 373 training-target prompts; PCTY and WEN were checked for Sonnet facets and Fiona sub-sector. These experimental lists do not replace the default B3 run.
 
 ## Changes in v1 since the clone
 
@@ -42,7 +44,7 @@ Tests: `uv run pytest v1/scripts/tests v1/scripts/verification/tests -q` (209 pa
 - **`similarity_methods.ipynb`** additions:
   - "How the BM25 pieces curb boilerplate": label IDF vs a typical word; B3 roughly halves the label premium; the saturation curve; a worked pair.
   - Every method's full ranking for the ten showcase targets (`rankings_showcase.csv.gz`).
-- **Golden set round 2:** `golden_set_showcase.ipynb` and `GOLDEN_SET_ROUND2.md`, with three neutral reviewer slots, the six-reason rubric and the multi-business stub. `similarity_eval.py` gained `reviewer_sheet` and `check_reviewer_sheet`, and `reviewer_sets` takes any three reviewer names.
+- **Golden set round 2:** `golden_set_showcase.ipynb` and `GOLDEN_SET_ROUND2.md`, with three neutral reviewer slots, the six-reason rubric and source-checked multi-business scope. `similarity_eval.py` gained `reviewer_sheet` and `check_reviewer_sheet`, and `reviewer_sets` takes any three reviewer names.
 - **`outputs-local/v1/` is shared through Git.**
 
 | new file | what it does |

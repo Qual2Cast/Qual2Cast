@@ -3,6 +3,11 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
+_2026-11-05 (local `research/v1-eval-rebuild`, not pushed): round-2 business scope and facet-to-selector handoff._
+- BBCP and BUKS now have source-checked current business groups and a company-level scoring instruction in `v1/GOLDEN_SET_ROUND2.md` and section 5 of `v1/notebooks/golden_set_showcase.ipynb`. Each target keeps one company ID and each pair gets one grade under the existing 0–2 rubric. The reviewer scores remain blank. BBCP's July 2026 filing confirms the April Templant acquisition and its small nine-month contribution; Butler's FY2026 release reports 62% aerospace and 38% professional services. The saved sheet already contains both current business groups.
+- `b3_facet_add_drop.py --export-variant` now writes any tested variant in the existing candidate-run format. The experimental `Sonnet + Fiona sub-sector` run covers all 373 training targets and selects 2,538 peers. `cosine_then_llm.py --b3 --candidates <run>` reads the same pairs and the corresponding Sonnet facets; a dry run produced all 373 prompts, with PCTY and WEN checked for Fiona's sub-sector. Selected pairs on the human-labeled targets exactly match the evaluation table. The existing default B3 run is unchanged.
+- This handoff does not establish that the new variant improves screened-peer quality: no new LLM judgments were run in this environment, and the 67-pair second-round reviewer sheet remains unfilled. The available human-label result still favors the Haiku B3 baseline on two targets. Local targeted tests: 9 passed.
+
 _2026-11-05 (local `research/v1-eval-rebuild`, not pushed): B3 facet add/drop for peer quality._
 - The previous 36-combination evaluation branch was discarded. This run starts from `origin/main` at `a84a58f5` and preserves the team's files.
 - `v1/scripts/b3_facet_add_drop.py` compares the saved Haiku B3, Sonnet general fills, 11 leave-one-facet-out variants for each fill, and five sector/industry additions plus their combined variant. It keeps the SIC2 split, B3 scoring, and mutual top-10 rule fixed; no valuation labels or API calls enter. The saved Haiku B3 list is reproduced exactly: 2,396 selected pairs for 373 training targets.
