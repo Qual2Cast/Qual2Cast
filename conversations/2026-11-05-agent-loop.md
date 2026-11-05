@@ -74,3 +74,7 @@ outputs-local/v1/facets_sonnet/tables/facets.csv`, now the default in `agent_loo
   to 1, BRO and SNFC.A 1 to 0) and 2 for BBCP (IESC and GVA 1 to 0); "annuity" mentions 9 to 1.
 - The first runs stay as they were, for comparison. B3's comp lists are still built from Haiku's fills.
 - The agent should still check for divestitures itself when a facet is wrong (Riya is working on the prompt).
+
+## Update: Sonnet only
+
+The web-search model was still Haiku by default; it is now Sonnet. Both sets rerun with Sonnet for grading, facets and search: `gold/` (31/32 with the reviewers' majority, 1 grade moved vs `gold_sonnet_facets/`) and `round2_targets/` (4 of 35 grades moved by one point vs `round2_targets_sonnet_facets/`). These are the current runs; the older folders are kept.

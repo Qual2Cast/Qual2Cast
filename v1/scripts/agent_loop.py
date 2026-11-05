@@ -271,7 +271,7 @@ def web_search(state: PairState, company: Company, query: str, searcher: Searche
     return added, dropped
 
 
-def claude_searcher(model: str = "haiku", timeout: int = 300) -> Searcher:
+def claude_searcher(model: str = "sonnet", timeout: int = 300) -> Searcher:
     """Web search through the Claude Code CLI's WebSearch tool (no API key; works where
     the machine itself cannot reach the web). The model is told to copy result text,
     not to write its own; the raw answer is saved."""
@@ -512,7 +512,7 @@ def main(argv: list[str] | None = None) -> None:
     ap.add_argument("--model", default="sonnet")
     ap.add_argument("--effort")
     ap.add_argument("--search", default="claude", choices=["claude", "api", "none"])
-    ap.add_argument("--search-model", default="haiku")
+    ap.add_argument("--search-model", default="sonnet")
     ap.add_argument("--max-steps", type=int, default=MAX_STEPS)
     ap.add_argument("--workers", type=int, default=2)
     ap.add_argument("--out", type=Path, help="run folder (reuse one to resume)")

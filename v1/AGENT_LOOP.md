@@ -71,6 +71,8 @@ not called again.
 
 ## Results so far (2026-11-05, Claude Sonnet, prompt `2026-11-05a`)
 
+**Current runs: Sonnet only** (`gold/`, `round2_targets/`): Sonnet grades, Sonnet's facet fills, and Sonnet for the web searches (`--search-model sonnet`, now the default). Round 1 still 31/32; compared with the `*_facets` runs, 1 round-1 grade and 4 round-2 grades moved by one point (run-to-run variation; 2 round-2 pairs used a web search). The older folders below are kept for comparison.
+
 **Facet summaries: Sonnet's fills, since the second run.** The first runs (`gold_sonnet/`, `round2_targets_sonnet/`)
 showed Haiku's facet fills as context. Yifan's check found that Haiku's fills still describe businesses CSL, AFG and
 AZZ sold years ago, and the agent repeated AFG's sold annuity business in its reasons. Rerun with Sonnet's fills
