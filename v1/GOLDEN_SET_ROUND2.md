@@ -45,22 +45,19 @@ independent business judgment.
 A 1 or a 2 takes **no** reason. Use your `notes_` column for anything else, such as which product line matches or what you
 weren't sure about.
 
-## Several businesses (BBCP, BUKS): proposed rule, to be confirmed by Eric
+## Several businesses (BBCP, BUKS): confirmed scope and scoring
 
-> **Stub, pending Eric** (the business split is his work). Until he confirms or replaces it, use this rule.
+Keep **one company ID and one grade per target–comp pair**. The `target_business_scope` column lists all current businesses, grouped when their products, customers and operations belong to the same general business. Exited businesses do not count. Apply the **same 0–2 rubric above** to the whole company; the number of business groups does not mechanically set the grade. In the notes, name the matched and unmatched activities when the comp covers only part of the target.
 
-- **Grade against the target as a whole.** The sheet's `target_business_scope` column lists its current businesses.
-- **One business only:** a comp that matches only one of them gets **at most 1** (adjacent). Name that business in your notes.
-- **A 2** still needs the same product **and** the same customers as the target's business.
+- **2:** products **and** customers match across the target's material current businesses. An unmatched activity with a demonstrably small contribution does not by itself remove an otherwise direct match.
+- **1:** there is real product or customer overlap, but a material current business is unmatched. Thus an aerospace-only or gaming-only comp for BUKS can be adjacent even when it closely matches that one division.
+- **0:** neither product nor customer overlap is meaningful at the company level. A generic phrase or industry code alone is insufficient; a genuine match to one business is not automatically a 0.
 
-The two cases:
-- **BBCP (Concrete Pumping):** concrete pumping and placement, together with concrete washout waste management. Separately, temporary power and site infrastructure.
-- **BUKS (Butler National):** aircraft engineering, modifications and avionics, together with electronics manufacturing and precision machining. Separately, a casino (gaming facility management).
+**BBCP:** concrete pumping and concrete washout management form one related construction-site services group. Temporary power and supporting site infrastructure, acquired with Templant in April 2026, are a distinct adjacent activity. The [July 2026 10-Q](https://ir.concretepumpingholdings.com/all-sec-filings/content/0001437749-26-029623/bbpp20260731_10q.htm) reports $3.8 million of Templant revenue against $314.1 million consolidated revenue for the nine months ended July 31 (about 1.2%). It is kept in the scope, but its recent small contribution does not by itself downgrade a strong concrete-services comp. The filing's accounting segments are U.S. pumping, U.S. waste management and U.K. operations; these are **not** the economic business groups used here.
 
-**Open questions for Eric:**
-- [ ] Confirm or replace the rule above.
-- [ ] Check the business scopes shown in the sheet are current, and resolve the split's open review flags (BBCP: `B1|B3`; BUKS: three flags among its aerospace lines).
-- [ ] Decide whether a comp that matches only the **minor** business (e.g. a casino operator for BUKS) should be capped at 1 or scored 0.
+**BUKS:** aircraft engineering, modifications, avionics, electronics manufacturing and precision machining form the Aerospace Products group. Casino and gaming management form Professional Services. The [FY2026 company results](https://butlernational.com/butler-national-corporation-announces-fiscal-year-end-2026-financial-results/) report $60.6 million in aerospace revenue and $37.4 million in professional-services revenue (62% and 38% of the total). Both groups are material. The aerospace sub-lines are products and services within the same general aerospace business, not separate target companies.
+
+The source-checked groupings agree with `outputs-local/v1/business_structure_refinement/source_benchmark/group_partitions.csv`. The `review_flags` in the split classifier record pair-level model disagreements; they do not overturn the current company scope established by the dated disclosures. No reviewer score is filled in by this source check.
 
 ## Filling in the sheet
 
@@ -85,4 +82,4 @@ The two cases:
 ## After round 2
 
 - **If the methods are still close:** add more of the ten showcase targets (NWSA, BOC, SNFC.A), or targets where the methods disagree most.
-- **Decide the multi-business rule** with Eric before the targets with three or four businesses go in.
+- **Extend the same company-level rule** to the three- and four-business targets after checking their current source-backed scope; keep the same 0–2 reviewer rubric.
