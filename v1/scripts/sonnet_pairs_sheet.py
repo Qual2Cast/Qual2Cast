@@ -4,7 +4,7 @@ The comp lists are B3 on Sonnet's facet fills plus Fiona's sub-sector facet
 (Eric's "Sonnet + Fiona sub-sector", exported by b3_facet_add_drop.py). Each
 pair was checked by the agent loop (Sonnet). The sheet holds all the pairs in
 round2_sheet.csv's blind layout (Sonnet's offering and customers shown), for two
-reviewers; `round2_pair` names the same pair in round2_sheet.csv, if it is there.
+reviewers.
 
   uv run python v1/scripts/sonnet_pairs_sheet.py --candidates <selector_candidates dir> \
       --agent outputs-local/v1/agent_loop/round2_targets_sonnet_b3
@@ -69,8 +69,6 @@ def main(argv: list[str] | None = None) -> None:
         scopes.get(t, {}).get("scope_note", "").removeprefix("Current company scope: ") for t in shown["ticker"]])
     pool = pairs[["target", "comp"]].rename(columns={"target": "target_id", "comp": "comp_id"}).reset_index(drop=True)
     sheet = se.reviewer_sheet(pool, {"target": target_shown, "comp": shown}, REVIEWERS, seed=2026, prefix="R2S")
-    old_pair = old.set_index(["target_id", "comp_id"])["pair"]
-    sheet.insert(1, "round2_pair", [old_pair.get((t, c), "") for t, c in zip(sheet["target_id"], sheet["comp_id"])])
 
     extra = pairs[["target", "comp", "rank", "similarity", "agent_score", "agent_verdict", "agent_reason"]].rename(
         columns={"target": "target_id", "comp": "comp_id"})
