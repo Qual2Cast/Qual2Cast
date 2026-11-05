@@ -370,7 +370,7 @@ def main() -> None:
         "sources_sha256": {str(p.relative_to(V1)): hashlib.sha256(p.read_bytes()).hexdigest()
                            for p in source_paths if p.exists()},
     }
-    (out / "run.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    (out / "run.json").write_bytes(json.dumps(manifest, indent=2).encode("utf-8"))
     if args.export_variant:
         variant = args.export_variant
         candidate_dir = out / "selector_candidates"
@@ -379,12 +379,12 @@ def main() -> None:
         ranking, candidates = mc.tables_from_similarity(variants[variant], ids, training, training, ticker)
         ranking.to_csv(candidate_dir / "ranking.csv.gz", index=False)
         candidates.to_csv(candidate_dir / "candidates.csv", index=False, lineterminator="\n")
-        (candidate_dir / "run.json").write_text(json.dumps({
+        (candidate_dir / "run.json").write_bytes(json.dumps({
             "run": out.name, "method": variant, "universe_run": split_info["universe_run"],
             "split_run": SPLIT_RUN, "facet_source": "sonnet" if variant.startswith("Sonnet") else "haiku",
             "evaluation": str(out), "targets": "training", "n_targets": len(training),
             "selected_pairs": int(candidates["selected"].sum()),
-        }, indent=2), encoding="utf-8")
+        }, indent=2).encode("utf-8"))
         print(f"Selector input: {candidate_dir} ({len(training)} targets; "
               f"{int(candidates['selected'].sum())} selected pairs)")
     print(f"Wrote {out}")
