@@ -76,7 +76,8 @@ from project_data import OUTPUTS_LOCAL  # noqa: E402
 PROMPT_VERSION = "2026-11-05a"
 CANDIDATES = OUTPUTS_LOCAL / "v1/candidates_method1/20261104T074915Z"
 GOLD_POOL = OUTPUTS_LOCAL / "v1/golden_set/labels/pool_with_routes.csv"
-FACETS = OUTPUTS_LOCAL / "v1/facets/tables/facets.csv"
+# Sonnet's fills, not Haiku's: Haiku's still describe businesses CSL, AFG and AZZ sold years ago (Yifan's check, 2026-11-05)
+FACETS = OUTPUTS_LOCAL / "v1/facets_sonnet/tables/facets.csv"
 OUT = OUTPUTS_LOCAL / "v1/agent_loop"
 
 MAX_STEPS = 4          # model calls per pair, the last one must be final

@@ -71,6 +71,20 @@ not called again.
 
 ## Results so far (2026-11-05, Claude Sonnet, prompt `2026-11-05a`)
 
+**Facet summaries: Sonnet's fills, since the second run.** The first runs (`gold_sonnet/`, `round2_targets_sonnet/`)
+showed Haiku's facet fills as context. Yifan's check found that Haiku's fills still describe businesses CSL, AFG and
+AZZ sold years ago, and the agent repeated AFG's sold annuity business in its reasons. Rerun with Sonnet's fills
+(`--facets outputs-local/v1/facets_sonnet/tables/facets.csv`, now the default):
+
+| run | Haiku fills | Sonnet fills | grades changed |
+|---|---|---|---|
+| Round 1 (PCTY, WEN), 36 pairs | `gold_sonnet/`: 31/32 | `gold_sonnet_facets/`: 31/32 | 2 (PCTY-THRY, PCTY-DHX, 0 to 1; both pairs have no reviewer majority) |
+| Round 2 targets, 35 pairs | `round2_targets_sonnet/` | `round2_targets_sonnet_facets/` | 7 (AFG 5, BBCP 2); "annuity" in the reasons 9 times, now 1 |
+
+AFG with Sonnet's fills: ORI and ASIC 1 to 2, BOW 2 to 1, BRO (a broker) and SNFC.A (life insurance and funeral) 1 to 0.
+BBCP: IESC and GVA 1 to 0. CSL, AZZ and BUKS unchanged. **The Sonnet-fill runs are the current ones**; the figures
+below come from the first runs and hold for both on round 1.
+
 **Round-1 golden set (PCTY, WEN; 36 pairs, 32 with a majority grade)**, `agent_loop/gold_sonnet/`:
 
 | grader | exact agreement with the reviewers | peer vs not-peer | non-peers graded as peers |

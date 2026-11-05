@@ -8,6 +8,7 @@ _2026-11-05 (`fiona/agent-loop`), agent loop for checking high-scoring target-co
 - **New `v1/scripts/agent_loop_eval.py`:** agreement with the reviewers and with the one-shot Sol grades, the filter's effect on B3's lists, and valuation with 20+ targets. Guide: `v1/AGENT_LOOP.md`.
 - **Results (Sonnet):** round-1 golden set, 31/32 exact agreement with the reviewers' majority (one-shot Sol 26/32 on the same pairs), no labelled non-peer graded as a peer. The 35 round-2 pairs are graded and wait for `round2_filled.csv`. The model looked something up on only 3 of 71 pairs.
 - **Tests:** 10 pass (`v1/scripts/tests/test_agent_loop.py`). Outputs: `outputs-local/v1/agent_loop/`.
+- **Update:** the facet context is now Sonnet's fills (Haiku's still describe businesses CSL, AFG and AZZ sold; Yifan's check). Rerun: round 1 unchanged at 31/32; round 2, 7 of 35 grades changed (AFG 5, BBCP 2). Current runs: `gold_sonnet_facets/`, `round2_targets_sonnet_facets/`.
 - **Next:** score round 2; choose the threshold; run all 373 training targets for the valuation check.
 
 Details: `conversations/2026-11-05-agent-loop.md`._

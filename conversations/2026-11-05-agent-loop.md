@@ -52,11 +52,25 @@ All 71 pairs finished (`ok`), about 8 seconds a pair.
 ## Tests and data version
 
 `python -m pytest v1/scripts/tests/test_agent_loop.py -q`: 10 pass. Data: `company_list_v3`, B3 run
-`candidates_method1/20261104T074915Z`, Haiku facets `2026-10-25k` as context, split `20261027T204930Z`.
+`candidates_method1/20261104T074915Z`, split `20261027T204930Z`. Facet context: Haiku fills `2026-10-25k` in the first runs, Sonnet fills (`facets_sonnet/`) in the `*_facets` runs and by default (see the update below).
 
 ## Next
 
-1. Rerun `agent_loop_eval.py` on `round2_targets_sonnet/` once `round2_filled.csv` is committed.
+1. Rerun `agent_loop_eval.py` on `round2_targets_sonnet_facets/` once `round2_filled.csv` is committed.
 2. Decide the threshold for "high enough" (B3's list, top k, or a similarity cut) and whether to keep 1s or only 2s.
 3. Run on all 373 training targets (about 2,400 pairs) to get the valuation check.
 4. Try nudging the model to look things up more often, and compare with web search off (`--search none`).
+
+## Update (same day): Sonnet's facet fills as context
+
+Yifan's check of the fills (batch 1, 15 gold-set companies): Sonnet 81% correct, Haiku 68%; Haiku still describes
+businesses CSL, AFG and AZZ sold years ago. The agent loop showed Haiku's fills as context, and for AFG its reasons
+repeated the sold annuity business (9 mentions). Both runs were repeated with `--facets
+outputs-local/v1/facets_sonnet/tables/facets.csv`, now the default in `agent_loop.py`:
+
+- Round 1 (`gold_sonnet_facets/`): still 31/32 with the reviewers' majority; 2 grades changed (PCTY-THRY and
+  PCTY-DHX, 0 to 1), both on pairs with no majority.
+- Round 2 targets (`round2_targets_sonnet_facets/`): 7 of 35 grades changed, 5 for AFG (ORI and ASIC 1 to 2, BOW 2
+  to 1, BRO and SNFC.A 1 to 0) and 2 for BBCP (IESC and GVA 1 to 0); "annuity" mentions 9 to 1.
+- The first runs stay as they were, for comparison. B3's comp lists are still built from Haiku's fills.
+- The agent should still check for divestitures itself when a facet is wrong (Riya is working on the prompt).
