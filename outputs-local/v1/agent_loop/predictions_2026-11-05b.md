@@ -87,6 +87,33 @@ No lookups.
 - **A real effect:** a grade change whose reasoning says why, e.g. "annuities not confirmed on the target's site".
 - **Probably noise:** a change with the same reasoning as 05a.
 
+## Addendum: Fiona's switch to Sonnet facets (written before any 05b run)
+
+Fiona's PR #30 changed the defaults to Sonnet's facet fills and Sonnet for web search, and reran 05a as
+`round2_targets/` and `gold/`. In those runs the stale facets no longer show up: AFG-ORI and AFG-ASIC are
+already 2, annuities appear in 1 of 10 AFG reasons (the Sonnet fill records the annuity sale under
+`divestiture_lines`), and no CSL reason uses Carlisle's sold businesses. The Sonnet facets still list
+aerospace and medical OEMs as Carlisle customers (the Interconnect business, sold 2023).
+
+So 05b is tested in four runs:
+
+| Run | Folder | Settings | Compare with |
+|---|---|---|---|
+| A | `round2_05b_haiku_web/` | 05b, Haiku facets, Haiku web search | `round2_targets_sonnet/` (05a, same settings) |
+| B | `round2_05b_haiku_noweb/` | 05b, Haiku facets, web search off | Run A |
+| C | `round2_05b_web/` | 05b, Sonnet facets, Sonnet web search (new defaults) | `round2_targets/` |
+| D | `gold_05b_web/` | 05b, new defaults, gold set | `gold/` |
+
+- **Run A:** the round-2 predictions above apply as written. They were made against `round2_targets_sonnet/`.
+- **Run B:** as in "web search off" above. Almost the same grades as Run A.
+- **Run C:** almost no grade changes against `round2_targets/` (2 at most), and few lookups.
+  - AFG stays as in the baseline (ORI 2, ASIC 2, BOW 2).
+  - On CSL, the model may search Carlisle for aerospace or medical customers before grading CR or PPG; CR stays 0 and PPG stays 1.
+  - BUKS casino caps are kept.
+  - Any change on BBCP or BUKS is a side effect to investigate.
+- **Run D:** still 31/32 against the reviewers, no labelled non-peer graded as a peer, and near-zero lookups.
+
+
 ## Results (fill in after the runs)
 
 | Prediction | Held? | Notes |
