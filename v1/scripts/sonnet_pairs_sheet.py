@@ -2,9 +2,9 @@
 
 The comp lists are B3 on Sonnet's facet fills plus Fiona's sub-sector facet
 (Eric's "Sonnet + Fiona sub-sector", exported by b3_facet_add_drop.py). Each
-pair was checked by the agent loop (Sonnet). The sheet holds only the pairs
-that are not already in round2_sheet.csv, in the same blind layout (Sonnet's
-offering and customers shown), for two reviewers.
+pair was checked by the agent loop (Sonnet). The sheet holds all the pairs in
+round2_sheet.csv's blind layout (Sonnet's offering and customers shown), for two
+reviewers; `round2_pair` names the same pair in round2_sheet.csv, if it is there.
 
   uv run python v1/scripts/sonnet_pairs_sheet.py --candidates <selector_candidates dir> \
       --agent outputs-local/v1/agent_loop/round2_targets_sonnet_b3
@@ -66,8 +66,10 @@ def main(argv: list[str] | None = None) -> None:
                           "customers": b1["customer_segment"].reindex(info.index).fillna("")})
     target_shown = shown.assign(business_scope=[
         scopes.get(t, {}).get("scope_note", "").removeprefix("Current company scope: ") for t in shown["ticker"]])
-    new = pairs.loc[~pairs["in_round2_sheet"], ["target", "comp"]].rename(columns={"target": "target_id", "comp": "comp_id"}).reset_index(drop=True)
-    sheet = se.reviewer_sheet(new, {"target": target_shown, "comp": shown}, REVIEWERS, seed=2026, prefix="R2S")
+    pool = pairs[["target", "comp"]].rename(columns={"target": "target_id", "comp": "comp_id"}).reset_index(drop=True)
+    sheet = se.reviewer_sheet(pool, {"target": target_shown, "comp": shown}, REVIEWERS, seed=2026, prefix="R2S")
+    old_pair = old.set_index(["target_id", "comp_id"])["pair"]
+    sheet.insert(1, "round2_pair", [old_pair.get((t, c), "") for t, c in zip(sheet["target_id"], sheet["comp_id"])])
 
     LABELS.mkdir(parents=True, exist_ok=True)
     for path, frame in [(LABELS / "round2_sonnet_sheet.csv", sheet), (LABELS / "round2_sonnet_pairs.csv", pairs)]:
@@ -77,7 +79,7 @@ def main(argv: list[str] | None = None) -> None:
             frame.to_csv(path, index=False, encoding="utf-8-sig")
             print(f"wrote {path.name}: {len(frame)} rows")
     print(f"{len(pairs)} pairs; {int(pairs['in_round2_sheet'].sum())} already in round2_sheet.csv; "
-          f"{len(new)} new for the reviewers")
+          f"{len(pairs) - int(pairs['in_round2_sheet'].sum())} new")
 
 
 if __name__ == "__main__":
