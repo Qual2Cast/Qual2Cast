@@ -75,7 +75,7 @@ def main(argv: list[str] | None = None) -> None:
     combined = sheet.merge(extra, on=["target_id", "comp_id"], how="left")
     scores = [c for c in combined.columns if c.startswith(("score_", "reason_if_0_", "notes_"))]
     first = [c for c in combined.columns if c not in scores + list(extra.columns)]
-    combined = combined[first + ["rank", "similarity", "agent_score", "agent_verdict", "agent_reason"] + scores
+    combined = combined[first + scores + ["rank", "similarity", "agent_score", "agent_verdict", "agent_reason"]
                         + ["target_id", "comp_id"]]
 
     LABELS.mkdir(parents=True, exist_ok=True)
