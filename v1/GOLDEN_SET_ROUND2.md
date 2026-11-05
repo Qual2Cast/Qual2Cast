@@ -49,9 +49,9 @@ weren't sure about.
 
 Keep **one company ID and one grade per target–comp pair**. The `target_business_scope` column lists all current businesses, grouped when their products, customers and operations belong to the same general business. Exited businesses do not count. Apply the **same 0–2 rubric above** to the whole company; the number of business groups does not mechanically set the grade. In the notes, name the matched and unmatched activities when the comp covers only part of the target.
 
-- **2:** the comp's products and customers match the target's principal current business at the company level. A small additional service does not automatically turn a direct comp into a 1.
-- **1:** there is real product or customer overlap, but the comp covers only part of a materially different current business mix. A comp for one of BUKS's two substantial divisions can qualify here; a gaming-only comp is not automatically a 0.
-- **0:** neither product nor customer overlap is meaningful. Matching a generic phrase or an industry code is insufficient. A minor line is not an automatic 0 if it is a real operating overlap.
+- **2:** products **and** customers match across the target's material current businesses. An unmatched activity with a demonstrably small contribution does not by itself remove an otherwise direct match.
+- **1:** there is real product or customer overlap, but a material current business is unmatched. Thus an aerospace-only or gaming-only comp for BUKS can be adjacent even when it closely matches that one division.
+- **0:** neither product nor customer overlap is meaningful at the company level. A generic phrase or industry code alone is insufficient; a genuine match to one business is not automatically a 0.
 
 **BBCP:** concrete pumping and concrete washout management form one related construction-site services group. Temporary power and supporting site infrastructure, acquired with Templant in April 2026, are a distinct adjacent activity. The [July 2026 10-Q](https://ir.concretepumpingholdings.com/all-sec-filings/content/0001437749-26-029623/bbpp20260731_10q.htm) reports $3.8 million of Templant revenue against $314.1 million consolidated revenue for the nine months ended July 31 (about 1.2%). It is kept in the scope, but its recent small contribution does not by itself downgrade a strong concrete-services comp. The filing's accounting segments are U.S. pumping, U.S. waste management and U.K. operations; these are **not** the economic business groups used here.
 
