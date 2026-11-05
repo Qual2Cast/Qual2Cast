@@ -3,6 +3,15 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
+_2026-11-05 (`fiona/agent-loop`), agent loop for checking high-scoring target-comp pairs (Fiona, with Riya).
+- **New `v1/scripts/agent_loop.py`:** for each B3 pair, an LLM grades the pair with the team's 0–2 rubric after up to 4 steps, each one action: search the rest of a company's saved website, search the web, or answer. A grade must cite shown lines from both companies. The target is treated as private (no investor-relations, SEC or market-data results); no figures, multiples, similarity or rank reach the model. Runs through the Claude Code CLI; web search through its WebSearch tool, or the `.env` search key.
+- **New `v1/scripts/agent_loop_eval.py`:** agreement with the reviewers and with the one-shot Sol grades, the filter's effect on B3's lists, and valuation with 20+ targets. Guide: `v1/AGENT_LOOP.md`.
+- **Results (Sonnet):** round-1 golden set, 31/32 exact agreement with the reviewers' majority (one-shot Sol 26/32 on the same pairs), no labelled non-peer graded as a peer. The 35 round-2 pairs are graded and wait for `round2_filled.csv`. The model looked something up on only 3 of 71 pairs.
+- **Tests:** 10 pass (`v1/scripts/tests/test_agent_loop.py`). Outputs: `outputs-local/v1/agent_loop/`.
+- **Next:** score round 2; choose the threshold; run all 373 training targets for the valuation check.
+
+Details: `conversations/2026-11-05-agent-loop.md`._
+
 _2026-11-04 (evening), stronger model for the fills and the selectors (plan item 3, Matthew and Richard).
 - **New `claude-cli` backend** (`v1/scripts/cli_models.py`): the fill scripts and both LLM selectors can run through the Claude Code CLI under a student's own subscription (`--backend claude-cli`, default Claude Sonnet 5.5), with no API key. No MCP servers, settings or CLAUDE.md are loaded (about 1k tokens of overhead per call instead of 300k); the instructions go in the system prompt so the cache covers them.
 - **Three fills with Sonnet, all 533 companies:** the twelve general facets (`outputs-local/v1/facets_sonnet/`), Fiona's sector facets including the holdout (`sector_facets_sonnet/`), and **Barbara's SIC2 industry facets** (new `industry_facets.py` + `fill_industry_facets.py`, reading `v1/scripts/reference/sic2_industry_facet_dictionary.md`; `industry_facets_sonnet/`: 5,331 facet rows, 48% stated, 29% not applicable, 23% unknown). The Haiku fills in `facets/` are untouched.
