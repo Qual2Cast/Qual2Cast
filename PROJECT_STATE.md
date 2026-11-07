@@ -3,6 +3,32 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
+_2026-11-05, Kethan's saved-result error analysis:
+- New `v1/notebooks/error_analysis.ipynb`, `v1/scripts/error_analysis.py` and
+  `v1/ERROR_ANALYSIS.md`. Offline comparison of historical human facet labels,
+  both current profile fills, saved similarity alternatives, B3, matched
+  Haiku/Sonnet screens/direct picks and one-shot/agent grades.
+- Executed the offline report builder (no model calls or financial-table
+  reads): `outputs-local/v1/error_analysis/20261105T191342914598Z/`.
+  Report, detailed facet review, hashed provenance, derived CSVs and 258 case
+  packets; 193 screening disagreements across the same 2,396 B3 pairs.
+- The 480 facet labels cover 40 companies; only 41 exact-current Haiku text
+  matches, 10 outside company size. DORM end markets and LUCK primary services
+  retain exact-text human partial-error labels; source rechecks are needed.
+  Current-fill accuracy is not inferred from different historical text.
+- Pair evaluation has 32 majority labels across two targets; round 2 is still
+  absent. B3 retains all 11 known direct/adjacent peers in that reviewed pool;
+  screens lose several. This identifies selection-policy questions, not proven
+  facet causes. The older 663-pair 0–3 study remains separate.
+- User chose saved-results analysis first and manual LLM diagnosis later.
+  No live agent calls are attached to Run All; manual instructions and cited
+  case packets are supplied. Module/notebook syntax and diff whitespace were
+  checked. No tests or notebook execution. Existing v0 notebook edit preserved.
+- Next: user reviews concrete cases, verifies exact current claims, then uses
+  manual agent hypotheses to propose controlled experiments. No facet values,
+  selection rules or source snapshots changed (`company_list_v3`).
+Details: `conversations/2026-11-05-saved-result-error-analysis.md`._
+
 _2026-11-05 (`fiona/agent-loop`), agent loop for checking high-scoring target-comp pairs (Fiona, with Riya).
 - **New `v1/scripts/agent_loop.py`:** for each B3 pair, an LLM grades the pair with the team's 0–2 rubric after up to 4 steps, each one action: search the rest of a company's saved website, search the web, or answer. A grade must cite shown lines from both companies. The target is treated as private (no investor-relations, SEC or market-data results); no figures, multiples, similarity or rank reach the model. Runs through the Claude Code CLI; web search through its WebSearch tool, or the `.env` search key.
 - **New `v1/scripts/agent_loop_eval.py`:** agreement with the reviewers and with the one-shot Sol grades, the filter's effect on B3's lists, and valuation with 20+ targets. Guide: `v1/AGENT_LOOP.md`.

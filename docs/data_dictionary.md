@@ -1,5 +1,31 @@
 # Data dictionary
 
+## v1 saved-result error analysis
+
+`v1/notebooks/error_analysis.ipynb` / `v1/scripts/error_analysis.py` write a new
+`outputs-local/v1/error_analysis/<timestamp>/` per execution; no inference.
+`manifest.json` pins source paths/hashes, configuration, missing inputs and code
+commit. See `v1/ERROR_ANALYSIS.md` for the input scope and all output files.
+
+- `facet_audit.csv`: historical `labeled_text`, `human_label`, note/evidence URL,
+  current Haiku/Sonnet text, and `exact_*_text` (case/whitespace normalized only).
+  A label must not be transferred to different current text.
+- `facet_priorities.csv`: historical problem counts/rates over checkable labels,
+  exact-current denominators and problems; size marked excluded from B3.
+- `profile_differences.csv`: current model text/status/category differences;
+  full category sets ignore ordering. Disagreement does not mean inaccuracy.
+- `pair_comparison.csv`, `method_metrics.csv`: saved list membership/reasons,
+  human-majority grades, labeled precision/coverage and known-peer retention.
+  Unlabeled pairs remain unknown. Metrics refer to returned top 10.
+- `judge_comparison.csv`, `judge_metrics.csv`: evaluator grades and human
+  agreement on valid numeric overlap, plus lookup counts; no pooled rubrics.
+- `case_queue.csv`: observed flags and prioritization, not causal error labels.
+  `cases/*.json` links each case to both models' facet values, original human
+  labels, selectors/judges and saved website evidence. JSON references are
+  available to an optional manual evaluator, whose diagnoses stay hypotheses.
+- `report.md` / `facet_review.md`: computed summary and all historical problem
+  claims with notes and current comparisons; manual agent instructions separate.
+
 ## Peer-evaluation outputs
 
 `v0/notebooks/peer_evaluation.ipynb` grades the accepted outputs of cosine → LLM,
