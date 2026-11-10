@@ -403,7 +403,7 @@ display(pd.read_csv(I / 'error_diagnosis/stage_diagnostics.csv'))
         md("""
 ## 9. Executed configuration matrix
 
-The full local CSV lists each configuration actually run, with its facet source, retrieval, selection, grading, factor set, aggregation, coverage and development error. Rows from different candidate pools or label cohorts are not directly pooled.
+The local CSV lists each configuration actually run, with its facet source, retrieval, selection, grading, factor set, aggregation, coverage and development error. Its 400 rows combine separate stage experiments; they are **not** 400 complete end-to-end configurations or the full factorial across all facets, retrieval methods, four selection routes and valuation rules. The four-route holdout analysis covers three facet/prompt conditions, while the financial-factor grid uses one fixed Sonnet B3 shortlist. Rows from different candidate pools or label cohorts are not directly pooled.
 """),
         code("""
 matrix = pd.read_csv(I / 'experiment_matrix.csv')
@@ -421,7 +421,7 @@ The source-citing GPT facets attach an official-site line to all 5,188 filled fi
 
 The source-citing judge scores all 293 reviewed pairs and exactly agrees with Barbara on 230 (78.5%). Keeping its grades 1–2 removes 61 of Barbara's 91 bad pairs while retaining 186 of 202 good pairs, but paired valuation error on 44 reviewed targets changes from 30.84% to 31.02%. The stricter grade-2 rule covers only ten reviewed targets. These are single-reviewer, training-pair diagnostics; neither rule has established a valuation gain. The direct-LLM and hybrid routes are reported separately with their own target coverage, not compared as if missing estimates were successes.
 
-Factor, growth, and regression results are development comparisons, not selected production settings. The 160 public-as-private targets have already informed team decisions. No private-company valuation outcome or independent new final holdout is available here, so private-company accuracy and method superiority remain unestablished.
+Factor, growth, and regression results are development comparisons, not selected production settings. The ten-case blind GPT business-scope check matched only four of nine source-audited groups. Financial periods, currency, lease treatment and EBITDA definitions have not been reconciled case by case; no 1–3-year growth outcome was available for prediction testing. The 160 public-as-private targets have already informed team decisions. No private-company valuation outcome or independent new final holdout is available here, so private-company accuracy and method superiority remain unestablished.
 """),
         md("""
 ## 11. Reproduction
