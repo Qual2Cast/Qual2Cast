@@ -79,7 +79,7 @@ class Analysis:
     def human_labels(self):
         p = path(self.config.round1)
         self.register(p)
-        raw = pd.DataFrame(json.loads(p.read_text())["labels"]).fillna("")
+        raw = pd.DataFrame(json.loads(p.read_text(encoding="utf-8"))["labels"]).fillna("")
         groups = [(raw, se.REVIEWERS, self.config.round1, 1)]
         r2 = self.read(self.config.round2, optional=True)
         if not r2.empty:
@@ -342,7 +342,8 @@ class Analysis:
                                  "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
                                  "One-shot Sol versus agent Sonnet changes both inputs and model."]}
             dest = packets / f"{t}__{c}.json"
-            dest.write_text(json.dumps(self.clean_json(packet), ensure_ascii=False, indent=2, allow_nan=False) + "\n")
+            dest.write_text(json.dumps(self.clean_json(packet), ensure_ascii=False, indent=2, allow_nan=False) + "\n",
+                            encoding="utf-8")
         return cases
 
     @staticmethod
@@ -446,7 +447,7 @@ class Analysis:
     def build(self):
         meta_path = path(self.config.b3 + "/run.json")
         self.register(meta_path)
-        meta = json.loads(meta_path.read_text())
+        meta = json.loads(meta_path.read_text(encoding="utf-8"))
         self.info = self.read("universe/" + meta["universe_run"] + "/universe.csv").set_index("IQ_COMPANY_ID")
         self.names = {iq: {"ticker": r.target_ciq_ticker, "name": r.target_company_name}
                       for iq, r in self.info.iterrows()}
@@ -466,7 +467,7 @@ class Analysis:
             "config": asdict(self.config), "sources": self.sources, "gaps": self.gaps,
             "model_calls": 0, "financial_tables_read": False,
             "git_commit": self.git_commit(), "created_at": datetime.now(timezone.utc).isoformat(),
-        }, indent=2) + "\n")
+        }, indent=2) + "\n", encoding="utf-8")
         print("Saved error analysis:", self.out)
         return self
 

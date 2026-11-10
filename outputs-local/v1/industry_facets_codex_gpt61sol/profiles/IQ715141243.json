@@ -1,0 +1,107 @@
+{
+ "IQ_COMPANY_ID": "IQ715141243",
+ "company_name": "LifeStance Health Group, Inc.",
+ "website": "lifestance.com",
+ "sic4": "8093",
+ "sic2": "80",
+ "industry": "Health Services",
+ "model": "gpt-6.1-sol",
+ "prompt_version": "2026-11-04a",
+ "fingerprint": "a71979c80d311eb9",
+ "llm_status": "ok",
+ "run_dir": "runs\\IQ715141243\\2026-11-10T071345Z",
+ "created_at": "2026-11-10T07:14:08Z",
+ "facets": {
+  "healthcare_provider_setting": {
+   "label": "Healthcare-provider setting",
+   "status": "stated",
+   "value": "Outpatient mental health clinics with in-person and telehealth appointments.",
+   "cites": [
+    "P2.23",
+    "P3.4",
+    "P2.32"
+   ],
+   "source": "evidence"
+  },
+  "clinical_specialty": {
+   "label": "Clinical specialty",
+   "status": "stated",
+   "value": "Behavioral health, including psychiatry, psychotherapy, and psychological evaluation and testing.",
+   "cites": [
+    "P1.34",
+    "P3.4"
+   ],
+   "source": "evidence"
+  },
+  "patient_activity_volume": {
+   "label": "Patient activity / volume",
+   "status": "stated",
+   "value": "High annual volume of outpatient mental health visits.",
+   "cites": [],
+   "source": "model knowledge"
+  },
+  "payer_revenue_mix": {
+   "label": "Payer revenue mix",
+   "status": "stated",
+   "value": "Accepted payers include commercial insurance, Medicare plans, and VA Community Care.",
+   "cites": [
+    "P1.7",
+    "P1.8",
+    "P1.29"
+   ],
+   "source": "evidence"
+  },
+  "payment_reimbursement_model": {
+   "label": "Payment / reimbursement model",
+   "status": "stated",
+   "value": "Primarily fee-for-service reimbursement.",
+   "cites": [],
+   "source": "model knowledge"
+  },
+  "setting_specific_capacity": {
+   "label": "Setting-specific capacity",
+   "status": "stated",
+   "value": "Large multistate network of mental health clinics.",
+   "cites": [
+    "P3.4"
+   ],
+   "source": "evidence"
+  },
+  "patient_acuity_case_mix": {
+   "label": "Patient acuity / case mix",
+   "status": "stated",
+   "value": "Routine and intensive outpatient behavioral health care for pediatric through geriatric patients, including treatment for anxiety, depression, and addiction.",
+   "cites": [
+    "P2.18",
+    "P3.4"
+   ],
+   "source": "evidence"
+  },
+  "clinical_operating_quality": {
+   "label": "Clinical operating quality",
+   "status": "stated",
+   "value": "Reports prompt scheduling for therapy and psychiatry appointments in most states.",
+   "cites": [
+    "P2.30"
+   ],
+   "source": "evidence"
+  }
+ },
+ "issues": [
+  "from_memory:patient_activity_volume",
+  "from_memory:payment_reimbursement_model"
+ ],
+ "notes": "The website lists accepted plans, so the relative revenue contribution by payer is unknown.",
+ "evidence": {
+  "kinds": [
+   "P"
+  ],
+  "scrape_status": "ok",
+  "sources": {
+   "P1": "https://lifestance.com/",
+   "P2": "https://lifestance.com/referrals/",
+   "P3": "https://lifestance.com/location/"
+  }
+ },
+ "knows_company": true
+}

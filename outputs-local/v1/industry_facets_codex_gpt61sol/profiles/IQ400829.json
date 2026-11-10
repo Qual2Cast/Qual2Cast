@@ -1,0 +1,87 @@
+{
+ "IQ_COMPANY_ID": "IQ400829",
+ "company_name": "Encore Capital Group, Inc.",
+ "website": "www.encorecapital.com",
+ "sic4": "6153",
+ "sic2": "61",
+ "industry": "Nondepository Credit Institutions",
+ "model": "gpt-6.1-sol",
+ "prompt_version": "2026-11-04a",
+ "fingerprint": "3b655f3f917ccf08",
+ "llm_status": "ok",
+ "run_dir": "runs\\IQ400829\\2026-11-10T064936Z",
+ "created_at": "2026-11-10T06:50:09Z",
+ "facets": {
+  "credit_lending_product": {
+   "label": "Credit / lending product",
+   "status": "stated",
+   "value": "Purchased portfolios of defaulted consumer receivables, plus debt servicing for consumer and business-to-business accounts.",
+   "cites": [
+    "P2.9"
+   ],
+   "source": "evidence"
+  },
+  "origination_channel": {
+   "label": "Origination channel",
+   "status": "not_applicable",
+   "value": "",
+   "cites": [],
+   "source": ""
+  },
+  "funding_balance_sheet_model": {
+   "label": "Funding / balance-sheet model",
+   "status": "stated",
+   "value": "Deploys capital to purchase and hold defaulted receivable portfolios for collection. Also services portfolios for third parties.",
+   "cites": [
+    "P2.9",
+    "P2.12"
+   ],
+   "source": "evidence"
+  },
+  "loan_portfolio_yield": {
+   "label": "Loan portfolio yield",
+   "status": "stated",
+   "value": "Portfolio revenue uses the effective interest rate established at purchase for each receivable portfolio.",
+   "cites": [],
+   "source": "model knowledge"
+  },
+  "delinquency_by_aging_bucket": {
+   "label": "Delinquency by aging bucket",
+   "status": "not_applicable",
+   "value": "",
+   "cites": [],
+   "source": ""
+  },
+  "securitization_retained_exposure": {
+   "label": "Securitization / retained exposure",
+   "status": "unknown",
+   "value": "",
+   "cites": [],
+   "source": ""
+  },
+  "credit_loss_measure": {
+   "label": "Credit-loss measure",
+   "status": "stated",
+   "value": "Allowance for credit losses reflects revisions to expected future recoveries on purchased receivables.",
+   "cites": [],
+   "source": "model knowledge"
+  }
+ },
+ "issues": [
+  "from_memory:loan_portfolio_yield",
+  "from_memory:credit_loss_measure"
+ ],
+ "notes": "Securitization and any related retained exposure are unclear.",
+ "evidence": {
+  "kinds": [
+   "P"
+  ],
+  "scrape_status": "ok",
+  "sources": {
+   "P1": "https://www.encorecapital.com/",
+   "P2": "https://www.encorecapital.com/businesses-and-services",
+   "P3": "https://www.encorecapital.com/mvv"
+  }
+ },
+ "knows_company": true
+}

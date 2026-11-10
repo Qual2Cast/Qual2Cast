@@ -1,0 +1,579 @@
+{
+ "row": {
+  "target": "IQ98924",
+  "target_ticker": "PARR",
+  "comp": "IQ350318",
+  "comp_ticker": "SPH",
+  "similarity": 0.3935758123187,
+  "rank": 1,
+  "status": "ok",
+  "score": 0,
+  "verdict": "not_peer",
+  "reason_if_0": "Different business model",
+  "reason": "Par Pacific processes crude and other feedstocks, sells refinery products including asphalt to paving contractors and roofing manufacturers, and handles transportation fuels at its marine terminal. Suburban Propane distributes propane to homes and businesses. Its general construction offering does not establish that it serves Par Pacific’s paving or roofing buyers.",
+  "offering_fit": "mismatch",
+  "customer_fit": "mismatch",
+  "business_model_fit": "mismatch",
+  "missing_evidence": "",
+  "steps": 4,
+  "lookups": 3,
+  "web_searches": 1,
+  "site_searches": 2,
+  "target_citations": "[\"T:P3.2\", \"T:P3.3\", \"T:P3.22\"]",
+  "comp_citations": "[\"C:P1.2\", \"C:P2.2\"]",
+  "error": "",
+  "seconds": 71.8
+ },
+ "result": {
+  "status": "ok",
+  "steps": 4,
+  "answer": {
+   "action": "final",
+   "side": null,
+   "query": null,
+   "why": "",
+   "score": 0,
+   "verdict": "not_peer",
+   "offering_fit": "mismatch",
+   "customer_fit": "mismatch",
+   "business_model_fit": "mismatch",
+   "reason": "Par Pacific processes crude and other feedstocks, sells refinery products including asphalt to paving contractors and roofing manufacturers, and handles transportation fuels at its marine terminal. Suburban Propane distributes propane to homes and businesses. Its general construction offering does not establish that it serves Par Pacific’s paving or roofing buyers.",
+   "reason_if_0": "Different business model",
+   "missing_evidence": "",
+   "target_citations": [
+    "T:P3.2",
+    "T:P3.3",
+    "T:P3.22"
+   ],
+   "comp_citations": [
+    "C:P1.2",
+    "C:P2.2"
+   ]
+  }
+ },
+ "lookups": [
+  {
+   "step": 1,
+   "action": "search_site",
+   "side": "target",
+   "query": "Par Pacific refinery product list propane LPG gasoline diesel marine fuels paving and industrial asphalt customers marine terminal logistics services",
+   "why": "The shown target lines establish refinery product sales. The product list and customer details would clarify whether Par Pacific overlaps with Suburban Propane, and the terminal details would help determine whether it is a separate material business.",
+   "added": [
+    "T:P3.22",
+    "T:P3.3",
+    "T:P3.26",
+    "T:P3.17",
+    "T:P3.18"
+   ],
+   "dropped": []
+  },
+  {
+   "step": 2,
+   "action": "search_site",
+   "side": "comp",
+   "query": "Suburban Propane gasoline diesel refined fuels commercial fleet marine fueling paving road construction contractors roofing manufacturers",
+   "why": "The comp evidence establishes propane delivery. Check whether its commercial offerings include any of the target’s fuels or serve the same specific buyers, which could change the score.",
+   "added": [
+    "C:P2.2",
+    "C:P2.5",
+    "C:P2.13",
+    "C:P3.4",
+    "C:P2.9"
+   ],
+   "dropped": []
+  },
+  {
+   "step": 3,
+   "action": "web_search",
+   "side": "target",
+   "query": "Par Pacific Holdings Inc. current refinery products commercial sales propane LPG propane buyers",
+   "why": "The saved-site lookup left propane sales unresolved. Confirmed propane sales would establish product overlap with Suburban Propane.",
+   "added": [
+    "T:S1.1",
+    "T:S2.1",
+    "T:S3.1",
+    "T:S4.1",
+    "T:S5.1"
+   ],
+   "dropped": [
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/821483/000082148326000022/parr-20260930.htm",
+     "reason": "blocked_domain"
+    },
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/821483/000082148326000014/parr-20260630.htm",
+     "reason": "blocked_domain"
+    },
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/821483/000162828026020028/parpacific2025annualreport.pdf",
+     "reason": "blocked_domain"
+    },
+    {
+     "url": "https://www.parpacific.com/sites/par-pacific-holdings/files/parpacific-2024-annual-report.pdf",
+     "reason": "public_company_only"
+    },
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/821483/000082148326000005/parr-20251231.htm",
+     "reason": "blocked_domain"
+    },
+    {
+     "url": "https://financialfilings.com/filings/par-pacific-holdings-inc/annual-report/2026/32881830/",
+     "reason": "investor_path"
+    },
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/821483/000162828025049474/parr-20250930.htm",
+     "reason": "blocked_domain"
+    },
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/821483/000082148325000010/parr-20241231.htm",
+     "reason": "blocked_domain"
+    },
+    {
+     "url": "https://www.secinfo.com/dp274.Na.htm",
+     "reason": "public_company_only"
+    },
+    {
+     "url": "https://financialfilings.com/filings/par-pacific-holdings-inc/annual-report/2025/9682004/",
+     "reason": "investor_path"
+    },
+    {
+     "url": "https://stocklight.com/stocks/us/nyse-parr/par-pacific-holdings/annual-reports/nyse-parr-2026-10K-26680167.pdf",
+     "reason": "blocked_domain"
+    },
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/821483/000082148322000017/parr-20211231.htm",
+     "reason": "blocked_domain"
+    },
+    {
+     "url": "https://ir.pagp.com/static-files/562c622c-3bd9-4c4e-a21d-f2123cc22723",
+     "reason": "investor_host"
+    },
+    {
+     "url": "https://www.secinfo.com/dp274.N1.htm",
+     "reason": "public_company_only"
+    },
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/821483/000143774924008283/parpacificars.pdf",
+     "reason": "blocked_domain"
+    }
+   ]
+  }
+ ],
+ "shown": {
+  "T:P1.1": {
+   "company_id": "IQ98924",
+   "text": "Home | Par Pacific",
+   "url": "https://www.parpacific.com/",
+   "source": "saved_site"
+  },
+  "T:P1.2": {
+   "company_id": "IQ98924",
+   "text": "We are committed to conducting business in a safe and protective manner that promotes sustainable environments and respects community values.",
+   "url": "https://www.parpacific.com/",
+   "source": "saved_site"
+  },
+  "T:P1.3": {
+   "company_id": "IQ98924",
+   "text": "As sustainability focused company, growth expands Par Pacific’s ability to create a positive impact. As we deepen our operational focus, we remain dedicated to delivering safe, reliable, affordable, and increasingly low-carbon energy to support the needs of our local communities.",
+   "url": "https://www.parpacific.com/",
+   "source": "saved_site"
+  },
+  "T:P1.4": {
+   "company_id": "IQ98924",
+   "text": "We serve our local markets",
+   "url": "https://www.parpacific.com/",
+   "source": "saved_site"
+  },
+  "T:P1.5": {
+   "company_id": "IQ98924",
+   "text": "As a market leader, we actively seek opportunities to own and operate energy and infrastructure businesses in logistically-complex markets.",
+   "url": "https://www.parpacific.com/",
+   "source": "saved_site"
+  },
+  "T:P1.6": {
+   "company_id": "IQ98924",
+   "text": "We bring unique strengths to our markets",
+   "url": "https://www.parpacific.com/",
+   "source": "saved_site"
+  },
+  "T:P1.7": {
+   "company_id": "IQ98924",
+   "text": "Par Pacific combines experience in the oil and gas industry with corporate finance acumen. As a nimble entrepreneurial organization, we actively pursue operational excellence.",
+   "url": "https://www.parpacific.com/",
+   "source": "saved_site"
+  },
+  "T:P1.8": {
+   "company_id": "IQ98924",
+   "text": "Par Pacific Appoints Jerry Stumbo Executive Vice President, Refining and Logistics",
+   "url": "https://www.parpacific.com/",
+   "source": "saved_site"
+  },
+  "T:P1.9": {
+   "company_id": "IQ98924",
+   "text": "Par Pacific Announces Agreement to Sell Laramie Energy Assets",
+   "url": "https://www.parpacific.com/",
+   "source": "saved_site"
+  },
+  "T:P1.10": {
+   "company_id": "IQ98924",
+   "text": "Email Register for Email Alerts",
+   "url": "https://www.parpacific.com/",
+   "source": "saved_site"
+  },
+  "T:P2.1": {
+   "company_id": "IQ98924",
+   "text": "Mission & Values | Par Pacific",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "T:P2.2": {
+   "company_id": "IQ98924",
+   "text": "Culture & Values",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "T:P2.3": {
+   "company_id": "IQ98924",
+   "text": "We demonstrate this by investing in them personally and professionally to ensure they feel supported and heard.",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "T:P2.4": {
+   "company_id": "IQ98924",
+   "text": "-- Matthew Legg, Senior Vice President, Chief Human Resources Officer",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "T:P2.5": {
+   "company_id": "IQ98924",
+   "text": "We are a tight-knit company full of extraordinary individuals",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "T:P2.6": {
+   "company_id": "IQ98924",
+   "text": "Working at Par Pacific is vibrant and fun. Since we are a smaller energy company, employees can make a meaningful impact on the business and to influence decisions.",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "T:P2.7": {
+   "company_id": "IQ98924",
+   "text": "Our Mission Captures Who We Are & Guides Us Toward Who We Want to Become",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "T:P2.8": {
+   "company_id": "IQ98924",
+   "text": "Our Mission, Humbly Serving Communities, is about people – our communities, our teams, and the purpose that binds us. Each word matters. We listen first, lead by lifting others, and we’re in this together in each of the communities that we serve.",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "T:P2.9": {
+   "company_id": "IQ98924",
+   "text": "Par Pacific is a values-driven company. Our tight-knit community values respect for others, integrity, collaborative innovation, and heart. These four pillars support our successes and strengthen our ability to be an effective and fun place to work.",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "T:P2.10": {
+   "company_id": "IQ98924",
+   "text": "We listen before we speak, yet understand action is needed for progress. We value the unique heritage, experiences, and contributions of everyone and everywhere we are blessed to work with and serve.",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "T:P2.11": {
+   "company_id": "IQ98924",
+   "text": "Creativity drives innovation and fuels the generation of new ideas. We understand creativity alone is not enough. It is through collaborative innovation that we bring those ideas to life ! Through our collaborative efforts and effective systems, these ideas become impactful results that open new worlds of opportunity.",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "T:P2.12": {
+   "company_id": "IQ98924",
+   "text": "An ounce of heart is worth more than a ton of intellect and talent. We care deeply about the communities in which we operate. We succeed when our hard work, grit and resilience is balanced with good rest. We root for each other, celebrate each other ’ s successes and learn from our mistakes.",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "T:P3.1": {
+   "company_id": "IQ98924",
+   "text": "Products | Par Pacific",
+   "url": "https://www.parpacific.com/operations/products",
+   "source": "saved_site"
+  },
+  "T:P3.2": {
+   "company_id": "IQ98924",
+   "text": "The commercial team is charged with the acquisition of crudes and feedstocks used in the refinery, as well as the ultimate sale of products produced by the Refinery. Products that are produced are listed below and identified with the Specification Sheets and corresponding Safety Data Sheet.",
+   "url": "https://www.parpacific.com/operations/products",
+   "source": "saved_site"
+  },
+  "C:P1.1": {
+   "company_id": "IQ350318",
+   "text": "Suburban Propane | Residential and Commercial Propane",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.2": {
+   "company_id": "IQ350318",
+   "text": "Suburban Propane delivers reliable propane for homes and businesses nationwide. Trusted service, flexible plans, and 24/7 support for over 95 years.",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.3": {
+   "company_id": "IQ350318",
+   "text": "Serving communities today, leading the way to a sustainable tomorrow.",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.4": {
+   "company_id": "IQ350318",
+   "text": "Power your indoor and outdoor fuel needs with Propane",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.5": {
+   "company_id": "IQ350318",
+   "text": "Take advantage of all we have to offer.",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.6": {
+   "company_id": "IQ350318",
+   "text": "Quickly access, view, and pay your propane bill.",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.7": {
+   "company_id": "IQ350318",
+   "text": "A diverse array of products to meet your energy needs",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.8": {
+   "company_id": "IQ350318",
+   "text": "Browse our residential offerings and services.",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.9": {
+   "company_id": "IQ350318",
+   "text": "Leading the way to a sustainable tomorrow.",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.10": {
+   "company_id": "IQ350318",
+   "text": "Browse our commercial and industrial offerings and services.",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.11": {
+   "company_id": "IQ350318",
+   "text": "Suburban Renewables houses our existing family of renewable assets",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.12": {
+   "company_id": "IQ350318",
+   "text": "It leads our long-term strategic growth and diversification efforts to identify new areas of investment, strategic partnerships, and collaborations within the renewable energy space.",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.13": {
+   "company_id": "IQ350318",
+   "text": "Employees who are trained with your safety as their #1 priority",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.14": {
+   "company_id": "IQ350318",
+   "text": "Locations providing exceptional service to local communities across 42 states",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.15": {
+   "company_id": "IQ350318",
+   "text": "Years serving our customers and their communities. Customer satisfaction",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.16": {
+   "company_id": "IQ350318",
+   "text": "Dedicated employees ready to assist you with quality service for all your fuel needs",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.17": {
+   "company_id": "IQ350318",
+   "text": "We are here for you with customer service representatives standing by to take your call",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.18": {
+   "company_id": "IQ350318",
+   "text": "With multiple locations across the country, we invite you to apply to be a part of the Suburban Propane family.",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.19": {
+   "company_id": "IQ350318",
+   "text": "Customers Love Working with Suburban Propane",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.20": {
+   "company_id": "IQ350318",
+   "text": "Suburban Propane in is more than just a great propane store. The employees are some of the most caring people on this place earth. They help me out in a personal time of need and insured I was safe and taken care of. Thank you from the bottom of my heart.",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.21": {
+   "company_id": "IQ350318",
+   "text": "I am very pleased with the service I receive from Suburban Propane. The Wildwood office is always helpful, and the service technicians are very pleasant. I would highly recommend this office for your propane needs.",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.22": {
+   "company_id": "IQ350318",
+   "text": "We couldn't be more pleased with our new service with suburban propane. They are quick, friendly, and knowledgeable and even work on Saturday. If you are going to use propane, suburban propane should be your first call.",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.23": {
+   "company_id": "IQ350318",
+   "text": "Manage Your Account with Our Mobile App",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.24": {
+   "company_id": "IQ350318",
+   "text": "When you think about propane around your home or business, heating probably comes to mind first. Furnaces. Boilers. Water heaters. Maybe a fireplace, cooking equipment [...]",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.25": {
+   "company_id": "IQ350318",
+   "text": "Using Propane to Heat Your Home",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.26": {
+   "company_id": "IQ350318",
+   "text": "Every home needs reliable heating to stay comfortable year-round, and few energy sources match propane’s reliability, performance, and efficiency. Whether you are powering a single [...]",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.27": {
+   "company_id": "IQ350318",
+   "text": "If you use propane for outdoor living, grilling, RV travel, and other portable propane-powered applications, you may wonder whether it makes more sense to exchange [...]",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.28": {
+   "company_id": "IQ350318",
+   "text": "Become part of the Suburban Propane family and enjoy our unwavering commitment to safety and customer satisfaction.",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P1.29": {
+   "company_id": "IQ350318",
+   "text": "Please call us 24/7/365 at 1-800-PROPANE",
+   "url": "https://www.suburbanpropane.com/",
+   "source": "saved_site"
+  },
+  "C:P2.1": {
+   "company_id": "IQ350318",
+   "text": "Commercial Propane Delivery | Suburban Propane",
+   "url": "https://www.suburbanpropane.com/commercial-propane/services/",
+   "source": "saved_site"
+  },
+  "T:P3.22": {
+   "company_id": "IQ98924",
+   "text": "Terminal has two docks. Dock #1 handles ships and barges. Dock #2 handles only barges. Oil products handled at this terminal are crude oil, gasoline, jet fuel, diesel, vacuum gas oil, and marine fuels.",
+   "url": "https://www.parpacific.com/operations/products",
+   "source": "saved_site"
+  },
+  "T:P3.3": {
+   "company_id": "IQ98924",
+   "text": "For over forty years, U.S. Oil has been a consistent supplier of high quality paving grade and emulsified asphalts to contractors in the Puget Sound region. Working with Federal, State and Local agencies, we have become a leader in the development of products designed to improve the quality of the area's highways and roads. U. S. Oil is also a key supplier of industrial grade asphalt to the roofing materials industry. Our industrial asphalt (Flux) is an integral component in ...",
+   "url": "https://www.parpacific.com/operations/products",
+   "source": "saved_site"
+  },
+  "T:P3.26": {
+   "company_id": "IQ98924",
+   "text": "Services: Marine Fuels available at 3000 B/hr. Fresh water available if ship provides hose. There are no facilities at this terminal for dirty ballast, slop reception or hazardous waste.",
+   "url": "https://www.parpacific.com/operations/products",
+   "source": "saved_site"
+  },
+  "T:P3.17": {
+   "company_id": "IQ98924",
+   "text": "New Customer Packet ASPHALT (Rack)",
+   "url": "https://www.parpacific.com/operations/products",
+   "source": "saved_site"
+  },
+  "T:P3.18": {
+   "company_id": "IQ98924",
+   "text": "New Customer Packet ASPHALT (Rail)",
+   "url": "https://www.parpacific.com/operations/products",
+   "source": "saved_site"
+  },
+  "C:P2.2": {
+   "company_id": "IQ350318",
+   "text": "Reliable propane delivery for your business. Agriculture, forklifts, restaurants, fleets, construction, & more. Get dependable service from Suburban Propane.",
+   "url": "https://www.suburbanpropane.com/commercial-propane/services/",
+   "source": "saved_site"
+  },
+  "C:P2.5": {
+   "company_id": "IQ350318",
+   "text": "Find out how Suburban Propane can fuel your business.",
+   "url": "https://www.suburbanpropane.com/commercial-propane/services/",
+   "source": "saved_site"
+  },
+  "C:P2.13": {
+   "company_id": "IQ350318",
+   "text": "Peace of mind with dependable fuel supply, when you need it",
+   "url": "https://www.suburbanpropane.com/commercial-propane/services/",
+   "source": "saved_site"
+  },
+  "C:P3.4": {
+   "company_id": "IQ350318",
+   "text": "Select from one of multiple Suburban Propane locations",
+   "url": "https://www.suburbanpropane.com/find-a-location/",
+   "source": "saved_site"
+  },
+  "C:P2.9": {
+   "company_id": "IQ350318",
+   "text": "Our reliable cylinder delivery service keeps your business running smoothly, without the hassle of managing your own fleet.",
+   "url": "https://www.suburbanpropane.com/commercial-propane/services/",
+   "source": "saved_site"
+  },
+  "T:S1.1": {
+   "company_id": "IQ98924",
+   "text": "Par Pacific combines experience in the oil and gas industry with corporate financing know-how. ... Our four refineries operate in logistically-complex markets, processing crude oil",
+   "url": "https://www.parpacific.com/about-us",
+   "source": "web:company_site"
+  },
+  "T:S2.1": {
+   "company_id": "IQ98924",
+   "text": "Image: low-angle-view-of-storage-tanks-at-oil-refinery-2022-03-09-02-28-08-utc ... Par Pacific Holdings, Inc. ... Par Pacific also owns 46% of Laramie Energy, LLC, a natural gas production company wit",
+   "url": "https://www.parhawaii.com/par-pacific/",
+   "source": "web:news"
+  },
+  "T:S3.1": {
+   "company_id": "IQ98924",
+   "text": "and commercial production, all of which have in turn disrupted our businesses and operations and impacted our financial performance in 2021 and 2020. ... 10-K,",
+   "url": "https://www.parpacific.com/sites/par-pacific-holdings/files/2022-02/parr-2021-10-k.pdf",
+   "source": "web:company_site"
+  },
+  "T:S4.1": {
+   "company_id": "IQ98924",
+   "text": "* Newcastle Refinery (Wyoming Refining Company, LLC – a subsidiary of Par Pacific Holdings), Newcastle, 20,000 bbl/d (3,200 m^{3}/d) ... * Yabucoa Refinery (Shell Chemical",
+   "url": "https://en.wikipedia.org/wiki/List_of_oil_refineries",
+   "source": "web:reference"
+  },
+  "T:S5.1": {
+   "company_id": "IQ98924",
+   "text": "Par Pacific Holdings, Inc., a company whose headquarters are in Houston, Texas, owns operations in oil and production and midstream operations. ... On 19 December",
+   "url": "https://en.wikipedia.org/wiki/Par_Pacific_Holdings",
+   "source": "web:reference"
+  }
+ },
+ "fingerprint": "5473c44d0d1a27296f230a80d2bc0d6ab7ae71ce44cf4b8b2252ad4083560967"
+}
