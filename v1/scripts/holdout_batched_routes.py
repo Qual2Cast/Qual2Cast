@@ -9,8 +9,10 @@ from __future__ import annotations
 
 import argparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
+import hashlib
 import json
 from pathlib import Path
+import shutil
 import sys
 
 import pandas as pd
@@ -68,7 +70,8 @@ def run(candidates_run: Path = common.CANDIDATES, output: Path = common.OUTPUT,
         workers: int = 3, sector_facets: Path | None = None,
         general_facets: Path | None = None,
         industry_facets: Path | None = None,
-        candidate_rule: str = "z", prompt_version: str = "saved") -> dict:
+        candidate_rule: str = "z", prompt_version: str = "saved",
+        reuse_direct_from: Path | None = None) -> dict:
     # Large shared-pool prompts sometimes exceed the facet fill's 10-minute
     # default. Resume cached batches and allow 20 minutes for the few long calls.
     common.ff.CODEX_TIMEOUT_SECONDS = 1200
@@ -133,10 +136,22 @@ def run(candidates_run: Path = common.CANDIDATES, output: Path = common.OUTPUT,
         prompt = (system + "\nEvaluate each target below independently. Return one "
                   "answer for each target ID; use the same pool labels for all.\n\n"
                   + "\n\n".join(blocks))
-        raw = common.checked_call(prompt, direct_schema(group),
-                                  output / "calls/batch_direct" /
-                                  f"{batch_no:03d}_{len(group)}_{group[0]}_{group[-1]}",
-                                  model, system)
+        answer_schema = direct_schema(group)
+        folder_name = f"{batch_no:03d}_{len(group)}_{group[0]}_{group[-1]}"
+        destination = output / "calls/batch_direct" / folder_name
+        if reuse_direct_from is not None and not (destination / "response.json").exists():
+            source = reuse_direct_from / "calls/batch_direct" / folder_name
+            metadata = json.loads((source / "run.json").read_text(encoding="utf-8"))
+            fingerprint = hashlib.sha256((model + "\n" + prompt + "\n" +
+                json.dumps(answer_schema, sort_keys=True)).encode("utf-8")).hexdigest()
+            if (metadata.get("model"), metadata.get("fingerprint"), metadata.get("status")) != (
+                    model, fingerprint, "ok"):
+                raise ValueError(f"Direct prompt, schema or model differs: {source}")
+            destination.mkdir(parents=True, exist_ok=True)
+            for name in ("run.json", "response.json", "prompt.txt", "schema.json"):
+                shutil.copy2(source / name, destination / name)
+            (destination / "reused_from.txt").write_text(str(source), encoding="utf-8")
+        raw = common.checked_call(prompt, answer_schema, destination, model, system)
         batch = answers_by_target(raw, group)
         rows, issues = [], []
         for target in group:
@@ -206,6 +221,7 @@ def run(candidates_run: Path = common.CANDIDATES, output: Path = common.OUTPUT,
     summary = {"model": model, "inference_protocol": "batched independent targets",
                "candidate_rule": candidate_rule,
                "prompt_version": prompt_version,
+               "direct_reused_from": str(reuse_direct_from) if reuse_direct_from else None,
                "sector_facets": str(sector_facets) if sector_facets else None,
                "general_facets": str(general_facets) if general_facets else None,
                "industry_facets": str(industry_facets) if industry_facets else None,
@@ -234,6 +250,7 @@ if __name__ == "__main__":
     parser.add_argument("--industry-facets", type=Path)
     parser.add_argument("--candidate-rule", choices=["z", "selected"], default="z")
     parser.add_argument("--prompt-version", choices=["saved", "current"], default="saved")
+    parser.add_argument("--reuse-direct-from", type=Path)
     args = parser.parse_args()
     print(json.dumps(run(candidates_run=args.candidates_run, output=args.out,
                          model=args.model, limit=args.limit, workers=args.workers,
@@ -241,4 +258,5 @@ if __name__ == "__main__":
                          general_facets=args.general_facets,
                          industry_facets=args.industry_facets,
                          candidate_rule=args.candidate_rule,
-                         prompt_version=args.prompt_version), indent=2))
+                         prompt_version=args.prompt_version,
+                         reuse_direct_from=args.reuse_direct_from), indent=2))

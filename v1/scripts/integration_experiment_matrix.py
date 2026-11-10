@@ -7,6 +7,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from integration_holdout_compare import VARIANTS
+
 
 ROOT = Path(__file__).resolve().parents[2]
 BASE = ROOT / "outputs-local/v1/integration"
@@ -41,6 +43,11 @@ def main() -> None:
         retrieval="varies by configuration", selection="saved route", grading="none",
         factor="business only", aggregation="saved route", method_col="comp rule",
         error_col="median abs % error")
+    reviewed_candidate = pd.read_csv(BASE / "source_reviewed_default/retrieval/valuation_summary.csv")
+    add(rows, "source-reviewed default retrieval", reviewed_candidate,
+        facet="source-reviewed Sonnet general", retrieval="varies by configuration",
+        selection="saved route", grading="none", factor="business only",
+        aggregation="saved route", method_col="comp rule", error_col="median abs % error")
     gpt_candidate = pd.read_csv(BASE / "candidate_methods_gpt/valuation_summary.csv")
     add(rows, "GPT retrieval comparison", gpt_candidate, facet="GPT general",
         retrieval="varies by configuration", selection="saved route", grading="none",
@@ -90,12 +97,13 @@ def main() -> None:
                 "label_cohort": "Barbara 293; 160 development valuation targets",
             })
 
-    for condition in ("control_sonnet", "gpt_general", "gpt_all"):
+    for condition in ("control_sonnet", "source_reviewed_default", "gpt_general", "gpt_all", *VARIANTS,
+                      "gpt_scope_exception"):
         table = pd.read_csv(BASE / "holdout_routes" / condition / "evaluation/summary.csv")
         for record in table.to_dict("records"):
             rows.append({
                 "stage": "GPT selector routes", "configuration": f"{condition}: {record['comp rule']}",
-                "facet": condition, "retrieval": "B3 with fixed GPT candidate list",
+                "facet": condition, "retrieval": "B3 condition-specific shortlist",
                 "selection": record["comp rule"],
                 "grading": ("binary LLM" if "then LLM" in record["comp rule"]
                             else "direct LLM" if record["comp rule"].startswith("LLM")
@@ -134,6 +142,33 @@ def main() -> None:
             "label_cohort": "160 development valuation targets",
         })
 
+    default_factors = pd.read_csv(BASE / "source_reviewed_default/factors/method_results.csv")
+    for record in default_factors.to_dict("records"):
+        rows.append({
+            "stage": "source-reviewed default factors", "configuration":
+                f"{record['factor_set']}: {record['peer_budget']} peers, {record['aggregation']}",
+            "facet": "source-reviewed Sonnet general", "retrieval": "B3",
+            "selection": f"top {record['peer_budget']} after factor distance",
+            "grading": "none", "factor": record["factor_set"],
+            "aggregation": record["aggregation"], "target_count": record["coverage"],
+            "median_absolute_percentage_error": record["median_ape"],
+            "label_cohort": "160 development valuation targets",
+        })
+
+    factor_cross = pd.read_csv(BASE / "factors_by_facet/comparison.csv")
+    for record in factor_cross.to_dict("records"):
+        rows.append({
+            "stage": "GPT facets with private-supplied factors",
+            "configuration": (f"{record['facet_condition']}: {record['factor_set']}: "
+                              f"{record['peer_budget']} peers: {record['aggregation']}"),
+            "facet": record["facet_condition"], "retrieval": "B3",
+            "selection": f"top {record['peer_budget']} after factor distance",
+            "grading": "none", "factor": record["factor_set"],
+            "aggregation": record["aggregation"], "target_count": record["coverage"],
+            "median_absolute_percentage_error": record["median_ape"],
+            "label_cohort": "160 development valuation targets",
+        })
+
     regression = pd.read_csv(BASE / "regression/summary.csv")
     add(rows, "FF49 regression", regression, facet="industry and optional qualitative",
         retrieval="not applicable", selection="pooled training firms", grading="none",
@@ -147,6 +182,8 @@ def main() -> None:
     output["reviewed_good_recall"] = float("nan")
     diagnostics = (
         ("retrieval comparison", "candidate_methods/reviewed_metrics.csv", "method",
+         "pairwise accuracy", "good_recall"),
+        ("source-reviewed default retrieval", "source_reviewed_default/retrieval/reviewed_metrics.csv", "method",
          "pairwise accuracy", "good_recall"),
         ("GPT retrieval comparison", "candidate_methods_gpt/reviewed_metrics.csv", "method",
          "pairwise accuracy", "good_recall"),
@@ -176,6 +213,73 @@ def main() -> None:
     mask = (output["stage"].eq("reviewer-calibrated threshold") &
             output["configuration"].eq("B3 reviewer-calibrated z"))
     output.loc[mask, "reviewed_good_recall"] = threshold_run["crossfit_good_recall"]
+    golden = pd.read_csv(BASE / "golden_method_metrics.csv")
+    peer_rows = pd.DataFrame({
+        "stage": "golden peer quality",
+        "configuration": golden["facet_source"] + ": " + golden["method"] + ": " + golden["label_source"],
+        "facet": golden["facet_source"],
+        "retrieval": golden["method"],
+        "selection": "saved peer rule",
+        "grading": "human 0–2",
+        "factor": "business only",
+        "aggregation": "not applicable",
+        "target_count": golden["labeled_targets"],
+        "median_absolute_percentage_error": float("nan"),
+        "label_cohort": golden["label_source"],
+        "pairwise_accuracy": golden["pairwise_top10_accuracy"],
+        "reviewed_good_recall": golden["good_recall"],
+    })
+    output = pd.concat([output, peer_rows], ignore_index=True)
+    default_gold = pd.read_csv(BASE / "source_reviewed_default/golden/metrics.csv")
+    default_rows = pd.DataFrame({
+        "stage": "source-reviewed default golden peers",
+        "configuration": default_gold["method"] + ": " + default_gold["label_source"],
+        "facet": "source-reviewed Sonnet general",
+        "retrieval": default_gold["method"],
+        "selection": "saved peer rule", "grading": "human 0–2",
+        "factor": "business only", "aggregation": "not applicable",
+        "target_count": default_gold["labeled_targets"],
+        "median_absolute_percentage_error": float("nan"),
+        "label_cohort": default_gold["label_source"],
+        "pairwise_accuracy": default_gold["pairwise_top10_accuracy"],
+        "reviewed_good_recall": default_gold["good_recall"],
+    })
+    output = pd.concat([output, default_rows], ignore_index=True)
+    routes = pd.read_csv(BASE / "golden_routes/metrics.csv")
+    route_rows = pd.DataFrame({
+        "stage": "golden selector routes",
+        "configuration": routes["facet_source"] + ": " + routes["method"] + ": " + routes["label_source"],
+        "facet": routes["facet_source"],
+        "retrieval": "B3 or direct LLM",
+        "selection": routes["method"],
+        "grading": "human 0–2",
+        "factor": "business only",
+        "aggregation": "not applicable",
+        "target_count": routes["labeled_targets"],
+        "median_absolute_percentage_error": float("nan"),
+        "label_cohort": routes["label_source"],
+        "pairwise_accuracy": routes["pairwise_top10_accuracy"],
+        "reviewed_good_recall": routes["good_recall"],
+    })
+    output = pd.concat([output, route_rows], ignore_index=True)
+    exceptions = pd.read_csv(BASE / "gpt_scope_alignment/sensitivity/comparison.csv")
+    exception_rows = pd.DataFrame({
+        "stage": "scope exception sensitivity",
+        "configuration": exceptions["variant"],
+        "facet": exceptions["variant"],
+        "retrieval": "B3",
+        "selection": "mutual top ten, three-peer top-up",
+        "grading": "human majority 0–2",
+        "factor": "business only",
+        "aggregation": "similarity-weighted mean",
+        "target_count": exceptions["valuation_targets"],
+        "median_absolute_percentage_error": exceptions["median_ape"],
+        "label_cohort": "32 majority pairs; 160 development valuation targets",
+        "reviewed_good_recall": exceptions["good_selected"] / exceptions["good_total"],
+    })
+    output = pd.concat([output, exception_rows], ignore_index=True)
+    if output.duplicated(["stage", "configuration"]).any():
+        raise ValueError("Duplicate experiment configuration")
     output.to_csv(OUT, index=False)
     print(output.groupby("stage").size().to_string())
     print(f"Total executed rows: {len(output)}")

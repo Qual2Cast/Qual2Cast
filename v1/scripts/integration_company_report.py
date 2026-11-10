@@ -22,7 +22,7 @@ def domain(value: str) -> str:
 
 
 def report_company(query: str, target_ebitda: float | None = None,
-                   method: str = "dated_sonnet") -> dict:
+                   method: str = "source_reviewed") -> dict:
     info = pd.read_csv(V1 / "universe/20261025T060358Z/universe.csv", dtype=str)
     needle = query.strip().lower()
     matches = info[(info["IQ_COMPANY_ID"].str.lower() == needle)
@@ -34,7 +34,11 @@ def report_company(query: str, target_ebitda: float | None = None,
         raise ValueError(f"Company lookup returned {len(matches)} exact matches; provide a unique name, ticker, ID or website")
     company = matches.iloc[0]
     target = company["IQ_COMPANY_ID"]
-    if method == "dated_sonnet":
+    if method == "source_reviewed":
+        ranking_path = V1 / "integration/source_reviewed_default/all_targets_top10.csv"
+        method_label = "source-reviewed Sonnet facets; B3 top-10 weighted mean"
+        facet_path = V1 / "integration/source_reviewed_default/facets.csv"
+    elif method == "dated_sonnet":
         ranking_path = V1 / "integration/scope_eval/all_targets_top10.csv"
         method_label = "dated Sonnet facets; B3 top-10 weighted mean"
         facet_path = V1 / "integration/sources/facets_sonnet_corrected.csv"
@@ -78,12 +82,12 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("company", help="exact name, website, ticker or IQ company ID")
     parser.add_argument("--ebitda", type=float)
-    parser.add_argument("--method", default="dated_sonnet",
-                        help="dated_sonnet or a GPT candidate route directory name")
+    parser.add_argument("--method", default="source_reviewed",
+                        help="source_reviewed, dated_sonnet, or a GPT candidate route directory name")
     args = parser.parse_args()
     result = report_company(args.company, args.ebitda, args.method)
     OUT.mkdir(parents=True, exist_ok=True)
-    path = OUT / f"{result['company_id']}.json"
+    path = OUT / f"{result['company_id']}_{args.method}.json"
     path.write_text(json.dumps(result, indent=2, ensure_ascii=False), encoding="utf-8")
     print(json.dumps({"company": result["company"], "peers": len(result["ranked_peers"]),
                       "multiple_estimate": result["multiple_estimate"],

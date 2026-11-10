@@ -11,11 +11,12 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[2]
 V1 = ROOT / "outputs-local/v1"
 BASE = V1 / "integration"
-OUT = BASE / "error_diagnosis"
+OUT = BASE / "source_reviewed_default/error_diagnosis"
 
 
 def main() -> None:
-    runs = {"GPT general": "gpt_general", "GPT + Fiona + Barbara": "gpt_all"}
+    runs = {"Source-reviewed default": "source_reviewed_default",
+            "GPT general": "gpt_general", "GPT + Fiona + Barbara": "gpt_all"}
     frames = []
     for label, folder in runs.items():
         path = BASE / "holdout_routes" / folder / "evaluation/target_results.csv"
@@ -58,7 +59,7 @@ def main() -> None:
     claims = pd.read_csv(BASE / "claim_check/verdicts.csv")
     cited_claims = pd.read_csv(BASE / "claim_check_cited/verdicts.csv")
     growth = pd.read_csv(BASE / "growth/rule_errors.csv")
-    candidate = pd.read_csv(BASE / "candidate_methods/reviewed_metrics.csv")
+    candidate = pd.read_csv(BASE / "source_reviewed_default/retrieval/reviewed_metrics.csv")
     base = candidate[candidate["method"].eq("B3 embedding plus TF-IDF")]
     if len(base) != 1:
         raise ValueError("The corrected B3 diagnostic row is missing")
@@ -73,7 +74,7 @@ def main() -> None:
         {"stage": "facet extraction: source-cited", "flag": "source verifier not found, missed, partly or contradicted",
          "count": int(cited_claims["verdict"].isin(["not_found", "missed", "partly", "contradicted"]).sum()),
          "denominator": len(cited_claims)},
-        {"stage": "candidate ranking", "flag": "reviewed bad peer selected by corrected B3",
+        {"stage": "candidate ranking", "flag": "reviewed bad peer selected by source-reviewed B3",
          "count": int(base.iloc[0]["bad_selected"]),
          "denominator": int(base.iloc[0]["labeled pairs"])},
         {"stage": "peer grading", "flag": "GPT judge differs from Barbara 0–2 grade",

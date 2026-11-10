@@ -609,3 +609,128 @@ from 19.26% to 39.41% with split context; fixed-holdout median APE changes
 from 31.02% to 40.21%. The context prompt is not adopted as the v0 default.
 Details and reproduction steps:
 `conversations/2026-10-28-reviewer-and-split-refinement.md`.
+
+## v1 teammate integration audit — 10 November 2026
+
+The local `research/v1-integration` extension remains unpushed. The main
+`v1/notebooks/comps_and_valuation.ipynb` preserves the team's first 65 cells
+exactly. Its 41 added cells include 21 executed code cells, seven plots and 73
+table outputs, with no execution errors. The matrix indexes 466 valuation and
+related configurations plus 432 historical-label peer comparisons (898 rows);
+the manifest hashes 2,746 exact input, code and output files.
+`integration_validate.py` passes its coverage and run-integrity checks.
+
+- Michael's v1 baseline and four peer-selection routes are retained. Eleven
+  additional GPT facet conditions run all six saved valuation rows on the
+  same 160 public-as-private targets, for 14 conditions and 84 route rows.
+  The new conditions isolate FF49, SIC4, Fiona sub-sector and categories,
+  Barbara SIC2 fields, their combined retrieval, five leave-one-out
+  retrievals, and full versus general LLM context. Direct answers are reused
+  only after exact model, prompt and schema fingerprint checks.
+- Matthew and Richard's saved same-input Haiku/Sonnet selector comparison,
+  Fiona's sector work and merged agent loop, Barbara's SIC2 dictionary and
+  293 graded pairs, Yiming's dated exits and scope sensitivity, Yifan's
+  Orbis-aligned fields and tier-R retrieval, Kethan's error diagnosis, and
+  Riya's merged 0–2 rubric/agent results are displayed or evaluated in the
+  main notebook. Barbara's 38,788-company catalog remains a retrieval-only
+  extension; its full pool lacks aligned public multiples for valuation.
+- Xiaozhe's three event extractors now produce 30 ten-company feature rows.
+  The team's SEC collector supplies annual revenue for 515 of 560 snapshot
+  firms. The dated outcome builder yields a 2022 cutoff label for 496, of
+  which 472 are v1 eligible; 471/468/460 eligible firms have 1/2/3-year
+  revenue outcomes. October 2026 event pages cannot predict fiscal
+  2023–2025 outcomes without look-ahead, so no growth forecast is claimed.
+
+On the fixed 160-target development cohort, the GPT general B3 route has
+33.28% median absolute percentage error. Adding all specialized fields to
+retrieval gives 35.74%; Fiona categories alone gives 33.17%. None of 120
+paired route contrasts has a bootstrap 95% interval excluding zero. This
+does not establish that any facet addition improves valuation. The 293
+Barbara labels are one reviewer's development judgments, not consensus
+gold; the 160 targets were used during development and are not an
+independent final holdout. Actual private-company outcomes, a historical
+event-feature panel aligned to revenue labels, and full valuation labels for
+Barbara's expanded catalog are unavailable. The study indexes executed
+combinations; it does not claim a full Cartesian product of all facets,
+retrievers, selectors and financial factor sets. Unmerged `riya/wip` is
+excluded as requested. Previous result versions are preserved under
+`outputs-local/v1/integration/history/2026-11-10-before-facet-growth-extension/`.
+
+The 10 November golden-set replay hash checks the v3 snapshot, fixed split,
+three general-facet sources, and all 12 GPT facet-variant inputs before
+scoring saved peer lists. It compares 72 source/method conditions separately
+against the 32 majority pairs, 11 unanimous pairs, each reviewer's 36 pairs,
+and Barbara's 293 single-reviewer pairs. On the 32 majority pairs, corrected
+Sonnet B3 selects 10/11 labeled peers and 1/21 labeled non-peers; GPT general
+B3 selects 9/11 and 1/21; GPT plus Fiona categories selects 9/11 and 0/21.
+Only PCTY and WEN have majority labels. The old four-condition partial
+factorial is archived under `history/aborted_factorial_2026-11-10/` and is
+excluded from the notebook and conclusions. This replay is a peer-quality
+evaluation of existing runs, not a new independent holdout or a complete
+facet-by-retriever Cartesian product. Nothing in this correction was pushed.
+
+## Three remaining integration checks — 10 November 2026
+
+All 20 original retrieval methods are verified on each of three common-field
+sources. The specialized Fiona and Barbara fields enter B3 through 12 GPT
+facet conditions; the other 19 original implementations do not take these
+fields without a changed representation. The eight financial factor sets,
+three peer counts and six aggregators ran on each B3 condition (1,728 summary
+rows); the Sonnet control exactly reproduces its saved 144 rows.
+
+The four selection routes were compared on the 32 historical majority-labeled
+pairs for PCTY and WEN, separately from the 160-target valuation study. GPT
+general B3 selected 9/11 labeled good and 1/21 labeled bad peers. B3→LLM
+selected 3/11 and zero bad; direct LLM and LLM→B3 each selected 5/11 and zero
+bad. The two-target test cannot establish a preferred route.
+
+A dated-scope audit compared 116 Yiming-edited fields in 42 firms with the
+fresh GPT fields. A strict test flagged four explicit sold-business mentions.
+Primary company releases show that the saved HLTC and ENSG blanket exclusions
+are too broad; Timken's belts sale was complete, while Skillsoft kept access
+to training through a partnership. The original team inputs are preserved.
+An eight-field, source-cited exception alternative changes one of 160 B3 peer
+lists in each affected source and leaves rounded median B3 error unchanged.
+Its full GPT four-route sensitivity has 160 targets, zero answer issues, and
+paired error intervals spanning zero versus the original GPT condition.
+
+The existing notebook has 110 cells; the original first 65 are unchanged and
+all 23 added code cells execute without errors. The matrix has 2,876 rows and
+the local manifest hashes 2,931 exact files. Run-integrity validation passes,
+but source exceptions have not been applied to the default inputs and there
+is no independent private-company outcome or fresh final holdout. Nothing in
+this extension was pushed or uploaded.
+
+## Source-reviewed integration default — 10 November 2026
+
+The integrated experiment now reads `source_reviewed_default/facets.csv` by
+default. A source-backed review changes ten fields across HLTC, ENSG and SKIL;
+TKR was already current in the dated Sonnet input. The changes retain NHP's
+remaining outpatient facilities and Ensign's current senior living business,
+remove Ensign's transferred home-health/hospice activity, and distinguish
+Skillsoft's sold Global Knowledge operation from its continuing reseller
+access. Source URLs and before/after values are recorded in `changes.csv`.
+This is a targeted review, not a source audit of all 533 firms. The team's
+saved inputs and historical comparison conditions remain intact.
+
+The new input was used to rebuild all 20 common-field retrieval methods,
+all 160 B3 holdout shortlists, the four GPT-6.1 Sol selection routes on those
+targets, factor combinations, reviewer-label comparisons, error diagnosis,
+and the company-report index. The new four-route run judged 1,075 B3 pairs,
+accepted 227 and returned 293 direct peers with no answer issues. The default
+B3 has 34.517% median absolute multiple error on 160 targets; B3→LLM has
+33.784% on 105, direct LLM 30.596% on 119, and LLM→B3 31.339% on 119.
+Different coverage prevents ranking those routes from their medians alone.
+Against the dated Sonnet text under the *same B3 rule*, the corrected input
+changes one of 160 selected peer lists and improves median error by 0.0015
+percentage points, with a paired bootstrap interval spanning zero. This is
+not evidence of a material valuation improvement.
+
+The main notebook retains its original first 65 cells and executes all 23
+integration code cells without error. Validation passes, the experiment
+matrix has 3,167 rows, and the local manifest hashes 3,212 exact files. The
+fresh default run is separate from the historical `control_sonnet` LLM route,
+whose candidate pool was GPT-built and therefore cannot isolate scope effects.
+The notebook extension continues the original section numbering from 13 to 23
+without changing the first 65 cells or rerunning model inference. This result
+is prepared for the existing v1 integration pull request as Update 2.

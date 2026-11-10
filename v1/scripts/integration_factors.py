@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import argparse
+import hashlib
 import json
 from pathlib import Path
 import sys
@@ -38,14 +40,27 @@ def aggregate(peers: pd.DataFrame, method: str) -> dict:
 
 
 def main() -> None:
-    shortlist = pd.read_csv(V1 / "integration/scope_eval/holdout_top10.csv",
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--shortlist", type=Path,
+                        default=V1 / "integration/scope_eval/holdout_top10.csv")
+    parser.add_argument("--method", default="Sonnet dated corrections")
+    parser.add_argument("--out", type=Path, default=OUT)
+    parser.add_argument("--source-label", default="Sonnet dated corrections B3 top ten")
+    args = parser.parse_args()
+    shortlist = pd.read_csv(args.shortlist,
                             dtype={"target": str, "comp": str})
-    shortlist = shortlist[shortlist["method"] == "Sonnet dated corrections"]
+    if "method" in shortlist:
+        shortlist = shortlist[shortlist["method"] == args.method]
     financials = pd.read_csv(V1 / "universe/20261025T060358Z/financials.csv",
                              dtype={"IQ_COMPANY_ID": str}).set_index("IQ_COMPANY_ID")
     split = pd.read_csv(V1 / "split/20261027T204930Z/split.csv", dtype=str)
     training = split.loc[split["sample"] == "training", "IQ_COMPANY_ID"]
     holdout = split.loc[split["sample"] == "holdout", "IQ_COMPANY_ID"]
+    shortlist = shortlist[shortlist["target"].isin(holdout)].copy()
+    if (set(shortlist["target"]) != set(holdout)
+            or not set(shortlist["comp"]).issubset(set(training))
+            or shortlist.duplicated(["target", "comp"]).any()):
+        raise ValueError("The shortlist must cover every development target with unique eligible peers")
     reference = financials.reindex(training).rename(columns={v: k for k, v in FIELDS.items()})
     results, chosen_rows = [], []
     for target in holdout:
@@ -97,11 +112,13 @@ def main() -> None:
         targets_worse=("paired_delta", lambda x: int((x > 0).sum())),
         targets_equal=("paired_delta", lambda x: int((x == 0).sum())))
     summary = summary.merge(changes, on=["factor_set", "peer_budget", "aggregation"])
-    OUT.mkdir(parents=True, exist_ok=True)
-    table.to_csv(OUT / "target_results.csv", index=False)
-    pd.concat(chosen_rows).to_csv(OUT / "selected_peers.csv", index=False)
-    summary.to_csv(OUT / "method_results.csv", index=False)
-    (OUT / "run.json").write_text(json.dumps({"shortlist": "Sonnet dated corrections B3 top ten",
+    args.out.mkdir(parents=True, exist_ok=True)
+    table.to_csv(args.out / "target_results.csv", index=False)
+    pd.concat(chosen_rows).to_csv(args.out / "selected_peers.csv", index=False)
+    summary.to_csv(args.out / "method_results.csv", index=False)
+    (args.out / "run.json").write_text(json.dumps({"shortlist": args.source_label,
+       "shortlist_path": str(args.shortlist),
+       "shortlist_sha256": hashlib.sha256(args.shortlist.read_bytes()).hexdigest(),
        "targets": len(holdout), "pool": len(training), "factor_sets": list(FACTOR_SETS),
        "aggregators": AGGREGATORS,
        "caution": "Snapshot financial periods and units require verification; exploratory public-as-private test"}, indent=2), encoding="utf-8")

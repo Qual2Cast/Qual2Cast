@@ -16,6 +16,15 @@ v0's saved outputs. Two things differ from v0, both mechanical:
 Environment: `uv sync` at the repo root, then pick `.venv` as the notebook kernel (see the root README).
 Tests: `uv run pytest v1/scripts/tests v1/scripts/verification/tests -q` (209 pass).
 
+**Integrated experiment default (2026-11-10).** `integration_pipeline.py` uses
+`outputs-local/v1/integration/source_reviewed_default/facets.csv` for its current
+Sonnet B3 route. It retains one company ID and records ten source-backed field
+corrections across HLTC, ENSG and SKIL; TKR was already current. The integrated
+runner recomputes B3, the 20 common-field retrieval methods, reviewer comparisons,
+factor settings and four peer-selection/valuation routes. `integration_company_report.py`
+uses this source-reviewed input by default. Earlier saved v1 results remain separate
+historical conditions.
+
 ## Start here (2026-11-04)
 
 **Saved-result error analysis (2026-11-05):**

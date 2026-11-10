@@ -11,9 +11,21 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[2]
 BASE = ROOT / "outputs-local/v1/integration/holdout_routes"
 OUT = BASE / "condition_comparison.csv"
+VARIANTS = (
+    "gpt_plus_ff49", "gpt_plus_sic4", "gpt_plus_fiona_sub-sector",
+    "gpt_plus_fiona_categories", "gpt_plus_barbara_sic2_facets",
+    "gpt_all_retrieval", "gpt_all_except_ff49", "gpt_all_except_sic4",
+    "gpt_all_except_fiona_sub-sector", "gpt_all_except_fiona_categories",
+    "gpt_all_except_barbara_sic2_facets",
+)
 PAIRS = (("control_sonnet", "gpt_general"),
          ("gpt_general", "gpt_all"),
-         ("control_sonnet", "gpt_all"))
+         ("control_sonnet", "gpt_all"),
+         ("gpt_general", "gpt_scope_exception"),
+         ("gpt_all_retrieval", "gpt_all"),
+         *(("gpt_general", name) for name in VARIANTS),
+         *(("gpt_all_retrieval", name) for name in VARIANTS
+           if name.startswith("gpt_all_except_")))
 
 
 def errors(condition: str) -> pd.DataFrame:
