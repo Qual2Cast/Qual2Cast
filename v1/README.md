@@ -18,6 +18,12 @@ Tests: `uv run pytest v1/scripts/tests v1/scripts/verification/tests -q` (209 pa
 
 ## Start here (2026-11-04)
 
+**Saved-result error analysis (2026-11-05):**
+[`notebooks/error_analysis.ipynb`](notebooks/error_analysis.ipynb) joins human
+labels, historical/current facet text, similarity methods, Haiku/Sonnet
+selection and agent/one-shot grades. It produces a source-linked report and
+case packets without new model calls. See [ERROR_ANALYSIS.md](ERROR_ANALYSIS.md).
+
 | what | where |
 |---|---|
 | **The v1 baseline is B3 (method 1):** TF-IDF-blended facet scores, information weights, "none" as missing, company size out, mutual top 10 topped up to 3 | [`notebooks/similarity_methods.ipynb`](notebooks/similarity_methods.ipynb) (what B0–B3 mean, results, charts); code in [`scripts/facet_weighting.py`](scripts/facet_weighting.py) (`method1_similarity`) |
