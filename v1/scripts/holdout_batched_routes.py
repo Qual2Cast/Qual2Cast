@@ -65,7 +65,10 @@ def judge_schema(targets: list[str]) -> dict:
 
 def run(candidates_run: Path = common.CANDIDATES, output: Path = common.OUTPUT,
         model: str = common.MODEL, limit: int | None = None,
-        workers: int = 3, sector_facets: Path | None = None) -> dict:
+        workers: int = 3, sector_facets: Path | None = None,
+        general_facets: Path | None = None,
+        industry_facets: Path | None = None,
+        candidate_rule: str = "z", prompt_version: str = "saved") -> dict:
     # Large shared-pool prompts sometimes exceed the facet fill's 10-minute
     # default. Resume cached batches and allow 20 minutes for the few long calls.
     common.ff.CODEX_TIMEOUT_SECONDS = 1200
@@ -79,7 +82,8 @@ def run(candidates_run: Path = common.CANDIDATES, output: Path = common.OUTPUT,
     training = split.loc[split["sample"].eq("training"), "IQ_COMPANY_ID"].tolist()
     if limit is not None:
         targets = targets[:limit]
-    pairs, info, facets = judge.load_inputs(candidates_run, judge.DEFAULT_Z)
+    pairs, info, facets = judge.load_inputs(candidates_run, judge.DEFAULT_Z,
+                                            rule=candidate_rule)
     pool, direct_info, direct_facets, _ = suggest.load_inputs(common.BASE_RUN)
     if training != pool or not info.index.equals(direct_info.index):
         raise ValueError("The LLM routes do not share one fixed training pool")
@@ -87,11 +91,34 @@ def run(candidates_run: Path = common.CANDIDATES, output: Path = common.OUTPUT,
         raise ValueError("Candidates include a training target")
     if not set(pairs["comp"]) <= set(training):
         raise ValueError("Candidates include a holdout peer")
+    if general_facets is not None:
+        import facets as fc
+        general = pd.read_csv(general_facets, dtype=str).fillna("")
+        general = general[(general["prompt_version"] == fc.PROMPT_VERSION) &
+                          (general["llm_status"] == "ok") & (general["business_id"] == "B1")]
+        if general["IQ_COMPANY_ID"].duplicated().any() or set(general["IQ_COMPANY_ID"]) != set(info.index):
+            raise ValueError("General facets must cover the fixed 533 firms exactly once")
+        facets = direct_facets = general.set_index("IQ_COMPANY_ID").reindex(info.index)
     if sector_facets is not None:
         from sector_facet_candidates import attach_sector_summary, load_sector_facets
         sector = load_sector_facets(sector_facets, list(info.index))
         facets = attach_sector_summary(facets, sector)
         direct_facets = attach_sector_summary(direct_facets, sector)
+    if industry_facets is not None:
+        industry = pd.read_csv(industry_facets, dtype=str).fillna("")
+        stated = industry[industry["status"].eq("stated")].copy()
+        stated["entry"] = stated["facet_label"] + ": " + stated["value"]
+        summary = stated.groupby("IQ_COMPANY_ID")["entry"].agg("; ".join)
+        if set(industry["IQ_COMPANY_ID"]) != set(info.index):
+            raise ValueError("Industry facets must cover the fixed 533 firms")
+        for table in (facets, direct_facets):
+            existing = table.get("sector_summary", pd.Series("", index=table.index)).fillna("")
+            table["sector_summary"] = (existing + "; SIC2 facets: " +
+                                       summary.reindex(table.index).fillna("")).str.strip("; ")
+    direct_version = (suggest.PROMPT_VERSION if prompt_version == "current"
+                      else suggest.SAVED_PROMPT_VERSION)
+    judge_version = (judge.PROMPT_VERSION if prompt_version == "current"
+                     else judge.SAVED_PROMPT_VERSION)
     system, labels = suggest.build_system(training, direct_info, direct_facets)
     output.mkdir(parents=True, exist_ok=True)
     (output / "direct_system.txt").write_text(system, encoding="utf-8")
@@ -101,7 +128,7 @@ def run(candidates_run: Path = common.CANDIDATES, output: Path = common.OUTPUT,
         # the saved prompt version (all twelve facets), so saved batches are found by their prompt hash
         blocks = [f"Target ID {target}: " + suggest.build_prompt(
             system, target, direct_info, direct_facets,
-            suggest.SAVED_PROMPT_VERSION)[len(system):].removeprefix("Target: ")
+            direct_version)[len(system):].removeprefix("Target: ")
                   for target in group]
         prompt = (system + "\nEvaluate each target below independently. Return one "
                   "answer for each target ID; use the same pool labels for all.\n\n"
@@ -137,7 +164,7 @@ def run(candidates_run: Path = common.CANDIDATES, output: Path = common.OUTPUT,
         for target in group:
             comps = pairs.loc[pairs["target"].eq(target), "comp"].tolist()
             target_prompt, mappings[target] = judge.build_prompt(target, comps, info, facets,
-                                                                 judge.SAVED_PROMPT_VERSION)   # see PROMPT_VERSIONS.md
+                                                                 judge_version)
             blocks.append(f"Target ID {target}:\n" + target_prompt[len(judge.INSTRUCTIONS):].strip())
         prompt = (judge.INSTRUCTIONS + "\n\nEvaluate each target independently. "
                   "C labels restart for each target. Return one answer for each target ID.\n\n"
@@ -177,7 +204,11 @@ def run(candidates_run: Path = common.CANDIDATES, output: Path = common.OUTPUT,
     pd.DataFrame(issue_rows, columns=["target", "route", "issue"]).to_csv(
         output / "answer_issues.csv", index=False)
     summary = {"model": model, "inference_protocol": "batched independent targets",
+               "candidate_rule": candidate_rule,
+               "prompt_version": prompt_version,
                "sector_facets": str(sector_facets) if sector_facets else None,
+               "general_facets": str(general_facets) if general_facets else None,
+               "industry_facets": str(industry_facets) if industry_facets else None,
                "direct_batch_size": DIRECT_BATCH, "judge_batch_size": JUDGE_BATCH,
                "workers": workers, "call_timeout_seconds": common.ff.CODEX_TIMEOUT_SECONDS,
                "split_run": config["split_run"], "candidate_run": str(candidates_run),
@@ -199,7 +230,15 @@ if __name__ == "__main__":
     parser.add_argument("--candidates-run", type=Path, default=common.CANDIDATES)
     parser.add_argument("--out", type=Path, default=common.OUTPUT)
     parser.add_argument("--sector-facets", type=Path)
+    parser.add_argument("--general-facets", type=Path)
+    parser.add_argument("--industry-facets", type=Path)
+    parser.add_argument("--candidate-rule", choices=["z", "selected"], default="z")
+    parser.add_argument("--prompt-version", choices=["saved", "current"], default="saved")
     args = parser.parse_args()
     print(json.dumps(run(candidates_run=args.candidates_run, output=args.out,
                          model=args.model, limit=args.limit, workers=args.workers,
-                         sector_facets=args.sector_facets), indent=2))
+                         sector_facets=args.sector_facets,
+                         general_facets=args.general_facets,
+                         industry_facets=args.industry_facets,
+                         candidate_rule=args.candidate_rule,
+                         prompt_version=args.prompt_version), indent=2))

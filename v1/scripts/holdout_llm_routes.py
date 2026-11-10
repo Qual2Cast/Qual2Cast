@@ -33,7 +33,8 @@ def checked_call(prompt: str, schema: dict, folder: Path, model: str,
                  shared_prefix: str = "") -> dict:
     """Cache a valid structured answer for an exact prompt and model."""
     folder.mkdir(parents=True, exist_ok=True)
-    fingerprint = hashlib.sha256((model + "\n" + prompt).encode("utf-8")).hexdigest()
+    fingerprint = hashlib.sha256((model + "\n" + prompt + "\n"
+                                  + json.dumps(schema, sort_keys=True)).encode("utf-8")).hexdigest()
     metadata = folder / "run.json"
     response = folder / "response.json"
     if response.exists():

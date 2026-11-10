@@ -1,0 +1,439 @@
+{
+ "row": {
+  "target": "IQ279954",
+  "target_ticker": "IMKT.A",
+  "comp": "IQ98924",
+  "comp_ticker": "PARR",
+  "similarity": 0.3596751745488863,
+  "rank": 1,
+  "status": "ok",
+  "score": 1,
+  "verdict": "adjacent_peer",
+  "reason_if_0": "",
+  "reason": "Par Pacific’s convenience stores sell retail merchandise to consumers, creating some overlap with Ingles’ supermarket shoppers. Ingles also operates pharmacies and sells bakery products, while Par Pacific sells motor fuel at retail and serves commercial customers through its refining and marine fuel operations.",
+  "offering_fit": "partial",
+  "customer_fit": "partial",
+  "business_model_fit": "partial",
+  "missing_evidence": "",
+  "steps": 4,
+  "lookups": 3,
+  "web_searches": 2,
+  "site_searches": 1,
+  "target_citations": "[\"T:P1.2\", \"T:P2.1\"]",
+  "comp_citations": "[\"C:S7.1\", \"C:S9.1\", \"C:P3.2\", \"C:P3.12\"]",
+  "error": "",
+  "seconds": 66.1
+ },
+ "result": {
+  "status": "ok",
+  "steps": 4,
+  "answer": {
+   "action": "final",
+   "side": null,
+   "query": null,
+   "why": "",
+   "score": 1,
+   "verdict": "adjacent_peer",
+   "offering_fit": "partial",
+   "customer_fit": "partial",
+   "business_model_fit": "partial",
+   "reason": "Par Pacific’s convenience stores sell retail merchandise to consumers, creating some overlap with Ingles’ supermarket shoppers. Ingles also operates pharmacies and sells bakery products, while Par Pacific sells motor fuel at retail and serves commercial customers through its refining and marine fuel operations.",
+   "reason_if_0": "",
+   "missing_evidence": "",
+   "target_citations": [
+    "T:P1.2",
+    "T:P2.1"
+   ],
+   "comp_citations": [
+    "C:S7.1",
+    "C:S9.1",
+    "C:P3.2",
+    "C:P3.12"
+   ]
+  }
+ },
+ "lookups": [
+  {
+   "step": 1,
+   "action": "search_site",
+   "side": "comp",
+   "query": "retail convenience stores gas stations grocery food merchandise fuel consumer customers",
+   "why": "The shown Par Pacific evidence establishes refinery product sales. A consumer convenience-store business could overlap with Ingles Markets in products or customers and change the grade.",
+   "added": [
+    "C:P3.22",
+    "C:P3.17",
+    "C:P3.18",
+    "C:P3.19",
+    "C:P3.12"
+   ],
+   "dropped": []
+  },
+  {
+   "step": 2,
+   "action": "web_search",
+   "side": "comp",
+   "query": "Does Par Pacific Holdings currently operate retail convenience stores that sell groceries, snacks, or beverages to consumers?",
+   "why": "The saved-site search surfaced refinery and terminal operations. A consumer convenience-store business could establish overlap with Ingles and change the grade.",
+   "added": [
+    "C:S1.1",
+    "C:S2.1",
+    "C:S3.1",
+    "C:S4.1",
+    "C:S5.1"
+   ],
+   "dropped": [
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/821483/000082148326000014/parr-20260630.htm",
+     "reason": "snippet_empty_or_figures"
+    },
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/821483/000082148326000005/parr-20251231.htm",
+     "reason": "snippet_empty_or_figures"
+    },
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/821483/000082148325000029/parr-20250630.htm",
+     "reason": "snippet_empty_or_figures"
+    }
+   ]
+  },
+  {
+   "step": 3,
+   "action": "web_search",
+   "side": "comp",
+   "query": "Par Pacific Holdings \"retail segment\" \"convenience stores\" \"merchandise\" 2026",
+   "why": "The refinery and marine fuel evidence establishes Par Pacific’s commercial business. Its current convenience-store operations could establish overlap with Ingles in consumer retail.",
+   "added": [
+    "C:S6.1",
+    "C:S7.1",
+    "C:S8.1",
+    "C:S9.1",
+    "C:S10.1"
+   ],
+   "dropped": [
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/821483/000082148326000014/parr-20260630.htm",
+     "reason": "snippet_empty_or_figures"
+    },
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/821483/000082148326000005/parr-20251231.htm",
+     "reason": "snippet_empty_or_figures"
+    }
+   ]
+  }
+ ],
+ "shown": {
+  "T:P1.1": {
+   "company_id": "IQ279954",
+   "text": "Ingles Markets",
+   "url": "https://www.ingles-markets.com/",
+   "source": "saved_site"
+  },
+  "T:P1.2": {
+   "company_id": "IQ279954",
+   "text": "Ingles Markets Prd - Grocery Stores, Supermarkets, Pharmacies",
+   "url": "https://www.ingles-markets.com/",
+   "source": "saved_site"
+  },
+  "T:P2.1": {
+   "company_id": "IQ279954",
+   "text": "Bakery Cakes and Cookies",
+   "url": "https://www.ingles-markets.com:443/inside/ig1/bakery/cakes-and-cookies",
+   "source": "saved_site"
+  },
+  "T:P2.2": {
+   "company_id": "IQ279954",
+   "text": "Ingles Markets page to order birthday cakes. Search by Disney, Mattel, Marvel, Nickelodeon, Other, Sports, Baby, Party & Floral",
+   "url": "https://www.ingles-markets.com:443/inside/ig1/bakery/cakes-and-cookies",
+   "source": "saved_site"
+  },
+  "T:P2.3": {
+   "company_id": "IQ279954",
+   "text": "ORDER ONLINE. PICK UP AT YOUR CLOSEST STORE.",
+   "url": "https://www.ingles-markets.com:443/inside/ig1/bakery/cakes-and-cookies",
+   "source": "saved_site"
+  },
+  "T:P3.1": {
+   "company_id": "IQ279954",
+   "text": "About Leah",
+   "url": "https://www.ingles-markets.com/wellness/wg1/dietitian/about-leah",
+   "source": "saved_site"
+  },
+  "T:P3.2": {
+   "company_id": "IQ279954",
+   "text": "Information and background information on Ingles Dietitian Leah McGrath",
+   "url": "https://www.ingles-markets.com/wellness/wg1/dietitian/about-leah",
+   "source": "saved_site"
+  },
+  "T:P3.3": {
+   "company_id": "IQ279954",
+   "text": "Leah McGrath has been a Registered Dietitian. She holds degrees in Speech Communications (BA-1983 West Chester University) and Human Nutrition (BS-1995 University of Maryland) and has completed course work towards a master's degree in Marketing. Additionally Leah has received certification from the Cooper Institute on Health Promotion and completed certification courses in food safety, neonatal nutrition, and as a breastfeeding consultant.",
+   "url": "https://www.ingles-markets.com/wellness/wg1/dietitian/about-leah",
+   "source": "saved_site"
+  },
+  "T:P3.4": {
+   "company_id": "IQ279954",
+   "text": "Leah completed her dietetic internship with the US Army at Walter Reed Army Medical Center in Washington, DC and then became the Chief, Clinical Dietetics at Moncrief Army Hospital, Fort Jackson in Columbia, SC. After resigning her active duty commission in the Army, Leah worked for almost two years with the South Carolina Department of Public Health. Initially she worked as the Lead Nutritionist for the Low Country Health District; but soon became the WIC (Women, Infants, and Children) and ...",
+   "url": "https://www.ingles-markets.com/wellness/wg1/dietitian/about-leah",
+   "source": "saved_site"
+  },
+  "T:P3.5": {
+   "company_id": "IQ279954",
+   "text": "Leah accepted the position with Ingles Supermarkets as their Corporate Dietitian and moved to Asheville, NC and is a licensed dietitian in North Carolina.",
+   "url": "https://www.ingles-markets.com/wellness/wg1/dietitian/about-leah",
+   "source": "saved_site"
+  },
+  "T:P3.6": {
+   "company_id": "IQ279954",
+   "text": "Leah writes regularly for WNC Parent Magazine, Upstate Parent Magazine, Smoky Mountain News and Smoky Mountain Living magazine and the Asheville Citizen Times. She is a frequent guest on WLOS-TV (ABC) in Asheville and Your Carolina in Greenville SC where she presents recipe and nutrition information segments. She also hosts the weekly radio program, \"Ingles Information Aisle\" on WWNC 570am which can be heard anywhere in the world through the Iheart radio network.",
+   "url": "https://www.ingles-markets.com/wellness/wg1/dietitian/about-leah",
+   "source": "saved_site"
+  },
+  "T:P3.7": {
+   "company_id": "IQ279954",
+   "text": "Leah has been a guest speaker for numerous hospitals and businesses throughout the Southeast. She also regularly speaks to Nutrition Departments at many colleges and universities including Clemson University, Winthrop University, East Tennessee State, University of Tennessee, University of Georgia, Georgia State University and Appalachian State. Leah has presented at the Academy of Nutrition and Dietetics Annual Meeting (2013 and 2015), the world’s largest meeting for nutrition professionals. She has been a featured speaker for the North Carolina, South Carolina, ...",
+   "url": "https://www.ingles-markets.com/wellness/wg1/dietitian/about-leah",
+   "source": "saved_site"
+  },
+  "T:P3.8": {
+   "company_id": "IQ279954",
+   "text": "In the past few years Leah has become well known for her work in social media and is currently the most followed supermarket dietitian ( @InglesDietitian) in the U.S on Twitter. She coordinates both the Facebook and Twitter accounts for Ingles Markets and has developed innovative strategies to connect brands and products to consumers and inform customers about health and nutrition.",
+   "url": "https://www.ingles-markets.com/wellness/wg1/dietitian/about-leah",
+   "source": "saved_site"
+  },
+  "C:P1.1": {
+   "company_id": "IQ98924",
+   "text": "Home | Par Pacific",
+   "url": "https://www.parpacific.com/",
+   "source": "saved_site"
+  },
+  "C:P1.2": {
+   "company_id": "IQ98924",
+   "text": "We are committed to conducting business in a safe and protective manner that promotes sustainable environments and respects community values.",
+   "url": "https://www.parpacific.com/",
+   "source": "saved_site"
+  },
+  "C:P1.3": {
+   "company_id": "IQ98924",
+   "text": "As sustainability focused company, growth expands Par Pacific’s ability to create a positive impact. As we deepen our operational focus, we remain dedicated to delivering safe, reliable, affordable, and increasingly low-carbon energy to support the needs of our local communities.",
+   "url": "https://www.parpacific.com/",
+   "source": "saved_site"
+  },
+  "C:P1.4": {
+   "company_id": "IQ98924",
+   "text": "We serve our local markets",
+   "url": "https://www.parpacific.com/",
+   "source": "saved_site"
+  },
+  "C:P1.5": {
+   "company_id": "IQ98924",
+   "text": "As a market leader, we actively seek opportunities to own and operate energy and infrastructure businesses in logistically-complex markets.",
+   "url": "https://www.parpacific.com/",
+   "source": "saved_site"
+  },
+  "C:P1.6": {
+   "company_id": "IQ98924",
+   "text": "We bring unique strengths to our markets",
+   "url": "https://www.parpacific.com/",
+   "source": "saved_site"
+  },
+  "C:P1.7": {
+   "company_id": "IQ98924",
+   "text": "Par Pacific combines experience in the oil and gas industry with corporate finance acumen. As a nimble entrepreneurial organization, we actively pursue operational excellence.",
+   "url": "https://www.parpacific.com/",
+   "source": "saved_site"
+  },
+  "C:P1.8": {
+   "company_id": "IQ98924",
+   "text": "Par Pacific Appoints Jerry Stumbo Executive Vice President, Refining and Logistics",
+   "url": "https://www.parpacific.com/",
+   "source": "saved_site"
+  },
+  "C:P1.9": {
+   "company_id": "IQ98924",
+   "text": "Par Pacific Announces Agreement to Sell Laramie Energy Assets",
+   "url": "https://www.parpacific.com/",
+   "source": "saved_site"
+  },
+  "C:P1.10": {
+   "company_id": "IQ98924",
+   "text": "Email Register for Email Alerts",
+   "url": "https://www.parpacific.com/",
+   "source": "saved_site"
+  },
+  "C:P2.1": {
+   "company_id": "IQ98924",
+   "text": "Mission & Values | Par Pacific",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "C:P2.2": {
+   "company_id": "IQ98924",
+   "text": "Culture & Values",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "C:P2.3": {
+   "company_id": "IQ98924",
+   "text": "We demonstrate this by investing in them personally and professionally to ensure they feel supported and heard.",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "C:P2.4": {
+   "company_id": "IQ98924",
+   "text": "-- Matthew Legg, Senior Vice President, Chief Human Resources Officer",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "C:P2.5": {
+   "company_id": "IQ98924",
+   "text": "We are a tight-knit company full of extraordinary individuals",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "C:P2.6": {
+   "company_id": "IQ98924",
+   "text": "Working at Par Pacific is vibrant and fun. Since we are a smaller energy company, employees can make a meaningful impact on the business and to influence decisions.",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "C:P2.7": {
+   "company_id": "IQ98924",
+   "text": "Our Mission Captures Who We Are & Guides Us Toward Who We Want to Become",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "C:P2.8": {
+   "company_id": "IQ98924",
+   "text": "Our Mission, Humbly Serving Communities, is about people – our communities, our teams, and the purpose that binds us. Each word matters. We listen first, lead by lifting others, and we’re in this together in each of the communities that we serve.",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "C:P2.9": {
+   "company_id": "IQ98924",
+   "text": "Par Pacific is a values-driven company. Our tight-knit community values respect for others, integrity, collaborative innovation, and heart. These four pillars support our successes and strengthen our ability to be an effective and fun place to work.",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "C:P2.10": {
+   "company_id": "IQ98924",
+   "text": "We listen before we speak, yet understand action is needed for progress. We value the unique heritage, experiences, and contributions of everyone and everywhere we are blessed to work with and serve.",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "C:P2.11": {
+   "company_id": "IQ98924",
+   "text": "Creativity drives innovation and fuels the generation of new ideas. We understand creativity alone is not enough. It is through collaborative innovation that we bring those ideas to life ! Through our collaborative efforts and effective systems, these ideas become impactful results that open new worlds of opportunity.",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "C:P2.12": {
+   "company_id": "IQ98924",
+   "text": "An ounce of heart is worth more than a ton of intellect and talent. We care deeply about the communities in which we operate. We succeed when our hard work, grit and resilience is balanced with good rest. We root for each other, celebrate each other ’ s successes and learn from our mistakes.",
+   "url": "https://www.parpacific.com/about-us/who-we-are/mission-values",
+   "source": "saved_site"
+  },
+  "C:P3.1": {
+   "company_id": "IQ98924",
+   "text": "Products | Par Pacific",
+   "url": "https://www.parpacific.com/operations/products",
+   "source": "saved_site"
+  },
+  "C:P3.2": {
+   "company_id": "IQ98924",
+   "text": "The commercial team is charged with the acquisition of crudes and feedstocks used in the refinery, as well as the ultimate sale of products produced by the Refinery. Products that are produced are listed below and identified with the Specification Sheets and corresponding Safety Data Sheet.",
+   "url": "https://www.parpacific.com/operations/products",
+   "source": "saved_site"
+  },
+  "C:P3.22": {
+   "company_id": "IQ98924",
+   "text": "Terminal has two docks. Dock #1 handles ships and barges. Dock #2 handles only barges. Oil products handled at this terminal are crude oil, gasoline, jet fuel, diesel, vacuum gas oil, and marine fuels.",
+   "url": "https://www.parpacific.com/operations/products",
+   "source": "saved_site"
+  },
+  "C:P3.17": {
+   "company_id": "IQ98924",
+   "text": "New Customer Packet ASPHALT (Rack)",
+   "url": "https://www.parpacific.com/operations/products",
+   "source": "saved_site"
+  },
+  "C:P3.18": {
+   "company_id": "IQ98924",
+   "text": "New Customer Packet ASPHALT (Rail)",
+   "url": "https://www.parpacific.com/operations/products",
+   "source": "saved_site"
+  },
+  "C:P3.19": {
+   "company_id": "IQ98924",
+   "text": "New Customer Packet LP (Non-Carrier)",
+   "url": "https://www.parpacific.com/operations/products",
+   "source": "saved_site"
+  },
+  "C:P3.12": {
+   "company_id": "IQ98924",
+   "text": "Since our entry into the marine fuels market U. S. Oil has had the reputation of being a supplier of high quality fuels to the maritime industry. From our marine terminal located in Tacoma, WA, we are well situated to meet the increasing demands for marine fuels generated by the rapidly expanding port areas of Seattle and Tacoma. Our Marine Fuels Department is available on a 24 x 7 basis, working with our customers to ensure that their requirements are ...",
+   "url": "https://www.parpacific.com/operations/products",
+   "source": "saved_site"
+  },
+  "C:S1.1": {
+   "company_id": "IQ98924",
+   "text": "Par Pacific Holdings, Inc. and its wholly owned subsidiaries (“Par” or the “Company”) provide both renewable and conventional fuels to the western United States. ...",
+   "url": "https://www.sec.gov/Archives/edgar/data/821483/000082148326000022/parr-20260930.htm",
+   "source": "web:news"
+  },
+  "C:S2.1": {
+   "company_id": "IQ98924",
+   "text": "Par Pacific Holdings, Inc. and its wholly owned subsidiaries (“Par” or the “Company”) provide both renewable and conventional fuels to the western United States. Currently,",
+   "url": "https://www.sec.gov/Archives/edgar/data/821483/000162828026020028/parpacific2025annualreport.pdf",
+   "source": "web:news"
+  },
+  "C:S3.1": {
+   "company_id": "IQ98924",
+   "text": "Par Pacific Holdings, Inc. and its wholly owned subsidiaries (“Par” or the “Company”) provide both renewable and conventional fuels to ... Currently, we operate in",
+   "url": "https://fortune.com/company-assets/1010/quartr/quarterly-report-10-q-8e456-2026-05-06-20-58-27.pdf",
+   "source": "web:news"
+  },
+  "C:S4.1": {
+   "company_id": "IQ98924",
+   "text": "## Par Pacific Holdings, Inc. – ‘10-Q’ for 6/30/26 ... Par Pacific Holdings, Inc. and its wholly owned subsidiaries (“Par” or the “Company”) provide both",
+   "url": "https://www.secinfo.com/dp274.N1.htm",
+   "source": "web:news"
+  },
+  "C:S5.1": {
+   "company_id": "IQ98924",
+   "text": "Par Pacific Holdings, Inc. and its wholly owned subsidiaries (“Par” or the “Company”) provide both renewable and conventional fuels to the western United States. Currently,",
+   "url": "https://www.sec.gov/Archives/edgar/data/821483/000143774925008625/parpacific_2024_ar_filing.pdf",
+   "source": "web:news"
+  },
+  "C:S6.1": {
+   "company_id": "IQ98924",
+   "text": "Par Pacific Holdings, Inc. and its wholly owned subsidiaries (“Par” or the “Company”) provide both renewable and conventional fuels to the western United States. ...",
+   "url": "https://www.sec.gov/Archives/edgar/data/821483/000162828025049474/parr-20250930.htm",
+   "source": "web:news"
+  },
+  "C:S7.1": {
+   "company_id": "IQ98924",
+   "text": "We operate convenience stores and fuel retail sites under our “Hele” and “nomnom” brands, “76” branded fuel retail sites and other sites operated by third",
+   "url": "https://www.sec.gov/Archives/edgar/data/821483/000082148325000010/parr-20241231.htm",
+   "source": "web:news"
+  },
+  "C:S8.1": {
+   "company_id": "IQ98924",
+   "text": "We operate convenience stores and fuel retail sites under our “Hele” and “nomnom” brands, “76” branded fuel retail sites, and other sites operated by third",
+   "url": "https://financialfilings.com/filings/par-pacific-holdings-inc/interim-quarterly-report/2026/46112607/",
+   "source": "web:news"
+  },
+  "C:S9.1": {
+   "company_id": "IQ98924",
+   "text": "* Earnings Date Nov 3, 2026 ... The Retail segment operates convenience stores and fuel retail outlets that sell gasoline, diesel, and retail merchandise, such",
+   "url": "https://finance.yahoo.com/quote/PARR/",
+   "source": "web:news"
+  },
+  "C:S10.1": {
+   "company_id": "IQ98924",
+   "text": "Based in Richmond, Virginia, ARKO Corp. is one of the largest operators of convenience stores and wholesalers of fuel in the United States (“U.S.”), ranked",
+   "url": "https://www.sec.gov/Archives/edgar/data/1823794/000119312526162863/arko-2025-annual_report.pdf",
+   "source": "web:news"
+  }
+ },
+ "fingerprint": "2ba4d876f552210b8a96193fb93601f2985076c0fa3b0ae1101b2108e570415e"
+}

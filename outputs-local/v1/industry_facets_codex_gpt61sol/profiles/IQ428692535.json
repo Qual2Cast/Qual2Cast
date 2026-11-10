@@ -1,0 +1,93 @@
+{
+ "IQ_COMPANY_ID": "IQ428692535",
+ "company_name": "Dave Inc.",
+ "website": "dave.com",
+ "sic4": "6141",
+ "sic2": "61",
+ "industry": "Nondepository Credit Institutions",
+ "model": "gpt-6.1-sol",
+ "prompt_version": "2026-11-04a",
+ "fingerprint": "b5743be2ece7bef9",
+ "llm_status": "ok",
+ "run_dir": "runs\\IQ428692535\\2026-11-10T064234Z",
+ "created_at": "2026-11-10T06:43:09Z",
+ "facets": {
+  "credit_lending_product": {
+   "label": "Credit / lending product",
+   "status": "stated",
+   "value": "ExtraCash short-term, interest-free consumer overdrafts with no credit check.",
+   "cites": [
+    "P3.19",
+    "P3.20",
+    "P3.18"
+   ],
+   "source": "evidence"
+  },
+  "origination_channel": {
+   "label": "Origination channel",
+   "status": "stated",
+   "value": "Direct origination through the Dave mobile app, with a linked bank account and CashAI underwriting.",
+   "cites": [
+    "P3.2",
+    "P3.24",
+    "P3.31"
+   ],
+   "source": "evidence"
+  },
+  "funding_balance_sheet_model": {
+   "label": "Funding / balance-sheet model",
+   "status": "stated",
+   "value": "Nondepository fintech with deposit accounts provided by partner banks.",
+   "cites": [
+    "P1.11",
+    "P2.8"
+   ],
+   "source": "evidence"
+  },
+  "loan_portfolio_yield": {
+   "label": "Loan portfolio yield",
+   "status": "not_applicable",
+   "value": "",
+   "cites": [],
+   "source": ""
+  },
+  "delinquency_by_aging_bucket": {
+   "label": "Delinquency by aging bucket",
+   "status": "stated",
+   "value": "Early-stage delinquency rate on ExtraCash originations.",
+   "cites": [],
+   "source": "model knowledge"
+  },
+  "securitization_retained_exposure": {
+   "label": "Securitization / retained exposure",
+   "status": "unknown",
+   "value": "",
+   "cites": [],
+   "source": ""
+  },
+  "credit_loss_measure": {
+   "label": "Credit-loss measure",
+   "status": "stated",
+   "value": "Provision for credit losses on ExtraCash receivables.",
+   "cites": [],
+   "source": "model knowledge"
+  }
+ },
+ "issues": [
+  "from_memory:delinquency_by_aging_bucket",
+  "from_memory:credit_loss_measure"
+ ],
+ "notes": "ExtraCash’s funding source and any retained securitization exposure are unclear.",
+ "evidence": {
+  "kinds": [
+   "P"
+  ],
+  "scrape_status": "ok",
+  "sources": {
+   "P1": "https://dave.com/",
+   "P2": "https://dave.com/about",
+   "P3": "https://dave.com/about-extra-cash"
+  }
+ },
+ "knows_company": true
+}

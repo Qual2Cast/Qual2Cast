@@ -221,11 +221,16 @@ def load_inputs(candidates_run: Path, z: float, rule: str = "z") -> tuple[pd.Dat
     universe_run = run["universe_run"]
     info = pd.read_csv(OUTPUTS_LOCAL / "v1" / "universe" / universe_run / "universe.csv",
                        dtype=str).set_index("IQ_COMPANY_ID")
-    facet_source = run.get("facet_source", "haiku")
-    if facet_source not in {"haiku", "sonnet"}:
-        raise ValueError(f"unsupported facet source: {facet_source}")
-    source_dir = FACETS_OUT if facet_source == "haiku" else OUTPUTS_LOCAL / "v1" / "facets_sonnet"
-    facets = pd.read_csv(facet_paths(source_dir).tables / "facets.csv", dtype=str).fillna("")
+    facet_override = run.get("facet_override")
+    if facet_override:
+        facet_path = Path(facet_override)
+    else:
+        facet_source = run.get("facet_source", "haiku")
+        if facet_source not in {"haiku", "sonnet"}:
+            raise ValueError(f"unsupported facet source: {facet_source}")
+        source_dir = FACETS_OUT if facet_source == "haiku" else OUTPUTS_LOCAL / "v1" / "facets_sonnet"
+        facet_path = facet_paths(source_dir).tables / "facets.csv"
+    facets = pd.read_csv(facet_path, dtype=str).fillna("")
     facets = facets[(facets["prompt_version"] == fc.PROMPT_VERSION) & (facets["llm_status"] == "ok")
                     & (facets["business_id"] == "B1")].set_index("IQ_COMPANY_ID")
     if "Fiona sub-sector" in run.get("method", ""):

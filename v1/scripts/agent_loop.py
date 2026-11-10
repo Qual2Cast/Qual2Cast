@@ -321,6 +321,38 @@ def claude_searcher(model: str = "sonnet", timeout: int = 300) -> Searcher:
     return search
 
 
+def codex_searcher(model: str = "gpt-6.1-sol", timeout: int = 300) -> Searcher:
+    """Return the Codex web tool's recorded results, without model-written snippets."""
+    def search(query: str, log_dir: Path) -> list[dict]:
+        log_dir.mkdir(parents=True, exist_ok=True)
+        prompt = f"Use web search once for: {query}. Do not run commands or open local files."
+        (log_dir / "search_prompt.txt").write_text(prompt, encoding="utf-8")
+        command = [executable("codex"), "exec", "--skip-git-repo-check", "--ephemeral",
+                   "--sandbox", "read-only", "--enable", "standalone_web_search",
+                   "--model", model, "--json", "-"]
+        with tempfile.TemporaryDirectory(prefix="qual2cast_search_") as workdir:
+            try:
+                proc = subprocess.run(command, input=prompt, capture_output=True,
+                                      text=True, encoding="utf-8", cwd=workdir, timeout=timeout)
+            except subprocess.TimeoutExpired:
+                (log_dir / "search_error.txt").write_text("timeout", encoding="utf-8")
+                return []
+        (log_dir / "search_events.jsonl").write_text(proc.stdout or "", encoding="utf-8")
+        (log_dir / "search_stderr.txt").write_text(proc.stderr or "", encoding="utf-8")
+        results = []
+        for line in (proc.stdout or "").splitlines():
+            try:
+                item = json.loads(line).get("item", {})
+            except json.JSONDecodeError:
+                continue
+            if item.get("type") == "web_search":
+                results.extend({"url": x.get("url", ""), "title": x.get("title", ""),
+                                "snippet": x.get("snippet", "")}
+                               for x in item.get("results", []) if x.get("type") == "text_result")
+        return results
+    return search
+
+
 def api_searcher(provider: str | None = None) -> Searcher:
     """Web search through Serper / Tavily / Brave with the key in .env (evidence.py)."""
     name, key = evm.pick_provider(provider)
@@ -521,7 +553,7 @@ def main(argv: list[str] | None = None) -> None:
     ap.add_argument("--backend", default="claude-cli", choices=["claude-cli", "codex"])
     ap.add_argument("--model", default="sonnet")
     ap.add_argument("--effort")
-    ap.add_argument("--search", default="claude", choices=["claude", "api", "none"])
+    ap.add_argument("--search", default="claude", choices=["claude", "codex", "api", "none"])
     ap.add_argument("--search-model", default="sonnet")
     ap.add_argument("--max-steps", type=int, default=MAX_STEPS)
     ap.add_argument("--workers", type=int, default=2)
@@ -558,15 +590,30 @@ def main(argv: list[str] | None = None) -> None:
         return
 
     model = cli_model(args.backend, args.model, args.effort)
-    searcher = {"claude": lambda: claude_searcher(args.search_model), "api": api_searcher,
+    searcher = {"claude": lambda: claude_searcher(args.search_model),
+                "codex": lambda: codex_searcher(args.search_model), "api": api_searcher,
                 "none": lambda: None}[args.search]()
 
     def work(p: pd.Series) -> dict:
         pair_dir = out / "pairs" / f"{p['target']}__{p['comp']}"
         done = pair_dir / "result.json"
+        probe = state_for(p)
+        probe.start()
+        fingerprint = hashlib.sha256(json.dumps({
+            "model": args.model, "backend": args.backend, "search": args.search,
+            "search_model": args.search_model, "max_steps": args.max_steps,
+            "prompt_version": PROMPT_VERSION,
+            "first_prompt": prompt(probe, 1, args.max_steps),
+            "answer_schema": step_schema(),
+        }, sort_keys=True).encode("utf-8")).hexdigest()
         if done.exists():
-            return json.loads(done.read_text(encoding="utf-8"))["row"]
+            saved = json.loads(done.read_text(encoding="utf-8"))
+            if saved.get("fingerprint") != fingerprint:
+                raise ValueError(f"Saved pair used different inputs or settings: {pair_dir}")
+            return saved["row"]
         if pair_dir.exists():
+            if not pair_dir.resolve().is_relative_to((out / "pairs").resolve()):
+                raise ValueError("Pair directory is outside the selected run")
             shutil.rmtree(pair_dir)          # an unfinished pair starts over
         s = state_for(p)
         started = time.monotonic()
@@ -575,7 +622,8 @@ def main(argv: list[str] | None = None) -> None:
         row["seconds"] = round(time.monotonic() - started, 1)
         if result["status"] in ("ok", "invalid"):
             (pair_dir / "result.json").write_text(json.dumps(
-                {"row": row, "result": result, "lookups": s.lookups, "shown": s.shown},
+                {"row": row, "result": result, "lookups": s.lookups, "shown": s.shown,
+                 "fingerprint": fingerprint},
                 indent=1, ensure_ascii=False), encoding="utf-8")
         return {**row, "_stop": result.get("stop_run", False)}
 

@@ -1,0 +1,688 @@
+{
+ "row": {
+  "target": "IQ7910540",
+  "target_ticker": "FOR",
+  "comp": "IQ107405",
+  "comp_ticker": "DHI",
+  "similarity": 0.4081274106901722,
+  "rank": 2,
+  "status": "ok",
+  "score": 2,
+  "verdict": "direct_peer",
+  "reason_if_0": "",
+  "reason": "Forestar develops and sells finished single-family lots to homebuilders. D.R. Horton matches that product and buyer through its majority-owned Forestar segment. The direct-peer score reflects that ownership overlap. D.R. Horton’s consolidated business also includes homebuilding, rentals, and financial services, which makes its business model a partial fit.",
+  "offering_fit": "match",
+  "customer_fit": "match",
+  "business_model_fit": "partial",
+  "missing_evidence": "",
+  "steps": 4,
+  "lookups": 3,
+  "web_searches": 3,
+  "site_searches": 0,
+  "target_citations": "[\"T:P1.3\", \"T:S11.1\"]",
+  "comp_citations": "[\"C:S7.1\"]",
+  "error": "",
+  "seconds": 115.6
+ },
+ "result": {
+  "status": "ok",
+  "steps": 4,
+  "answer": {
+   "action": "final",
+   "side": null,
+   "query": null,
+   "why": "",
+   "score": 2,
+   "verdict": "direct_peer",
+   "offering_fit": "match",
+   "customer_fit": "match",
+   "business_model_fit": "partial",
+   "reason": "Forestar develops and sells finished single-family lots to homebuilders. D.R. Horton matches that product and buyer through its majority-owned Forestar segment. The direct-peer score reflects that ownership overlap. D.R. Horton’s consolidated business also includes homebuilding, rentals, and financial services, which makes its business model a partial fit.",
+   "reason_if_0": "",
+   "missing_evidence": "",
+   "target_citations": [
+    "T:P1.3",
+    "T:S11.1"
+   ],
+   "comp_citations": [
+    "C:S7.1"
+   ]
+  }
+ },
+ "lookups": [
+  {
+   "step": 1,
+   "action": "web_search",
+   "side": "comp",
+   "query": "Does D.R. Horton, Inc. still consolidate Forestar Group and sell developed single-family residential lots to third-party homebuilders through its lot development business?",
+   "why": "D.R. Horton’s saved site shows finished homes sold or rented to consumers. Forestar’s site records D.R. Horton’s 2017 majority-stake acquisition. Verifying whether D.R. Horton still sells residential lots through Forestar could change the grade.",
+   "added": [
+    "C:S1.1",
+    "C:S2.1",
+    "C:S3.1",
+    "C:S4.1",
+    "C:S5.1"
+   ],
+   "dropped": [
+    {
+     "url": "https://investor.drhorton.com/news-and-events/press-releases/2026/10-29-2026-103058484",
+     "reason": "snippet_empty_or_figures"
+    },
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/1406587/000162828026048958/a6302026exhibit991.htm",
+     "reason": "snippet_empty_or_figures"
+    },
+    {
+     "url": "https://investor.drhorton.com/~/media/Files/D/D-R-Horton-IR/reports-and-presentations/presentations/q3-2026-investor-presentation.pdf",
+     "reason": "snippet_empty_or_figures"
+    },
+    {
+     "url": "https://markets.ft.markitdigital.com/data/announce/detail?dockey=600-202610290630BIZWIRE_USPRX____20261028_BW498589-1",
+     "reason": "snippet_empty_or_figures"
+    },
+    {
+     "url": "https://investor.drhorton.com/~/media/Files/D/D-R-Horton-IR/documents/quarterly-reports/6-30-2026-dhi-10q-final.pdf",
+     "reason": "snippet_empty_or_figures"
+    },
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/882184/000088218426000096/dhi-20260630.htm",
+     "reason": "snippet_empty_or_figures"
+    },
+    {
+     "url": "https://investor.drhorton.com/news-and-events/press-releases/2026/07-21-2026-113055285",
+     "reason": "snippet_empty_or_figures"
+    },
+    {
+     "url": "https://markets.ft.markitdigital.com/data/announce/detail?dockey=600-202610290630BIZWIRE_USPRX____20261029_BW409518-1",
+     "reason": "snippet_empty_or_figures"
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "action": "web_search",
+   "side": "comp",
+   "query": "D.R. Horton, Inc. site:investor.drhorton.com Forestar consolidated subsidiary lot development segment sells finished residential lots to third-party homebuilders",
+   "why": "The lot-sales excerpt leaves the seller unnamed. Confirming that Forestar is currently part of D.R. Horton’s consolidated operations and sells lots to other homebuilders would establish whether the comp overlaps with the target in both product and buyer.",
+   "added": [
+    "C:S6.1",
+    "C:S7.1",
+    "C:S8.1",
+    "C:S9.1",
+    "C:S10.1"
+   ],
+   "dropped": []
+  },
+  {
+   "step": 3,
+   "action": "web_search",
+   "side": "target",
+   "query": "Forestar Group Inc. investor relations finished single-family residential lots sold to D.R. Horton and other homebuilders customers",
+   "why": "Forestar’s site confirms residential lot sales but does not identify the buyers. The saved site is exhausted, and the search excerpt about sales to homebuilders does not name the seller. Confirming Forestar’s buyers will clarify the customer overlap.",
+   "added": [
+    "T:S11.1",
+    "T:S12.1",
+    "T:S13.1"
+   ],
+   "dropped": [
+    {
+     "url": "https://investor.forestar.com/",
+     "reason": "investor_host"
+    },
+    {
+     "url": "https://investor.drhorton.com/~/media/Files/D/D-R-Horton-IR/documents/quarterly-reports/2025-dhi-annual-report.pdf",
+     "reason": "investor_host"
+    },
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/882184/000119312524278403/d857468dars.pdf",
+     "reason": "blocked_domain"
+    },
+    {
+     "url": "https://investor.forestar.com/press-releases/2026/04-21-2026-113054271",
+     "reason": "investor_host"
+    },
+    {
+     "url": "https://stockanalysis.com/stocks/for/transcripts/710508-q4-2026/",
+     "reason": "blocked_domain"
+    },
+    {
+     "url": "https://financialfilings.com/filings/forestar-group-inc/annual-report/2025/12185772/",
+     "reason": "investor_path"
+    },
+    {
+     "url": "https://www.publicnow.com/view/1AC6EB3A9D48D22D70BE40A04D4A780BE6F00449",
+     "reason": "public_company_only"
+    },
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/1406587/000162828026003039/for-20251231.htm",
+     "reason": "blocked_domain"
+    },
+    {
+     "url": "https://www.publicnow.com/view/D4262B7094A360E2CA06BAF51708468C2F0A5611",
+     "reason": "public_company_only"
+    },
+    {
+     "url": "https://investor.forestar.com/?s=0",
+     "reason": "investor_host"
+    },
+    {
+     "url": "https://investor.drhorton.com/~/media/Files/D/D-R-Horton-IR/documents/quarterly-reports/12-31-2024-dhi-10q.pdf",
+     "reason": "investor_host"
+    },
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/1406587/000162828026049174/for-20260630.htm",
+     "reason": "blocked_domain"
+    },
+    {
+     "url": "https://investor.forestar.com/assets/uploads/2024/12/FY24-Annual-Report-with-Cover-Final.pdf",
+     "reason": "investor_host"
+    },
+    {
+     "url": "https://financialfilings.com/filings/forestar-group-inc/annual-report/2025/12185784/",
+     "reason": "investor_path"
+    },
+    {
+     "url": "https://investor.forestar.com/press-releases/2026/01-20-2026-113033183",
+     "reason": "investor_host"
+    },
+    {
+     "url": "https://www.publicnow.com/view/98E0A0E05ED11B3D33FC421F02135A25FB95B6E9",
+     "reason": "public_company_only"
+    },
+    {
+     "url": "https://investor.drhorton.com/~/media/Files/D/D-R-Horton-IR/documents/2024-dhi-annual-report.pdf",
+     "reason": "investor_host"
+    },
+    {
+     "url": "https://investor.forestar.com/~/media/Files/F/forestar-ir/annual-reports/fy24-annual-report-with-cover-final.pdf",
+     "reason": "investor_host"
+    },
+    {
+     "url": "https://www.reddit.com/r/SECFilingsAI/comments/1p1e20v/forestar_group_inc_annual_report_released_heres/",
+     "reason": "public_company_only"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Temple-Inland",
+     "reason": "snippet_empty_or_figures"
+    }
+   ]
+  }
+ ],
+ "shown": {
+  "T:P1.1": {
+   "company_id": "IQ7910540",
+   "text": "Forestar Group, Inc. | Forestar Group, Inc.",
+   "url": "https://www.forestar.com/",
+   "source": "saved_site"
+  },
+  "T:P1.2": {
+   "company_id": "IQ7910540",
+   "text": "ONE OF THE LARGEST SINGLE-FAMILY",
+   "url": "https://www.forestar.com/",
+   "source": "saved_site"
+  },
+  "T:P1.3": {
+   "company_id": "IQ7910540",
+   "text": "Forestar develops 1 in every 50 single-family homesites in the U.S.",
+   "url": "https://www.forestar.com/",
+   "source": "saved_site"
+  },
+  "T:P1.4": {
+   "company_id": "IQ7910540",
+   "text": "From small neighborhoods to resort-style master-planned communities, each Forestar development combines form and function. Experience the difference.",
+   "url": "https://www.forestar.com/",
+   "source": "saved_site"
+  },
+  "T:P1.5": {
+   "company_id": "IQ7910540",
+   "text": "Harrier Point Woodruff, South Carolina",
+   "url": "https://www.forestar.com/",
+   "source": "saved_site"
+  },
+  "T:P1.6": {
+   "company_id": "IQ7910540",
+   "text": "Rocking K Ranch Tucson, Arizona",
+   "url": "https://www.forestar.com/",
+   "source": "saved_site"
+  },
+  "T:P1.7": {
+   "company_id": "IQ7910540",
+   "text": "Parkside at Carter Grove Cartersville, Georgia",
+   "url": "https://www.forestar.com/",
+   "source": "saved_site"
+  },
+  "T:P1.8": {
+   "company_id": "IQ7910540",
+   "text": "Westland Ranch League City, Texas",
+   "url": "https://www.forestar.com/",
+   "source": "saved_site"
+  },
+  "T:P1.9": {
+   "company_id": "IQ7910540",
+   "text": "Archers Mill Ormond Beach, Florida",
+   "url": "https://www.forestar.com/",
+   "source": "saved_site"
+  },
+  "T:P1.10": {
+   "company_id": "IQ7910540",
+   "text": "The Canopies New Caney, Texas",
+   "url": "https://www.forestar.com/",
+   "source": "saved_site"
+  },
+  "T:P1.11": {
+   "company_id": "IQ7910540",
+   "text": "Cantrell Hills Hendersonville, North Carolina",
+   "url": "https://www.forestar.com/",
+   "source": "saved_site"
+  },
+  "T:P1.12": {
+   "company_id": "IQ7910540",
+   "text": "Additionally, we invest in communities nationwide. See where we do business.",
+   "url": "https://www.forestar.com/",
+   "source": "saved_site"
+  },
+  "T:P1.13": {
+   "company_id": "IQ7910540",
+   "text": "RESIDENTIAL LOTS SOLD IN FY 2025",
+   "url": "https://www.forestar.com/",
+   "source": "saved_site"
+  },
+  "T:P1.14": {
+   "company_id": "IQ7910540",
+   "text": "INCREASE IN LOTS SOLD FY 2018-2025",
+   "url": "https://www.forestar.com/",
+   "source": "saved_site"
+  },
+  "T:P1.15": {
+   "company_id": "IQ7910540",
+   "text": "COMMUNITIES BEGIN WITH A COMMITMENT",
+   "url": "https://www.forestar.com/",
+   "source": "saved_site"
+  },
+  "T:P1.16": {
+   "company_id": "IQ7910540",
+   "text": "In rural counties and big cities, from homesteads to municipalities, each new community begins with a promise. Forestar creates customized plans to accommodate each landowner’s timing and needs.",
+   "url": "https://www.forestar.com/",
+   "source": "saved_site"
+  },
+  "T:P1.17": {
+   "company_id": "IQ7910540",
+   "text": "As a leader in the industry Forestar sets the standard for quality residential land development. Since the early days of the company’s founding, much has changed. Today’s executive team manages strategic growth without compromise.",
+   "url": "https://www.forestar.com/",
+   "source": "saved_site"
+  },
+  "T:P1.18": {
+   "company_id": "IQ7910540",
+   "text": "WHAT PEOPLE SAY ABOUT US",
+   "url": "https://www.forestar.com/",
+   "source": "saved_site"
+  },
+  "T:P1.19": {
+   "company_id": "IQ7910540",
+   "text": "“With the introduction of Star Farms, Forestar Region Vice President Tony Squitieri has once again raised the bar for lifestyle-driven communities in Lakewood Ranch.” Laura Cole, Lakewood Ranch Senior Vice President",
+   "url": "https://www.forestar.com/",
+   "source": "saved_site"
+  },
+  "T:P1.20": {
+   "company_id": "IQ7910540",
+   "text": "“I believe my dues are beneficial to keeping the areas beautiful and debris free. Lakewood is a nice community.”",
+   "url": "https://www.forestar.com/",
+   "source": "saved_site"
+  },
+  "T:P1.21": {
+   "company_id": "IQ7910540",
+   "text": "Lakewood Trails Resident/2022 HOA Survey",
+   "url": "https://www.forestar.com/",
+   "source": "saved_site"
+  },
+  "T:P1.22": {
+   "company_id": "IQ7910540",
+   "text": "“Thank you for adding the very nice playground and covered sitting area with picnic tables secured to the ground.”",
+   "url": "https://www.forestar.com/",
+   "source": "saved_site"
+  },
+  "T:P1.23": {
+   "company_id": "IQ7910540",
+   "text": "Bar C Ranch Resident/2022 HOA Survey",
+   "url": "https://www.forestar.com/",
+   "source": "saved_site"
+  },
+  "T:P2.1": {
+   "company_id": "IQ7910540",
+   "text": "About Us | Forestar Group, Inc.",
+   "url": "https://www.forestar.com/about-us/",
+   "source": "saved_site"
+  },
+  "T:P2.2": {
+   "company_id": "IQ7910540",
+   "text": "We’re one of the largest residential community developers in the country, and we have blueprints for exponential growth.",
+   "url": "https://www.forestar.com/about-us/",
+   "source": "saved_site"
+  },
+  "T:P2.3": {
+   "company_id": "IQ7910540",
+   "text": "Modern-day America continues to progress. So does Forestar.",
+   "url": "https://www.forestar.com/about-us/",
+   "source": "saved_site"
+  },
+  "T:P2.4": {
+   "company_id": "IQ7910540",
+   "text": "1954 Forestar established as Lumbermen’s Investment Corporation",
+   "url": "https://www.forestar.com/about-us/",
+   "source": "saved_site"
+  },
+  "T:P2.5": {
+   "company_id": "IQ7910540",
+   "text": "2007 Forestar becomes a public company traded on the NYSE",
+   "url": "https://www.forestar.com/about-us/",
+   "source": "saved_site"
+  },
+  "T:P2.6": {
+   "company_id": "IQ7910540",
+   "text": "2017 D.R. Horton acquires a majority stake in Forestar",
+   "url": "https://www.forestar.com/about-us/",
+   "source": "saved_site"
+  },
+  "T:P2.7": {
+   "company_id": "IQ7910540",
+   "text": "2024 Today’s executive team stands at the ready to ensure growth without compromise",
+   "url": "https://www.forestar.com/about-us/",
+   "source": "saved_site"
+  },
+  "T:P2.8": {
+   "company_id": "IQ7910540",
+   "text": "As of, Forestar has active projects in 65 markets in 24 states. Click the map below for city names.",
+   "url": "https://www.forestar.com/about-us/",
+   "source": "saved_site"
+  },
+  "T:P2.9": {
+   "company_id": "IQ7910540",
+   "text": "Forestar is inclusive, rewarding and fun.",
+   "url": "https://www.forestar.com/about-us/",
+   "source": "saved_site"
+  },
+  "C:P1.1": {
+   "company_id": "IQ107405",
+   "text": "D.R. Horton America's Largest Home Builder | Homes For Sale",
+   "url": "https://www.drhorton.com/",
+   "source": "saved_site"
+  },
+  "C:P1.2": {
+   "company_id": "IQ107405",
+   "text": "Explore new homes for sale by D.R. Horton-America's Builder. Browse featured communities and discover move-in ready homes near you.",
+   "url": "https://www.drhorton.com/",
+   "source": "saved_site"
+  },
+  "C:P1.3": {
+   "company_id": "IQ107405",
+   "text": "Better pricing. Extra perks. More ways to save.",
+   "url": "https://www.drhorton.com/",
+   "source": "saved_site"
+  },
+  "C:P1.4": {
+   "company_id": "IQ107405",
+   "text": "The Red Tag Event brings big savings for a limited time. See what's available near you.",
+   "url": "https://www.drhorton.com/",
+   "source": "saved_site"
+  },
+  "C:P1.5": {
+   "company_id": "IQ107405",
+   "text": "Check out what's behind the door of America's Smart Home.",
+   "url": "https://www.drhorton.com/",
+   "source": "saved_site"
+  },
+  "C:P1.6": {
+   "company_id": "IQ107405",
+   "text": "We want to work with you to find your clients' new homes.",
+   "url": "https://www.drhorton.com/",
+   "source": "saved_site"
+  },
+  "C:P1.7": {
+   "company_id": "IQ107405",
+   "text": "We're proud to build homes for those who serve.",
+   "url": "https://www.drhorton.com/",
+   "source": "saved_site"
+  },
+  "C:P1.8": {
+   "company_id": "IQ107405",
+   "text": "We all love to see our homebuyers' smiling faces.",
+   "url": "https://www.drhorton.com/",
+   "source": "saved_site"
+  },
+  "C:P2.1": {
+   "company_id": "IQ107405",
+   "text": "Who We Are | D.R. Horton",
+   "url": "https://www.drhorton.com/who-we-are",
+   "source": "saved_site"
+  },
+  "C:P2.2": {
+   "company_id": "IQ107405",
+   "text": "Together, we are America's builder.",
+   "url": "https://www.drhorton.com/who-we-are",
+   "source": "saved_site"
+  },
+  "C:P2.3": {
+   "company_id": "IQ107405",
+   "text": "From our first home to over 1,000,000 homes our mission remains the same — to deliver quality and affordability across the country.",
+   "url": "https://www.drhorton.com/who-we-are",
+   "source": "saved_site"
+  },
+  "C:P2.4": {
+   "company_id": "IQ107405",
+   "text": "more people have chosen D.R. Horton than any other builder. Buy or rent, we have homes and services to provide a home for every stage in life.",
+   "url": "https://www.drhorton.com/who-we-are",
+   "source": "saved_site"
+  },
+  "C:P2.5": {
+   "company_id": "IQ107405",
+   "text": "I'm officially a new homeowner & Koda is excited for his new backyard!",
+   "url": "https://www.drhorton.com/who-we-are",
+   "source": "saved_site"
+  },
+  "C:P2.6": {
+   "company_id": "IQ107405",
+   "text": "Our home buying process was outstanding. From the realtor showing us our soon-to-be home for the very first time, to the final walkthrough with the superintendent, we were amazed!",
+   "url": "https://www.drhorton.com/who-we-are",
+   "source": "saved_site"
+  },
+  "C:P2.7": {
+   "company_id": "IQ107405",
+   "text": "Fernando and Katie | Alabama",
+   "url": "https://www.drhorton.com/who-we-are",
+   "source": "saved_site"
+  },
+  "C:P2.8": {
+   "company_id": "IQ107405",
+   "text": "One week as a homeowner and I’m still clapping for myself. This was one of my hardest goals to achieve. Here I am, 41, and a first-time homeowner.",
+   "url": "https://www.drhorton.com/who-we-are",
+   "source": "saved_site"
+  },
+  "C:P2.9": {
+   "company_id": "IQ107405",
+   "text": "As first-time homebuyers, we had some nerves while starting the home-buying process but quickly felt at ease by everyone from the D.R. Horton team and our realtor.",
+   "url": "https://www.drhorton.com/who-we-are",
+   "source": "saved_site"
+  },
+  "C:P2.10": {
+   "company_id": "IQ107405",
+   "text": "Alexandria and Richard | Texas",
+   "url": "https://www.drhorton.com/who-we-are",
+   "source": "saved_site"
+  },
+  "C:P2.11": {
+   "company_id": "IQ107405",
+   "text": "Our sales agent Paul went above and beyond to ensure we were taken care of. Our building superintendent, Glenn was also fantastic. We love D.R. Horton!!",
+   "url": "https://www.drhorton.com/who-we-are",
+   "source": "saved_site"
+  },
+  "C:P2.12": {
+   "company_id": "IQ107405",
+   "text": "Cassie and Matthew | South Carolina",
+   "url": "https://www.drhorton.com/who-we-are",
+   "source": "saved_site"
+  },
+  "C:P2.13": {
+   "company_id": "IQ107405",
+   "text": "Vendell and Jamara | North Carolina",
+   "url": "https://www.drhorton.com/who-we-are",
+   "source": "saved_site"
+  },
+  "C:P2.14": {
+   "company_id": "IQ107405",
+   "text": "We're more than just your homebuilder.",
+   "url": "https://www.drhorton.com/who-we-are",
+   "source": "saved_site"
+  },
+  "C:P2.15": {
+   "company_id": "IQ107405",
+   "text": "Get a seamless experience with your financial goals in mind.",
+   "url": "https://www.drhorton.com/who-we-are",
+   "source": "saved_site"
+  },
+  "C:P2.16": {
+   "company_id": "IQ107405",
+   "text": "When it's all said and done, you can take care of your title.",
+   "url": "https://www.drhorton.com/who-we-are",
+   "source": "saved_site"
+  },
+  "C:P2.17": {
+   "company_id": "IQ107405",
+   "text": "After you buy, we have options to protect your home and possessions.",
+   "url": "https://www.drhorton.com/who-we-are",
+   "source": "saved_site"
+  },
+  "C:P2.18": {
+   "company_id": "IQ107405",
+   "text": "When you have good people, good things happen.",
+   "url": "https://www.drhorton.com/who-we-are",
+   "source": "saved_site"
+  },
+  "C:P3.1": {
+   "company_id": "IQ107405",
+   "text": "Services | D.R. Horton",
+   "url": "https://www.drhorton.com/services",
+   "source": "saved_site"
+  },
+  "C:P3.2": {
+   "company_id": "IQ107405",
+   "text": "We keep home in the family.",
+   "url": "https://www.drhorton.com/services",
+   "source": "saved_site"
+  },
+  "C:P3.3": {
+   "company_id": "IQ107405",
+   "text": "Buy, mortgage, title, and insurance.",
+   "url": "https://www.drhorton.com/services",
+   "source": "saved_site"
+  },
+  "C:P3.4": {
+   "company_id": "IQ107405",
+   "text": "It's more than financing, it's about people.",
+   "url": "https://www.drhorton.com/services",
+   "source": "saved_site"
+  },
+  "C:P3.5": {
+   "company_id": "IQ107405",
+   "text": "We're here to provide a seamless experience with your financial goals in mind.",
+   "url": "https://www.drhorton.com/services",
+   "source": "saved_site"
+  },
+  "C:P3.6": {
+   "company_id": "IQ107405",
+   "text": "When it's yours, we've got you covered.",
+   "url": "https://www.drhorton.com/services",
+   "source": "saved_site"
+  },
+  "C:P3.7": {
+   "company_id": "IQ107405",
+   "text": "When it’s all said and done, we can assist with title coverage.",
+   "url": "https://www.drhorton.com/services",
+   "source": "saved_site"
+  },
+  "C:P3.8": {
+   "company_id": "IQ107405",
+   "text": "We'll help you keep your peace of mind.",
+   "url": "https://www.drhorton.com/services",
+   "source": "saved_site"
+  },
+  "C:S1.1": {
+   "company_id": "IQ107405",
+   "text": "Horton on our ability to maintain relationships with our customers; the cyclical nature of the homebuilding and lot development industries and changes in economic, real",
+   "url": "https://investor.forestar.com/press-releases/2026/10-29-2026-103029076",
+   "source": "web:news"
+  },
+  "C:S2.1": {
+   "company_id": "IQ107405",
+   "text": "The Company primarily acquires entitled real estate and develops it into finished residential lots for sale to homebuilders with a strategic focus on asset turns",
+   "url": "https://investor.forestar.com/",
+   "source": "web:news"
+  },
+  "C:S3.1": {
+   "company_id": "IQ107405",
+   "text": "Of the Company’s homes closed during fiscal 2026, 68% were on lots developed by Forestar or third parties, up from 65% during fiscal 2025. The",
+   "url": "https://investor.drhorton.com/~/media/Files/D/D-R-Horton-IR/press-release/dhi-q4-2026-earnings-release.pdf",
+   "source": "web:company_site"
+  },
+  "C:S4.1": {
+   "company_id": "IQ107405",
+   "text": "Horton; the effect of our strategic relationship with D.R. ... homebuilding and lot development industries and changes in economic, real estate or other conditions; the",
+   "url": "https://investor.forestar.com/pdf-viewer.aspx?gid=503583709&src=%2F~%2Fmedia%2FFiles%2FF%2Fforestar-ir%2Fpresentations%2F2026%2Fq3-fy-2026-investor-presentation.pdf",
+   "source": "web:news"
+  },
+  "C:S5.1": {
+   "company_id": "IQ107405",
+   "text": "Horton Investor Relations Financial Information Financial Reports Q4 2026 Results ... * Annual Reports ... 2026 | Q4 FY 2026 Earnings Press Release |",
+   "url": "https://investor.drhorton.com/financial-information/financial-reports/current-quarterly-results",
+   "source": "web:company_site"
+  },
+  "C:S6.1": {
+   "company_id": "IQ107405",
+   "text": "HORTON, INC. ... The Company is a national homebuilder that is primarily engaged in the acquisition and development of land and the construction and sale",
+   "url": "https://investor.drhorton.com/~/media/Files/D/D-R-Horton-IR/documents/quarterly-reports/6-30-2026-dhi-10q-final.pdf",
+   "source": "web:company_site"
+  },
+  "C:S7.1": {
+   "company_id": "IQ107405",
+   "text": "HORTON, INC. ... The Company’s operating segments are its multiple homebuilding divisions, its rental operations, its majority-owned Forestar residential lot development operations, its financial services",
+   "url": "https://investor.drhorton.com/~/media/Files/D/D-R-Horton-IR/documents/quarterly-reports/2025-dhi-annual-report.pdf",
+   "source": "web:company_site"
+  },
+  "C:S8.1": {
+   "company_id": "IQ107405",
+   "text": "HORTON, INC. ... The Company’s operating segments are its multiple homebuilding divisions, its majority-owned Forestar residential lot development operations, its financial services operations, its rental",
+   "url": "https://investor.drhorton.com/~/media/Files/D/D-R-Horton-IR/reports-and-presentations/reports/10k-2023.pdf",
+   "source": "web:company_site"
+  },
+  "C:S9.1": {
+   "company_id": "IQ107405",
+   "text": "HORTON, INC. ... The Company is a national homebuilder that is primarily engaged in the acquisition and development of land and the construction and sale",
+   "url": "https://investor.drhorton.com/~/media/Files/D/D-R-Horton-IR/documents/6-30-2024-dhi-10q.pdf",
+   "source": "web:company_site"
+  },
+  "C:S10.1": {
+   "company_id": "IQ107405",
+   "text": "HORTON, INC. ... The Company is a national homebuilder that is primarily engaged in the acquisition and development of land and the construction and sale",
+   "url": "https://investor.drhorton.com/~/media/Files/D/D-R-Horton-IR/documents/3q-2023-10q.pdf",
+   "source": "web:company_site"
+  },
+  "T:S11.1": {
+   "company_id": "IQ7910540",
+   "text": "The company primarily acquires entitled real estate and develops it into finished residential lots for sale to homebuilders with a strategic focus on asset turns",
+   "url": "https://en.wikipedia.org/wiki/Forestar_Group",
+   "source": "web:reference"
+  },
+  "T:S12.1": {
+   "company_id": "IQ7910540",
+   "text": "Express Homes is tailored to entry-level buyers while the Emerald Homes brand is sold as luxury real estate. ... The acquisition included 350 lots, 90",
+   "url": "https://en.wikipedia.org/wiki/D._R._Horton",
+   "source": "web:reference"
+  },
+  "T:S13.1": {
+   "company_id": "IQ7910540",
+   "text": "Horton, Inc., with a loan to build a single house. He successfully sold the home while it was still in the framing stage, a practice",
+   "url": "https://en.wikipedia.org/wiki/Donald_R._Horton",
+   "source": "web:reference"
+  }
+ },
+ "fingerprint": "df1a6147c080ef8d155a2412f99c03c40373db6ae52eb1068e350162268cf705"
+}

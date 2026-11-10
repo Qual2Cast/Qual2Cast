@@ -1,0 +1,138 @@
+"""Run the local v1 integration in the order used by the results notebook."""
+
+from __future__ import annotations
+
+import argparse
+import os
+from pathlib import Path
+import subprocess
+import sys
+
+
+ROOT = Path(__file__).resolve().parents[2]
+I = "outputs-local/v1/integration"
+V = "outputs-local/v1"
+
+
+STAGES: list[tuple[str, str, tuple[str, ...]]] = [
+    ("scope_sources", "integration_sources.py", ()),
+    ("field_alignment", "integration_fields.py", ()),
+    ("review_labels", "integration_review.py", ()),
+    ("kethan_diagnostics", "error_analysis.py", ()),
+    ("scope_evaluation", "integration_scope_eval.py", ()),
+    ("saved_facet_pairs", "integration_facet_293.py", ()),
+    ("saved_facet_valuation", "integration_facet_valuation.py", ()),
+    ("barbara_catalog", "integration_barbara.py", ("--workers", "2")),
+    ("barbara_published_matches", "integration_barbara_matches.py", ()),
+    ("expanded_tfidf", "integration_expanded.py", ("--method", "tfidf")),
+    ("expanded_mpnet", "integration_expanded.py", ("--method", "mpnet")),
+    ("sonnet_retrieval", "integration_candidate_methods.py", ()),
+    ("calibrated_threshold", "integration_thresholds.py", ()),
+    ("gpt_general", "fill_facets.py", ("--out", f"{V}/facets_codex_gpt61sol",
+                                       "--backend", "codex", "--model", "gpt-6.1-sol",
+                                       "--workers", "2")),
+    ("gpt_sector", "fill_sector_facets.py", ("--out", f"{V}/sector_facets_codex_gpt61sol",
+                                              "--include-holdout", "--backend", "codex",
+                                              "--model", "gpt-6.1-sol", "--workers", "2")),
+    ("gpt_sic2", "fill_industry_facets.py", ("--out", f"{V}/industry_facets_codex_gpt61sol",
+                                                "--backend", "codex", "--model", "gpt-6.1-sol",
+                                                "--workers", "2")),
+    ("web_evidence", "integration_web_evidence.py", ()),
+    ("gpt_cited", "integration_source_facets.py", ("--workers", "2")),
+    ("gpt_cited_claim_check", "integration_claim_check.py",
+     ("--facets", f"{V}/facets_source_gpt61sol/tables/facets.csv",
+      "--out", f"{I}/claim_check_cited")),
+    ("yifan_fields", "integration_yifan_facets.py", ("--workers", "2")),
+    ("embedding_audit", "integration_embedding_audit.py", ()),
+    ("gpt_scope_check", "integration_gpt_scope_eval.py", ()),
+    ("gpt_claim_check", "integration_claim_check.py", ()),
+    ("facet_coverage", "integration_facet_quality.py", ()),
+    ("gpt_retrieval", "integration_candidate_methods.py",
+     ("--facets", f"{V}/facets_codex_gpt61sol/tables/facets.csv",
+      "--out", f"{I}/candidate_methods_gpt", "--facet-label", "GPT-6.1 Sol general")),
+    ("retrieval_paired", "integration_retrieval_paired.py", ()),
+    ("gpt_facet_variants", "integration_gpt_candidates.py", ()),
+    ("cited_facet_evaluation", "integration_source_facet_eval.py", ()),
+    ("cited_retrieval", "integration_candidate_methods.py",
+     ("--facets", f"{V}/facets_source_gpt61sol/tables/facets.csv",
+      "--out", f"{I}/candidate_methods_cited", "--facet-label", "GPT-6.1 Sol source-cited")),
+    ("reviewed_rank_metrics", "integration_reviewed_ranks.py", ()),
+    ("yifan_facet_evaluation", "integration_yifan_eval.py", ()),
+    ("judge_pairs", "integration_judge_input.py", ()),
+    ("gpt_source_judge", "agent_loop.py",
+     ("--pairs", "selected", "--candidates", f"{I}/judge_input_293",
+      "--facets", f"{V}/facets_source_gpt61sol/tables/facets.csv",
+      "--backend", "codex", "--model", "gpt-6.1-sol",
+      "--search", "codex", "--search-model", "gpt-6.1-sol",
+      "--workers", "2", "--out", f"{I}/judge_gpt61sol")),
+    ("judge_evaluation", "integration_judge_eval.py",
+     ("--run", f"{I}/judge_gpt61sol")),
+    ("judge_selection", "integration_judge_selection.py", ()),
+]
+
+for name, candidate, general, sector, industry in (
+    ("control_sonnet", "gpt_general", f"{I}/sources/facets_sonnet_corrected.csv", None, None),
+    ("gpt_general", "gpt_general", f"{V}/facets_codex_gpt61sol/tables/facets.csv", None, None),
+    ("gpt_all", "gpt_plus_all_additions", f"{V}/facets_codex_gpt61sol/tables/facets.csv",
+     f"{V}/sector_facets_codex_gpt61sol/tables/sector_facets.csv",
+     f"{V}/industry_facets_codex_gpt61sol/tables/industry_facets_long.csv"),
+):
+    candidates = f"{I}/gpt_candidates/{candidate}"
+    output = f"{I}/holdout_routes/{name}"
+    args = ["--candidates-run", candidates, "--out", output,
+            "--general-facets", general, "--candidate-rule", "selected",
+            "--prompt-version", "current", "--model", "gpt-6.1-sol", "--workers", "2"]
+    if sector:
+        args.extend(("--sector-facets", sector))
+    if industry:
+        args.extend(("--industry-facets", industry))
+    STAGES.append((f"{name}_llm", "holdout_batched_routes.py", tuple(args)))
+    STAGES.append((f"{name}_valuation", "integration_holdout_eval.py",
+                   ("--candidates", candidates, "--llm", output,
+                    "--out", f"{output}/evaluation")))
+
+STAGES += [
+    ("facet_condition_comparison", "integration_holdout_compare.py", ()),
+    ("factor_sets", "integration_factors.py", ()),
+    ("industry_regression", "integration_regression.py", ()),
+    ("growth_rules", "integration_growth.py", ()),
+    ("growth_llm", "integration_growth_llm.py",
+     ("--set", "holdout_c", "--model", "gpt-6.1-sol")),
+    ("company_example", "integration_company_report.py",
+     ("aarcorp.com", "--method", "gpt_general")),
+    ("error_diagnosis", "integration_error_diagnosis.py", ()),
+    ("experiment_matrix", "integration_experiment_matrix.py", ()),
+    ("notebook_build", "integration_notebook.py", ()),
+    ("notebook_execute", "integration_execute_notebook.py", ()),
+    ("validate", "integration_validate.py", ()),
+    ("manifest", "integration_manifest.py", ()),
+]
+
+
+def command(stage: tuple[str, str, tuple[str, ...]]) -> list[str]:
+    _, script, args = stage
+    return [sys.executable, str(ROOT / "v1/scripts" / script), *args]
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--from-stage", choices=[stage[0] for stage in STAGES])
+    parser.add_argument("--through-stage", choices=[stage[0] for stage in STAGES])
+    parser.add_argument("--execute", action="store_true")
+    args = parser.parse_args()
+    names = [stage[0] for stage in STAGES]
+    first = names.index(args.from_stage) if args.from_stage else 0
+    last = names.index(args.through_stage) + 1 if args.through_stage else len(STAGES)
+    if first >= last:
+        raise ValueError("The final stage must follow the starting stage")
+    environment = os.environ.copy()
+    environment["PYTHONIOENCODING"] = "utf-8"
+    for name, script, extra in STAGES[first:last]:
+        print(f"{name}: {script} {' '.join(extra)}", flush=True)
+        if args.execute:
+            subprocess.run(command((name, script, extra)), cwd=ROOT,
+                           env=environment, check=True)
+
+
+if __name__ == "__main__":
+    main()
