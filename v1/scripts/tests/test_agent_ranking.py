@@ -87,3 +87,30 @@ def test_rank_and_evaluate():
     ev = ar.evaluate(ranked, labels, ks=(1,))
     assert ev["by_k"][1]["E"]["precision_at_k"] == 1 and ev["by_k"][1]["B3"]["precision_at_k"] == 0
     assert ev["by_k"][1]["E"]["pairwise_accuracy"] == 1 and ev["by_k"][1]["B3"]["pairwise_accuracy"] == 0
+
+
+def test_industry_fields_and_block_weights():
+    base = ar.industry_fields("28")
+    assert [f["key"] for f in base] == ["I28-01", "I28-02", "I28-03", "I28-04", "I28-05", "I28-06"]
+    pharma = ar.industry_fields(28, {"I28-07", "I28-08", "I28-09"})
+    assert len(pharma) == 9                                          # conditional fields only when activated
+    assert ar.industry_fields("80") and all(f["points"] for f in ar.industry_fields("80"))
+    w = ar.pair_weights(base)
+    assert abs(sum(w.values()) - 1) < 1e-9
+    assert abs(sum(v for k, v in w.items() if k in ar.WEIGHTS) - 0.6) < 1e-9
+    assert ar.pair_weights([]) == ar.WEIGHTS
+    r = ar.points({"primary_products": 100, "I28-01": 100}, w)
+    assert r["general_coverage"] == round(100 * ar.WEIGHTS["primary_products"], 2)
+    assert r["industry_coverage"] == round(100 * 4 / 18, 2)
+
+
+def test_industry_facets_in_schema_and_check(state):  # noqa: F811
+    state.facet_scores = True
+    state.industry = ar.industry_fields("59")
+    state.start()
+    assert "I59-01" in al.step_schema(state.facet_keys())["properties"]["facet_scores"]["required"]
+    assert "I59-01: Specialty retail niche" in al.prompt(state, 1, 4)
+    ans = facets(primary_products=50)
+    ans["I59-01"] = {"score": 75, "target_citations": ["T:P1.2"], "comp_citations": ["C:P1.2"], "reason": "x"}
+    out = al.check_final(final(1, facet_scores=ans), state)
+    assert out["facet_scores"]["I59-01"]["score"] == 75 and out["facet_scores"]["I59-02"]["score"] is None

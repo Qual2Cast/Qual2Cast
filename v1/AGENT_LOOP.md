@@ -114,8 +114,13 @@ comps within each target by E:
 
 Weights are Barbara's proposed v3.1 general-facet points mapped to our facets and renormalized: products 10,
 services 5, customer segment 9 (her customer type 5 + segment 4), end markets 7, business model 9, revenue model 9,
-value chain 5, geography 3, specialization 3, distribution 3, regulatory 3 (66 points = 100%). Only her general
-block for now; industry facets are not scored yet.
+value chain 5, geography 3, specialization 3, distribution 3, regulatory 3 (66 points = 100%).
+
+With `--industry-facets` the agent also scores the target's SIC2 industry facets from Barbara's policy (a read-only
+copy in `v1/scripts/policy/`): base fields only, diagnostic fields dropped, and conditional subtype fields (for
+example `[pharma]` in SIC 28) only when listed for that target in an `--activate` CSV. Industry points are
+renormalized within the block, then general 60% and industry 40% (her default). Each pair saves the weights it used
+in `facet_weights`, and the ranking reports general and industry coverage separately.
 
 ```bash
 uv run python v1/scripts/agent_loop.py --candidates <B3 candidates> --tickers AKBA,SVV,MD --facet-scores \

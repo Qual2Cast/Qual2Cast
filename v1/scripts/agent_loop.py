@@ -72,6 +72,7 @@ from cli_models import call_cli, executable  # noqa: E402
 import evidence as evm  # noqa: E402
 import retrieve as rt  # noqa: E402
 from project_data import OUTPUTS_LOCAL  # noqa: E402
+import agent_ranking as ark  # noqa: E402
 from agent_ranking import FACET_POINTS, LEVELS  # noqa: E402
 
 PROMPT_VERSION = "2026-11-05b"
@@ -149,7 +150,15 @@ Facets:
 """ + "\n".join(f"- {k}: {d}" for k, (_, d) in FACET_POINTS.items())
 
 
-def step_schema(facet_scores: bool = False) -> dict:
+def facet_rules(industry: list[dict]) -> str:
+    if not industry:
+        return FACET_RULES
+    lines = [f"- {f['key']}: {f['name']} (e.g. {'; '.join(f['examples'])})" for f in industry]
+    return (FACET_RULES + "\nIndustry facets (same scale and citation rule; examples only show the kind of "
+            "thing to compare, never use figures):\n" + "\n".join(lines))
+
+
+def step_schema(facet_keys: list[str] | bool = ()) -> dict:
     s = {"type": "string"}
     props = {
         "action": {"type": "string", "enum": ["search_site", "web_search", "final"]},
@@ -167,15 +176,17 @@ def step_schema(facet_scores: bool = False) -> dict:
         "target_citations": {"type": "array", "items": s},
         "comp_citations": {"type": "array", "items": s},
     }
-    if facet_scores:
+    if facet_keys is True:
+        facet_keys = list(FACET_POINTS)
+    if facet_keys:
         one = {"type": "object", "additionalProperties": False,
                "required": ["score", "target_citations", "comp_citations", "reason"],
                "properties": {"score": {"type": ["integer", "null"], "enum": [*LEVELS, None]},
                               "target_citations": {"type": "array", "items": s},
                               "comp_citations": {"type": "array", "items": s}, "reason": s}}
         props["facet_scores"] = {"type": "object", "additionalProperties": False,
-                                 "required": list(FACET_POINTS),
-                                 "properties": {k: one for k in FACET_POINTS}}
+                                 "required": list(facet_keys),
+                                 "properties": {k: one for k in facet_keys}}
     return {"type": "object", "additionalProperties": False, "required": list(props), "properties": props}
 
 
@@ -238,6 +249,10 @@ class PairState:
     lookups: list[dict] = field(default_factory=list)
     web_sources: int = 0
     facet_scores: bool = False          # also ask for per-facet 0-100 scores in the final answer
+    industry: list[dict] = field(default_factory=list)   # target's industry facets (agent_ranking.industry_fields)
+
+    def facet_keys(self) -> list[str]:
+        return [*FACET_POINTS, *(f["key"] for f in self.industry)] if self.facet_scores else []
 
     def show(self, company: Company, label: str, text: str, url: str, source: str) -> None:
         self.shown[f"{company.prefix}:{label}"] = {"company_id": company.iq, "text": short(text),
@@ -393,7 +408,7 @@ def api_searcher(provider: str | None = None) -> Searcher:
 def prompt(state: PairState, step: int, max_steps: int, note: str = "") -> str:
     parts = [INSTRUCTIONS, f"Prompt version {PROMPT_VERSION}. Step {step} of {max_steps}."]
     if state.facet_scores:
-        parts.append(FACET_RULES)
+        parts.append(facet_rules(state.industry))
     if step >= max_steps:
         parts.append("This is the last step: the action MUST be final.")
     for c, title in ((state.target, "TARGET"), (state.comp, "COMP")):
@@ -430,7 +445,7 @@ def cited_labels(refs: list, prefix: str, state: PairState, what: str) -> list[s
 def check_facets(raw: dict, state: PairState) -> dict:
     out = {}
     given = raw.get("facet_scores") or {}
-    for key in FACET_POINTS:
+    for key in state.facet_keys():
         f = given.get(key) or {}
         score = f.get("score")
         if score not in [*LEVELS, None]:
@@ -484,7 +499,7 @@ def run_pair(state: PairState, pair_dir: Path, model: Model, searcher: Searcher 
     step = 1
     while step <= max_steps:
         call_dir = pair_dir / (f"step{step}" + ("_retry" if retried and note else ""))
-        res = model(prompt(state, step, max_steps, note), call_dir, step_schema(state.facet_scores))
+        res = model(prompt(state, step, max_steps, note), call_dir, step_schema(state.facet_keys()))
         if res.get("llm_status") != "ok":
             return {"status": res.get("llm_status", "error"), "error": res.get("error", ""),
                     "stop_run": res.get("stop_run", False), "steps": step}
@@ -586,15 +601,17 @@ def result_row(pair: pd.Series, info: pd.DataFrame, result: dict, state: PairSta
         "target_citations": json.dumps(a.get("target_citations", [])),
         "comp_citations": json.dumps(a.get("comp_citations", [])),
         "error": result.get("error", ""),
-    } | facet_columns(a.get("facet_scores") if result["status"] == "ok" else None)
+    } | facet_columns(a.get("facet_scores") if result["status"] == "ok" else None, state)
 
 
-def facet_columns(scores: dict | None) -> dict:
-    """facet_<key> score columns plus the facet answers as JSON (empty without --facet-scores)."""
+def facet_columns(scores: dict | None, state: PairState) -> dict:
+    """facet_<key> score columns, the facet answers and the weights used, as JSON
+    (empty without --facet-scores)."""
     if scores is None:
         return {}
-    cols = {f"facet_{k}": scores[k]["score"] for k in FACET_POINTS}
-    return cols | {"facet_scores": json.dumps(scores, ensure_ascii=False)}
+    cols = {f"facet_{k}": scores[k]["score"] for k in state.facet_keys()}
+    return cols | {"facet_scores": json.dumps(scores, ensure_ascii=False),
+                   "facet_weights": json.dumps(ark.pair_weights(state.industry))}
 
 
 def main(argv: list[str] | None = None) -> None:
@@ -614,6 +631,10 @@ def main(argv: list[str] | None = None) -> None:
     ap.add_argument("--max-steps", type=int, default=MAX_STEPS)
     ap.add_argument("--facet-scores", action="store_true",
                     help="also score each general facet 0/25/50/75/100 with citations (for agent_ranking.py)")
+    ap.add_argument("--industry-facets", action="store_true",
+                    help="with --facet-scores: add the target's SIC2 industry facets from Barbara's policy")
+    ap.add_argument("--activate", type=Path,
+                    help="CSV target_ticker,field_id,reason: conditional industry fields that apply to a target")
     ap.add_argument("--workers", type=int, default=2)
     ap.add_argument("--out", type=Path, help="run folder (reuse one to resume)")
     ap.add_argument("--dry-run", action="store_true", help="write each pair's first prompt; no calls")
@@ -633,9 +654,21 @@ def main(argv: list[str] | None = None) -> None:
     (out / "instructions.txt").write_text(INSTRUCTIONS, encoding="utf-8")
     print(f"{len(pairs)} pairs, {pairs.target.nunique()} targets -> {out}")
 
+    active: dict[str, set[str]] = {}
+    if args.activate:
+        for _, a in pd.read_csv(args.activate, dtype=str).iterrows():
+            active.setdefault(a["target_ticker"].upper(), set()).add(a["field_id"])
+
+    def industry_for(target: str) -> list[dict]:
+        if not (args.facet_scores and args.industry_facets):
+            return []
+        ticker = str(info.loc[target, "target_ciq_ticker"]).upper()
+        return ark.industry_fields(info.loc[target, "target_sic2_code"], active.get(ticker, set()))
+
     def state_for(p: pd.Series) -> PairState:
         return PairState(load_company(p["target"], "target", info, facets),
-                         load_company(p["comp"], "comp", info, facets), facet_scores=args.facet_scores)
+                         load_company(p["comp"], "comp", info, facets), facet_scores=args.facet_scores,
+                         industry=industry_for(p["target"]))
 
     if args.dry_run:
         for _, p in pairs.iterrows():
@@ -662,7 +695,7 @@ def main(argv: list[str] | None = None) -> None:
             "search_model": args.search_model, "max_steps": args.max_steps,
             "prompt_version": PROMPT_VERSION,
             "first_prompt": prompt(probe, 1, args.max_steps),
-            "answer_schema": step_schema(args.facet_scores),
+            "answer_schema": step_schema(probe.facet_keys()),
         }, sort_keys=True).encode("utf-8")).hexdigest()
         if done.exists():
             saved = json.loads(done.read_text(encoding="utf-8"))
