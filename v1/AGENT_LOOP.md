@@ -99,6 +99,35 @@ credit for AFG's annuity business, which was sold years ago. With Sonnet's facet
 BBCP's IESC and GVA also went from 1 to 0. Those runs are kept in `gold_sonnet/`, `round2_targets_sonnet/` (Haiku
 facets) and `gold_sonnet_facets/`, `round2_targets_sonnet_facets/` (Sonnet facets).
 
+## Ranking: facet scores and evidence-supported points
+
+With `--facet-scores` the final answer also scores 11 general facets 0/25/50/75/100 (100 same offering or role,
+75 close substitute, 50 adjacent, 25 weak overlap, 0 evidenced mismatch). Each score needs a cited line from both
+companies, otherwise the facet is null (unknown). Unknown is never 0. The 0/1/2 grade is unchanged.
+
+`agent_ranking.py` turns the facet scores into Barbara's three numbers (her Similarity Scoring Standard) and ranks
+comps within each target by E:
+
+- coverage C = sum of the weights of the facets scored on both sides
+- observed similarity S = 100 x sum(w x s) / C
+- evidence-supported points E = 100 x sum(w x s), bounds [E, E + 100(1 - C)]
+
+Weights are Barbara's proposed v3.1 general-facet points mapped to our facets and renormalized: products 10,
+services 5, customer segment 9 (her customer type 5 + segment 4), end markets 7, business model 9, revenue model 9,
+value chain 5, geography 3, specialization 3, distribution 3, regulatory 3 (66 points = 100%). Only her general
+block for now; industry facets are not scored yet.
+
+```bash
+uv run python v1/scripts/agent_loop.py --candidates <B3 candidates> --tickers AKBA,SVV,MD --facet-scores \
+    --out outputs-local/v1/agent_loop/ranking_test_sonnet
+uv run python v1/scripts/agent_ranking.py --run outputs-local/v1/agent_loop/ranking_test_sonnet \
+    --labels outputs-local/v1/integration/barbara_matches/reviewed_pairs.csv
+```
+
+The evaluation compares three orderings within each target against Barbara's labels (peer = 1 or 2): by E, by B3
+similarity, and by the agent's 0/1/2 grade. It reports peers in the top k (3, 6, 7), pairwise accuracy (share of
+peer/non-peer pairs where the peer is ranked higher) and rank correlation with the label.
+
 ## Open questions
 
 - Web snippets are copied out by the search model, so a snippet can be paraphrased. The search answer is saved

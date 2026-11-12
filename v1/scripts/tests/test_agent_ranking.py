@@ -1,0 +1,89 @@
+"""Offline tests for the per-facet scores (agent_loop --facet-scores) and agent_ranking.py."""
+
+import json
+
+import pandas as pd
+import pytest
+
+import agent_loop as al
+import agent_ranking as ar
+from test_agent_loop import answers, final, state  # noqa: F401  (fixture)
+
+
+def facets(**scores):
+    out = {k: {"score": None, "target_citations": [], "comp_citations": [], "reason": ""} for k in ar.FACET_POINTS}
+    for k, v in scores.items():
+        out[k] = {"score": v, "target_citations": ["T:P1.1"], "comp_citations": ["C:P1.1"], "reason": "x"}
+    return out
+
+
+def test_weights_sum_to_one():
+    assert ar.TOTAL_POINTS == 66
+    assert abs(sum(ar.WEIGHTS.values()) - 1) < 1e-12
+
+
+def test_points_formula():
+    w = ar.WEIGHTS
+    r = ar.points({"primary_products": 100, "customer_segment": 50, "end_markets": None})
+    c = w["primary_products"] + w["customer_segment"]
+    e = w["primary_products"] + 0.5 * w["customer_segment"]
+    assert r["coverage"] == round(100 * c, 2)
+    assert r["evidence_points"] == round(100 * e, 2)
+    assert r["observed_similarity"] == round(100 * e / c, 2)
+    assert r["upper_bound"] == round(100 * e + 100 * (1 - c), 2)
+    assert ar.points({})["observed_similarity"] is None          # nothing observed: S undefined
+
+
+def test_unknown_is_not_zero():
+    assert ar.points({"primary_products": None})["evidence_points"] == 0
+    assert ar.points({"primary_products": None})["coverage"] == 0
+    assert ar.points({"primary_products": 0})["coverage"] > 0     # an evidenced 0 is observed
+
+
+def test_facet_scores_checked(state):  # noqa: F811
+    state.facet_scores = True
+    state.start()
+    ok = al.check_final(final(2, facet_scores=facets(primary_products=100)), state)
+    assert ok["facet_scores"]["primary_products"]["score"] == 100
+    assert ok["facet_scores"]["end_markets"]["score"] is None
+    bad = facets(primary_products=100)
+    bad["primary_products"]["comp_citations"] = []
+    with pytest.raises(ValueError):                                # a score needs both sides
+        al.check_final(final(2, facet_scores=bad), state)
+    bad = facets(primary_products=100)
+    bad["primary_products"]["target_citations"] = ["C:P1.1"]
+    with pytest.raises(ValueError):                                # target citation must be a target line
+        al.check_final(final(2, facet_scores=bad), state)
+
+
+def test_schema_and_prompt_only_with_flag(state):  # noqa: F811
+    assert "facet_scores" not in al.step_schema()["properties"]
+    assert "facet_scores" in al.step_schema(True)["required"]
+    state.start()
+    assert "Facet scores" not in al.prompt(state, 1, 4)
+    state.facet_scores = True
+    assert "Facet scores" in al.prompt(state, 1, 4)
+
+
+def test_run_pair_and_row(state, tmp_path):  # noqa: F811
+    state.facet_scores = True
+    result = al.run_pair(state, tmp_path, answers(final(2, facet_scores=facets(primary_products=75))), None)
+    assert result["status"] == "ok"
+    pair = pd.Series({"target": "T1", "comp": "C1", "similarity": 0.5, "rank": 1})
+    info = pd.DataFrame({"target_ciq_ticker": ["T", "C"]}, index=["T1", "C1"])
+    row = al.result_row(pair, info, result, state)
+    assert row["facet_primary_products"] == 75 and json.loads(row["facet_scores"])["end_markets"]["score"] is None
+
+
+def test_rank_and_evaluate():
+    rows = []
+    for comp, sim, prod, label in [("a", 0.9, 25, 0), ("b", 0.5, 100, 2), ("c", 0.4, 75, 1)]:
+        r = {"target": "T", "target_ticker": "T", "comp": comp, "similarity": sim, "score": 1, "status": "ok"}
+        r |= {f"facet_{k}": None for k in ar.FACET_POINTS} | {"facet_primary_products": prod}
+        rows.append((r, label))
+    ranked = ar.rank(pd.DataFrame([r for r, _ in rows]))
+    assert ranked["comp"].tolist() == ["b", "c", "a"] and ranked["e_rank"].tolist() == [1, 2, 3]
+    labels = pd.DataFrame({"target_id": "T", "comp_id": ["a", "b", "c"], "score_barbara": [l for _, l in rows]})
+    ev = ar.evaluate(ranked, labels, ks=(1,))
+    assert ev["by_k"][1]["E"]["precision_at_k"] == 1 and ev["by_k"][1]["B3"]["precision_at_k"] == 0
+    assert ev["by_k"][1]["E"]["pairwise_accuracy"] == 1 and ev["by_k"][1]["B3"]["pairwise_accuracy"] == 0

@@ -72,6 +72,7 @@ from cli_models import call_cli, executable  # noqa: E402
 import evidence as evm  # noqa: E402
 import retrieve as rt  # noqa: E402
 from project_data import OUTPUTS_LOCAL  # noqa: E402
+from agent_ranking import FACET_POINTS, LEVELS  # noqa: E402
 
 PROMPT_VERSION = "2026-11-05b"
 CANDIDATES = OUTPUTS_LOCAL / "v1/candidates_method1/20261104T074915Z"
@@ -137,8 +138,18 @@ How to work:
 - Unused fields: null for side/query/score, "" for text, [] for lists, "unknown" for fits.
 """
 
+FACET_RULES = """Facet scores (only in a final answer): also score each facet below on its own.
+100 = same offering/role/customer need; 75 = close substitute, one limited material difference;
+50 = adjacent, real overlap but material differences; 25 = weak overlap; 0 = evidenced mismatch.
+Each non-null facet score needs at least one cited label from EACH company that shows that facet, and
+a short reason. If either company has no shown line about the facet, give null (unknown). Never give 0
+for missing evidence. Never use the facet summaries as evidence. Do not look things up only to fill a
+facet; score what the shown lines support and leave the rest null.
+Facets:
+""" + "\n".join(f"- {k}: {d}" for k, (_, d) in FACET_POINTS.items())
 
-def step_schema() -> dict:
+
+def step_schema(facet_scores: bool = False) -> dict:
     s = {"type": "string"}
     props = {
         "action": {"type": "string", "enum": ["search_site", "web_search", "final"]},
@@ -156,6 +167,15 @@ def step_schema() -> dict:
         "target_citations": {"type": "array", "items": s},
         "comp_citations": {"type": "array", "items": s},
     }
+    if facet_scores:
+        one = {"type": "object", "additionalProperties": False,
+               "required": ["score", "target_citations", "comp_citations", "reason"],
+               "properties": {"score": {"type": ["integer", "null"], "enum": [*LEVELS, None]},
+                              "target_citations": {"type": "array", "items": s},
+                              "comp_citations": {"type": "array", "items": s}, "reason": s}}
+        props["facet_scores"] = {"type": "object", "additionalProperties": False,
+                                 "required": list(FACET_POINTS),
+                                 "properties": {k: one for k in FACET_POINTS}}
     return {"type": "object", "additionalProperties": False, "required": list(props), "properties": props}
 
 
@@ -217,6 +237,7 @@ class PairState:
     shown: dict[str, dict] = field(default_factory=dict)  # "T:P1.3" -> {text, url, source}
     lookups: list[dict] = field(default_factory=list)
     web_sources: int = 0
+    facet_scores: bool = False          # also ask for per-facet 0-100 scores in the final answer
 
     def show(self, company: Company, label: str, text: str, url: str, source: str) -> None:
         self.shown[f"{company.prefix}:{label}"] = {"company_id": company.iq, "text": short(text),
@@ -371,6 +392,8 @@ def api_searcher(provider: str | None = None) -> Searcher:
 
 def prompt(state: PairState, step: int, max_steps: int, note: str = "") -> str:
     parts = [INSTRUCTIONS, f"Prompt version {PROMPT_VERSION}. Step {step} of {max_steps}."]
+    if state.facet_scores:
+        parts.append(FACET_RULES)
     if step >= max_steps:
         parts.append("This is the last step: the action MUST be final.")
     for c, title in ((state.target, "TARGET"), (state.comp, "COMP")):
@@ -393,6 +416,34 @@ def prompt(state: PairState, step: int, max_steps: int, note: str = "") -> str:
 LABEL = re.compile(r"\[?([TC]:[PS]\d+\.\d+)\]?")
 
 
+def cited_labels(refs: list, prefix: str, state: PairState, what: str) -> list[str]:
+    labels = []
+    for ref in refs or []:
+        m = LABEL.search(str(ref))
+        label = m.group(1) if m else str(ref).strip()
+        if label not in state.shown or not label.startswith(prefix):
+            raise ValueError(f"{label!r} is not a shown {what} evidence label.")
+        labels.append(label)
+    return labels
+
+
+def check_facets(raw: dict, state: PairState) -> dict:
+    out = {}
+    given = raw.get("facet_scores") or {}
+    for key in FACET_POINTS:
+        f = given.get(key) or {}
+        score = f.get("score")
+        if score not in [*LEVELS, None]:
+            raise ValueError(f"facet {key}: score must be 0, 25, 50, 75, 100 or null.")
+        t = cited_labels(f.get("target_citations"), "T:", state, f"target ({key})")
+        c = cited_labels(f.get("comp_citations"), "C:", state, f"comp ({key})")
+        if score is not None and (not t or not c):
+            raise ValueError(f"facet {key}: a score needs a cited label from each company, else null.")
+        out[key] = {"score": score, "target_citations": t, "comp_citations": c,
+                    "reason": str(f.get("reason", ""))}
+    return out
+
+
 def check_final(raw: dict, state: PairState) -> dict:
     score = raw.get("score")
     if score not in VERDICTS or raw.get("verdict") != VERDICTS[score]:
@@ -400,13 +451,7 @@ def check_final(raw: dict, state: PairState) -> dict:
                          "2 direct_peer, null insufficient_evidence).")
     cited = {}
     for side, prefix in (("target", "T:"), ("comp", "C:")):
-        labels = []
-        for ref in raw.get(f"{side}_citations") or []:
-            m = LABEL.search(str(ref))
-            label = m.group(1) if m else str(ref).strip()
-            if label not in state.shown or not label.startswith(prefix):
-                raise ValueError(f"{label!r} is not a shown {side} evidence label.")
-            labels.append(label)
+        labels = cited_labels(raw.get(f"{side}_citations"), prefix, state, side)
         if score is not None and not labels:
             raise ValueError(f"a graded answer needs at least one {side} citation.")
         cited[side] = labels
@@ -414,7 +459,10 @@ def check_final(raw: dict, state: PairState) -> dict:
         raise ValueError("a reason is required.")
     if score == 0 and not str(raw.get("reason_if_0", "")).strip():
         raise ValueError("a 0 needs reason_if_0 (one of the six reasons).")
-    return {"target_citations": cited["target"], "comp_citations": cited["comp"]}
+    out = {"target_citations": cited["target"], "comp_citations": cited["comp"]}
+    if state.facet_scores:
+        out["facet_scores"] = check_facets(raw, state)
+    return out
 
 
 # ---------------------------------------------------------------- one pair
@@ -436,7 +484,7 @@ def run_pair(state: PairState, pair_dir: Path, model: Model, searcher: Searcher 
     step = 1
     while step <= max_steps:
         call_dir = pair_dir / (f"step{step}" + ("_retry" if retried and note else ""))
-        res = model(prompt(state, step, max_steps, note), call_dir, step_schema())
+        res = model(prompt(state, step, max_steps, note), call_dir, step_schema(state.facet_scores))
         if res.get("llm_status") != "ok":
             return {"status": res.get("llm_status", "error"), "error": res.get("error", ""),
                     "stop_run": res.get("stop_run", False), "steps": step}
@@ -538,7 +586,15 @@ def result_row(pair: pd.Series, info: pd.DataFrame, result: dict, state: PairSta
         "target_citations": json.dumps(a.get("target_citations", [])),
         "comp_citations": json.dumps(a.get("comp_citations", [])),
         "error": result.get("error", ""),
-    }
+    } | facet_columns(a.get("facet_scores") if result["status"] == "ok" else None)
+
+
+def facet_columns(scores: dict | None) -> dict:
+    """facet_<key> score columns plus the facet answers as JSON (empty without --facet-scores)."""
+    if scores is None:
+        return {}
+    cols = {f"facet_{k}": scores[k]["score"] for k in FACET_POINTS}
+    return cols | {"facet_scores": json.dumps(scores, ensure_ascii=False)}
 
 
 def main(argv: list[str] | None = None) -> None:
@@ -556,6 +612,8 @@ def main(argv: list[str] | None = None) -> None:
     ap.add_argument("--search", default="claude", choices=["claude", "codex", "api", "none"])
     ap.add_argument("--search-model", default="sonnet")
     ap.add_argument("--max-steps", type=int, default=MAX_STEPS)
+    ap.add_argument("--facet-scores", action="store_true",
+                    help="also score each general facet 0/25/50/75/100 with citations (for agent_ranking.py)")
     ap.add_argument("--workers", type=int, default=2)
     ap.add_argument("--out", type=Path, help="run folder (reuse one to resume)")
     ap.add_argument("--dry-run", action="store_true", help="write each pair's first prompt; no calls")
@@ -577,7 +635,7 @@ def main(argv: list[str] | None = None) -> None:
 
     def state_for(p: pd.Series) -> PairState:
         return PairState(load_company(p["target"], "target", info, facets),
-                         load_company(p["comp"], "comp", info, facets))
+                         load_company(p["comp"], "comp", info, facets), facet_scores=args.facet_scores)
 
     if args.dry_run:
         for _, p in pairs.iterrows():
@@ -604,7 +662,7 @@ def main(argv: list[str] | None = None) -> None:
             "search_model": args.search_model, "max_steps": args.max_steps,
             "prompt_version": PROMPT_VERSION,
             "first_prompt": prompt(probe, 1, args.max_steps),
-            "answer_schema": step_schema(),
+            "answer_schema": step_schema(args.facet_scores),
         }, sort_keys=True).encode("utf-8")).hexdigest()
         if done.exists():
             saved = json.loads(done.read_text(encoding="utf-8"))
