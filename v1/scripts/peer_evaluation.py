@@ -186,6 +186,42 @@ class PeerEvaluation:
         print("Run directory:", self.run_dir)
         return self.pairs
 
+    def prepare_pairs(self, pairs: pd.DataFrame, targets: pd.DataFrame,
+                      info: pd.DataFrame, source_files: list[Path]) -> pd.DataFrame:
+        """Evaluate an explicit pair list from the focused pipeline, without a z gate.
+
+        Supports training or holdout targets. The caller supplies the frozen pool
+        and selected pairs; the original prepare() keeps its historical behavior.
+        """
+        self.info = info.set_index("IQ_COMPANY_ID")
+        self.targets = targets.copy()
+        self.pairs = pairs.copy().sort_values(["target", "comp"]).reset_index(drop=True)
+        self.accepted = self.upstream_pairs = self.pairs.copy()
+        self.upstream_complete = pd.Series(True, index=targets.IQ_COMPANY_ID)
+        self.save("inputs/provenance.json", {str(p): sha256(p) for p in source_files})
+        self.save("inputs/targets.csv", targets)
+        self.save("inputs/review_pairs.csv", self.pairs)
+        ids = sorted(set(self.pairs.target) | set(self.pairs.comp))
+        self.evidence = {iq: self.company_evidence(iq) for iq in ids}
+        self.save("inputs/evidence.json", self.evidence)
+        self.save("inputs/rubric.txt", self.config.rubric)
+        self.save("inputs/schema.json", answer_schema())
+        self.packets = {}
+        for row in self.pairs.itertuples():
+            key = f"{row.target}__{row.comp}"
+            prompt, lines = self.prompt(row.target, row.comp)
+            identity = json.dumps([self.config.backend, self.config.model, self.config.effort,
+                                   answer_schema(), prompt, self.evidence[row.target], self.evidence[row.comp]],
+                                  sort_keys=True)
+            self.packets[key] = {"target": row.target, "comp": row.comp, "prompt": prompt,
+                                 "lines": lines, "fingerprint": hashlib.sha256(identity.encode()).hexdigest()}
+            self.save(f"inputs/prompts/{key}.txt", prompt)
+        self.save("inputs/run.json", {"route": "explicit_b3_pairs", "prompt_version": PROMPT_VERSION,
+                  "targets": len(targets), "pairs": len(self.pairs), "sampling": "none",
+                  "evidence": "saved cleaned website pages only", "prepared_at": stamp()})
+        print(f"Judge: {len(self.pairs)} B3 pairs across {len(targets)} targets; no sampling.")
+        return self.pairs
+
     def company_evidence(self, iq: str) -> dict:
         path = OUTPUTS_LOCAL / "website_scrape/page_text" / f"{iq}.json"
         r = self.info.loc[iq]
@@ -262,9 +298,13 @@ class PeerEvaluation:
                 return old
         return None
 
-    def run(self, execute: bool = False) -> pd.DataFrame:
+    def run(self, execute: bool = False, start_pair: int = 1) -> pd.DataFrame:
         """Preview by default; execute=True makes one CLI call per uncached pair."""
+        if start_pair < 1:
+            raise ValueError("start_pair is a one-based pair number")
         for n, (key, packet) in enumerate(self.packets.items(), 1):
+            if n < start_pair:
+                continue  # preserve earlier results, including invalid answers, for the full report
             if self.cached(key, packet):
                 print(f"{n}/{len(self.packets)} {key}: cached")
                 continue

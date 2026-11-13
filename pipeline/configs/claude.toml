@@ -1,0 +1,20 @@
+# Same two pipelines and schemas, using Claude Code CLI authentication.
+provider = "claude"
+split_file = "outputs-local/v1/split/20261027T204930Z/split.csv"
+targets = "training"
+target_tickers = []
+workers = 2
+evidence_words = 1500
+passing_score = 3
+
+[fill]
+model = "claude-sonnet-5-5"
+effort = "high"
+
+[filter]
+model = "claude-sonnet-5-5"
+effort = "medium"
+
+[judge]
+model = "claude-haiku-5-5"
+effort = "medium"

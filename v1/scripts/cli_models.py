@@ -87,7 +87,7 @@ def call_cli(prompt: str, run_dir: Path, schema: dict, backend: str,
     with tempfile.TemporaryDirectory(prefix="qual2cast_inference_") as workdir:
         if backend == "codex":
             command = [executable(backend), "exec", "--skip-git-repo-check", "--ephemeral",
-                       "--sandbox", "read-only", "--cd", workdir,
+                       "--sandbox", "read-only", "--cd", workdir, "-c", 'web_search="disabled"',
                        "--output-schema", str(schema_path), "--output-last-message", str(response_path), "--json"]
             if model:
                 command += ["--model", model]
@@ -116,7 +116,7 @@ def call_cli(prompt: str, run_dir: Path, schema: dict, backend: str,
             for name, value in (("stdout.txt", exc.stdout), ("stderr.txt", exc.stderr)):
                 (run_dir / name).write_text(value.decode("utf-8", errors="replace")
                                             if isinstance(value, bytes) else value or "", encoding="utf-8")
-            return {"llm_status": "timeout", "stop_run": True, "command": command,
+            return {"llm_status": "timeout", "stop_run": False, "command": command,
                     "seconds": round(time.monotonic() - started, 2)}
     (run_dir / "stdout.txt").write_text(proc.stdout or "", encoding="utf-8")
     (run_dir / "stderr.txt").write_text(proc.stderr or "", encoding="utf-8")
@@ -152,5 +152,5 @@ def call_cli(prompt: str, run_dir: Path, schema: dict, backend: str,
         # stop the whole run only when the next call would fail the same way
         fatal = any(s in error.lower() for s in ("usage limit", "rate limit", "not logged in", "/login",
                                                   "credit balance", "quota", "cli not found"))
-        return {"llm_status": "cli_error", "error": error, "stop_run": fatal or backend == "codex", **meta}
+        return {"llm_status": "cli_error", "error": error, "stop_run": fatal, **meta}
     return {"llm_status": "ok", "text": text, **meta}

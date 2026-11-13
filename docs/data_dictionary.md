@@ -1,5 +1,44 @@
 # Data dictionary
 
+## Focused pipeline (2026-11-12)
+
+Entry point `pipeline/pipeline.ipynb`; details in `pipeline/README.md`.
+Outputs are local under `outputs-local/pipeline/<provider>/<model and effort
+variant>/<run>/`. `run.json` records role settings, snapshot/split/website
+hashes and code hashes. `inputs/financials.csv` is never a matching input.
+
+- `shared/facets-<model>/`: new general profiles, per-call raw outputs and
+  `tables/facets.csv`, using the existing v1 schema. Historical raw-call
+  directory name `codex_runs` is retained even for Claude.
+- `shared/profile_coverage.csv`: every eligible company, `has_profile`;
+  unavailable profiles are explicit, not silently replaced by old fills.
+- `shared/b3_candidates/`: full ranking and one-way top-10 candidates;
+  `selected`, `mutual`, `topped_up` record B3's shortlist.
+- `pipelines/<route>/peers.csv`: final selected pairs for `b3` or
+  `b3_llm_filter`. `b3_llm_filter/decisions.csv` retains all B3 pairs with
+  binary `score`, `reason`, `filter_complete`, nullable `accepted`.
+  Incomplete answers are not counted as rejections.
+- `shared/judge-<model>/`: existing 0–3 rubric, frozen saved-page evidence,
+  prompts, per-call JSON/logs, checked citations, grades and human-review
+  template. Every B3 pair is graded, including filtered-out pairs; no
+  sampling. `max_pairs` and historical z-gated preparation are not used.
+- `pipelines/<route>/pair_results.csv`: selected peers joined to the same
+  shared judge grades. The judge does not control peer selection.
+- `pipelines/<route>/valuation.csv`: every requested target, estimated
+  median peer multiple (`estimate`), `comps`, observed `actual_multiple`
+  joined afterward, `absolute_pct_error` and `selection_status` (complete,
+  missing_profile, filter_incomplete). No estimate stays null, not zero.
+- `comparison/summary.csv`: requested/covered targets, valuation error,
+  selected/graded pairs, mean score and pass rate on numeric grades only,
+  insufficient evidence, not-run and failed counts.
+- `comparison/filter_audit.csv`: all accepted/rejected/incomplete filter
+  decisions alongside judge reasons and grades. `common_target_errors.csv`
+  and `common_target_summary.json` compare errors only where both methods
+  have estimates. `overview.png` shows coverage and numeric judge grades.
+
+No automatic human-accuracy claim or new holdout claim follows from these
+metrics. Historical rubric outputs are not pooled into this run.
+
 ## v1 saved-result error analysis
 
 `v1/notebooks/error_analysis.ipynb` / `v1/scripts/error_analysis.py` write a new

@@ -1,5 +1,14 @@
 # v1/
 
+**Focused workflow on `kethan/wip` (2026-11-12):** start at
+[`../pipeline/README.md`](../pipeline/README.md) and
+[`../pipeline/pipeline.ipynb`](../pipeline/pipeline.ipynb). It runs just B3 and
+B3 + LLM filter, defaulting to Codex Sol fills/filtering and a Luna judge,
+with a parallel Claude CLI config. The code below remains the research
+library and experiment record; the focused runner reuses it without running
+the full integration experiment matrix. New outputs live in
+`outputs-local/pipeline/<provider>/<model variant>/<run>/`.
+
 **v1 is a copy of v0 as the team left it on 2026-10-28, to continue from (cloned 2026-11-03).** The notebooks keep
 v0's saved outputs. Two things differ from v0, both mechanical:
 

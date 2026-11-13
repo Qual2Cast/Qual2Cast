@@ -13,7 +13,12 @@ of the folder you're working in, and the handoffs in conversations/ that
 relate to the task. Old transcripts and handoffs are history, not current
 instructions.
 
-The current method is in v1/ (the mentor's comps recipe; a working copy of v0/, which stays as
+The focused runnable workflow is now in pipeline/ (see pipeline/README.md):
+two routes, B3 and B3 + LLM filter, with provider/model settings in configs/.
+It reuses v1/scripts/; keep historical experimental results separate from new
+outputs-local/pipeline/<provider>/<model variant>/<run>/ outputs.
+
+The research method is in v1/ (the mentor's comps recipe; a working copy of v0/, which stays as
 the record of the 2026-10-28 deliverable). Code is in v1/scripts/, notebooks in v1/notebooks/.
 Use the uv environment (`uv sync`, `uv run`); add packages with `uv add`. pre-v0/ holds
 earlier work kept for reference; build on it only when the task says so.

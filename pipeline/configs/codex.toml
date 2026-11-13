@@ -1,0 +1,20 @@
+# Change model/effort here; a new configuration gets a separate output folder.
+provider = "codex"
+split_file = "outputs-local/v1/split/20261027T204930Z/split.csv"
+targets = "training" # training, holdout, or all; peers always come from training
+target_tickers = [] # empty means every target in the selected split
+workers = 2
+evidence_words = 1500
+passing_score = 3 # reporting only; judge scores never select peers
+
+[fill]
+model = "gpt-6.1-sol"
+effort = "high"
+
+[filter]
+model = "gpt-6.1-sol"
+effort = "medium"
+
+[judge]
+model = "gpt-6-luna"
+effort = "medium"

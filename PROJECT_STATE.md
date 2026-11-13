@@ -1,5 +1,47 @@
 # Project state
 
+## 2026-11-12 — focused Codex/Claude workflow on `kethan/wip`
+
+- New entry point: `pipeline/pipeline.ipynb` or `pipeline/run.py`. Two routes
+  only: B3 and B3 + LLM filter, sharing one fresh profile set and B3 pool.
+  This is the focused workflow on Kethan's branch, not a new team-wide
+  winner or a replacement of the saved integration experiments.
+- Default models: Codex `gpt-6.1-sol` high for general facets, Sol medium
+  for binary filtering, `gpt-6-luna` medium for the evidence-only 0–3 judge.
+  Parallel Claude CLI config: Sonnet fills/filter, Haiku judge. Every role
+  is explicit in TOML; Codex runs do not invoke Claude or need an API key.
+- All 373 training targets by default, all 533 universe profiles; no pair
+  sampling. Training-only peer pool and original SIC2 split retained.
+  The judge assesses every B3 pair once; filtered peers share these grades,
+  and rejected pairs remain available in `comparison/filter_audit.csv`.
+  Judge scores never select peers. Valuation is median selected-peer
+  EV/EBITDA, with missing/incomplete targets retained and common-target
+  error comparisons beside overall coverage.
+- New outputs: `outputs-local/pipeline/<provider>/<fill-filter-judge model
+  and effort variant>/<timestamp>/`, split into `inputs`, `shared`,
+  `pipelines/b3`, `pipelines/b3_llm_filter`, `comparison` and `history`.
+  New outputs are local by default. Existing v1 and historical results
+  remain separate. The root README now leads to the focused notebook.
+- Shared transport: Codex facet calls reuse `cli_models.call_cli`;
+  binary selector now accepts Codex; the existing judge accepts explicit
+  B3 pair lists without the historical z gate. Shared Codex calls disable
+  web search. Individual CLI errors/timeouts remain per-call failures;
+  authentication/quota errors stop further calls within that stage.
+  Failed website gap fills preserve first-pass values and unknowns.
+- Data: existing `company_list_v3` manifest snapshot, fixed split
+  `20261027T204930Z`, saved website captures. Fresh fills do not implicitly
+  inherit manual source-reviewed Sonnet integration corrections; recheck
+  current text. Historical research notebooks remain in v1, using shared
+  scripts instead of copied implementations.
+- Checks: Python and notebook code syntax/JSON, both TOML configs and diff
+  whitespace checked. No tests, notebook execution, package installation
+  or live model calls performed. Not committed or pushed.
+- Next: manually run the focused notebook with `EXECUTE = True`, inspect
+  profile coverage and judge failures, then review rejected high-grade
+  pairs against human labels. No new performance result is claimed.
+
+Details: `conversations/2026-11-12-focused-codex-pipeline.md`.
+
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
@@ -734,3 +776,98 @@ whose candidate pool was GPT-built and therefore cannot isolate scope effects.
 The notebook extension continues the original section numbering from 13 to 23
 without changing the first 65 cells or rerunning model inference. This result
 is prepared for the existing v1 integration pull request as Update 2.
+
+## Live Codex execution started — 12 November 2026
+
+User authorized running the Codex pipeline. Started the complete 533-profile,
+373-training-target workflow, two fill/filter workers, Sol high fills, Sol
+medium filter and Luna medium judge. Run directory:
+`outputs-local/pipeline/codex/fill-gpt-6.1-sol-high__filter-gpt-6.1-sol-medium__judge-gpt-6-luna-medium/20261112T191148461107Z`.
+
+The initial `uv run` failed on sandboxed cache access, and its expanded-access
+retry found an incompatible Python 3.6 executable. The running command uses
+`uv run --no-sync --python .venv/bin/python python -u pipeline/run.py --execute`
+with expanded permissions. It uses the existing Python 3.14 venv; packages,
+Python pin and environment were not modified. First two saved company profiles
+have `llm_status=ok`. The process was still running at handoff, in facet fill;
+this is a launch/progress record, not a completion or accuracy result. No
+filter, judge or valuation completion has yet been established for this run.
+
+## User-requested pause — 12 November 2026
+
+Stopped the live Codex run with SIGINT at the user’s request. The process
+exited 130; a process-table check found no remaining pipeline/fill/model
+children for this run. Saved 384/533 first-pass profiles, all with
+`llm_status=ok` (execution/schema status, not factual accuracy). Gap fills,
+B3, filtering, judging and valuation have not completed. Resume the same
+run directory and configuration only when the user asks to continue.
+Run checkpoint: `outputs-local/pipeline/codex/fill-gpt-6.1-sol-high__filter-gpt-6.1-sol-medium__judge-gpt-6-luna-medium/20261112T191148461107Z/pause.json`.
+
+## User-requested resume
+
+Resumed the same run/config on `kethan/wip` with shell session 16853.
+Startup confirmed 384 cached profiles reused and 149 remaining first-pass
+companies, two workers. Command adds `PYTHONUNBUFFERED=1` for live stage logs.
+The earlier pause.json is a historical stop record; resume.json records this
+restart. The pipeline is running again; downstream completion is not claimed.
+
+## Dependency repair and restart
+
+The prior process completed all 533 profiles and all 15 saved-page gap-fill
+calls, then failed at B3 with ModuleNotFoundError: sentence_transformers.
+Installed sentence-transformers and every core dependency from pyproject.toml
+into the existing .venv using uv pip. uv pip check reports all 145 installed
+packages compatible. Package versions are captured in environment.json in
+the run folder. Resumed the same run in shell session 89916; facet startup
+confirmed all 533 profiles reused with no new fill calls. B3 and downstream
+stages are in progress, not yet confirmed complete. No tests run.
+
+## Resume after allowance reset
+
+User requested continuation after the usage limit reset. Confirmed no old
+pipeline process remained, then resumed the same config/run on kethan/wip
+(session 88006). All 533 profiles reused, B3 reproduced 2,438 pairs. At
+restart there were 181 successful filter results, three failed saved
+filter attempts and one failed judge attempt; 192 target filters needed
+completed results. Cached filter calls were skipped. New PBI and KORE
+filter calls succeeded. Execution is ongoing; no final completion claimed.
+
+## 13 November — restart from judge pair 379
+
+User requested stopping the stalled call and restarting from 379. Sent
+SIGINT to verified process group 86847 and confirmed no old children
+remained. Added optional one-based start_pair/--judge-start support;
+reporting retains all earlier results, including five invalid answers
+left for a later normal resume. Syntax parsed, no tests run. Restarted
+same run/config in session 56072 with --judge-start 379. All fills and
+373 filters cached; 570 of 2,438 B3 pairs accepted by the filter. At
+judge startup, 379 and 380 already had successful cached answers and
+were reused; execution proceeds from the next unfinished pair. No
+final completion or accuracy result claimed.
+
+## User-requested pause — 13 November
+
+Stopped session 56072 with SIGINT (exit 130). Saved judge statuses: {'ok': 1593, 'invalid_answer': 15}. Results retained in the same run directory; resume only when the user requests it.
+
+## User-requested continuation after 1,593 valid judgments
+
+Confirmed kethan/wip and no active old pipeline. Restarted the same run in
+session 45025 with default judge-start 1: 1,593 valid results are reused;
+15 invalid answers are retried along with 830 unprocessed pairs (845 total
+without valid results at restart). Fills and all Sol filters remain cached.
+The pipeline is running; no final completion claimed.
+
+## Full pipeline execution finished
+
+Session 45025 exited 0 and saved both routes’ valuations, pair results,
+comparison CSVs/common-target summary and overview PNG. All 533 profiles
+and 373 Sol target filters are complete. All 2,438 Luna pairs were
+attempted: 2,272 numeric grades, 156 insufficient-evidence responses, and
+10 invalid answers remain explicit failures (no not-run pairs). These
+10 invalid answers were not silently counted as grades or retried again.
+B3 provides estimates for 373 targets; filtered route for 245. On those
+245 common targets, B3 median APE is 29.4474%, filtered 30.4269%; the
+filtered route’s lower full-coverage headline median does not prove an
+improvement. These are training/development results, not fresh holdout
+validation. Run completion.json records execution completion with the
+remaining judge failures. No new model calls in this status check.

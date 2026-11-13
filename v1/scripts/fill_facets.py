@@ -104,12 +104,8 @@ def stamp() -> str:
 # ---------------------------------------------------------------- model call
 
 def find_codex() -> str:
-    exe = os.environ.get("CODEX_BIN") or shutil.which("codex")
-    if not exe:
-        raise SystemExit("Codex CLI not found. Install it once per laptop:\n"
-                         "  npm install -g @openai/codex\n"
-                         "  codex login      (sign in with your ChatGPT account)")
-    return exe
+    from cli_models import executable
+    return executable("codex")
 
 
 def codex_usage(events: str) -> dict:
@@ -127,35 +123,10 @@ def codex_usage(events: str) -> dict:
 
 def call_codex(prompt: str, run_dir: Path, schema_path: Path, workdir: str,
                model: str | None, effort: str | None) -> dict:
-    """Run `codex exec` once; the answer is written to run_dir/response.json."""
-    response_path = run_dir / "response.json"
-    cmd = [find_codex(), "exec", "--skip-git-repo-check", "--ephemeral",
-           "--sandbox", "read-only", "--cd", workdir,
-           "--output-schema", str(schema_path),
-           "--output-last-message", str(response_path), "--json"]
-    if model:
-        cmd += ["--model", model]
-    if effort:
-        cmd += ["--config", f"model_reasoning_effort={effort}"]
-    cmd.append("-")   # prompt from stdin
-    started = time.time()
-    try:
-        proc = subprocess.run(cmd, input=prompt, capture_output=True, text=True,
-                              encoding="utf-8", timeout=CODEX_TIMEOUT_SECONDS)
-    except subprocess.TimeoutExpired:
-        return {"llm_status": "timeout", "command": cmd}
-    (run_dir / "events.jsonl").write_text(proc.stdout or "", encoding="utf-8")
-    (run_dir / "stderr.txt").write_text(proc.stderr or "", encoding="utf-8")
-    meta = {"command": cmd, "returncode": proc.returncode,
-            "seconds": round(time.time() - started, 1), "usage": codex_usage(proc.stdout)}
-    if proc.returncode != 0:
-        tail = (proc.stderr or proc.stdout or "").strip().splitlines()[-3:]
-        error = " / ".join(tail)[:300]
-        return {"llm_status": "codex_error", "error": error,
-                "stop_run": "usage limit" in error.lower(), **meta}
-    if not response_path.exists() or not response_path.read_text(encoding="utf-8").strip():
-        return {"llm_status": "no_output", **meta}
-    return {"llm_status": "ok", "text": response_path.read_text(encoding="utf-8"), **meta}
+    """Compatibility entry point; all new Codex calls use the shared CLI wrapper."""
+    from cli_models import call_cli
+    return call_cli(prompt, run_dir, json.loads(schema_path.read_text(encoding="utf-8")),
+                    "codex", model=model, effort=effort, timeout=CODEX_TIMEOUT_SECONDS)
 
 
 def claude_api_key() -> str:

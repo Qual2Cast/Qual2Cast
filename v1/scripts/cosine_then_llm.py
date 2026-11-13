@@ -248,7 +248,7 @@ def move_to_history(path: Path, history: Path) -> None:
 
 def judge_one(target: str, comps: list[str], info, facets, out: SimpleNamespace, args) -> dict:
     prompt, labels = build_prompt(target, comps, info, facets, args.prompt_version)
-    fp = fingerprint(prompt, args.model)
+    fp = fingerprint(prompt, json.dumps([args.backend, args.model, args.effort]))
     path = out.judgments / f"{target}.json"
     if path.exists() and not args.refresh:
         old = json.loads(path.read_text(encoding="utf-8"))
@@ -257,9 +257,9 @@ def judge_one(target: str, comps: list[str], info, facets, out: SimpleNamespace,
     run_dir = out.runs / target / stamp()
     run_dir.mkdir(parents=True, exist_ok=True)
     (run_dir / "prompt.txt").write_text(prompt, encoding="utf-8")
-    if args.backend == "claude-cli":
+    if args.backend in ("claude-cli", "codex"):
         from cli_models import call_cli
-        result = call_cli(prompt, run_dir, answer_schema(list(labels)), "claude-cli", model=args.model,
+        result = call_cli(prompt, run_dir, answer_schema(list(labels)), args.backend, model=args.model,
                           effort=args.effort, instructions_len=len(INSTRUCTIONS))
     else:
         result = call_claude(prompt, run_dir, answer_schema(list(labels)), args.model, args.effort,
@@ -335,19 +335,19 @@ def main() -> None:
     p.add_argument("--tickers", nargs="*", help="only these targets")
     p.add_argument("--limit", type=int, help="stop after N targets")
     p.add_argument("--refresh", action="store_true", help="judge current targets again")
-    p.add_argument("--backend", choices=["claude", "claude-cli"], default="claude",
-                   help="claude: Anthropic API (default); claude-cli: Claude Code CLI under your own login")
-    p.add_argument("--model", help="default: claude-haiku-5-5 for claude, claude-sonnet-5-5 for claude-cli")
+    p.add_argument("--backend", choices=["claude", "claude-cli", "codex"], default="claude",
+                   help="claude: Anthropic API; claude-cli: Claude Code CLI; codex: Codex CLI")
+    p.add_argument("--model", help="default: claude-haiku-5-5 for claude, claude-sonnet-5-5 for claude-cli, gpt-6.1-sol for codex")
     p.add_argument("--effort", choices=["low", "medium", "high"], help="default: the model's own")
     p.add_argument("--workers", type=int, default=2, help="targets in parallel")
     p.add_argument("--dry-run", action="store_true", help="write the prompts only")
     p.add_argument("--tables-only", action="store_true", help="only rebuild judgments.csv")
     args = p.parse_args()
-    args.model = args.model or DEFAULT_MODEL[args.backend]
+    args.model = args.model or ("gpt-6.1-sol" if args.backend == "codex" else DEFAULT_MODEL[args.backend])
     args.candidates = (Path(args.candidates) if args.candidates
                        else latest_method1() if args.b3 else latest_candidates())
     out = output_paths(Path(args.out) if args.out else DEFAULT_OUT_ROOT /
-                       f"{'b3_' if args.b3 else ''}{args.candidates.name}_{args.prompt_version}")
+                       f"{'b3_' if args.b3 else ''}{args.candidates.name}_{args.prompt_version}_{args.backend}_{args.model}")
     for d in (out.runs, out.judgments, out.logs):
         d.mkdir(parents=True, exist_ok=True)
 
