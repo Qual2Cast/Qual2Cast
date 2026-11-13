@@ -109,6 +109,11 @@ model gets wrong, not only that the score differs.
 
 ## Still open
 
+- [ ] **Question 2 wording.** On Matthew's 262 round-3 answers, 120 pairs are "product no, customers
+      yes" and so score 1. Barbara's old labels split them 72 ones / 48 zeros. Either tighten the
+      question (the target's customers would buy this kind of thing from the comp: customer-list
+      overlap, not the same industry or payer) or accept a customers-only match as a 1.
+
 - [ ] Riya: second reviewer on the round-3 sheet, or a third column set for a tie-break.
 - [ ] Batch size: the plan is 6 or 7 comps per target instead of 10. On Barbara's 293 labels the
       non-comp rate rises from 9% at rank 1 to 67% at rank 10; a cut at 7 drops 28 of 91 zeros and 20
