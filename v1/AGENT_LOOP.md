@@ -129,7 +129,12 @@ uv run python v1/scripts/agent_ranking.py --run outputs-local/v1/agent_loop/rank
     --labels outputs-local/v1/integration/barbara_matches/reviewed_pairs.csv
 ```
 
-The evaluation compares three orderings within each target against Barbara's labels (peer = 1 or 2): by E, by B3
+**Final order (2026-11-13):** the agent's 0/1/2 grade first, then S, then B3 similarity (`final_rank`). Chosen on
+Barbara's labels only, 20 targets / 140 pairs: share of peer/non-peer pairs in the right order 88% (agent then B3:
+87%, B3 alone: 82%, E alone: 80%). E is lower because it penalises facets that a thin website does not mention.
+The EV/EBITDA check (`--valuation`) is not used to choose an ordering; it is kept for one final check on holdout.
+
+The evaluation compares the orderings within each target against Barbara's labels (peer = 1 or 2): by E, by B3
 similarity, and by the agent's 0/1/2 grade. It reports peers in the top k (3, 6, 7), pairwise accuracy (share of
 peer/non-peer pairs where the peer is ranked higher) and rank correlation with the label.
 

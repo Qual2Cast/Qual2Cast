@@ -12,7 +12,10 @@ read only, nothing copied from her repo except the formula and weights):
   E  = evidence-supported points = 100 * sum(w * s)
   bounds = [E, E + 100 * (1 - C)]   (missing-information bounds, not a CI)
 
-Comps are ranked within each target by E (ties: higher S, then B3 similarity).
+Final order within each target (final_rank): the agent's 0/1/2 grade first, then S,
+then B3 similarity. Chosen on reviewer labels only (20 targets, 140 pairs, 2026-11-13):
+E penalises facets a thin website does not cover, S does not. e_rank (by E, Barbara's
+own ordering) is kept for comparison.
 Missing evidence lowers E, it never counts as 0 similarity in S.
 
 Weights: Barbara's proposed v3.1 general-facet points, mapped to our facets and
@@ -33,6 +36,8 @@ EV/EBITDA of the top k comps estimates the target's multiple; the report gives t
 median absolute % error over targets with a 95% bootstrap interval and the gain on
 "no matching" (median of all other training firms), via valuation.py. The multiple
 is read only here, after the comps are chosen. Needs 20+ targets to mean anything.
+Do not use it to choose between orderings (that tunes the method on the answer key):
+choose on labels, then check valuation once on holdout targets.
 
 Run:
   uv run python v1/scripts/agent_ranking.py --run outputs-local/v1/agent_loop/<run>
@@ -134,6 +139,10 @@ def rank(verdicts: pd.DataFrame) -> pd.DataFrame:
     out = out.sort_values(["target_ticker", "evidence_points", "observed_similarity", "similarity"],
                           ascending=[True, False, False, False], na_position="last")
     out["e_rank"] = out.groupby("target_ticker").cumcount() + 1
+    out = out.assign(_agent=out["score"].fillna(-1)).sort_values(
+        ["target_ticker", "_agent", "observed_similarity", "similarity"],
+        ascending=[True, False, False, False], na_position="last").drop(columns="_agent")
+    out["final_rank"] = out.groupby("target_ticker").cumcount() + 1
     return out
 
 
@@ -170,13 +179,16 @@ def evaluate(ranked: pd.DataFrame, labels: pd.DataFrame, label_col: str = "score
     df = df[df[label_col].notna()].copy()
     df["peer"] = df[label_col] >= 1
     df["agent_order"] = df["score"].fillna(-1)
+    df["final_order"] = -df["final_rank"]
     out = {"pairs": len(df), "targets": int(df["target"].nunique()), "peers": int(df["peer"].sum()),
            "spearman_E_vs_label": spearman(df["evidence_points"], df[label_col]),
            "spearman_S_vs_label": spearman(df["observed_similarity"], df[label_col]),
            "spearman_B3_vs_label": spearman(df["similarity"], df[label_col]),
            "mean_coverage": round(df["coverage"].mean(), 1), "by_k": {}}
     for k in ks:
-        out["by_k"][k] = {"E": _order_metrics(df, "evidence_points", False, k),
+        out["by_k"][k] = {"final (agent, then S)": _order_metrics(df, "final_order", False, k),
+                          "S": _order_metrics(df, "observed_similarity", False, k),
+                          "E": _order_metrics(df, "evidence_points", False, k),
                           "B3": _order_metrics(df, "similarity", False, k),
                           "agent_0_1_2": _order_metrics(df, "agent_order", False, k)}
     return out

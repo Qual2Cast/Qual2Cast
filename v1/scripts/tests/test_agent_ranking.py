@@ -114,3 +114,15 @@ def test_industry_facets_in_schema_and_check(state):  # noqa: F811
     ans["I59-01"] = {"score": 75, "target_citations": ["T:P1.2"], "comp_citations": ["C:P1.2"], "reason": "x"}
     out = al.check_final(final(1, facet_scores=ans), state)
     assert out["facet_scores"]["I59-01"]["score"] == 75 and out["facet_scores"]["I59-02"]["score"] is None
+
+
+def test_final_rank_is_agent_then_s():
+    rows = []
+    for comp, grade, prod, cust in [("a", 1, 100, None), ("b", 2, 25, 25), ("c", 1, 50, 50)]:
+        r = {"target": "T", "target_ticker": "T", "comp": comp, "similarity": 0.5, "score": grade, "status": "ok"}
+        r |= {f"facet_{k}": None for k in ar.FACET_POINTS}
+        r |= {"facet_primary_products": prod, "facet_customer_segment": cust}
+        rows.append(r)
+    ranked = ar.rank(pd.DataFrame(rows))
+    assert ranked["comp"].tolist() == ["b", "a", "c"]      # grade 2 first; among 1s, a has S 100 > c's 50
+    assert ranked.set_index("comp")["e_rank"]["a"] == 1     # by E, a (one facet at 100) still leads
