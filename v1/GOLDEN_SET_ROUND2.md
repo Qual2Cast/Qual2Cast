@@ -25,6 +25,9 @@ independent business judgment.
 
 ## The scores (the team's shared rubric, unchanged from round 1)
 
+> **Superseded from round 3 on.** Round 3 and later sheets use four yes/no questions per pair and a
+> derived score; see [`RUBRIC_V2.md`](RUBRIC_V2.md). Rounds 1 and 2 keep the 0/1/2 labels below.
+
 | score | meaning | rule |
 |---|---|---|
 | **2** | direct competitor | same product **and** same customers |
