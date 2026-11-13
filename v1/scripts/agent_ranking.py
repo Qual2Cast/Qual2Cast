@@ -1,47 +1,44 @@
-"""Rank comps by evidence-supported points from the agent loop's per-facet scores.
+"""Rank each target's comps from the agent loop's per-facet scores.
 
-The agent loop run with --facet-scores gives each pair a 0/25/50/75/100 score per
-general facet, or null (UNKNOWN) when one side has no evidence for it. This
-script turns those into Barbara's three numbers (her Similarity_Scoring_Standard,
-read only, nothing copied from her repo except the formula and weights):
+Input: an agent loop run made with --facet-scores. For each pair the agent gave
+its 0/1/2 grade and, per facet, 0/25/50/75/100 (100 same offering or role, 75 close
+substitute, 50 adjacent, 25 weak overlap, 0 evidenced mismatch) or null (UNKNOWN:
+no cited line on one side). Barbara's Similarity Scoring Standard turns the facet
+scores into three numbers (her formula; weights below):
 
-  w  = facet weight (sums to 1 over the facets below)
+  w  = facet weight (sums to 1)
   s  = facet score / 100, only for facets with evidence on both sides (observed)
-  C  = evidence coverage        = sum(w over observed facets)
-  S  = observed similarity      = 100 * sum(w * s) / C    (undefined if C = 0)
-  E  = evidence-supported points = 100 * sum(w * s)
+  C  = evidence coverage         = sum(w over observed facets)
+  S  = observed similarity       = 100 * sum(w * s) / C    (undefined if C = 0)
+  E  = evidence-supported points = 100 * sum(w * s) = S * C
   bounds = [E, E + 100 * (1 - C)]   (missing-information bounds, not a CI)
 
-Final order within each target (final_rank): the agent's 0/1/2 grade first, then S,
-then B3 similarity. Chosen on reviewer labels only (20 targets, 140 pairs, 2026-11-13):
-E penalises facets a thin website does not cover, S does not. e_rank (by E, Barbara's
-own ordering) is kept for comparison.
-Missing evidence lowers E, it never counts as 0 similarity in S.
+Order within each target:
+  final_rank  agent grade (2, 1, 0, null), then S, then B3 similarity. Chosen on
+              Barbara's labels only (45 targets, 293 pairs; see AGENT_LOOP.md).
+  e_rank      by E, Barbara's own ordering, kept for comparison. E penalises
+              facets a thin website does not mention; S does not.
 
-Weights: Barbara's proposed v3.1 general-facet points, mapped to our facets and
-renormalized to 100. Customer Type (5) + Customer Segment (4) -> customer_segment (9).
-With industry facets (agent_loop --industry-facets) the target's SIC2 module from her
-policy (policy/barbara_scoring_policy_v3.json) is added: base fields only, diagnostic
-fields dropped, conditional subtype fields only when activated for the target
-(--activate file), points renormalized within the block, then general 60% /
-industry 40% (her default block weights). Each pair saves the weights it used.
+Weights: Barbara's proposed v3.1 general-facet points mapped to our facets and
+renormalized (66 points = 100%); her Customer Type (5) + Customer Segment (4) ->
+customer_segment (9). With agent_loop --industry-facets the target's SIC2 module
+from her policy (read-only copy in policy/) is added: base fields, no diagnostic
+fields, conditional subtype fields only when activated for the target (--activate),
+renormalized within the block, then general 60% / industry 40% (her default). Each
+pair saves the weights it used (facet_weights).
 
-Evaluation (--labels): per target, how many reviewer peers (score >= 1) are in the
-top k when ordering by E, by B3 similarity, and by the agent's 0/1/2 grade; and
-pairwise accuracy = share of (peer, non-peer) pairs within a target where the
-peer is ranked above.
+--labels: compares orderings with reviewer labels (peer = label 1 or 2): peers in
+the top k, and pairwise accuracy = share of (peer, non-peer) pairs of the same
+target with the peer ranked higher.
 
-Valuation check (--valuation): the label-free test. For each ordering, the median
-EV/EBITDA of the top k comps estimates the target's multiple; the report gives the
-median absolute % error over targets with a 95% bootstrap interval and the gain on
-"no matching" (median of all other training firms), via valuation.py. The multiple
-is read only here, after the comps are chosen. Needs 20+ targets to mean anything.
-Do not use it to choose between orderings (that tunes the method on the answer key):
-choose on labels, then check valuation once on holdout targets.
+--valuation: median EV/EBITDA of each ordering's top k vs the target's actual
+multiple (valuation.py, bootstrap over targets). The multiple is read only here,
+after the comps are chosen. Do not use it to choose an ordering (that tunes the
+method on the answer key): choose on labels, check valuation once on holdout.
 
 Run:
-  uv run python v1/scripts/agent_ranking.py --run outputs-local/v1/agent_loop/<run>
-  uv run python v1/scripts/agent_ranking.py --run <run> --labels outputs-local/v1/integration/barbara_matches/reviewed_pairs.csv
+  uv run python v1/scripts/agent_ranking.py --run outputs-local/v1/agent_loop/ranking_45targets_sonnet \
+      --labels outputs-local/v1/integration/barbara_matches/reviewed_pairs.csv
 Writes <run>/ranking/<stamp>/ranking.csv and eval.json (never overwrites).
 """
 
@@ -129,7 +126,7 @@ def points(scores: dict[str, float | None], weights: dict[str, float] | None = N
 
 
 def rank(verdicts: pd.DataFrame) -> pd.DataFrame:
-    """Adds C/S/E and e_rank (1 = best within target) to a verdicts.csv table."""
+    """Adds C/S/E, e_rank and final_rank (1 = best within target) to a verdicts.csv table."""
     rows = []
     for _, r in verdicts.iterrows():
         weights = json.loads(r["facet_weights"]) if isinstance(r.get("facet_weights"), str) else dict(WEIGHTS)
@@ -195,9 +192,9 @@ def evaluate(ranked: pd.DataFrame, labels: pd.DataFrame, label_col: str = "score
 
 
 def top_lists(ranked: pd.DataFrame, ks: tuple[int, ...] = (3, 6)) -> dict[str, pd.DataFrame]:
-    """(target, comp) lists per ordering: E, B3 similarity, agent 0/1/2 (ties by B3)."""
-    d = ranked.assign(agent=ranked["score"].fillna(-1))
-    orders = {"E": ["evidence_points", "similarity"], "B3": ["similarity"], "agent 0/1/2": ["agent", "similarity"]}
+    """(target, comp) lists per ordering: final, E, B3 similarity, agent 0/1/2 (ties by B3)."""
+    d = ranked.assign(agent=ranked["score"].fillna(-1), final=-ranked["final_rank"])
+    orders = {"final": ["final"], "E": ["evidence_points", "similarity"], "B3": ["similarity"], "agent 0/1/2": ["agent", "similarity"]}
     lists = {}
     for k in ks:
         for name, keys in orders.items():
