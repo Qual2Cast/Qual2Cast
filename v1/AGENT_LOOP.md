@@ -99,6 +99,69 @@ credit for AFG's annuity business, which was sold years ago. With Sonnet's facet
 BBCP's IESC and GVA also went from 1 to 0. Those runs are kept in `gold_sonnet/`, `round2_targets_sonnet/` (Haiku
 facets) and `gold_sonnet_facets/`, `round2_targets_sonnet_facets/` (Sonnet facets).
 
+## Ranking: facet scores, C / S / E and the final order
+
+With `--facet-scores` the final answer also scores 11 general facets 0/25/50/75/100 (100 same offering or role,
+75 close substitute, 50 adjacent, 25 weak overlap, 0 evidenced mismatch). Each score needs a cited line from both
+companies, otherwise the facet is null (unknown). Unknown is never 0. The 0/1/2 grade is unchanged.
+
+`agent_ranking.py` turns the facet scores into Barbara's three numbers (her Similarity Scoring Standard):
+
+- coverage C = sum of the weights of the facets scored on both sides
+- observed similarity S = 100 x sum(w x s) / C
+- evidence-supported points E = 100 x sum(w x s) = S x C, bounds [E, E + 100(1 - C)]
+
+Weights are Barbara's proposed v3.1 general-facet points mapped to our facets and renormalized: products 10,
+services 5, customer segment 9 (her customer type 5 + segment 4), end markets 7, business model 9, revenue model 9,
+value chain 5, geography 3, specialization 3, distribution 3, regulatory 3 (66 points = 100%).
+
+**Final order (`final_rank`):** the agent's 0/1/2 grade first, then S, then B3 similarity. `e_rank` (by E, Barbara's
+ordering) is kept for comparison.
+
+```bash
+uv run python v1/scripts/agent_loop.py --candidates <B3 candidates> --tickers <45 tickers> --facet-scores \
+    --workers 4 --out outputs-local/v1/agent_loop/ranking_45targets_sonnet
+uv run python v1/scripts/agent_ranking.py --run outputs-local/v1/agent_loop/ranking_45targets_sonnet \
+    --labels outputs-local/v1/integration/barbara_matches/reviewed_pairs.csv
+```
+
+### Results (2026-11-13, 45 targets, 293 pairs, Barbara's labels)
+
+Candidates are Eric's "Sonnet + Fiona sub-sector" B3 list; Sonnet grades and scores, general facets only. 202 of
+the 293 pairs are peers (label 1 or 2). Pairwise accuracy = share of (peer, non-peer) pairs of the same target in the
+right order.
+
+| Ordering | Pairwise accuracy | Peers in top 3 | Peers in top 6 |
+|---|---:|---:|---:|
+| Final: agent grade, then S | 88.6% | 82.2% | 75.2% |
+| Agent grade, then B3 | 87.9% | 83.0% | 75.2% |
+| S only | 86.7% | 82.2% | 75.2% |
+| B3 similarity only | 81.6% | 80.0% | 73.1% |
+| E only (Barbara's ordering) | 78.7% | 80.0% | 73.5% |
+
+Bootstrap over targets (2,000 draws), pairwise accuracy: final minus E +9.7 points (95% interval +3.5 to +16.8);
+final minus B3 +7.0 (-0.7 to +15.0); final minus agent-then-B3 +0.6 (-5.3 to +5.9). So the agent's grade gives most
+of the gain over B3, S adds little on top, and E ranks worse than B3: mean coverage is only 59.5%, and E counts a
+facet the website does not mention as no similarity.
+
+The ordering was chosen on these labels only. One reviewer's labels are not ground truth (Barbara's own point), so
+read small differences with care. The EV/EBITDA check (`--valuation`) is not used to choose an ordering; it is
+kept for one final check on holdout targets.
+
+### Tried and not kept
+
+- Industry facets (`--industry-facets`, Barbara's SIC2 modules, general 60% / industry 40%), 3 targets / 26 pairs:
+  pairwise accuracy by E 77% vs 74% general-only, peers in top 6 down from 61% to 56%. Industry coverage was 34%:
+  fields like payer mix, R&D intensity or manufacturing model are rarely on the first pages of a website, and the
+  agent did not look them up. Code kept: base fields only, conditional subtype fields only when listed for that
+  target in an `--activate` CSV (`outputs-local/v1/agent_loop/ranking_test_activate.csv`).
+- Unknown facets counted as 50, and z-score blends of E or S with B3: no better than the final order.
+- Facet weights fitted to the labels (leave-one-target-out ridge): 88.8% on 20 targets, not kept (140 pairs, likely
+  overfit).
+
+Runs: `ranking_test_sonnet` (3 targets), `ranking_test_industry_sonnet` (3 targets, industry facets),
+`ranking_20targets_sonnet`, `ranking_45targets_sonnet` (all 45; includes the 20).
+
 ## Open questions
 
 - Web snippets are copied out by the search model, so a snippet can be paraphrased. The search answer is saved

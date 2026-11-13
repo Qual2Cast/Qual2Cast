@@ -3,6 +3,14 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
+_2026-11-13 (`fiona/agent-ranking`), ranking in the agent loop (Fiona, task d, with Barbara).
+- **`agent_loop.py --facet-scores`:** the agent also scores 11 general facets 0/25/50/75/100 with citations from both companies; no evidence = unknown, never 0.
+- **New `v1/scripts/agent_ranking.py`:** Barbara's coverage C, observed similarity S and evidence points E (her v3.1 weights, read-only copy of her policy in `v1/scripts/policy/`); final order = agent grade, then S, then B3.
+- **Results, 45 targets / 293 pairs vs Barbara's labels:** peer/non-peer pairs in the right order 88.6% (final), 81.6% (B3), 78.7% (E). E alone is worse than B3 because coverage is only ~60%. Industry facets did not help (few had evidence). Ordering chosen on labels only; EV/EBITDA kept for one final holdout check.
+- **Tests:** 20 pass. Outputs: `outputs-local/v1/agent_loop/ranking_*`. Guide: `v1/AGENT_LOOP.md` (Ranking section).
+
+Details: `conversations/2026-11-13-agent-ranking.md`._
+
 _2026-11-05 (`v1-facet-eval`): round-2 business scope and facet-to-selector handoff._
 - BBCP and BUKS now have source-checked current business groups and a company-level scoring instruction in `v1/GOLDEN_SET_ROUND2.md` and section 5 of `v1/notebooks/golden_set_showcase.ipynb`. Each target keeps one company ID and each pair gets one grade under the existing 0–2 rubric. A peer matching just one of BUKS's two material groups is adjacent (1); BBCP's newly acquired small power activity does not automatically demote a direct concrete-services peer. Reviewer scores remain blank. BBCP's July 2026 filing confirms the April Templant acquisition and its small nine-month contribution; Butler's FY2026 release reports 62% aerospace and 38% professional services. The saved sheet already contains both current business groups.
 - `b3_facet_add_drop.py --export-variant` now writes any tested variant in the existing candidate-run format. The experimental `Sonnet + Fiona sub-sector` run covers all 373 training targets and selects 2,538 peers. `cosine_then_llm.py --b3 --candidates <run>` reads the same pairs and the corresponding Sonnet facets; a dry run produced all 373 prompts, with PCTY and WEN checked for Fiona's sub-sector. Selected pairs on the human-labeled targets exactly match the evaluation table. The existing default B3 run is unchanged.
