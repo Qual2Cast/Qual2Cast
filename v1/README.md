@@ -1,5 +1,18 @@
 # v1/
 
+**Facet lift experiment (2026-11-13):** start with
+`notebooks/facet_uplift_stakeholder.ipynb` for the approach, eight presentation
+figures, findings and recommended investigations. It separates the original
+0/1/2 rating analysis (rating-point lift, `--outcome rating`) from the earlier
+combined peer/non-peer analysis (probability lift, `--outcome peer`). The original
+`notebooks/facet_uplift.ipynb` remains the original binary technical/raw version.
+The stakeholder notebook reads both pinned outcomes for B3 similarities and agent facet
+ratings against Barbara's 293 reviewed pairs. Run
+`uv run python v1/scripts/facet_uplift.py` to create another preserved run.
+This is exploratory conditional association, not causal CATE or a new ranking
+rule. See [FACET_UPLIFT.md](FACET_UPLIFT.md) for treatments, target folds,
+missing-evidence handling and interpretation limits.
+
 **v1 is a copy of v0 as the team left it on 2026-10-28, to continue from (cloned 2026-11-03).** The notebooks keep
 v0's saved outputs. Two things differ from v0, both mechanical:
 

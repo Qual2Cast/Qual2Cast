@@ -3,6 +3,58 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
+_2026-11-13, facet-lift original-rating extension._
+- Added `--outcome rating` to preserve human grades 0/1/2 and estimate differences
+  in expected rating points, using bounded ridge response predictions. Standard
+  X-learner treatment remains strong/weak facet match. The existing binary
+  `--outcome peer` default and its saved results remain available.
+- New rating run `outputs-local/v1/facet_uplift/20261113T201612982633Z/` shares
+  features, folds, treatments and support with the binary run. The stakeholder
+  notebook now separates Method A (rating points) from Method B (combined-peer
+  probability), each with explanation, results, sensitivity and diagnostics.
+- Original raw notebook unchanged; earlier stakeholder edition archived. New
+  exports include eight figures and hashes for both runs. Rating models assume
+  equally spaced grades; they do not estimate each category probability.
+- Seven statistical checks passed, including known-effect rating data and
+  outcome-appropriate metrics. Binary predictions reproduce the saved earlier
+  run to numerical tolerance. Full presentation notebook executed.
+- Handoff: `conversations/2026-11-13-facet-uplift-rating.md`.
+
+_2026-11-13, stakeholder presentation of facet lift._
+- New `v1/notebooks/facet_uplift_stakeholder.ipynb`; original technical notebook
+  preserved byte-for-byte. Same pinned experiment, no refitting or pipeline edits.
+- Six exported figures explain approach, 293-pair single-reviewer cohort,
+  five-fold target validation, lift/support, threshold sensitivity and evidence
+  imbalance. Technical diagnostics stay in the appendix; export manifest hashes
+  the source CSVs. Notebook fully executed and figures visually inspected.
+- Recommendations: investigate B3 services, end markets, customers and products
+  with new labels/ablations; improve sparse agent evidence; scrutinize source and
+  diagnostic disagreements. No causal or ranking-improvement claim.
+- Details: `conversations/2026-11-13-facet-uplift-stakeholder.md`.
+
+_2026-11-13, Kethan/Michael task: exploratory facet lift (option 1)._
+- Added `v1/scripts/facet_uplift.py`, a saved-results notebook and `v1/FACET_UPLIFT.md`.
+  Compares Sonnet-profile B3 per-facet blended similarity and cited agent facet
+  ratings separately against Barbara's 293 reviewed pairs / 45 targets. No LLM,
+  search or financial reads; matching/ranking defaults are unchanged.
+- Five target-group outer folds, three inner folds for pseudo-effects, logistic
+  response/propensity models and ridge effect models; one facet treatment at a
+  time, using other facets as context. Primary contrasts and stricter sensitivity
+  contrasts are fixed before fitting. Unknown is not a mismatch.
+- Current preserved run: `outputs-local/v1/facet_uplift/20261113T190330202875Z/`.
+  B3: all 11 primary analyses have five usable folds. Agent: five complete,
+  products/services partial, four unsupported. All denominators/overlap and
+  excluded-fold reasons are retained. Numerical effects are selected-cohort
+  adjusted associations; fixed-prediction bootstrap ranges omit refit/selection
+  uncertainty. These are not causal CATE, facet-importance truth or pipeline gains.
+- Validation: five offline statistical checks passed (including grouped folds,
+  unknown handling and known-effect synthetic data); notebook fully executed.
+  Existing local Python 3.14 venv used; pytest was unavailable, so test functions
+  were invoked directly. No dependency installation or full-suite run.
+- Next: review supported effects and threshold sensitivity, collect independent
+  reviewer labels, then test selected hypotheses with a frozen pipeline ablation.
+  Handoff: `conversations/2026-11-13-facet-uplift.md`.
+
 _2026-11-13 (`fiona/agent-ranking`), ranking in the agent loop (Fiona, task d, with Barbara).
 - **`agent_loop.py --facet-scores`:** the agent also scores 11 general facets 0/25/50/75/100 with citations from both companies; no evidence = unknown, never 0.
 - **New `v1/scripts/agent_ranking.py`:** Barbara's coverage C, observed similarity S and evidence points E (her v3.1 weights, read-only copy of her policy in `v1/scripts/policy/`); final order = agent grade, then S, then B3.

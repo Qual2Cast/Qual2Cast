@@ -1,0 +1,54 @@
+{
+  "commit": "44727659a99bf9d898de818084383e2a6ae03bbd",
+  "script_sha256": "81df36c7d56f1171d36efa266d43b5911614caf85cc89eddb321a33946caa31f",
+  "cohort": "Barbara only, selected reviewed pairs",
+  "pairs": 293,
+  "targets": 45,
+  "outcome": "expected human grade on 0/1/2 scale",
+  "outcome_mode": "rating",
+  "effect_units": "rating points",
+  "response_estimator": "ridge alpha=10; predictions clipped to [0,2]",
+  "rating_assumption": "0\u21921 and 1\u21922 are equally spaced; not a multiclass probability model",
+  "sources": {
+    "outputs-local/v1/integration/review/pairs.csv": "3ea5583a922bdd488fe6559f4ccc29f1183e633271e89be909bc3b284e44d1f2",
+    "outputs-local/v1/agent_loop/ranking_45targets_sonnet/verdicts.csv": "0dd990f9ba05f80019c2a9d151e29ffd376b4cca47c62dc5f4586e04c9508ba3",
+    "outputs-local/v1/facets_sonnet/tables/facets.csv": "8619ecf21c329269464a0a1d288ae23fda29601aa52272555f91d15759128464"
+  },
+  "settings": {
+    "outer_folds": 5,
+    "inner_folds": 3,
+    "seed": 42,
+    "min_arm": 15,
+    "min_arm_targets": 5,
+    "logistic_C": 0.1,
+    "ridge_alpha": 10,
+    "overlap": [
+      0.1,
+      0.9
+    ],
+    "dr_propensity_clip": [
+      0.05,
+      0.95
+    ],
+    "bootstrap": 1000,
+    "primary": {
+      "b3": "training median",
+      "agent": "75/100 vs 0/25/50"
+    },
+    "sensitivity": {
+      "b3": "training upper vs lower thirds",
+      "agent": "75/100 vs 0/25"
+    },
+    "model_weighting": "equal total weight per training target"
+  },
+  "libraries": {
+    "numpy": "2.5.4",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.9.1",
+    "sentence-transformers": "6.3.0",
+    "torch": "2.15.0"
+  },
+  "embedding_cache_sha256": "b998e10233390181ed43ffc2a928e4ce2123817122189a3e2c07cf8e12985def",
+  "interpretation": "Exploratory adjusted associations, not identified causal CATE. Fixed unlabeled 533-company text representation; target-group outcome cross-fitting. Shared comp companies may cross folds.",
+  "uncertainty": "Target bootstrap of fixed OOF predictions; excludes refitting, selection, reviewer and threshold uncertainty."
+}

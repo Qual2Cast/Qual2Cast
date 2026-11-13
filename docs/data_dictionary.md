@@ -1,5 +1,33 @@
 # Data dictionary
 
+## v1 exploratory facet lift
+
+The runner now supports `--outcome peer` (default, grade>=1) and `--outcome rating`
+(expected numerical 0/1/2 grade, assuming equally spaced scores). Rating runs
+record lift in rating points and use ridge response models bounded to [0,2].
+`outcome_value`, `predicted_outcome` and `baseline_outcome` distinguish outcome
+values from facet treatment. Rating summaries use MAE/RMSE and
+`outside_rating_effect_range` (effects beyond +/-2); binary summaries retain
+Brier/AUC and +/-1 effect diagnostics. Original binary files are preserved.
+The stakeholder notebook presents each outcome method separately; it exports
+eight figures and pins hashes for both source runs in its presentation manifest.
+
+`facet_uplift.py` preserves each run under `outputs-local/v1/facet_uplift/<timestamp>/`.
+The human outcome is Barbara's grade >= 1 in the selected 293-pair review cohort.
+`pair_features.csv` contains B3 per-facet blended similarity (`b3__*`) and agent
+evidence ratings (`agent__*`); no overall grades, combined similarity or financial
+fields enter the predictors. Human grades are outcomes, never covariates.
+
+`oof_effects.csv` holds target-group out-of-fold treatment, estimated uplift,
+propensity, overlap, observed-outcome probability and DR pseudo-effect. Unknown
+treated-facet scores and middle scores under strict contrasts produce no effect
+row. Fold counts/exclusions and reasons stay in `fold_diagnostics.csv`; missing
+effects never become zeros. `facet_summary.csv` includes incomplete/unsupported
+facets, retained-pair and target counts, fixed-prediction target-bootstrap ranges
+and response diagnostics. These ranges are not full causal-effect confidence
+intervals. `manifest.json` pins input/script hashes, libraries and settings.
+See `v1/FACET_UPLIFT.md` for exact contrasts and the selected-cohort limitations.
+
 ## v1 saved-result error analysis
 
 `v1/notebooks/error_analysis.ipynb` / `v1/scripts/error_analysis.py` write a new
