@@ -28,6 +28,12 @@ top k when ordering by E, by B3 similarity, and by the agent's 0/1/2 grade; and
 pairwise accuracy = share of (peer, non-peer) pairs within a target where the
 peer is ranked above.
 
+Valuation check (--valuation): the label-free test. For each ordering, the median
+EV/EBITDA of the top k comps estimates the target's multiple; the report gives the
+median absolute % error over targets with a 95% bootstrap interval and the gain on
+"no matching" (median of all other training firms), via valuation.py. The multiple
+is read only here, after the comps are chosen. Needs 20+ targets to mean anything.
+
 Run:
   uv run python v1/scripts/agent_ranking.py --run outputs-local/v1/agent_loop/<run>
   uv run python v1/scripts/agent_ranking.py --run <run> --labels outputs-local/v1/integration/barbara_matches/reviewed_pairs.csv
@@ -176,11 +182,41 @@ def evaluate(ranked: pd.DataFrame, labels: pd.DataFrame, label_col: str = "score
     return out
 
 
+def top_lists(ranked: pd.DataFrame, ks: tuple[int, ...] = (3, 6)) -> dict[str, pd.DataFrame]:
+    """(target, comp) lists per ordering: E, B3 similarity, agent 0/1/2 (ties by B3)."""
+    d = ranked.assign(agent=ranked["score"].fillna(-1))
+    orders = {"E": ["evidence_points", "similarity"], "B3": ["similarity"], "agent 0/1/2": ["agent", "similarity"]}
+    lists = {}
+    for k in ks:
+        for name, keys in orders.items():
+            top = d.sort_values(keys, ascending=False, na_position="last").groupby("target").head(k)
+            lists[f"{name} top {k}"] = top[["target", "comp"]]
+    lists["agent >= 1 (all kept)"] = d.loc[d["agent"] >= 1, ["target", "comp"]]
+    lists["all B3 candidates"] = d[["target", "comp"]]
+    return lists
+
+
+def valuation_check(ranked: pd.DataFrame, ks: tuple[int, ...] = (3, 6)) -> pd.DataFrame:
+    import sys
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
+    import valuation
+    from project_data import OUTPUTS_LOCAL
+    v1 = OUTPUTS_LOCAL / "v1"
+    fin = pd.read_csv(v1 / "universe/20261025T060358Z/financials.csv", dtype={"IQ_COMPANY_ID": str})
+    multiples = fin.set_index("IQ_COMPANY_ID")["target_ev_to_ebitda"].astype(float)
+    split = pd.read_csv(v1 / "split/20261027T204930Z/split.csv", dtype={"IQ_COMPANY_ID": str})
+    pool = split.loc[split["sample"].eq("training"), "IQ_COMPANY_ID"]
+    results = {n: valuation.estimate(l, multiples, how="median") for n, l in top_lists(ranked, ks).items()}
+    results["no matching"] = valuation.no_matching(sorted(ranked["target"].unique()), pool, multiples)
+    return valuation.bootstrap(results, multiples, "no matching").round(1)
+
+
 def main(argv: list[str] | None = None) -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--run", type=Path, required=True, help="agent loop run folder (with verdicts.csv)")
     ap.add_argument("--labels", type=Path, help="reviewer labels with target_id, comp_id and --label-col")
     ap.add_argument("--label-col", default="score_barbara")
+    ap.add_argument("--valuation", action="store_true", help="also the EV/EBITDA error of each ordering's top k")
     args = ap.parse_args(argv)
 
     verdicts = pd.read_csv(args.run / "verdicts.csv", dtype={"target": str, "comp": str})
@@ -196,6 +232,10 @@ def main(argv: list[str] | None = None) -> None:
         labels = pd.read_csv(args.labels, dtype={"target_id": str, "comp_id": str})
         report["eval"] = evaluate(ranked, labels, args.label_col)
         print(json.dumps(report["eval"], indent=1))
+    if args.valuation:
+        val = valuation_check(ranked)
+        val.to_csv(out / "valuation.csv")
+        print(val.to_string())
     (out / "eval.json").write_text(json.dumps(report, indent=1), encoding="utf-8")
     print(f"ranking: {out / 'ranking.csv'}")
 
