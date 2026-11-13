@@ -3,6 +3,14 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
+_2026-11-13 (`matt/rubric-yes-no`), rubric v2: four yes/no questions per pair, score derived (Matthew, plan item e, with Riya).
+- **New `v1/RUBRIC_V2.md`** and **`v1/scripts/rubric_v2.py`:** reviewers answer same product / same customers / same revenue model / same chain step (yes/no) and name the target business graded; the notebook derives 2 (all yes), 1 (product or customers yes, not all four) or 0 (both no). `check_sheet`, `scores`, per-question `agreement`, and `convert_sheet` (old layout -> v2; old scores kept, never translated). 13 tests pass.
+- **New `outputs-local/v1/golden_set_round3/labels/round3_sheet_v2.csv`:** the 262 round-3 pairs (40 targets) in the v2 layout, blank, reviewers matthew and barbara. `round3_sheet.csv` untouched; `GOLDEN_SET_ROUND2.md` marks its score section superseded from round 3.
+- **Why:** mentor asked Nov 8 for a more objective rubric; 178 of Barbara's 293 labels are 1s that do not say which half matched; 5 of the 6 round-2 splits were a 1 vs a 0; only 3 of the 6 zero reasons were ever used. Agreed with the team and Professor Robbins Nov 9.
+- **Not changed:** agent loop prompt (Fiona: ask the four questions, one citation each), batch size (proposal: B3 similarity cut, see the guide), minor-business cap (Eric).
+- **Next:** Matthew labels the 262 pairs with the v2 form; Riya second reviewer or tie-break; post counts and per-question agreement to the mentor.
+Details: `conversations/2026-11-13-rubric-v2.md`._
+
 _2026-11-13 (`fiona/agent-ranking`), ranking in the agent loop (Fiona, task d, with Barbara).
 - **`agent_loop.py --facet-scores`:** the agent also scores 11 general facets 0/25/50/75/100 with citations from both companies; no evidence = unknown, never 0.
 - **New `v1/scripts/agent_ranking.py`:** Barbara's coverage C, observed similarity S and evidence points E (her v3.1 weights, read-only copy of her policy in `v1/scripts/policy/`); final order = agent grade, then S, then B3.
