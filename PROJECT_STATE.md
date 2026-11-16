@@ -20,6 +20,12 @@ _2026-11-13, facet-lift original-rating extension._
   run to numerical tolerance. Full presentation notebook executed.
 - Handoff: `conversations/2026-11-13-facet-uplift-rating.md`.
 
+_2026-11-15, company profile and comp examples page._
+- Added `v1/company_profiles_and_comp_examples.html`, a self-contained interactive review page with target profiles, selected comps grouped by Barbara's labels, category counts for the examples shown, and pair-level facet comparisons.
+- Source data is the existing 45-target / 293-pair agent-ranking cohort; the page displays 13 selected examples. Counts are explicitly scoped to the curated examples, not the full cohort.
+- No facet data, reviewer labels, model outputs, or ranking logic changed. No tests run; the artifact is static HTML with client-side selection controls.
+- Handoff: `conversations/2026-11-15-company-profiles-comp-examples.md`.
+
 _2026-11-13, stakeholder presentation of facet lift._
 - New `v1/notebooks/facet_uplift_stakeholder.ipynb`; original technical notebook
   preserved byte-for-byte. Same pinned experiment, no refitting or pipeline edits.
