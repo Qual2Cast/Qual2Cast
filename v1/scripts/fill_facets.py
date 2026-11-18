@@ -425,7 +425,21 @@ def review_reasons(profile: dict, business: dict) -> list[str]:
     return list(dict.fromkeys(reasons))
 
 
-def write_tables(out_dir: Path) -> None:
+def load_companies(path: str | None) -> pd.DataFrame:
+    """The saved universe, or with --companies a CSV of companies outside it
+    (IQ_COMPANY_ID, target_company_name, target_ciq_ticker, target_ciq_website),
+    e.g. the external comps in direct_peer_pairs.py. Those are never added to
+    the universe; they get the same prompt and passes, and a company with no
+    saved pages simply skips the page passes."""
+    if path:
+        companies = pd.read_csv(path, dtype=str)
+        companies["in_universe"] = True
+        return companies
+    companies, _ = build_universe()
+    return companies
+
+
+def write_tables(out_dir: Path, companies_csv: str | None = None) -> None:
     """facets.csv (one row per business, B1 the company's largest; most
     companies have one: for each facet its status, value, category (category
     facets), source and flags; needs_review and review_reasons, see
@@ -435,7 +449,7 @@ def write_tables(out_dir: Path) -> None:
     with only an older profile show as not_run. Earlier tables move to
     tables_history/<time>/."""
     paths = output_paths(out_dir)
-    companies, _ = build_universe()
+    companies = load_companies(companies_csv)
     universe = companies[companies["in_universe"]][["IQ_COMPANY_ID", "target_company_name"]]
     rows, quotes = [], []
     for path in sorted(paths.profiles.glob("*.json")):
@@ -558,16 +572,18 @@ def main() -> None:
     p.add_argument("--dry-run", action="store_true",
                    help="write the first pass's prompts, don't call the model")
     p.add_argument("--tables-only", action="store_true", help="only rebuild the CSVs")
+    p.add_argument("--companies", help="CSV of companies outside the universe (see load_companies); "
+                                       "use a separate --out")
     args = p.parse_args()
     args.model = args.model or DEFAULT_MODEL[args.backend]
 
     out_dir = Path(args.out).resolve()
     paths = output_paths(out_dir)
     if args.tables_only:
-        write_tables(out_dir)
+        write_tables(out_dir, args.companies)
         return
 
-    companies, _ = build_universe()
+    companies = load_companies(args.companies)
     companies = companies[companies["in_universe"]]
     if args.tickers:
         wanted = {t.upper() for t in args.tickers}
@@ -741,7 +757,7 @@ def main() -> None:
         print("\nStopped: the usage limit or API credit ran out, or the API key was refused "
               "(error above). Fix that and run the same command again; finished companies "
               "are skipped.")
-    write_tables(out_dir)
+    write_tables(out_dir, args.companies)
 
 
 if __name__ == "__main__":

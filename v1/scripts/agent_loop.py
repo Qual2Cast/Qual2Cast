@@ -30,7 +30,10 @@ Pairs ("high enough scores"): from a B3 candidates run (method1_candidates.py
 format). --pairs selected (default) = B3's own list (mutual top 10, topped up
 to 3); --min-similarity / --top-k narrow it further. --pairs gold = the frozen
 36 PCTY/WEN round-1 pairs, to compare with the reviewers and the one-shot Sol
-grades on exactly the same pairs.
+grades on exactly the same pairs. --pairs file --pair-file X.csv = exactly the
+pairs listed (target, comp ids; e.g. direct_peer_pairs.py), with
+--extra-companies / --extra-facets for comps outside the universe (they have no
+saved pages, so the model sees their facets and can web_search them).
 
 Nothing financial enters: no multiple, revenue, rank or similarity is shown
 to the model. Every prompt, answer and search result is saved per pair, and a
@@ -546,10 +549,18 @@ def load_info(candidates: Path) -> pd.DataFrame:
 
 def load_pairs(how: str, candidates: Path = CANDIDATES, tickers: list[str] | None = None,
                min_similarity: float | None = None, top_k: int | None = None,
-               limit: int | None = None) -> pd.DataFrame:
+               limit: int | None = None, pair_file: Path | None = None) -> pd.DataFrame:
     """target, comp, similarity, rank (similarity and rank are never shown to the model)."""
     cand = pd.read_csv(candidates / "candidates.csv", dtype={"target": str, "comp": str})
-    if how == "gold":
+    if how == "file":
+        if not pair_file:
+            raise ValueError("--pairs file needs --pair-file")
+        pairs = pd.read_csv(pair_file, dtype={"target": str, "comp": str})
+        for col in ("similarity", "rank"):
+            if col not in pairs:
+                pairs[col] = None
+        pairs = pairs[["target", "comp", "similarity", "rank"]]
+    elif how == "gold":
         pool = pd.read_csv(GOLD_POOL, dtype={"target_id": str, "comp_id": str})
         pairs = pool[["target_id", "comp_id"]].rename(columns={"target_id": "target", "comp_id": "comp"})
         ranking = pd.read_csv(candidates / "ranking.csv.gz", dtype={"target": str, "comp": str})
@@ -616,7 +627,12 @@ def facet_columns(scores: dict | None, state: PairState) -> dict:
 
 def main(argv: list[str] | None = None) -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--pairs", default="selected", choices=["selected", "top10", "gold"])
+    ap.add_argument("--pairs", default="selected", choices=["selected", "top10", "gold", "file"])
+    ap.add_argument("--pair-file", type=Path, help="with --pairs file: CSV with target, comp (IQ ids)")
+    ap.add_argument("--extra-companies", type=Path,
+                    help="CSV of companies outside the universe (IQ_COMPANY_ID, target_company_name, "
+                         "target_ciq_ticker, target_ciq_website)")
+    ap.add_argument("--extra-facets", type=Path, help="facet table for --extra-companies")
     ap.add_argument("--candidates", type=Path, default=CANDIDATES)
     ap.add_argument("--tickers", default="", help="comma-separated target tickers")
     ap.add_argument("--min-similarity", type=float)
@@ -641,8 +657,19 @@ def main(argv: list[str] | None = None) -> None:
     args = ap.parse_args(argv)
 
     tickers = [t.strip() for t in args.tickers.split(",") if t.strip()]
-    pairs = load_pairs(args.pairs, args.candidates, tickers, args.min_similarity, args.top_k, args.limit)
+    pairs = load_pairs(args.pairs, args.candidates, tickers, args.min_similarity, args.top_k, args.limit,
+                       args.pair_file)
     info, facets = load_info(args.candidates), load_facets(args.facets)
+    if args.extra_companies:
+        extra = pd.read_csv(args.extra_companies, dtype=str).set_index("IQ_COMPANY_ID")
+        if extra.index.intersection(info.index).size:
+            raise ValueError("--extra-companies repeats universe companies")
+        info = pd.concat([info, extra.reindex(columns=info.columns)])
+    if args.extra_facets:
+        facets = pd.concat([f for f in (facets, load_facets(args.extra_facets)) if f is not None])
+    missing = (set(pairs.target) | set(pairs.comp)) - set(info.index)
+    if missing:
+        raise ValueError(f"pairs name companies with no record: {sorted(missing)[:5]}")
     out = args.out or OUT / f"{stamp()}_{args.pairs}_{args.model}"
     out.mkdir(parents=True, exist_ok=True)
     config = {k: (str(v) if isinstance(v, Path) else v) for k, v in vars(args).items()}
@@ -740,7 +767,7 @@ def main(argv: list[str] | None = None) -> None:
                 for other in futures:
                     other.cancel()
                 break
-    table = pd.DataFrame(rows).sort_values(["target_ticker", "rank"])
+    table = pd.DataFrame(rows).sort_values(["target_ticker", "rank", "comp_ticker"])
     table.to_csv(out / "verdicts.csv", index=False)
     print(table["status"].value_counts().to_string())
     print(f"verdicts: {out / 'verdicts.csv'}")

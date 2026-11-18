@@ -3,6 +3,14 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
+_2026-11-17, Barbara's direct-peer pairs (Fiona, for Kethan)._
+- 90 target-comp pairs Barbara picked (45 targets x 2). 64 comps outside the universe got Sonnet facets
+  (first pass only, no saved pages); agent loop (Sonnet, --facet-scores) ran on all 90.
+- Development: `outputs-local/v1/integration/sources/sonnet_label_direct_peers_20261118T014938Z.xlsx` (359 rows).
+  Holdout: `outputs-local/v1/holdout_completion/direct_peers_20261118T014938Z/` (24 rows). Yes = 2, No blank.
+- Of Barbara's 62 Yes pairs the agent graded 47 as 2, 12 as 1, 3 insufficient evidence. No B3 scores exist for
+  these pairs. Handoff: `conversations/2026-11-17-direct-peer-pairs.md`.
+
 _2026-11-13, facet-lift original-rating extension._
 - Added `--outcome rating` to preserve human grades 0/1/2 and estimate differences
   in expected rating points, using bounded ridge response predictions. Standard
