@@ -42,5 +42,5 @@ Barbara's labels only after the model has run (Yes = 2, No = blank, never 0).
 
 ## Results (Yes rows only; No rows are not labelled negatives)
 
-Barbara Yes = 62: agent 2 on 47, 1 on 12, insufficient evidence on 3 (APG-EME, DORM-MPAA, one holdout pair).
+Barbara Yes = 62: agent 2 on 47, 1 on 12, insufficient evidence on 3 (APG-EME, DORM-MPAA, and holdout APG-LMB).
 Development 34/43 graded 2; holdout 13/19 graded 2. Holdout is for the final check only; nothing was tuned on it.
