@@ -61,3 +61,5 @@ Commit authors of these files (git): EFL-YL, mcschlatt, zynskibud.
 
 - 2026-11-18: component created; outputs seeded from v1.
 - 2026-11-18: scripts, tests and `selection.ipynb` ported; v1 numbers reproduced.
+- 2026-11-19: section 3.5 from `comps_and_valuation.ipynb` section 8 (facet AUC against the selector's verdicts,
+  top-10 lift, PCTY/WEN heatmaps) on the current B3 facet scores; F9 and the shared-"none" view stay in v1.

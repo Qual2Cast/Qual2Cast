@@ -44,3 +44,5 @@ Commit authors of these files (git): mcschlatt, EFL-YL.
 
 - 2026-11-18: component created; outputs seeded from v1.
 - 2026-11-18: scripts, tests and `judges.ipynb` ported; v1 numbers reproduced.
+- 2026-11-19: section 3.4 from `peer_evaluation.ipynb` 7.2 on the GPT-6.1 Sol judge's 293 answers, plus the
+  dimensions by Barbara's grade. The rest of `peer_evaluation.ipynb` (0-3 evaluator on v0's lists) stays in v1.

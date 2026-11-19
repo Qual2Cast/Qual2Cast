@@ -54,3 +54,8 @@ Commit authors of these files (git): EFL-YL, mcschlatt.
 
 - 2026-11-18: component created; outputs seeded from v1.
 - 2026-11-18: scripts, tests and `retrieval.ipynb` ported; v1 numbers reproduced.
+- 2026-11-19: `v1/notebooks/similarity_methods.ipynb` ported into `retrieval.ipynb` sections 3.3-3.9 on the current
+  facets (Sonnet + Fiona sub-sector): diagnostics, B0 -> B3 build-up (its B3 step equals the current list, checked),
+  BM25 charts, list sizes, golden-set charts and tables, per-reviewer check, B3 per-facet contributions (redone from
+  method 2's chart) and the build-up on dev_293. Left in v1: method 2, Sol holdout grades, valuation (08), the
+  facet-label check on Haiku texts, the round-2 sheet. Finding: on the current facets B3 lists Lamb Weston (0) for WEN.

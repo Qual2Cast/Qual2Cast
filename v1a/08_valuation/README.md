@@ -37,3 +37,5 @@ Commit authors of these files (git): EFL-YL, mcschlatt.
 
 - 2026-11-18: component created; outputs seeded from v1.
 - 2026-11-18: scripts, tests and `valuation.ipynb` ported; v1 numbers reproduced.
+- 2026-11-19: v1 section 7's measures and showcase table added for the current rules. Stay in v1: v0 routes, holdout
+  sections, company size (section 9), the 11-10 integration study (13-23). Fall-off charts went to 03, section 8 to 04.

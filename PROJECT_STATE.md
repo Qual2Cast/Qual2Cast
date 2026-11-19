@@ -3,6 +3,35 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
+_2026-11-19 (later), v1a: teammates' graphs and tables back in the component notebooks (Michael)._
+- Rule (Michael): keep each person's graph/table code close to the original, adapt only to the current facet data,
+  results inline in the notebooks; deprecated parts stay in v1. Plots in v1a notebooks: 5 -> 36; no warnings in any
+  notebook; v1a tests 267 pass. No model calls.
+- 03: `similarity_methods.ipynb` (diagnostics, B0 -> B3 build-up whose last step equals the current list, BM25 charts,
+  golden-set charts, per-reviewer check, B3 per-facet contributions, build-up on dev_293) and the showcase fall-off
+  charts (mutual top-10 marks instead of z cut-offs). Finding: on the current facets B3 lists Lamb Weston (0) for WEN.
+- 04: facet AUC/lift/heatmaps against the current selector (combined B3 AUC 0.90; customers and end markets separate
+  its keeps weakly). 05 and 07: outcome and business-fit charts (judge stricter on offerings than the agent).
+  08: v1 step-7 measures and showcase table (WEN selector keeps only BROS: +176%). 01/02: universe and profile tables.
+  09: Kethan's stakeholder notebook in place of a separate figure script.
+- Left in v1 (deprecated or out of scope): method 2, Sol holdout grades, v0 routes, holdout sections, company size,
+  the 11-10 integration study, Haiku fill history, business-split evaluations, the 0-3 evaluator.
+
+_2026-11-19 (later), v1a 09: X-learner as an ablation, with figures (Michael)._
+- Stage ablation added to `facet_uplift.py` (`agent_grade`: the agent's 0/1/2 grade as treatment, adjusted for the
+  12 B3 signals). On `dev_293`: agent grade +49.9 pp (45.2-54.3; DR +48.3) beyond B3; selector keep +4.0 pp
+  (0.1-7.6; DR -9.7, fragile). `human_peer`/`human_rating` re-pinned (other rows identical). 14/14 notebook checks
+  and all v1a tests (263) pass. No model calls.
+- Figures and tables live in `v1a/09_analysis/analysis.ipynb` section 3: Kethan's stakeholder notebook ported cell
+  by cell (only run paths, the 12th B3 signal and typed counts changed), plus Method C (selector keep) and the stage
+  ablation drawn with his functions. PNG copies: `facet_uplift/20261119T031040215833Z/presentation/<stamp>/`.
+- Rule for v1a (Michael): keep teammates' graph/table code as close to the original as possible; results live in
+  the notebooks. Audit: the port dropped most v1 plots (03 retrieval 8 -> 1, 08 valuation 23 -> 0, 02 profiles
+  4 -> 0, 07 judges 2 -> 0); 09 is fixed, the others are next.
+- Findings page since v0 (private artifact): https://claude.ai/artifact/Qzu78vEfeptoNdvWthtrXp.
+- Next: a selector prompt that weighs services/customers/end markets, checked with the selector-outcome facet
+  ablation. Handoff: `conversations/2026-11-19-xlearner-ablation-figures.md`.
+
 _2026-11-19, v1a: all components ported (Michael, for Kethan). Not committed; waits for Michael's review._
 - Start at `v1a/00_overview.ipynb`. 05-10, Kethan's runner (`v1a/pipeline/`) and the overview are in; all 12
   notebooks run with their checks passing; v1a tests 226 pass. No model calls.
