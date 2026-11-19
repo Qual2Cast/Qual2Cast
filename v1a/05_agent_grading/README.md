@@ -36,7 +36,12 @@ Commit authors of these files (git): Fiona Shao, Riya Mhatre, EFL-YL.
 
 - Current run `ranking_45targets_sonnet` (Sonnet agent, prompt `2026-11-05b`, facet scores): the 293 dev pairs.
   The saved ranking and its evaluation rebuild exactly.
-- **Pending Michael's review:** Barbara's scoring standard and the C/S/E ranking built on it.
+- **Reviewed (Michael, 2026-11-19), see [GRADING_REVIEW.md](GRADING_REVIEW.md):** the 0/1/2 grade stays as
+  the any-peer filter (grade ≥ 1: precision 91.8%, recall 83.2%, kappa 0.63 vs Barbara; the selector keeps
+  32.7% of her peers and acts as a direct-peer filter). C/S/E and `final_rank` / `e_rank` are not used
+  downstream until the ranking is reworked; no 0/25/50/75/100 facet scale in new work.
+- `scripts/filter_comparison.py`: agent grade vs selector vs B3 against Barbara and Matthew (rubric v2), Cohen's
+  kappa between raters, peer rate by B3 rank. Saved runs only, no model calls.
 - Valuation of these lists moved to `08_valuation/scripts/agent_valuation.py` (this component never reads EV/EBITDA).
 - `direct_peer_pairs.py` prepares and assembles Barbara's direct-peer pairs; its 11-18 `standardize` step is now
   `10_final_holdout/scripts/final_check.py direct-peers`.
@@ -46,5 +51,7 @@ Commit authors of these files (git): Fiona Shao, Riya Mhatre, EFL-YL.
 
 - 2026-11-18: component created; outputs seeded from v1.
 - 2026-11-18: scripts, tests and `agent_grading.ipynb` ported; v1 numbers reproduced.
+- 2026-11-19: review of the grade and Barbara's C/S/E ranking (`GRADING_REVIEW.md`); new
+  `filter_comparison.py` + test; run `filter_comparison/20261119T033731Z`.
 - 2026-11-19: section 3.4 from `peer_evaluation.ipynb` 7.2 (outcome counts, fit dimensions) on the agent's verdicts,
   0-2 rubric, plus the dimensions by Barbara's grade.

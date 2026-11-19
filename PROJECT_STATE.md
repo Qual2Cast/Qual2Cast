@@ -3,6 +3,18 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
+_2026-11-19 (latest), agent grading reviewed (Michael). `v1a/05_agent_grading/GRADING_REVIEW.md`._
+- Agent grade ≥ 1 is the any-peer filter: vs Barbara's 293 pairs precision 91.8%, recall 83.2%, kappa 0.63;
+  the selector keeps 32.7% of her peers (precision 95.7%) and behaves as a direct-peer filter (keeps all 24 of
+  her 2s; kappa 0.77 vs Matthew's 2s). Barbara vs Matthew (rubric v2) agree at kappa 0.19.
+- Barbara's C/S/E ranking: not used downstream until reworked (S restates the grade from the same answer; +0.6
+  points over grade-then-B3, interval −5.3 to +5.9; her 80% coverage rule met by 27/293 pairs). No
+  0/25/50/75/100 facet scale in new work; facet judgments go yes/no (rubric v2).
+- With the agent filter, a list cap at 7 mostly removes peers (15 of 18 kept at ranks 8-10); it only saves calls.
+- New `filter_comparison.py` (no model calls), run `outputs-local/v1a/05_agent_grading/filter_comparison/
+  20261119T033731Z/`; 05 tests 26 pass. Next: second reviewer on rubric v2, agent asks the four questions,
+  rework the ranking on split labelled targets. Handoff: `conversations/2026-11-19-agent-grading-review.md`.
+
 _2026-11-19 (later), v1a: teammates' graphs and tables back in the component notebooks (Michael)._
 - Rule (Michael): keep each person's graph/table code close to the original, adapt only to the current facet data,
   results inline in the notebooks; deprecated parts stay in v1. Plots in v1a notebooks: 5 -> 36; no warnings in any
