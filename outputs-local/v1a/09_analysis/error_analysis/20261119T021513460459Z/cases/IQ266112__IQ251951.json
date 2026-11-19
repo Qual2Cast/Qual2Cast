@@ -1,0 +1,963 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ266112__IQ251951",
+    "target": "IQ266112",
+    "comp": "IQ251951",
+    "target_ticker": "DE",
+    "comp_ticker": "ASTE",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ266112__IQ251951",
+        "target": "IQ266112",
+        "comp": "IQ251951",
+        "target_ticker": "DE",
+        "comp_ticker": "ASTE",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ266112",
+          "comp": "IQ251951",
+          "method": "B3",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "DE",
+          "comp_ticker": "ASTE"
+        },
+        {
+          "target": "IQ266112",
+          "comp": "IQ251951",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "DE",
+          "comp_ticker": "ASTE"
+        },
+        {
+          "target": "IQ266112",
+          "comp": "IQ251951",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "DE",
+          "comp_ticker": "ASTE"
+        },
+        {
+          "target": "IQ266112",
+          "comp": "IQ251951",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "DE",
+          "comp_ticker": "ASTE"
+        },
+        {
+          "target": "IQ266112",
+          "comp": "IQ251951",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "DE",
+          "comp_ticker": "ASTE"
+        },
+        {
+          "target": "IQ266112",
+          "comp": "IQ251951",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "DE",
+          "comp_ticker": "ASTE"
+        },
+        {
+          "target": "IQ266112",
+          "comp": "IQ251951",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 2.0,
+          "reason": "Asphalt, aggregate and mining plants for road builders differ from Deere's farm and earthmoving machines, despite the contractor customers.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "DE",
+          "comp_ticker": "ASTE"
+        },
+        {
+          "target": "IQ266112",
+          "comp": "IQ251951",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Builds mobile and stationary heavy machinery sold through dealers to contractors, aggregate producers and mining customers, similar to Deere's construction equipment.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "DE",
+          "comp_ticker": "ASTE"
+        },
+        {
+          "target": "IQ266112",
+          "comp": "IQ251951",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Heavy construction and aggregate equipment OEM sold through dealers, with aftermarket parts; overlaps Deere's construction business, though lacks agriculture.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "DE",
+          "comp_ticker": "ASTE"
+        },
+        {
+          "target": "IQ266112",
+          "comp": "IQ251951",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Designs and manufactures heavy construction and aggregate equipment sold to contractors through dealers, with aftermarket parts and service.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "DE",
+          "comp_ticker": "ASTE"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and manufactures tractors, combines, planters, construction machines and forestry equipment, plus precision farming technology, for farmers, contractors and forestry operators. Sold mainly through independent dealers, with financing and leasing offered through its captive finance arm, and it also sells turf equipment to homeowners and landscapers.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "tractors; combines and harvesters; planting and tillage equipment; construction machinery; forestry equipment",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "equipment financing and leasing; repair and maintenance; precision agriculture software and data services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: farmers, ranchers, construction contractors, forestry operators, landscaping businesses; B2C: homeowners buying lawn and garden tractors and mowers; B2G: municipalities and government agencies buying construction and turf equipment",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "agriculture; construction; forestry; turf and landscaping",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: equipment, attachments and replacement parts sold through dealers and retailers; subscription: precision agriculture technology and software subscriptions; service fees: repair, maintenance and technology support services; interest or premiums: interest on equipment financing and premiums on insurance products; rental or leasing: equipment leases offered through its financial services arm",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: designs and builds machines in its own plants, sold to dealers and end users; software / platform: farm management and precision guidance systems sold to growers and fleet owners; financial intermediary: finances equipment purchases for farmers, contractors and dealers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: North America, South America, Europe, Asia-Pacific, Africa and other regions worldwide",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "among the largest",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "diversified: agricultural equipment, construction equipment, forestry equipment, turf equipment and financial services",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "distributors / dealers: independent dealers selling and servicing equipment for farm and construction customers; third-party retail: home improvement and outdoor retailers selling lawn and garden equipment; online: online parts ordering and equipment sales information for customers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: emissions, product safety and transport rules, plus financial services lending regulations",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and manufactures agricultural machinery, construction and forestry equipment, and turf and compact utility equipment. Sells mainly through independent dealers to farmers, contractors and consumers, and offers precision technology and financing.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "agricultural tractors and combines; construction and forestry equipment; compact utility tractors and turf mowers; precision agriculture technology; replacement parts",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "equipment financing; precision technology and fleet data subscriptions; equipment leasing and insurance",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: farmers, agricultural producers, construction contractors, forestry operators, landscapers; B2C: homeowners and rural landowners buying compact tractors and mowers; B2G: municipalities and public works agencies buying construction and turf equipment",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "agriculture; construction; forestry; turf care and landscaping; infrastructure",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: new equipment and parts sold to dealers and customers; interest or premiums: financing interest on retail and wholesale equipment loans and leases; subscription: precision agriculture and connectivity software services",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: builds machinery from purchased steel, components and engines, sold via dealers to farmers and contractors; financial intermediary: captive finance arm lending to dealers and customers; brand owner: owns the equipment brand and technology platforms",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: North America, South America, Europe, Asia, Africa and Australia",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "among the largest",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: agricultural, construction and forestry, turf equipment, plus captive financing",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "distributors / dealers: independent dealer network selling equipment and parts; direct sales: large-account and some government sales; online: online parts ordering and some consumer products; third-party retail: home improvement retailers selling some residential turf products",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: engine emissions rules (EPA, EU), equipment safety standards, trade rules, and financial services regulation for its finance arm",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ266112.json",
+      "data": {
+        "company_name": "Deere & Company",
+        "website": "www.deere.com/en",
+        "scrape_status": "ok",
+        "capture_sha256": "f51306e13bd93e6bd1b766edfebef5368788d0a8f5a6a0de051d8f58f4d5c0df",
+        "lines": {
+          "P1.1": {
+            "text": "Home | John Deere US",
+            "url": "https://www.deere.com/en-us/",
+            "fetched_at": "2026-10-17T19:26:10Z"
+          },
+          "P1.2": {
+            "text": "Explore agricultural, construction, forestry machinery, technology, services and more. Find a John Deere dealer in your area or purchase online.",
+            "url": "https://www.deere.com/en-us/",
+            "fetched_at": "2026-10-17T19:26:10Z"
+          },
+          "P1.3": {
+            "text": "The New XL Air Carts from John Deere!",
+            "url": "https://www.deere.com/en-us/",
+            "fetched_at": "2026-10-17T19:26:10Z"
+          },
+          "P1.4": {
+            "text": "Build Your Best Lineup Yet",
+            "url": "https://www.deere.com/en-us/",
+            "fetched_at": "2026-10-17T19:26:10Z"
+          },
+          "P1.5": {
+            "text": "Time to stack the deck in your favor. And with no interest for 60 months 1 on in-stock inventory, now's the perfect chance to add to your team.",
+            "url": "https://www.deere.com/en-us/",
+            "fetched_at": "2026-10-17T19:26:10Z"
+          },
+          "P1.6": {
+            "text": "Gear Up for the Season",
+            "url": "https://www.deere.com/en-us/",
+            "fetched_at": "2026-10-17T19:26:10Z"
+          },
+          "P1.7": {
+            "text": "And 0% APR for 60 months. 3 Offer ends November 1.",
+            "url": "https://www.deere.com/en-us/",
+            "fetched_at": "2026-10-17T19:26:10Z"
+          },
+          "P1.8": {
+            "text": "Your Farm. Your Data. Your Call.",
+            "url": "https://www.deere.com/en-us/",
+            "fetched_at": "2026-10-17T19:26:10Z"
+          },
+          "P1.9": {
+            "text": "At John Deere, we believe your data should work for you. You stay in control, we stay transparent, and together we turn your data into better decisions and better outcomes for your operation.",
+            "url": "https://www.deere.com/en-us/",
+            "fetched_at": "2026-10-17T19:26:10Z"
+          },
+          "P1.10": {
+            "text": "Subject to approved installment credit with John Deere Financial, for commercial use only. Down payment may be required. Average down payment is 10%. 0% APR for 60 months only. Taxes, freight, setup, insurance, fees, and delivery charges could increase monthly payment. Available at participating U.S. dealers. Prices and models may vary by dealer. Offer not available to customers receiving Governmental or Strategic Account discounts.",
+            "url": "https://www.deere.com/en-us/",
+            "fetched_at": "2026-10-17T19:26:10Z"
+          },
+          "P1.11": {
+            "text": "Prices and models may vary by dealer. This offer can be combined with current promotional finance incentives. Other restrictions may apply. See participating dealer for details and other financing options. Offer is available only at participating U.S. dealers.",
+            "url": "https://www.deere.com/en-us/",
+            "fetched_at": "2026-10-17T19:26:10Z"
+          },
+          "P1.12": {
+            "text": "Subject to approved installment credit with John Deere Financial. Down payment may be required. Average down payment is 10%. 0% APR for 60 months available based on dealer participation. Taxes, freight, setup, insurance, fees, and delivery charges could increase monthly payment. Available at participating U.S. dealers. Prices and models may vary by dealer. Offer available on new equipment and in the U.S. only.",
+            "url": "https://www.deere.com/en-us/",
+            "fetched_at": "2026-10-17T19:26:10Z"
+          },
+          "P1.13": {
+            "text": "Images of equipment models may be digitally or AI generated, are for illustration purposes only, and are subject to change. Equipment models shown are typically base models and may not reflect all features, options, or attachments. Equipment availability may be limited. See your John Deere dealer for additional information. See your dealer for available models, options, attachments, and pricing. Product options and accessories may not be available in all regions. Equipment, models, features, options, attachments, and prices may vary by dealer.",
+            "url": "https://www.deere.com/en-us/",
+            "fetched_at": "2026-10-17T19:26:10Z"
+          },
+          "P2.1": {
+            "text": "Digital Tools | John Deere US",
+            "url": "https://www.deere.com/en-us/products-solutions/technology-solutions/digital-tools",
+            "fetched_at": "2026-10-17T19:26:14Z"
+          },
+          "P2.2": {
+            "text": "John Deere’s digital suite of tools provides accessibility to your equipment data in one place—whenever you need it, wherever you are.",
+            "url": "https://www.deere.com/en-us/products-solutions/technology-solutions/digital-tools",
+            "fetched_at": "2026-10-17T19:26:14Z"
+          },
+          "P2.3": {
+            "text": "Where plans become progress. Understand what happened, why it happened, and what to do next. Sign in or create an Operations Center account to get started.",
+            "url": "https://www.deere.com/en-us/products-solutions/technology-solutions/digital-tools",
+            "fetched_at": "2026-10-17T19:26:14Z"
+          },
+          "P2.4": {
+            "text": "Operations Center App Store Download Operations Center Google Play Download",
+            "url": "https://www.deere.com/en-us/products-solutions/technology-solutions/digital-tools",
+            "fetched_at": "2026-10-17T19:26:14Z"
+          },
+          "P2.5": {
+            "text": "Manage your John Deere Financial Accounts anytime, from anywhere.",
+            "url": "https://www.deere.com/en-us/products-solutions/technology-solutions/digital-tools",
+            "fetched_at": "2026-10-17T19:26:14Z"
+          },
+          "P2.6": {
+            "text": "MyFinancial App Store Download MyFinancial Google Play Download",
+            "url": "https://www.deere.com/en-us/products-solutions/technology-solutions/digital-tools",
+            "fetched_at": "2026-10-17T19:26:14Z"
+          },
+          "P2.7": {
+            "text": "Setup, operate and maintain your equipment all from the palm of your hand with this management app.",
+            "url": "https://www.deere.com/en-us/products-solutions/technology-solutions/digital-tools",
+            "fetched_at": "2026-10-17T19:26:14Z"
+          },
+          "P2.8": {
+            "text": "Equipment Mobile App Store Download Equipment Mobile Google Play Download",
+            "url": "https://www.deere.com/en-us/products-solutions/technology-solutions/digital-tools",
+            "fetched_at": "2026-10-17T19:26:14Z"
+          },
+          "P2.9": {
+            "text": "Display & Command Arm Simulator",
+            "url": "https://www.deere.com/en-us/products-solutions/technology-solutions/digital-tools",
+            "fetched_at": "2026-10-17T19:26:14Z"
+          },
+          "P2.10": {
+            "text": "Product Activation & Management (StellarSupport)",
+            "url": "https://www.deere.com/en-us/products-solutions/technology-solutions/digital-tools",
+            "fetched_at": "2026-10-17T19:26:14Z"
+          },
+          "P3.1": {
+            "text": "Visit John Deere | John Deere US",
+            "url": "https://www.deere.com/en-us/our-company/explore-john-deere/visit-us",
+            "fetched_at": "2026-10-17T19:26:18Z"
+          },
+          "P3.2": {
+            "text": "John Deere's attractions in Illinois and Iowa offer tractor, combine and construction experiences, plus educational opportunities for all ages to enjoy.",
+            "url": "https://www.deere.com/en-us/our-company/explore-john-deere/visit-us",
+            "fetched_at": "2026-10-17T19:26:18Z"
+          },
+          "P3.3": {
+            "text": "See How We Live Up to the Legend",
+            "url": "https://www.deere.com/en-us/our-company/explore-john-deere/visit-us",
+            "fetched_at": "2026-10-17T19:26:18Z"
+          },
+          "P3.4": {
+            "text": "For nearly two centuries, we’ve partnered with those who work the land and shape the earth. Celebrate the incredible heritage and exciting future we're creating together by visiting one of our John Deere properties. Experience one of our exciting attractions that offer convenient hours and FREE admission. Brand fans can also shop for merchandise and find activities for kids below.",
+            "url": "https://www.deere.com/en-us/our-company/explore-john-deere/visit-us",
+            "fetched_at": "2026-10-17T19:26:18Z"
+          },
+          "P3.5": {
+            "text": "See why this attraction tops the list for many tourists to the Quad Cities and state of Illinois. The Pavilion",
+            "url": "https://www.deere.com/en-us/our-company/explore-john-deere/visit-us",
+            "fetched_at": "2026-10-17T19:26:18Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and manufactures asphalt plants, aggregate processing equipment, mobile crushing and screening machines, underground boring equipment and energy systems. Sells mainly to road builders, asphalt and aggregate producers, and mining and energy companies, through direct sales and dealers worldwide.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "asphalt plants; aggregate processing equipment; mobile crushing and screening equipment; horizontal directional drills; thermal fluid heaters",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "aftermarket parts supply; equipment repair and maintenance; installation and commissioning",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: road contractors, asphalt producers, aggregate quarry operators, mining companies, energy developers",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "road and infrastructure construction; aggregates and mining; energy and biomass; utilities",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: plants and machines sold to contractors and producers; service fees: replacement parts, repairs and field service",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: builds plants and machines from purchased components, sold to contractors and producers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: Sells in the United States, Canada, Europe, Australia, Africa, South America and Asia through subsidiaries and dealers",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: asphalt, aggregate, mining and energy equipment sharing road and quarry customers",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales engineers selling to large contractors and producers; distributors / dealers: independent equipment dealers in many countries",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: emissions, machine safety and export control rules for equipment sales",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and manufactures equipment for road building, aggregate crushing and screening, asphalt plants, and related infrastructure work, plus specialty equipment such as horizontal directional drills and wood processing machines. Sells mainly to contractors, quarry and mining operators and government agencies through dealers and direct sales. Also supplies replacement parts.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "asphalt plants; aggregate crushing and screening equipment; pavers and road-building machines; horizontal directional drills; wood chippers and grinders; replacement parts",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: road contractors, quarries, aggregate producers, mining operators, utility and tree-care contractors; B2G: government agencies and municipalities buying road maintenance and infrastructure equipment",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "road construction; infrastructure; aggregates and mining; utilities; forestry and biomass",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: new equipment sold to contractors and producers, plus replacement parts",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: builds heavy equipment from purchased steel and components, sold to contractors, producers and dealers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: North America primarily, plus Europe, Latin America, Middle East, Africa, Asia and Australia",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: infrastructure equipment: asphalt, aggregate processing, road building, underground drilling and wood processing",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "distributors / dealers: independent dealer network for equipment and parts; direct sales: sales to large contractors, quarry operators and government customers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: equipment emissions and safety standards such as EPA engine rules and OSHA, trade and tariff rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ251951.json",
+      "data": {
+        "company_name": "Astec Industries, Inc.",
+        "website": "www.astecindustries.com",
+        "scrape_status": "ok",
+        "capture_sha256": "03059ffb932f5532b9001ef0d6cf4c60fcaf2944193f6160d8e473b00a76f2f6",
+        "lines": {
+          "P1.1": {
+            "text": "ASTEC | Aggregates, Asphalt, Concrete & Road Equipment",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.2": {
+            "text": "Equipment for aggregates processing, asphalt and concrete production, road construction, industrial heating and forestry applications.",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.3": {
+            "text": "We provide the equipment, expertise, and innovation you need to stay ahead and succeed in a competitive world.",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.4": {
+            "text": "Effective Training is Key to Your Success",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.5": {
+            "text": "Innovative Solutions for Your Project",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.6": {
+            "text": "Your Industry. Our Solutions. Explore Now.",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.7": {
+            "text": "Unmatched Strength from Rock to Road ®",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.8": {
+            "text": "At Astec, we design and build the infrastructure that connects the world, but it’s the connections with people that truly move us forward. Born from innovation and a passion for customer success, we unite as one company to simplify how you do business with us and to strengthen partnerships across the industries we serve. From concept to completion, our solutions are engineered to perform reliably today and be ready for whatever tomorrow brings.",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.9": {
+            "text": "Astec brings together 16 trusted brands, each with deep industry expertise, to deliver comprehensive solutions across the infrastructure, construction, and materials sectors.",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.10": {
+            "text": "Astec operates in multiple countries worldwide, providing global reach with local support to deliver consistent, high-quality solutions wherever customers do business.",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.11": {
+            "text": "Screening Innovation: The Path to Operational Excellence with Astec",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.12": {
+            "text": "By partnering with Astec and implementing the new Vari- F requency screen, Perkins Cinders unlocked a major throughput increase in its cinder production.",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.13": {
+            "text": "From Screws to Screed, Astec Equipment Delivers at Every Level",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.14": {
+            "text": "Case Study | Road Construction",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.15": {
+            "text": "Herrmann Equipment isn’t afraid to get into the weeds to find the best equipment for customers. That’s how they found some of their top sellers.",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.16": {
+            "text": "Moving Infrastructure Forward in Ghana",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.17": {
+            "text": "Case Study | Asphalt Plants",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.18": {
+            "text": "IntelliPac: Precision Moisture, Proven Efficiency",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.19": {
+            "text": "How Dunn Construction Boosted Quality with the Astec IntelliPac System.",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.20": {
+            "text": "The Astec milling team knew just how to give the new team at the NCAT Pavement Test Track exactly what they wanted.",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.21": {
+            "text": "Beyond Your Average Monitoring Tool",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.22": {
+            "text": "How the new Astec IntelliPac ™ Moisture System is a catalyst for significant cost savings.",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.23": {
+            "text": "Any Part. Any Time. Anywhere.",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.24": {
+            "text": "With over 1 million square feet of parts storage, Astec ensures the parts you need are always on hand—backed by expert support available 24/7.",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.25": {
+            "text": "Find authorized dealers and distributors near you to ensure access to genuine Astec products, expert guidance, and dependable support.",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.26": {
+            "text": "Downtime directly impacts your bottom line, and our expert service team delivers fast, accurate support to keep your operation running smoothly and at peak efficiency.",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.27": {
+            "text": "Training to Help You Succeed",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.28": {
+            "text": "With expert-led, year-round training, Astec confidently empowers your team to boost performance, reduce downtime, and maximize equipment value.",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.29": {
+            "text": "Astec Industries is a globally trusted leader in infrastructure, aggregates, and mining equipment—offering over 100 innovative, state‑of‑the‑art solutions built on decades of engineering excellence. With a relentless focus on operational excellence, aftermarket strength, and strategic growth, Astec equips customers worldwide to build better and operate more profitably.",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.30": {
+            "text": "ASTE Price Today by TradingView",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.31": {
+            "text": "*15 minute delay. Refresh page for updates.",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P1.32": {
+            "text": "Fast answers. Real support. Always ready to help.",
+            "url": "https://astecindustries.com/",
+            "fetched_at": "2026-10-17T21:57:14Z"
+          },
+          "P2.1": {
+            "text": "About Us - ASTEC",
+            "url": "https://astecindustries.com/about/",
+            "fetched_at": "2026-10-17T21:57:19Z"
+          },
+          "P2.2": {
+            "text": "Our Purpose. Our Story. Driven by a legacy of innovation, Astec works behind the scenes, transforming challenges into progress and helping build the infrastructure that physically connects the world. But our commitment extends far beyond the...",
+            "url": "https://astecindustries.com/about/",
+            "fetched_at": "2026-10-17T21:57:19Z"
+          },
+          "P2.3": {
+            "text": "Our Vision: To build industry changing solutions that create life-changing opportunities",
+            "url": "https://astecindustries.com/about/",
+            "fetched_at": "2026-10-17T21:57:19Z"
+          },
+          "P2.4": {
+            "text": "Driven by a legacy of innovation, Astec works behind the scenes, transforming challenges into progress and helping build the infrastructure that physically connects the world. But our commitment extends far beyond the equipment we manufacture; it lives in the expertise we share, the partnerships we foster, and the solutions we deliver. At Astec, we are Built to Connect.",
+            "url": "https://astecindustries.com/about/",
+            "fetched_at": "2026-10-17T21:57:19Z"
+          },
+          "P2.5": {
+            "text": "OUR BUSINESS LANDSCAPE AND MARKET PHILOSOPHY",
+            "url": "https://astecindustries.com/about/",
+            "fetched_at": "2026-10-17T21:57:19Z"
+          },
+          "P2.6": {
+            "text": "At",
+            "url": "https://astecindustries.com/about/",
+            "fetched_at": "2026-10-17T21:57:19Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

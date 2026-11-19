@@ -1,0 +1,908 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ302863__IQ374372246",
+    "target": "IQ302863",
+    "comp": "IQ374372246",
+    "target_ticker": "SENE.A",
+    "comp_ticker": "LW",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ302863__IQ374372246",
+        "target": "IQ302863",
+        "comp": "IQ374372246",
+        "target_ticker": "SENE.A",
+        "comp_ticker": "LW",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ302863",
+          "comp": "IQ374372246",
+          "method": "B3",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SENE.A",
+          "comp_ticker": "LW"
+        },
+        {
+          "target": "IQ302863",
+          "comp": "IQ374372246",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SENE.A",
+          "comp_ticker": "LW"
+        },
+        {
+          "target": "IQ302863",
+          "comp": "IQ374372246",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SENE.A",
+          "comp_ticker": "LW"
+        },
+        {
+          "target": "IQ302863",
+          "comp": "IQ374372246",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SENE.A",
+          "comp_ticker": "LW"
+        },
+        {
+          "target": "IQ302863",
+          "comp": "IQ374372246",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SENE.A",
+          "comp_ticker": "LW"
+        },
+        {
+          "target": "IQ302863",
+          "comp": "IQ374372246",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SENE.A",
+          "comp_ticker": "LW"
+        },
+        {
+          "target": "IQ302863",
+          "comp": "IQ374372246",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 4.0,
+          "reason": "Frozen potato specialist mainly serving quick-service restaurant chains, unlike Seneca's mixed vegetable, fruit and snack lines.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SENE.A",
+          "comp_ticker": "LW"
+        },
+        {
+          "target": "IQ302863",
+          "comp": "IQ374372246",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Processes frozen potato vegetable products for retail grocery and foodservice buyers, a frozen vegetable processing business.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SENE.A",
+          "comp_ticker": "LW"
+        },
+        {
+          "target": "IQ302863",
+          "comp": "IQ374372246",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Frozen potato processor selling to grocers and foodservice; similar farm-crop processing, though more restaurant-focused and global.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SENE.A",
+          "comp_ticker": "LW"
+        },
+        {
+          "target": "IQ302863",
+          "comp": "IQ374372246",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Frozen potato products made in own plants and sold to foodservice and retail grocery customers.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SENE.A",
+          "comp_ticker": "LW"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Processes and packages canned and frozen vegetables, canned fruit and snack foods under its own brands and private labels. Sells mainly to grocery retailers, food distributors and food service customers, and also to other food companies.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "canned vegetables; frozen vegetables; canned fruit; private label foods; snack foods",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: grocery chains, wholesalers, food service operators, private label retail customers",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "grocery retail; food service; consumer packaged foods",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: packaged vegetables, fruit and snack foods sold to retailers and distributors",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: processes and packs vegetables and fruit from farm-grown crops, sold to retailers and food companies; brand owner: sells its own brands and licensed brands to grocery retailers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: sells across the United States, with some exports",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "among the largest",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: canned and frozen vegetables, canned fruit and snack foods, sold to overlapping grocery and food service customers",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales teams selling to national grocery chains and food service accounts; distributors / dealers: food distributors that resell to regional grocers and restaurants; agents / brokers: food brokers that sell to retail and wholesale buyers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: food safety and labeling rules from the FDA and USDA, including FSMA food safety requirements",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Grows, processes and packages canned, frozen and packaged fruits and vegetables. Sells to retailers, foodservice, food manufacturers, the US government and consumers, under its own brands, private labels and contract packing.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "canned vegetables; canned fruit; frozen vegetables; fruit snacks and chip products; private label packaged foods",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "contract packing",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: supermarket chains (private label), foodservice distributors, food manufacturers, mass merchants; B2G: US Department of Agriculture and school nutrition programs; B2C: consumers buying branded products via retail",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "grocery retail; foodservice; school nutrition; food manufacturing; export",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: canned and frozen fruits and vegetables, snacks sold to retailers, foodservice, government; service fees: contract packing for other food brands",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: processes crops from growers and company farms into packaged foods sold to retailers and foodservice; brand owner: owns regional and licensed consumer food brands sold through grocery retail",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: Primarily US nationwide, with export sales to international customers",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: canned vegetables, canned fruit, frozen vegetables and snack products",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: retail chains, food manufacturers, foodservice and government buyers; agents / brokers: food brokers representing retail and foodservice accounts; distributors / dealers: foodservice distributors",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: food safety rules under FDA and USDA, plus environmental and wastewater regulations",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ302863.json",
+      "data": {
+        "company_name": "Seneca Foods Corporation",
+        "website": "www.senecafoods.com",
+        "scrape_status": "ok",
+        "capture_sha256": "519b105b5051803319fd660789b7a85617e3bfa47c2a9fe9f9f6c9431807bcf6",
+        "lines": {
+          "P1.1": {
+            "text": "Seneca Foods - Farm Fresh Goodness Made Great",
+            "url": "https://www.senecafoods.com/",
+            "fetched_at": "2026-10-17T20:09:02Z"
+          },
+          "P1.2": {
+            "text": "Seneca Foods is one of the largest processors of fruits and vegetables in the US, providing a wide range of healthy and nutritious products for retail, foodservice, international and industrial markets.",
+            "url": "https://www.senecafoods.com/",
+            "fetched_at": "2026-10-17T20:09:02Z"
+          },
+          "P1.3": {
+            "text": "Just as we have one foot in agriculture, the other foot is on the plant floor",
+            "url": "https://www.senecafoods.com/",
+            "fetched_at": "2026-10-17T20:09:02Z"
+          },
+          "P1.4": {
+            "text": "View and download educational resources about nutrition and health",
+            "url": "https://www.senecafoods.com/",
+            "fetched_at": "2026-10-17T20:09:02Z"
+          },
+          "P1.5": {
+            "text": "Explore Seneca's environmental commitment to optimizing and reducing our use of resources",
+            "url": "https://www.senecafoods.com/",
+            "fetched_at": "2026-10-17T20:09:02Z"
+          },
+          "P1.6": {
+            "text": "Read profiles about the passionate people behind our products",
+            "url": "https://www.senecafoods.com/",
+            "fetched_at": "2026-10-17T20:09:02Z"
+          },
+          "P1.7": {
+            "text": "Farm Fresh Goodness Made Great",
+            "url": "https://www.senecafoods.com/",
+            "fetched_at": "2026-10-17T20:09:02Z"
+          },
+          "P1.8": {
+            "text": "At Seneca, we produce seeds, harvest crops, manufacture our own containers, and provide a wide range of nutritious fruit and vegetable products.",
+            "url": "https://www.senecafoods.com/",
+            "fetched_at": "2026-10-17T20:09:02Z"
+          },
+          "P1.9": {
+            "text": "Business Responsibility and Sustainability Report",
+            "url": "https://www.senecafoods.com/",
+            "fetched_at": "2026-10-17T20:09:02Z"
+          },
+          "P1.10": {
+            "text": "View our latest company news such as product announcements, acquisitions and more",
+            "url": "https://www.senecafoods.com/",
+            "fetched_at": "2026-10-17T20:09:02Z"
+          },
+          "P1.11": {
+            "text": "Find a Job Where You Can Thrive",
+            "url": "https://www.senecafoods.com/",
+            "fetched_at": "2026-10-17T20:09:02Z"
+          },
+          "P1.12": {
+            "text": "We have partnerships with over 1,600 farms and orchards.",
+            "url": "https://www.senecafoods.com/",
+            "fetched_at": "2026-10-17T20:09:02Z"
+          },
+          "P1.13": {
+            "text": "Learn how we meet the highest standards of safety through seven major quality systems",
+            "url": "https://www.senecafoods.com/",
+            "fetched_at": "2026-10-17T20:09:02Z"
+          },
+          "P1.14": {
+            "text": "We pack our sweet peas fresh from the field so you can count on consistent quality, color, and flavor.",
+            "url": "https://www.senecafoods.com/",
+            "fetched_at": "2026-10-17T20:09:02Z"
+          },
+          "P1.15": {
+            "text": "Our Cherries are picked at their peak to provide a sweet addition to pies, desserts, drinks, salads, pastries, and more.",
+            "url": "https://www.senecafoods.com/",
+            "fetched_at": "2026-10-17T20:09:02Z"
+          },
+          "P1.16": {
+            "text": "Cannellini Beans are great in soups, salads, stews, and side dishes.",
+            "url": "https://www.senecafoods.com/",
+            "fetched_at": "2026-10-17T20:09:02Z"
+          },
+          "P1.17": {
+            "text": "Seneca is a vertically-integrated food company with a can-do attitude",
+            "url": "https://www.senecafoods.com/",
+            "fetched_at": "2026-10-17T20:09:02Z"
+          },
+          "P2.1": {
+            "text": "Who We Are | Seneca Foods",
+            "url": "https://www.senecafoods.com/who-we-are",
+            "fetched_at": "2026-10-17T20:09:03Z"
+          },
+          "P2.2": {
+            "text": "With our roots in America’s family farms, we manage all aspects of production – from producing seeds and harvesting crops to manufacturing our own containers and distributing a wide range of healthy, nutritious fruits and vegetables. Our long-term approach and fundamental beliefs ensures our focus on the sustainability of our food supply, the environment and our communities. Together, we’re making farm fresh goodness great.",
+            "url": "https://www.senecafoods.com/who-we-are",
+            "fetched_at": "2026-10-17T20:09:03Z"
+          },
+          "P2.3": {
+            "text": "Learn about the key milestones that have defined our company over the decades",
+            "url": "https://www.senecafoods.com/who-we-are",
+            "fetched_at": "2026-10-17T20:09:03Z"
+          },
+          "P2.4": {
+            "text": "Meet our officers and directors who help maintain our position as a market leader",
+            "url": "https://www.senecafoods.com/who-we-are",
+            "fetched_at": "2026-10-17T20:09:03Z"
+          },
+          "P3.1": {
+            "text": "Brands | Seneca Foods",
+            "url": "https://www.senecafoods.com/products/brands",
+            "fetched_at": "2026-10-17T20:09:04Z"
+          },
+          "P3.2": {
+            "text": "Find answers to the most common questions about our products and services",
+            "url": "https://www.senecafoods.com/products/brands",
+            "fetched_at": "2026-10-17T20:09:04Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Produces and sells frozen potato products, mainly french fries and other specialty potato items, to quick-service restaurants, other foodservice customers, and retail grocery customers. It makes the products in its own plants and ships them frozen through its global distribution network.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "french fries; specialty potato products; frozen appetizers; retail frozen potato products",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: quick-service restaurant chains, foodservice distributors, restaurants, retail grocery chains",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "restaurants; food service; retail grocery; food processing",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: frozen potato products sold to restaurants, foodservice distributors and retailers",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: processes raw potatoes into frozen products, sold to restaurant chains, distributors and grocers; brand owner: sells some branded retail frozen potato products under its own consumer brands",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: sells in more than 100 countries, with plants in North America, Europe and Asia Pacific",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "among the largest",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "niche specialist: frozen potato products across foodservice and retail channels",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: direct sales teams selling to large restaurant chains and national accounts; distributors / dealers: foodservice distributors that deliver to restaurants; third-party retail: grocery chains and retail stores selling branded frozen potato products",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: food safety and labeling rules from FDA and USDA, plus environmental and workplace safety rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Produces and sells frozen potato products such as french fries, tots, hash browns and other potato and appetizer items. Customers are restaurants, quick-service chains, foodservice distributors and grocery retailers. Products are made in company-owned processing plants from contracted potato supplies.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "frozen french fries; frozen potato specialties (tots, hash browns); frozen appetizers and vegetable items; private-label frozen potato products",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: quick-service restaurant chains, full-service restaurants, foodservice distributors, theaters, convenience stores, retail grocery chains",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "restaurants and quick-service foodservice; grocery retail; food distribution; convenience and entertainment venues",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: frozen potato products sold to restaurant chains, distributors and retailers",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: processes contracted raw potatoes into frozen products, sold to restaurants, distributors and retailers; brand owner: owns branded and licensed retail and foodservice potato product lines",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: North America, Europe, Asia Pacific, Latin America and the Middle East, plants in the US, Canada, Europe and China",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "among the largest",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "niche specialist: frozen potato products with some related appetizer and vegetable lines",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: large restaurant chains and national accounts; distributors / dealers: broadline foodservice distributors; third-party retail: grocery retailers carrying branded and private-label products",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: food safety rules (FDA, USDA, FSMA), environmental and wastewater regulation, and international trade and tariff rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ374372246.json",
+      "data": {
+        "company_name": "Lamb Weston Holdings, Inc.",
+        "website": "www.lambweston.com",
+        "scrape_status": "ok",
+        "capture_sha256": "d4c62acd80e37a9c57f5e0db2fedeb3f5f192882e0e11bf2bdbbf26e23d43cdd",
+        "lines": {
+          "P1.1": {
+            "text": "Premier frozen potato & fries company | Lamb Weston",
+            "url": "https://www.lambweston.com/",
+            "fetched_at": "2026-10-17T19:48:50Z"
+          },
+          "P1.2": {
+            "text": "As a premier potato & fries company, we manufacture innovative frozen potato, appetizer and vegetable products. Discover our products now.",
+            "url": "https://www.lambweston.com/",
+            "fetched_at": "2026-10-17T19:48:50Z"
+          },
+          "P1.3": {
+            "text": "Introducing the first frozen par-fried olive oil fry and tot in U.S. foodservice.",
+            "url": "https://www.lambweston.com/",
+            "fetched_at": "2026-10-17T19:48:50Z"
+          },
+          "P1.4": {
+            "text": "Gear up for game day!",
+            "url": "https://www.lambweston.com/",
+            "fetched_at": "2026-10-17T19:48:50Z"
+          },
+          "P1.5": {
+            "text": "Kick off the season with fries that will score big with customers.",
+            "url": "https://www.lambweston.com/",
+            "fetched_at": "2026-10-17T19:48:50Z"
+          },
+          "P1.6": {
+            "text": "Find the perfect potato for every plate",
+            "url": "https://www.lambweston.com/",
+            "fetched_at": "2026-10-17T19:48:50Z"
+          },
+          "P1.7": {
+            "text": "Three options for the highest quality fries",
+            "url": "https://www.lambweston.com/",
+            "fetched_at": "2026-10-17T19:48:50Z"
+          },
+          "P1.8": {
+            "text": "Stays crispy for up to 30 minutes and perfect for toppings",
+            "url": "https://www.lambweston.com/",
+            "fetched_at": "2026-10-17T19:48:50Z"
+          },
+          "P1.9": {
+            "text": "Expand your menu with healthier options for your guests",
+            "url": "https://www.lambweston.com/",
+            "fetched_at": "2026-10-17T19:48:50Z"
+          },
+          "P1.10": {
+            "text": "A wide variety of potato products to meet every operator's needs",
+            "url": "https://www.lambweston.com/",
+            "fetched_at": "2026-10-17T19:48:50Z"
+          },
+          "P1.11": {
+            "text": "Discover the crowd pleaser to keep customers coming back for more.",
+            "url": "https://www.lambweston.com/",
+            "fetched_at": "2026-10-17T19:48:50Z"
+          },
+          "P1.12": {
+            "text": "Right products to enhance every meal.",
+            "url": "https://www.lambweston.com/",
+            "fetched_at": "2026-10-17T19:48:50Z"
+          },
+          "P1.13": {
+            "text": "Our bags aren’t brown—they’re green",
+            "url": "https://www.lambweston.com/",
+            "fetched_at": "2026-10-17T19:48:50Z"
+          },
+          "P1.14": {
+            "text": "We’re committed to more sustainable packaging because it helps our operators win guest loyalty—and it reduces the amount of trash going to landfills. That’s what we call a win-win.",
+            "url": "https://www.lambweston.com/",
+            "fetched_at": "2026-10-17T19:48:50Z"
+          },
+          "P1.15": {
+            "text": "Around the world, we're local",
+            "url": "https://www.lambweston.com/",
+            "fetched_at": "2026-10-17T19:48:50Z"
+          },
+          "P1.16": {
+            "text": "Explore our growing regions to learn how their unique combinations of sun, water, soil, and temperature come together to create perfect potatoes.",
+            "url": "https://www.lambweston.com/",
+            "fetched_at": "2026-10-17T19:48:50Z"
+          },
+          "P1.17": {
+            "text": "Sample a bite of our delicious history",
+            "url": "https://www.lambweston.com/",
+            "fetched_at": "2026-10-17T19:48:50Z"
+          },
+          "P1.18": {
+            "text": "Learn how fries can boost your business",
+            "url": "https://www.lambweston.com/",
+            "fetched_at": "2026-10-17T19:48:50Z"
+          },
+          "P1.19": {
+            "text": "Check out the latest recipes and resources",
+            "url": "https://www.lambweston.com/",
+            "fetched_at": "2026-10-17T19:48:50Z"
+          },
+          "P1.20": {
+            "text": "We put acres of intention into every single fry and potato product. If you're looking for a partner that cares just as much as you do about what goes on your customers' plates, reach out to a Lamb Weston Fry Expert to get started.",
+            "url": "https://www.lambweston.com/",
+            "fetched_at": "2026-10-17T19:48:50Z"
+          },
+          "P1.21": {
+            "text": "Contact a Fry Expert Explore Our Premium Promise",
+            "url": "https://www.lambweston.com/",
+            "fetched_at": "2026-10-17T19:48:50Z"
+          },
+          "P2.1": {
+            "text": "Our history as a potato & frozen food company | Lamb Weston | Lamb Weston",
+            "url": "https://www.lambweston.com/about/lamb-weston-story.html",
+            "fetched_at": "2026-10-17T19:48:51Z"
+          },
+          "P2.2": {
+            "text": "Manufacturing the perfect potato and frozen food products is our job, so you can focus on running your business. Discover more about how we do it.",
+            "url": "https://www.lambweston.com/about/lamb-weston-story.html",
+            "fetched_at": "2026-10-17T19:48:51Z"
+          },
+          "P2.3": {
+            "text": "Just as the best recipes are made from the best ingredients, the best fries come from the best potatoes.",
+            "url": "https://www.lambweston.com/about/lamb-weston-story.html",
+            "fetched_at": "2026-10-17T19:48:51Z"
+          },
+          "P2.4": {
+            "text": "Potatoes are our sole focus.",
+            "url": "https://www.lambweston.com/about/lamb-weston-story.html",
+            "fetched_at": "2026-10-17T19:48:51Z"
+          },
+          "P2.5": {
+            "text": "This allows us to manufacture dependable consistently high-quality frozen food & frozen potatoes. After all, we believe care is best demonstrated through action.",
+            "url": "https://www.lambweston.com/about/lamb-weston-story.html",
+            "fetched_at": "2026-10-17T19:48:51Z"
+          },
+          "P2.6": {
+            "text": "And that single minded passion and expertise fuels our pursuit for potato perfection. We pride ourselves on thinking differently and seeing the possibilities in potatoes. Not just in what they can become, but also in what they can do for you and your customers.",
+            "url": "https://www.lambweston.com/about/lamb-weston-story.html",
+            "fetched_at": "2026-10-17T19:48:51Z"
+          },
+          "P2.7": {
+            "text": "We grow on Lamb Weston owned farmland located in the Pacific Northwest, an area recognized for growing some of the world's finest potatoes. The science and information harvested here is exchanged with our worldwide grower partners to continuously set new standards for your potatoes and fries.",
+            "url": "https://www.lambweston.com/about/lamb-weston-story.html",
+            "fetched_at": "2026-10-17T19:48:51Z"
+          },
+          "P2.8": {
+            "text": "To help you delight your customers, thousands of Lamb Weston potato experts around the world are hard at work growing, harvesting and processing potatoes into the delicious options your guests crave. With processing facilities located close to where we grow, you can count on the right potato, getting to the right facility to be made into the potato products you need to make your menu stand out. These are the things that make us a premium frozen food supplier for restaurants all around the world.",
+            "url": "https://www.lambweston.com/about/lamb-weston-story.html",
+            "fetched_at": "2026-10-17T19:48:51Z"
+          },
+          "P2.9": {
+            "text": "Our timeline showcases the years of service, dedication, and innovation that made Lamb Weston® who we are today.",
+            "url": "https://www.lambweston.com/about/lamb-weston-story.html",
+            "fetched_at": "2026-10-17T19:48:51Z"
+          },
+          "P3.1": {
+            "text": "Frozen French Fries & Potato Appetizers | Lamb Weston | Lamb Weston",
+            "url": "https://www.lambweston.com/products.html",
+            "fetched_at": "2026-10-17T19:48:52Z"
+          },
+          "P3.2": {
+            "text": "Lamb Weston offers a variety of quality frozen potato products made from premium potatoes. Our sweet potatoes, french fries, appetizers and meals consistently deliver great taste.",
+            "url": "https://www.lambweston.com/products.html",
+            "fetched_at": "2026-10-17T19:48:52Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

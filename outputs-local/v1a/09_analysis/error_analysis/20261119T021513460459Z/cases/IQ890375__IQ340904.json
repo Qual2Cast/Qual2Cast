@@ -1,0 +1,1158 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ890375__IQ340904",
+    "target": "IQ890375",
+    "comp": "IQ340904",
+    "target_ticker": "PRLB",
+    "comp_ticker": "UFPT",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ890375__IQ340904",
+        "target": "IQ890375",
+        "comp": "IQ340904",
+        "target_ticker": "PRLB",
+        "comp_ticker": "UFPT",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ890375",
+          "comp": "IQ340904",
+          "method": "B3",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "PRLB",
+          "comp_ticker": "UFPT"
+        },
+        {
+          "target": "IQ890375",
+          "comp": "IQ340904",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 9.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "PRLB",
+          "comp_ticker": "UFPT"
+        },
+        {
+          "target": "IQ890375",
+          "comp": "IQ340904",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "PRLB",
+          "comp_ticker": "UFPT"
+        },
+        {
+          "target": "IQ890375",
+          "comp": "IQ340904",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "PRLB",
+          "comp_ticker": "UFPT"
+        },
+        {
+          "target": "IQ890375",
+          "comp": "IQ340904",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "PRLB",
+          "comp_ticker": "UFPT"
+        },
+        {
+          "target": "IQ890375",
+          "comp": "IQ340904",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 1.0,
+          "reason": "Makes custom foam, composite and converted components; lacks Proto Labs' molding, CNC, 3D printing and online prototype model, though it shares some custom molding.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "PRLB",
+          "comp_ticker": "UFPT"
+        },
+        {
+          "target": "IQ890375",
+          "comp": "IQ340904",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Makes custom molded and converted components to customer drawings for OEMs, using molding and tooling like Proto Labs' custom parts.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "PRLB",
+          "comp_ticker": "UFPT"
+        },
+        {
+          "target": "IQ890375",
+          "comp": "IQ340904",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Manufactures custom molded plastic and other components to OEM designs for medical, aerospace and industrial customers, selling directly.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "PRLB",
+          "comp_ticker": "UFPT"
+        },
+        {
+          "target": "IQ890375",
+          "comp": "IQ340904",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Makes custom molded, converted and assembled plastic and foam components to OEM specifications for medical, aerospace and industrial customers.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "PRLB",
+          "comp_ticker": "UFPT"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Digital manufacturer of custom prototype and low-volume production parts for engineers and product developers. It makes parts by injection molding, CNC machining, 3D printing and sheet metal fabrication, with quotes and orders placed online.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "custom injection-molded parts; CNC-machined parts; 3D-printed parts; sheet metal parts",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: Engineers and product developers at manufacturers, startups and large OEMs",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "industrial machinery; consumer products; medical devices; aerospace; automotive; electronics",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: Custom manufactured parts sold per order, priced by quote",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: Makes custom parts from customer designs in its own plants, sold directly to product developers and OEMs",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: North America, Europe and Asia, with manufacturing in the United States and Europe",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: injection molding, CNC machining, 3D printing and sheet metal fabrication for the same product developers",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "online: Online quoting and ordering platform used by most customers; direct sales: Direct sales team serving engineering and procurement accounts",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "low: normal business rules, quality certifications such as ISO 9001 and ISO 13485 are held for customer parts but no operating license is needed",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides on-demand custom manufacturing of prototype and low-volume production parts for product developers and engineers. Uses injection molding, CNC machining, 3D printing and sheet metal fabrication, with online instant quoting. Also operates a network of third-party manufacturers for additional capacity and processes.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "custom CNC-machined parts; injection-molded parts; 3D-printed parts; custom sheet metal parts; urethane cast parts",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "on-demand manufacturing; online instant quoting; design analysis feedback; sourcing through a manufacturing network",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: product developers, engineers and procurement teams at companies of all sizes",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "medical and life sciences; aerospace and defense; automotive; consumer products; electronics and industrial equipment",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "project or contract: custom parts made to order per customer design, quoted and priced per order; product sales: manufactured parts sold in prototype and low-volume production quantities",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: buys raw metals and resins, makes custom parts in own factories, sells to engineering and product companies; service provider: network sourcing of parts from third-party manufacturers for customers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: Factories in the US, Europe and Japan, customers in North America, Europe and Asia",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: injection molding, CNC machining, 3D printing, sheet metal and network sourcing of custom parts",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "online: web-based instant quote and ordering platform; direct sales: sales and application engineers supporting larger accounts",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: Quality certifications such as ISO 9001, AS9100 and ISO 13485, plus export control rules (ITAR) and environmental and workplace safety rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ890375.json",
+      "data": {
+        "company_name": "Proto Labs, Inc.",
+        "website": "www.protolabs.com",
+        "scrape_status": "ok",
+        "capture_sha256": "c6d30aa31b590a04731145be21c1a061d95c6e626798d772c2954fcbff9ad327",
+        "lines": {
+          "P1.1": {
+            "text": "Protolabs | Rapid Prototyping & On-demand Production Services",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.2": {
+            "text": "Protolabs is your custom manufacturing resource from rapid prototyping to end-use production. Get an interactive quote with free design analysis within hours for parts in days.",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.3": {
+            "text": "Check out our Periodic Table of Materials for a quick snapshot of plastic and metal materials at Protolabs! | Explore Materials arrow_right_alt",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.4": {
+            "text": "Digital Manufacturing for Early Prototyping to Final Production",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.5": {
+            "text": "We are the fastest and most comprehensive manufacturer in the world. Get an online quote for parts within days or talk with a production expert for solutions across your entire product life cycle",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.6": {
+            "text": "Get Instant Quote Start Production Quote",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.7": {
+            "text": "Certification + Compliance ISO 9001:2015 | ISO 13485:2016 | AS9100D | ITAR",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.8": {
+            "text": "Get affordable, high-quality molded parts and bridge tooling within days. With our free moldability consultation, the design and molding process is rapidly accelerated to save you time and money.",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.9": {
+            "text": "Low-volume molding up to 100,000+ parts with volume pricing available—no MOQ required",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.10": {
+            "text": "100+ plastic, elastomeric, and silicone rubber materials",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.11": {
+            "text": "Automated CMM for fast, in-house quality documentation",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.12": {
+            "text": "Leverage the same speed, precision, and reliability in machining that you’re accustomed to at Protolabs but unlock advanced machining capabilities like tighter tolerances and volume pricing through our manufacturing network.",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.13": {
+            "text": "Machined parts in as fast as 1 day with optional plating and anodizing in as fast as 4 days",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.14": {
+            "text": "Cost-efficient machined parts at higher volumes",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.15": {
+            "text": "Tolerances down to ±0.001 in. (0.020mm) through our digital network",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.16": {
+            "text": "Choose from seven different additive manufacturing technologies for cost-effective prototyping and highly precise, repeatable production parts.",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.17": {
+            "text": "Additive technologies include metal 3D printing, SLA, SLS, FDM, and more",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.18": {
+            "text": "30 plastic and metal materials in a range of finishes",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.19": {
+            "text": "25 years of additive manufacturing expertise",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.20": {
+            "text": "Sheet Metal Fabrication expand_less expand_more",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.21": {
+            "text": "From easy quoting to quick-turn production and finishing options, get up to 500 quality sheet metal parts in your hands in days from a single supplier.",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.22": {
+            "text": "Instant quotes with interactive manufacturability feedback",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.23": {
+            "text": "Six sheet metal materials including aluminum, stainless steel, steel, brass, and copper",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.24": {
+            "text": "Finishing options from welding and hardware insertion to powder coating and silk screening",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.25": {
+            "text": "Led by technology and backed by human support, our approach to production manufacturing can be tailored to your project, industry, budget and timeframe.",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.26": {
+            "text": "24 New CNC Materials Just Landed on Protolabs Network",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.27": {
+            "text": "We’ve expanded our CNC machining range from 52 to 76 materials, which is a ~50% increase.",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.28": {
+            "text": "The Next Wave of Manufacturing Innovation",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.29": {
+            "text": "Explore how the latest digital technologies are transforming every stage of the product life cycle from early concept to end-of-life.",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.30": {
+            "text": "Our enhanced digital platform for quoting, ordering, and managing custom parts. Get real-time pricing and AI-enabled DFM feedback, with easy options to configure materials and lead times. ProDesk helps your team stay aligned and move faster from prototype to production.",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.31": {
+            "text": "Get parts delivered in as fast as 4 days with our expanded CNC milling services—now accepting 2D technical drawings for greater flexibility on higher‑requirement projects.",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.32": {
+            "text": "A Trusted Partner for Full-Scale Production",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.33": {
+            "text": "Our team is ready to help you get your production project started with help from our experts at every step of the process.",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.34": {
+            "text": "Two new materials, Ceramic-filled and Tough Black, have been added to our material library alongside our newly launched HPS 3D printing process.",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.35": {
+            "text": "Our critical-to-quality inspections are now easily configured within your injection molding quote. We also provide a range of additional quality documentation.",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.36": {
+            "text": "New Material Tool for Injection Molding",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.37": {
+            "text": "Compare materials for injection molding with our new tool. Sort by material type, attributes, flame rating, and color to find the right material for your project.",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.38": {
+            "text": "Design for Manufacturing Analysis Available for Sheet Metal Quotes",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          },
+          "P1.39": {
+            "text": "Our quoting platform will automatically detect any potential",
+            "url": "https://www.protolabs.com/",
+            "fetched_at": "2026-10-17T20:05:33Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and manufactures custom precision components from foam, plastics and composites for OEM customers in medical, aerospace and defense, electronics and industrial markets. Components are made to customer specifications through molding, converting, die cutting and assembly, often in cleanroom facilities.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "custom foam components; molded plastic components; composite components; medical device components; cleanroom packaging",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "contract design and engineering support; contract assembly; tooling development",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: medical device makers, aerospace and defense contractors, electronics and industrial original equipment manufacturers",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "medical; aerospace and defense; electronics; industrial; consumer",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: custom components and assemblies sold to OEM customers; project or contract: engineering, tooling and development work under customer programs",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "component supplier: takes in foam, plastic and composite materials and sells finished components to OEMs; OEM / manufacturer: manufactures custom parts and assemblies to customer designs for device and equipment makers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: customers across the United States, with manufacturing plants in several states",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: foam, plastic and composite components sold to shared OEM customer groups and using similar converting technologies",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: in-house sales and engineering teams selling directly to OEM customers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: medical components must meet FDA quality system rules and ISO 13485, environmental and workplace safety rules also apply",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and manufactures single-use and single-patient medical devices, surgical components, and custom-engineered foam, film, and plastic packaging and protective components. Sells mainly to medical device OEMs plus customers in aerospace and defense, electronics, consumer and industrial markets. Produces using molding, converting, thermoforming, cleanroom and other fabrication processes.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "medical device components and assemblies; single-use surgical products; custom molded foam and plastic packaging; protective cases and inserts; thermoformed and die-cut components",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "contract manufacturing; product design and engineering; prototyping and development",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: medical device OEMs, aerospace and defense contractors, electronics, automotive, industrial and consumer product makers",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "medical devices; aerospace and defense; electronics; consumer goods; industrial",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: custom-manufactured components, devices and packaging sold to OEM customers; project or contract: design, development and tooling work for customer programs",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: converts purchased foams, films, plastics and materials into custom components and devices sold to OEMs and manufacturers; component supplier: supplies components and assemblies for medical, defense and industrial customers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: US manufacturing facilities serving customers across the United States, with some international sales",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: medical devices and components, plus engineered foam, plastic and packaging for other industries using shared materials and processes",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: in-house sales and engineering teams selling directly to OEM customers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: medical device manufacturing under FDA quality system rules and ISO 13485, also defense and aerospace quality standards",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "FACET:265": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:265",
+        "company_id": "IQ340904",
+        "ticker": "UFPT",
+        "facet": "offering_description",
+        "human_label": "partly correct",
+        "labeled_text": "Designs and manufactures custom foam, plastic and composite components, medical device components and packaging for OEMs in medical, aerospace, defense, electronics and industrial markets. Produces them in its own plants, often under long-term contract manufacturing.",
+        "human_note": "now mainly a single-use medical device and sterile packaging CDMO; other markets secondary",
+        "evidence_url": "https://ufpt.com/about-us/",
+        "labeler": "Yifan Chen",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "Designs and manufactures custom precision components from foam, plastics and composites for OEM customers in medical, aerospace and defense, electronics and industrial markets. Components are made to customer specifications through molding, converting, die cutting and assembly, often in cleanroom facilities.",
+        "sonnet_text": "Designs and manufactures single-use and single-patient medical devices, surgical components, and custom-engineered foam, film, and plastic packaging and protective components. Sells mainly to medical device OEMs plus customers in aerospace and defense, electronics, consumer and industrial markets. Produces using molding, converting, thermoforming, cleanroom and other fabrication processes.",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:266": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:266",
+        "company_id": "IQ340904",
+        "ticker": "UFPT",
+        "facet": "primary_products",
+        "human_label": "partly correct",
+        "labeled_text": "custom foam components; medical device components; protective packaging; thermoformed plastic parts; EMI and RF shielding",
+        "human_note": "misses sterile packaging and finished single-use devices (drapes, positioning, adhesives)",
+        "evidence_url": "https://ufpt.com/about-us/our-companies/",
+        "labeler": "Yifan Chen",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "custom foam components; molded plastic components; composite components; medical device components; cleanroom packaging",
+        "sonnet_text": "medical device components and assemblies; single-use surgical products; custom molded foam and plastic packaging; protective cases and inserts; thermoformed and die-cut components",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:267": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:267",
+        "company_id": "IQ340904",
+        "ticker": "UFPT",
+        "facet": "primary_services",
+        "human_label": "correct",
+        "labeled_text": "custom design and engineering; contract manufacturing; cleanroom assembly; kitting and sterilization support",
+        "human_note": "",
+        "evidence_url": "https://ufpt.com/",
+        "labeler": "Yifan Chen",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "contract design and engineering support; contract assembly; tooling development",
+        "sonnet_text": "contract manufacturing; product design and engineering; prototyping and development",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:268": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:268",
+        "company_id": "IQ340904",
+        "ticker": "UFPT",
+        "facet": "customer_segment",
+        "human_label": "correct",
+        "labeled_text": "B2B: OEMs, medical device makers, defense and aerospace contractors, electronics and packaging companies",
+        "human_note": "",
+        "evidence_url": "https://ufpt.com/",
+        "labeler": "Yifan Chen",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "B2B: medical device makers, aerospace and defense contractors, electronics and industrial original equipment manufacturers",
+        "sonnet_text": "B2B: medical device OEMs, aerospace and defense contractors, electronics, automotive, industrial and consumer product makers",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:269": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:269",
+        "company_id": "IQ340904",
+        "ticker": "UFPT",
+        "facet": "end_markets",
+        "human_label": "partly correct",
+        "labeled_text": "medical; aerospace and defense; electronics; industrial; consumer products",
+        "human_note": "medical dominates; misses automotive; electronics and consumer not on site",
+        "evidence_url": "https://ufpt.com/",
+        "labeler": "Yifan Chen",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "medical; aerospace and defense; electronics; industrial; consumer",
+        "sonnet_text": "medical devices; aerospace and defense; electronics; consumer goods; industrial",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:270": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:270",
+        "company_id": "IQ340904",
+        "ticker": "UFPT",
+        "facet": "revenue_model",
+        "human_label": "correct",
+        "labeled_text": "product sales: custom components and packaging sold to OEM customers; project or contract: contract manufacturing and engineering programs for customers",
+        "human_note": "",
+        "evidence_url": "https://ufpt.com/",
+        "labeler": "Yifan Chen",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "product sales: custom components and assemblies sold to OEM customers; project or contract: engineering, tooling and development work under customer programs",
+        "sonnet_text": "product sales: custom-manufactured components, devices and packaging sold to OEM customers; project or contract: design, development and tooling work for customer programs",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:271": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:271",
+        "company_id": "IQ340904",
+        "ticker": "UFPT",
+        "facet": "value_chain_position",
+        "human_label": "correct",
+        "labeled_text": "component supplier: supplies custom parts to device and equipment makers; OEM / manufacturer: makes parts from purchased resin, foam and metal inputs, sold to OEM customers",
+        "human_note": "",
+        "evidence_url": "https://ufpt.com/",
+        "labeler": "Yifan Chen",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "component supplier: takes in foam, plastic and composite materials and sells finished components to OEMs; OEM / manufacturer: manufactures custom parts and assemblies to customer designs for device and equipment makers",
+        "sonnet_text": "OEM / manufacturer: converts purchased foams, films, plastics and materials into custom components and devices sold to OEMs and manufacturers; component supplier: supplies components and assemblies for medical, defense and industrial customers",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:272": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:272",
+        "company_id": "IQ340904",
+        "ticker": "UFPT",
+        "facet": "geography_served",
+        "human_label": "partly correct",
+        "labeled_text": "US national: Plants and customers across many US states, with some sales to other countries",
+        "human_note": "should be global: plants in Ireland, Costa Rica, Dominican Republic, Mexico, Singapore",
+        "evidence_url": "https://ufpt.com/about-us/locations/",
+        "labeler": "Yifan Chen",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "US national: customers across the United States, with manufacturing plants in several states",
+        "sonnet_text": "US national: US manufacturing facilities serving customers across the United States, with some international sales",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:273": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:273",
+        "company_id": "IQ340904",
+        "ticker": "UFPT",
+        "facet": "company_size",
+        "human_label": "wrong",
+        "labeled_text": "mid-sized",
+        "human_note": "UFP Technologies, Inc. (NASDAQ: UFPT) is a small-cap player in the medical device contract development and manufacturing organization (CDMO) and specialty engineered materials industry. [1, 2, 3]",
+        "evidence_url": "https://ufpt.com/about-us/",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "mid-sized",
+        "sonnet_text": "mid-sized",
+        "exact_haiku_text": true,
+        "exact_sonnet_text": true
+      }
+    },
+    "FACET:274": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:274",
+        "company_id": "IQ340904",
+        "ticker": "UFPT",
+        "facet": "specialization",
+        "human_label": "correct",
+        "labeled_text": "related lines: medical device components, protective packaging and specialty foam components, sharing customers and manufacturing processes",
+        "human_note": "",
+        "evidence_url": "https://ufpt.com/about-us/our-companies/",
+        "labeler": "Yifan Chen",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "related lines: foam, plastic and composite components sold to shared OEM customer groups and using similar converting technologies",
+        "sonnet_text": "related lines: medical devices and components, plus engineered foam, plastic and packaging for other industries using shared materials and processes",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:275": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:275",
+        "company_id": "IQ340904",
+        "ticker": "UFPT",
+        "facet": "distribution_channels",
+        "human_label": "correct",
+        "labeled_text": "direct sales: sales teams selling directly to OEM customers; own locations: manufacturing plants and cleanrooms serving customer programs",
+        "human_note": "",
+        "evidence_url": "https://ufpt.com/",
+        "labeler": "Yifan Chen",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "direct sales: in-house sales and engineering teams selling directly to OEM customers",
+        "sonnet_text": "direct sales: in-house sales and engineering teams selling directly to OEM customers",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:276": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:276",
+        "company_id": "IQ340904",
+        "ticker": "UFPT",
+        "facet": "regulatory_exposure",
+        "human_label": "correct",
+        "labeled_text": "medium: FDA quality system expectations and ISO 13485 for medical components, plus aerospace and environmental rules",
+        "human_note": "",
+        "evidence_url": "https://ufpt.com/about-us/",
+        "labeler": "Yifan Chen",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "medium: medical components must meet FDA quality system rules and ISO 13485, environmental and workplace safety rules also apply",
+        "sonnet_text": "medium: medical device manufacturing under FDA quality system rules and ISO 13485, also defense and aerospace quality standards",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ340904.json",
+      "data": {
+        "company_name": "UFP Technologies, Inc.",
+        "website": "www.ufpt.com",
+        "scrape_status": "ok",
+        "capture_sha256": "b2c410bd1962407331131c3a699ea3c0fe44bed54c26392cebe6aa53633389b1",
+        "lines": {
+          "P1.1": {
+            "text": "UFP Technologies",
+            "url": "https://ufpt.com/",
+            "fetched_at": "2026-10-17T20:19:23Z"
+          },
+          "P1.2": {
+            "text": "UFP Technologies is the trusted design, development, engineering, and manufacturing partner to turn your vision into a reality through best-in-class comprehensive solutions primarily for medical devices and sterile packaging, as well as other highly engineered custom products.",
+            "url": "https://ufpt.com/",
+            "fetched_at": "2026-10-17T20:19:23Z"
+          },
+          "P1.3": {
+            "text": "MedTech evolves at breathtaking speeds. To keep pace, you need forward-thinking collaboration to develop your idea and anticipate the challenges at each phase of the process. UFP MedTech is the ideal partner to help you accelerate single-use and single patient devices from development through launch and manufacturing.",
+            "url": "https://ufpt.com/",
+            "fetched_at": "2026-10-17T20:19:23Z"
+          },
+          "P1.4": {
+            "text": "For aerospace, defense, automotive, and other highly engineered components and packaging, our advanced engineering capabilities and materials expertise ensures optimal designs and seamless implementation to make your vision a reality.",
+            "url": "https://ufpt.com/",
+            "fetched_at": "2026-10-17T20:19:23Z"
+          },
+          "P1.5": {
+            "text": "Design & Development through Manufacturing",
+            "url": "https://ufpt.com/",
+            "fetched_at": "2026-10-17T20:19:23Z"
+          },
+          "P1.6": {
+            "text": "Trust UFP Technologies to turn your vision into reality with best-in-class comprehensive solutions based on our vast depth of engineering expertise. Our nimble and dynamic team will work with you to create custom designs from foams, films, plastics, nonwovens, fabrics, and other specialty materials. All with the ultimate goal of positioning your ideas for success.",
+            "url": "https://ufpt.com/",
+            "fetched_at": "2026-10-17T20:19:23Z"
+          },
+          "P1.7": {
+            "text": "From the initial stages of development, we review your project from every angle, assigning a dedicated team to fully understand the unique needs and potential challenges before we start.",
+            "url": "https://ufpt.com/",
+            "fetched_at": "2026-10-17T20:19:23Z"
+          },
+          "P1.8": {
+            "text": "We act as an extension of your R&D and engineering teams, applying our vast materials expertise and design skills, so that each decision we make is optimized for the application.",
+            "url": "https://ufpt.com/",
+            "fetched_at": "2026-10-17T20:19:23Z"
+          },
+          "P1.9": {
+            "text": "We understand the importance of delivering sound engineering and rapid prototypes. Our in-house tooling capabilities and custom equipment allow us to execute quickly and accurately, producing prototypes within 72 hours.",
+            "url": "https://ufpt.com/",
+            "fetched_at": "2026-10-17T20:19:23Z"
+          },
+          "P1.10": {
+            "text": "Mitigating any potential risks through quality management systems ensures a seamless transition from prototype to full-scale production.",
+            "url": "https://ufpt.com/",
+            "fetched_at": "2026-10-17T20:19:23Z"
+          },
+          "P1.11": {
+            "text": "Our turnkey solutions include high volume manufacturing, packaging, and supply chain management through multiple global locations to get your product to market quickly and efficiently.",
+            "url": "https://ufpt.com/",
+            "fetched_at": "2026-10-17T20:19:23Z"
+          },
+          "P1.12": {
+            "text": "It's great to be here!",
+            "url": "https://ufpt.com/",
+            "fetched_at": "2026-10-17T20:19:23Z"
+          },
+          "P1.13": {
+            "text": "UFP Technologies to Present and Host 1×1 Investor Meetings at the 17th Annual Midwest IDEAS Investor Conference",
+            "url": "https://ufpt.com/",
+            "fetched_at": "2026-10-17T20:19:23Z"
+          },
+          "P1.14": {
+            "text": "UFP Technologies Announces Record Q2 Results",
+            "url": "https://ufpt.com/",
+            "fetched_at": "2026-10-17T20:19:23Z"
+          },
+          "P1.15": {
+            "text": "Nov. 30 - | Orlando, FL",
+            "url": "https://ufpt.com/",
+            "fetched_at": "2026-10-17T20:19:23Z"
+          },
+          "P1.16": {
+            "text": "To contact UFP Technologies, please call the number below or complete the following form so that we may route your request to the proper contact.",
+            "url": "https://ufpt.com/",
+            "fetched_at": "2026-10-17T20:19:23Z"
+          },
+          "P2.1": {
+            "text": "About Us - UFP Technologies",
+            "url": "https://ufpt.com/about-us/",
+            "fetched_at": "2026-10-17T20:19:24Z"
+          },
+          "P2.2": {
+            "text": "We strive to be our customers’ design, engineering and manufacturing partner, entrusted to turn their vision into reality through best-in-class comprehensive solutions for medical devices, packaging, components and products.",
+            "url": "https://ufpt.com/about-us/",
+            "fetched_at": "2026-10-17T20:19:24Z"
+          },
+          "P2.3": {
+            "text": "and headquartered in Newburyport, Massachusetts, UFP Technologies is a contract development and manufacturing organization that specializes in single-use and single-patient medical devices. UFP is an important link in the medical device supply chain and a valued outsource partner to many of the top medical device manufacturers in the world. Our single-use and single-patient devices and components are used in a wide range of medical devices and packaging for minimally invasive surgery, infection prevention, wound care, wearables, orthopedic soft goods, and orthopedic implants.",
+            "url": "https://ufpt.com/about-us/",
+            "fetched_at": "2026-10-17T20:19:24Z"
+          },
+          "P2.4": {
+            "text": "We are your one-stop solution for:",
+            "url": "https://ufpt.com/about-us/",
+            "fetched_at": "2026-10-17T20:19:24Z"
+          },
+          "P2.5": {
+            "text": "Mr. Bailly serves as the Executive Chairman of the Board, as of after retiring as Chief Executive Officer of UFP Technologies. Mr. Bailly joined the Company and served as a Division Manager (1989-1992), General Manager Northeast Operations (1992-1994), Vice President of Operations (1994-1995), and as its President (1995-2024). Mr. Bailly, a certified public accountant, was employed by Coopers & Lybrand. Mr. Bailly is a member of World Presidents’ Organization.",
+            "url": "https://ufpt.com/about-us/",
+            "fetched_at": "2026-10-17T20:19:24Z"
+          },
+          "P2.6": {
+            "text": "President and Chief Executive Officer",
+            "url": "https://ufpt.com/about-us/",
+            "fetched_at": "2026-10-17T20:19:24Z"
+          },
+          "P2.7": {
+            "text": "Mr. Rock initially joined UFP Technologies and served as Director of Sales and Marketing for the company’s Molded Fiber division. From through, Mr. Rock served as Vice President of Sales and Business Development at Esprocket, an internet start-up",
+            "url": "https://ufpt.com/about-us/",
+            "fetched_at": "2026-10-17T20:19:24Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

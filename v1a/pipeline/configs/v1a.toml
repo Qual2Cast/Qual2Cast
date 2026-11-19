@@ -1,0 +1,23 @@
+# v1a roles (decisions 2026-11-18): Claude fills and selects, a GPT model judges, so the model line is clear.
+# Judge: GPT-Terra (gpt-5.6-terra, the only Terra model on the Codex account), Michael 2026-11-19; = current.toml [judges].
+# Each role may name its own provider; "provider" is the default and names the output folder.
+provider = "claude"
+split_file = "outputs-local/v1a/01_universe/split/split.csv"   # = v1 split 20261027T204930Z
+targets = "training" # v1a: training only (the holdout is the locked final check)
+target_tickers = [] # empty means every training target
+workers = 2
+evidence_words = 1500
+passing_score = 3 # reporting only; judge scores never select peers
+
+[fill]
+model = "claude-sonnet-5-5"
+effort = "high"
+
+[filter]
+model = "claude-sonnet-5-5"
+effort = "medium"
+
+[judge]
+provider = "codex"
+model = "gpt-5.6-terra"
+effort = "medium"

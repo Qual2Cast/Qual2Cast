@@ -1,0 +1,1030 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ400346__IQ169308",
+    "target": "IQ400346",
+    "comp": "IQ169308",
+    "target_ticker": "CTLP",
+    "comp_ticker": "VYX",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ400346__IQ169308",
+        "target": "IQ400346",
+        "comp": "IQ169308",
+        "target_ticker": "CTLP",
+        "comp_ticker": "VYX",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ400346",
+          "comp": "IQ169308",
+          "method": "B3",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "CTLP",
+          "comp_ticker": "VYX"
+        },
+        {
+          "target": "IQ400346",
+          "comp": "IQ169308",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "CTLP",
+          "comp_ticker": "VYX"
+        },
+        {
+          "target": "IQ400346",
+          "comp": "IQ169308",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "CTLP",
+          "comp_ticker": "VYX"
+        },
+        {
+          "target": "IQ400346",
+          "comp": "IQ169308",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "CTLP",
+          "comp_ticker": "VYX"
+        },
+        {
+          "target": "IQ400346",
+          "comp": "IQ169308",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "CTLP",
+          "comp_ticker": "VYX"
+        },
+        {
+          "target": "IQ400346",
+          "comp": "IQ169308",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "CTLP",
+          "comp_ticker": "VYX"
+        },
+        {
+          "target": "IQ400346",
+          "comp": "IQ169308",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 1.0,
+          "reason": "Sells POS systems to restaurants and retailers for staffed checkout, not payment and telemetry for vending or micro market operators.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "CTLP",
+          "comp_ticker": "VYX"
+        },
+        {
+          "target": "IQ400346",
+          "comp": "IQ169308",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Sells POS hardware, cloud software and payment processing to merchants; similar hybrid model, though restaurants and retail rather than vending.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "CTLP",
+          "comp_ticker": "VYX"
+        },
+        {
+          "target": "IQ400346",
+          "comp": "IQ169308",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Sells POS hardware, cloud software and payment processing to retail and hospitality merchants, with similar hardware, subscription and transaction revenue.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "CTLP",
+          "comp_ticker": "VYX"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides cashless payment, telemetry and micro market software and hardware for unattended retail. Sells to vending, micro market and laundry operators, who use it to take payments and manage machines and inventory remotely.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "payment terminals; telemetry devices; micro market software; vending management software",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "payment processing; cloud-based route and inventory management; device deployment and activation",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: vending operators, micro market operators, laundry operators and other unattended retail businesses",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "vending; micro markets; laundry; unattended retail",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "subscription: recurring software and platform fees from operators; transaction or usage fees: payment processing fees on card and mobile transactions; product sales: payment terminals and telemetry devices sold to operators",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: designs and sells payment and telemetry devices made by outside manufacturers, sold to machine operators; software / platform: cloud management platform used by operators, paid through subscriptions; service provider: processes card and mobile payments for operators and takes a fee per transaction",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "North America: United States and Canada, with some customers in Europe",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: payment hardware, telemetry devices, cloud management software and micro market systems sold to the same operators",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: in-house sales team selling to machine and micro market operators; partners / resellers: channel partners and equipment distributors that bundle the platform with vending machines",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: payment card industry data security standards and US state data privacy laws apply to card processing",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides cashless payment hardware, software and managed services for unattended self-service retail such as vending machines, micro markets, kiosks and amusement. Sells to vending operators, convenience service companies and similar merchants, combining card readers, a cloud-based software platform and payment processing.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "card readers and payment terminals; micro market kiosks; point-of-sale hardware",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "payment processing; cloud-based inventory and route management software; consumer engagement and loyalty tools; ERP and operations software",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: vending and micro market operators, convenience services, food service, amusement and laundry businesses",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "unattended retail; vending; micro markets; food service; amusement and entertainment",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "subscription: recurring software and device service subscription fees; transaction or usage fees: payment processing fees on card transactions; product sales: card readers, kiosks and POS equipment",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "software / platform: cloud software platform for operators of self-service retail; financial intermediary: payment processing between consumers, operators and card networks; brand owner: designs payment devices made by contract manufacturers, sold to operators",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "North America: United States primarily, with Canada and Europe also served",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: payments, hardware, and software for self-service commerce",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales team selling to vending operators and enterprise accounts; partners / resellers: channel partners and resellers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: payment processing subject to PCI DSS, card network rules and money transmission and consumer protection rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ400346.json",
+      "data": {
+        "company_name": "Cantaloupe, Inc.",
+        "website": "www.cantaloupe.com",
+        "scrape_status": "ok",
+        "capture_sha256": "593d7b844b09f76cc9cde8e0b0ef7212f0d37237a6eb374547211389956efff7",
+        "lines": {
+          "P1.1": {
+            "text": "Cantaloupe, Inc. | Powering self-service retail.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.2": {
+            "text": "Cantaloupe powers self-service commerce around the world with innovative technology and software solutions for businesses of all sizes.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.3": {
+            "text": "Our all-in-one platform helps businesses like yours accept digital payments, engage more consumers, and build a better business – from anywhere in the world.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.4": {
+            "text": "Learn how we can help grow your business",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.5": {
+            "text": "Engage more customers with secure cashless payments and vending management software.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.6": {
+            "text": "Engage more gaming customers with secure cashless payment technology.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.7": {
+            "text": "Increase sales opportunity and reduce personnel needs with a standalone, self-service retail machine.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.8": {
+            "text": "Enable self-service for hotel pantries with grab-and-go coolers or markets.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.9": {
+            "text": "Deliver convenience for your residents with our tailored and secure unattended retail markets.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.10": {
+            "text": "Transform the way fans shop, order, and pay with our mobile-first point-of-sale platform.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.11": {
+            "text": "Manage the guest experience at festivals, state fairs, and local events of all sizes with a mobile-first point-of-sale platform.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.12": {
+            "text": "Upgrade your machines with cashless card readers.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.13": {
+            "text": "Simple software solutions. Powerful results.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.14": {
+            "text": "Stop worrying about the little things and focus on growing your business. Cantaloupe’s device and vending management software deliver powerful insights about your business, so you can operate more efficiently.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.15": {
+            "text": "We have the solutions you need to grow!",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.16": {
+            "text": "Adding a card reader to your machine increases sales and gives you more visibility into machine performance. It’s a win-win.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.17": {
+            "text": "Bring self-service to any setting.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.18": {
+            "text": "Simplify the checkout experience for your customers and reduce personnel needs with a self-service kiosk.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.19": {
+            "text": "Our versatile point-of-sale solution makes operating, updating menu selections, and accepting payments easy.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.20": {
+            "text": "Take payments on the go.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.21": {
+            "text": "Reduce wait times during peak hours at large events with a mobile handheld POS.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.22": {
+            "text": "Upgrade your regular merchandising cooler to a smart cooler with remote monitoring options and even a point of sale.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.23": {
+            "text": "Experience the next generation of retail.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.24": {
+            "text": "Bring self-service commerce into completely new locations with a secure solution.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.25": {
+            "text": "Trusted by multiple customers around the world.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.26": {
+            "text": "3X growth over a four-year period since adding Seed",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.27": {
+            "text": "9 to 25% increase in sales (after installing cashless card readers)",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.28": {
+            "text": "Jonathan Abernathy Founder, Managing Director Empire Vending",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.29": {
+            "text": "“Seed has given me 100% control and visibility over my entire business including vending, markets and office coffee service. I know my customers are getting the best service, products, and experience every time they visit one of our locations.”",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.30": {
+            "text": "Bradlee Whitson, K&R Vending Services",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.31": {
+            "text": "Steve O'Keefe Senior VP, Refreshment Services Group Continental Services",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.32": {
+            "text": "Flexible options to help you grow.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.33": {
+            "text": "Apply today without affecting your credit score.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.34": {
+            "text": "Learn about Cantaloupe’s flexible pricing for hardware, software, and everything in between. Zero upfront costs, one predictable monthly payment.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.35": {
+            "text": "Let us help you get started.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.36": {
+            "text": "If you’re just getting started in self-service retail or looking to grow your operation, we’re here for you.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.37": {
+            "text": "Check out the latest Micropayment Trends",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P1.38": {
+            "text": "Want to see our self-service retail predictions for next year and the in-depth data we pulled from hundreds of thousands of card readers and kiosks? View the Trends Report page now to get the full view of the numbers and what we think is coming the rest of the year.",
+            "url": "https://www.cantaloupe.com/",
+            "fetched_at": "2026-10-17T19:18:35Z"
+          },
+          "P2.1": {
+            "text": "About Us | Company and History | Cantaloupe",
+            "url": "https://www.cantaloupe.com/company/about/",
+            "fetched_at": "2026-10-17T19:18:36Z"
+          },
+          "P2.2": {
+            "text": "At Cantaloupe, we're helping the world buy it and go with innovative solutions for self-service retail.",
+            "url": "https://www.cantaloupe.com/company/about/",
+            "fetched_at": "2026-10-17T19:18:36Z"
+          },
+          "P2.3": {
+            "text": "Cantaloupe is powering the evolution of self-service commerce across the globe.",
+            "url": "https://www.cantaloupe.com/company/about/",
+            "fetched_at": "2026-10-17T19:18:36Z"
+          },
+          "P2.4": {
+            "text": "With micropayment processing, enterprise cloud software, IoT technology, and point of sale innovations, Cantaloupe empowers businesses of all sizes to provide self-service experiences for consumers. We keep our customers ahead of the adoption curve – meeting them on location, partnering with them to grow in new markets, and helping them reach new customers.",
+            "url": "https://www.cantaloupe.com/company/about/",
+            "fetched_at": "2026-10-17T19:18:36Z"
+          },
+          "P2.5": {
+            "text": "Help the world buy it and go.",
+            "url": "https://www.cantaloupe.com/company/about/",
+            "fetched_at": "2026-10-17T19:18:36Z"
+          },
+          "P2.6": {
+            "text": "We aim to be",
+            "url": "https://www.cantaloupe.com/company/about/",
+            "fetched_at": "2026-10-17T19:18:36Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Sells point-of-sale hardware, software and payment services to restaurants, grocers, retailers and hospitality businesses. Delivered as installed systems, cloud software subscriptions and managed services.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "POS terminals; self-checkout kiosks; restaurant ordering software; retail commerce software",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "payment processing; managed services; professional services; hardware maintenance",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: restaurant chains, grocers, retailers, convenience stores, hospitality venues",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "restaurants; retail; grocery; hospitality; convenience stores",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: POS terminals and self-checkout kiosks sold to merchants; subscription: cloud software licenses for ordering and POS; transaction or usage fees: payment processing fees on card transactions; service fees: installation, support and maintenance contracts",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: sells own-branded terminals and kiosks made by contract manufacturers; software / platform: cloud POS and commerce software sold to merchants; service provider: installation, managed services and payment processing for merchants",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: North America, Europe, Asia-Pacific and other international markets",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: POS hardware, restaurant and retail software, payments and services",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: enterprise sales teams selling to large chains; partners / resellers: independent resellers and systems integrators; online: cloud software delivered to merchants online",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: card payment processing under PCI security standards and consumer data privacy laws",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides cloud-based commerce software platform, point-of-sale and self-service hardware, and related services to retailers, restaurants and other merchants. Delivers through software subscriptions, hardware sales and managed and professional services.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "point-of-sale terminals; self-checkout kiosks; retail and restaurant commerce software; payment-related software",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "software-as-a-service; managed services; installation and professional services; maintenance and support",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: retailers, grocery chains, restaurants and other merchants",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "retail; restaurants and hospitality; grocery; convenience and fuel",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "subscription: recurring software platform and SaaS fees; product sales: point-of-sale and self-checkout hardware; service fees: maintenance, managed and professional services",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "software / platform: cloud commerce platform sold to retailers and restaurants; OEM / manufacturer: builds POS and self-service hardware from purchased components for merchants; service provider: installs, maintains and manages merchant technology",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: North America, Europe, Asia-Pacific and other international markets",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: software platform, hardware and services for retail and restaurant commerce",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales teams serving large enterprise retailers and restaurants; partners / resellers: channel partners and resellers serving smaller merchants",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: payment security standards (PCI), data privacy rules and product safety requirements",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ169308.json",
+      "data": {
+        "company_name": "NCR Voyix Corporation",
+        "website": "ncrvoyix.com",
+        "scrape_status": "ok",
+        "capture_sha256": "03ac3238eddcc6ee2135ad6ef2d3634f8a3656aaf73009ec255d9a25131c34b5",
+        "lines": {
+          "P1.1": {
+            "text": "Unified Commerce POS for Retail & Restaurants | NCR Voyix",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.2": {
+            "text": "NCR Voyix is the platform-powered leader in unified commerce for retail and restaurants. Accelerate what’s next across POS, payments, operations, and loyalty.",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.3": {
+            "text": "A platform-powered leader in unified commerce",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.4": {
+            "text": "NCR Voyix accelerates new possibilities for retailers and restaurants around the globe.",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.5": {
+            "text": "One platform. A world of capabilities.",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.6": {
+            "text": "Make every experience seamless so your customers keep coming back. NCR Voyix empowers you with one flexible, intelligent unified commerce platform.",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.7": {
+            "text": "Customers enjoy frictionless ordering and dining. Your operations run faster.",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.8": {
+            "text": "We help leading retailers drive growth and loyalty with flexible, scalable technology that provides compelling online and in-store experiences.",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.9": {
+            "text": "Boost performance, flexibility and security across all retail and restaurant workflows, even with third-party applications.",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.10": {
+            "text": "Build, configure, deploy and monitor your apps through one control center.",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.11": {
+            "text": "Software is only part of the story. Our hardware and services ensure your mission-critical operations perform at their highest level.",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.12": {
+            "text": "We deliver a comprehensive suite of services that help you implement, optimize and sustain your mission-critical operations.",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.13": {
+            "text": "Discover our portfolio of purpose-built hardware designed to power restaurant and retail experiences.",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.14": {
+            "text": "Simplify transactions with flexible and scalable end-to-end payment solutions built for fast-paced retail and restaurant environments.",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.15": {
+            "text": "NCR Voyix is a global platform-powered leader in unified commerce",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.16": {
+            "text": "#1 POS and self-checkout software provider *",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.17": {
+            "text": "140 years of retail & restaurant innovation",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.18": {
+            "text": "The reality of modern commerce",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.19": {
+            "text": "Customer expectations are set by a fully digital world that is instant, personalized, and always-on.",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.20": {
+            "text": "Resources to help you accelerate your business",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.21": {
+            "text": "Discover real-world insights, news and guidance.",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.22": {
+            "text": "Minimal operational friction: Why convenience and fuel leaders choose to modernize on an open platform",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.23": {
+            "text": "Pilot selected NCR Voyix and its modern microservices architecture as the foundation for its large-scale point-of-sale modernization, with operational continuity a key priority.",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.24": {
+            "text": "How to turn restaurant data into faster decisions across all locations",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.25": {
+            "text": "The fix is simpler than it sounds. Put your POS, labor, inventory and menu data on one unified commerce platform.",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.26": {
+            "text": "How convenience retailers can create seamless fuel-to-store experiences that keep customers coming back",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.27": {
+            "text": "The best convenience retail experiences happen when fuel, store, foodservice, loyalty and digital channels operate from the same data. With a platform, retailers can see what's happening across the forecourt, inside the store and in the kitchen in real time. That visibility helps teams move faster, keep products available, deliver more relevant offers and create a smoother experience from pump to purchase.",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.28": {
+            "text": "Accelerating New Possibilities at NRF 2026",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.29": {
+            "text": "This January, NRF 2026: Retail’s Big Show will bring the industry to New York City to explore what’s next. It’s where strategies sharpen, priorities shift and new possibilities emerge. Retailers, tech providers, analysts and innovators will gather at the Javits Center to discuss how the store continues to evolve as the center of the retail experience.",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.30": {
+            "text": "5 ways to market your restaurant without needing experts on staff",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.31": {
+            "text": "Here are five tips you can use without having to rely on an expert.",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.32": {
+            "text": "5 tips to make your restaurant kitchen more efficient",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.33": {
+            "text": "Find out how streamlining processes and training staff to run your restaurant kitchen can boost restaurant efficiency. Learn these tips & more in the NCR Voyix blog.",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P1.34": {
+            "text": "See how NCR Voyix can help your business accelerate new possibilities for your operations and experiences.",
+            "url": "https://web.archive.org/web/20261004174738/https://www.ncrvoyix.com/",
+            "fetched_at": "2026-10-17T19:59:41Z"
+          },
+          "P2.1": {
+            "text": "About Our Unified Commerce Company | NCR Voyix",
+            "url": "https://web.archive.org/web/20261004175316/https://www.ncrvoyix.com/about",
+            "fetched_at": "2026-10-17T19:59:44Z"
+          },
+          "P2.2": {
+            "text": "NCR Voyix is a platform-powered leader in unified commerce for retail and restaurants. 140+ years of industry expertise powering modern shopping and dining.",
+            "url": "https://web.archive.org/web/20261004175316/https://www.ncrvoyix.com/about",
+            "fetched_at": "2026-10-17T19:59:44Z"
+          },
+          "P2.3": {
+            "text": "Accelerating new possibilities in commerce",
+            "url": "https://web.archive.org/web/20261004175316/https://www.ncrvoyix.com/about",
+            "fetched_at": "2026-10-17T19:59:44Z"
+          },
+          "P2.4": {
+            "text": "Modern unified commerce for shopping and dining, backed by decades of industry know-how. We get retail. We get restaurants. We exist to empower you to accelerate",
+            "url": "https://web.archive.org/web/20261004175316/https://www.ncrvoyix.com/about",
+            "fetched_at": "2026-10-17T19:59:44Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

@@ -1,0 +1,1004 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ26685404__IQ328132",
+    "target": "IQ26685404",
+    "comp": "IQ328132",
+    "target_ticker": "HQI",
+    "comp_ticker": "BBSI",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ26685404__IQ328132",
+        "target": "IQ26685404",
+        "comp": "IQ328132",
+        "target_ticker": "HQI",
+        "comp_ticker": "BBSI",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ26685404",
+          "comp": "IQ328132",
+          "method": "B3",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "HQI",
+          "comp_ticker": "BBSI"
+        },
+        {
+          "target": "IQ26685404",
+          "comp": "IQ328132",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "HQI",
+          "comp_ticker": "BBSI"
+        },
+        {
+          "target": "IQ26685404",
+          "comp": "IQ328132",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "HQI",
+          "comp_ticker": "BBSI"
+        },
+        {
+          "target": "IQ26685404",
+          "comp": "IQ328132",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "HQI",
+          "comp_ticker": "BBSI"
+        },
+        {
+          "target": "IQ26685404",
+          "comp": "IQ328132",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 1.0,
+          "reason": "Core business is PEO, HR outsourcing and workers' comp insurance; staffing is a minor line, not blue-collar temp placement.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "HQI",
+          "comp_ticker": "BBSI"
+        },
+        {
+          "target": "IQ26685404",
+          "comp": "IQ328132",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Staffing and payroll services to US small businesses in construction and manufacturing; overlaps with temp staffing, though PEO and insurance-heavy and not franchised.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "HQI",
+          "comp_ticker": "BBSI"
+        },
+        {
+          "target": "IQ26685404",
+          "comp": "IQ328132",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Serves small businesses with PEO, payroll, HR and staffing services, billed per employee; closest staffing and workforce-services peer.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "HQI",
+          "comp_ticker": "BBSI"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Franchisor of local staffing offices that place temporary and direct-hire blue-collar workers with businesses. Franchisees pay royalties and fees, while the company supplies the brand, systems and training.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "",
+        "primary_products_status": "not_applicable",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "temporary staffing; direct-hire placement; payroll services for temporary workers",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: businesses needing light industrial, manufacturing, warehouse and hospitality labor",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "light industrial; manufacturing; warehousing and logistics; construction; hospitality",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "licensing or royalties: franchise royalties on staffing revenue earned by franchisee offices; other: initial franchise fees and other brand and system fees paid by franchisees",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: places temporary and direct-hire workers with business customers, sold through franchisee offices; other: franchisor collecting royalties from independently owned staffing offices",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: franchised staffing offices across many US states",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "niche specialist: blue-collar and light industrial staffing franchises",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "partners / resellers: independently owned franchisee staffing offices",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: employment and wage-and-hour rules from the US Department of Labor and state agencies, and franchise sales rules from the FTC",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Franchisor of on-demand temporary staffing offices that supply light industrial, skilled trade, and general labor workers to businesses. Franchisees run local offices and place workers; the company collects royalties and provides franchise support and back-office services.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "",
+        "primary_products_status": "not_applicable",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "temporary staffing; on-demand labor placement; franchise support services; payroll and back-office services for franchisees; direct hire placement",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: businesses needing temporary labor in construction, light industrial, manufacturing, hospitality and similar sectors; B2B: franchisees who pay royalties and fees to operate staffing offices",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "construction; light industrial; manufacturing; warehousing and logistics; hospitality; skilled trades",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "commissions or management fees: franchise royalties based on franchisee system sales; service fees: staffing fees and service revenue from company-owned offices and franchisee support",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: franchisor and staffing provider placing temporary workers with business clients through franchised offices",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: franchised offices across many US states",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "niche specialist: franchised temporary staffing with related brands for blue-collar labor",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "partners / resellers: franchisees operating local staffing offices under company brands; direct sales: company-owned offices and national account sales",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: employment, wage and hour, workers' compensation, and franchise regulations (FTC, DOL, state laws)",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ26685404.json",
+      "data": {
+        "company_name": "HireQuest, Inc.",
+        "website": "hirequest.com",
+        "scrape_status": "ok",
+        "capture_sha256": "c950b51866e11e5f16ef8d39190ab1f38f7f9e6646f944a0619854a6d818310e",
+        "lines": {
+          "P1.1": {
+            "text": "HireQuest Inc. | Staffing & Recruiting Services Franchise",
+            "url": "https://hirequest.com/",
+            "fetched_at": "2026-10-17T22:06:19Z"
+          },
+          "P1.2": {
+            "text": "HireQuest connects businesses with reliable staffing and recruiting solutions nationwide—temporary, direct hire, and workforce solutions across industries.",
+            "url": "https://hirequest.com/",
+            "fetched_at": "2026-10-17T22:06:19Z"
+          },
+          "P1.3": {
+            "text": "A leader across staffing/recruiting industry with multiple offices around the globe.",
+            "url": "https://hirequest.com/",
+            "fetched_at": "2026-10-17T22:06:19Z"
+          },
+          "P1.4": {
+            "text": "Hire Smarter, Work Stronger: Tailored Talent Solutions for Your Business Success",
+            "url": "https://hirequest.com/",
+            "fetched_at": "2026-10-17T22:06:19Z"
+          },
+          "P1.5": {
+            "text": "At HireQuest, we understand that every business is unique, and so are its workforce needs. That’s why our family of brands is dedicated to providing tailored staffing solutions that help companies thrive. Whether you’re looking for temporary staffing to meet seasonal demands, skilled professionals to fill critical roles, or strategic recruitment support to build a winning team, HireQuest delivers with expertise, efficiency, and unmatched service. Partnering with us and our divisions means gaining access to a global network of recruiting and staffing professionals who are committed to driving your business forward, one impactful hire at a time.",
+            "url": "https://hirequest.com/",
+            "fetched_at": "2026-10-17T22:06:19Z"
+          },
+          "P1.6": {
+            "text": "Our growth is strategically informed by more than 200 years of experience both in the staffing industry and in those industries we serve every day.",
+            "url": "https://hirequest.com/",
+            "fetched_at": "2026-10-17T22:06:19Z"
+          },
+          "P1.7": {
+            "text": "A commitment to our franchisees, our customers, and our communities inspires the work we do every day. We are proud to offer peerless customer service at every level of our business.",
+            "url": "https://hirequest.com/",
+            "fetched_at": "2026-10-17T22:06:19Z"
+          },
+          "P1.8": {
+            "text": "HireQuest franchisees operate coast to coast—in 47 states and Washington, D.C., and in multiple countries worldwide. Across our four proven franchise models—HireQuest Direct, Snelling, TradeCorp, and MRINetwork—we’re actively seeking driven partners ready to grow with us. Strategic expansion starts with the right people. Let’s build something together.",
+            "url": "https://hirequest.com/",
+            "fetched_at": "2026-10-17T22:06:19Z"
+          },
+          "P1.9": {
+            "text": "→ Snelling – Philadelphia, PA → Snelling – Kansas City, MO",
+            "url": "https://hirequest.com/",
+            "fetched_at": "2026-10-17T22:06:19Z"
+          },
+          "P1.10": {
+            "text": "For more information on these – contact Dave Gerstner directly",
+            "url": "https://hirequest.com/",
+            "fetched_at": "2026-10-17T22:06:19Z"
+          },
+          "P1.11": {
+            "text": "Due to recent changes in federal law, we are now only required to furnish Form 1095-C upon request.",
+            "url": "https://hirequest.com/",
+            "fetched_at": "2026-10-17T22:06:19Z"
+          },
+          "P2.1": {
+            "text": "Who We Are - HireQuest Inc. | Staffing & Recruiting Services Franchise",
+            "url": "https://hirequest.com/who-we-are/",
+            "fetched_at": "2026-10-17T22:06:20Z"
+          },
+          "P2.2": {
+            "text": "Learn who we are at HireQuest—our mission, values, and leadership behind our nationwide staffing and workforce solutions.",
+            "url": "https://hirequest.com/who-we-are/",
+            "fetched_at": "2026-10-17T22:06:20Z"
+          },
+          "P2.3": {
+            "text": "HireQuest is a franchisor of staffing solutions with a presence across the U.S. and international markets. Through its primary divisions – HireQuest Direct, HireQuest Health, MRINetwork, Snelling, and TradeCorp – the company provides temporary, direct-hire, and contract staffing solutions across industries, including construction, light industrial, healthcare, finance, manufacturing, cybersecurity, and engineering. From on-demand staffing to executive search, HireQuest’s divisions operate as one team for our customers -delivering workforce solutions that drive growth and change lives. Our flourishing franchise owners are as diverse as the communities they serve, and include veterans, women, minorities, first-time business owners, and families. They are all just as dedicated as we are to helping individuals rejoin the workforce and supporting businesses as they scale.",
+            "url": "https://hirequest.com/who-we-are/",
+            "fetched_at": "2026-10-17T22:06:20Z"
+          },
+          "P2.4": {
+            "text": "At HireQuest, our mission is to strengthen local communities by transforming how people find work and how work gets done",
+            "url": "https://hirequest.com/who-we-are/",
+            "fetched_at": "2026-10-17T22:06:20Z"
+          },
+          "P2.5": {
+            "text": "HireQuest and its divisions of brands are transforming how the world works. From major global cities to local hubs of industry, we’re helping businesses build stronger workforces and people find purpose through employment.",
+            "url": "https://hirequest.com/who-we-are/",
+            "fetched_at": "2026-10-17T22:06:20Z"
+          },
+          "P2.6": {
+            "text": "We envision a future where every person, in every community, can find empowerment through work.",
+            "url": "https://hirequest.com/who-we-are/",
+            "fetched_at": "2026-10-17T22:06:20Z"
+          },
+          "P2.7": {
+            "text": "A future where entrepreneurship is within reach for anyone willing to build it.",
+            "url": "https://hirequest.com/who-we-are/",
+            "fetched_at": "2026-10-17T22:06:20Z"
+          },
+          "P2.8": {
+            "text": "A future where companies can scale with confidence—anytime, anywhere.",
+            "url": "https://hirequest.com/who-we-are/",
+            "fetched_at": "2026-10-17T22:06:20Z"
+          },
+          "P2.9": {
+            "text": "We’re building a world where work works—for everyone. Every day of the year, around the globe.",
+            "url": "https://hirequest.com/who-we-are/",
+            "fetched_at": "2026-10-17T22:06:20Z"
+          },
+          "P2.10": {
+            "text": "Meet the Visionaries Leading Us into the Future",
+            "url": "https://hirequest.com/who-we-are/",
+            "fetched_at": "2026-10-17T22:06:20Z"
+          },
+          "P2.11": {
+            "text": "We know there’s a solution to every problem the American working world faces.",
+            "url": "https://hirequest.com/who-we-are/",
+            "fetched_at": "2026-10-17T22:06:20Z"
+          },
+          "P2.12": {
+            "text": "These are the values we hold close as we commit to our mission and our vision of the future:",
+            "url": "https://hirequest.com/who-we-are/",
+            "fetched_at": "2026-10-17T22:06:20Z"
+          },
+          "P2.13": {
+            "text": "Our work touches every demographic and every industry. The keys to working well with so many different types of people, experiences,",
+            "url": "https://hirequest.com/who-we-are/",
+            "fetched_at": "2026-10-17T22:06:20Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides outsourced human resources, payroll, and employee benefits administration to small and mid-sized businesses, plus workers' compensation insurance and staffing services. It delivers these through a professional employer organization model, with service fees charged per employee and insurance premiums.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "",
+        "primary_products_status": "not_applicable",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "professional employer organization services; payroll processing; human resources administration; workers' compensation insurance; staffing services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: small and mid-sized businesses across many industries",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "construction; manufacturing; professional services; healthcare; general small business",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "service fees: per-employee fees for payroll, HR and benefits administration; interest or premiums: workers' compensation insurance premiums paid by client companies; project or contract: staffing services billed under client contracts",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: takes in client employee and payroll data, sells HR outsourcing to small and mid-sized businesses; financial intermediary: takes in insurance premiums, provides workers' compensation coverage to client companies",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: offices across many US states",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: PEO and HR services, workers' compensation insurance, and staffing",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales staff selling to business owners; own locations: branch offices serving client companies",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: insurance licensing and state PEO licensing, workers' compensation regulated by state insurance regulators",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides professional employer organization (PEO) services, including payroll, HR, workers' compensation and benefits administration, to small and mid-sized businesses. Also offers staffing and temporary employment services. Delivered through branch offices with local sales and service teams.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "",
+        "primary_products_status": "not_applicable",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "PEO services; payroll processing; workers' compensation insurance; employee benefits administration; staffing and temporary labor",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: small and mid-sized businesses across industries needing outsourced HR, payroll and staffing",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "light industrial; construction; professional services; hospitality; healthcare; technology",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "service fees: PEO fees based on client payroll and worksite employee costs; service fees: staffing and temporary labor billings to clients",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: co-employs client workers and handles HR, payroll, benefits and risk for small and mid-sized businesses",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "US regional: Mainly California, Oregon, Washington, Maryland, Utah, Arizona, Colorado, Idaho and other states through branch offices",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: PEO services and staffing, both workforce outsourcing for employers",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: branch-based sales teams selling to local businesses; agents / brokers: insurance brokers and referral partners",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: employment, payroll tax, benefits and workers' compensation rules, state PEO licensing, ACA and ERISA, IRS certification",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ328132.json",
+      "data": {
+        "company_name": "Barrett Business Services, Inc.",
+        "website": "www.bbsi.com",
+        "scrape_status": "ok",
+        "capture_sha256": "7d4707da7eabe85325803742bb2d1f70f947c50d78c113ec0d1cdd4a49733382",
+        "lines": {
+          "P1.1": {
+            "text": "BBSI PEO | Locally Supported Payroll, HR, Workers’ Comp & Benefits",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.2": {
+            "text": "Discover BBSI PEO: Integrated payroll, HR, workers’ compensation, and risk services backed by local expertise and national resources.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.3": {
+            "text": "Locally-Supported Solutions Built for Every Business",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.4": {
+            "text": "BBSI is a nationwide PEO that combines local support teams, essential business services, and modern technology to deliver comprehensive workforce management solutions to businesses of every size, stage, and industry.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.5": {
+            "text": "National PEO Services With Local Support",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.6": {
+            "text": "BBSI pairs teams of industry experts with business owners in multiple locations across the country, allowing us to provide hands-on service and support wherever your business operates.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.7": {
+            "text": "Payroll Administration & Human Resources Consulting",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.8": {
+            "text": "Accurate payroll, HR compliance support, and expert guidance provided by dedicated professionals who know your business.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.9": {
+            "text": "Dedicated Payroll & HR Consultants",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.10": {
+            "text": "Labor Law & Compliance Support",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.11": {
+            "text": "HR Systems & Process Improvement",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.12": {
+            "text": "Meet Gary and Jennifer. They're small business owners with very different days. Flow. He's barely staying afloat. Jennifer, on the other hand, is a BBSI client with her BBSI team helping her handle day to day tasks for HR, payroll, and more. She's free to focus on growing her business. BBSI helped Jennifer tackle challenges head on with real solutions. Gary wonders how Jennifer does it all. The answer, BBSI, Delivering locally supported solutions for small businesses.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.13": {
+            "text": "Risk Management & Workers' Compensation Insurance",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.14": {
+            "text": "Proactive risk strategies and workers’ compensation solutions that protect your people and control costs.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.15": {
+            "text": "Claims Management & Injury Response",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.16": {
+            "text": "Loss Control & Trend Analysis",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.17": {
+            "text": "Health Benefits, Retirement Plans & Strategic Planning",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.18": {
+            "text": "Competitive benefits and long‑term planning support that strengthen retention, performance, and growth.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.19": {
+            "text": "Medical, Dental & Vision Plans",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.20": {
+            "text": "End‑to‑end recruiting support that helps you find, onboard, and retain the right talent, fast.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.21": {
+            "text": "Recruit talent that suits your business needs.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.22": {
+            "text": "Leave the scheduling and screening to us.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.23": {
+            "text": "Offer Letters & Acceptance Workflows",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.24": {
+            "text": "Give recruits the support needed to succeed.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.25": {
+            "text": "Orientation Agendas & Training Plans",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.26": {
+            "text": "Performance Check-Ins & Feedback Loops",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.27": {
+            "text": "Retention Metrics & Turnover Assistance",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.28": {
+            "text": "Core PEO Support With Flexible Ways to Grow",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.29": {
+            "text": "BBSI's service packages start with core service support that can be customized for every client, giving businesses optional, flexible enhancements to support evolving business needs.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.30": {
+            "text": "The foundation of every BBSI partnership, our Core Package provides the essential support all clients receive.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.31": {
+            "text": "Accurate, compliant payroll every cycle",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.32": {
+            "text": "Ensures employees are paid accurately, plus real-time management support.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.33": {
+            "text": "Including deductions, calendars, workflows, approvals, and reporting.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.34": {
+            "text": "Federal, state, and local filings, including W-2 and 1099 administration.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.35": {
+            "text": "Regular forecasting, reporting, and audits.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.36": {
+            "text": "HR foundations that strengthen workplaces",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.37": {
+            "text": "Provides expert support for employee relations and organizational development.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.38": {
+            "text": "Handbook development, policy frameworks, and employee onboarding.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.39": {
+            "text": "Multi-state compliance support and recordkeeping.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.40": {
+            "text": "From accommodations and training to conflict resolution and termination support.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.41": {
+            "text": "Practical risk management for safer operations",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.42": {
+            "text": "Builds strong safety cultures through onsite risk assessments and training.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.43": {
+            "text": "Equipment and PPE evaluations, compliance audits, and job hazard analysis.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.44": {
+            "text": "Role and industry-specific course development with certification tracking.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.45": {
+            "text": "Emergency response plans, lockout/tagout, and hazard communication.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.46": {
+            "text": "Proactive consulting that turns goals into execution",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.47": {
+            "text": "Leads strategic planning sessions and identifies obstacles to achieving business goals.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.48": {
+            "text": "Blueprint and roadmap development, communication plans, and executive facilitation.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.49": {
+            "text": "SOP development, KPI definitions, scorecards, and cross-functional workflows.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.50": {
+            "text": "Leadership coaching, review rhythms, and feedback frameworks.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.51": {
+            "text": "Batch options, paystubs, and compensation reporting.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.52": {
+            "text": "Time-off requests, electronic onboarding, and real-time dashboards.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.53": {
+            "text": "Accessible by managers and employees 24/7, in-office or on the go.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.54": {
+            "text": "Secure, centralized storage for employee documents and records.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.55": {
+            "text": "One foundational service package with four dedicated specialists and an HRIS technology platform.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.56": {
+            "text": "Customize your service package with solutions to support expansion, specialization, and evolving business needs.",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.57": {
+            "text": "Nationwide coverage with enrollment and compliance support",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          },
+          "P1.58": {
+            "text": "Designs and manages health benefit programs tailored to your",
+            "url": "https://www.bbsi.com/",
+            "fetched_at": "2026-10-17T21:58:04Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

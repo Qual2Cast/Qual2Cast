@@ -1,0 +1,1063 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ268363__IQ336648",
+    "target": "IQ268363",
+    "comp": "IQ336648",
+    "target_ticker": "RVTY",
+    "comp_ticker": "AZTA",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ268363__IQ336648",
+        "target": "IQ268363",
+        "comp": "IQ336648",
+        "target_ticker": "RVTY",
+        "comp_ticker": "AZTA",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ268363",
+          "comp": "IQ336648",
+          "method": "B3",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RVTY",
+          "comp_ticker": "AZTA"
+        },
+        {
+          "target": "IQ268363",
+          "comp": "IQ336648",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RVTY",
+          "comp_ticker": "AZTA"
+        },
+        {
+          "target": "IQ268363",
+          "comp": "IQ336648",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RVTY",
+          "comp_ticker": "AZTA"
+        },
+        {
+          "target": "IQ268363",
+          "comp": "IQ336648",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RVTY",
+          "comp_ticker": "AZTA"
+        },
+        {
+          "target": "IQ268363",
+          "comp": "IQ336648",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RVTY",
+          "comp_ticker": "AZTA"
+        },
+        {
+          "target": "IQ268363",
+          "comp": "IQ336648",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RVTY",
+          "comp_ticker": "AZTA"
+        },
+        {
+          "target": "IQ268363",
+          "comp": "IQ336648",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 3.0,
+          "reason": "Sample storage systems and genomic sequencing services; shares lab customers but not Revvity's instrument, kit and reagent core.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RVTY",
+          "comp_ticker": "AZTA"
+        },
+        {
+          "target": "IQ268363",
+          "comp": "IQ336648",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Sells life science lab instruments and consumables, plus genomic and sample-handling services, to biopharma, research labs and government institutes.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RVTY",
+          "comp_ticker": "AZTA"
+        },
+        {
+          "target": "IQ268363",
+          "comp": "IQ336648",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Life science tools, consumables and lab services sold to biopharma and research labs; overlaps on instruments, services and software.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RVTY",
+          "comp_ticker": "AZTA"
+        },
+        {
+          "target": "IQ268363",
+          "comp": "IQ336648",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Supplies life science labs with sample management products, genomic services and consumables to biopharma and research customers.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RVTY",
+          "comp_ticker": "AZTA"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides life sciences research tools, diagnostic test kits, reagents, software and testing services to pharmaceutical, biotech, academic, clinical laboratory and public health customers. It makes most products in its own facilities and sells them directly and through distributors.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "research instruments; diagnostic test kits; reagents; imaging systems; laboratory software",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "laboratory testing services; contract research support; data informatics services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: pharmaceutical and biotech companies, academic research labs, clinical laboratories, hospitals; B2G: public health laboratories running newborn screening programs",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "life sciences research; pharmaceuticals; diagnostics; clinical healthcare; food and environmental testing",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: instruments, diagnostic kits and reagents sold to labs and researchers; service fees: laboratory testing, support and contract research services; subscription: laboratory informatics software licensed on a subscription basis",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: builds instruments and test kits from purchased components, sold to labs and hospitals; service provider: runs testing and research services for pharmaceutical and public health clients; software / platform: provides laboratory data software to research and clinical customers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: Sales and service in North America, Europe, Asia and other regions worldwide",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: research instruments, diagnostic test kits, reagents, and laboratory software sold to the same lab customers",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: direct sales teams selling to pharma, biotech and large hospital labs; distributors / dealers: third-party distributors covering smaller labs and regions; online: online ordering of reagents and consumables",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: diagnostic test kits need FDA clearance or EU IVDR approval, also quality system rules for clinical labs",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Develops and manufactures diagnostic tests, instruments, reagents and software for life science research, drug discovery and clinical diagnostics. Sells to pharmaceutical and biotech companies, academic labs, hospitals and diagnostic labs. Also provides related services such as service contracts and testing.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "diagnostic assays and reagents; imaging and detection instruments; newborn and reproductive health screening tests; immunodiagnostic kits; lab software and informatics",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "instrument maintenance and service contracts; clinical testing services; laboratory informatics and analytics; custom assay development",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: pharmaceutical and biotech companies, academic and research labs, diagnostic laboratories, hospitals; B2G: public health agencies and government-funded newborn screening programs",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "life science research; drug discovery; clinical diagnostics; newborn and reproductive health; biopharma",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: instruments, consumable reagents, assay kits; service fees: instrument service contracts, testing and lab services; subscription: software and informatics platform subscriptions",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: makes instruments, reagents and diagnostic kits, sold to labs, researchers and healthcare providers; software / platform: analytics and informatics software for research and diagnostic labs; service provider: clinical testing and instrument servicing for labs and clinics",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: Americas, Europe, Asia-Pacific including China, and other regions",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: diagnostics and life science research tools: assays, reagents, instruments and software",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales force selling to pharma, biotech, academic and clinical labs; distributors / dealers: regional distributors in markets without direct presence; online: e-commerce ordering of reagents and consumables",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: in vitro diagnostics need FDA clearance, CE marking and similar approvals, clinical labs under CLIA",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ268363.json",
+      "data": {
+        "company_name": "Revvity, Inc.",
+        "website": "www.revvity.com",
+        "scrape_status": "ok",
+        "capture_sha256": "8fceda70bf73233a0b58eccd92738eb7853d4892aaa4dd38e1498806393c2c80",
+        "lines": {
+          "P1.1": {
+            "text": "Revvity - Expanding the boundaries of human potential through science",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.2": {
+            "text": "We provide health science technologies, expertise, and services that deliver complete workflow solutions from target to cure.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.3": {
+            "text": "Revvity brings together AI-powered informatics, automation, reagents, imaging, analytical technologies, and scientific expertise to power connected Lab-in-the-Loop workflows that transform biological data into actionable scientific insight.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.4": {
+            "text": "Antibodies & tools for target & hit discovery",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.5": {
+            "text": "Assays & platforms for lead & process development",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.6": {
+            "text": "Stratification and data management solutions",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.7": {
+            "text": "Solutions supporting product quality and efficacy",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.8": {
+            "text": "Screening tools for early detection",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.9": {
+            "text": "End-to-end solutions for specialty diagnostics",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.10": {
+            "text": "All your products and resources in one place.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.11": {
+            "text": "SAVE 10% on your first online order",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.12": {
+            "text": "Use code HELLO10 at checkout. T&Cs apply.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.13": {
+            "text": "Opera Phenix OptIQ™ HCS system",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.14": {
+            "text": "Our new system for 3D models and live-cell applications.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.15": {
+            "text": "new antibodies, kits, and reagents introduced annually for life science research.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.16": {
+            "text": "peer-reviewed publications using our In Vivo imaging systems.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.17": {
+            "text": "published citations of Dharmacon™ reagents.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.18": {
+            "text": "of the top 50 pharmaceutical companies worldwide use our innovative solutions.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.19": {
+            "text": "no-wash immunoassays and reagents for efficient screening.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.20": {
+            "text": "scientists across pharma, biotech, and academia utilize our software solutions.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.21": {
+            "text": "licensees across Revvity's technology and licensing organization.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.22": {
+            "text": "babies screened annually for life-threatening disorders with Revvity technologies.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.23": {
+            "text": "blood samples analyzed with EUROIMMUN solutions to identify autoimmune disorders.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.24": {
+            "text": "individuals tested for COVID-19 virus with Revvity tests.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.25": {
+            "text": "individuals tested for latent TB infection with the T-SPOT.TB test.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.26": {
+            "text": "mentions of the T-SPOT.TB test in peer reviewed publications.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.27": {
+            "text": "years of innovation in maternal, fetal, and neonatal health.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.28": {
+            "text": "genomic tests performed to detect rare inherited diseases and hereditary cancers.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.29": {
+            "text": "CROs use our reagents, instruments and software to support their clients in commercializing their discoveries.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.30": {
+            "text": "CDMOs utilize our proven life science technologies to support their clients in every part of their commercialization journey.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.31": {
+            "text": "Revvity offers comprehensive life science solutions, technologies, and services, covering workflows from discovery to cure. We revolutionize biomedical research with a focus on translational multi-omics, biomarker identification, imaging, prediction, screening, detection, diagnosis, informatics, and more.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.32": {
+            "text": "Licensing, Contract and Clinical Testing Services",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.33": {
+            "text": "Collaborate with our skilled scientists and experts to reach your goals sooner. Our range of contract services supports preclinical oncology drug discovery, viral vector manufacture, omics discovery, the development of genetic disease treatments, and clinical genetic testing. We also provide novel licensable technologies for gene expression, editing, and delivery to help you bring safer, more effective treatments to patients.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.34": {
+            "text": "Our innovative laboratory solutions enhance reproductive health across all stages. Our cutting-edge research solutions drive innovation in reproductive health science, while our advanced screening technologies enable early detection and timely interventions, ultimately empowering improved outcomes globally.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.35": {
+            "text": "Our specialty portfolio delivers innovative, end-to-end solutions for identifying and investigating a broad range of immune system disorders. We integrate cutting-edge technologies, such as immunoassays, molecular assays, automation, and advanced software - to enable seamless workflow integration, ultimately expanding research and testing for these highly complex diseases.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.36": {
+            "text": "Integrating small RNA-seq and single-cell multiomics to investigate tumor-T-cell communication.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.37": {
+            "text": "See how small RNA-seq and single-cell multiomics connect exosomal miRNA profiles with T-cell responses in triple-negative breast cancer research.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.38": {
+            "text": "New meta-analysis of 307 studies finds that T-SPOT.TB is the most sensitive test for TB infection.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.39": {
+            "text": "New meta-analysis of 307 studies confirms T-SPOT.TB as the most sensitive TB infection test — in both HIV-negative and HIV-positive populations.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.40": {
+            "text": "High-efficiency in vivo editing with the Pin-point base editing system.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.41": {
+            "text": "This blog discusses how the Pin-point™ base editing platform achieves high-efficiency in vivo editing following lipid nanoparticle delivery at modest RNA doses.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.42": {
+            "text": "How to choose and analyze 3D culture.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.43": {
+            "text": "Get a clear breakdown of how to choose between spheroids and organoids, and see how Revvity's Celigo image cytometer can help improve your 3D culture workflows.",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          },
+          "P1.44": {
+            "text": "Achieving dual-direction",
+            "url": "https://www.revvity.com/",
+            "fetched_at": "2026-10-17T20:07:44Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides sample management products and multiomics services for life science customers. It sells automated sample storage systems, cryogenic storage, and consumables, and performs genomic and sample-handling services for biopharma and research labs.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "automated sample storage systems; cryogenic freezers; sample tubes and consumables; sample management software",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "genomic sequencing; bioinformatics analysis; sample management services; biorepository services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: biopharma and biotech companies, clinical research organizations, diagnostics firms; B2G: university and government-funded research institutes",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "biopharma; life sciences research; clinical diagnostics; academic research",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: storage systems, freezers and consumables sold to labs; service fees: sequencing, sample management and biorepository services",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: builds sample storage systems and freezers, sold to research and pharma labs; service provider: takes in customer samples and data, sells sequencing and sample management services to life science companies",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: customers across North America, Europe and Asia-Pacific",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: sample management products and consumables, multiomics and genomic services sharing life science customers",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: direct sales teams selling to pharma, biotech and research accounts; distributors / dealers: laboratory supply distributors in some regions",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: medical-grade and GxP quality rules for lab systems and biospecimen handling, plus data privacy rules for genomic data",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides sample management solutions and multiomics services to life sciences, pharma, biotech, academic and healthcare customers. Offers cold-chain storage, biorepository and logistics services, sample storage automation and consumables, plus genomic sequencing and synthesis services delivered from labs and facilities.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "automated sample storage systems; cryogenic and cold-chain consumables; sample tubes and labware; laboratory informatics software",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "biological sample storage and biorepository; sample logistics and transport; genomic sequencing services; gene synthesis; sample processing and analysis",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: pharmaceutical and biotech companies, clinical labs, contract research organizations, hospitals; B2B: academic and private research institutions; B2G: government research institutes",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "pharmaceuticals; biotechnology; academic research; clinical diagnostics; cell and gene therapy",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "service fees: sample storage, logistics, sequencing and gene synthesis services; product sales: automated storage systems, consumables and labware; subscription: software and recurring storage agreements",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: takes in customer samples and delivers storage, logistics and genomic testing for life science customers; OEM / manufacturer: builds automated storage systems and consumables sold to labs and biobanks; asset operator: runs cold-chain storage facilities and genomics laboratories",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: North America, Europe and Asia-Pacific, including China, with facilities in the US, UK, Germany and elsewhere",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: sample management solutions and multiomics services for life science customers",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales teams to pharma, biotech, academic and clinical customers; online: web ordering for genomic services and consumables; distributors / dealers: regional distributors for consumables and instruments",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: Handling of biological samples and patient data: GMP/GLP and quality standards, CLIA/CAP, HIPAA and GDPR, transport rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ336648.json",
+      "data": {
+        "company_name": "Azenta, Inc.",
+        "website": "www.azenta.com",
+        "scrape_status": "ok",
+        "capture_sha256": "51d1b0b1ef89eb2a1b6d0dc2aa60720ad062abdc8aaede890e2468f9365e3361",
+        "lines": {
+          "P1.1": {
+            "text": "Accelerating Breakthroughs & Therapies | Azenta Life Sciences",
+            "url": "https://www.azenta.com/",
+            "fetched_at": "2026-10-17T21:57:43Z"
+          },
+          "P1.2": {
+            "text": "Azenta Life Sciences enterprise-wide sample exploration and management solutions accelerate discovery, development and delivery, with speed and precision.",
+            "url": "https://www.azenta.com/",
+            "fetched_at": "2026-10-17T21:57:43Z"
+          },
+          "P1.3": {
+            "text": "Protection without Compromise for Every Patient Journey",
+            "url": "https://www.azenta.com/",
+            "fetched_at": "2026-10-17T21:57:43Z"
+          },
+          "P1.4": {
+            "text": "High-Efficiency Cryogenic Storage for IVF",
+            "url": "https://www.azenta.com/",
+            "fetched_at": "2026-10-17T21:57:43Z"
+          },
+          "P1.5": {
+            "text": "Experience CryoArc Vita-76 in Action This October",
+            "url": "https://www.azenta.com/",
+            "fetched_at": "2026-10-17T21:57:43Z"
+          },
+          "P1.6": {
+            "text": "See What’s Possible with High-Efficiency Cryogenic Storage",
+            "url": "https://www.azenta.com/",
+            "fetched_at": "2026-10-17T21:57:43Z"
+          },
+          "P1.7": {
+            "text": "Connect to Your Cryogenic Storage from Anywhere",
+            "url": "https://www.azenta.com/",
+            "fetched_at": "2026-10-17T21:57:43Z"
+          },
+          "P1.8": {
+            "text": "Better Storage Management for Research",
+            "url": "https://www.azenta.com/",
+            "fetched_at": "2026-10-17T21:57:43Z"
+          },
+          "P1.9": {
+            "text": "Sustainable & Energy Efficient Storage Solutions",
+            "url": "https://www.azenta.com/",
+            "fetched_at": "2026-10-17T21:57:43Z"
+          },
+          "P1.10": {
+            "text": "Sample Storage & Repository Services",
+            "url": "https://www.azenta.com/",
+            "fetched_at": "2026-10-17T21:57:43Z"
+          },
+          "P1.11": {
+            "text": "Material & Lab Moving Services",
+            "url": "https://www.azenta.com/",
+            "fetched_at": "2026-10-17T21:57:43Z"
+          },
+          "P1.12": {
+            "text": "Cold Storage Systems (Ambient to -20° C)",
+            "url": "https://www.azenta.com/",
+            "fetched_at": "2026-10-17T21:57:43Z"
+          },
+          "P1.13": {
+            "text": "Ultra Cold Storage Systems (ULT -80° C)",
+            "url": "https://www.azenta.com/",
+            "fetched_at": "2026-10-17T21:57:43Z"
+          },
+          "P1.14": {
+            "text": "Cryogenic Storage Systems (-190° C)",
+            "url": "https://www.azenta.com/",
+            "fetched_at": "2026-10-17T21:57:43Z"
+          },
+          "P1.15": {
+            "text": "GENEWIZ Multiomics & Synthesis Solutions",
+            "url": "https://www.azenta.com/",
+            "fetched_at": "2026-10-17T21:57:43Z"
+          },
+          "P1.16": {
+            "text": "We Want to Hear from You",
+            "url": "https://www.azenta.com/",
+            "fetched_at": "2026-10-17T21:57:43Z"
+          },
+          "P1.17": {
+            "text": "Azenta Accelerates Global Biorepository Power with UK Biocentre Acquisition",
+            "url": "https://www.azenta.com/",
+            "fetched_at": "2026-10-17T21:57:43Z"
+          },
+          "P1.18": {
+            "text": "Tell Us Your Sample’s Story",
+            "url": "https://www.azenta.com/",
+            "fetched_at": "2026-10-17T21:57:43Z"
+          },
+          "P1.19": {
+            "text": "Explore All Promotions & Offers",
+            "url": "https://www.azenta.com/",
+            "fetched_at": "2026-10-17T21:57:43Z"
+          },
+          "P2.1": {
+            "text": "Drug Products Storage & Distribution | Azenta Life Sciences",
+            "url": "https://www.azenta.com/services/sample-storage-services/drug-products-storage-distribution",
+            "fetched_at": "2026-10-17T21:57:44Z"
+          },
+          "P2.2": {
+            "text": "Trust your drug and cell therapy products to the premier name in ultra-cold storage. Azenta prioritizes flexible pharmaceutical logistics and distribution!",
+            "url": "https://www.azenta.com/services/sample-storage-services/drug-products-storage-distribution",
+            "fetched_at": "2026-10-17T21:57:44Z"
+          },
+          "P2.3": {
+            "text": "Drug Products Storage & Distribution",
+            "url": "https://www.azenta.com/services/sample-storage-services/drug-products-storage-distribution",
+            "fetched_at": "2026-10-17T21:57:44Z"
+          },
+          "P2.4": {
+            "text": "Maintaining Secure Cold Chain Logistics, Every Step of the Way",
+            "url": "https://www.azenta.com/services/sample-storage-services/drug-products-storage-distribution",
+            "fetched_at": "2026-10-17T21:57:44Z"
+          },
+          "P2.5": {
+            "text": "Trust your manufactured drug products with the premier name in ultra-cold storage. Our capabilities range from storage and cold chain logistics management to pharmaceutical distribution of drug products in their journey from development through commercialization. Azenta Life Sciences understands the challenges that drug manufacturers like pharmaceutical companies and CDMOs face – starting with ultra-cold temperature environments. Manufactured drug products have rigorous cold storage standards, with specific needs, which are critical for the efficacy and shelf life of temperature-sensitive drugs. Adherence to these requirements can be very challenging, especially when the products need to be transported from/to various points-of-use",
+            "url": "https://www.azenta.com/services/sample-storage-services/drug-products-storage-distribution",
+            "fetched_at": "2026-10-17T21:57:44Z"
+          },
+          "P2.6": {
+            "text": "Our experts specialize in cGMP (Current Good Manufacturing Practice) controlled cold chain storage as well as cold chain management to help safeguard the integrity and quality of your indispensable products. From ambient temperature to our core competency in ultra-cold storage – we maintain secure cold chain logistics, every step of the way.",
+            "url": "https://www.azenta.com/services/sample-storage-services/drug-products-storage-distribution",
+            "fetched_at": "2026-10-17T21:57:44Z"
+          },
+          "P2.7": {
+            "text": "Rapid retrieval as fast as 24 hours for shipment across the globe.",
+            "url": "https://www.azenta.com/services/sample-storage-services/drug-products-storage-distribution",
+            "fetched_at": "2026-10-17T21:57:44Z"
+          },
+          "P2.8": {
+            "text": "End-to-end logistics including transport in our mobile biorepositories in the US to maintain chain of custody for bulk shipments.",
+            "url": "https://www.azenta.com/services/sample-storage-services/drug-products-storage-distribution",
+            "fetched_at": "2026-10-17T21:57:44Z"
+          },
+          "P2.9": {
+            "text": "Our own automated stores are available for additional layer of controlled cold chain management.",
+            "url": "https://www.azenta.com/services/sample-storage-services/drug-products-storage-distribution",
+            "fetched_at": "2026-10-17T21:57:44Z"
+          },
+          "P2.10": {
+            "text": "24/7 access to material data through secure software that supports 21 CFR, part 11 compliance, providing real-time visibility to inventory and complete audit trail.",
+            "url": "https://www.azenta.com/services/sample-storage-services/drug-products-storage-distribution",
+            "fetched_at": "2026-10-17T21:57:44Z"
+          },
+          "P2.11": {
+            "text": "Quality management system (QMS) built to be compliant with the stringent requirements of GxP and 150+ unwavering best practices for regulated storage and logistics.",
+            "url": "https://www.azenta.com/services/sample-storage-services/drug-products-storage-distribution",
+            "fetched_at": "2026-10-17T21:57:44Z"
+          },
+          "P2.12": {
+            "text": "State-of-the-art cGMP, GDP, and GTP-compliant short- and long-term storage ranging from ambient to -196°C.",
+            "url": "https://www.azenta.com/services/sample-storage-services/drug-products-storage-distribution",
+            "fetched_at": "2026-10-17T21:57:44Z"
+          },
+          "P2.13": {
+            "text": "Ambient and Controlled Room Temperature (CRT)",
+            "url": "https://www.azenta.com/services/sample-storage-services/drug-products-storage-distribution",
+            "fetched_at": "2026-10-17T21:57:44Z"
+          },
+          "P2.14": {
+            "text": "Ultra-low Freezer (-40°C to -80°C)",
+            "url": "https://www.azenta.com/services/sample-storage-services/drug-products-storage-distribution",
+            "fetched_at": "2026-10-17T21:57:44Z"
+          },
+          "P2.15": {
+            "text": "Liquid Nitrogen (-150°C to -196°C)",
+            "url": "https://www.azenta.com/services/sample-storage-services/drug-products-storage-distribution",
+            "fetched_at": "2026-10-17T21:57:44Z"
+          },
+          "P2.16": {
+            "text": "Automated storage systems from Azenta allow flexible storage for a variety of labware and rapid access. These systems are available throughout our biorepositories to help minimize risk and support consistent and traceable handling of materials including an audit trail of all movements for an additional layer of visibility.",
+            "url": "https://www.azenta.com/services/sample-storage-services/drug-products-storage-distribution",
+            "fetched_at": "2026-10-17T21:57:44Z"
+          },
+          "P2.17": {
+            "text": "All your materials stored with Azenta are managed within the Limfinity ® Sample Management System which enables our team to efficiently manage your inventory and to always have visibility. Our software supports 21 CFR, part 11 compliance and provides secure audit trail reporting, flexible tracking, and web-based retrieval and shipping.",
+            "url": "https://www.azenta.com/services/sample-storage-services/drug-products-storage-distribution",
+            "fetched_at": "2026-10-17T21:57:44Z"
+          },
+          "P2.18": {
+            "text": "Gold Standard Storage & Distribution",
+            "url": "https://www.azenta.com/services/sample-storage-services/drug-products-storage-distribution",
+            "fetched_at": "2026-10-17T21:57:44Z"
+          },
+          "P2.19": {
+            "text": "Accredited as a Drug Distributor by the NABP, Azenta holds licenses to distribute from our Indiana facility to all states and outlying territories of the United States",
+            "url": "https://www.azenta.com/services/sample-storage-services/drug-products-storage-distribution",
+            "fetched_at": "2026-10-17T21:57:44Z"
+          },
+          "P2.20": {
+            "text": "PMDA Foreign GMP Manufacturer certified for GMP storage",
+            "url": "https://www.azenta.com/services/sample-storage-services/drug-products-storage-distribution",
+            "fetched_at": "2026-10-17T21:57:44Z"
+          },
+          "P2.21": {
+            "text": "US State Board of Pharmacy",
+            "url": "https://www.azenta.com/services/sample-storage-services/drug-products-storage-distribution",
+            "fetched_at": "2026-10-17T21:57:44Z"
+          },
+          "P2.22": {
+            "text": "GTP licensed by the USA FDA",
+            "url": "https://www.azenta.com/services/sample-storage-services/drug-products-storage-distribution",
+            "fetched_at": "2026-10-17T21:57:44Z"
+          },
+          "P2.23": {
+            "text": "EMA inspected for GMP",
+            "url": "https://www.azenta.com/services/sample-storage-services/drug-products-storage-distribution",
+            "fetched_at": "2026-10-17T21:57:44Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

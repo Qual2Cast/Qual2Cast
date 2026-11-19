@@ -1,0 +1,920 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ25605__IQ51119246",
+    "target": "IQ25605",
+    "comp": "IQ51119246",
+    "target_ticker": "BMRN",
+    "comp_ticker": "ADMA",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ25605__IQ51119246",
+        "target": "IQ25605",
+        "comp": "IQ51119246",
+        "target_ticker": "BMRN",
+        "comp_ticker": "ADMA",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ25605",
+          "comp": "IQ51119246",
+          "method": "B3",
+          "kept": true,
+          "rank": 6.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BMRN",
+          "comp_ticker": "ADMA"
+        },
+        {
+          "target": "IQ25605",
+          "comp": "IQ51119246",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 8.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BMRN",
+          "comp_ticker": "ADMA"
+        },
+        {
+          "target": "IQ25605",
+          "comp": "IQ51119246",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 8.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BMRN",
+          "comp_ticker": "ADMA"
+        },
+        {
+          "target": "IQ25605",
+          "comp": "IQ51119246",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 9.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BMRN",
+          "comp_ticker": "ADMA"
+        },
+        {
+          "target": "IQ25605",
+          "comp": "IQ51119246",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 6.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BMRN",
+          "comp_ticker": "ADMA"
+        },
+        {
+          "target": "IQ25605",
+          "comp": "IQ51119246",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BMRN",
+          "comp_ticker": "ADMA"
+        },
+        {
+          "target": "IQ25605",
+          "comp": "IQ51119246",
+          "method": "screen_haiku",
+          "kept": true,
+          "rank": 6.0,
+          "reason": "Rare-disease specialty biologics sold through specialty pharmacies to specialist physicians; differs in plasma-derived manufacturing.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BMRN",
+          "comp_ticker": "ADMA"
+        },
+        {
+          "target": "IQ25605",
+          "comp": "IQ51119246",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Develops and sells plasma-derived immune globulin therapies for rare genetic immune deficiencies through specialty pharmacies and infusion providers, closely matching BioMarin's rare-disease biologics model.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BMRN",
+          "comp_ticker": "ADMA"
+        },
+        {
+          "target": "IQ25605",
+          "comp": "IQ51119246",
+          "method": "screen_sonnet",
+          "kept": false,
+          "rank": 6.0,
+          "reason": "Plasma-derived immune globulin with own collection centers; different products and economics from rare-disease enzyme, peptide and gene therapies.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BMRN",
+          "comp_ticker": "ADMA"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Develops and commercializes therapies for rare genetic diseases, including enzyme replacement, peptide and gene therapies. Sells to specialist physicians, hospitals and patients, with products reaching patients through specialty distributors and pharmacies.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "enzyme replacement therapies; peptide therapies; gene therapy for hemophilia A; growth-regulating therapy for achondroplasia",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: specialty pharmacies, hospitals, clinics and specialist physicians; B2C: patients with rare genetic diseases and their families",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "rare disease healthcare; biopharmaceuticals",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: prescription therapies sold to distributors, pharmacies and hospitals",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: develops and markets its own drugs, sold to distributors, pharmacies and hospitals; OEM / manufacturer: produces therapies, partly through contract manufacturers, sold to specialty distributors and pharmacies",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: United States, Europe, Japan, Latin America, Middle East and other countries",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: rare disease therapies across enzyme replacement, peptide, gene therapy and skeletal disease treatments, sharing specialist physician customers",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: specialist sales force selling to physicians and hospitals; distributors / dealers: specialty pharmaceutical distributors; third-party retail: specialty pharmacies dispensing to patients",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: drug approvals and licenses needed to sell therapies, regulated by the FDA and EMA and other national health authorities",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Develops, manufactures and commercializes therapies for rare genetic and endocrine diseases. Sells prescription enzyme replacement therapies, a gene therapy and peptide-based drugs to hospitals, specialty pharmacies and distributors worldwide.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "enzyme replacement therapies; peptide therapy for achondroplasia; gene therapy for hemophilia A; PKU treatment; endocrine therapies",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: hospitals, specialty pharmacies, wholesalers and distributors purchasing rare disease drugs; B2G: government-funded health systems and national payers in international markets",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "rare genetic diseases; endocrinology; metabolic disorders; skeletal conditions; hemophilia",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: prescription rare disease therapies sold to specialty pharmacies, distributors and hospitals; licensing or royalties: royalties and collaboration revenue from licensed products",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: develops and markets branded biologic and small-molecule drugs sold to pharmacies, distributors and hospitals; OEM / manufacturer: manufactures biologics and gene therapy in own facilities from purchased raw materials",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: United States, Europe, Latin America, Middle East and Asia-Pacific",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: enzyme therapies, peptide and gene therapies, and small-molecule drugs for rare diseases",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "distributors / dealers: specialty pharmacies and wholesalers/distributors; direct sales: sales to hospitals, national health systems and treatment centers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: drugs and gene therapies requiring FDA, EMA and other regulatory approval, pricing and reimbursement rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ25605.json",
+      "data": {
+        "company_name": "BioMarin Pharmaceutical Inc.",
+        "website": "www.biomarin.com",
+        "scrape_status": "ok",
+        "capture_sha256": "83cfd57529b98c39143575dc8a21be4999c3acba4cbc79baf0ef261026a53422",
+        "lines": {
+          "P1.1": {
+            "text": "BioMarin Pharmaceutical | Global Biotechnology Company",
+            "url": "https://www.biomarin.com/",
+            "fetched_at": "2026-10-17T19:15:27Z"
+          },
+          "P1.2": {
+            "text": "BioMarin is a global biotechnology company that has developed medicines to treat conditions such as achondroplasia, severe hemophilia A, and several rare inherited and lysosomal storage diseases. Learn more.",
+            "url": "https://www.biomarin.com/",
+            "fetched_at": "2026-10-17T19:15:27Z"
+          },
+          "P1.3": {
+            "text": "Yaniris Silva Reflects on the Power of Life-Changing Opportunities",
+            "url": "https://www.biomarin.com/",
+            "fetched_at": "2026-10-17T19:15:27Z"
+          },
+          "P1.4": {
+            "text": "Guided by resilience and gratitude, Yaniris Silva leads by building trust, bringing people together and helping others create their own path.",
+            "url": "https://www.biomarin.com/",
+            "fetched_at": "2026-10-17T19:15:27Z"
+          },
+          "P1.5": {
+            "text": "Making Space for Jacob’s Big Dreams, Rooted in Family Support",
+            "url": "https://www.biomarin.com/",
+            "fetched_at": "2026-10-17T19:15:27Z"
+          },
+          "P1.6": {
+            "text": "Jacob, a recent high school graduate with achondroplasia whose dreams stretch from UC Merced to NASA – and whose story is shaped by curiosity, resilience and the people who believe in him.",
+            "url": "https://www.biomarin.com/",
+            "fetched_at": "2026-10-17T19:15:27Z"
+          },
+          "P1.7": {
+            "text": "We relentlessly pursue bold science to translate genetic discoveries into new medicines that advance the future of human health.",
+            "url": "https://www.biomarin.com/",
+            "fetched_at": "2026-10-17T19:15:27Z"
+          },
+          "P1.8": {
+            "text": "We listen to and learn from patient communities to collaborate on solutions with the potential to help improve care.",
+            "url": "https://www.biomarin.com/",
+            "fetched_at": "2026-10-17T19:15:27Z"
+          },
+          "P1.9": {
+            "text": "Our talented and dedicated people represent the best the biotech industry has to offer and have helped shape a culture focused on working together to deliver for the patients we serve.",
+            "url": "https://www.biomarin.com/",
+            "fetched_at": "2026-10-17T19:15:27Z"
+          },
+          "P1.10": {
+            "text": "BioMarin is a leading, global rare disease biotechnology company focused on delivering medicines for people living with genetically defined conditions.",
+            "url": "https://www.biomarin.com/",
+            "fetched_at": "2026-10-17T19:15:27Z"
+          },
+          "P1.11": {
+            "text": "we have a proven track record of innovation, with nine commercial therapies and a strong clinical and preclinical pipeline. Using a distinctive approach to drug discovery and development, BioMarin seeks to unleash the full potential of genetic science by pursuing category-defining medicines that have a profound impact on patients.",
+            "url": "https://www.biomarin.com/",
+            "fetched_at": "2026-10-17T19:15:27Z"
+          },
+          "P1.12": {
+            "text": "BioMarin Presents New Data Advancing Understanding of Achondroplasia and Hypochondroplasia Treatment at the American Society for Bone and Mineral Research Annual Meeting",
+            "url": "https://www.biomarin.com/",
+            "fetched_at": "2026-10-17T19:15:27Z"
+          },
+          "P1.13": {
+            "text": "BioMarin Appoints Cara Bauer as Chief People Officer",
+            "url": "https://www.biomarin.com/",
+            "fetched_at": "2026-10-17T19:15:27Z"
+          },
+          "P1.14": {
+            "text": "BioMarin Announces Five-Year Phase 3 Data for POMBILITI® (cipaglucosidase alfa-atga) + OPFOLDA® (miglustat) at World Muscle Society Annual Congress",
+            "url": "https://www.biomarin.com/",
+            "fetched_at": "2026-10-17T19:15:27Z"
+          },
+          "P1.15": {
+            "text": "BioMarin Announces Positive Results of Phase 3 VOXZOGO® (vosoritide) Study in Hypochondroplasia Published in NEJM Evidence",
+            "url": "https://www.biomarin.com/",
+            "fetched_at": "2026-10-17T19:15:27Z"
+          },
+          "P1.16": {
+            "text": "Bringing Science Full Circle: Ben Schooler Shares What Has Motivated His Path at BioMarin",
+            "url": "https://www.biomarin.com/",
+            "fetched_at": "2026-10-17T19:15:27Z"
+          },
+          "P1.17": {
+            "text": "Becky Jackson Curran Advocates for Accessibility and Understanding",
+            "url": "https://www.biomarin.com/",
+            "fetched_at": "2026-10-17T19:15:27Z"
+          },
+          "P1.18": {
+            "text": "Episode 3: Finding Strength Through Sports While Living with Phenylketonuria",
+            "url": "https://www.biomarin.com/",
+            "fetched_at": "2026-10-17T19:15:27Z"
+          },
+          "P1.19": {
+            "text": "You’re leaving the BioMarin website.",
+            "url": "https://www.biomarin.com/",
+            "fetched_at": "2026-10-17T19:15:27Z"
+          },
+          "P1.20": {
+            "text": "Links to sites outside of this website are provided as a resource to the viewer. BioMarin accepts no responsibility for the content of linked sites.",
+            "url": "https://www.biomarin.com/",
+            "fetched_at": "2026-10-17T19:15:27Z"
+          },
+          "P1.21": {
+            "text": "Please locate the 8-digit DIN number found on your product package or educational materials and enter it in the form below to access important safety information.",
+            "url": "https://www.biomarin.com/",
+            "fetched_at": "2026-10-17T19:15:27Z"
+          },
+          "P2.1": {
+            "text": "About Us | BioMarin",
+            "url": "https://www.biomarin.com/company/",
+            "fetched_at": "2026-10-17T19:15:29Z"
+          },
+          "P2.2": {
+            "text": "BioMarin is a global biotechnology company that relentlessly pursues bold science to translate genetic discoveries into new medicines that advance the future of human health.",
+            "url": "https://www.biomarin.com/company/",
+            "fetched_at": "2026-10-17T19:15:29Z"
+          },
+          "P2.3": {
+            "text": "As we have looked to expand our impact, our approach to cutting-edge science has remained the same. We enlist the best of the best – people with the right technical expertise and a relentless drive to solve real problems – and create an environment that empowers our teams to pursue bold, innovative science. Our work is deeply rooted in genetic insights, meaning we target the underlying genetic changes or proximal molecular mechanisms of disease.",
+            "url": "https://www.biomarin.com/company/",
+            "fetched_at": "2026-10-17T19:15:29Z"
+          },
+          "P2.4": {
+            "text": "With this distinctive approach to drug discovery, we’ve produced a diverse pipeline of commercial, clinical and preclinical candidates that have well-understood biology and provide an opportunity to be first-to-market or offer a substantial benefit over existing therapeutic options.",
+            "url": "https://www.biomarin.com/company/",
+            "fetched_at": "2026-10-17T19:15:29Z"
+          },
+          "P2.5": {
+            "text": "Key Moments in Our History",
+            "url": "https://www.biomarin.com/company/",
+            "fetched_at": "2026-10-17T19:15:29Z"
+          },
+          "P2.6": {
+            "text": "BioMarin was founded in Novato, California, with an initial focus on leveraging its proprietary enzyme technology to develop therapies for genetic conditions and other diseases.",
+            "url": "https://www.biomarin.com/company/",
+            "fetched_at": "2026-10-17T19:15:29Z"
+          },
+          "P2.7": {
+            "text": "BioMarin initiated its first clinical trial to evaluate a potential treatment a form of mucopolysaccharidosis.",
+            "url": "https://www.biomarin.com/company/",
+            "fetched_at": "2026-10-17T19:15:29Z"
+          },
+          "P2.8": {
+            "text": "Since a large number of early investors were based in Europe, the company was listed on",
+            "url": "https://www.biomarin.com/company/",
+            "fetched_at": "2026-10-17T19:15:29Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Develops, manufactures and sells plasma-derived immune globulin therapies for patients with primary immune deficiency and related immune disorders. It collects plasma through its own US donor centers and sells the finished treatments to specialty pharmacies, distributors and infusion providers.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "intravenous immune globulin; subcutaneous immune globulin",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: specialty pharmacies, distributors, hospitals and infusion clinics that treat immune-deficient patients",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "healthcare; specialty pharmaceuticals; plasma-derived biologics",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: immune globulin therapies sold to pharmacies, distributors and providers",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: manufactures immune globulin from collected plasma, sold to pharmacies and distributors; asset operator: owns and runs US plasma collection centers that supply raw plasma for manufacturing",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: sells across the United States through specialty channels, manufacturing and plasma collection are US-based",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "niche specialist: focused on immune globulin therapies for immune deficiency and related disorders",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "distributors / dealers: specialty distributors that supply pharmacies and infusion providers; direct sales: direct sales to hospitals and infusion clinics treating patients; own locations: company-owned plasma collection centers supplying raw material",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: needs FDA biologics licensing and plasma establishment approvals to manufacture and sell, plasma collection is also FDA-regulated",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Develops, manufactures and markets plasma-derived immune globulin products for immune-deficient and at-risk patients. It collects source plasma through its own centers and manufactures products at its Boca Raton facility. It sells mainly to distributors and treatment centers.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "intravenous immune globulin; hyperimmune globulin; source plasma; specialty immune globulins",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "contract plasma fractionation and testing services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: specialty distributors, physician offices, infusion centers, hospitals, and other plasma and biologics companies",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "healthcare; primary immunodeficiency treatment; infectious disease prevention; biopharmaceuticals",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: immune globulin products and source plasma sold to distributors and providers; service fees: contract manufacturing and testing for third parties",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: collects plasma and fractionates it into immune globulins, sold to distributors and providers; asset operator: operates plasma collection centers supplying source plasma",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: Primarily the United States, with some international sales",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: plasma collection, immune globulin manufacturing, and related products and services",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "distributors / dealers: specialty distributors supplying infusion centers and physicians; direct sales: sales to hospitals, treatment centers and biopharma customers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: biologics need FDA licensure and approval, plasma centers are regulated by FDA cGMP rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ51119246.json",
+      "data": {
+        "company_name": "ADMA Biologics, Inc.",
+        "website": "www.admabiologics.com",
+        "scrape_status": "ok",
+        "capture_sha256": "d51ce583d7d4583245e77dfe2bc3b8fc8d2c8cbe9d96345e60725e373d822d9c",
+        "lines": {
+          "P1.1": {
+            "text": "ADMA Biologics, Inc. - Official Website",
+            "url": "https://www.admabiologics.com/",
+            "fetched_at": "2026-10-17T19:08:48Z"
+          },
+          "P1.2": {
+            "text": "ADMA Biologics | FDA-Approved Immune Globulin Products",
+            "url": "https://www.admabiologics.com/",
+            "fetched_at": "2026-10-17T19:08:48Z"
+          },
+          "P1.3": {
+            "text": "Discover our proven immunotechnology. ADMA has forged a new path forward in improving the lives of the immune compromised and other patients at risk for certain infections.",
+            "url": "https://www.admabiologics.com/",
+            "fetched_at": "2026-10-17T19:08:48Z"
+          },
+          "P1.4": {
+            "text": "Explore our FDA-approved immune globulin product portfolio; ASCENIV™, BIVIGAM®, and Nabi-HB®.",
+            "url": "https://www.admabiologics.com/",
+            "fetched_at": "2026-10-17T19:08:48Z"
+          },
+          "P1.5": {
+            "text": "Our proprietary microneutralization assay quantitatively measures titer levels of neutralizing antibodies in plasma donor samples.",
+            "url": "https://www.admabiologics.com/",
+            "fetched_at": "2026-10-17T19:08:48Z"
+          },
+          "P1.6": {
+            "text": "We have created a robust, sustainable, and controlled manufacturing process for producing our commercially available specialty biologic products and offer contract manufacturing capabilities.",
+            "url": "https://www.admabiologics.com/",
+            "fetched_at": "2026-10-17T19:08:48Z"
+          },
+          "P1.7": {
+            "text": "See how ADMA is forging a new path forward",
+            "url": "https://www.admabiologics.com/",
+            "fetched_at": "2026-10-17T19:08:48Z"
+          },
+          "P1.8": {
+            "text": "We are dedicated to advancing a new age of specialty biologic products. Learn about the passion, values, and promise that drive ADMA Biologics. Watch our corporate video to learn more.",
+            "url": "https://www.admabiologics.com/",
+            "fetched_at": "2026-10-17T19:08:48Z"
+          },
+          "P1.9": {
+            "text": "View ALl News & Alerts",
+            "url": "https://www.admabiologics.com/",
+            "fetched_at": "2026-10-17T19:08:48Z"
+          },
+          "P2.1": {
+            "text": "What We Do - ADMA Biologics, Inc.",
+            "url": "https://www.admabiologics.com/about/what-we-do",
+            "fetched_at": "2026-10-17T19:08:49Z"
+          },
+          "P2.2": {
+            "text": "Learn about our immune globulin product portfolio, our patented technology, our optimized manufacturing process, and CDMO capabilities",
+            "url": "https://www.admabiologics.com/about/what-we-do",
+            "fetched_at": "2026-10-17T19:08:49Z"
+          },
+          "P2.3": {
+            "text": "ADMA Biologics is an end-to-end biopharmaceutical company leading the way as a producer of specialty biologic therapies",
+            "url": "https://www.admabiologics.com/about/what-we-do",
+            "fetched_at": "2026-10-17T19:08:49Z"
+          },
+          "P2.4": {
+            "text": "ADMA Biologics is an end-to-end biopharmaceutical company leading the way as a producer of plasma-derived therapeutics.",
+            "url": "https://www.admabiologics.com/about/what-we-do",
+            "fetched_at": "2026-10-17T19:08:49Z"
+          },
+          "P2.5": {
+            "text": "Explore our FDA-approved immune globulin product portfolio.",
+            "url": "https://www.admabiologics.com/about/what-we-do",
+            "fetched_at": "2026-10-17T19:08:49Z"
+          },
+          "P2.6": {
+            "text": "We offer a full suite of CDMO and contract manufacturing organization (CMO) opportunities. Partner with us for your clinical-stage or commercial aseptic filling, packaging requirements, and our unique good manufacturing practice (GMP) testing.",
+            "url": "https://www.admabiologics.com/about/what-we-do",
+            "fetched_at": "2026-10-17T19:08:49Z"
+          },
+          "P2.7": {
+            "text": "Discover our proven immunotechnology that has forged a new path forward in improving the lives of the immune compromised and other patients at risk for infection.",
+            "url": "https://www.admabiologics.com/about/what-we-do",
+            "fetched_at": "2026-10-17T19:08:49Z"
+          },
+          "P2.8": {
+            "text": "We have created a robust, sustainable, and controlled manufacturing process for producing our commercially available specialty biologic products.",
+            "url": "https://www.admabiologics.com/about/what-we-do",
+            "fetched_at": "2026-10-17T19:08:49Z"
+          },
+          "P2.9": {
+            "text": "ADMA BioCenters is an organization specializing in the collection of human plasma used to make special medications for the treatment and prevention of diseases.",
+            "url": "https://www.admabiologics.com/about/what-we-do",
+            "fetched_at": "2026-10-17T19:08:49Z"
+          },
+          "P3.1": {
+            "text": "Our Products - ADMA Biologics, Inc.",
+            "url": "https://www.admabiologics.com/our-products",
+            "fetched_at": "2026-10-17T19:08:50Z"
+          },
+          "P3.2": {
+            "text": "Learn about our three FDA-licensed approved products within our immune globulin (Ig) product portfolio",
+            "url": "https://www.admabiologics.com/our-products",
+            "fetched_at": "2026-10-17T19:08:50Z"
+          },
+          "P3.3": {
+            "text": "Commercial products: Our immune globulin product portfolio",
+            "url": "https://www.admabiologics.com/our-products",
+            "fetched_at": "2026-10-17T19:08:50Z"
+          },
+          "P3.4": {
+            "text": "With three FDA-approved products, the mission of ADMA Biologics is to continue to successfully commercialize specialty biologics, targeted to specific patient populations for the treatment and prevention of certain infectious diseases and management of immune compromised patient populations.",
+            "url": "https://www.admabiologics.com/our-products",
+            "fetched_at": "2026-10-17T19:08:50Z"
+          },
+          "P3.5": {
+            "text": "Our dedicated patient support hub helps simplify access to ASCENIV™ and BIVIGAM®",
+            "url": "https://www.admabiologics.com/our-products",
+            "fetched_at": "2026-10-17T19:08:50Z"
+          },
+          "P3.6": {
+            "text": "Maximize insurance benefits and minimize overall treatment costs",
+            "url": "https://www.admabiologics.com/our-products",
+            "fetched_at": "2026-10-17T19:08:50Z"
+          },
+          "P3.7": {
+            "text": "Locate alternative funding and other payment options, such as nonprofit patient assistance foundations",
+            "url": "https://www.admabiologics.com/our-products",
+            "fetched_at": "2026-10-17T19:08:50Z"
+          },
+          "P3.8": {
+            "text": "Supports providers and staff with:",
+            "url": "https://www.admabiologics.com/our-products",
+            "fetched_at": "2026-10-17T19:08:50Z"
+          },
+          "P3.9": {
+            "text": "Benefits verification to determine coverage, including out-of-pocket costs, and payer requirements",
+            "url": "https://www.admabiologics.com/our-products",
+            "fetched_at": "2026-10-17T19:08:50Z"
+          },
+          "P3.10": {
+            "text": "Claims, reimbursement support, and appeals",
+            "url": "https://www.admabiologics.com/our-products",
+            "fetched_at": "2026-10-17T19:08:50Z"
+          },
+          "P3.11": {
+            "text": "ADMA is committed to helping patients with access to their therapy. If you need additional information on financial assistance or resources, the National Organization for Rare Disorders (NORD) may be able to assist.",
+            "url": "https://www.admabiologics.com/our-products",
+            "fetched_at": "2026-10-17T19:08:50Z"
+          },
+          "P3.12": {
+            "text": "Helpline hours: Monday–Thursday 8:30am–7:00pm ET; Friday 8:30am–6:00pm ET",
+            "url": "https://www.admabiologics.com/our-products",
+            "fetched_at": "2026-10-17T19:08:50Z"
+          },
+          "P3.13": {
+            "text": "Healthcare professionals, this guide can help you get started",
+            "url": "https://www.admabiologics.com/our-products",
+            "fetched_at": "2026-10-17T19:08:50Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

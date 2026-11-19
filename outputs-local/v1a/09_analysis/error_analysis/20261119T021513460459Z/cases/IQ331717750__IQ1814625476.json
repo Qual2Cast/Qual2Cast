@@ -1,0 +1,793 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ331717750__IQ1814625476",
+    "target": "IQ331717750",
+    "comp": "IQ1814625476",
+    "target_ticker": "BATR.K",
+    "comp_ticker": "MSGE",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ331717750__IQ1814625476",
+        "target": "IQ331717750",
+        "comp": "IQ1814625476",
+        "target_ticker": "BATR.K",
+        "comp_ticker": "MSGE",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ331717750",
+          "comp": "IQ1814625476",
+          "method": "B3",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BATR.K",
+          "comp_ticker": "MSGE"
+        },
+        {
+          "target": "IQ331717750",
+          "comp": "IQ1814625476",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BATR.K",
+          "comp_ticker": "MSGE"
+        },
+        {
+          "target": "IQ331717750",
+          "comp": "IQ1814625476",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BATR.K",
+          "comp_ticker": "MSGE"
+        },
+        {
+          "target": "IQ331717750",
+          "comp": "IQ1814625476",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BATR.K",
+          "comp_ticker": "MSGE"
+        },
+        {
+          "target": "IQ331717750",
+          "comp": "IQ1814625476",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BATR.K",
+          "comp_ticker": "MSGE"
+        },
+        {
+          "target": "IQ331717750",
+          "comp": "IQ1814625476",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BATR.K",
+          "comp_ticker": "MSGE"
+        },
+        {
+          "target": "IQ331717750",
+          "comp": "IQ1814625476",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 1.0,
+          "reason": "Operates arenas and theaters hosting concerts and shows; no owned sports team, though venue hospitality and food overlap.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BATR.K",
+          "comp_ticker": "MSGE"
+        },
+        {
+          "target": "IQ331717750",
+          "comp": "IQ1814625476",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Owns and operates live entertainment arenas, selling event tickets, hospitality and sponsorships to fans and corporate clients, like the Braves' ballpark.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BATR.K",
+          "comp_ticker": "MSGE"
+        },
+        {
+          "target": "IQ331717750",
+          "comp": "IQ1814625476",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Owns venues hosting sports and live events; ticketing, hospitality, concessions and sponsorships match the ballpark business.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BATR.K",
+          "comp_ticker": "MSGE"
+        },
+        {
+          "target": "IQ331717750",
+          "comp": "IQ1814625476",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Owns and operates live-event venues selling tickets, hospitality, sponsorships and food and beverage, like a ballpark operator.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BATR.K",
+          "comp_ticker": "MSGE"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Owns and operates the Atlanta Braves Major League Baseball franchise and its ballpark, selling game tickets, hospitality, sponsorships and media rights to fans, businesses and broadcasters, and leasing space in an adjacent mixed-use district.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "team merchandise; food and beverage; hospitality packages",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "professional baseball entertainment; event hosting; media production; stadium-district property leasing",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: baseball fans and ballpark visitors; B2B: corporate sponsors, hospitality clients, broadcasters and mixed-use district tenants",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "sports and entertainment; advertising and media; real estate",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "service fees: game tickets and event admission; advertising: sponsorships and in-park advertising; licensing or royalties: media rights fees paid by broadcasters; rental or leasing: office, retail and restaurant space in the adjacent mixed-use district; product sales: team merchandise and food and beverage sold at the ballpark",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: provides live baseball games and entertainment to fans; asset operator: owns and runs the ballpark and mixed-use district, leasing space to tenants",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US regional: Atlanta metro area and Georgia, with fans across the Southeast",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: baseball team operations, ballpark events and hospitality, and mixed-use real estate development and leasing",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: ticket, hospitality and sponsorship sales to fans and businesses; own locations: ballpark and mixed-use district venues; online: online ticket sales and team merchandise store",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "low: normal business rules, plus league rules and local building and alcohol-service regulations",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Owns and operates the Atlanta Braves Major League Baseball club, selling tickets, sponsorships, concessions and media rights to fans, businesses and broadcasters. Also develops and operates The Battery Atlanta, a mixed-use district of retail, dining, office, residential and entertainment next to the ballpark, leasing space to tenants.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "game tickets; merchandise; food and beverage concessions",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "baseball entertainment; media rights licensing; sponsorship and advertising; commercial real estate leasing; live event hosting",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: baseball fans buying tickets, merchandise and concessions, district visitors; B2B: corporate sponsors, broadcast partners, retail, office and residential tenants",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "professional sports; media and broadcasting; live entertainment; commercial real estate; hospitality",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: tickets, merchandise, food and beverage at the ballpark; licensing or royalties: local and national media rights, MLB revenue sharing; other: corporate sponsorships and advertising; rental or leasing: rent from office, retail and residential tenants in the mixed-use development",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "asset operator: owns and operates the ballpark and mixed-use development, selling to fans, sponsors and tenants; brand owner: owns Braves franchise brand, licensing media rights and merchandise",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: Atlanta area operations, fanbase and media distribution across the Southeast and nationally",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: baseball franchise operations and adjacent mixed-use real estate around the ballpark",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "own locations: ballpark ticketing, concessions, team stores and The Battery Atlanta; online: online ticket and merchandise sales; partners / resellers: regional sports and broadcast partners carrying games",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: MLB league rules and agreements, zoning, alcohol licensing and food safety regulation",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ331717750.json",
+      "data": {
+        "company_name": "Atlanta Braves Holdings, Inc.",
+        "website": "www.bravesholdings.com",
+        "scrape_status": "ok",
+        "capture_sha256": "258f646920083ce9b85fdbecd96325497c0f916b1c18eb441ef654884f133fa3",
+        "lines": {
+          "P1.1": {
+            "text": "Atlanta Braves Holdings, Inc.",
+            "url": "https://www.bravesholdings.com/",
+            "fetched_at": "2026-10-17T19:13:39Z"
+          },
+          "P1.2": {
+            "text": "Atlanta Braves Holdings, through its wholly-owned subsidiary Braves Holdings, LLC, indirectly owns the Atlanta Braves Major League Baseball club and the associated mixed-use development project, The Battery Atlanta.",
+            "url": "https://www.bravesholdings.com/",
+            "fetched_at": "2026-10-17T19:13:39Z"
+          },
+          "P1.3": {
+            "text": "Represents the number of outstanding shares of Atlanta Braves Holdings' common stock as of.",
+            "url": "https://www.bravesholdings.com/",
+            "fetched_at": "2026-10-17T19:13:39Z"
+          },
+          "P2.1": {
+            "text": "About :: Atlanta Braves Holdings, Inc.",
+            "url": "https://www.bravesholdings.com/about",
+            "fetched_at": "2026-10-17T19:13:40Z"
+          },
+          "P2.2": {
+            "text": "The Longest Continuously Operating Franchise in Major League Baseball",
+            "url": "https://www.bravesholdings.com/about",
+            "fetched_at": "2026-10-17T19:13:40Z"
+          },
+          "P2.3": {
+            "text": "The Atlanta Braves is a Major League Baseball (\"MLB\") team based in Atlanta, Georgia. The team is the only existing major league franchise to have played every season since professional baseball came into existence. Braves teams have earned two National League wild cards, 20 division championships, six National League pennants, and two World Series titles – most recently.",
+            "url": "https://www.bravesholdings.com/about",
+            "fetched_at": "2026-10-17T19:13:40Z"
+          },
+          "P2.4": {
+            "text": "An Attractive Mix of Shopping, Hotels, Premium Office Space, Entertainment, Chef-Driven Restaurants and Apartment Living",
+            "url": "https://www.bravesholdings.com/about",
+            "fetched_at": "2026-10-17T19:13:40Z"
+          },
+          "P2.5": {
+            "text": "Braves Holdings, LLC, through affiliated entities and third-party partners, has developed a significant portion of the land around Truist Park for a mixed-use complex that features retail, residential, office, hotel, and entertainment opportunities, known as The Battery Atlanta.",
+            "url": "https://www.bravesholdings.com/about",
+            "fetched_at": "2026-10-17T19:13:40Z"
+          },
+          "P2.6": {
+            "text": "The Battery Atlanta Leasable Space",
+            "url": "https://www.bravesholdings.com/about",
+            "fetched_at": "2026-10-17T19:13:40Z"
+          },
+          "P2.7": {
+            "text": "Office – I & II",
+            "url": "https://www.bravesholdings.com/about",
+            "fetched_at": "2026-10-17T19:13:40Z"
+          },
+          "P2.8": {
+            "text": "Comcast, TKE, Papa John, Others",
+            "url": "https://www.bravesholdings.com/about",
+            "fetched_at": "2026-10-17T19:13:40Z"
+          },
+          "P2.9": {
+            "text": "Home Depot, Gray Construction, Juneau",
+            "url": "https://www.bravesholdings.com/about",
+            "fetched_at": "2026-10-17T19:13:40Z"
+          },
+          "P2.10": {
+            "text": "1 Sq. Ft. rounded to the nearest 5,000 2 ABH = Atlanta Braves Holdings",
+            "url": "https://www.bravesholdings.com/about",
+            "fetched_at": "2026-10-17T19:13:40Z"
+          },
+          "P3.1": {
+            "text": "AB Holdings Officers :: Atlanta Braves Holdings, Inc.",
+            "url": "https://www.bravesholdings.com/about/ab-holdings-officers",
+            "fetched_at": "2026-10-17T19:13:41Z"
+          },
+          "P3.2": {
+            "text": "Chairman, President & CEO, Atlanta Braves Holdings, Inc.",
+            "url": "https://www.bravesholdings.com/about/ab-holdings-officers",
+            "fetched_at": "2026-10-17T19:13:41Z"
+          },
+          "P3.3": {
+            "text": "Terry McGuirk is Chairman, President & CEO of Atlanta Braves Holdings, Inc., the parent company of the Atlanta Braves and Braves Development Company. In his role as Chairman and Control Person of the Atlanta Braves, McGuirk maintains executive oversight of all aspects of the Braves franchise including all team and player personnel operations, business operations, Truist Park and representation of the Braves at Major League Baseball ownership meetings. McGuirk is also the Chairman of Braves Development Company, the Braves real estate development project that owns and operates The Battery Atlanta mixed-use development adjacent to Truist Park. McGuirk oversaw the holistic organizational efforts that culminated in the Braves' fourth World Series title.",
+            "url": "https://www.bravesholdings.com/about/ab-holdings-officers",
+            "fetched_at": "2026-10-17T19:13:41Z"
+          },
+          "P3.4": {
+            "text": "McGuirk previously spent 35 years at Turner Broadcasting System, Inc. (TBS). Concurrently, McGuirk was President of Turner Sports where, during his tenure, he was instrumental in securing coverage of the Olympics for cable television for the first time and oversaw the resurgence of the winningest team in baseball, the Atlanta Braves. As Executive Vice President, McGuirk served as TBS’s second in command to 1996. When TBS, Inc. he succeeded R.E. (Ted) Turner as Chairman, President and CEO.",
+            "url": "https://www.bravesholdings.com/about/ab-holdings-officers",
+            "fetched_at": "2026-10-17T19:13:41Z"
+          },
+          "P3.5": {
+            "text": "He served as chairman, Chairman, President and CEO of TBS until. From that point through, McGuirk was Vice Chairman of TBS along with being Chief Executive Officer of the TBS-owned Atlanta sports teams, including the Braves, the National Basketball Association Hawks and the National Hockey League Thrashers.",
+            "url": "https://www.bravesholdings.com/about/ab-holdings-officers",
+            "fetched_at": "2026-10-17T19:13:41Z"
+          },
+          "P3.6": {
+            "text": "McGuirk has served on the board of many cable industry-related groups and the International Olympic Committee’s Radio and Television Commission. He was the 1989 recipient of the NCTA Vanguard Award for Young Leadership and was inducted into the fellowship of Cable Television Pioneers at the 1996 NCTA Convention.",
+            "url": "https://www.bravesholdings.com/about/ab-holdings-officers",
+            "fetched_at": "2026-10-17T19:13:41Z"
+          },
+          "P3.7": {
+            "text": "McGuirk is a graduate of Portsmouth Abbey School and holds a Bachelor of Arts degree in American history from Middlebury College.",
+            "url": "https://www.bravesholdings.com/about/ab-holdings-officers",
+            "fetched_at": "2026-10-17T19:13:41Z"
+          },
+          "P3.8": {
+            "text": "McGuirk is on the MLB Executive Council and is the immediate past Chairman of the Board of Major League Baseball's Business and Media Committee, the successor to MLB Advanced Media (MLBAM). He also serves on the MLB Ownership Committee. McGuirk is the chairman of the newly formed Major League Baseball Media Committee.",
+            "url": "https://www.bravesholdings.com/about/ab-holdings-officers",
+            "fetched_at": "2026-10-17T19:13:41Z"
+          },
+          "P3.9": {
+            "text": "President & CEO, Atlanta Braves",
+            "url": "https://www.bravesholdings.com/about/ab-holdings-officers",
+            "fetched_at": "2026-10-17T19:13:41Z"
+          },
+          "P3.10": {
+            "text": "President and chief executive officer Derek Schiller manages all business functions of the front office. Schiller oversees",
+            "url": "https://www.bravesholdings.com/about/ab-holdings-officers",
+            "fetched_at": "2026-10-17T19:13:41Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Owns and operates iconic live entertainment venues, including Madison Square Garden and Radio City Music Hall in New York, selling tickets to concerts, shows and sports events, plus food, beverage and nightlife through its hospitality business.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "food and beverage; event merchandise",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "venue rental; live event production; ticketing; hospitality and catering",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: concert, show and sports fans buying tickets, food and drinks; B2B: concert promoters, event producers, corporate sponsors and private event clients",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "live entertainment; sports; hospitality and dining; corporate events",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "transaction or usage fees: ticket sales and fees for events at its venues; product sales: food, beverages and merchandise sold at venues and restaurants; service fees: venue rental and event services paid by promoters and clients; advertising: sponsorships, signage and branded partnerships at venues",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "asset operator: owns and runs arenas and theaters that host events for promoters and fans; service provider: provides event production, hospitality and ticketing services to promoters and fans",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: New York, Los Angeles, Las Vegas and other US cities with hospitality and venue operations",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: live entertainment venues, restaurants and nightlife venues, event production and ticketing",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "own locations: its arenas, theaters and restaurants where fans buy tickets and food; online: digital ticket sales and event information on its websites and apps; partners / resellers: third-party ticket resellers and promoters selling event tickets",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: liquor licensing, public safety, building codes and data privacy rules for venues and hospitality",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Owns and operates live entertainment venues in New York and Chicago, including Madison Square Garden, Radio City Music Hall and several theaters. It earns money from ticketed events, venue rentals, sponsorships, food and beverage sales, and a hospitality business of restaurants, nightclubs and day clubs. It also produces live shows such as the Christmas Spectacular.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "event tickets; food and beverage; merchandise; sponsorship and signage packages",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "live event hosting; venue licensing to sports teams and promoters; restaurant and nightclub operation; live show production",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: concertgoers, sports fans, theater audiences, restaurant and nightlife patrons; B2B: sports teams, concert promoters, corporate sponsors and advertisers, event renters",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "live entertainment; sports; hospitality and nightlife; advertising and sponsorship",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "transaction or usage fees: ticket sales and venue license fees from events and sports teams; product sales: food, beverage and merchandise sold at venues and restaurants; other: sponsorship, signage and suite and club rights fees",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "asset operator: owns and runs arenas and theaters, hosting events for fans, promoters and teams; service provider: operates restaurants, nightclubs and day clubs for consumers; brand owner: produces and markets live shows sold to audiences",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "US regional: New York City and Chicago venues, hospitality venues in several US cities, plus a few international locations",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: live entertainment venues, show production and hospitality venues sharing audiences and brands",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "own locations: owned venues, restaurants, nightclubs and day clubs; online: ticket sales through its own sites and ticketing platforms; direct sales: sponsorship, suite and corporate hospitality sales",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: liquor licensing, building safety and occupancy rules, labor rules, and local permits for venues and nightlife",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ1814625476.json",
+      "data": {
+        "company_name": "Madison Square Garden Entertainment Corp.",
+        "website": "www.msgentertainment.com",
+        "scrape_status": "ok",
+        "capture_sha256": "75b25629373c94f927a9b37ec89959d942800317653f01acdfcb00b5acfcb152",
+        "lines": {
+          "P1.1": {
+            "text": "Madison Square Garden Entertainment Corp.",
+            "url": "https://www.msgentertainment.com/",
+            "fetched_at": "2026-10-17T19:50:30Z"
+          },
+          "P1.2": {
+            "text": "MSG Entertainment is a world leader in live entertainment, featuring brands including Madison Square Garden, Radio City Music Hall and more.",
+            "url": "https://www.msgentertainment.com/",
+            "fetched_at": "2026-10-17T19:50:30Z"
+          },
+          "P1.3": {
+            "text": "MSG Entertainment is a world leader in live entertainment.",
+            "url": "https://www.msgentertainment.com/",
+            "fetched_at": "2026-10-17T19:50:30Z"
+          },
+          "P2.1": {
+            "text": "Our Company | History, Portfolio & Structure | Madison Square Garden Entertainment Corp.",
+            "url": "https://www.msgentertainment.com/our-company/",
+            "fetched_at": "2026-10-17T19:50:31Z"
+          },
+          "P2.2": {
+            "text": "Learn about Madison Square Garden Entertainment Corp. and find details about the company's purpose, history, portfolio and structure.",
+            "url": "https://www.msgentertainment.com/our-company/",
+            "fetched_at": "2026-10-17T19:50:31Z"
+          },
+          "P2.3": {
+            "text": "About Madison Square Garden Entertainment Corp.",
+            "url": "https://www.msgentertainment.com/our-company/",
+            "fetched_at": "2026-10-17T19:50:31Z"
+          },
+          "P2.4": {
+            "text": "MSG Entertainment is a world leader in live entertainment, comprised of world-renowned venues and marquee brands. Utilizing our powerful assets and expertise, we produce, present, or host a variety of entertainment and sports events, delivering unforgettable experiences for millions of fans each year. Across our venues and brands, MSG Entertainment sets the standard for excellence and innovation while forging deep connections with diverse and passionate audiences.",
+            "url": "https://www.msgentertainment.com/our-company/",
+            "fetched_at": "2026-10-17T19:50:31Z"
+          },
+          "P2.5": {
+            "text": "Our Company includes our portfolio of iconic venues: New York’s Madison Square Garden, the Infosys Theater at Madison Square Garden, Radio City Music Hall, and Beacon Theatre; and The Chicago Theatre – each a prominent destination for unforgettable experiences and events. With flexible seating capacities and configurations that range from 2,800 to 21,000, our venues enable us to showcase a broad array of compelling sporting events, concerts, family shows, and special events that cover a wide spectrum of genres. This includes at Madison Square Garden, known as “The World’s Most Famous Arena,” which serves as home to the New York Knicks and New York Rangers – two of the most recognized franchises in professional sports – and perennially hosts the biggest names in music and entertainment.",
+            "url": "https://www.msgentertainment.com/our-company/",
+            "fetched_at": "2026-10-17T19:50:31Z"
+          },
+          "P2.6": {
+            "text": "MSG Entertainment also features the wholly-owned original production, the Christmas Spectacular Starring the Radio City Rockettes, which has been a holiday tradition for generations of fans at Radio City Music Hall. The show’s enduring popularity is driven by the world-famous Radio City Rockettes, the longest-running precision dance company in America.",
+            "url": "https://www.msgentertainment.com/our-company/",
+            "fetched_at": "2026-10-17T19:50:31Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

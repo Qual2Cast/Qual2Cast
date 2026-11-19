@@ -1,0 +1,1025 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ266694__IQ393488",
+    "target": "IQ266694",
+    "comp": "IQ393488",
+    "target_ticker": "DGII",
+    "comp_ticker": "ZBRA",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ266694__IQ393488",
+        "target": "IQ266694",
+        "comp": "IQ393488",
+        "target_ticker": "DGII",
+        "comp_ticker": "ZBRA",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ266694",
+          "comp": "IQ393488",
+          "method": "B3",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "DGII",
+          "comp_ticker": "ZBRA"
+        },
+        {
+          "target": "IQ266694",
+          "comp": "IQ393488",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 5.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "DGII",
+          "comp_ticker": "ZBRA"
+        },
+        {
+          "target": "IQ266694",
+          "comp": "IQ393488",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 5.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "DGII",
+          "comp_ticker": "ZBRA"
+        },
+        {
+          "target": "IQ266694",
+          "comp": "IQ393488",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 5.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "DGII",
+          "comp_ticker": "ZBRA"
+        },
+        {
+          "target": "IQ266694",
+          "comp": "IQ393488",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 5.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "DGII",
+          "comp_ticker": "ZBRA"
+        },
+        {
+          "target": "IQ266694",
+          "comp": "IQ393488",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "DGII",
+          "comp_ticker": "ZBRA"
+        },
+        {
+          "target": "IQ266694",
+          "comp": "IQ393488",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 2.0,
+          "reason": "Barcode printers, scanners and mobile computers differ from Digi's connectivity hardware; only device management overlaps.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "DGII",
+          "comp_ticker": "ZBRA"
+        },
+        {
+          "target": "IQ266694",
+          "comp": "IQ393488",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Designs enterprise IoT-style edge devices with device management software and support, sold through distributors and integrators to similar verticals.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "DGII",
+          "comp_ticker": "ZBRA"
+        },
+        {
+          "target": "IQ266694",
+          "comp": "IQ393488",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Makes rugged mobile computers, scanners and printers with software subscriptions sold through channel partners to businesses.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "DGII",
+          "comp_ticker": "ZBRA"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and sells IoT connectivity hardware, embedded modules and device management software to businesses, OEMs and utilities. Products are built in-house and sold through distributors, partners and direct sales, with cloud services for remote management.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "cellular routers; console servers; embedded wireless modules; industrial gateways; IoT device management software",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "cloud device management; professional services; technical support subscriptions",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: OEMs, system integrators, utilities, retailers, transportation and healthcare operators; B2G: public utilities and municipal infrastructure operators",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "industrial IoT; utilities; transportation; retail; healthcare; energy",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: routers, gateways, modules and console servers sold to businesses; subscription: cloud device management and remote monitoring software subscriptions; service fees: professional services, installation support and technical support contracts",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: designs and builds connectivity hardware from purchased components, sold to businesses; software / platform: provides cloud device management software to connected device fleets",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: sells worldwide, with major operations in North America, Europe and Asia",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: cellular routers, console servers, embedded modules and IoT cloud software",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "distributors / dealers: global electronics and industrial distributors stocking connectivity products; partners / resellers: system integrators and value-added resellers deploying IoT solutions; direct sales: direct sales teams serving large enterprise and OEM accounts; online: online store selling hardware and software subscriptions directly",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: radio certification such as FCC approval for wireless devices, plus product security and export control rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and sells IoT connectivity hardware, including cellular routers, console servers, embedded modules and single-board computers, plus related software and cloud management. Customers are businesses, OEMs and public-sector bodies that connect and manage remote devices and networks. Products are designed in-house and built by contract manufacturers.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "cellular routers and gateways; console servers; embedded system-on-modules; single-board computers; RF and device connectivity modules",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "remote device management cloud services; connectivity subscriptions; custom engineering and design services; technical support",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: OEMs, enterprises, retailers, utilities, transportation and industrial firms, IT network operators; B2G: public safety agencies, municipalities and government agencies",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "industrial automation; smart cities and public safety; transportation; retail; energy and utilities; medical",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: hardware routers, modules and computers sold through channels and to OEMs; subscription: recurring SaaS for device management, warranty and support plans; service fees: custom design and engineering services",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: designs connectivity hardware, built via contract manufacturers, sold to businesses and OEMs; software / platform: cloud-based remote management and monitoring software for connected devices",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: North America, Europe, Asia-Pacific and other regions, headquartered in Minnesota",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: routers, console servers, embedded modules, and management software and services for IoT connectivity",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "distributors / dealers: technology distributors and value-added resellers; direct sales: OEM and large enterprise accounts; partners / resellers: system integrators and carrier partners; online: web store and online resellers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: Wireless device certifications (FCC, CE), product safety, cybersecurity and environmental rules such as RoHS",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ266694.json",
+      "data": {
+        "company_name": "Digi International Inc.",
+        "website": "www.digi.com",
+        "scrape_status": "ok",
+        "capture_sha256": "3b5b86a2db01123a6f37a47091ef4d364d41dce0d804d7dfdff5a18dbcb68559",
+        "lines": {
+          "P1.1": {
+            "text": "IIoT Devices and Services for M2M Networking | Digi International",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.2": {
+            "text": "Digi IIoT devices, software and services for enterprise, industrial and smart city IoT and M2M applications.",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.3": {
+            "text": "Empowering businesses with reliable, secure IoT connectivity",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.4": {
+            "text": "Basically, the Opengear devices paid for themselves in nine months. Once we had equipped all eleven ships with them, we were able to update the network devices remotely and no longer had to hire a service provider. This not only saves money, but also frees up a cabin on board for a paying guest.",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.5": {
+            "text": "Diogo Almeida, Head of Network, Connectivity & Infrastructure at AIDA Cruises",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.6": {
+            "text": "The DigiMesh network solution is very easy for us to deploy – and far less expensive than competing solutions.",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.7": {
+            "text": "Daniel Noiseux, General Manager and Executive Vice President",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.8": {
+            "text": "Every promise Digi has made, they’ve delivered on – and that’s huge. They have reduced our risk, improved our product, and accelerated our timelines. You can’t ask for much more than that.",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.9": {
+            "text": "Erich Hoefferle, Engineering Manager - Evoqua",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.10": {
+            "text": "For us, SmartSense was an immediate win.",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.11": {
+            "text": "Joe Laufenburg, Senior Director of Asset Protection",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.12": {
+            "text": "With Particle's platform, Jacuzzi® Hot Tubs are connected to the Internet and can notify owners and local dealers when maintenance needs to occur. With increased visibility into the state and location of each tub, Jacuzzi® plans to save millions thanks to IoT-based preventative maintenance.",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.13": {
+            "text": "Collaborating with the AT&T and NYC DOT teams to plan and deploy this massive rollout was a great experience. It shows the power of partnerships.",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.14": {
+            "text": "Digi’s solution was flexible enough to take the data and send it real-time to our cloud environment. Digi also showed it could scale up to support our global footprint.",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.15": {
+            "text": "Ezhil Nanjappan, Otis Elevator Director of IoT and Mobility Solutions",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.16": {
+            "text": "We tried to create our own FCC-licensed radio product, but it was a big drain on our engineering resources, and we weren’t totally happy with the performance. Digi's robustness was far better than the other alternatives we evaluated.",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.17": {
+            "text": "Digi hardened rail routers provide fault-tolerant and failsafe communications, both on-board and with remote systems over cellular networks.",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.18": {
+            "text": "Digi TX64 is the ideal choice for TriMet, because of its durability, performance, and customizability. We love that we can customize the router through Digi Advanced Linux and custom Python apps to integrate it easily with our CAD/AVL, and other vehicle-based systems.",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.19": {
+            "text": "Evan Yand, Senior Vehicle Systems Engineer",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.20": {
+            "text": "We are integrating Digi technology into a range of solutions, including smart irrigation systems, to help modern farms deploy remote sensors, cameras, and wireless networks for greater efficiency in the fields.",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.21": {
+            "text": "Troy Long, Vice President Technology Value Stream",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.22": {
+            "text": "From edge to cloud, hardware to software, infrastructure to insight, Digi is the engine behind enterprise operations everywhere. Digi unifies its brands, innovations, and global expertise into a single mission: to help the world build smarter, connect securely, and manage confidently.",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.23": {
+            "text": "Digi XBee Wireless modules for secure device connectivity",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.24": {
+            "text": "Digi ConnectCore System-on-modules for embedded product design",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.25": {
+            "text": "Digi X-ON Platform for smart infrastructure built on LoRaWAN®",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.26": {
+            "text": "Cellular Routers and Endpoints Reliable cellular networking for industrial use",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.27": {
+            "text": "Infrastructure Management Secure serial, USB, and automation networking",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.28": {
+            "text": "Opengear Console Servers Out-of-band access for critical infrastructure",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.29": {
+            "text": "Digi Remote Manager Centralized device monitoring and control",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.30": {
+            "text": "Digi Ventus Managed Connectivity Turnkey cellular connectivity with support",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.31": {
+            "text": "Opengear Lighthouse Platform Out-of-band network management platform",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.32": {
+            "text": "Particle Platform Embedded intelligence and wireless communications",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.33": {
+            "text": "SmartSense Monitoring Real-time condition and compliance monitoring",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.34": {
+            "text": "Add value to your connectivity solutions with expert services:",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.35": {
+            "text": "Professional Services Wireless Design Services",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.36": {
+            "text": "Trusted Solutions to Build Smarter, Connect Faster, and Manage at Scale",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          },
+          "P1.37": {
+            "text": "SmartSense delivers remote walk-in cooler monitoring with real-time sensors, instant alerts, and automated compliance reporting to protect food safety",
+            "url": "https://www.digi.com/",
+            "fetched_at": "2026-10-17T22:03:31Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and makes barcode printers, mobile computers, scanners, RFID and machine vision products, plus software and services, sold mainly to businesses through direct sales and channel partners for tracking assets, inventory and transactions.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "barcode printers; mobile computers; barcode scanners; RFID readers; machine vision cameras",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "software subscriptions; device maintenance and support; managed services; asset intelligence services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: retailers, manufacturers, logistics companies, hospitals, hospitality operators; B2G: government agencies using field and mobile devices",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "retail; manufacturing; transportation and logistics; healthcare; hospitality; government",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: printers, mobile computers, scanners and machine vision hardware; subscription: software and device management subscriptions; service fees: device support, maintenance and managed services contracts",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: designs and makes hardware, sold to channel partners and end customers; brand owner: sells own-brand devices and software built with purchased components; software / platform: sells device software and asset tracking platforms to enterprise customers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: sales and service across the Americas, Europe, Middle East, Africa and Asia Pacific",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "among the largest",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: barcode printers, mobile computers, scanners, RFID and machine vision share customers and channels",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: large enterprise and government accounts; distributors / dealers: value-added distributors supplying resellers; partners / resellers: systems integrators and value-added resellers; online: online store for certain devices and supplies",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "low: only product certifications such as radio emissions and electrical safety standards",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and sells rugged mobile computers, barcode scanners, printers, RFID readers, machine vision and related software to enterprises. Customers use them to track, manage and automate inventory, assets and workflows. Products are made through contract manufacturers and sold mainly through channel partners, with software and support services.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "mobile computers; barcode scanners; barcode, label and card printers; RFID readers and tags; machine vision and fixed industrial scanners",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "repair and maintenance support; managed device services; software subscriptions for workflow and asset visibility; professional services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: retailers, warehouses and logistics firms, manufacturers, healthcare providers, hospitality and banks; B2G: government and public sector agencies",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "retail and e-commerce; transportation and logistics; manufacturing; healthcare; hospitality; public sector",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: hardware devices, printers, scanners and supplies; service fees: maintenance, repair and support contracts; subscription: cloud software and analytics subscriptions",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: designs and markets devices built by contract manufacturers, sold to enterprises via partners; software / platform: workflow, device management and asset visibility software for enterprise customers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: North America, Europe, Middle East, Africa, Asia-Pacific and Latin America",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "among the largest",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: mobile computing, scanning, printing, RFID, machine vision and software for enterprise data capture",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "partners / resellers: value-added resellers, system integrators and independent software vendors; distributors / dealers: technology distributors serving resellers; direct sales: large enterprise accounts; online: web store for printers and supplies",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: product safety, radio emissions, export controls, trade tariffs and environmental rules, FCC and CE compliance",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ393488.json",
+      "data": {
+        "company_name": "Zebra Technologies Corporation",
+        "website": "www.zebra.com",
+        "scrape_status": "ok",
+        "capture_sha256": "bd91d205d835238a8724a4c9d3d6f7093a62897fb1c8faa373ff529d6129c62c",
+        "lines": {
+          "P1.1": {
+            "text": "Zebra: The World’s Foundation for Intelligent Operations | Zebra",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.2": {
+            "text": "Zebra powers intelligent operations to digitize, automate, and enhance your processes with mobile computers, scanners, printers, RFID, and more.",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.3": {
+            "text": "Digitize and automate your frontline",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.4": {
+            "text": "Tap into the world’s foundation for intelligent operations and discover countless ways to make your most critical workflows faster, simpler and more efficient. Better experiences for your employees and the customers they serve every day.",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.5": {
+            "text": "of Fortune 500 companies work with us",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.6": {
+            "text": "global leader in thermal printing, barcode scanning, rugged mobile computing, RFID readers and retail task management software",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.7": {
+            "text": "years in business dedicated to the frontline",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.8": {
+            "text": "Helping frontline operations perform better every day",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.9": {
+            "text": "Frontline Software Services AI Machine Vision Scanners RFID Printers Tablets Mobile Computers",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.10": {
+            "text": "Built to optimize employee time and activities, inventory, and budgets. Our software empowers your workers to focus on your customers.",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.11": {
+            "text": "Built to keep your operations running smoothly and enable peak performance with expert assistance tailored to your technology.",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.12": {
+            "text": "Built to integrate with RFID, enterprise software and machine vision. Our AI is an intelligent and open platform with partners in mind.",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.13": {
+            "text": "Built to deliver greater flexibility, simplicity, and value. Our automation solutions solve your most critical operational challenges.",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.14": {
+            "text": "Built for accuracy and performance in any environment. Our scanners increase workflow performance and provide constant visibility.",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.15": {
+            "text": "Built to provide visibility into assets, employees, and operations. Leverage the industry’s most comprehensive RFID portfolio.",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.16": {
+            "text": "Built for durability and reliability. Our printers are easy to set up, manage, and secure.",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.17": {
+            "text": "Built to adapt to frontline teams' unique workflows. Our tablets deliver higher productivity and smoother operations.",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.18": {
+            "text": "Built for today’s workforce by powering work whenever, wherever it happens. Our devices make it easier to communicate, collaborate, and get more done.",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.19": {
+            "text": "Smart solutions for today's complex challenges",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.20": {
+            "text": "Connected Frontline Asset Visibility Intelligent Automation Quality Inspection Supply Chain Visibility",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.21": {
+            "text": "University Health equipped staff with Zebra mobile solutions to enable real-time care, cutting provider callback wait times to seconds.",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.22": {
+            "text": "Apex Steel deployed Zebra mobile computers and scanners to gain real-time stock visibility and ensure accurate next-day delivery.",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.23": {
+            "text": "Texas Children's Hospital eliminated medication delays, shortages, and waste with real-time inventory visibility and automated counting solutions.",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.24": {
+            "text": "Del Monte turned to Zebra’s fixed industrial scanning and machine vision solutions to help ensure quality control.",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.25": {
+            "text": "Nikora implemented a factory-wide Zebra RFID system to automate production tracking, eliminate manual data entry, and cut errors in half.",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P1.26": {
+            "text": "Top organizations that saw results with Zebra",
+            "url": "https://www.zebra.com/us/en.html",
+            "fetched_at": "2026-10-17T22:15:02Z"
+          },
+          "P2.1": {
+            "text": "RFID Solutions | Readers, Printers, Antennas | Zebra",
+            "url": "https://www.zebra.com/us/en/products/rfid.html",
+            "fetched_at": "2026-10-17T22:15:03Z"
+          },
+          "P2.2": {
+            "text": "Zebra's extensive range of RAIN RFID readers, antennas, and printers give you consistent and accurate tracking.",
+            "url": "https://www.zebra.com/us/en/products/rfid.html",
+            "fetched_at": "2026-10-17T22:15:03Z"
+          },
+          "P2.3": {
+            "text": "See How RFID Solves Everyday Challenges",
+            "url": "https://www.zebra.com/us/en/products/rfid.html",
+            "fetched_at": "2026-10-17T22:15:03Z"
+          },
+          "P2.4": {
+            "text": "From inventory counts and product movement to loss prevention and work-in-progress tracking, Zebra RFID helps businesses tackle real operational challenges. Explore how Zebra’s full offering of RFID products enables smarter, more efficient work through proven use cases across a range of environments.",
+            "url": "https://www.zebra.com/us/en/products/rfid.html",
+            "fetched_at": "2026-10-17T22:15:03Z"
+          },
+          "P2.5": {
+            "text": "Retail Transportation and Logistics Manufacturing Food and Pharma Healthcare Government",
+            "url": "https://www.zebra.com/us/en/products/rfid.html",
+            "fetched_at": "2026-10-17T22:15:03Z"
+          },
+          "P2.6": {
+            "text": "Asset utilization, tracking and analysis",
+            "url": "https://www.zebra.com/us/en/products/rfid.html",
+            "fetched_at": "2026-10-17T22:15:03Z"
+          },
+          "P2.7": {
+            "text": "Supply chain tracking and management",
+            "url": "https://www.zebra.com/us/en/products/rfid.html",
+            "fetched_at": "2026-10-17T22:15:03Z"
+          },
+          "P2.8": {
+            "text": "Patient tracking and dwell-time monitoring",
+            "url": "https://www.zebra.com/us/en/products/rfid.html",
+            "fetched_at": "2026-10-17T22:15:03Z"
+          },
+          "P2.9": {
+            "text": "Staff availability and access control",
+            "url": "https://www.zebra.com/us/en/products/rfid.html",
+            "fetched_at": "2026-10-17T22:15:03Z"
+          },
+          "P2.10": {
+            "text": "IT, tool and document tracking",
+            "url": "https://www.zebra.com/us/en/products/rfid.html",
+            "fetched_at": "2026-10-17T22:15:03Z"
+          },
+          "P2.11": {
+            "text": "Track assets across the entire supply chain",
+            "url": "https://www.zebra.com/us/en/products/rfid.html",
+            "fetched_at": "2026-10-17T22:15:03Z"
+          },
+          "P2.12": {
+            "text": "Control secure access to facilities and bases",
+            "url": "https://www.zebra.com/us/en/products/rfid.html",
+            "fetched_at": "2026-10-17T22:15:03Z"
+          },
+          "P2.13": {
+            "text": "Perform inventory and asset cycle counts",
+            "url": "https://www.zebra.com/us/en/products/rfid.html",
+            "fetched_at": "2026-10-17T22:15:03Z"
+          },
+          "P2.14": {
+            "text": "Document chain of custody for weapons, files, evidence and more",
+            "url": "https://www.zebra.com/us/en/products/rfid.html",
+            "fetched_at": "2026-10-17T22:15:03Z"
+          },
+          "P2.15": {
+            "text": "Driving Efficiency with a Unified, Scalable Ecosystem",
+            "url": "https://www.zebra.com/us/en/products/rfid.html",
+            "fetched_at": "2026-10-17T22:15:03Z"
+          },
+          "P2.16": {
+            "text": "Zebra’s ecosystem brings together trusted hardware, proven partners and expert services—giving you everything you need to move forward with confidence.",
+            "url": "https://www.zebra.com/us/en/products/rfid.html",
+            "fetched_at": "2026-10-17T22:15:03Z"
+          },
+          "P2.17": {
+            "text": "Zebra RFID. Move Business Forward",
+            "url": "https://www.zebra.com/us/en/products/rfid.html",
+            "fetched_at": "2026-10-17T22:15:03Z"
+          },
+          "P2.18": {
+            "text": "You need to know everything about your inventory and operation—where every asset is located, where it needs to go, and how quickly you can get it there. Zebra RFID products are engineered and field-proven",
+            "url": "https://www.zebra.com/us/en/products/rfid.html",
+            "fetched_at": "2026-10-17T22:15:03Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

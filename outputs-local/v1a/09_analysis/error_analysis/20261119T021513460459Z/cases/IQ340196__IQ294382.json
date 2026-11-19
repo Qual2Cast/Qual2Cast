@@ -1,0 +1,899 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ340196__IQ294382",
+    "target": "IQ340196",
+    "comp": "IQ294382",
+    "target_ticker": "RMD",
+    "comp_ticker": "ACH",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ340196__IQ294382",
+        "target": "IQ340196",
+        "comp": "IQ294382",
+        "target_ticker": "RMD",
+        "comp_ticker": "ACH",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ340196",
+          "comp": "IQ294382",
+          "method": "B3",
+          "kept": true,
+          "rank": 9.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RMD",
+          "comp_ticker": "ACH"
+        },
+        {
+          "target": "IQ340196",
+          "comp": "IQ294382",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 10.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RMD",
+          "comp_ticker": "ACH"
+        },
+        {
+          "target": "IQ340196",
+          "comp": "IQ294382",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 10.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RMD",
+          "comp_ticker": "ACH"
+        },
+        {
+          "target": "IQ340196",
+          "comp": "IQ294382",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 9.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RMD",
+          "comp_ticker": "ACH"
+        },
+        {
+          "target": "IQ340196",
+          "comp": "IQ294382",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 9.0,
+          "reason": "Home delivery and reimbursed supply service provider and distributor, mainly diabetes and ostomy supplies, not a device maker.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RMD",
+          "comp_ticker": "ACH"
+        },
+        {
+          "target": "IQ340196",
+          "comp": "IQ294382",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Supplies home sleep therapy devices, CPAP and respiratory equipment to patients and insurers through home delivery, like ResMed's home medical equipment channel.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RMD",
+          "comp_ticker": "ACH"
+        },
+        {
+          "target": "IQ340196",
+          "comp": "IQ294382",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 9.0,
+          "reason": "Home medical provider (Apria) renting and supplying sleep and respiratory therapy to patients; ResMed's HME customer channel, partial overlap.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RMD",
+          "comp_ticker": "ACH"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and manufactures CPAP and ventilation devices, masks and accessories for sleep apnea and chronic respiratory patients, sold to home medical equipment providers, hospitals and patients, with cloud software that tracks therapy data.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "CPAP devices; patient masks and accessories; home ventilators",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "cloud-based patient data and therapy monitoring",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: home medical equipment providers, hospitals, sleep clinics, home care providers; B2C: patients with sleep apnea or chronic respiratory conditions who buy supplies directly",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "healthcare; sleep medicine; respiratory care; home healthcare",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: devices, masks and accessories sold to providers and patients; subscription: cloud software subscriptions for clinics and providers",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: builds devices and masks from purchased components, sold to providers and patients; brand owner: designs and markets sleep and respiratory products under its own brands; software / platform: cloud platform for therapy data, sold to providers and clinics",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: sells in North America, Europe, Asia-Pacific and other regions worldwide",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: sleep and respiratory devices, masks and accessories, and cloud patient software",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "distributors / dealers: home medical equipment dealers that supply patients; direct sales: sales teams selling to hospitals and large providers; online: online store selling supplies directly to some patients",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: medical devices needing FDA clearance and other national medical device approvals, such as EU MDR",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and manufactures CPAP and bi-level devices, masks and accessories for sleep apnea and chronic respiratory disease, sold to home medical equipment providers, distributors and patients. Also provides cloud-connected care management software for home health and senior living providers.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "CPAP and bi-level flow generators; sleep apnea masks and accessories; ventilators; oxygen concentrators",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "cloud-based patient monitoring software; care management software for home health and senior living; remote patient engagement platforms",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: home medical equipment providers, distributors, hospitals, physicians, home health and senior living operators; B2C: patients buying masks and supplies online; B2G: government health programs and public hospital tenders",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "healthcare; sleep medicine; respiratory care; home health; senior living",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: devices, masks and accessories sold to providers, distributors and patients; subscription: software-as-a-service for care management and patient monitoring",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: manufactures respiratory devices and masks from purchased components, sold to providers and distributors; software / platform: cloud and care software sold to home health, senior living and sleep providers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: North America, Europe, Asia-Pacific and other markets in over 140 countries",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "among the largest",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: sleep and respiratory devices, masks, and connected care software for the same providers and patients",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "distributors / dealers: home medical equipment providers and distributors; direct sales: hospitals, health systems and software customers; online: direct-to-patient mask and supply sales",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: medical devices requiring FDA clearance and equivalent approvals abroad, reimbursement and data privacy rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ340196.json",
+      "data": {
+        "company_name": "ResMed Inc.",
+        "website": "www.resmed.com",
+        "scrape_status": "ok",
+        "capture_sha256": "cd18015f38176676606a3dfa9b464490dba77eeddbd9f5616c0da4ffd4525b2b",
+        "lines": {
+          "P1.1": {
+            "text": "Resmed | The World Leader in Sleep Health",
+            "url": "https://www.resmed.com/en-us/",
+            "fetched_at": "2026-10-17T20:07:22Z"
+          },
+          "P1.2": {
+            "text": "From sleep apnea to respiratory conditions including COPD, Resmed has innovative solutions to help people live happier, healthier lives.",
+            "url": "https://www.resmed.com/en-us/",
+            "fetched_at": "2026-10-17T20:07:22Z"
+          },
+          "P1.3": {
+            "text": "Just ask our millions of users.",
+            "url": "https://www.resmed.com/en-us/",
+            "fetched_at": "2026-10-17T20:07:22Z"
+          },
+          "P1.4": {
+            "text": "At Resmed, we create life-changing health technologies that people love.",
+            "url": "https://www.resmed.com/en-us/",
+            "fetched_at": "2026-10-17T20:07:22Z"
+          },
+          "P1.5": {
+            "text": "The quietest nasal pillows mask on the market",
+            "url": "https://www.resmed.com/en-us/",
+            "fetched_at": "2026-10-17T20:07:22Z"
+          },
+          "P1.6": {
+            "text": "Three simple components. Just 1.6 oz. Nothing gets in the way of your sleep.",
+            "url": "https://www.resmed.com/en-us/",
+            "fetched_at": "2026-10-17T20:07:22Z"
+          },
+          "P1.7": {
+            "text": "Your partner in sleep therapy",
+            "url": "https://www.resmed.com/en-us/",
+            "fetched_at": "2026-10-17T20:07:22Z"
+          },
+          "P1.8": {
+            "text": "Meet myAir: your 24/7 CPAP support app that makes it easier to get started and stay engaged with your therapy.",
+            "url": "https://www.resmed.com/en-us/",
+            "fetched_at": "2026-10-17T20:07:22Z"
+          },
+          "P1.9": {
+            "text": "Your path to better sleep starts here",
+            "url": "https://www.resmed.com/en-us/",
+            "fetched_at": "2026-10-17T20:07:22Z"
+          },
+          "P1.10": {
+            "text": "Discover more about CPAP therapy",
+            "url": "https://www.resmed.com/en-us/",
+            "fetched_at": "2026-10-17T20:07:22Z"
+          },
+          "P1.11": {
+            "text": "CPAP mask categories to suit the way you sleep",
+            "url": "https://www.resmed.com/en-us/",
+            "fetched_at": "2026-10-17T20:07:22Z"
+          },
+          "P1.12": {
+            "text": "Resmed CPAP mask categories are designed to reflect your needs and sleep habits. Our Versatile Fit, Freedom and Minimalist categories help make finding the right CPAP mask for you easier.",
+            "url": "https://www.resmed.com/en-us/",
+            "fetched_at": "2026-10-17T20:07:22Z"
+          },
+          "P1.13": {
+            "text": "See your progress and feel your momentum with the Streaks feature in myAir.™ Easily track your consecutive nights on CPAP and celebrate your milestones. Start your streak tonight and set new records.",
+            "url": "https://www.resmed.com/en-us/",
+            "fetched_at": "2026-10-17T20:07:22Z"
+          },
+          "P1.14": {
+            "text": "Our Residential Care Software team offers innovative, comprehensive software platforms that support healthcare providers in settings outside of the hospital.",
+            "url": "https://www.resmed.com/en-us/",
+            "fetched_at": "2026-10-17T20:07:22Z"
+          },
+          "P1.15": {
+            "text": "Discover at home care options",
+            "url": "https://www.resmed.com/en-us/",
+            "fetched_at": "2026-10-17T20:07:22Z"
+          },
+          "P1.16": {
+            "text": "A family that sleeps better, lives better",
+            "url": "https://www.resmed.com/en-us/",
+            "fetched_at": "2026-10-17T20:07:22Z"
+          },
+          "P1.17": {
+            "text": "Tips for starting CPAP therapy",
+            "url": "https://www.resmed.com/en-us/",
+            "fetched_at": "2026-10-17T20:07:22Z"
+          },
+          "P1.18": {
+            "text": "We’re here to help with tools and resources to help you as you start therapy.",
+            "url": "https://www.resmed.com/en-us/",
+            "fetched_at": "2026-10-17T20:07:22Z"
+          },
+          "P1.19": {
+            "text": "Find masks, devices and accessories you may need for your sleep apnea therapy.",
+            "url": "https://www.resmed.com/en-us/",
+            "fetched_at": "2026-10-17T20:07:22Z"
+          },
+          "P1.20": {
+            "text": "Our team is here to help answer your questions.",
+            "url": "https://www.resmed.com/en-us/",
+            "fetched_at": "2026-10-17T20:07:22Z"
+          },
+          "P1.21": {
+            "text": "Be among the first to hear all the latest news and developments.",
+            "url": "https://www.resmed.com/en-us/",
+            "fetched_at": "2026-10-17T20:07:22Z"
+          },
+          "P2.1": {
+            "text": "Sleep Apnea Test at Home | Home Sleep Testing Solutions",
+            "url": "https://www.resmed.com/en-us/health-professionals/products/home-sleep-testing/",
+            "fetched_at": "2026-10-17T20:07:23Z"
+          },
+          "P2.2": {
+            "text": "NightOwl is a small, efficient sleep apnea test at home that offers 10 nights of recorded data for internight variability and an alternate to in-lab sleep tests",
+            "url": "https://www.resmed.com/en-us/health-professionals/products/home-sleep-testing/",
+            "fetched_at": "2026-10-17T20:07:23Z"
+          },
+          "P2.3": {
+            "text": "Resmed diagnostic solutions are designed to help the millions of undiagnosed sleep apnea patients get answers they need, and the treatment they deserve so they can rest. Our Home Sleep Tests (HSTs) empower providers to screen more patients and manage each step of the diagnostic process.",
+            "url": "https://www.resmed.com/en-us/health-professionals/products/home-sleep-testing/",
+            "fetched_at": "2026-10-17T20:07:23Z"
+          },
+          "P2.4": {
+            "text": "Fully disposable, non-invasive home sleep test – fits comfortably on a patient’s index finger",
+            "url": "https://www.resmed.com/en-us/health-professionals/products/home-sleep-testing/",
+            "fetched_at": "2026-10-17T20:07:23Z"
+          },
+          "P2.5": {
+            "text": "Records up to 10 nights of data † to help provide an accurate picture of a patient’s sleep health",
+            "url": "https://www.resmed.com/en-us/health-professionals/products/home-sleep-testing/",
+            "fetched_at": "2026-10-17T20:07:23Z"
+          },
+          "P2.6": {
+            "text": "Comes with an easy-to-follow companion app, myAir, that helps patients through each testing step",
+            "url": "https://www.resmed.com/en-us/health-professionals/products/home-sleep-testing/",
+            "fetched_at": "2026-10-17T20:07:23Z"
+          },
+          "P2.7": {
+            "text": "Cloud-based home sleep test that automatically syncs patient data each morning to the provider portal",
+            "url": "https://www.resmed.com/en-us/health-professionals/products/home-sleep-testing/",
+            "fetched_at": "2026-10-17T20:07:23Z"
+          },
+          "P2.8": {
+            "text": "Provides performance and reliability in a compact, lightweight, and easy-to-use device",
+            "url": "https://www.resmed.com/en-us/health-professionals/products/home-sleep-testing/",
+            "fetched_at": "2026-10-17T20:07:23Z"
+          },
+          "P2.9": {
+            "text": "Records up to five channels of information: respiratory effort, pulse, oxygen saturation, nasal flow and snoring",
+            "url": "https://www.resmed.com/en-us/health-professionals/products/home-sleep-testing/",
+            "fetched_at": "2026-10-17T20:07:23Z"
+          },
+          "P2.10": {
+            "text": "Works seamlessly with AirView™ to provide a comprehensive sleep diagnostic solution",
+            "url": "https://www.resmed.com/en-us/health-professionals/products/home-sleep-testing/",
+            "fetched_at": "2026-10-17T20:07:23Z"
+          },
+          "P2.11": {
+            "text": "† Based on average use of 8 hours per night",
+            "url": "https://www.resmed.com/en-us/health-professionals/products/home-sleep-testing/",
+            "fetched_at": "2026-10-17T20:07:23Z"
+          },
+          "P3.1": {
+            "text": "About Resmed | The World Leader in Sleep Health | Resmed",
+            "url": "https://www.resmed.com/en-us/about-us/",
+            "fetched_at": "2026-10-17T20:07:25Z"
+          },
+          "P3.2": {
+            "text": "Resmed is dedicated to developing innovative solutions to help people around the world sleep and breathe better.",
+            "url": "https://www.resmed.com/en-us/about-us/",
+            "fetched_at": "2026-10-17T20:07:25Z"
+          },
+          "P3.3": {
+            "text": "We work every day to help people sleep, breathe and live better.",
+            "url": "https://www.resmed.com/en-us/about-us/",
+            "fetched_at": "2026-10-17T20:07:25Z"
+          },
+          "P3.4": {
+            "text": "We’re leading the way in cloud-connected medical devices that transform care for people with sleep apnea, COPD and other chronic diseases. Our comprehensive out-of-hospital software platforms support the professionals and caregivers who help people stay healthy in the home or care setting of their choice.",
+            "url": "https://www.resmed.com/en-us/about-us/",
+            "fetched_at": "2026-10-17T20:07:25Z"
+          },
+          "P3.5": {
+            "text": "We create life-changing health technologies that people love.",
+            "url": "https://www.resmed.com/en-us/about-us/",
+            "fetched_at": "2026-10-17T20:07:25Z"
+          },
+          "P3.6": {
+            "text": "We envision a world where every person can achieve their full potential through better sleep and breathing, with care delivered in their own home.",
+            "url": "https://www.resmed.com/en-us/about-us/",
+            "fetched_at": "2026-10-17T20:07:25Z"
+          },
+          "P3.7": {
+            "text": "We know the power of sleeping and breathing, and we want the world to know it too. We’re raising awareness of sleep apnea, chronic obstructive pulmonary disease, or COPD, and other",
+            "url": "https://www.resmed.com/en-us/about-us/",
+            "fetched_at": "2026-10-17T20:07:25Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides home-based care products and services for chronic conditions such as diabetes, sleep health, wound care, respiratory care, urology and ostomy. Sells to patients and their insurers, delivering equipment and supplies to the home through its Apria and Byram Healthcare brands.",
+        "offering_description_status": "filled",
+        "offering_description_source": "https://www.accendrahealth.com/",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "diabetes supplies; sleep therapy devices; wound care supplies; respiratory equipment; ostomy and urology supplies",
+        "primary_products_status": "filled",
+        "primary_products_source": "https://www.accendrahealth.com/",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "home delivery and setup; patient support and education; respiratory and sleep therapy",
+        "primary_services_status": "filled",
+        "primary_services_source": "https://www.accendrahealth.com/",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: patients receiving care at home; B2B: health insurers, health plans and healthcare providers",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "https://www.accendrahealth.com/; https://www.accendrahealth.com/About",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "home healthcare; health insurance; healthcare providers",
+        "end_markets_status": "filled",
+        "end_markets_source": "https://www.accendrahealth.com/About",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: diabetes, wound care, urology and ostomy supplies sold to patients; rental or leasing: rented respiratory and sleep therapy equipment; healthcare reimbursement: payments from insurers and government programs for home medical equipment",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: delivers and supports home medical care, billed to insurers and government programs; distributor: sources and distributes medical supplies to home patients",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: nationwide across the United States through Apria and Byram Healthcare",
+        "geography_served_status": "filled",
+        "geography_served_source": "https://www.accendrahealth.com/About",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "https://www.accendrahealth.com/; https://www.accendrahealth.com/About",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: diabetes, sleep, wound, respiratory, urology and ostomy supplies sold to home patients",
+        "specialization_status": "filled",
+        "specialization_source": "https://www.accendrahealth.com/",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "own locations: Apria and Byram branches and home delivery operations; direct sales: direct to patients and to insurers and health plans",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "https://www.accendrahealth.com/About; https://www.accendrahealth.com/",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: Medicare and Medicaid supplier enrollment and accreditation, FDA-regulated medical devices, state pharmacy licenses",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides home respiratory and sleep therapy equipment, durable medical equipment and chronic-condition medical supplies delivered directly to patients at home. Serves patients, referring clinicians and payers through branches, clinicians and delivery networks.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "home oxygen and respiratory equipment; sleep apnea devices (CPAP); durable medical equipment; diabetes, ostomy, urology and wound care supplies",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "home respiratory therapy; sleep therapy management; patient delivery and setup; insurance billing and resupply; patient education",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: patients receiving care at home, often paid via insurance; B2B: commercial insurers and managed care payers, referring physicians and health systems; B2G: Medicare and Medicaid beneficiaries as government payers",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "home healthcare; respiratory care; sleep medicine; diabetes and chronic disease management",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "healthcare reimbursement: payments from Medicare, Medicaid and private insurers for home equipment and supplies; rental or leasing: monthly rental of oxygen concentrators, ventilators and other equipment; product sales: recurring supplies such as diabetes, ostomy and urological products",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: home medical equipment provider delivering therapy and supplies to patients; distributor: buys medical supplies from manufacturers and ships directly to patients",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: Patients across the United States via branch and delivery network",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: home respiratory and durable equipment plus direct-to-patient chronic care medical supplies",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: referral-based direct delivery to patients' homes and mail shipment; own locations: branch locations serving local patients",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: Medicare/Medicaid reimbursement rules, CMS competitive bidding, FDA device rules, state licensing, HIPAA",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ294382.json",
+      "data": {
+        "company_name": "Accendra Health, Inc.",
+        "website": "www.accendrahealth.com",
+        "scrape_status": "ok",
+        "capture_sha256": "0681ef699784c7a444ef48ed1111ffb3d4388712612a53a4f29bc4b92d59ea68",
+        "lines": {
+          "P1.1": {
+            "text": "Accendra Health Home Page",
+            "url": "https://www.accendrahealth.com/",
+            "fetched_at": "2026-10-17T19:08:16Z"
+          },
+          "P1.2": {
+            "text": "Bringing Care To Life ™",
+            "url": "https://www.accendrahealth.com/",
+            "fetched_at": "2026-10-17T19:08:16Z"
+          },
+          "P1.3": {
+            "text": "At Accendra Health (formerly known as Owens & Minor, Inc.), care is a promise. A promise of peace of mind, a promise of confidence, and a commitment to connecting patients, providers, and insurers so healthcare works better for everyone.",
+            "url": "https://www.accendrahealth.com/",
+            "fetched_at": "2026-10-17T19:08:16Z"
+          },
+          "P1.4": {
+            "text": "Backed by the industry-leading expertise of our Apria and Byram Healthcare brands, Accendra Health provides patients with critical products, services, and support to manage their health, helping to improve outcomes for millions of people each year.",
+            "url": "https://www.accendrahealth.com/",
+            "fetched_at": "2026-10-17T19:08:16Z"
+          },
+          "P1.5": {
+            "text": "Reimagining the Future of Home-Based Care",
+            "url": "https://www.accendrahealth.com/",
+            "fetched_at": "2026-10-17T19:08:16Z"
+          },
+          "P1.6": {
+            "text": "Accendra Health is reimagining the future of home-based care with one of the broadest portfolios of essentials for diabetes, sleep health, wound care, respiratory care, urology, and ostomy.",
+            "url": "https://www.accendrahealth.com/",
+            "fetched_at": "2026-10-17T19:08:16Z"
+          },
+          "P1.7": {
+            "text": "Great care starts with our team. Here’s how we take care of you.",
+            "url": "https://www.accendrahealth.com/",
+            "fetched_at": "2026-10-17T19:08:16Z"
+          },
+          "P1.8": {
+            "text": "Medical, dental, and vision care coverage",
+            "url": "https://www.accendrahealth.com/",
+            "fetched_at": "2026-10-17T19:08:16Z"
+          },
+          "P1.9": {
+            "text": "Mental, physical, and financial well-being programs",
+            "url": "https://www.accendrahealth.com/",
+            "fetched_at": "2026-10-17T19:08:16Z"
+          },
+          "P1.10": {
+            "text": "Stay Connected for the Latest News",
+            "url": "https://www.accendrahealth.com/",
+            "fetched_at": "2026-10-17T19:08:16Z"
+          },
+          "P1.11": {
+            "text": "Visit our Newsroom for the latest news and updates from Accendra Health.",
+            "url": "https://www.accendrahealth.com/",
+            "fetched_at": "2026-10-17T19:08:16Z"
+          },
+          "P2.1": {
+            "text": "About Us | Accendra Health",
+            "url": "https://www.accendrahealth.com/About",
+            "fetched_at": "2026-10-17T19:08:17Z"
+          },
+          "P2.2": {
+            "text": "Healthcare is complicated. Accendra Health makes it a little easier by Bringing Care To Life ™.",
+            "url": "https://www.accendrahealth.com/About",
+            "fetched_at": "2026-10-17T19:08:17Z"
+          },
+          "P2.3": {
+            "text": "At Accendra Health (formerly known as Owens & Minor, Inc.), care is a promise. A promise that gives healthcare professionals peace of mind that their patients can get the care they need. A promise offering confidence to people that they can manage their health and live life on their own terms. A commitment to connecting patients, providers, and insurers so healthcare works better for everyone.",
+            "url": "https://www.accendrahealth.com/About",
+            "fetched_at": "2026-10-17T19:08:17Z"
+          },
+          "P2.4": {
+            "text": "With deep expertise promoting health outside the hospital and a presence in communities nationwide through our Apria and Byram Healthcare brands, Accendra Health does more than just deliver the essentials. We overcome obstacles. We educate and provide answers. We make it possible for patients and families to access healthcare when and where they need it, helping to improve outcomes for millions of people each year who receive care at home.",
+            "url": "https://www.accendrahealth.com/About",
+            "fetched_at": "2026-10-17T19:08:17Z"
+          },
+          "P2.5": {
+            "text": "Healthcare is complicated, but Accendra Health is here to help make it a little easier. We focus on the details of bringing care into the home, empowering patients with critical products, services, and support so they can focus on the moments that matter most.",
+            "url": "https://www.accendrahealth.com/About",
+            "fetched_at": "2026-10-17T19:08:17Z"
+          },
+          "P2.6": {
+            "text": "At Accendra Health, our Purpose drives us. Bringing Care To Life ™ means meeting people where they are and delivering care that fits their lives beyond traditional settings.",
+            "url": "https://www.accendrahealth.com/About",
+            "fetched_at": "2026-10-17T19:08:17Z"
+          },
+          "P2.7": {
+            "text": "Our Mission is to provide innovative solutions that ensure patients get the care they need in the comfort of their homes.",
+            "url": "https://www.accendrahealth.com/About",
+            "fetched_at": "2026-10-17T19:08:17Z"
+          },
+          "P2.8": {
+            "text": "Our Vision is to be a leading partner in care for medical equipment, supplies, and solutions in the home for individuals, families, and caregivers.",
+            "url": "https://www.accendrahealth.com/About",
+            "fetched_at": "2026-10-17T19:08:17Z"
+          },
+          "P2.9": {
+            "text": "INTEGRITY | DEVELOPMENT | EXCELLENCE | ACCOUNTABILITY | LISTENING",
+            "url": "https://www.accendrahealth.com/About",
+            "fetched_at": "2026-10-17T19:08:17Z"
+          },
+          "P3.1": {
+            "text": "Our Brands | Accendra Health",
+            "url": "https://www.accendrahealth.com/Our-Brands",
+            "fetched_at": "2026-10-17T19:08:19Z"
+          },
+          "P3.2": {
+            "text": "Two Trusted Names. One Bright Future.",
+            "url": "https://www.accendrahealth.com/Our-Brands",
+            "fetched_at": "2026-10-17T19:08:19Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

@@ -1,0 +1,1124 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ252588__IQ175181",
+    "target": "IQ252588",
+    "comp": "IQ175181",
+    "target_ticker": "AZZ",
+    "comp_ticker": "EML",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label",
+    "priority": 0
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ252588__IQ175181",
+        "target": "IQ252588",
+        "comp": "IQ175181",
+        "target_ticker": "AZZ",
+        "comp_ticker": "EML",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label",
+        "priority": 0
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ252588",
+          "comp": "IQ175181",
+          "method": "B3",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AZZ",
+          "comp_ticker": "EML"
+        },
+        {
+          "target": "IQ252588",
+          "comp": "IQ175181",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 8.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AZZ",
+          "comp_ticker": "EML"
+        },
+        {
+          "target": "IQ252588",
+          "comp": "IQ175181",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AZZ",
+          "comp_ticker": "EML"
+        },
+        {
+          "target": "IQ252588",
+          "comp": "IQ175181",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 3.0,
+          "reason": "Manufactures locks, hinges and hardware for equipment makers; lacks AZZ's galvanizing services and electrical products.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AZZ",
+          "comp_ticker": "EML"
+        },
+        {
+          "target": "IQ252588",
+          "comp": "IQ175181",
+          "method": "screen_sonnet",
+          "kept": false,
+          "rank": 3.0,
+          "reason": "Manufactures locks, hardware and metal components for OEMs; no galvanizing or coating services or utility-focused electrical products.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AZZ",
+          "comp_ticker": "EML"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": [
+        {
+          "target": "IQ252588",
+          "comp": "IQ175181",
+          "evaluator": "agent_loop/round2_targets_sonnet",
+          "score": 0,
+          "status": "ok",
+          "reason": "AZZ is a metal coatings service provider (hot-dip galvanizing and coil coating) that charges fees to process customers' steel and metal for infrastructure, fabrication and building markets. Eastern is a holding company of engineered hardware makers: returnable packaging and blow-mold tools, access and security hardware (latches, hinges, locks), and truck vision systems. These are sold as products to vehicle and equipment OEMs. The two share only a broad \"industrial B2B\" label. Their offerings differ, their buyers differ, and so do their revenue models (processing fees versus component sales).",
+          "missing_evidence": "",
+          "lookups": "0",
+          "source": "agent_loop/round2_targets_sonnet/verdicts.csv",
+          "grade": null
+        }
+      ]
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides hot-dip galvanizing and other metal coating services that protect steel from corrosion, and makes electrical and metal products such as conduit fittings and coated coil. Sells mainly to utilities, construction firms, industrial manufacturers and energy companies, largely through its own plants and direct sales.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "electrical conduit fittings; grounding products; coated steel coil; aluminum coil products",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "hot-dip galvanizing; metal coating; anodizing",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: utilities, construction contractors, steel fabricators, industrial manufacturers, energy and transmission companies",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "utilities; construction; industrial manufacturing; energy; telecommunications",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "service fees: galvanizing and coating processing charged per job for customers' steel; product sales: electrical fittings, conduit and coated coil sold to customers",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: takes in customers' steel and applies protective metal coatings for a fee; OEM / manufacturer: makes electrical products and coated coil from purchased metal, sold to utilities and industrial buyers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "North America: galvanizing plants and customers across the United States, with operations in Canada",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: metal coating services, electrical products and engineered coil and metal materials that share steel and zinc processing",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "own locations: company-operated galvanizing and coating plants serving nearby customers; direct sales: sales teams selling directly to utilities, contractors and manufacturers; distributors / dealers: electrical distributors that resell conduit fittings and grounding products",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: environmental and worker safety rules for zinc and coating plants, such as EPA air and water permits and OSHA",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides hot-dip galvanizing and other metal coating services that protect fabricated steel from corrosion, plus coil coating of steel and aluminum. Customers are fabricators, manufacturers and contractors in construction, infrastructure, utilities and industrial markets. Services are delivered at a network of plants in North America.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "coated steel and aluminum coil; precision coated metal products",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "hot-dip galvanizing; coil coating; powder coating and other applied coatings; inspection and engineering support",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: steel fabricators, electrical transmission and utility contractors, manufacturers, building products and appliance makers; B2G: public infrastructure projects such as highways and bridges via contractors",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "infrastructure; electrical transmission and utilities; construction; industrial; appliances and building products",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "service fees: galvanizing and coating of customer-owned steel, priced by weight or volume; product sales: coated coil sold to manufacturers",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: applies protective zinc and other coatings to customer-supplied fabricated steel; OEM / manufacturer: coats purchased steel and aluminum coil for sale to manufacturers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "North America: United States and Canada, with plants across many US states",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: galvanizing, coil coating and related precoating services for metal",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales teams serving fabricators, contractors, utilities and coil customers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: environmental, air emissions, zinc handling and workplace safety rules from EPA and OSHA",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "FACET:157": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:157",
+        "company_id": "IQ252588",
+        "ticker": "AZZ",
+        "facet": "offering_description",
+        "human_label": "outdated",
+        "labeled_text": "Provides hot-dip galvanizing and metal coating services for steel and manufactures electrical equipment and products for utilities and industrial customers. Sells to steel fabricators, utilities and industrial buyers, using its own plants to coat and process metal.",
+        "human_note": "Electrical segment divested",
+        "evidence_url": "https://www.azz.com/metal-coatings/",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "Provides hot-dip galvanizing and other metal coating services that protect steel from corrosion, and makes electrical and metal products such as conduit fittings and coated coil. Sells mainly to utilities, construction firms, industrial manufacturers and energy companies, largely through its own plants and direct sales.",
+        "sonnet_text": "Provides hot-dip galvanizing and other metal coating services that protect fabricated steel from corrosion, plus coil coating of steel and aluminum. Customers are fabricators, manufacturers and contractors in construction, infrastructure, utilities and industrial markets. Services are delivered at a network of plants in North America.",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:158": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:158",
+        "company_id": "IQ252588",
+        "ticker": "AZZ",
+        "facet": "primary_products",
+        "human_label": "outdated",
+        "labeled_text": "electrical equipment; conduit and fittings; bus duct; coated metal products",
+        "human_note": "Electrical equipment/conduit/bus duct no longer sold; coil-coated metal missing",
+        "evidence_url": "https://www.azz.com/precoat-metals/ ",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "electrical conduit fittings; grounding products; coated steel coil; aluminum coil products",
+        "sonnet_text": "coated steel and aluminum coil; precision coated metal products",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:159": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:159",
+        "company_id": "IQ252588",
+        "ticker": "AZZ",
+        "facet": "primary_services",
+        "human_label": "partly correct",
+        "labeled_text": "hot-dip galvanizing; metal coating; powder coating; metal finishing",
+        "human_note": "Galvanizing correct, misses coil coating",
+        "evidence_url": "https://www.azz.com/hot-dip-galvanizing/ ",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "hot-dip galvanizing; metal coating; anodizing",
+        "sonnet_text": "hot-dip galvanizing; coil coating; powder coating and other applied coatings; inspection and engineering support",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:160": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:160",
+        "company_id": "IQ252588",
+        "ticker": "AZZ",
+        "facet": "customer_segment",
+        "human_label": "partly correct",
+        "labeled_text": "B2B: steel fabricators, electrical contractors, utilities, industrial manufacturers",
+        "human_note": "Misses Precoat Metals customers",
+        "evidence_url": "https://www.azz.com/metal-coatings-markets/",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "B2B: utilities, construction contractors, steel fabricators, industrial manufacturers, energy and transmission companies",
+        "sonnet_text": "B2B: steel fabricators, electrical transmission and utility contractors, manufacturers, building products and appliance makers; B2G: public infrastructure projects such as highways and bridges via contractors",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:161": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:161",
+        "company_id": "IQ252588",
+        "ticker": "AZZ",
+        "facet": "end_markets",
+        "human_label": "partly correct",
+        "labeled_text": "utilities; construction; industrial manufacturing; infrastructure; energy",
+        "human_note": "Misses Precoat end markets listed on site",
+        "evidence_url": "https://www.azz.com/metal-coatings-markets/",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "utilities; construction; industrial manufacturing; energy; telecommunications",
+        "sonnet_text": "infrastructure; electrical transmission and utilities; construction; industrial; appliances and building products",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:162": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:162",
+        "company_id": "IQ252588",
+        "ticker": "AZZ",
+        "facet": "revenue_model",
+        "human_label": "outdated",
+        "labeled_text": "service fees: coating and galvanizing services charged per job or volume; product sales: electrical equipment and conduit sold to contractors and utilities",
+        "human_note": "Revenue from coating services, not electrical product sales",
+        "evidence_url": "https://www.azz.com/metal-coatings/",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "service fees: galvanizing and coating processing charged per job for customers' steel; product sales: electrical fittings, conduit and coated coil sold to customers",
+        "sonnet_text": "service fees: galvanizing and coating of customer-owned steel, priced by weight or volume; product sales: coated coil sold to manufacturers",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:163": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:163",
+        "company_id": "IQ252588",
+        "ticker": "AZZ",
+        "facet": "value_chain_position",
+        "human_label": "outdated",
+        "labeled_text": "service provider: coats and finishes customers' steel products for a fee; OEM / manufacturer: builds electrical equipment and products from purchased metal and components, sold to contractors and utilities",
+        "human_note": "Not an electrical OEM",
+        "evidence_url": "https://www.azz.com/metal-coatings/",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "service provider: takes in customers' steel and applies protective metal coatings for a fee; OEM / manufacturer: makes electrical products and coated coil from purchased metal, sold to utilities and industrial buyers",
+        "sonnet_text": "service provider: applies protective zinc and other coatings to customer-supplied fabricated steel; OEM / manufacturer: coats purchased steel and aluminum coil for sale to manufacturers",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:164": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:164",
+        "company_id": "IQ252588",
+        "ticker": "AZZ",
+        "facet": "geography_served",
+        "human_label": "partly correct",
+        "labeled_text": "North America: United States, with plants and customers in Canada and Mexico",
+        "human_note": "Mexico not mentioned",
+        "evidence_url": "https://www.azz.com/facility-locator/",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "North America: galvanizing plants and customers across the United States, with operations in Canada",
+        "sonnet_text": "North America: United States and Canada, with plants across many US states",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:165": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:165",
+        "company_id": "IQ252588",
+        "ticker": "AZZ",
+        "facet": "company_size",
+        "human_label": "correct",
+        "labeled_text": "large",
+        "human_note": "AZZ Inc. is a leading industrial metal-coating and surface-technologies provider in North America",
+        "evidence_url": "https://www.azz.com/about-us/",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "large",
+        "sonnet_text": "large",
+        "exact_haiku_text": true,
+        "exact_sonnet_text": true
+      }
+    },
+    "FACET:166": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:166",
+        "company_id": "IQ252588",
+        "ticker": "AZZ",
+        "facet": "specialization",
+        "human_label": "outdated",
+        "labeled_text": "related lines: metal coatings and galvanizing services, electrical equipment and products",
+        "human_note": "Electrical equipment line was divested",
+        "evidence_url": "https://www.azz.com/metal-coatings/",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "related lines: metal coating services, electrical products and engineered coil and metal materials that share steel and zinc processing",
+        "sonnet_text": "related lines: galvanizing, coil coating and related precoating services for metal",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:167": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:167",
+        "company_id": "IQ252588",
+        "ticker": "AZZ",
+        "facet": "distribution_channels",
+        "human_label": "partly correct",
+        "labeled_text": "direct sales: sales teams selling to large fabricators and utilities; distributors / dealers: electrical distributors reselling electrical products to contractors",
+        "human_note": "Direct sales remain relevant, but electrical distributors relate to the divested business",
+        "evidence_url": "https://www.azz.com/metal-coatings/",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "own locations: company-operated galvanizing and coating plants serving nearby customers; direct sales: sales teams selling directly to utilities, contractors and manufacturers; distributors / dealers: electrical distributors that resell conduit fittings and grounding products",
+        "sonnet_text": "direct sales: sales teams serving fabricators, contractors, utilities and coil customers",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:168": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:168",
+        "company_id": "IQ252588",
+        "ticker": "AZZ",
+        "facet": "regulatory_exposure",
+        "human_label": "partly correct",
+        "labeled_text": "medium: environmental and emissions rules for zinc coating plants, workplace safety rules, and product electrical safety standards",
+        "human_note": "electrical product-safety standards are outdated",
+        "evidence_url": "https://www.azz.com/hot-dip-galvanizing/ ",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "medium: environmental and worker safety rules for zinc and coating plants, such as EPA air and water permits and OSHA",
+        "sonnet_text": "medium: environmental, air emissions, zinc handling and workplace safety rules from EPA and OSHA",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ252588.json",
+      "data": {
+        "company_name": "AZZ Inc.",
+        "website": "www.azz.com",
+        "scrape_status": "ok",
+        "capture_sha256": "0be9bb7cf503ebe2ba37377bdef67874922f0f4cd28ba1844a7a6eca490d31e4",
+        "lines": {
+          "P1.1": {
+            "text": "Metal Coatings Provider with Leading North American Network- AZZ",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.2": {
+            "text": "AZZ is North America's leading metal coatings provider offering galvanizing, coil coating, and surface technologies.",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.3": {
+            "text": "Protecting Critical Infrastructure You Rely On",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.4": {
+            "text": "Proven corrosion protection that extends service life and reduces maintenance",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.5": {
+            "text": "Enhancing Product Performance Before Fabrication",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.6": {
+            "text": "Advanced coil coating and processing improves quality and manufacturing efficiency",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.7": {
+            "text": "Specialized coating and finishing designed for scale, speed, and consistency",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.8": {
+            "text": "Where advanced coating technologies meet real-world performance",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.9": {
+            "text": "AZZ delivers industry-leading galvanizing, coil coating, and surface technologies that help customers improve durability, operational efficiency, and lifecycle value. Supported by a strategically located North American network, AZZ provides the scale, expertise, and responsiveness needed to serve a wide range of industries and applications.",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.10": {
+            "text": "Protecting critical infrastructure through proven corrosion protection and asset life extension",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.11": {
+            "text": "Enhancing product performance and manufacturing efficiency with advanced coil coating solutions",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.12": {
+            "text": "Serving the markets that build and sustain modern life",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.13": {
+            "text": "Metal Coatings Markets Precoat Metals Markets",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.14": {
+            "text": "70 Years of Industry Experience",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.15": {
+            "text": "Operations Across the United States and Canada",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.16": {
+            "text": "Responsive Capacity for Large-Scale and Multi-Location Projects",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.17": {
+            "text": "Serving Diverse Infrastructure and Industrial Applications",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.18": {
+            "text": "Committed to environmental stewardship and responsible growth",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.19": {
+            "text": "Insights, tools, and technical resources",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.20": {
+            "text": "Explore facilities, capabilities, and applications across North America",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.21": {
+            "text": "Watch technologies, processes, and solutions in action",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.22": {
+            "text": "Access brochures, design guides, sustainability reports, and supporting documentation",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.23": {
+            "text": "Evaluate long-term corrosion protection value through lifecycle cost analysis",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.24": {
+            "text": "Find strategically located Metal Coatings and Precoat Metals facilities near you.",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.25": {
+            "text": "› Galvanizing Life-Cycle Cost Calculator",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P1.26": {
+            "text": "› Business & Consumer Products",
+            "url": "https://www.azz.com/",
+            "fetched_at": "2026-10-17T21:57:47Z"
+          },
+          "P2.1": {
+            "text": "North America's Leading Metal Coatings Company - About AZZ",
+            "url": "https://www.azz.com/about-us/",
+            "fetched_at": "2026-10-17T21:57:48Z"
+          },
+          "P2.2": {
+            "text": "Learn about AZZ, North America's leading metal coatings company, delivering galvanizing, coil coating, and advanced metal coating solutions.",
+            "url": "https://www.azz.com/about-us/",
+            "fetched_at": "2026-10-17T21:57:48Z"
+          },
+          "P2.3": {
+            "text": "Industry-leading provider of metal coating solutions supporting everyday life",
+            "url": "https://www.azz.com/about-us/",
+            "fetched_at": "2026-10-17T21:57:48Z"
+          },
+          "P2.4": {
+            "text": "AZZ Inc. is North America’s leading independent provider of hot-dip galvanizing and coil coating solutions serving a broad range of end markets. Collectively, our business segments provide sustainable, unmatched metal coating solutions that enhance the longevity and appearance of the buildings, products and infrastructure people rely on every day.",
+            "url": "https://www.azz.com/about-us/",
+            "fetched_at": "2026-10-17T21:57:48Z"
+          },
+          "P2.5": {
+            "text": "Meeting the needs of diverse and evolving markets",
+            "url": "https://www.azz.com/about-us/",
+            "fetched_at": "2026-10-17T21:57:48Z"
+          },
+          "P2.6": {
+            "text": "AZZ combines large-scale galvanizing operations, integrated coil coating capabilities, and advanced surface technologies to help customers improve corrosion protection, operational efficiency, product quality, and long-term performance. Backed by an extensive network of facilities and specialized coating technologies, AZZ helps customers access the solutions, capacity, and technical support needed to meet changing business demands.",
+            "url": "https://www.azz.com/about-us/",
+            "fetched_at": "2026-10-17T21:57:48Z"
+          },
+          "P2.7": {
+            "text": "North America’s largest hot-dip galvanizer of fabricated steel",
+            "url": "https://www.azz.com/about-us/",
+            "fetched_at": "2026-10-17T21:57:48Z"
+          },
+          "P2.8": {
+            "text": "AZZ Galvanizing provides industry-leading corrosion protection solutions that help extend service life, reduce maintenance requirements, and improve lifecycle performance across critical infrastructure and fabricated steel applications. As North America’s largest hot-dip galvanizer, AZZ combines scalable capacity, decades of galvanizing expertise, and a commitment to consistent quality and responsive customer support.",
+            "url": "https://www.azz.com/about-us/",
+            "fetched_at": "2026-10-17T21:57:48Z"
+          },
+          "P2.9": {
+            "text": "North America’s leading independent provider of coil coating services",
+            "url": "https://www.azz.com/about-us/",
+            "fetched_at": "2026-10-17T21:57:48Z"
+          },
+          "P2.10": {
+            "text": "AZZ Precoat Metals delivers coil coating and value-added processing solutions engineered to increase production efficiency, product durability, and appearance performance across thousands of applications. Strategically located facilities and integrated processing capabilities help customers improve supply chain efficiency, simplify production coordination, and respond to changing manufacturing demands.",
+            "url": "https://www.azz.com/about-us/",
+            "fetched_at": "2026-10-17T21:57:48Z"
+          },
+          "P2.11": {
+            "text": "Advanced surface technologies and metal finishing solutions",
+            "url": "https://www.azz.com/about-us/",
+            "fetched_at": "2026-10-17T21:57:48Z"
+          },
+          "P2.12": {
+            "text": "AZZ Surface Technologies provides advanced metal finishing systems and value-added coating services tailored to environmental, performance, and industry requirements. Through automated operations, integrated coating systems, and extensive finishing expertise, AZZ simplifies coating coordination, reduces supply chain complexity, and meets accelerated project schedules through a single experienced finishing partner.",
+            "url": "https://www.azz.com/about-us/",
+            "fetched_at": "2026-10-17T21:57:48Z"
+          },
+          "P2.13": {
+            "text": "Built on expertise. Focused on the future.",
+            "url": "https://www.azz.com/about-us/",
+            "fetched_at": "2026-10-17T21:57:48Z"
+          },
+          "P2.14": {
+            "text": "AZZ continues to invest in advanced manufacturing technologies, sustainability initiatives, operational efficiency, and workforce development that support responsible growth across its businesses.",
+            "url": "https://www.azz.com/about-us/",
+            "fetched_at": "2026-10-17T21:57:48Z"
+          },
+          "P3.1": {
+            "text": "Case Studies - AZZ Success Stories",
+            "url": "https://www.azz.com/case-studies/",
+            "fetched_at": "2026-10-17T21:57:49Z"
+          },
+          "P3.2": {
+            "text": "Explore our success stories and case studies",
+            "url": "https://www.azz.com/case-studies/",
+            "fetched_at": "2026-10-17T21:57:49Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and manufactures industrial hardware, security products and metal components, sold to OEMs, distributors and dealers. Products are made in owned plants and sold through direct sales and distributors.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "locks and latches; hinges and handles; security devices; metal castings and forgings; cabinet hardware",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "custom metal forming; engineering support",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: industrial equipment makers, vehicle and truck manufacturers, cabinet and furniture makers, distributors",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "industrial equipment; transportation; security; consumer and commercial products; construction",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: hardware, security products and metal components sold to manufacturers and distributors",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: makes locks, hardware and metal parts in its own plants, sold to equipment makers and distributors; component supplier: supplies components that customers assemble into their finished products",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: sales in US, Canada and Mexico, plants also in Taiwan and China",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: industrial hardware, security products and metal products sharing manufacturing and industrial customers",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales teams selling to large OEM customers; distributors / dealers: industrial distributors reselling hardware and components",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: product safety, environmental and trade rules for manufacturing and export",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and manufactures engineered industrial hardware, security products and metal castings. Sells to OEMs in transportation, utility, marine and industrial markets, and to security and lock customers. Products are made in North American and Asian plants.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "industrial hardware (latches, hinges, handles); security products (locks, keys, access control); metal castings; custom engineered components; marine hardware",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: OEMs in truck, trailer, bus, utility, marine and industrial equipment, security product distributors; B2G: government and institutional users of security locks, such as postal and correctional",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "transportation and heavy trucks; utilities; marine; security and government; industrial equipment",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: hardware, locks and castings sold to OEMs and distributors",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: manufactures hardware and security products from purchased metals and components, sold to OEMs and distributors; component supplier: supplies engineered latches, hinges and castings into customer equipment",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: United States, Canada, Mexico, Taiwan, China and other export markets",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "small",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: industrial hardware, security products and metal castings",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales to OEM manufacturers and large accounts; distributors / dealers: locksmith and security product distributors",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: manufacturing environmental and safety rules, trade tariffs, and product standards for security and marine hardware",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ175181.json",
+      "data": {
+        "company_name": "The Eastern Company",
+        "website": "www.easterncompany.com",
+        "scrape_status": "ok",
+        "capture_sha256": "3e43ef378dab7d0c0a84f9869a8c4f6ae8f23086a8a8200312e681f16d28b4d7",
+        "lines": {
+          "P1.1": {
+            "text": "Home | The Eastern Company",
+            "url": "https://www.easterncompany.com/",
+            "fetched_at": "2026-10-17T20:14:53Z"
+          },
+          "P1.2": {
+            "text": "Brambaly is a budget-friendly way for you to build your manufacturing, wholesale, or distribution website. Check out a demo Home page by clicking here!",
+            "url": "https://www.easterncompany.com/",
+            "fetched_at": "2026-10-17T20:14:53Z"
+          },
+          "P1.3": {
+            "text": "A leading provider of turnkey packaging solutions.",
+            "url": "https://www.easterncompany.com/",
+            "fetched_at": "2026-10-17T20:14:53Z"
+          },
+          "P1.4": {
+            "text": "Velvac is a leading supplier of vision systems and components to heavy and medium duty truck OEMs, recreational and s...",
+            "url": "https://www.easterncompany.com/",
+            "fetched_at": "2026-10-17T20:14:53Z"
+          },
+          "P1.5": {
+            "text": "A leader in custom-engineered industrial, vehicular and specialty hardware. Eberhard's extensive product line of over...",
+            "url": "https://www.easterncompany.com/",
+            "fetched_at": "2026-10-17T20:14:53Z"
+          },
+          "P1.6": {
+            "text": "Our commitment to quality means that we consistently provide products and services that meet or exceed your expectations.",
+            "url": "https://www.easterncompany.com/",
+            "fetched_at": "2026-10-17T20:14:53Z"
+          },
+          "P1.7": {
+            "text": "Whether you want to make a simple change to a product or you need a custom-designed solution, our engineers have years of experience to support your applications.",
+            "url": "https://www.easterncompany.com/",
+            "fetched_at": "2026-10-17T20:14:53Z"
+          },
+          "P1.8": {
+            "text": "We innovate to bring you novel solutions that meet new requirements and market needs.",
+            "url": "https://www.easterncompany.com/",
+            "fetched_at": "2026-10-17T20:14:53Z"
+          },
+          "P1.9": {
+            "text": "The Eastern Company manages industrial businesses that design, manufacture and sell unique engineered solutions to industrial markets.",
+            "url": "https://www.easterncompany.com/",
+            "fetched_at": "2026-10-17T20:14:53Z"
+          },
+          "P2.1": {
+            "text": "Investors information overview | The Eastern Company",
+            "url": "https://www.easterncompany.com/invinfoverview",
+            "fetched_at": "2026-10-17T20:14:57Z"
+          },
+          "P2.2": {
+            "text": "Investors information overview",
+            "url": "https://www.easterncompany.com/invinfoverview",
+            "fetched_at": "2026-10-17T20:14:57Z"
+          },
+          "P2.3": {
+            "text": "THE EASTERN COMPANY CORPORATE PROFILE",
+            "url": "https://www.easterncompany.com/invinfoverview",
+            "fetched_at": "2026-10-17T20:14:57Z"
+          },
+          "P2.4": {
+            "text": "The Eastern Company manages industrial businesses that design, manufacture and sell unique engineered solutions to industrial markets. We believe Eastern’s businesses operate in industries with long-term macroeconomic growth opportunities. Eastern may pursue acquisitions in industries other than those in which its businesses currently operate if an acquisition presents an attractive opportunity.",
+            "url": "https://www.easterncompany.com/invinfoverview",
+            "fetched_at": "2026-10-17T20:14:57Z"
+          },
+          "P2.5": {
+            "text": "Among other things, Eastern monitors financial and operational performance of each of its businesses and instills consistent financial discipline. In addition, Eastern recruits and retains talented managers to operate its businesses. We look for leaders who are accountable, maintain cost discipline, act quickly, and build strong followership.",
+            "url": "https://www.easterncompany.com/invinfoverview",
+            "fetched_at": "2026-10-17T20:14:57Z"
+          },
+          "P2.6": {
+            "text": "The Eastern Company consists of Big 3 Precision, Eberhard Manufacturing Company, and Velvac. These businesses design, manufacture and market a diverse product line of custom and standard vehicular and industrial hardware, including turnkey returnable packaging solutions, access and security hardware, mirrors, and mirror-cameras.",
+            "url": "https://www.easterncompany.com/invinfoverview",
+            "fetched_at": "2026-10-17T20:14:57Z"
+          },
+          "P2.7": {
+            "text": "Big 3 Products and Big 3 Mold’s turnkey returnable packaging solutions are used in the assembly processes of vehicles, aircraft and durable goods and in the production processes of plastic packaging products, packaged consumer goods and pharmaceuticals. Big 3 Products works with leading manufacturers to design and produce custom returnable packaging to integrate with their assembly processes. Big 3 Mold is a global leader in the design and manufacture of blow mold tools.",
+            "url": "https://www.easterncompany.com/invinfoverview",
+            "fetched_at": "2026-10-17T20:14:57Z"
+          },
+          "P2.8": {
+            "text": "Eberhard is a global leader in the engineering and manufacturing of access and security hardware. Eberhard offers rotary latches, compression latches, draw latches, hinges, camlocks, key switches, padlocks, and handles among other products, as well as comprehensive development and program management services for custom electromechanical and mechanical systems designed for specific original equipment manufacturers (“OEMs”) and customer applications. Eberhard’s products are found in an expansive range of applications and products globally.",
+            "url": "https://www.easterncompany.com/invinfoverview",
+            "fetched_at": "2026-10-17T20:14:57Z"
+          },
+          "P2.9": {
+            "text": "Velvac is the premier designer and manufacturer of proprietary vision technology for OEMs and aftermarket applications, and a leading provider of aftermarket components to the heavy-duty truck market in North America. Velvac serves diverse, niche segments within the heavy- and medium-duty truck, motorhome, and bus markets.",
+            "url": "https://www.easterncompany.com/invinfoverview",
+            "fetched_at": "2026-10-17T20:14:57Z"
+          },
+          "P2.10": {
+            "text": "American Stock Transfer & Trust Company LLC.",
+            "url": "https://www.easterncompany.com/invinfoverview",
+            "fetched_at": "2026-10-17T20:14:57Z"
+          },
+          "P2.11": {
+            "text": "Fiondella, Milone & LaSaracina LLP",
+            "url": "https://www.easterncompany.com/invinfoverview",
+            "fetched_at": "2026-10-17T20:14:57Z"
+          },
+          "P3.1": {
+            "text": "Corporate Profile | The Eastern Company",
+            "url": "https://www.easterncompany.com/corporate-profile",
+            "fetched_at": "2026-10-17T20:15:00Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

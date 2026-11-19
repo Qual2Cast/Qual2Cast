@@ -1,0 +1,69 @@
+# What v1a treats as current. Every component notebook reads this file, so the
+# components cannot drift apart. Change a line here (with a dated note in the
+# component's changelog) instead of hard-coding a run in a notebook or script.
+# Paths are relative to the repository root.
+
+[universe]
+snapshot = "company_list_v3"                     # data_manifest.json
+universe_run = "20261025T060358Z"                # 533 eligible companies
+split_run = "20261027T204930Z"                   # 373 training / 160 holdout, SIC2-stratified
+universe = "outputs-local/v1a/01_universe/universe/universe.csv"
+split = "outputs-local/v1a/01_universe/split/split.csv"
+
+[profiles]
+general = "outputs-local/v1a/02_profiles/facets_sonnet/tables/facets.csv"   # Sonnet 5.5 fills
+general_prompt_version = "2026-10-25k"
+sector = "outputs-local/v1a/02_profiles/sector_facets_sonnet/tables/sector_facets.csv"  # Fiona; sub-sector used by B3
+industry = "outputs-local/v1a/02_profiles/industry_facets_sonnet/tables/industry_facets_long.csv"  # Barbara SIC2; not in B3
+corrected_general = "outputs-local/v1a/02_profiles/facets_sonnet_corrected.csv"  # Yiming divestiture corrections (42 cos.); kept, not the default
+website_pages = "outputs-local/website_scrape/page_text"
+
+[retrieval]
+method = "B3"
+variant = "Sonnet + Fiona sub-sector"
+rule = "mutual top 10, topped up to 3"
+excluded_facets = ["company_size"]
+candidates = "outputs-local/v1a/03_retrieval/selector_candidates"
+
+[selection]
+route = "cosine_then_llm"
+model = "claude-sonnet-5-5"
+prompt_version = "2026-11-04a"
+backend = "claude-cli"                           # Claude subscription through the Claude Code CLI, no API key
+candidates = "outputs-local/v1a/03_retrieval/selector_candidates"   # the current B3 list it screened
+judgments = "outputs-local/v1a/04_selection/b3_selector_candidates_2026-11-04a_claude-cli_claude-sonnet-5-5/tables/judgments.csv"
+# v1 history (seeded, not current): cosine_then_llm_{sonnet,haiku}/ and direct_llm_{sonnet,haiku}/ screened the
+# 11-04 B3 list built from Haiku facets
+
+[agent_grading]
+run = "outputs-local/v1a/05_agent_grading/ranking_45targets_sonnet"
+model = "sonnet"
+prompt_version = "2026-11-05b"
+facet_scores = true
+
+[judges]
+# LLM-as-judge (evaluation only; never chooses comps). GPT family, so the model line is clear: Claude selects, GPT judges.
+model = "gpt-5.6-terra"                          # GPT-Terra for new judge runs (Michael, 2026-11-19); the saved 293 run is GPT-6.1 Sol
+backend = "codex"
+
+[labels]
+default_cohort = "dev_293"
+cohorts = ["dev_293", "round1_36", "matthew_v2_262"]
+locked_cohorts = ["final_holdout_24"]            # load only from 10_final_holdout
+
+[valuation]
+financials = "outputs-local/v1a/08_valuation/financials.csv"   # EV/EBITDA; read only by 08 and 10, never by 01-07
+estimate = "median EV/EBITDA of the selected peers"
+
+[analysis.facet_uplift]
+# 09: X-learner facet-lift runs (09_analysis/scripts/facet_uplift.py), pinned 2026-11-19. Read by analysis.ipynb.
+human_peer = "outputs-local/v1a/09_analysis/facet_uplift/20261119T021242064364Z"       # dev_293, grade>=1, current B3 signals
+human_rating = "outputs-local/v1a/09_analysis/facet_uplift/20261119T021253830100Z"     # dev_293, 0/1/2 grade
+selector_all = "outputs-local/v1a/09_analysis/facet_uplift/20261119T021304002727Z"     # all 2,538 B3 pairs, selector keep
+selector_293 = "outputs-local/v1a/09_analysis/facet_uplift/20261119T021318755980Z"     # dev_293 pairs, selector keep
+record_peer = "outputs-local/v1a/09_analysis/facet_uplift/20261119T021152291026Z"      # v1 features; = v1 20261113T190330202875Z
+record_rating = "outputs-local/v1a/09_analysis/facet_uplift/20261119T021120275676Z"    # v1 features; = v1 20261113T201612982633Z
+
+[outputs]
+root = "outputs-local/v1a"
+v1_record = "outputs-local/v1"                   # frozen; raw per-call files are linked from here, not copied

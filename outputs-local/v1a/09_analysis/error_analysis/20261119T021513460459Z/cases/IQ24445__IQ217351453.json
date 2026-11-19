@@ -1,0 +1,948 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ24445__IQ217351453",
+    "target": "IQ24445",
+    "comp": "IQ217351453",
+    "target_ticker": "AMG",
+    "comp_ticker": "SAMG",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ24445__IQ217351453",
+        "target": "IQ24445",
+        "comp": "IQ217351453",
+        "target_ticker": "AMG",
+        "comp_ticker": "SAMG",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ24445",
+          "comp": "IQ217351453",
+          "method": "B3",
+          "kept": true,
+          "rank": 7.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AMG",
+          "comp_ticker": "SAMG"
+        },
+        {
+          "target": "IQ24445",
+          "comp": "IQ217351453",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 7.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AMG",
+          "comp_ticker": "SAMG"
+        },
+        {
+          "target": "IQ24445",
+          "comp": "IQ217351453",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 7.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AMG",
+          "comp_ticker": "SAMG"
+        },
+        {
+          "target": "IQ24445",
+          "comp": "IQ217351453",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 7.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AMG",
+          "comp_ticker": "SAMG"
+        },
+        {
+          "target": "IQ24445",
+          "comp": "IQ217351453",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 7.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AMG",
+          "comp_ticker": "SAMG"
+        },
+        {
+          "target": "IQ24445",
+          "comp": "IQ217351453",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 7.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AMG",
+          "comp_ticker": "SAMG"
+        },
+        {
+          "target": "IQ24445",
+          "comp": "IQ217351453",
+          "method": "screen_haiku",
+          "kept": true,
+          "rank": 7.0,
+          "reason": "Fee-based investment manager for affluent individuals, foundations and endowments through separate accounts, similar to AMG's wealth affiliates.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AMG",
+          "comp_ticker": "SAMG"
+        },
+        {
+          "target": "IQ24445",
+          "comp": "IQ217351453",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 6.0,
+          "reason": "Provides investment management and wealth advisory to high-net-worth clients through separate accounts and pooled funds, charged on assets.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AMG",
+          "comp_ticker": "SAMG"
+        },
+        {
+          "target": "IQ24445",
+          "comp": "IQ217351453",
+          "method": "screen_sonnet",
+          "kept": false,
+          "rank": 7.0,
+          "reason": "Wealth advisory firm for high-net-worth families, a single-firm retail wealth model rather than multi-affiliate institutional manager.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AMG",
+          "comp_ticker": "SAMG"
+        },
+        {
+          "target": "IQ24445",
+          "comp": "IQ217351453",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 6.0,
+          "reason": "Investment management and wealth advisory for high-net-worth clients and institutions, earning asset-based management fees.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AMG",
+          "comp_ticker": "SAMG"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Holds stakes in independent investment management firms and supports them with capital, distribution and operations. Sells investment management services to institutional and individual investors through these affiliates, earning fees on assets managed.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "mutual funds; separate accounts; alternative investment funds; wealth management portfolios",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "investment management; investment advisory; wealth management; distribution support",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: pension funds, endowments, foundations, insurers, sovereign and corporate institutions; B2C: individual and high-net-worth investors served through affiliate wealth management firms; B2G: public pension plans and other government retirement systems",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "asset management; retirement savings; wealth management; financial services",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "commissions or management fees: asset-based management and advisory fees, and performance fees, paid by funds and clients for investment management",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "financial intermediary: takes in client capital and invests it through affiliate managers, selling investment products to institutions and individuals",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: North America, Europe, Asia-Pacific and other regions through affiliate firms",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "diversified: multiple affiliate firms running equity, fixed income, alternatives and multi-asset strategies for different clients",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: affiliate institutional sales teams selling to pensions and endowments; partners / resellers: financial advisers, wirehouses and wealth platforms that place client assets",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: affiliates are registered investment advisers and broker-dealers overseen by the SEC, FINRA and foreign regulators",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Holds majority equity stakes in a group of independent boutique investment management firms and provides them with strategic, distribution and operational support. Those affiliates manage investment strategies for institutional investors, financial intermediaries and individuals, and earn fees on assets managed.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "",
+        "primary_products_status": "not_applicable",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "investment management; mutual fund and ETF management; separate account management; alternative strategies; private equity and real asset fund management",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: institutional investors such as pension funds, endowments, foundations, sovereign wealth funds, and financial intermediaries; B2C: individual and high-net-worth investors via funds and managed accounts",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "asset management; institutional investing; wealth management; retirement savings",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "commissions or management fees: asset-based management fees from affiliates' assets under management; commissions or management fees: performance fees on alternative and some other strategies",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "financial intermediary: takes equity in boutique investment firms and sells their strategies to institutions, intermediaries and individuals",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: US-headquartered with affiliates and clients across North America, Europe, Asia and other regions",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: multiple boutique managers across equities, alternatives, private markets and multi-asset strategies",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: AMG distribution teams and affiliate sales to institutional investors and consultants; partners / resellers: financial intermediaries, advisors, wealth platforms and retail fund distributors",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: registered investment advisers and funds subject to SEC, FCA and other securities regulators",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ24445.json",
+      "data": {
+        "company_name": "Affiliated Managers Group, Inc.",
+        "website": "www.amg.com",
+        "scrape_status": "ok",
+        "capture_sha256": "5aba30971993d55188ba2ff3967960ee4297f894e4bb177a44dd76e1584f783b",
+        "lines": {
+          "P1.1": {
+            "text": "AMG",
+            "url": "https://www.amg.com/",
+            "fetched_at": "2026-10-17T19:08:59Z"
+          },
+          "P1.2": {
+            "text": "Affiliated Managers Group (AMG) is a global asset management company that partners with outstanding alpha-generating independent firms.",
+            "url": "https://www.amg.com/",
+            "fetched_at": "2026-10-17T19:08:59Z"
+          },
+          "P1.3": {
+            "text": "Independent investment firms have fundamental competitive advantages in generating differentiated returns.",
+            "url": "https://www.amg.com/",
+            "fetched_at": "2026-10-17T19:08:59Z"
+          },
+          "P1.4": {
+            "text": "We invest in these firms through partnerships that magnify their success, as they bring their unique return streams to investors worldwide.",
+            "url": "https://www.amg.com/",
+            "fetched_at": "2026-10-17T19:08:59Z"
+          },
+          "P1.5": {
+            "text": "We offer a unique approach to partnership.",
+            "url": "https://www.amg.com/",
+            "fetched_at": "2026-10-17T19:08:59Z"
+          },
+          "P1.6": {
+            "text": "We provide the advantages of a long-term strategic partnership as we invest capital and resources in and alongside our partner firms while preserving their autonomy and independence. We adapt our solutions to our Affiliates’ unique strategic opportunities to create further success together.",
+            "url": "https://www.amg.com/",
+            "fetched_at": "2026-10-17T19:08:59Z"
+          },
+          "P1.7": {
+            "text": "Committed to evolving and growing together.",
+            "url": "https://www.amg.com/",
+            "fetched_at": "2026-10-17T19:08:59Z"
+          },
+          "P1.8": {
+            "text": "We offer powerful strategic capabilities centered around your firm’s distinct opportunities.",
+            "url": "https://www.amg.com/",
+            "fetched_at": "2026-10-17T19:08:59Z"
+          },
+          "P1.9": {
+            "text": "We offer financial advisors and their clients access to investor-led independent managers with differentiated investment solutions.",
+            "url": "https://www.amg.com/",
+            "fetched_at": "2026-10-17T19:08:59Z"
+          },
+          "P1.10": {
+            "text": "AMG’s global institutional distribution platform operates in key markets around the world, extending the reach of Affiliates’ business development efforts.",
+            "url": "https://www.amg.com/",
+            "fetched_at": "2026-10-17T19:08:59Z"
+          },
+          "P1.11": {
+            "text": "Our Affiliates manage client assets across a diverse range of secular growth areas and are focused on creating value for their clients.",
+            "url": "https://www.amg.com/",
+            "fetched_at": "2026-10-17T19:08:59Z"
+          },
+          "P1.12": {
+            "text": "Magnifying the success of independent firms around the world.",
+            "url": "https://www.amg.com/",
+            "fetched_at": "2026-10-17T19:08:59Z"
+          },
+          "P2.1": {
+            "text": "About AMG | AMG",
+            "url": "https://www.amg.com/about-amg/",
+            "fetched_at": "2026-10-17T19:09:00Z"
+          },
+          "P2.2": {
+            "text": "Learn our history, and how we generate superior growth through partnerships with outstanding investment firms around the world.",
+            "url": "https://www.amg.com/about-amg/",
+            "fetched_at": "2026-10-17T19:09:00Z"
+          },
+          "P2.3": {
+            "text": "This website is designed for display in modern browsers. Your browser is not currently supported. Please use the latest version of Chrome, Opera, Firefox, Safari or Edge.",
+            "url": "https://www.amg.com/about-amg/",
+            "fetched_at": "2026-10-17T19:09:00Z"
+          },
+          "P2.4": {
+            "text": "AMG is a strategic partner to, and long-term investor in, leading independent investment firms globally.",
+            "url": "https://www.amg.com/about-amg/",
+            "fetched_at": "2026-10-17T19:09:00Z"
+          },
+          "P2.5": {
+            "text": "We provide the advantages of partnership to magnify our Affiliates’ success, while preserving their autonomy and independence. With AMG, Affiliates are able to expand their reach, diversify their business, and achieve further success.",
+            "url": "https://www.amg.com/about-amg/",
+            "fetched_at": "2026-10-17T19:09:00Z"
+          },
+          "P2.6": {
+            "text": "When Affiliates choose AMG as a partner, they are choosing independence. Not only do our partners value their autonomy, their clients also recognize that an independent firm’s entrepreneurial and investment-centric culture is instrumental to generating differentiated long-term returns.",
+            "url": "https://www.amg.com/about-amg/",
+            "fetched_at": "2026-10-17T19:09:00Z"
+          },
+          "P2.7": {
+            "text": "Having operated our distinct partnership model for 30 years, our entrepreneurial spirit, ownership mindset, and focus on excellence are deeply rooted.",
+            "url": "https://www.amg.com/about-amg/",
+            "fetched_at": "2026-10-17T19:09:00Z"
+          },
+          "P2.8": {
+            "text": "We generate long-term value by investing in a diverse array of high-quality independent partner-owned firms, through a proven partnership approach, and allocating resources across AMG’s unique opportunity set to the areas of highest growth and return.",
+            "url": "https://www.amg.com/about-amg/",
+            "fetched_at": "2026-10-17T19:09:00Z"
+          },
+          "P2.9": {
+            "text": "Diversified asset base and partnership structure enhance business stability and flexibility to invest for growth",
+            "url": "https://www.amg.com/about-amg/",
+            "fetched_at": "2026-10-17T19:09:00Z"
+          },
+          "P2.10": {
+            "text": "Our Affiliates maintain independence and autonomy as well as significant direct equity ownership in their individual firms.",
+            "url": "https://www.amg.com/about-amg/",
+            "fetched_at": "2026-10-17T19:09:00Z"
+          },
+          "P2.11": {
+            "text": "Through an AMG partnership, Affiliates’ interests stay aligned with their clients’ interests, and Affiliate management teams have the continued opportunity to participate directly in their firms’ long-term growth and success.",
+            "url": "https://www.amg.com/about-amg/",
+            "fetched_at": "2026-10-17T19:09:00Z"
+          },
+          "P2.12": {
+            "text": "We provide strategic and business development capabilities to our Affiliates to enhance their desired evolution toward new opportunities, and their next phase of success.",
+            "url": "https://www.amg.com/about-amg/",
+            "fetched_at": "2026-10-17T19:09:00Z"
+          },
+          "P2.13": {
+            "text": "Our Affiliates manage a broad array of differentiated strategies across a range of return-oriented asset classes and product structures.",
+            "url": "https://www.amg.com/about-amg/",
+            "fetched_at": "2026-10-17T19:09:00Z"
+          },
+          "P2.14": {
+            "text": "With more than 500 strategies in aggregate across liquid alternatives, private markets, multi-asset, and differentiated equity strategies, AMG’s business is highly diversified by asset class, client type, and geography. We are uniquely able to align our capital and resources with long-term demand trends, through growth investments in new Affiliates or alongside existing Affiliates.",
+            "url": "https://www.amg.com/about-amg/",
+            "fetched_at": "2026-10-17T19:09:00Z"
+          },
+          "P2.15": {
+            "text": "All EBITDA percentage data calculated as of 6/30/2026 LTM.",
+            "url": "https://www.amg.com/about-amg/",
+            "fetched_at": "2026-10-17T19:09:00Z"
+          },
+          "P2.16": {
+            "text": "Percentages above may not add to 100% due to rounding.",
+            "url": "https://www.amg.com/about-amg/",
+            "fetched_at": "2026-10-17T19:09:00Z"
+          },
+          "P2.17": {
+            "text": "For three decades, AMG has partnered with leading independent investment firms globally, building an unmatched track record of success.",
+            "url": "https://www.amg.com/about-amg/",
+            "fetched_at": "2026-10-17T19:09:00Z"
+          },
+          "P2.18": {
+            "text": "AMG is founded in by William J. Nutt in Boston, Massachusetts.",
+            "url": "https://www.amg.com/about-amg/",
+            "fetched_at": "2026-10-17T19:09:00Z"
+          },
+          "P2.19": {
+            "text": "AMG has subsequently helped the firm transition principals' ownership and align incentives across successive generations of management.",
+            "url": "https://www.amg.com/about-amg/",
+            "fetched_at": "2026-10-17T19:09:00Z"
+          },
+          "P2.20": {
+            "text": "AMG",
+            "url": "https://www.amg.com/about-amg/",
+            "fetched_at": "2026-10-17T19:09:00Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides investment management and wealth advisory services to high-net-worth individuals, families, foundations and endowments, charged on a fee basis. Manages client portfolios across equity and fixed income strategies through separately managed accounts and pooled funds.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "separately managed accounts; pooled investment funds; model portfolios",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "investment management; wealth management; financial planning; tax and estate planning coordination",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: high-net-worth individuals and families; B2B: foundations, endowments, trusts, retirement plans",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "personal wealth management; institutional investing",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "commissions or management fees: asset-based management fees on client assets under management; service fees: financial planning and wealth advisory fees",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: provides investment and wealth advice, sold to individuals and institutions; financial intermediary: manages client investment assets under discretionary mandates",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: clients across the United States, with offices in several states",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "niche specialist: investment management and wealth advisory for affluent clients",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: client relationship teams serving individuals and institutions directly",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: registered investment adviser regulated by the SEC under the Investment Advisers Act, including fiduciary and custody rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides investment management and wealth planning services to high-net-worth individuals, families, trusts, foundations, endowments and institutions. Delivers through in-house investment strategies (equity, fixed income, balanced) plus family office and financial planning services, via advisors in US offices.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "",
+        "primary_products_status": "not_applicable",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "investment management; wealth planning; family office services; fiduciary and trust-related advisory; institutional asset management",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: high-net-worth individuals and families; B2B: foundations, endowments, trusts, retirement plans and other institutions",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "wealth management; asset management; institutional investing",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "commissions or management fees: asset-based advisory and management fees on client assets under management; service fees: family office and financial planning fees",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "financial intermediary: registered investment adviser managing client portfolios for wealthy individuals and institutions",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: Offices in New York, Boston, Virginia, Pennsylvania, Texas, California and other US locations, clients mainly in the US",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: investment management, wealth planning and family office services for the same client base",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: in-house advisors and relationship managers serving clients directly; own locations: regional advisory offices across the US",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: SEC-registered investment adviser under the Investment Advisers Act, fiduciary duties and compliance oversight",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ217351453.json",
+      "data": {
+        "company_name": "Silvercrest Asset Management Group Inc.",
+        "website": "www.silvercrestgroup.com",
+        "scrape_status": "ok",
+        "capture_sha256": "6f101ce0d066625c9d330ced54602ff87b55b206fd436333473504a451769dea",
+        "lines": {
+          "P1.1": {
+            "text": "Homepage | Silvercrest Asset Management Group",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P1.2": {
+            "text": "Fiduciary, employee-owned, 98% client retention.",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P1.3": {
+            "text": "Hello, you are using an old browser that's unsafe and no longer supported. Please consider updating your browser to a newer version, or downloading a modern browser.",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P1.4": {
+            "text": "For over twenty years, Silvercrest has proudly served Individuals and Families, Institutional Investors, and Endowments & Foundations.",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P1.5": {
+            "text": "A Firm Committed to Excellence",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P1.6": {
+            "text": "Silvercrest: A Firm Committed to Excellence",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P1.7": {
+            "text": "Our goal is to provide unparalleled advice to every client. Alongside our modern approach to portfolio construction, we offer the personalized service and open communication larger organizations can't, so clients feel confident and secure in choosing Silvercrest.",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P1.8": {
+            "text": "Since our founding we have proudly served individuals and families with significant financial assets.",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P1.9": {
+            "text": "Asset management is in our name. For over a decade, Silvercrest has partnered with select institutional clients to provide asset management, through our proprietary long-only equity management capabilities. We manage small through large cap value and growth equity, and international value strategies.",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P1.10": {
+            "text": "Silvercrest partners with endowments, foundations and family offices to provide customized, full-service investment office solutions. The firm’s outsourced chief investment officer (OCIO) team leverages decades of experience managing nonprofits and family offices in tailoring portfolios to its clients’ distinctive financial goals, risk tolerances and mission objectives.",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P1.11": {
+            "text": "In this issue of Insights, our team explores some of the most consequential forces shaping today’s markets and economy: the structure of the AI buildout, the philosophy of portfolio construction, and the geopolitical shifts reshaping how capital is deployed around the world.",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P1.12": {
+            "text": "Same Question, Different Answer: Probabilistic AI in the Enterprise",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P2.1": {
+            "text": "About Us | Silvercrest Asset Management Group",
+            "url": "https://www.silvercrestgroup.com/about/",
+            "fetched_at": "2026-10-17T20:09:20Z"
+          },
+          "P2.2": {
+            "text": "Silvercrest is a firm of talented financial service advisors who provide fresh thinking to the management needs of our clients and firm.",
+            "url": "https://www.silvercrestgroup.com/about/",
+            "fetched_at": "2026-10-17T20:09:20Z"
+          },
+          "P2.3": {
+            "text": "Silvercrest is a pioneer in the wealth management industry, setting the highest standards for independent investment advice and related family office services.",
+            "url": "https://www.silvercrestgroup.com/about/",
+            "fetched_at": "2026-10-17T20:09:20Z"
+          },
+          "P2.4": {
+            "text": "We will always place our clients' needs first.",
+            "url": "https://www.silvercrestgroup.com/about/",
+            "fetched_at": "2026-10-17T20:09:20Z"
+          },
+          "P2.5": {
+            "text": "We offer our individual and family clients robust investment capabilities trusted by sophisticated institutions.",
+            "url": "https://www.silvercrestgroup.com/about/",
+            "fetched_at": "2026-10-17T20:09:20Z"
+          },
+          "P2.6": {
+            "text": "We tailor solutions to each client's goals.",
+            "url": "https://www.silvercrestgroup.com/about/",
+            "fetched_at": "2026-10-17T20:09:20Z"
+          },
+          "P2.7": {
+            "text": "We provide a comprehensive family office solution, leveraging our deep expertise in tax, estate, philanthropic, and concierge services.",
+            "url": "https://www.silvercrestgroup.com/about/",
+            "fetched_at": "2026-10-17T20:09:20Z"
+          },
+          "P2.8": {
+            "text": "We integrate world-class proprietary portfolio risk analytics and reporting.",
+            "url": "https://www.silvercrestgroup.com/about/",
+            "fetched_at": "2026-10-17T20:09:20Z"
+          },
+          "P2.9": {
+            "text": "Clients choose Silvercrest for our integrity, consistency, and proven record of success.",
+            "url": "https://www.silvercrestgroup.com/about/",
+            "fetched_at": "2026-10-17T20:09:20Z"
+          },
+          "P2.10": {
+            "text": "At Silvercrest, we’ve built a team of talented financial advisors who provide unwavering service to our clients according to their goals. We listen, we ask questions, and once we know exactly what you want, we apply our deep financial expertise to help you meet those goals.",
+            "url": "https://www.silvercrestgroup.com/about/",
+            "fetched_at": "2026-10-17T20:09:20Z"
+          },
+          "P3.1": {
+            "text": "Endowments & Foundations | Silvercrest Asset Management Group",
+            "url": "https://www.silvercrestgroup.com/who-we-serve/endowments-foundations/",
+            "fetched_at": "2026-10-17T20:09:23Z"
+          },
+          "P3.2": {
+            "text": "We offer outsourced chief investment office solutions to foundations, endowments & institutions with long term investment time horizons.",
+            "url": "https://www.silvercrestgroup.com/who-we-serve/endowments-foundations/",
+            "fetched_at": "2026-10-17T20:09:23Z"
+          },
+          "P3.3": {
+            "text": "A Trusted Partner for Endowments & Foundations",
+            "url": "https://www.silvercrestgroup.com/who-we-serve/endowments-foundations/",
+            "fetched_at": "2026-10-17T20:09:23Z"
+          },
+          "P3.4": {
+            "text": "OCIO Solutions for Institutional Portfolios",
+            "url": "https://www.silvercrestgroup.com/who-we-serve/endowments-foundations/",
+            "fetched_at": "2026-10-17T20:09:23Z"
+          },
+          "P3.5": {
+            "text": "Silvercrest offers outsourced chief investment officer (“OCIO”) solutions to foundations, endowments and other institutions with long term investment time horizons.",
+            "url": "https://www.silvercrestgroup.com/who-we-serve/endowments-foundations/",
+            "fetched_at": "2026-10-17T20:09:23Z"
+          },
+          "P3.6": {
+            "text": "Understanding a client’s true risk tolerance is essential, as the primary risk is always a portfolio decline that leads to panicked selling and which can prevent the institution from achieving its long-term mission. Our team’s process focuses on understanding each client’s mission and long-term financial objective along with its portfolio preferences regarding risk, return, complexity, liquidity, mission-alignment and cost. The next step is to create a fully customized asset allocation and manager line-up that can achieve those goals and objectives in the most streamlined and cost-effective manner possible.",
+            "url": "https://www.silvercrestgroup.com/who-we-serve/endowments-foundations/",
+            "fetched_at": "2026-10-17T20:09:23Z"
+          },
+          "P3.7": {
+            "text": "The time tested strategy of portfolio diversification continues to be an important principle for any portfolio, whether a university endowment or a family foundation.",
+            "url": "https://www.silvercrestgroup.com/who-we-serve/endowments-foundations/",
+            "fetched_at": "2026-10-17T20:09:23Z"
+          },
+          "P3.8": {
+            "text": "How Fund Structure Shapes Outcomes: A Practical Guide",
+            "url": "https://www.silvercrestgroup.com/who-we-serve/endowments-foundations/",
+            "fetched_at": "2026-10-17T20:09:23Z"
+          },
+          "P3.9": {
+            "text": "Same",
+            "url": "https://www.silvercrestgroup.com/who-we-serve/endowments-foundations/",
+            "fetched_at": "2026-10-17T20:09:23Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

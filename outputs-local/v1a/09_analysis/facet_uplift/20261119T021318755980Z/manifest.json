@@ -1,0 +1,58 @@
+{
+  "commit": "4b35db6bc2fa5d807a19ca5b2e0b02852bceb513",
+  "script_sha256": "90ec9fc6056fafe120562dbca0673e9c9e73d64216ae60f4495bf93c41bfd2ea",
+  "cohort": "dev_293",
+  "features": "current",
+  "b3_variant": "Sonnet + Fiona sub-sector",
+  "pairs": 293,
+  "targets": 45,
+  "outcome": "the LLM selector kept the comp (claude-sonnet-5-5, prompt 2026-11-04a)",
+  "outcome_mode": "selector",
+  "effect_units": "probability difference",
+  "response_estimator": "logistic C=0.1",
+  "rating_assumption": null,
+  "sources": {
+    "outputs-local/v1a/05_agent_grading/ranking_45targets_sonnet/verdicts.csv": "0dd990f9ba05f80019c2a9d151e29ffd376b4cca47c62dc5f4586e04c9508ba3",
+    "outputs-local/v1a/02_profiles/facets_sonnet/tables/facets.csv": "8619ecf21c329269464a0a1d288ae23fda29601aa52272555f91d15759128464",
+    "outputs-local/v1a/03_retrieval/selector_candidates/candidates.csv": "1544b96bfc27615bec5d3298d3b5ed3395e777ea1aa4a428280be3fb7663104c",
+    "outputs-local/v1a/02_profiles/sector_facets_sonnet/tables/sector_facets.csv": "a7139d71efd655db4d6655a4c71d86d07c72e8123aa60f3ab4fd543f17e91ef8",
+    "outputs-local/v1a/04_selection/b3_selector_candidates_2026-11-04a_claude-cli_claude-sonnet-5-5/tables/judgments.csv": "dec35ac48af2f9063723e9b2581fdbb94186d1f2436b5bdb23b40a9f67a73081"
+  },
+  "settings": {
+    "outer_folds": 5,
+    "inner_folds": 3,
+    "seed": 42,
+    "min_arm": 15,
+    "min_arm_targets": 5,
+    "logistic_C": 0.1,
+    "ridge_alpha": 10,
+    "overlap": [
+      0.1,
+      0.9
+    ],
+    "dr_propensity_clip": [
+      0.05,
+      0.95
+    ],
+    "bootstrap": 1000,
+    "primary": {
+      "b3": "training median",
+      "agent": "75/100 vs 0/25/50",
+      "selector": "keep vs drop"
+    },
+    "sensitivity": {
+      "b3": "training upper vs lower thirds",
+      "agent": "75/100 vs 0/25"
+    },
+    "model_weighting": "equal total weight per training target"
+  },
+  "libraries": {
+    "numpy": "2.5.4",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.9.1",
+    "sentence-transformers": "6.2.0",
+    "torch": "2.15.0"
+  },
+  "interpretation": "Exploratory adjusted associations, not identified causal CATE. Fixed unlabeled 533-company text representation; target-group outcome cross-fitting. Shared comp companies may cross folds. Selector outcome: lift on the LLM's decisions, not on comp quality.",
+  "uncertainty": "Target bootstrap of fixed OOF predictions; excludes refitting, selection, reviewer and threshold uncertainty."
+}

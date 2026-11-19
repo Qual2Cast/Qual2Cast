@@ -1,0 +1,1000 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ29032475__IQ574499639",
+    "target": "IQ29032475",
+    "comp": "IQ574499639",
+    "target_ticker": "APPS",
+    "comp_ticker": "TBLA",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ29032475__IQ574499639",
+        "target": "IQ29032475",
+        "comp": "IQ574499639",
+        "target_ticker": "APPS",
+        "comp_ticker": "TBLA",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ29032475",
+          "comp": "IQ574499639",
+          "method": "B3",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "APPS",
+          "comp_ticker": "TBLA"
+        },
+        {
+          "target": "IQ29032475",
+          "comp": "IQ574499639",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "APPS",
+          "comp_ticker": "TBLA"
+        },
+        {
+          "target": "IQ29032475",
+          "comp": "IQ574499639",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "APPS",
+          "comp_ticker": "TBLA"
+        },
+        {
+          "target": "IQ29032475",
+          "comp": "IQ574499639",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "APPS",
+          "comp_ticker": "TBLA"
+        },
+        {
+          "target": "IQ29032475",
+          "comp": "IQ574499639",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "APPS",
+          "comp_ticker": "TBLA"
+        },
+        {
+          "target": "IQ29032475",
+          "comp": "IQ574499639",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "APPS",
+          "comp_ticker": "TBLA"
+        },
+        {
+          "target": "IQ29032475",
+          "comp": "IQ574499639",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 1.0,
+          "reason": "Web content recommendation and native ads for publishers; shares ad-platform traits but lacks mobile app distribution and device preloading.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "APPS",
+          "comp_ticker": "TBLA"
+        },
+        {
+          "target": "IQ29032475",
+          "comp": "IQ574499639",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "B2B ad platform earning revenue-share and per-click fees from advertisers and publishers, similar to Digital Turbine's ad monetization business.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "APPS",
+          "comp_ticker": "TBLA"
+        },
+        {
+          "target": "IQ29032475",
+          "comp": "IQ574499639",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Native ad platform selling placements to advertisers and sharing revenue with publishers; closest adtech, usage-fee model.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "APPS",
+          "comp_ticker": "TBLA"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Sells mobile app advertising, app monetization software and app preload distribution to app developers, advertisers, mobile carriers and device makers. Earns fees from ad campaigns, per-install payments and preloading apps on phones.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "mobile advertising platform; app monetization software; app preload software",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "app user acquisition campaigns; app distribution programs; ad mediation",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: app developers, advertisers, mobile carriers, smartphone device makers",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "mobile gaming; mobile apps; digital advertising; telecommunications; consumer electronics",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "transaction or usage fees: ad revenue share and per-install fees paid by advertisers and developers; service fees: fees for preloading and distributing apps on carrier and device makers' phones",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "software / platform: ad exchange and monetization software used by app developers and advertisers; service provider: runs campaigns and preload programs for carriers and device makers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: Operates worldwide, with major customers in North America, Europe and Asia",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: mobile advertising platform, app distribution and app monetization software",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales teams selling to brands, developers and carriers; partners / resellers: device makers and mobile carriers that preload apps on phones; online: self-serve advertising and developer platforms",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: data privacy rules such as GDPR and CCPA govern user data used in ad targeting",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides a mobile growth platform that lets advertisers acquire users and lets mobile carriers and device makers monetize devices. It delivers app preloads, on-device app discovery and in-app advertising through software installed on handsets and a programmatic ad exchange.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "on-device app delivery software; mobile advertising platform; programmatic ad exchange; supply-side ad technology",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "app install advertising; user acquisition campaigns; app publisher monetization",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: advertisers, app developers, mobile carriers, device manufacturers, app publishers",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "mobile advertising; mobile apps; telecommunications; consumer electronics; gaming",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "transaction or usage fees: advertiser payments per app install or ad impression, sharing revenue with carriers and publishers; service fees: platform and campaign management fees from advertisers and publishers",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "software / platform: ad-tech and device software platform connecting advertisers with carrier devices and app publishers; service provider: user acquisition and monetization services for app developers and carriers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: United States, Europe, Asia-Pacific, Latin America and other regions",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: on-device media and app distribution plus app-based programmatic advertising exchange",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales to advertisers, carriers, OEMs and app publishers; partners / resellers: embedded through carrier and device maker partnerships and agencies",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: data privacy and advertising rules such as GDPR, CCPA and platform policies",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ29032475.json",
+      "data": {
+        "company_name": "Digital Turbine, Inc.",
+        "website": "www.digitalturbine.com",
+        "scrape_status": "ok",
+        "capture_sha256": "2fbc64fae9edec082ec51a37a068146c189dda7c184e47c2f8be87bdef1b83c8",
+        "lines": {
+          "P1.1": {
+            "text": "Leading Mobile Growth & Monetization Platform | Digital Turbine",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P1.2": {
+            "text": "Digital Turbine offers a one-stop platform for user acquisition growth and monetization. Elevate your mobile advertising and experience with us.",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P1.3": {
+            "text": "Unifying the full mobile experience",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P1.4": {
+            "text": "DT is a growth platform that connects advertisers, app developers, and device partners across the mobile ecosystem to create more relevant experiences and turn mobile moments into outcomes.",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P1.5": {
+            "text": "Grow every stage of mobile",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P1.6": {
+            "text": "DT’s unified platform provides intelligent solutions for advertisers, developers, and device partners to achieve their goals",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P1.7": {
+            "text": "Drive app growth via seamless installs – whether through traditional app stores or emerging alternative distribution pathways. Launchpad reduces reliance on any single channel to create a more open and level playing field for app developers.",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P1.8": {
+            "text": "Distribute your app on any mobile device, through traditional and alternative pathways",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P1.9": {
+            "text": "Drive frictionless installs through SingleTap, bypassing the app store for a seamless user experience",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P1.10": {
+            "text": "Future-proof your distribution strategy through alternative paths",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P1.11": {
+            "text": "Drive outcomes that matter across the full funnel. Advertisers can reach users and achieve full funnel objectives, while publishers maximize the value of their inventory without compromising the user experience.",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P1.12": {
+            "text": "Advertisers reach their audience in moments that matter, delivering immersive ad experiences across our network of 82K+ SDK-integrated apps and exclusive placements on 1B+ devices",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P1.13": {
+            "text": "Publishers maximize revenue without compromising LTV using our platform-agnostic monetization stack fueled by diverse demand and dynamic ad experiences",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P1.14": {
+            "text": "Optimized for measurable outcomes through our AI-powered intelligence engine, DT iQ",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P1.15": {
+            "text": "Unlock the full value of every device by surfacing relevant apps and content at the right moments, driving engagement and generating new revenue across the device lifecycle.",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P1.16": {
+            "text": "Create engaging touchpoints with your consumers",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P1.17": {
+            "text": "Monetize with premium advertiser demand",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P1.18": {
+            "text": "Drive relevant app and content discovery, powered by our optimization engine, DT iQ",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P1.19": {
+            "text": "Built for how you grow",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P1.20": {
+            "text": "Whatever your objective, our technology provides the tools and intelligence to help you scale and succeed.",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P1.21": {
+            "text": "Find, engage, and acquire high-value users across any growth KPI. Maximize ROAS with proprietary on-device and in-app signals, intelligence, and global scale.",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P1.22": {
+            "text": "Maximize app and device revenue without sacrificing quality user experience. Take control of your monetization with a platform-agnostic stack built for substantial growth.",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P1.23": {
+            "text": "Build brand awareness and grow conversions through immersive mobile storytelling. Connect with your audience to drive measurable results at global scale.",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P1.24": {
+            "text": "Reach users and maximize app distribution through multiple channels, including on-device experiences, direct-to-consumer channels, alternative app ecosystems, and traditional app stores.",
+            "url": "https://www.digitalturbine.com/",
+            "fetched_at": "2026-10-17T22:03:35Z"
+          },
+          "P2.1": {
+            "text": "Largest Independent Mobile Growth Platform | Digital Turbine",
+            "url": "https://www.digitalturbine.com/about",
+            "fetched_at": "2026-10-17T22:03:36Z"
+          },
+          "P2.2": {
+            "text": "DT is leveling up the landscape for advertisers, publishers, carriers and OEMs. Learn about the leading independent growth platform here.",
+            "url": "https://www.digitalturbine.com/about",
+            "fetched_at": "2026-10-17T22:03:36Z"
+          },
+          "P2.3": {
+            "text": "Turning mobile moments into outcomes",
+            "url": "https://www.digitalturbine.com/about",
+            "fetched_at": "2026-10-17T22:03:36Z"
+          },
+          "P2.4": {
+            "text": "We provide solutions for advertising, user acquisition, distribution, and monetization. DT’s unique in-app and on-device data powers intelligence to optimize for performance. We believe that when the ecosystem thrives, everyone - including the user with the device in hand - wins.",
+            "url": "https://www.digitalturbine.com/about",
+            "fetched_at": "2026-10-17T22:03:36Z"
+          },
+          "P2.5": {
+            "text": "Global scale and platform reach",
+            "url": "https://www.digitalturbine.com/about",
+            "fetched_at": "2026-10-17T22:03:36Z"
+          },
+          "P2.6": {
+            "text": "Apps via direct SDK integration",
+            "url": "https://www.digitalturbine.com/about",
+            "fetched_at": "2026-10-17T22:03:36Z"
+          },
+          "P2.7": {
+            "text": "Find a Way. Creative solutions are part of our DNA, it’s a solution seeking mindset that gets the job done.",
+            "url": "https://www.digitalturbine.com/about",
+            "fetched_at": "2026-10-17T22:03:36Z"
+          },
+          "P2.8": {
+            "text": "Open to New Ways. We embrace our global teams and diverse perspectives. Having a global mindset is core to our mission and success.",
+            "url": "https://www.digitalturbine.com/about",
+            "fetched_at": "2026-10-17T22:03:36Z"
+          },
+          "P2.9": {
+            "text": "Be Your Way. We say what we mean and mean what we say by bringing our true self to work. We admit and learn from our mistakes.",
+            "url": "https://www.digitalturbine.com/about",
+            "fetched_at": "2026-10-17T22:03:36Z"
+          },
+          "P2.10": {
+            "text": "Own Your Way. Take ownership of responsibilities. You’re in the driver’s seat: see it, own it, solve it, do it.",
+            "url": "https://www.digitalturbine.com/about",
+            "fetched_at": "2026-10-17T22:03:36Z"
+          },
+          "P2.11": {
+            "text": "Work Your Way. We get it, a flexible environment makes balancing life and work easier. Choose the way you work best.",
+            "url": "https://www.digitalturbine.com/about",
+            "fetched_at": "2026-10-17T22:03:36Z"
+          },
+          "P2.12": {
+            "text": "Enjoy Your Way. We spend valuable time at work",
+            "url": "https://www.digitalturbine.com/about",
+            "fetched_at": "2026-10-17T22:03:36Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Operates a content recommendation and native advertising platform that places sponsored article links and ads on publisher websites and apps, selling the placements to advertisers. Delivers campaigns through its own software, with publishers sharing in the ad revenue.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "content recommendation widgets; native ad units; advertising campaign software",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "campaign management; audience targeting; performance analytics",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: advertisers, brands, advertising agencies, publishers and media websites",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "digital advertising; media and publishing; e-commerce; financial services",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "transaction or usage fees: advertisers pay for clicks or impressions on their native ads; commissions or management fees: net revenue retained after sharing ad income with publishers",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "software / platform: recommendation and ad-buying technology sold to advertisers and publishers; service provider: managed ad campaigns for brands and agencies, billed to advertisers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: Sells to advertisers and publishers across North America, Europe, Asia-Pacific and other regions",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "niche specialist: single line of content recommendation and native advertising technology",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales teams selling to large brands and publishers; online: self-serve platform for advertisers creating campaigns; partners / resellers: advertising agencies and demand partners buying placements",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: data privacy and advertising rules such as GDPR, CCPA and cookie consent requirements",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Operates an AI-driven advertising and content recommendation platform that places sponsored content and ads on publishers' websites and apps. Sells to advertisers and serves publishers, sharing revenue with them. Delivers via proprietary technology, data and direct publisher integrations.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "content recommendation platform; advertising platform for advertisers; onsite personalization software for publishers; news and homepage feed for devices",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "digital ad placement and campaign management; ad monetization for publishers",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: advertisers, agencies and brands buying ad placements, publishers, media owners and device makers monetizing content",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "digital advertising; online media and publishing; e-commerce; mobile devices",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "transaction or usage fees: advertisers pay per click, action or impression for ads on publisher properties; commissions or management fees: retained share of ad revenue after paying publisher partners",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "software / platform: ad tech platform connecting advertisers with publisher inventory, sold to advertisers and publishers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: North America, Europe, Israel, Asia-Pacific and other regions with publishers worldwide",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: recommendation ads, publisher monetization and onsite personalization tools",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales teams selling to advertisers, agencies and publishers; online: self-serve advertiser platform",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: data privacy and advertising rules such as GDPR, CCPA and FTC advertising disclosure rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ574499639.json",
+      "data": {
+        "company_name": "Taboola.com Ltd.",
+        "website": "www.taboola.com",
+        "scrape_status": "ok",
+        "capture_sha256": "ed4d7df75a06f39f173c50bbb82725951010b45df98dd14c79eb6b580b7241fe",
+        "lines": {
+          "P1.1": {
+            "text": "Boost your Digital Performance with Taboola Advertising Platform",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.2": {
+            "text": "Reach 600M daily active users and achieve conversions at scale with the world's leading performance platform.",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.3": {
+            "text": "Performance Beyond Search and Social",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.4": {
+            "text": "Grow your business through performance advertising technology that delivers measurable outcomes.",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.5": {
+            "text": "Outcomes at Scale Beyond Search and Social",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.6": {
+            "text": "Diverse inventory, all placement types, scale that moves the needle",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.7": {
+            "text": "Specialized Performance AI Driving Conversions and Actions",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.8": {
+            "text": "Unique 1st Party data from powering publisher editorial and ad units",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.9": {
+            "text": "Use any creative to meet your objectives, far beyond native",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.10": {
+            "text": "Specialized Performance Not Full Funnel Promises",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.11": {
+            "text": "Successful Performance Advertisers Focus on Conversion and Action Stages",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.12": {
+            "text": "Your Ads on Trusted Media Properties",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.13": {
+            "text": "Advertise Smarter with Tools that Drive Success",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.14": {
+            "text": "Utilize tailored creative solutions, seamless asset creation, and brand suitability tools to optimize campaigns and drive impactful results at every stage of the performance funnel.",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.15": {
+            "text": "Harness Taboola’s AI, powered by 17 years of unique publisher data, delivering highly-targeted, scalable ads that maximize ROI and drive growth.",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.16": {
+            "text": "Leverage scale, first-party data, AI, and privacy-focused tech to connect with the right audiences and drive performance.",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.17": {
+            "text": "Tap into powerful, user-friendly tools with high transparency and control for seamless campaign management and optimization.",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.18": {
+            "text": "Increase website engagement by attracting users who are most likely to connect with your brand or product.",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.19": {
+            "text": "Drive new leads, get email signups, reach potential customers, and share exciting offers directly.",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.20": {
+            "text": "Drive online purchases by converting readers into active buyers, transforming casual browsers into committed customers.",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.21": {
+            "text": "Whatever your performance goal is, Realize provides measurable outcomes, at scale.",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.22": {
+            "text": "eToro Boosts Global Acquisition with Taboola: 30% Conversion Success",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.23": {
+            "text": "eToro sought a new media channel to enhance their global acquisition and branding efforts. By partnering with Taboola, they achieved a 30% conversion rate from registrations to paying users and reduced CPM costs by 40%.",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.24": {
+            "text": "Bosch Home Appliances Sees Significant Traffic Increase With Taboola",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.25": {
+            "text": "Segmenta and Bosch Home Germany achieved convincing results in all relevant metrics such as CPC and CTR as well as Cost per Visit and Cost per Product View. The results were also very competitive compared to the accompanying social campaign.",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.26": {
+            "text": "Hyundai Achieves 30% Lower Cost per Session with Taboola",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.27": {
+            "text": "Hyundai partnered with Taboola to boost their campaign performance, resulting in a 30% lower Cost per Session. They also achieved a 26% lower Cost per Lead and a 10% lower Bounce Rate compared to other channels like Display and Social.",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.28": {
+            "text": "multiple Customers in 6 Months: Lifeboost's Success with Taboola",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.29": {
+            "text": "With Taboola, Lifeboost was able to convert multiple customers in 6 months, while achieving a CPA 75% lower than their goal with retargeting, and 87% lower than their goal with Attentive Audiences.",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.30": {
+            "text": "Austria Tourism Sees 33% Boost with Taboola",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.31": {
+            "text": "Austria Tourism experienced a 33% performance increase across all campaigns by replacing banner display advertising with Taboola.",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P1.32": {
+            "text": "Reach your best audience at the lowest cost!",
+            "url": "https://www.taboola.com/",
+            "fetched_at": "2026-10-17T22:11:18Z"
+          },
+          "P2.1": {
+            "text": "What is Taboola | Our Story | Taboola.com",
+            "url": "https://www.taboola.com/about/our-story",
+            "fetched_at": "2026-10-17T22:11:19Z"
+          },
+          "P2.2": {
+            "text": "Powered by Deep Learning, AI, and a large dataset, Taboola’s performance platform creates new monetization, audience and engagement opportunities for advertisers and digital properties.",
+            "url": "https://www.taboola.com/about/our-story",
+            "fetched_at": "2026-10-17T22:11:19Z"
+          },
+          "P2.3": {
+            "text": "DISCOVER WHAT’S INTERESTING AND NEW",
+            "url": "https://www.taboola.com/about/our-story",
+            "fetched_at": "2026-10-17T22:11:19Z"
+          },
+          "P2.4": {
+            "text": "The content we expose through the Taboola discovery platform is what’s interesting and new. It can be news, topical information or advice, a new product or service, or something entertaining.",
+            "url": "https://www.taboola.com/about/our-story",
+            "fetched_at": "2026-10-17T22:11:19Z"
+          },
+          "P2.5": {
+            "text": "Taboola helps promote your brand at the moments your audience is most receptive to new messages, products, and services.",
+            "url": "https://www.taboola.com/about/our-story",
+            "fetched_at": "2026-10-17T22:11:19Z"
+          },
+          "P2.6": {
+            "text": "For publishers, mobile carriers and other digital properties, Taboola is a powerful engine that provides what's relevant, interesting and new to your audience. The result: new engagement and monetization opportunities.",
+            "url": "https://www.taboola.com/about/our-story",
+            "fetched_at": "2026-10-17T22:11:19Z"
+          },
+          "P2.7": {
+            "text": "Terabyte of Data Per Day",
+            "url": "https://www.taboola.com/about/our-story",
+            "fetched_at": "2026-10-17T22:11:19Z"
+          },
+          "P2.8": {
+            "text": "It has happened to everyone: after a long day of work, you plop down on",
+            "url": "https://www.taboola.com/about/our-story",
+            "fetched_at": "2026-10-17T22:11:19Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

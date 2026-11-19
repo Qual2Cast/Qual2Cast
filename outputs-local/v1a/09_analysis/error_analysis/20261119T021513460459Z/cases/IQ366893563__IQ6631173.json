@@ -1,0 +1,1028 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ366893563__IQ6631173",
+    "target": "IQ366893563",
+    "comp": "IQ6631173",
+    "target_ticker": "SMPL",
+    "comp_ticker": "BGS",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ366893563__IQ6631173",
+        "target": "IQ366893563",
+        "comp": "IQ6631173",
+        "target_ticker": "SMPL",
+        "comp_ticker": "BGS",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ366893563",
+          "comp": "IQ6631173",
+          "method": "B3",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SMPL",
+          "comp_ticker": "BGS"
+        },
+        {
+          "target": "IQ366893563",
+          "comp": "IQ6631173",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SMPL",
+          "comp_ticker": "BGS"
+        },
+        {
+          "target": "IQ366893563",
+          "comp": "IQ6631173",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SMPL",
+          "comp_ticker": "BGS"
+        },
+        {
+          "target": "IQ366893563",
+          "comp": "IQ6631173",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SMPL",
+          "comp_ticker": "BGS"
+        },
+        {
+          "target": "IQ366893563",
+          "comp": "IQ6631173",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SMPL",
+          "comp_ticker": "BGS"
+        },
+        {
+          "target": "IQ366893563",
+          "comp": "IQ6631173",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SMPL",
+          "comp_ticker": "BGS"
+        },
+        {
+          "target": "IQ366893563",
+          "comp": "IQ6631173",
+          "method": "screen_haiku",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Branded packaged foods with baking mixes and snacks, outsourced in part, sold to the same grocery and mass channels.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SMPL",
+          "comp_ticker": "BGS"
+        },
+        {
+          "target": "IQ366893563",
+          "comp": "IQ6631173",
+          "method": "screen_sonnet",
+          "kept": false,
+          "rank": 2.0,
+          "reason": "Shelf-stable and frozen pantry foods, spices; not protein or nutrition-focused snacks, and partly self-manufactured.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SMPL",
+          "comp_ticker": "BGS"
+        },
+        {
+          "target": "IQ366893563",
+          "comp": "IQ6631173",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 5.0,
+          "reason": "B&G Foods owns branded packaged foods sold to grocery, mass and club retailers.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SMPL",
+          "comp_ticker": "BGS"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Markets and sells branded protein and low-carb snacks and ready-to-drink shakes to consumers through grocery, mass, club and online retailers. It outsources manufacturing to contract food producers and focuses on brand, product development and sales.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "protein bars; ready-to-drink protein shakes; protein powders; snack chips; low-carb baking mixes",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: health-conscious consumers and athletes buying through retail stores and online; B2B: grocery, mass merchandise, club, convenience and online retailers, wholesale distributors",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "packaged foods; sports and fitness nutrition; health and wellness; weight management",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: branded snacks and shakes sold to retailers, distributors and online shoppers",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: designs, markets and sells branded foods made by contract manufacturers, sold to retailers and distributors",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "North America: Primarily United States, with smaller sales in Canada and some other countries",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: protein bars, shakes, snack chips and baking products sharing nutrition-focused brands and retail channels",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: key account sales teams selling to large grocery, mass and club retailers; distributors / dealers: wholesale food distributors serving smaller grocery and convenience stores; third-party retail: grocery, mass, club, drug and convenience stores; online: retailer e-commerce sites, online marketplaces and the company's own website",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: FDA food labeling and nutrient content claim rules and FTC advertising rules govern its products and marketing",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Develops and markets branded nutrition bars, shakes, snacks and sweet treats for health-conscious consumers. Products are made by contract manufacturers and sold mainly through grocery, mass, club, e-commerce and convenience channels.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "protein bars; ready-to-drink protein shakes; snacks; cookies and sweet treats",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: grocery, mass merchants, club stores, convenience and e-commerce retailers; B2C: health-conscious consumers following low-carb, protein-focused or balanced diets",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "packaged foods; nutritional snacking; health and wellness; meal replacement",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: packaged bars, shakes and snacks sold to retailers and online",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: designs and markets branded nutrition products made by co-manufacturers, sold to retailers and consumers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "North America: United States primarily, plus Canada and some international markets",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: nutrition bars, shakes, snacks and sweet treats sharing consumers and retail channels",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "third-party retail: grocery, mass merchandise, club, convenience, drug and natural stores; online: Amazon and brand direct-to-consumer websites",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: food safety, labeling and marketing rules from FDA, USDA and FTC",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ366893563.json",
+      "data": {
+        "company_name": "The Simply Good Foods Company",
+        "website": "www.thesimplygoodfoodscompany.com",
+        "scrape_status": "ok",
+        "capture_sha256": "f24b966c22bd8f4817557fea6ba9123066f2343e65b1ce77e8c34d97c7a99714",
+        "lines": {
+          "P1.1": {
+            "text": "Home | The Simply Good Foods Company",
+            "url": "https://www.thesimplygoodfoodscompany.com/",
+            "fetched_at": "2026-10-17T22:12:33Z"
+          },
+          "P1.2": {
+            "text": "We’re raising the bar on what food can be. We say no to the status quo, and we say yes to making better food. Food that offers robust nutrition, not hollow nutrition. Energy, not depletion. Enjoyment, not regret. Simply, we’re on a mission to make food that works for you—that is radically nutritious and defyingly delicious. Better nutrition made easy so you can live well. We don’t compromise, so you never have to.",
+            "url": "https://www.thesimplygoodfoodscompany.com/",
+            "fetched_at": "2026-10-17T22:12:33Z"
+          },
+          "P1.3": {
+            "text": "It's a Pretty Big Dill! Quest Nutrition Unveils New Dill Pickle Original Style Protein Chips - the First New Flavor in Over a Decade",
+            "url": "https://www.thesimplygoodfoodscompany.com/",
+            "fetched_at": "2026-10-17T22:12:33Z"
+          },
+          "P1.4": {
+            "text": "Alongside new Salted Caramel Protein Milkshake, Quest continues to redefine athlete-worthy, high-protein snacking with bold, on-trend flavors EL SEGUNDO, Calif., /PRNewswire/ -- Quest Nutrition is expanding its lineup of high-protein chips and milkshakes with two mouthwatering new",
+            "url": "https://www.thesimplygoodfoodscompany.com/",
+            "fetched_at": "2026-10-17T22:12:33Z"
+          },
+          "P1.5": {
+            "text": "Simply Good Foods Announces Cost Savings Initiatives and Leadership Changes as Part of Ongoing Strategic Evolution",
+            "url": "https://www.thesimplygoodfoodscompany.com/",
+            "fetched_at": "2026-10-17T22:12:33Z"
+          },
+          "P1.6": {
+            "text": "DENVER, (GLOBE NEWSWIRE) -- The Simply Good Foods Company (“Simply Good Foods” or the “Company”), a leader in the Nutritional Snacking category, today announced cost savings and corporate realignment initiatives to position the business for its next phase of growth.",
+            "url": "https://www.thesimplygoodfoodscompany.com/",
+            "fetched_at": "2026-10-17T22:12:33Z"
+          },
+          "P1.7": {
+            "text": "Quest Nutrition Teams Up with Professional Basketball Player Sophie Cunningham to Debut New Stacks Protein Bar, Crispy Protein Chips and Original Social Series",
+            "url": "https://www.thesimplygoodfoodscompany.com/",
+            "fetched_at": "2026-10-17T22:12:33Z"
+          },
+          "P1.8": {
+            "text": "Cunningham hosts The Grand Try series alongside USA Rugby athletes and showcases Quest's newest additions to its portfolio including Stacks Bars and Crispy Protein Chips. EL SEGUNDO, Calif., /PRNewswire/ -- Quest Nutrition has partnered with professional basketball player Sophie",
+            "url": "https://www.thesimplygoodfoodscompany.com/",
+            "fetched_at": "2026-10-17T22:12:33Z"
+          },
+          "P1.9": {
+            "text": "The Simply Good Foods Company Reports CEO Inducement Grant Under Nasdaq Listing Rule 5635(c)(4)",
+            "url": "https://www.thesimplygoodfoodscompany.com/",
+            "fetched_at": "2026-10-17T22:12:33Z"
+          },
+          "P1.10": {
+            "text": "DENVER, (GLOBE NEWSWIRE) -- On, The Simply Good Foods Company (“Simply Good Foods” or the “Company”) announced that Joseph E. Scalzo joined the Company in the role of President and Chief Executive Officer, effective.",
+            "url": "https://www.thesimplygoodfoodscompany.com/",
+            "fetched_at": "2026-10-17T22:12:33Z"
+          },
+          "P2.1": {
+            "text": "About Us | The Simply Good Foods Company",
+            "url": "https://www.thesimplygoodfoodscompany.com/about-us",
+            "fetched_at": "2026-10-17T22:12:34Z"
+          },
+          "P2.2": {
+            "text": "At Simply Good Foods, our mission is to empower and educate consumers about how to eat right and snack smarter through our education, advocacy, products and tools. Our vision is to lead the nutritional snacking movement with trusted brands that offer a rich variety of innovative, convenient, better-for-you snacks and meals that provide optimal nutrition for everyone.",
+            "url": "https://www.thesimplygoodfoodscompany.com/about-us",
+            "fetched_at": "2026-10-17T22:12:34Z"
+          },
+          "P2.3": {
+            "text": "With our heritage of science-based nutrition, we are committed to growing our portfolio of nutritious snacking brands. We distribute our products in major retail channels including grocery, club and mass merchandise, as well as through e-commerce, convenience, specialty and other channels. Our strong platform allows us to introduce new products, expand distribution, and appeal to current and potential consumers. We are well-positioned to continue to selectively pursue acquisition opportunities in the nutritious snacking and broader health and wellness food space.",
+            "url": "https://www.thesimplygoodfoodscompany.com/about-us",
+            "fetched_at": "2026-10-17T22:12:34Z"
+          },
+          "P3.1": {
+            "text": "Our Locations | The Simply Good Foods Company",
+            "url": "https://www.thesimplygoodfoodscompany.com/our-locations",
+            "fetched_at": "2026-10-17T22:12:35Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Markets and sells branded shelf-stable and frozen packaged foods, spices and baking products to grocery chains, mass merchants and foodservice distributors across the United States. Products are made in company plants and by co-manufacturers, then sold under owned brands.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "canned and frozen vegetables; spices and seasonings; hot sauces; baking mixes and ingredients; cereals and hot cereals; snacks",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: grocery chains, mass merchandisers, club stores, foodservice distributors, e-commerce retailers",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "grocery retail; foodservice; club and mass merchandise; e-commerce",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: branded packaged foods sold to retailers and foodservice distributors",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: owns and markets branded food products, sold to grocers and distributors; OEM / manufacturer: makes some products in its own plants, buys others from co-manufacturers, sold to retailers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: United States, with smaller sales in Canada",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: shelf-stable pantry foods, frozen vegetables, snacks, spices and baking products sold through grocery channels",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales teams selling to national grocery and mass retail chains; distributors / dealers: foodservice and grocery distributors; third-party retail: supermarkets, mass merchandisers and club stores; online: e-commerce retailers and online grocery sites; agents / brokers: sales brokers handling grocery retail accounts",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: FDA food safety, labeling and nutrition rules, plus USDA rules for some products",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Manufactures, markets and distributes shelf-stable and frozen branded foods such as canned vegetables, beans, spices, syrups, hot sauces, peanut butter and frozen vegetables. Sells mainly to grocery retailers, foodservice operators and club and mass merchants, using own and contract manufacturing plants.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "canned vegetables and beans; spices and seasonings; maple and pancake syrups; frozen vegetables; sauces and condiments",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: supermarkets, mass merchants, club stores, foodservice operators, food distributors and wholesalers",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "grocery retail; foodservice; packaged food consumers",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: branded packaged and frozen foods sold to retailers and foodservice customers",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: owns and markets acquired food brands, sold to retailers and foodservice; OEM / manufacturer: produces foods in own plants and via co-packers from purchased agricultural and food ingredients",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "North America: United States primarily, plus Canada and Mexico",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: shelf-stable, spices, syrups, sauces, and frozen foods sold to grocery and foodservice customers",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales to major grocery chains, mass merchants and club stores; distributors / dealers: food distributors and wholesalers serving foodservice and smaller retailers; agents / brokers: food brokers representing products to retail accounts",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: food safety and labeling rules from FDA, USDA and Canadian authorities, environmental and workplace rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "FACET:97": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:97",
+        "company_id": "IQ6631173",
+        "ticker": "BGS",
+        "facet": "offering_description",
+        "human_label": "correct",
+        "labeled_text": "Sells shelf-stable and frozen packaged foods, spices, condiments and snacks under its own brands, made in its plants or by co-packers. Customers are grocery, mass, club and dollar retailers, plus foodservice and food distributors across North America.",
+        "human_note": "",
+        "evidence_url": "",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "Markets and sells branded shelf-stable and frozen packaged foods, spices and baking products to grocery chains, mass merchants and foodservice distributors across the United States. Products are made in company plants and by co-manufacturers, then sold under owned brands.",
+        "sonnet_text": "Manufactures, markets and distributes shelf-stable and frozen branded foods such as canned vegetables, beans, spices, syrups, hot sauces, peanut butter and frozen vegetables. Sells mainly to grocery retailers, foodservice operators and club and mass merchants, using own and contract manufacturing plants.",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:98": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:98",
+        "company_id": "IQ6631173",
+        "ticker": "BGS",
+        "facet": "primary_products",
+        "human_label": "correct",
+        "labeled_text": "shelf-stable vegetables and beans; frozen vegetables; spices and seasonings; condiments and sauces; baking mixes; snacks",
+        "human_note": "",
+        "evidence_url": "",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "canned and frozen vegetables; spices and seasonings; hot sauces; baking mixes and ingredients; cereals and hot cereals; snacks",
+        "sonnet_text": "canned vegetables and beans; spices and seasonings; maple and pancake syrups; frozen vegetables; sauces and condiments",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:99": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:99",
+        "company_id": "IQ6631173",
+        "ticker": "BGS",
+        "facet": "primary_services",
+        "human_label": "wrong",
+        "labeled_text": "not_applicable",
+        "human_note": "no output",
+        "evidence_url": "",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "",
+        "sonnet_text": "",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:100": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:100",
+        "company_id": "IQ6631173",
+        "ticker": "BGS",
+        "facet": "customer_segment",
+        "human_label": "correct",
+        "labeled_text": "B2B: grocery and mass retailers, club stores, dollar stores, foodservice operators, food distributors",
+        "human_note": "",
+        "evidence_url": "https://bgfoods.com/investor-relations/news/article/16421/",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "B2B: grocery chains, mass merchandisers, club stores, foodservice distributors, e-commerce retailers",
+        "sonnet_text": "B2B: supermarkets, mass merchants, club stores, foodservice operators, food distributors and wholesalers",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:101": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:101",
+        "company_id": "IQ6631173",
+        "ticker": "BGS",
+        "facet": "end_markets",
+        "human_label": "correct",
+        "labeled_text": "grocery retail; foodservice; food distribution; export",
+        "human_note": "",
+        "evidence_url": "linkedin.com/company/bgfoodsinc",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "grocery retail; foodservice; club and mass merchandise; e-commerce",
+        "sonnet_text": "grocery retail; foodservice; packaged food consumers",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:102": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:102",
+        "company_id": "IQ6631173",
+        "ticker": "BGS",
+        "facet": "revenue_model",
+        "human_label": "partly correct",
+        "labeled_text": "product sales: branded packaged food sold to retailers, distributors and foodservice customers",
+        "human_note": "Unlike direct-to-consumer subscription or retail services, B&G Foods sells its products to supermarkets, mass merchants, warehouse clubs, and foodservice distributors",
+        "evidence_url": "https://umbrex.com/resources/company-profiles/bg-foods/",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "product sales: branded packaged foods sold to retailers and foodservice distributors",
+        "sonnet_text": "product sales: branded packaged and frozen foods sold to retailers and foodservice customers",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:103": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:103",
+        "company_id": "IQ6631173",
+        "ticker": "BGS",
+        "facet": "value_chain_position",
+        "human_label": "correct",
+        "labeled_text": "brand owner: owns and markets its branded food portfolio, sold to retailers and distributors; OEM / manufacturer: produces foods in its own plants and through co-packers, sold to retail and foodservice customers",
+        "human_note": "",
+        "evidence_url": "",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "brand owner: owns and markets branded food products, sold to grocers and distributors; OEM / manufacturer: makes some products in its own plants, buys others from co-manufacturers, sold to retailers",
+        "sonnet_text": "brand owner: owns and markets acquired food brands, sold to retailers and foodservice; OEM / manufacturer: produces foods in own plants and via co-packers from purchased agricultural and food ingredients",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:104": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:104",
+        "company_id": "IQ6631173",
+        "ticker": "BGS",
+        "facet": "geography_served",
+        "human_label": "partly correct",
+        "labeled_text": "North America: United States nationwide, with sales in Canada and some export markets",
+        "human_note": "Didn't list Puerto Rico",
+        "evidence_url": "https://stockrow.com/BGS/business-profile",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "US national: United States, with smaller sales in Canada",
+        "sonnet_text": "North America: United States primarily, plus Canada and Mexico",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:105": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:105",
+        "company_id": "IQ6631173",
+        "ticker": "BGS",
+        "facet": "company_size",
+        "human_label": "correct",
+        "labeled_text": "mid-sized",
+        "human_note": "",
+        "evidence_url": "https://umbrex.com/resources/company-profiles/bg-foods/",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "large",
+        "sonnet_text": "large",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:106": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:106",
+        "company_id": "IQ6631173",
+        "ticker": "BGS",
+        "facet": "specialization",
+        "human_label": "correct",
+        "labeled_text": "related lines: shelf-stable and frozen vegetables, spices, condiments, baking and snack lines sold to the same grocery channel",
+        "human_note": "",
+        "evidence_url": "linkedin.com/company/bgfoodsinc",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "related lines: shelf-stable pantry foods, frozen vegetables, snacks, spices and baking products sold through grocery channels",
+        "sonnet_text": "related lines: shelf-stable, spices, syrups, sauces, and frozen foods sold to grocery and foodservice customers",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:107": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:107",
+        "company_id": "IQ6631173",
+        "ticker": "BGS",
+        "facet": "distribution_channels",
+        "human_label": "correct",
+        "labeled_text": "direct sales: national grocery and mass retail accounts; distributors / dealers: food distributors and foodservice distributors; third-party retail: grocery, club, dollar and convenience stores; online: retailer e-commerce sites",
+        "human_note": "",
+        "evidence_url": "linkedin.com/company/bgfoodsinc",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "direct sales: sales teams selling to national grocery and mass retail chains; distributors / dealers: foodservice and grocery distributors; third-party retail: supermarkets, mass merchandisers and club stores; online: e-commerce retailers and online grocery sites; agents / brokers: sales brokers handling grocery retail accounts",
+        "sonnet_text": "direct sales: sales to major grocery chains, mass merchants and club stores; distributors / dealers: food distributors and wholesalers serving foodservice and smaller retailers; agents / brokers: food brokers representing products to retail accounts",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:108": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:108",
+        "company_id": "IQ6631173",
+        "ticker": "BGS",
+        "facet": "regulatory_exposure",
+        "human_label": "correct",
+        "labeled_text": "medium: FDA food safety, labeling and nutrition rules, plus USDA and Canadian food standards",
+        "human_note": "",
+        "evidence_url": "linkedin.com/company/bgfoodsinc",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "medium: FDA food safety, labeling and nutrition rules, plus USDA rules for some products",
+        "sonnet_text": "medium: food safety and labeling rules from FDA, USDA and Canadian authorities, environmental and workplace rules",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ6631173.json",
+      "data": {
+        "company_name": "B&G Foods, Inc.",
+        "website": "bgfoods.com",
+        "scrape_status": "ok",
+        "capture_sha256": "f0725be44b0553703344209ba5b822974785e5504436db05c912f7c4169869ae",
+        "lines": {
+          "P1.1": {
+            "text": "Home - B&G Foods",
+            "url": "https://bgfoods.com/",
+            "fetched_at": "2026-10-17T19:14:38Z"
+          },
+          "P1.2": {
+            "text": "Our Family of Brands Our portfolio of more than 50 trusted brands has something for everyone.",
+            "url": "https://bgfoods.com/",
+            "fetched_at": "2026-10-17T19:14:38Z"
+          },
+          "P1.3": {
+            "text": "Our portfolio of more than 50 trusted brands has something for everyone.",
+            "url": "https://bgfoods.com/",
+            "fetched_at": "2026-10-17T19:14:38Z"
+          },
+          "P1.4": {
+            "text": "check out some of our key initiatives and policies",
+            "url": "https://bgfoods.com/",
+            "fetched_at": "2026-10-17T19:14:38Z"
+          },
+          "P2.1": {
+            "text": "Our Company - B&G Foods",
+            "url": "https://bgfoods.com/about/our-company/",
+            "fetched_at": "2026-10-17T19:14:39Z"
+          },
+          "P2.2": {
+            "text": "Our Company Bringing your family delicious food for more than 125 years. Our Purpose We’re committed to acquiring and investing in established food brands and making them more relevant for our customers and consumers. Our growth strategy ensures that we change from one day to the next, always improving, but one thing remains constant: delicious […]",
+            "url": "https://bgfoods.com/about/our-company/",
+            "fetched_at": "2026-10-17T19:14:39Z"
+          },
+          "P2.3": {
+            "text": "Bringing your family delicious food for more than 125 years.",
+            "url": "https://bgfoods.com/about/our-company/",
+            "fetched_at": "2026-10-17T19:14:39Z"
+          },
+          "P2.4": {
+            "text": "We’re committed to acquiring and investing in established food brands and making them more relevant for our customers and consumers. Our growth strategy ensures that we change from one day to the next, always improving, but one thing remains constant: delicious food from our family to yours.",
+            "url": "https://bgfoods.com/about/our-company/",
+            "fetched_at": "2026-10-17T19:14:39Z"
+          },
+          "P2.5": {
+            "text": "Everything we do is about making sure you get great-tasting, high-quality foods that you can feel good about feeding your family.",
+            "url": "https://bgfoods.com/about/our-company/",
+            "fetched_at": "2026-10-17T19:14:39Z"
+          },
+          "P2.6": {
+            "text": "Together with our predecessors, we have been doing so since the 1800s.",
+            "url": "https://bgfoods.com/about/our-company/",
+            "fetched_at": "2026-10-17T19:14:39Z"
+          },
+          "P2.7": {
+            "text": "We love food and bringing our family of brands to you and your family. We pursue excellence in everything we do. We are energized by new challenges.",
+            "url": "https://bgfoods.com/about/our-company/",
+            "fetched_at": "2026-10-17T19:14:39Z"
+          },
+          "P2.8": {
+            "text": "We are ethical, honest and transparent. We hold ourselves accountable for our decisions and actions. We believe in being a good corporate citizen, and we do the right thing because we care.",
+            "url": "https://bgfoods.com/about/our-company/",
+            "fetched_at": "2026-10-17T19:14:39Z"
+          },
+          "P2.9": {
+            "text": "We strive to consistently exceed our customers’ and consumers’ expectations. We proactively seek customer and consumer insights. We deliver what we promise.",
+            "url": "https://bgfoods.com/about/our-company/",
+            "fetched_at": "2026-10-17T19:14:39Z"
+          },
+          "P2.10": {
+            "text": "Safety & Health at Work",
+            "url": "https://bgfoods.com/about/our-company/",
+            "fetched_at": "2026-10-17T19:14:39Z"
+          },
+          "P2.11": {
+            "text": "We are committed to preventing accidents, injuries and illnesses related to the workplace.",
+            "url": "https://bgfoods.com/about/our-company/",
+            "fetched_at": "2026-10-17T19:14:39Z"
+          },
+          "P2.12": {
+            "text": "We make food safety our number one priority. We are committed to providing great-tasting, high-quality and safe foods to you and your family.",
+            "url": "https://bgfoods.com/about/our-company/",
+            "fetched_at": "2026-10-17T19:14:39Z"
+          },
+          "P2.13": {
+            "text": "We leverage diverse backgrounds and perspectives to achieve outstanding results. We are committed to fostering an inclusive work environment where all employees have the opportunity to share their ideas, grow with our company, and realize their full potential.",
+            "url": "https://bgfoods.com/about/our-company/",
+            "fetched_at": "2026-10-17T19:14:39Z"
+          },
+          "P2.14": {
+            "text": "We believe in team first, individuals second. We believe in timely and personal communication. We support each other professionally and personally without being asked.",
+            "url": "https://bgfoods.com/about/our-company/",
+            "fetched_at": "2026-10-17T19:14:39Z"
+          },
+          "P2.15": {
+            "text": "We strive to hire people more talented than we are.",
+            "url": "https://bgfoods.com/about/our-company/",
+            "fetched_at": "2026-10-17T19:14:39Z"
+          },
+          "P3.1": {
+            "text": "B&G Foods",
+            "url": "https://bgfoods.com/brands/meal-solutions/",
+            "fetched_at": "2026-10-17T19:14:40Z"
+          },
+          "P3.2": {
+            "text": "With our diverse portfolio of more than 50 brands you know and love, there’s a little something for everyone.",
+            "url": "https://bgfoods.com/brands/meal-solutions/",
+            "fetched_at": "2026-10-17T19:14:40Z"
+          },
+          "P3.3": {
+            "text": "Please wait while the brand info loads",
+            "url": "https://bgfoods.com/brands/meal-solutions/",
+            "fetched_at": "2026-10-17T19:14:40Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

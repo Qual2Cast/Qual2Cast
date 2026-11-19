@@ -1,0 +1,772 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ109103__IQ294639",
+    "target": "IQ109103",
+    "comp": "IQ294639",
+    "target_ticker": "EMN",
+    "comp_ticker": "PPG",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ109103__IQ294639",
+        "target": "IQ109103",
+        "comp": "IQ294639",
+        "target_ticker": "EMN",
+        "comp_ticker": "PPG",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ109103",
+          "comp": "IQ294639",
+          "method": "B3",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "EMN",
+          "comp_ticker": "PPG"
+        },
+        {
+          "target": "IQ109103",
+          "comp": "IQ294639",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "EMN",
+          "comp_ticker": "PPG"
+        },
+        {
+          "target": "IQ109103",
+          "comp": "IQ294639",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "EMN",
+          "comp_ticker": "PPG"
+        },
+        {
+          "target": "IQ109103",
+          "comp": "IQ294639",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "EMN",
+          "comp_ticker": "PPG"
+        },
+        {
+          "target": "IQ109103",
+          "comp": "IQ294639",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "EMN",
+          "comp_ticker": "PPG"
+        },
+        {
+          "target": "IQ109103",
+          "comp": "IQ294639",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "EMN",
+          "comp_ticker": "PPG"
+        },
+        {
+          "target": "IQ109103",
+          "comp": "IQ294639",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 2.0,
+          "reason": "Sells finished paints and coatings to contractors and consumers; Eastman makes resin inputs, so only partial chemistry overlap.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "EMN",
+          "comp_ticker": "PPG"
+        },
+        {
+          "target": "IQ109103",
+          "comp": "IQ294639",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Develops coatings and specialty materials sold to manufacturers, overlapping Eastman's coatings resins and performance materials, though its focus is finished coatings.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "EMN",
+          "comp_ticker": "PPG"
+        },
+        {
+          "target": "IQ109103",
+          "comp": "IQ294639",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Coatings and specialty materials made from chemical inputs and sold to industrial manufacturers; overlaps Eastman's coatings resins customers.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "EMN",
+          "comp_ticker": "PPG"
+        },
+        {
+          "target": "IQ109103",
+          "comp": "IQ294639",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Manufacturer of coatings and specialty materials sold directly to industrial manufacturers, overlapping Eastman's coatings and specialty materials lines.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "EMN",
+          "comp_ticker": "PPG"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Makes specialty chemicals, advanced materials, performance additives and fibers sold mainly to manufacturers in many industries, and runs molecular recycling of plastic waste. Produces at its own plants and sells mainly directly to industrial customers.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "specialty polymers; performance additives; specialty fibers; chemical intermediates; coatings resins",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: manufacturers in transportation, consumer goods, building, packaging and healthcare industries",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "transportation; building and construction; consumer goods; healthcare; packaging; agriculture",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: specialty chemicals, materials and fibers sold to manufacturers",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: makes chemicals and materials from feedstocks, sold to industrial manufacturers; raw materials: chemical intermediates sold to other chemical and materials makers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: North America, Europe, Asia-Pacific and other regions, served from its plants and offices",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: additives, advanced materials, fibers and chemical intermediates share chemistry platforms and industrial customers",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales teams selling to industrial manufacturers; distributors / dealers: chemical distributors serving smaller industrial buyers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: chemical safety, emissions and environmental rules from EPA and EU REACH, plus plant permits",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Manufactures specialty materials including advanced interlayers, performance films, cellulose-based fibers and plastics, additives and chemical intermediates. Sells to industrial manufacturers in transportation, building, consumer goods and packaging. Produced at large integrated chemical plants, increasingly with molecular recycling.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "specialty copolyester plastics; acetate tow and textile fibers; window and paint protection films; polyvinyl butyral interlayers; coatings additives and chemical intermediates",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: automotive, building, packaging, consumer goods, personal care, coatings and tobacco product manufacturers",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "transportation; building and construction; consumer goods; packaging; personal care and food; tobacco",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: specialty materials, chemicals and fibers sold to industrial customers",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: converts propane, ethylene, paraxylene and wood pulp into specialty materials sold to manufacturers; raw materials: supplies chemical intermediates and additives to downstream formulators",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: North America, Europe, Asia Pacific, Latin America and Middle East, with major plants in US, Netherlands and China",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: advanced materials, additives and functional products, chemical intermediates, and fibers sharing technology platforms",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales to large industrial manufacturers and converters; distributors / dealers: chemical distributors and film installer networks",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: chemical manufacturing subject to EPA, REACH, OSHA, TSCA and emissions and safety rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ109103.json",
+      "data": {
+        "company_name": "Eastman Chemical Company",
+        "website": "www.eastman.com",
+        "scrape_status": "robots_disallowed",
+        "capture_sha256": "565cbaf53853d3dafbd7c723a53d77d47d5d98832d025fea154929f7aac1395b",
+        "lines": {}
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Develops and sells paints, coatings, and specialty materials for automotive, industrial, aerospace, and architectural customers. Sells mainly to businesses through direct sales and distributors, and makes products in its own plants.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "automotive coatings; industrial coatings; architectural paints; aerospace coatings; specialty sealants; optical and glass products",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "color matching; coatings application support; technical consulting",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: automotive manufacturers and refinishers, industrial manufacturers, aerospace producers, construction and paint contractors, retailers of paint",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "automotive; industrial manufacturing; aerospace; construction; packaging; consumer retail",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: paints, coatings and specialty materials sold to manufacturers, refinishers and retailers; service fees: color matching and technical application support",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: makes coatings and materials from raw chemical inputs, sold to manufacturers and contractors; brand owner: sells architectural paint under its own consumer and contractor brands",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: Operates plants and sells in North America, Europe, Asia, Latin America and other regions worldwide",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "among the largest",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: coatings and specialty materials for automotive, industrial, aerospace and architectural uses, sharing chemistry and customers",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales teams selling to automotive, industrial and aerospace customers; distributors / dealers: independent paint distributors and dealers serving contractors and refinishers; own locations: company-owned paint stores serving contractors and consumers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: environmental, chemical safety and workplace rules on emissions, VOCs and hazardous materials, enforced by EPA and similar agencies",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Develops and manufactures paints, coatings and specialty materials. Sells them to industrial, automotive, aerospace, marine, packaging and construction customers, and to consumers and contractors through paint stores. Produces in its own plants worldwide.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "architectural paints and stains; protective and marine coatings; industrial coatings; automotive refinish coatings; aerospace coatings and sealants; packaging coatings",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "color matching and tinting; technical and application support; coatings equipment and process services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: automakers, aerospace manufacturers, packaging makers, industrial manufacturers, body shops, painting contractors, infrastructure owners; B2C: home owners and DIY painters buying architectural paint",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "construction and home improvement; automotive; aerospace; industrial manufacturing; packaging; marine and infrastructure",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: paints, coatings, sealants and specialty materials sold by volume; service fees: technical support and application services",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: makes coatings from purchased resins, pigments and solvents, sold to industrial and automotive manufacturers and distributors; brand owner: owns architectural paint brands sold to contractors and consumers; retailer: operates company-owned paint stores selling to professional painters",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: Americas, Europe, Middle East, Africa and Asia-Pacific, with operations in over 70 countries",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "among the largest",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: coatings for industrial, protective, marine, automotive refinish, aerospace, packaging and architectural uses",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: industrial, automotive OEM and aerospace customers; own locations: company-owned paint stores for contractors; third-party retail: home improvement retailers selling architectural paints; distributors / dealers: independent paint and refinish distributors",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: chemical and VOC emission rules, product safety and workplace rules from EPA, OSHA and REACH",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ294639.json",
+      "data": {
+        "company_name": "PPG Industries, Inc.",
+        "website": "www.ppg.com",
+        "scrape_status": "ok",
+        "capture_sha256": "8d78f1cf009bed02e43f3c3cadbcbf795243913e5a1eb4889c1e4f6da75e6e17",
+        "lines": {
+          "P1.1": {
+            "text": "PPG",
+            "url": "https://www.ppg.com/en-US",
+            "fetched_at": "2026-10-17T20:04:58Z"
+          },
+          "P1.2": {
+            "text": "Discover how PPG’s global team of innovators drives sustainable solutions, enhances productivity, and celebrates 140 years of color leadership. Join us!",
+            "url": "https://www.ppg.com/en-US",
+            "fetched_at": "2026-10-17T20:04:58Z"
+          },
+          "P1.3": {
+            "text": "PPG: We protect and beautify the world®",
+            "url": "https://www.ppg.com/en-US",
+            "fetched_at": "2026-10-17T20:04:58Z"
+          },
+          "P1.4": {
+            "text": "The first-choice partner to meet customers’ evolving needs for innovative paints, coatings and surface solutions.",
+            "url": "https://www.ppg.com/en-US",
+            "fetched_at": "2026-10-17T20:04:58Z"
+          },
+          "P1.5": {
+            "text": "In business for more than 140 years",
+            "url": "https://www.ppg.com/en-US",
+            "fetched_at": "2026-10-17T20:04:58Z"
+          },
+          "P1.6": {
+            "text": "Our global teams work every day to develop and deliver the paints, coatings and specialty products that our customers have trusted for more than 140 years. Explore our businesses and the markets they serve.",
+            "url": "https://www.ppg.com/en-US",
+            "fetched_at": "2026-10-17T20:04:58Z"
+          },
+          "P1.7": {
+            "text": "We've got you covered with industry-leading transparencies, coatings, sealants, engineered materials and services designed to maximize aircraft performance across the entire lifecycle.",
+            "url": "https://www.ppg.com/en-US",
+            "fetched_at": "2026-10-17T20:04:58Z"
+          },
+          "P1.8": {
+            "text": "Delivering the right solution for every surface to create longer-lasting, more beautiful spaces through a global portfolio of leading paint and stain brands – driven by sustainable innovation, color expertise and modern digital tools.",
+            "url": "https://www.ppg.com/en-US",
+            "fetched_at": "2026-10-17T20:04:58Z"
+          },
+          "P1.9": {
+            "text": "Combining our expertise in coatings and technologies to aid automakers around the world in enhancing the image and identity of their vehicle brands.",
+            "url": "https://www.ppg.com/en-US",
+            "fetched_at": "2026-10-17T20:04:58Z"
+          },
+          "P1.10": {
+            "text": "When it comes to building durability, increasing performance or enhancing appearance, Our refinish business owns a track record of success no other company can match.",
+            "url": "https://www.ppg.com/en-US",
+            "fetched_at": "2026-10-17T20:04:58Z"
+          },
+          "P1.11": {
+            "text": "Leading industrial manufacturers of the best-known products, landmarks and brands trust us to deliver the innovations and services that enhance and protect assets used every day.",
+            "url": "https://www.ppg.com/en-US",
+            "fetched_at": "2026-10-17T20:04:58Z"
+          },
+          "P1.12": {
+            "text": "Our extensive range of metal packaging coatings are designed protect the quality of our favorite consumer goods from both inside and outside the can including food, beverages and personal care products.",
+            "url": "https://www.ppg.com/en-US",
+            "fetched_at": "2026-10-17T20:04:58Z"
+          },
+          "P1.13": {
+            "text": "We’re developing coatings that help protect assets across industries, including infrastructure, oil and gas, power, renewables and marine vessels, in the world's most demanding environments.",
+            "url": "https://www.ppg.com/en-US",
+            "fetched_at": "2026-10-17T20:04:58Z"
+          },
+          "P1.14": {
+            "text": "Partnering with customers to solve complex challenges, our advanced materials transform industries –enhancing vision and eye safety, safeguarding critical documents, enabling water reuse, and powering next-generation, energy-efficient OLED displays – improving everyday life worldwide.",
+            "url": "https://www.ppg.com/en-US",
+            "fetched_at": "2026-10-17T20:04:58Z"
+          },
+          "P1.15": {
+            "text": "The broad portfolio of pavement markings and traffic safety solutions includes paint, thermoplastics and other advanced traffic technologies, which help keep motorists, cyclists, road workers and pedestrians safe in our communities.",
+            "url": "https://www.ppg.com/en-US",
+            "fetched_at": "2026-10-17T20:04:58Z"
+          },
+          "P2.1": {
+            "text": "From pre-treatment to colorful topcoats, PPG Industrial Coatings delivers high-performance products across a range of technologies for a variety of industries.",
+            "url": "https://www.ppg.com/en-US/industrialcoatings",
+            "fetched_at": "2026-10-17T20:04:59Z"
+          },
+          "P2.2": {
+            "text": "Our coatings are just the start. Choose PPG and you select one of the world’s most trusted brand of industrial coatings. But far more important, you enlist a partner in success – creating efficiencies that save you time and money providing products that satisfy your customers. That’s the Power of a Partner.",
+            "url": "https://www.ppg.com/en-US/industrialcoatings",
+            "fetched_at": "2026-10-17T20:04:59Z"
+          },
+          "P2.3": {
+            "text": "The real plus is the total solution you get from a reliable partner.",
+            "url": "https://www.ppg.com/en-US/industrialcoatings",
+            "fetched_at": "2026-10-17T20:04:59Z"
+          },
+          "P2.4": {
+            "text": "We invite you to explore PPG and learn why our commitment to your success goes beyond paints and coatings. Whether you are satisfied with your current coatings supplier or exploring new options, we encourage you to give us a try. We’re ready to earn your trust and demonstrate the difference that PPG’s Power of a Partnership can make in your business.",
+            "url": "https://www.ppg.com/en-US/industrialcoatings",
+            "fetched_at": "2026-10-17T20:04:59Z"
+          },
+          "P3.1": {
+            "text": "At PPG, we work every day to develop and deliver the paints, coatings, and specialty materials that our customers have trusted for 140 years. Through dedication and creativity, we solve our customers’ biggest challenges, collaborating closely to find the right path forward.",
+            "url": "https://www.ppg.com/en-US/about-ppg",
+            "fetched_at": "2026-10-17T20:05:00Z"
+          },
+          "P3.2": {
+            "text": "We protect and beautify the world®",
+            "url": "https://www.ppg.com/en-US/about-ppg",
+            "fetched_at": "2026-10-17T20:05:00Z"
+          },
+          "P3.3": {
+            "text": "Our vision is to be the first-choice partner to meet our customers' evolving needs for innovative paints, coatings and specialty products.",
+            "url": "https://www.ppg.com/en-US/about-ppg",
+            "fetched_at": "2026-10-17T20:05:00Z"
+          },
+          "P3.4": {
+            "text": "43% of sales from sustainably advantaged products",
+            "url": "https://www.ppg.com/en-US/about-ppg",
+            "fetched_at": "2026-10-17T20:05:00Z"
+          },
+          "P3.5": {
+            "text": "Innovation at the forefront of progress",
+            "url": "https://www.ppg.com/en-US/about-ppg",
+            "fetched_at": "2026-10-17T20:05:00Z"
+          },
+          "P3.6": {
+            "text": "Celebrating 140 years of color leadership",
+            "url": "https://www.ppg.com/en-US/about-ppg",
+            "fetched_at": "2026-10-17T20:05:00Z"
+          },
+          "P3.7": {
+            "text": "We're on a mission to bring color and brightness to the communities where we live and operate.",
+            "url": "https://www.ppg.com/en-US/about-ppg",
+            "fetched_at": "2026-10-17T20:05:00Z"
+          },
+          "P3.8": {
+            "text": "Total PPG and PPG Foundation global giving",
+            "url": "https://www.ppg.com/en-US/about-ppg",
+            "fetched_at": "2026-10-17T20:05:00Z"
+          },
+          "P3.9": {
+            "text": "For us, \"protecting and beautifying",
+            "url": "https://www.ppg.com/en-US/about-ppg",
+            "fetched_at": "2026-10-17T20:05:00Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

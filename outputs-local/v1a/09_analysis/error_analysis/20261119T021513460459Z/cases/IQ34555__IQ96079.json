@@ -1,0 +1,907 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ34555__IQ96079",
+    "target": "IQ34555",
+    "comp": "IQ96079",
+    "target_ticker": "RBBN",
+    "comp_ticker": "VIAV",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ34555__IQ96079",
+        "target": "IQ34555",
+        "comp": "IQ96079",
+        "target_ticker": "RBBN",
+        "comp_ticker": "VIAV",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ34555",
+          "comp": "IQ96079",
+          "method": "B3",
+          "kept": true,
+          "rank": 5.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RBBN",
+          "comp_ticker": "VIAV"
+        },
+        {
+          "target": "IQ34555",
+          "comp": "IQ96079",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 5.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RBBN",
+          "comp_ticker": "VIAV"
+        },
+        {
+          "target": "IQ34555",
+          "comp": "IQ96079",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 5.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RBBN",
+          "comp_ticker": "VIAV"
+        },
+        {
+          "target": "IQ34555",
+          "comp": "IQ96079",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 5.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RBBN",
+          "comp_ticker": "VIAV"
+        },
+        {
+          "target": "IQ34555",
+          "comp": "IQ96079",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 5.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RBBN",
+          "comp_ticker": "VIAV"
+        },
+        {
+          "target": "IQ34555",
+          "comp": "IQ96079",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 8.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RBBN",
+          "comp_ticker": "VIAV"
+        },
+        {
+          "target": "IQ34555",
+          "comp": "IQ96079",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 5.0,
+          "reason": "Network test instruments and optical components; shares telecom customers and assurance software but a different core product.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RBBN",
+          "comp_ticker": "VIAV"
+        },
+        {
+          "target": "IQ34555",
+          "comp": "IQ96079",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 5.0,
+          "reason": "Sells network test, assurance and analytics equipment and software to telecom carriers; hardware plus software and services, closest telecom-equipment match.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "RBBN",
+          "comp_ticker": "VIAV"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Sells IP communications software and hardware for telecom carriers, cloud providers and large enterprises, including session border controllers, cloud security, unified communications and network analytics. Delivers them as on-premises appliances, virtualized software and cloud services, with maintenance and professional services.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "session border controllers; cloud security software; unified communications software; network analytics; voice gateways",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "maintenance and support; professional services; managed services; cloud hosting",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: telecom service providers, cloud communications providers, large enterprises, critical infrastructure operators; B2G: government agencies and public safety networks",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "telecommunications; cloud communications; enterprise IT; government; critical infrastructure",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: hardware appliances and perpetual software licenses sold to carriers and enterprises; subscription: recurring software and cloud service subscriptions; service fees: maintenance, support, installation and professional services",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: designs and builds its own communications hardware appliances, sold to carriers and enterprises; software / platform: develops communications and security software sold to service providers and enterprises; service provider: operates managed and cloud services for customers' communications networks",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: customers in North America, Europe, Asia-Pacific, Middle East, Latin America and Africa",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: IP communications, cloud security, unified communications and network analytics sold to shared telecom customers",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales teams selling to carriers and large enterprise accounts; partners / resellers: systems integrators and channel resellers serving enterprise customers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: lawful intercept and emergency calling rules, export controls, and data privacy rules such as GDPR",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides IP and optical networking equipment and cloud-native communications software to telecom service providers, enterprises and governments. Products include session border controllers, voice core software, routers and optical transport, plus security and analytics. Delivered as software and hardware with support and professional services.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "session border controllers; cloud voice core and call routing software; IP routing equipment; optical transport systems; network analytics and security software",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "technical support and maintenance; professional services and network deployment; managed cloud communications",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: telecom service providers, cable operators and large enterprises; B2G: government and defense agencies",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "telecommunications; enterprise communications; government and defense; utilities and critical infrastructure",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: hardware and perpetual software licenses; subscription: cloud and software-as-a-service communications offerings; service fees: support, maintenance and professional services",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: designs networking hardware built by contract manufacturers, sold to carriers and enterprises; software / platform: develops communications and security software sold to service providers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: United States, Europe, Middle East, Africa, Asia-Pacific and Latin America",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: cloud and edge communications software plus IP and optical networking",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales to large carriers and enterprises; partners / resellers: channel partners, resellers and system integrators",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "low: Normal business rules, export controls and telecom standards apply, with government security requirements for some sales",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ34555.json",
+      "data": {
+        "company_name": "Ribbon Communications Inc.",
+        "website": "www.ribboncommunications.com",
+        "scrape_status": "ok",
+        "capture_sha256": "fe973babce3d10835d330f54f0af838e793a263145aacd209827d10aa43b787a",
+        "lines": {
+          "P1.1": {
+            "text": "IP Optical Networking and Communications | Ribbon",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.2": {
+            "text": "Ribbon offers innovative IP and optical networking solutions and cloud-to-edge communications solutions. These solutions include optical and IP systems for 5G networks, mobile back-haul, metro aggregation and wholesale carriers. Our cloud-to-edge solutions include enabling Microsoft teams using the Ribbon SBC and UC.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.3": {
+            "text": "Your Path to Autonomous Networks",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.4": {
+            "text": "AIOps and Automation Platform. Ribbon Acumen™ provides a faster, smarter approach for implementing AI-driven automation to lower the cost of operating your multi-vendor network.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.5": {
+            "text": "Cloud Native SBC. Transition to a Session Border Controller in a secure, scalable cloud. No hardware.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.6": {
+            "text": "IP Routing & Optical Networking. Transport services intelligently according to their performance needs.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.7": {
+            "text": "Rockin' Autonomous Networks at the Hard Rock in Ft. Lauderdale - Register today.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.8": {
+            "text": "Ribbon’s Cloud Native Technology Partners with Agentforce Contact Center in the Public Cloud",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.9": {
+            "text": "Integrated cloud native solution, available on AWS Marketplace, delivers secure session control and centralized management",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.10": {
+            "text": "Optimum Integrates Ribbon's AIOps Platform Acumen",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.11": {
+            "text": "Verizon Selects Ribbon to Provide Advanced Voice Network Platform and Services.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.12": {
+            "text": "Brightspeed Invests in Next Generation Services with Ribbon’s Network Transformation Solution",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.13": {
+            "text": "Interview: Bruce McClelland on how operators can benefit from network modernization",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.14": {
+            "text": "AIOps & Automation for Your Network",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.15": {
+            "text": "A comprehensive solution that leverages AI for deployment automation and operational insights.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.16": {
+            "text": "“In service” Upgradable From 7.2Tbs to 14.4Tbs",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.17": {
+            "text": "Powered by Ribbon's IP rNOS and with IPoDWDM capabilities, the NPT 2714 is a 6RU modular, centralised aggregation router which combines the redundancy and I/O diversity of a modular router with the simplicity and cost efficiency of a fixed router.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.18": {
+            "text": "When you need to connect Teams to the rest of the world seamlessly - Ribbon's SBCs allow you to securely make business calls outside of your organization.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.19": {
+            "text": "Ribbon Can help you migrate off Metaswitch. We are the only vendor offering comprehensive Metaswitch replacement options.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.20": {
+            "text": "Unlock Network Value Through Automation",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.21": {
+            "text": "Unify IP/MPLS and optical layers with real-time automation—simplify, accelerate, and optimize with Muse Multilayer Automation Platform.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.22": {
+            "text": "Rural Broadband - Rural DCI",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.23": {
+            "text": "Get greater long-term value from your broadband investment and BEAD funding – a 100G middle mile isn’t enough to meet future needs, such as rural data center interconnect (DCI)",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.24": {
+            "text": "We’ve built a complete ecosystem using Ribbon data… consumed by my central quality teams as well as the larger ecosystem.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.25": {
+            "text": "Ajay Jain, EVP of Digitization, Bharti Airtel",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.26": {
+            "text": "Optimum shares Ribbon’s vision for building AIOps solutions that can dramatically transform the way networks are managed and maintained.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.27": {
+            "text": "Luciano Ramos, AIOps & Automation, Optimum",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.28": {
+            "text": "Ribbon has proven itself as a paragon of reliability, demonstrating adaptability and responsiveness in deploying SBCs and DWDM solutions across our markets",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.29": {
+            "text": "Dirk Karl, Sourcing and Supply Chain, MTN",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.30": {
+            "text": "Randeep Sekhon, CTO, Bharti Airtel",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.31": {
+            "text": "Muse was really the game-changer, ten button clicks in Muse and it’s built! It’s a game-changer for us operationally.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.32": {
+            "text": "Andrew Kalkbrenner, IT Manager, Vibrant Broadband",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.33": {
+            "text": "You Need Faster Service Delivery - Go Cloud Native",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.34": {
+            "text": "Go cloud-native to continuously deliver faster services and revenue, from public or private cloud. Give your customers a better experience with secure, carrier-grade, automated, communications services.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.35": {
+            "text": "Our heritage precedes us, but it does not define us. We leverage our experience to develop more reliable network solutions, as we continually innovate.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.36": {
+            "text": "The Ribbon family has grown over the years, bringing together the best talent in our industry. Our team’s innovative drive and deep engagement are vital to your success -- and ours.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.37": {
+            "text": "Countries Represented by our Customers",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.38": {
+            "text": "Patents developed by our team",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P2.1": {
+            "text": "Ribbon About Us | Voice, IP and Optical Networking",
+            "url": "https://ribboncommunications.com/about-us",
+            "fetched_at": "2026-10-17T20:08:00Z"
+          },
+          "P2.2": {
+            "text": "Ribbon is a global leader of voice, IP and and optical networking solutions -- switching, security, networking and professional services.",
+            "url": "https://ribboncommunications.com/about-us",
+            "fetched_at": "2026-10-17T20:08:00Z"
+          },
+          "P2.3": {
+            "text": "About Ribbon Ribbon Communications delivers, AIOps and automation, secure",
+            "url": "https://ribboncommunications.com/about-us",
+            "fetched_at": "2026-10-17T20:08:00Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Sells network test, measurement and assurance equipment and software, plus optical security and fiber-optic components. Customers are communications service providers, equipment makers, enterprises, government and defense agencies. Products are built in-house and sold directly and through channel partners.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "network test instruments; network assurance software; optical security pigments and films; fiber-optic components; aerospace and defense test equipment",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "network deployment and maintenance support; software subscriptions; technical training",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: telecom operators, equipment manufacturers, cable and enterprise network operators, currency and security printers; B2G: government and defense agencies buying test and aerospace equipment",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "telecommunications; data centers; aerospace and defense; security printing; enterprise networking",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: test instruments, optical components and security materials sold to customers; subscription: software licenses and subscriptions for network assurance platforms; service fees: maintenance, support and installation services for deployed equipment",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: designs and builds test instruments and optical products, sold to carriers and enterprises; component supplier: supplies optical thin-film and fiber components to other equipment makers; software / platform: network assurance and analytics software sold on subscription to operators",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: Sells to customers across North America, Europe, Asia-Pacific and other regions worldwide",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: network test and assurance, optical security products, and fiber-optic components sharing optical technology",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales teams selling to large carriers, government and defense customers; partners / resellers: channel partners and systems integrators reselling network test products; distributors / dealers: regional distributors serving smaller enterprise and service provider customers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: export controls on defense-related products and radio equipment certification rules from FCC and other regulators",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides network test, monitoring and assurance equipment and software for network equipment manufacturers, communications service providers, data centers and enterprises. Also makes optical thin-film coatings and anti-counterfeiting pigments for consumer electronics, authentication and aerospace/defense uses. Products are designed and made in-house and sold mainly to businesses and governments.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "network test and measurement instruments; network monitoring software and probes; fiber optic test equipment; optical coatings and filters; anti-counterfeiting security pigments",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "equipment calibration and repair; technical support and maintenance; training and professional services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: network equipment manufacturers, telecom carriers, cable operators, data centers, enterprises, consumer electronics and currency/security makers; B2G: defense and aerospace agencies, central banks and military test programs",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "telecommunications; data centers; enterprise networks; aerospace and defense; consumer electronics; currency security",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: test instruments, optical components, pigments and coatings; subscription: software licenses and monitoring software subscriptions; service fees: support, maintenance, calibration and repair contracts",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: builds test equipment and optical components from purchased parts, sold to carriers, equipment makers and enterprises; component supplier: supplies optical coatings, filters and pigments to electronics, security printing and defense customers; software / platform: network assurance and monitoring software for service providers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: Americas, Europe, Middle East, Africa and Asia-Pacific",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: network test and assurance, plus optical security and performance coatings built on optical technology",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales to large carriers, equipment makers and enterprises; distributors / dealers: test equipment distributors and channel partners; partners / resellers: value-added resellers and system integrators",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "low: normal business rules plus export controls and environmental/materials rules, no operating licenses required",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ96079.json",
+      "data": {
+        "company_name": "Viavi Solutions Inc.",
+        "website": "www.viavisolutions.com",
+        "scrape_status": "ok",
+        "capture_sha256": "bafb2a7b43199e32f51794c37f454afe4aad0c10a595c5369bab616373883ffa",
+        "lines": {
+          "P1.1": {
+            "text": "VIAVI Solutions | Network Test, Monitoring, and Assurance",
+            "url": "https://www.viavisolutions.com/en-us",
+            "fetched_at": "2026-10-17T20:20:59Z"
+          },
+          "P1.2": {
+            "text": "VIAVI is a global leader in test and measurement and optical technologies",
+            "url": "https://www.viavisolutions.com/en-us",
+            "fetched_at": "2026-10-17T20:20:59Z"
+          },
+          "P1.3": {
+            "text": "Our test, monitoring, assurance, and resilient position, navigation and timing solutions enable and secure critical infrastructure ranging from data center ecosystems and communication networks to military, aerospace, railway and first responder communications. In addition, we develop and advance technologies used in high-volume optical applications across anti-counterfeiting, consumer electronics, aerospace, industrial and automotive end markets.",
+            "url": "https://www.viavisolutions.com/en-us",
+            "fetched_at": "2026-10-17T20:20:59Z"
+          },
+          "P1.4": {
+            "text": "Explore Our Technologies and Solutions",
+            "url": "https://www.viavisolutions.com/en-us",
+            "fetched_at": "2026-10-17T20:20:59Z"
+          },
+          "P1.5": {
+            "text": "From testing, assuring, and securing the largest communications networks around the globe, to the coatings and filters that make your car’s spatial sensing possible, our technologies have a diverse impact on the world. Discover how we enable new possibilities that touch every area of life.",
+            "url": "https://www.viavisolutions.com/en-us",
+            "fetched_at": "2026-10-17T20:20:59Z"
+          },
+          "P1.6": {
+            "text": "VIAVI Solutions by the Numbers",
+            "url": "https://www.viavisolutions.com/en-us",
+            "fetched_at": "2026-10-17T20:20:59Z"
+          },
+          "P2.1": {
+            "text": "Services | VIAVI Solutions Inc.",
+            "url": "https://www.viavisolutions.com/en-us/products-and-services/services",
+            "fetched_at": "2026-10-17T20:21:00Z"
+          },
+          "P2.2": {
+            "text": "The links below help you find the Services and Support you’ll want to increase your ROI and protect your investment in VIAVI equipment.",
+            "url": "https://www.viavisolutions.com/en-us/products-and-services/services",
+            "fetched_at": "2026-10-17T20:21:00Z"
+          },
+          "P2.3": {
+            "text": "Maximize your ROI with training and services.",
+            "url": "https://www.viavisolutions.com/en-us/products-and-services/services",
+            "fetched_at": "2026-10-17T20:21:00Z"
+          },
+          "P2.4": {
+            "text": "Accelerate your start-up and keep your calibration and repair costs predictable with VIAVI Care Support Plans.",
+            "url": "https://www.viavisolutions.com/en-us/products-and-services/services",
+            "fetched_at": "2026-10-17T20:21:00Z"
+          },
+          "P2.5": {
+            "text": "VIAVI offers repair and calibration services both onsite and at our certified maintenance centers.",
+            "url": "https://www.viavisolutions.com/en-us/products-and-services/services",
+            "fetched_at": "2026-10-17T20:21:00Z"
+          },
+          "P2.6": {
+            "text": "VIAVI software maintenance and support contracts protect your VIAVI investment while maximizing productivity.",
+            "url": "https://www.viavisolutions.com/en-us/products-and-services/services",
+            "fetched_at": "2026-10-17T20:21:00Z"
+          },
+          "P2.7": {
+            "text": "Come up to speed quickly and get certified on the latest technologies with the help of our expert instructors.",
+            "url": "https://www.viavisolutions.com/en-us/products-and-services/services",
+            "fetched_at": "2026-10-17T20:21:00Z"
+          },
+          "P2.8": {
+            "text": "Get top quality certified refurbished VIAVI equipment direct from VIAVI through our ENCORE Program.",
+            "url": "https://www.viavisolutions.com/en-us/products-and-services/services",
+            "fetched_at": "2026-10-17T20:21:00Z"
+          },
+          "P2.9": {
+            "text": "Increase the value of your VIAVI purchase with additional training and services from product specialists.",
+            "url": "https://www.viavisolutions.com/en-us/products-and-services/services",
+            "fetched_at": "2026-10-17T20:21:00Z"
+          },
+          "P2.10": {
+            "text": "Start here by requesting an RMA.",
+            "url": "https://www.viavisolutions.com/en-us/products-and-services/services",
+            "fetched_at": "2026-10-17T20:21:00Z"
+          },
+          "P3.1": {
+            "text": "About Us | VIAVI Solutions Inc.",
+            "url": "https://www.viavisolutions.com/en-us/corporate/about-us",
+            "fetched_at": "2026-10-17T20:21:01Z"
+          },
+          "P3.2": {
+            "text": "VIAVI is a global leader in test and measurement and optical technologies. Our test, monitoring, assurance, and resilient position, navigation and timing solutions enable and secure critical infrastructure ranging from data center ecosystems and communication networks to military, aerospace, railway and first responder communications. In addition, we develop and advance technologies used in high-volume optical applications across anti-counterfeiting, consumer electronics, aerospace, industrial and automotive end markets.",
+            "url": "https://www.viavisolutions.com/en-us/corporate/about-us",
+            "fetched_at": "2026-10-17T20:21:01Z"
+          },
+          "P3.3": {
+            "text": "2023 marks a historic 100-year milestone for VIAVI. Our strategic acquisitions have enabled VIAVI to evolve into the company we are today. We are proud to have partnered with our customers to develop disruptive innovations over the course of history.",
+            "url": "https://www.viavisolutions.com/en-us/corporate/about-us",
+            "fetched_at": "2026-10-17T20:21:01Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

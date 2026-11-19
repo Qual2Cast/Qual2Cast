@@ -1,0 +1,913 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ341021__IQ415352",
+    "target": "IQ341021",
+    "comp": "IQ415352",
+    "target_ticker": "CLB",
+    "comp_ticker": "FTK",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ341021__IQ415352",
+        "target": "IQ341021",
+        "comp": "IQ415352",
+        "target_ticker": "CLB",
+        "comp_ticker": "FTK",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ341021",
+          "comp": "IQ415352",
+          "method": "B3",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "CLB",
+          "comp_ticker": "FTK"
+        },
+        {
+          "target": "IQ341021",
+          "comp": "IQ415352",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "CLB",
+          "comp_ticker": "FTK"
+        },
+        {
+          "target": "IQ341021",
+          "comp": "IQ415352",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "CLB",
+          "comp_ticker": "FTK"
+        },
+        {
+          "target": "IQ341021",
+          "comp": "IQ415352",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "CLB",
+          "comp_ticker": "FTK"
+        },
+        {
+          "target": "IQ341021",
+          "comp": "IQ415352",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "CLB",
+          "comp_ticker": "FTK"
+        },
+        {
+          "target": "IQ341021",
+          "comp": "IQ415352",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "CLB",
+          "comp_ticker": "FTK"
+        },
+        {
+          "target": "IQ341021",
+          "comp": "IQ415352",
+          "method": "screen_haiku",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Sells production and completion chemicals and field services to the same operators Core Lab serves for production enhancement.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "CLB",
+          "comp_ticker": "FTK"
+        },
+        {
+          "target": "IQ341021",
+          "comp": "IQ415352",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Sells production enhancement and well completion chemicals with on-site blending and field technical support to oil and gas operators.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "CLB",
+          "comp_ticker": "FTK"
+        },
+        {
+          "target": "IQ341021",
+          "comp": "IQ415352",
+          "method": "screen_sonnet",
+          "kept": false,
+          "rank": 2.0,
+          "reason": "Specialty chemicals and analytics overlap with production chemicals, but mainly commodity-like US completion chemistry, not reservoir description.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "CLB",
+          "comp_ticker": "FTK"
+        },
+        {
+          "target": "IQ341021",
+          "comp": "IQ415352",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Sells completion and production chemicals plus field services and well data analytics to oil and gas operators.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "CLB",
+          "comp_ticker": "FTK"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides reservoir description, production enhancement and reservoir management services, plus proprietary perforating and reservoir testing products, to oil and gas producers. Analyzes rock and fluid samples in laboratories and deploys specialized equipment and engineering teams at well sites.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "perforating systems; reservoir fluid sampling tools; production enhancement chemicals",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "reservoir description; reservoir management consulting; core and fluid laboratory analysis; well completion and production optimization",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: oil and gas exploration and production companies, including national oil companies",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "oil and natural gas exploration and production",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: perforating systems and production chemicals sold to operators; service fees: reservoir analysis, laboratory testing and field services; project or contract: multi-well reservoir studies and production enhancement programs under contract",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: takes in well and reservoir samples and data, sells analysis and field services to oil and gas operators; OEM / manufacturer: makes perforating systems and testing tools, sold to operators and service companies",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: operations in over fifty countries across major oil and gas producing regions",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: reservoir description, production enhancement and reservoir management, sharing oil and gas operator customers and technical expertise",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: technical sales teams selling directly to oil and gas operators; own locations: laboratories and field offices in producing regions",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: environmental, workplace safety and export rules for explosive perforating products and chemicals",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides laboratory-based reservoir rock and fluid analysis, core analysis, and production enhancement services to oil and gas operators. Serves national and international oil companies and service firms. Delivers through laboratories, field crews and engineered products such as perforating charges and diagnostics.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "perforating charges and guns; completion diagnostic tools; reservoir fluid sampling equipment",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "core analysis; reservoir fluid analysis; crude oil assay and characterization; completion diagnostics; geological and petrophysical consulting",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: national and international oil companies, independent operators, oilfield service companies",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "oil and gas exploration and production; energy",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "service fees: laboratory analysis and reservoir studies billed per project or sample; product sales: perforating systems and diagnostic products sold to operators and service companies",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: performs laboratory and field analysis for oil and gas operators; OEM / manufacturer: manufactures perforating charges and diagnostic products for completion service companies and operators",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: North America, Latin America, Europe, Africa, Middle East, Asia-Pacific",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: Reservoir Description (core and fluid analysis) and Production Enhancement (perforating, diagnostics)",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: technical sales to oil and gas operators and service companies; own locations: network of laboratories and field offices worldwide",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: explosives manufacture and transport (ATF, export controls) and environmental and safety rules for oilfield work",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ341021.json",
+      "data": {
+        "company_name": "Core Laboratories Inc.",
+        "website": "www.corelab.com",
+        "scrape_status": "ok",
+        "capture_sha256": "c7a6e693809020da778728689d2b4ae6921d0fbda791f3e8ca55895acb0c9c15",
+        "lines": {
+          "P1.1": {
+            "text": "Core Lab: Leaders in Reservoir Optimization Solutions",
+            "url": "https://www.corelab.com/",
+            "fetched_at": "2026-10-17T19:23:29Z"
+          },
+          "P1.2": {
+            "text": "For 90 years, Core Lab has provided advanced core and fluid analysis, production optimization solutions, and expert consulting to the petroleum industry.",
+            "url": "https://www.corelab.com/",
+            "fetched_at": "2026-10-17T19:23:29Z"
+          },
+          "P1.3": {
+            "text": "Trusted by the World’s Leading Energy Companies for 90 Years",
+            "url": "https://www.corelab.com/",
+            "fetched_at": "2026-10-17T19:23:29Z"
+          },
+          "P1.4": {
+            "text": "Engineered to unlock higher reservoir connectivity, improve breakdown performance, and faster stage execution.",
+            "url": "https://www.corelab.com/",
+            "fetched_at": "2026-10-17T19:23:29Z"
+          },
+          "P1.5": {
+            "text": "Developing best-in-class tools to maximize results for the world’s leading energy companies.",
+            "url": "https://www.corelab.com/",
+            "fetched_at": "2026-10-17T19:23:29Z"
+          },
+          "P1.6": {
+            "text": "Core Predict™ – AI Analog Data Search",
+            "url": "https://www.corelab.com/",
+            "fetched_at": "2026-10-17T19:23:29Z"
+          },
+          "P1.7": {
+            "text": "Core Predict is an artificial intelligence tool that analyzes thin section images and searches our global rock catalog for measured petrophysical and geological analog data.",
+            "url": "https://www.corelab.com/",
+            "fetched_at": "2026-10-17T19:23:29Z"
+          },
+          "P1.8": {
+            "text": "Core Lab’s Saybolt team provides independent quantity and quality inspection of all types of refined products drawn from vessels, tanks, barges, and other bulk storage facilities to help with loss control.",
+            "url": "https://www.corelab.com/",
+            "fetched_at": "2026-10-17T19:23:29Z"
+          },
+          "P1.9": {
+            "text": "Tracer diagnostics provide operators long term, data-driven insights to optimize well spacing and enhance overall field development strategies.",
+            "url": "https://www.corelab.com/",
+            "fetched_at": "2026-10-17T19:23:29Z"
+          },
+          "P1.10": {
+            "text": "3AB™ – Process Driven A/B Testing",
+            "url": "https://www.corelab.com/",
+            "fetched_at": "2026-10-17T19:23:29Z"
+          },
+          "P1.11": {
+            "text": "Field trials, lab testing, and data analytics combine to de-risk decision making, creating a statistically relevant data set in just two to three wells.",
+            "url": "https://www.corelab.com/",
+            "fetched_at": "2026-10-17T19:23:29Z"
+          },
+          "P1.12": {
+            "text": "Core Lab is the premiere partner for energy companies for Carbon Capture and Storage (CCS) subsurface characterization.",
+            "url": "https://www.corelab.com/",
+            "fetched_at": "2026-10-17T19:23:29Z"
+          },
+          "P1.13": {
+            "text": "Now into its 40th year, the consortium focuses on investigating methods to optimize recovery from hydraulically fractured oil and gas wells.",
+            "url": "https://www.corelab.com/",
+            "fetched_at": "2026-10-17T19:23:29Z"
+          },
+          "P1.14": {
+            "text": "Core Lab has delivered innovative technologies and data-driven insights that help clients derisk decisions across complex energy environments around the world.",
+            "url": "https://www.corelab.com/",
+            "fetched_at": "2026-10-17T19:23:29Z"
+          },
+          "P1.15": {
+            "text": "Beyond Today’s Wells: Exploring the Future of Resource Recovery",
+            "url": "https://www.corelab.com/",
+            "fetched_at": "2026-10-17T19:23:29Z"
+          },
+          "P1.16": {
+            "text": "Supporting Innovation and Knowledge Sharing Across the Energy Industry",
+            "url": "https://www.corelab.com/",
+            "fetched_at": "2026-10-17T19:23:29Z"
+          },
+          "P1.17": {
+            "text": "The leading provider of proprietary and patented reservoir description and production enhancement services and products.",
+            "url": "https://www.corelab.com/",
+            "fetched_at": "2026-10-17T19:23:29Z"
+          },
+          "P2.1": {
+            "text": "About Core Lab - 90 Years of Petroleum Industry Innovation",
+            "url": "https://www.corelab.com/about/",
+            "fetched_at": "2026-10-17T19:23:30Z"
+          },
+          "P2.2": {
+            "text": "Explore Core Lab’s legacy of technical excellence, advanced analytical services, and industry-leading solutions for optimizing reservoir performance.",
+            "url": "https://www.corelab.com/about/",
+            "fetched_at": "2026-10-17T19:23:30Z"
+          },
+          "P2.3": {
+            "text": "Core Lab has built a strong global reputation for delivering proprietary and patented reservoir description and production enhancement services. We develop innovative, tailored solutions and advanced products that optimize reservoir performance, maximize hydrocarbon recovery, and meet the evolving needs of the oil and gas industry.",
+            "url": "https://www.corelab.com/about/",
+            "fetched_at": "2026-10-17T19:23:30Z"
+          },
+          "P2.4": {
+            "text": "They simply define “how we do things around here”.",
+            "url": "https://www.corelab.com/about/",
+            "fetched_at": "2026-10-17T19:23:30Z"
+          },
+          "P2.5": {
+            "text": "We provide a work environment where employees are empowered to manage their work safely and responsibly.",
+            "url": "https://www.corelab.com/about/",
+            "fetched_at": "2026-10-17T19:23:30Z"
+          },
+          "P2.6": {
+            "text": "We behave consistently, acting in accordance with moral, ethical, and professional guidelines.",
+            "url": "https://www.corelab.com/about/",
+            "fetched_at": "2026-10-17T19:23:30Z"
+          },
+          "P2.7": {
+            "text": "We build and maintain the highest levels of customer service and satisfaction internally and externally.",
+            "url": "https://www.corelab.com/about/",
+            "fetched_at": "2026-10-17T19:23:30Z"
+          },
+          "P2.8": {
+            "text": "We promote an atmosphere of openness, respect, and dignity, producing confidence in our intentions.",
+            "url": "https://www.corelab.com/about/",
+            "fetched_at": "2026-10-17T19:23:30Z"
+          },
+          "P2.9": {
+            "text": "Strong corporate governance is the cornerstone of our success. This begins with solid leadership.",
+            "url": "https://www.corelab.com/about/",
+            "fetched_at": "2026-10-17T19:23:30Z"
+          },
+          "P2.10": {
+            "text": "Our commitment to sustainability includes careful consideration of social and environmental impacts and dedication to the highest standards of governance.",
+            "url": "https://www.corelab.com/about/",
+            "fetched_at": "2026-10-17T19:23:30Z"
+          },
+          "P2.11": {
+            "text": "We continue to build and maintain a workforce of talented and diverse individuals.",
+            "url": "https://www.corelab.com/about/",
+            "fetched_at": "2026-10-17T19:23:30Z"
+          },
+          "P3.1": {
+            "text": "Products, Services and Solutions - Core Lab",
+            "url": "https://www.corelab.com/about/products-services/",
+            "fetched_at": "2026-10-17T19:23:32Z"
+          },
+          "P3.2": {
+            "text": "Explore Core Lab's full range of products and services supporting energy, laboratory testing, and technical solutions worldwide.",
+            "url": "https://www.corelab.com/about/products-services/",
+            "fetched_at": "2026-10-17T19:23:32Z"
+          },
+          "P3.3": {
+            "text": "Core Lab is a leading provider of proprietary and patented reservoir description and production enhancement services and products. If you’re looking for documentation, you can also search our catalog.",
+            "url": "https://www.corelab.com/about/products-services/",
+            "fetched_at": "2026-10-17T19:23:32Z"
+          },
+          "P3.4": {
+            "text": "RDS™ – Rapid Deployment System",
+            "url": "https://www.corelab.com/about/products-services/",
+            "fetched_at": "2026-10-17T19:23:32Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Develops and sells specialty chemistry and data analytics for oil and gas well completion and production. Customers are oil and gas operators and oilfield service companies, served through blended chemical products and field services.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "well completion chemicals; production chemicals; friction reducers; drilling fluid additives",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "on-site chemical blending; field technical support; well data analytics",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: oil and gas exploration and production operators, oilfield service companies",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "oil and gas; energy services",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: chemical products sold to well operators and service companies; service fees: on-site blending, field support and well data services",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: formulates and blends chemicals from purchased raw materials, sold to oilfield operators; service provider: delivers chemical application and field services at well sites for energy producers; software / platform: provides data analytics for well performance, sold to operators and service firms",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: Permian Basin, Eagle Ford, Marcellus and other major US oil and gas basins",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: oilfield chemistry products, field chemical services and well data analytics sold to the same energy customers",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales teams selling directly to oil and gas operators and service companies; own locations: chemical blending and storage facilities serving basins across the US",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: environmental, chemical handling and hazardous materials transport rules, mainly EPA and state oil and gas regulators",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Develops and sells specialty chemistries such as surfactants, solvents and cleaning/ well-treatment additives to oilfield service companies and energy producers. Also provides real-time chemistry and fluid analytics through its data analytics business (ProFrac-related customer concentration). Chemicals are manufactured and blended in Texas and delivered to customers.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "specialty oilfield chemicals; surfactants; solvents and terpene-based additives; industrial cleaning and consumer-ingredient chemistries; chemistry analyzers",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "real-time fluid analytics; chemistry monitoring and optimization; technical support",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: oilfield service companies, oil and gas producers, industrial and consumer product manufacturers",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "oil and gas; industrial cleaning; consumer products",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: specialty chemicals sold to oilfield service and energy customers; subscription: data analytics and monitoring equipment and software; service fees: analytics and chemistry monitoring services",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: blends specialty chemicals from purchased raw materials, sold to oilfield service companies and producers; service provider: provides real-time fluid analytics to energy operators",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: Primarily US onshore oil and gas basins, plus Middle East and other international markets",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "small",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: specialty chemicals and data analytics, both serving energy customers",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales teams selling to oilfield service companies and producers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: chemical manufacturing and handling under EPA, TSCA, OSHA and oilfield chemical disclosure rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ415352.json",
+      "data": {
+        "company_name": "Flotek Industries, Inc.",
+        "website": "www.flotekind.com",
+        "scrape_status": "ok",
+        "capture_sha256": "b2075537804d337b241397e97ffdf06768ef03c699d713151bfec2f67264dcb4",
+        "lines": {
+          "P1.1": {
+            "text": "Flotek Industries - Leading Chemistry & Data Analytics for Oil and Gas Efficiency",
+            "url": "https://www.flotekind.com/",
+            "fetched_at": "2026-10-17T19:33:22Z"
+          },
+          "P1.2": {
+            "text": "Discover Flotek's innovative chemistry solutions and data analytics, designed to enhance the performance and economics of your oil and gas operations.",
+            "url": "https://www.flotekind.com/",
+            "fetched_at": "2026-10-17T19:33:22Z"
+          },
+          "P1.3": {
+            "text": "World Class Chemistry and Data Analytics Technologies",
+            "url": "https://www.flotekind.com/",
+            "fetched_at": "2026-10-17T19:33:22Z"
+          },
+          "P1.4": {
+            "text": "Unlocking Value through the Utilization of Flotek’s State-of-the-Art Products and Services",
+            "url": "https://www.flotekind.com/",
+            "fetched_at": "2026-10-17T19:33:22Z"
+          },
+          "P1.5": {
+            "text": "Optimize Your Asset Economics with Flotek’s Advanced Product Portfolio. As an advanced technology-driven company specializing in chemistry and data solutions, Flotek seeks to provide unique and innovative solutions to its customers in both domestic and international markets across a diverse range of industries. Flotek is committed to delivering products and services that endeavor to maximize customer returns by leveraging chemistry as the common value creation platform.",
+            "url": "https://www.flotekind.com/",
+            "fetched_at": "2026-10-17T19:33:22Z"
+          },
+          "P1.6": {
+            "text": "Flotek offers a holistic suite of chemistry technologies and services, dedicated to safeguarding the integrity and optimizing the efficiency of your oil and gas operations. Our seasoned specialists work in partnership with you to craft tailored solutions. We harness the power of time-tested chemistry, cutting-edge technologies and data-driven methodologies to provide pioneering and impactful solutions designed to elevate your operations and fuel your operational excellence.",
+            "url": "https://www.flotekind.com/",
+            "fetched_at": "2026-10-17T19:33:22Z"
+          },
+          "P1.7": {
+            "text": "Flotek stands at the forefront of innovation in the realm of the “Data as a Service” model within the oil and gas industry. Our technology boasts an established history of delivering reliable performance and value across global operations, and we continue to further refine our solutions to meet our customer’s changing needs.",
+            "url": "https://www.flotekind.com/",
+            "fetched_at": "2026-10-17T19:33:22Z"
+          },
+          "P1.8": {
+            "text": "Providing cost-effective chemistry solutions to drive results",
+            "url": "https://www.flotekind.com/",
+            "fetched_at": "2026-10-17T19:33:22Z"
+          },
+          "P1.9": {
+            "text": "Introducing optimized chemistry strategies for enhanced performance",
+            "url": "https://www.flotekind.com/",
+            "fetched_at": "2026-10-17T19:33:22Z"
+          },
+          "P1.10": {
+            "text": "Empowering operators to boost production, while minimizing costs per barrel",
+            "url": "https://www.flotekind.com/",
+            "fetched_at": "2026-10-17T19:33:22Z"
+          },
+          "P1.11": {
+            "text": "Partnering with service companies to leverage our capabilities and resources, optimizing their operations.",
+            "url": "https://www.flotekind.com/",
+            "fetched_at": "2026-10-17T19:33:22Z"
+          },
+          "P1.12": {
+            "text": "Harnessing laser technology, patented gas distribution and intelligent software to transform mobile power generation.",
+            "url": "https://www.flotekind.com/",
+            "fetched_at": "2026-10-17T19:33:22Z"
+          },
+          "P1.13": {
+            "text": "Providing efficient and effective measurement and support for upstream, midstream and downstream applications.",
+            "url": "https://www.flotekind.com/",
+            "fetched_at": "2026-10-17T19:33:22Z"
+          },
+          "P1.14": {
+            "text": "Providing optimization of efficiency and output through real-time data measurements.",
+            "url": "https://www.flotekind.com/",
+            "fetched_at": "2026-10-17T19:33:22Z"
+          },
+          "P2.1": {
+            "text": "About Flotek Industries - Our Mission, Vision, and Specialty Chemistry Solutions",
+            "url": "https://www.flotekind.com/our-company/",
+            "fetched_at": "2026-10-17T19:33:23Z"
+          },
+          "P2.2": {
+            "text": "Learn about our dedication to data-driven, technology-fueled chemistry solutions, and our commitment to sustainability and innovation.",
+            "url": "https://www.flotekind.com/our-company/",
+            "fetched_at": "2026-10-17T19:33:23Z"
+          },
+          "P2.3": {
+            "text": "Data-Infused, Technology Driven Specialty Chemistry",
+            "url": "https://www.flotekind.com/our-company/",
+            "fetched_at": "2026-10-17T19:33:23Z"
+          },
+          "P2.4": {
+            "text": "Flotek Industries, Inc. collaborates closely with our customers, offering tailored, performance-enhancing chemical and data analytics technology solutions that are designed to drive tangible value creation for our customers. Rooted in a commitment to research and innovation, our core mission revolves around fostering enduring trust with our customers. We achieve this through transparent communication, unwavering integrity in our data and interactions, and a genuine commitment to safeguarding our customers’ resources as if they were our own. Our dedication is unwavering, as we tirelessly strive to deliver nothing less than the highest standards of quality, loyalty, and service, ensuring that we are the foremost partners in the transformative impact our technologies bring.",
+            "url": "https://www.flotekind.com/our-company/",
+            "fetched_at": "2026-10-17T19:33:23Z"
+          },
+          "P2.5": {
+            "text": "Our vision is to become the preferred collaborative ESG partner of choice by offering sustainable chemistry technology and cutting-edge digital analytics solutions.",
+            "url": "https://www.flotekind.com/our-company/",
+            "fetched_at": "2026-10-17T19:33:23Z"
+          },
+          "P2.6": {
+            "text": "An advanced technology-driven, chemical and data analytics company providing unique and innovative solutions.",
+            "url": "https://www.flotekind.com/our-company/",
+            "fetched_at": "2026-10-17T19:33:23Z"
+          },
+          "P2.7": {
+            "text": "We collaborate and deliver sustainable, optimized chemistry and data solutions that seek to maximize our customers’ value.",
+            "url": "https://www.flotekind.com/our-company/",
+            "fetched_at": "2026-10-17T19:33:23Z"
+          },
+          "P2.8": {
+            "text": "Our chemistry solutions have a proven, positive impact on sustainability and reducing the overall environmental impact of energy on air, land, water and people",
+            "url": "https://www.flotekind.com/our-company/",
+            "fetched_at": "2026-10-17T19:33:23Z"
+          },
+          "P2.9": {
+            "text": "Our comprehensive chemistry technologies, logistics and services are designed to help our customers improve their return on capital, lower their operational costs and realize tangible environmental benefits, no matter the complexity or location.",
+            "url": "https://www.flotekind.com/our-company/",
+            "fetched_at": "2026-10-17T19:33:23Z"
+          },
+          "P2.10": {
+            "text": "Our team of experienced specialists works closely with our customers to identify the underlying issues behind our customer’s concerns and develop effective strategies that address complex production challenges. We closely collaborate with our customers to deliver innovative technical solutions that",
+            "url": "https://www.flotekind.com/our-company/",
+            "fetched_at": "2026-10-17T19:33:23Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

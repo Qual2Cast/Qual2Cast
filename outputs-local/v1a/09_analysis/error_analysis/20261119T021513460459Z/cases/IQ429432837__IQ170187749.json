@@ -1,0 +1,898 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ429432837__IQ170187749",
+    "target": "IQ429432837",
+    "comp": "IQ170187749",
+    "target_ticker": "WHD",
+    "comp_ticker": "DTI",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ429432837__IQ170187749",
+        "target": "IQ429432837",
+        "comp": "IQ170187749",
+        "target_ticker": "WHD",
+        "comp_ticker": "DTI",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ429432837",
+          "comp": "IQ170187749",
+          "method": "B3",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "WHD",
+          "comp_ticker": "DTI"
+        },
+        {
+          "target": "IQ429432837",
+          "comp": "IQ170187749",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "WHD",
+          "comp_ticker": "DTI"
+        },
+        {
+          "target": "IQ429432837",
+          "comp": "IQ170187749",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "WHD",
+          "comp_ticker": "DTI"
+        },
+        {
+          "target": "IQ429432837",
+          "comp": "IQ170187749",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "WHD",
+          "comp_ticker": "DTI"
+        },
+        {
+          "target": "IQ429432837",
+          "comp": "IQ170187749",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "WHD",
+          "comp_ticker": "DTI"
+        },
+        {
+          "target": "IQ429432837",
+          "comp": "IQ170187749",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "WHD",
+          "comp_ticker": "DTI"
+        },
+        {
+          "target": "IQ429432837",
+          "comp": "IQ170187749",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 4.0,
+          "reason": "Rents downhole drilling motors and tools for drilling, not wellheads or pressure control equipment for completions.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "WHD",
+          "comp_ticker": "DTI"
+        },
+        {
+          "target": "IQ429432837",
+          "comp": "IQ170187749",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Rents and sells downhole tools to operators and drilling contractors, with on-site technical support at onshore wells.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "WHD",
+          "comp_ticker": "DTI"
+        },
+        {
+          "target": "IQ429432837",
+          "comp": "IQ170187749",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Rents and sells onshore US well-site equipment to operators with yard-based field support, a similar rental-plus-product OFS model.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "WHD",
+          "comp_ticker": "DTI"
+        },
+        {
+          "target": "IQ429432837",
+          "comp": "IQ170187749",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Rents and sells downhole drilling tools to E&P operators and drillers, equipment rental plus product sales model.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "WHD",
+          "comp_ticker": "DTI"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs, manufactures and rents wellhead and pressure control systems for oil and gas wells. Sells to exploration and production operators and provides flowback services at well sites.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "wellheads; frac trees; valves; pressure control equipment",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "flowback services; pressure control rental crews; well-site support",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: oil and gas exploration and production operators, oilfield service companies",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "oil and gas exploration and production; oilfield services",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: wellheads, frac trees and valves sold to producers; rental or leasing: pressure control equipment rented for well completions; service fees: flowback and well-site services billed per job",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: builds wellheads and valves, sold to oil and gas producers; service provider: runs pressure control and flowback crews at well sites for operators",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "North America: US oil basins such as the Permian, Eagle Ford and Bakken, plus Canada",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: wellheads, pressure control equipment, valves and flowback services",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales teams selling to exploration and production operators; own locations: manufacturing and service yards in US oil basins",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: well-control equipment safety standards and environmental rules for flowback, overseen by state oil and gas regulators and EPA",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and manufactures wellheads and well completion equipment, notably the SafeDrill wellhead and frac-related pressure control equipment, for oil and gas operators and pressure pumpers. Also rents and services spoolable pipe and surface equipment at the well site. Manufactures in company-owned facilities.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "wellheads; frac pressure control equipment; spoolable pipe; spare parts",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "equipment rental; field service and repair; wellsite installation support",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: oil and gas exploration and production operators, pressure pumping service companies",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "oil and gas exploration and production; hydraulic fracturing; well completions",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "rental or leasing: rental of wellhead and pressure control equipment per job; product sales: wellheads and spoolable pipe sold to operators; service fees: field service, installation, and repair",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: builds wellheads and pressure control equipment from purchased steel and components, sold to operators and pressure pumpers; asset operator: owns rental fleet of wellheads and spoolable pipe deployed at customer well sites",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "North America: US basins such as Permian, plus Canada and some Australia operations",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: wellheads, spoolable pipe, and related rental and service for well completions",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: direct sales and field service teams serving operators and pressure pumpers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: oilfield equipment standards such as API specifications, plus environmental and workplace safety rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ429432837.json",
+      "data": {
+        "company_name": "Cactus, Inc.",
+        "website": "www.cactuswhd.com",
+        "scrape_status": "ok",
+        "capture_sha256": "5e32be6db35abb847f6deb7a85e5297851f08dd7c908e78f78e4f7b36c57d60b",
+        "lines": {
+          "P1.1": {
+            "text": "Wellhead Equipment Manufacturers | Cactus Wellhead™",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.2": {
+            "text": "Leading manufacturer of pressure control equipment used during drilling, completion and production operations onshore and offshore. Headquartered in Houston, Tx.",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.3": {
+            "text": "Leading the Oil & Gas Industry in Execution Excellence",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.4": {
+            "text": "Cactus Wellhead™ manufactures and services pressure control equipment for onshore and offshore oil and gas drilling, completion and production. Our experience is unparalleled. Key managers have not only accumulated decades of knowledge in the industry but have also worked together as a team for an average of 25 years. As a company, our roots go back 50 years and three generations.",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.5": {
+            "text": "faster, safer and more productive solutions",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.6": {
+            "text": "Cactus™ SafeDrill ® Wellhead Systems",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.7": {
+            "text": "Cactus™ SafeDrill ® Wellhead Systems include a complete line of drill-through single piece multi-bowl wellhead systems that enhance field personnel safety and save valuable rig time. These efficient and innovative systems, with a straight bore design and lock ring technology, are safer, easier and faster to install than conventional wellhead systems and maximize the benefits of pad drilling.",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.8": {
+            "text": "Discover Cactus™ SafeDrill ® Wellhead Systems",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.9": {
+            "text": "Cactus Wellhead™ has the quality products and the experienced service technicians to assure that your frac job will be completed without surprises.",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.10": {
+            "text": "Cactus Wellhead™ manufactures and services pressure control equipment for onshore and offshore oil and gas drilling, completion and production.",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.11": {
+            "text": "Cactus Wellhead™ products and systems are designed and manufactured to the highest industry standards. We have implemented a fully documented API Spec 6A and Q1/ISO 9001:2015 quality management system that supports our state-of-the-art manufacturing facilities. Hands-on involvement and communication by branch operations, installation crews and manufacturing facilities ensure that Cactus Wellhead™ is fully committed to quality excellence and reduction of risk.",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.12": {
+            "text": "ENSURING PERSONNEL, ASSET & COMMUNITY PROTECTION",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.13": {
+            "text": "Cactus Wellhead™, through a formal and comprehensive company-wide HSE management program, fulfills its commitment for the well-being and protection of individuals at all field and company locations. We establish and adhere to our own strict safety standards as well as those of our valued customers.",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.14": {
+            "text": "Delhi Street Northern Contractors Yard Moomba South Australia",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.15": {
+            "text": "Futai Road, Taiping Industry Park Taiping Town, Xiangcheng County Suzhou, Jiangsu, China 215137",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.16": {
+            "text": "Cactus Wellhead™ Sales and Service",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.17": {
+            "text": "Factory FA2 (Factory symbols are FA2-1 and FA2-2) Lot 7, Cam Dien - Luong Dien Industrial Park, Cam Giang Commune, Hai Phong City, Vietnam.",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.18": {
+            "text": "Cactus Wellhead™ Manufacturing and Service Center",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.19": {
+            "text": "Cactus Wellhead™ Sales, Service and Rental",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.20": {
+            "text": "AE-Abu Dhabi-Abu Dhabi-Plot # 11D7, Industrial City Abu Dhabi (ICAD) 1 Plot # 11D7, Industrial City Abu Dhabi (ICAD) 1 Plot # 11D7",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P2.1": {
+            "text": "About Us | Cactus Wellhead™",
+            "url": "https://cactuswhd.com/company/",
+            "fetched_at": "2026-10-17T19:18:30Z"
+          },
+          "P2.2": {
+            "text": "Cactus™’ roots in the oilfield reach back three generations to 1957. We strive to gain our customers' trust, deliver reliable products and constantly promote value.",
+            "url": "https://cactuswhd.com/company/",
+            "fetched_at": "2026-10-17T19:18:30Z"
+          },
+          "P2.3": {
+            "text": "Guided by a relentless focus on customer service and the conviction that their resulting loyalty will maximize owner value, we will strive for operational excellence in all dealings with our clients, associates, and suppliers. We will consistently outperform our peers by refusing to compromise on safety, honesty, and professionalism.",
+            "url": "https://cactuswhd.com/company/",
+            "fetched_at": "2026-10-17T19:18:30Z"
+          },
+          "P2.4": {
+            "text": "Our experience is unparalleled. Key managers have not only accumulated decades of knowledge in the industry but have also worked together as a team for an average of 25 years. As a company, our roots go back 50 years and three generations. We are well known and trusted by the industry for our integrity, responsiveness and problem-solving capabilities. Customer responses to our post-job completion surveys confirm their satisfaction with and confidence in their continuing relationship with Cactus™.",
+            "url": "https://cactuswhd.com/company/",
+            "fetched_at": "2026-10-17T19:18:30Z"
+          },
+          "P2.5": {
+            "text": "In order to provide the best and most reliable results for our customers, we engage the industry’s most experienced engineers, manufacture in Cactus™ owned facilities and incorporate stringent quality and safety standards. Our strategically located",
+            "url": "https://cactuswhd.com/company/",
+            "fetched_at": "2026-10-17T19:18:30Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Rents and sells downhole drilling tools, such as mud motors, drill collars and stabilizers, to oil and gas operators and drilling contractors. Delivers them from company yards and service centers in onshore US oilfields.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "downhole drilling motors; drill collars; stabilizers; drilling jars; fishing tools",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "tool rental; drilling tool inspection and repair; on-site technical support",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: oil and gas exploration and production operators, drilling contractors",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "oil and gas; energy services",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: sales of drilling tools to operators and contractors; rental or leasing: rental of downhole tools for drilling jobs; service fees: tool inspection, repair and field support",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: provides tool rental and field services, sells to drilling operators and contractors; asset operator: owns and runs a rental fleet of downhole tools, takes in rental and service fees from drillers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: onshore US oil and gas basins, including the Permian, Eagle Ford and Rockies",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: downhole motors, rental tools, jars and stabilizers for directional and horizontal wells",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "own locations: company yards and service centers near oilfield basins; direct sales: sales made directly to operators and drilling contractors",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: oilfield safety, environmental and hazardous transport rules, no operating license required",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Rents and sells downhole drilling tools and related equipment to oil and gas exploration and production companies and directional drilling service providers. It also provides inspection, repair and directional drilling tool services from a network of service locations.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "downhole drilling tools; drill pipe and drill string components; directional drilling tools; used and new tool sales",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "drilling tool rental; tool inspection and repair; directional drilling services; fishing and wellbore services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: oil and gas operators, drilling contractors and directional drilling service companies",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "oil and gas exploration and production; directional and horizontal drilling; geothermal",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "rental or leasing: rental of downhole drilling tools to drillers and operators; product sales: sales of new and used drilling tools; service fees: inspection, repair and directional drilling services",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "asset operator: owns and rents a fleet of drilling tools to drillers and operators; service provider: inspects, repairs and supports tools and wellbore operations for oilfield customers; OEM / manufacturer: manufactures some proprietary tools sold or rented to oilfield customers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: United States shale basins plus Canada, Latin America, Europe, Middle East and other international markets",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: tool rentals, tool sales and directional drilling services for drilling operations",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales and rental staff serving operators and drilling contractors; own locations: service and rental facilities in oil-producing regions",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: oilfield operations subject to environmental, safety (OSHA) and international trade rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ170187749.json",
+      "data": {
+        "company_name": "Drilling Tools International Corporation",
+        "website": "www.drillingtools.com",
+        "scrape_status": "ok",
+        "capture_sha256": "6a52a041288681f8dea42726ffb30d0ff49c759e957eac1c2600808a9af0665f",
+        "lines": {
+          "P1.1": {
+            "text": "Drilling Tools International | Home",
+            "url": "https://www.drillingtools.com/",
+            "fetched_at": "2026-10-17T19:27:28Z"
+          },
+          "P1.2": {
+            "text": "Next Gen Stabilizers & Reamers",
+            "url": "https://www.drillingtools.com/",
+            "fetched_at": "2026-10-17T19:27:28Z"
+          },
+          "P1.3": {
+            "text": "Construction Completion Slot Recovery Abandonment",
+            "url": "https://www.drillingtools.com/",
+            "fetched_at": "2026-10-17T19:27:28Z"
+          },
+          "P1.4": {
+            "text": "Drilling Tool Design & Manufacturing",
+            "url": "https://www.drillingtools.com/",
+            "fetched_at": "2026-10-17T19:27:28Z"
+          },
+          "P1.5": {
+            "text": "The Next Generation of Extended Reach Drilling",
+            "url": "https://www.drillingtools.com/",
+            "fetched_at": "2026-10-17T19:27:28Z"
+          },
+          "P1.6": {
+            "text": "Introducing the RotoSteer, a cost-effective option for drilling longer-reach horizontal wells.",
+            "url": "https://www.drillingtools.com/",
+            "fetched_at": "2026-10-17T19:27:28Z"
+          },
+          "P1.7": {
+            "text": "Drilling Tools International Corp. Reports 2025 Year End and Fourth Quarter Results - Houston, TX",
+            "url": "https://www.drillingtools.com/",
+            "fetched_at": "2026-10-17T19:27:28Z"
+          },
+          "P1.8": {
+            "text": "Drilling Tools International Corp. Reports 2025 Third Quarter Results - Houston, TX",
+            "url": "https://www.drillingtools.com/",
+            "fetched_at": "2026-10-17T19:27:28Z"
+          },
+          "P1.9": {
+            "text": "AADE Houston 3rd Annual Operators Forum - Houston, TX",
+            "url": "https://www.drillingtools.com/",
+            "fetched_at": "2026-10-17T19:27:28Z"
+          },
+          "P1.10": {
+            "text": "IAPG Houston Golf Tournament - Houston, TX",
+            "url": "https://www.drillingtools.com/",
+            "fetched_at": "2026-10-17T19:27:28Z"
+          },
+          "P1.11": {
+            "text": "DTI Sponsors Zoe's Toolbox at 3rd Annual Tee Off Golf Tournament - Houston, TX",
+            "url": "https://www.drillingtools.com/",
+            "fetched_at": "2026-10-17T19:27:28Z"
+          },
+          "P1.12": {
+            "text": "A wellbore conditioning system that eliminates dedicated reamer runs. Well bore conditioning technology is required for enabling oil and gas operators to achieve the technical limits of today’s drilling challenges.",
+            "url": "https://www.drillingtools.com/",
+            "fetched_at": "2026-10-17T19:27:28Z"
+          },
+          "P1.13": {
+            "text": "Minimize bead and friction reducer usage",
+            "url": "https://www.drillingtools.com/",
+            "fetched_at": "2026-10-17T19:27:28Z"
+          },
+          "P1.14": {
+            "text": "Click on the locations below or on the map to view more details",
+            "url": "https://www.drillingtools.com/",
+            "fetched_at": "2026-10-17T19:27:28Z"
+          },
+          "P1.15": {
+            "text": "Kuala Lumpur, Malaysia (Deep Casing Tools)",
+            "url": "https://www.drillingtools.com/",
+            "fetched_at": "2026-10-17T19:27:28Z"
+          },
+          "P1.16": {
+            "text": "Aberdeen, Scotland (Deep Casing Tools)",
+            "url": "https://www.drillingtools.com/",
+            "fetched_at": "2026-10-17T19:27:28Z"
+          },
+          "P1.17": {
+            "text": "Abu Dhabi, U.A.E. (Deep Casing Tools)",
+            "url": "https://www.drillingtools.com/",
+            "fetched_at": "2026-10-17T19:27:28Z"
+          },
+          "P1.18": {
+            "text": "Dammam, Saudi Arabia (Deep Casing Tools)",
+            "url": "https://www.drillingtools.com/",
+            "fetched_at": "2026-10-17T19:27:28Z"
+          },
+          "P2.1": {
+            "text": "Drilling Tools | About Us",
+            "url": "https://www.drillingtools.com/aboutus",
+            "fetched_at": "2026-10-17T19:27:29Z"
+          },
+          "P2.2": {
+            "text": "Strength. We value their commitment to deliver quality and service excellence in support of our customers. With a robust and diverse inventory of tools, technology, and solutions, Drilling Tools International and its operating divisions are strongly positioned to support the oil, gas, and geothermal industries. Our facilities are strategically located across major global markets to ensure timely and efficient supply to our customers.",
+            "url": "https://www.drillingtools.com/aboutus",
+            "fetched_at": "2026-10-17T19:27:29Z"
+          },
+          "P2.3": {
+            "text": "Innovation. Drilling Tools International is committed to continuous improvement of our products and technology offerings, while also meeting the ever-changing needs of our customers. We drive innovation with the talent and passion of our dedicated employees. Our innovation team remains at the forefront of new ideas by actively developing, acquiring, and deploying cutting-edge technologies. By integrating the latest advancements into our processes and products, we enhance industry standards and deliver superior solutions that address even the most complex challenges across the well life cycle.",
+            "url": "https://www.drillingtools.com/aboutus",
+            "fetched_at": "2026-10-17T19:27:29Z"
+          },
+          "P2.4": {
+            "text": "Performance. We understand how crucial reliability is to our customers. That is why the world's foremost oil and gas operators and service companies trust Drilling Tools International to deliver reliable, competitive, and on-time solutions to address today's industry challenges.",
+            "url": "https://www.drillingtools.com/aboutus",
+            "fetched_at": "2026-10-17T19:27:29Z"
+          },
+          "P3.1": {
+            "text": "Drilling Tools | Downhole Inspection Services",
+            "url": "https://www.drillingtools.com/downhole",
+            "fetched_at": "2026-10-17T19:27:30Z"
+          },
+          "P3.2": {
+            "text": "Inspection Solutions You Can Trust",
+            "url": "https://www.drillingtools.com/downhole",
+            "fetched_at": "2026-10-17T19:27:30Z"
+          },
+          "P3.3": {
+            "text": "From a single weld to a full-on rig inspection, Downhole Inspection Solutions is the team to handle your specific needs. With one Canadian and four U.S. strategically located inspection facilities staffed by experienced and certified ASNT SNT-TC-1A Level II inspectors, DIS covers a wide range of inspection services. Our certified inspectors are equipped with advanced and calibrated non-destructive testing (NDT) equipment. We are able to provide analysis, maintenance, and repair services to Bottom Hole Assembly (BHA) components and rig equipment to ensure that industry standards and customer specifications (TH Hill DS-1, API RP7G-2, etc.) are met or exceeded.",
+            "url": "https://www.drillingtools.com/downhole",
+            "fetched_at": "2026-10-17T19:27:30Z"
+          },
+          "P3.4": {
+            "text": "Our Customer Order Management Portal and Support System (COMPASS) is a web-based repository for all things Inspection. Once registered, customers have access to their inspection records 24/7. They can also verify the status of upcoming orders and review previous orders.",
+            "url": "https://www.drillingtools.com/downhole",
+            "fetched_at": "2026-10-17T19:27:30Z"
+          },
+          "P3.5": {
+            "text": "Magnetic Particle Inspection (MPI) is a non-destructive testing process used to detect surface and shallow subsurface discontinuities in ferromagnetic materials. These materials include iron, nickel, cobalt, and some of their alloys. During MPI, a magnetic field is applied to the part, and ferrous particles (either dry or in a wet suspension) are used to identify areas of flux leakage. These areas form indications which are evaluated to determine their nature and cause. It is commonly used to identify defects like cracks, pores, cold laps, and lack of sidewall fusion in welds.",
+            "url": "https://www.drillingtools.com/downhole",
+            "fetched_at": "2026-10-17T19:27:30Z"
+          },
+          "P3.6": {
+            "text": "Electromagnetic Testing",
+            "url": "https://www.drillingtools.com/downhole",
+            "fetched_at": "2026-10-17T19:27:30Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

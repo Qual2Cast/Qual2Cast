@@ -1,0 +1,842 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ308299__IQ740990",
+    "target": "IQ308299",
+    "comp": "IQ740990",
+    "target_ticker": "THO",
+    "comp_ticker": "MPX",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ308299__IQ740990",
+        "target": "IQ308299",
+        "comp": "IQ740990",
+        "target_ticker": "THO",
+        "comp_ticker": "MPX",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ308299",
+          "comp": "IQ740990",
+          "method": "B3",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "THO",
+          "comp_ticker": "MPX"
+        },
+        {
+          "target": "IQ308299",
+          "comp": "IQ740990",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "THO",
+          "comp_ticker": "MPX"
+        },
+        {
+          "target": "IQ308299",
+          "comp": "IQ740990",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "THO",
+          "comp_ticker": "MPX"
+        },
+        {
+          "target": "IQ308299",
+          "comp": "IQ740990",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 5.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "THO",
+          "comp_ticker": "MPX"
+        },
+        {
+          "target": "IQ308299",
+          "comp": "IQ740990",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 5.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "THO",
+          "comp_ticker": "MPX"
+        },
+        {
+          "target": "IQ308299",
+          "comp": "IQ740990",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "THO",
+          "comp_ticker": "MPX"
+        },
+        {
+          "target": "IQ308299",
+          "comp": "IQ740990",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 4.0,
+          "reason": "Builds recreational powerboats, a different product from RVs, though it shares the dealer-to-consumer model.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "THO",
+          "comp_ticker": "MPX"
+        },
+        {
+          "target": "IQ308299",
+          "comp": "IQ740990",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Dealer-distributed recreational powerboat OEM selling to leisure consumers; similar discretionary big-ticket recreational vehicle manufacturing.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "THO",
+          "comp_ticker": "MPX"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and manufactures recreational vehicles, including travel trailers, fifth-wheels and motorhomes, plus buses, sold mainly through independent dealers to consumers and to transit fleet buyers.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "travel trailers; fifth-wheel trailers; motorhomes; buses; van conversions",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: Consumers buying recreational vehicles through dealers; B2B: Dealers and rental or leisure fleet operators; B2G: Public transit agencies buying buses",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "recreational travel; public transportation; leisure vehicles",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: Vehicles sold to independent dealers and fleet buyers",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: Builds vehicles from purchased chassis and components, sold to dealers and transit agencies; brand owner: Owns and markets multiple recreational vehicle and bus brands",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: North America and Europe, with sales in other regions",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "among the largest",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: Towables, motorhomes, van conversions and buses sharing dealers and manufacturing know-how",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "distributors / dealers: Independent recreational vehicle dealers; direct sales: Direct fleet sales to transit agencies and fleet operators",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: Vehicle safety and emissions standards, such as NHTSA and EU type-approval rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and manufactures motorized and towable recreational vehicles, including motorhomes, travel trailers, fifth wheels and camper vans. Sells mainly to independent dealers who sell to consumers, with production in North America and Europe.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "towable recreational vehicles; motorhomes; camper vans; recreational vehicle parts",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: independent recreational vehicle dealers in North America and Europe; B2C: individual RV owners buying via dealers, plus aftermarket parts",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "recreational vehicles; outdoor leisure and travel",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: new RVs sold wholesale to dealers, aftermarket parts and accessories",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: builds RVs from purchased chassis, components and materials, sold to dealers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: United States, Canada and Europe, mainly Germany, UK and France",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "among the largest",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: towable RVs, motorhomes, camper vans and related parts across multiple brands",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "distributors / dealers: independent RV dealerships that sell to consumers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: vehicle safety, emissions and RV standards (NHTSA, EPA, RVIA, EU vehicle rules), state lemon laws",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ308299.json",
+      "data": {
+        "company_name": "THOR Industries, Inc.",
+        "website": "www.thorindustries.com",
+        "scrape_status": "ok",
+        "capture_sha256": "e65e215f0ee109d281c467212fec948eb7849504a6bd5f3fb0b347539b9518f5",
+        "lines": {
+          "P1.1": {
+            "text": "THOR Industries - Owner of Leading RV Manufacturers",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.2": {
+            "text": "Discover the world of motorhomes and campers and let us help you find the perfect RV from our extensive list of brands including Airstream, Heartland RV, Jayco, and others.",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.3": {
+            "text": "we embarked on a journey to connect people with nature, and families with each other. Today, we continue that journey by leading a global family of companies that make it easier and more enjoyable for families of all types to create lasting outdoor memories. Together we can Go Everywhere; Stay Anywhere.",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.4": {
+            "text": "Meet the Family of Companies",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.5": {
+            "text": "Together, the THOR family of companies represents the world’s largest manufacturer of recreational vehicles. We offer a comprehensive range of RVs and travel tools to inspire and empower everyone to Go Everywhere. Stay Anywhere. We’ve chosen our family wisely so your choice is that much easier.",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.6": {
+            "text": "We’ll help you figure out what kind of RV is right for you.",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.7": {
+            "text": "Travel trailers are the most popular type of non-motorized RV. They can be towed by a variety of vehicles and are made for a variety of uses, from hauling to vacationing to full-time RVing.",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.8": {
+            "text": "Many people think of toy haulers as the wild-child of the RV world, but these RVs have multi-purpose utlitity for every adventurer. The open \"garage\" can serve as storage for toys, an extra bedroom or even an on-the-go office.",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.9": {
+            "text": "Easy to hitch, easy to tow, and stable, fifth wheels offer plenty of comfort for the whole family. Versatility and space are the reasons why RVers choose fifth wheels for their trips — or for their full-time homes.",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.10": {
+            "text": "Built with the same framing and construction as commercial trucks and buses, Class A motorhomes are some of the largest vehicles on the road. AKA lots of room to stretch out and get comfortable.",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.11": {
+            "text": "Small, streamlined and ready to roll. Class B motorhomes (also known as camper vans) offer luxurious living space best suited for small groups.",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.12": {
+            "text": "Recognizable by their raised sleeping or storage areas which extend over the cab of the RV, Class C Motorhomes offer more living space than Class B Motorhomes but are smaller in size and can offer better gas mileage than Class A Motorcoaches.",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.13": {
+            "text": "Gear up for RV Buying Season",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.14": {
+            "text": "The Best Time to Buy",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.15": {
+            "text": "Learn how to take advantage of RV “Buying Season” and score excellent deals on your next dream RV.",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.16": {
+            "text": "Finding and Purchasing Our Next RV",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.17": {
+            "text": "From RV shows to online research, explore the thoughtful steps these experienced RVers took in their journey to find their next RV.",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.18": {
+            "text": "Three Checklists To Help You Find Your Perfect RV",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.19": {
+            "text": "Long-term RVers Ben and Christina McMillan share their three RV checklists to help guide you through the process.",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.20": {
+            "text": "Trackside Service: Why Your Next RV Repair Might Be at the Racetrack",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.21": {
+            "text": "Discover how THOR Industries' complimentary mobile RV service transformed our NASCAR weekend.",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.22": {
+            "text": "Full-time RVer Renee Tilby shares her tips for feeling prepared and ready to speak with an RV dealer.",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.23": {
+            "text": "12 Hidden Gems of the National Forest System",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.24": {
+            "text": "A list of 12 national forests across the country that you may not know about but should definitely check out.",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.25": {
+            "text": "A Tour of Bailey & Nicole Damberg’s KZ Durango Gold Fifth Wheel RV",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.26": {
+            "text": "Take a tour of Bailey and Nicole Damberg’s KZ Durango Gold fifth wheel.",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.27": {
+            "text": "Your Guide to Alternative RV Campsites",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.28": {
+            "text": "These seasoned RV travelers share alternative RV campsites you might not know about.",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.29": {
+            "text": "The Magic of the International Balloon Fiesta",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.30": {
+            "text": "Experience the mesmerizing colors and breathtaking views of the Albuquerque Balloon Fiesta with the Barton family.",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          },
+          "P1.31": {
+            "text": "Thrill-seeker Kalen Thorien feels most at home when she's exploring off the grid in an RV.",
+            "url": "https://www.thorindustries.com/",
+            "fetched_at": "2026-10-17T20:17:09Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and manufactures recreational powerboats, including sterndrive, inboard and outboard models, sold to individual boat buyers through independent dealers and built in company plants.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "sterndrive and inboard runabouts; outboard sport fishing boats; cruisers",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: individual buyers of recreational powerboats for leisure and fishing",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "recreational boating; watersports; sport fishing",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: new boats sold to dealers and sold on to consumers",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: builds boats from purchased engines, components and materials, sold to independent dealers; brand owner: designs and markets its boat brands, sold through dealer network to boat buyers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: dealer network across the United States, with some dealers abroad",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: two powerboat lines sharing dealers, plants and customers: sterndrive/inboard cruisers and runabouts, and outboard sport fishing boats",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "distributors / dealers: independent boat dealers that sell and service its boats",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: federal boat safety and emissions standards for engines, plus Coast Guard and EPA rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and manufactures fiberglass sport boats, deck boats and sport cruisers in Georgia. Sells them to independent dealers who retail to recreational boaters.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "fiberglass sterndrive and outboard sport boats; sport cruisers; deck boats; offshore fishing boats",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: independent boat dealers who resell to recreational boaters",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "recreational boating; sport fishing",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: new boats and parts sold wholesale to dealers",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: builds boats from purchased engines, resin, fiberglass and components, sold to dealers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: United States primarily, plus Canada, Europe and other international dealers",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: sport boats, cruisers, deck boats and fishing boats across two brands",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "distributors / dealers: independent authorized boat dealers in the US and abroad",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: boat safety and emissions rules from US Coast Guard, EPA and CARB, workplace and environmental rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ740990.json",
+      "data": {
+        "company_name": "Marine Products Corporation",
+        "website": "www.marineproductscorp.com",
+        "scrape_status": "ok",
+        "capture_sha256": "4598693514774d1b939c5b146c2538dc2b564291eb6a270b3815ec69451f7e47",
+        "lines": {
+          "P1.1": {
+            "text": "Mastercraft Boat Holdings, Inc. - Investor Relations",
+            "url": "https://www.marineproductscorp.com/",
+            "fetched_at": "2026-10-17T19:50:45Z"
+          },
+          "P1.2": {
+            "text": "Headquartered in Vonore, Tenn., MasterCraft Boat Holdings, Inc. is a leading innovator, designer, manufacturer and marketer of recreational powerboats through its five brands, MasterCraft, Crest, Balise, Chaparral, and Robalo.",
+            "url": "https://www.marineproductscorp.com/",
+            "fetched_at": "2026-10-17T19:50:45Z"
+          },
+          "P1.3": {
+            "text": "Brand in Ski-Wake 1 1: Quarterly SSI Data",
+            "url": "https://www.marineproductscorp.com/",
+            "fetched_at": "2026-10-17T19:50:45Z"
+          },
+          "P1.4": {
+            "text": "Years of Combined Brand Equity",
+            "url": "https://www.marineproductscorp.com/",
+            "fetched_at": "2026-10-17T19:50:45Z"
+          },
+          "P1.5": {
+            "text": "MasterCraft Introduces 2027 Lineup, Refining the On-Water Experience with New Features and Enhancements",
+            "url": "https://www.marineproductscorp.com/",
+            "fetched_at": "2026-10-17T19:50:45Z"
+          },
+          "P1.6": {
+            "text": "Download PDF, MasterCraft Introduces 2027 Lineup, Refining the On-Water Experience with New Features and Enhancements,, (opens in new window)",
+            "url": "https://www.marineproductscorp.com/",
+            "fetched_at": "2026-10-17T19:50:45Z"
+          },
+          "P1.7": {
+            "text": "MasterCraft Boat Holdings, Inc. Reports Fiscal 2026 Results",
+            "url": "https://www.marineproductscorp.com/",
+            "fetched_at": "2026-10-17T19:50:45Z"
+          },
+          "P1.8": {
+            "text": "Download PDF, MasterCraft Boat Holdings, Inc. Reports Fiscal 2026 Results,, (opens in new window)",
+            "url": "https://www.marineproductscorp.com/",
+            "fetched_at": "2026-10-17T19:50:45Z"
+          },
+          "P1.9": {
+            "text": "Download PDF, MasterCraft Boat Holdings, Inc.",
+            "url": "https://www.marineproductscorp.com/",
+            "fetched_at": "2026-10-17T19:50:45Z"
+          },
+          "P1.10": {
+            "text": "MasterCraft Boat Holdings, Inc. Fiscal 2026 Fourth-Quarter and Full Year Results",
+            "url": "https://www.marineproductscorp.com/",
+            "fetched_at": "2026-10-17T19:50:45Z"
+          },
+          "P1.11": {
+            "text": "Download PDF file, (opens in new window)",
+            "url": "https://www.marineproductscorp.com/",
+            "fetched_at": "2026-10-17T19:50:45Z"
+          },
+          "P1.12": {
+            "text": "Q4 2026 MasterCraft Boat Holdings, Inc.",
+            "url": "https://www.marineproductscorp.com/",
+            "fetched_at": "2026-10-17T19:50:45Z"
+          },
+          "P1.13": {
+            "text": "Webcast Q4 2026 MasterCraft Boat Holdings, Inc.",
+            "url": "https://www.marineproductscorp.com/",
+            "fetched_at": "2026-10-17T19:50:45Z"
+          },
+          "P1.14": {
+            "text": "Q3 2026 MasterCraft Boat Holdings, Inc.",
+            "url": "https://www.marineproductscorp.com/",
+            "fetched_at": "2026-10-17T19:50:45Z"
+          },
+          "P1.15": {
+            "text": "Webcast Q3 2026 MasterCraft Boat Holdings, Inc.",
+            "url": "https://www.marineproductscorp.com/",
+            "fetched_at": "2026-10-17T19:50:45Z"
+          },
+          "P1.16": {
+            "text": "MasterCraft Fiscal 2026 Third-Quarter Results Open Event Link, PDF file,, (opens in new window)",
+            "url": "https://www.marineproductscorp.com/",
+            "fetched_at": "2026-10-17T19:50:45Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

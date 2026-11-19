@@ -1,0 +1,12 @@
+stage,rubric,sources,who,first,last,judgments,unique_pairs_judged,targets,sent_not_judged
+llm_screen,binary screen prompt 2026-10-25a,screen:v0_haiku,claude-haiku-5-5,2026-10-27,2026-10-27,4996,4996,373,
+human_review,"round 1: 0/1/2, blank = 0 with one of five reasons",human:round1:riya;human:round1:barbara;human:round1:matthew,Barbara;Matthew;Riya,2026-10-28,2026-10-28,108,36,2,
+llm_judge,"cited grades, 0/1/2 (v0 holdout)",judge:sol_holdout_grades,GPT-6.1 Sol,2026-10-28,2026-10-28,1982,1982,156,
+agent_loop,agent prompt 2026-11-05a,agent:gold;agent:gold_sonnet;agent:gold_sonnet_facets;agent:round2_targets;agent:round2_targets_sonnet;agent:round2_targets_sonnet_b3;agent:round2_targets_sonnet_facets;agent:round3_sonnet,sonnet agent,2026-11-05,2026-11-06,505,341,47,
+agent_loop,agent prompt 2026-11-05b,agent:gold_05b_web;agent:round2_05b_haiku_noweb;agent:round2_05b_haiku_web;agent:round2_05b_haiku_web_rep2;agent:round2_05b_web,sonnet agent,2026-11-05,2026-11-05,146,71,7,
+llm_screen,binary screen prompt 2026-11-04a,screen:20261104T074915Z_2026-11-04a_haiku;screen:20261104T074915Z_2026-11-04a_sonnet,claude-haiku-5-5;claude-sonnet-5-5,2026-11-05,2026-11-05,4792,2396,373,
+human_review,"rounds 2-3 old form: 0/1/2, six reasons, multi-business rule",human:round2_sonnet:barbara;human:round3:barbara,Barbara,2026-11-10,2026-11-10,293,293,45,human:round2_sheet:reviewer_a (67);human:round2_sheet:reviewer_b (67);human:round2_sheet:reviewer_c (67)
+llm_judge,"source-cited one-shot judge, 0/1/2",judge:gpt61sol_293,GPT-6.1 Sol,2026-11-10,2026-11-10,293,293,45,
+agent_loop,agent prompt 2026-11-05b + facet scores,agent:ranking_20targets_sonnet;agent:ranking_45targets_sonnet;agent:ranking_test_industry_sonnet;agent:ranking_test_sonnet;agent:direct_peers,sonnet agent,2026-11-12,2026-11-18,502,313,45,
+human_review,"rubric v2: four yes/no questions, score derived",human:round3_v2:matthew,Matthew,2026-11-13,2026-11-13,262,262,40,
+human_review,direct-peer Yes/No (Yes = 2; No is not a 0),human:direct_peers:barbara,Barbara,2026-11-18,2026-11-18,24,24,20,

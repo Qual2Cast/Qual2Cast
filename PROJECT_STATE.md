@@ -3,6 +3,38 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
+_2026-11-19, v1a: all components ported (Michael, for Kethan). Not committed; waits for Michael's review._
+- Start at `v1a/00_overview.ipynb`. 05-10, Kethan's runner (`v1a/pipeline/`) and the overview are in; all 12
+  notebooks run with their checks passing; v1a tests 226 pass. No model calls.
+- X-learner (09) on the current lists: people's peer grade goes with primary services (+24 pp), end markets (+21),
+  customer segment (+21), products (+15); the Sonnet selector keeps most on sub-sector (+13) and offering
+  description (+11) and under-uses services, customers and end markets. The selector's keep adds +4.0 pp
+  (0.1-7.6) beyond the B3 facets. v1's two X-learner runs reproduce. Runs pinned in `current.toml`.
+- Valuation (08, training targets): no list beats "no matching" (31.9%) with confidence; selector 30.6% vs B3
+  32.6% on the 265 targets where it kept a comp.
+- 10 is locked (`FINAL_CHECK = False`; 15 leak checks pass). v0-route holdout scripts stay in v1.
+- Judges (LaaJ) use GPT-Terra (`gpt-5.6-terra`) from 2026-11-19 (`current.toml [judges]`).
+- Next: agent grading reviewed in a separate session (Michael); 30 extra B3 pairs through the agent loop for
+  Barbara's review; point AGENTS.md/README at v1a.
+
+_2026-11-18, v1a: the pipeline reorganized by component (Michael, for Kethan). Steps 1-3 (01-04)._
+- 04 selection: first selector run on the current B3 list (Sonnet 5.5 via the Claude CLI on the subscription,
+  prompt `2026-11-04a`): 373 targets, 2,538 pairs, 507 kept; keeps 24/24 of Barbara's 2s, 42/178 of her 1s, 3/91
+  of her 0s. Judge (LaaJ) stays GPT-family.
+- 01 universe, 02 profiles, 03 retrieval have scripts, tests and one notebook each; every notebook reproduces the
+  saved v1 numbers (universe and split exact; facet tables rebuild exactly; B3 list same 2,538 pairs). v1a tests 180
+  pass. 98.5% of Sonnet general facet values are from model knowledge (10 companies use website lines).
+- New `v1a/` beside a frozen `v1/`: ten component folders (01 universe … 10 final holdout) plus `common/`, each with
+  a README; one notebook per component comes in step 3. `v1a/current.toml` names the current runs (Sonnet fills,
+  B3 "Sonnet + Fiona sub-sector", Sonnet selection, agent run `ranking_45targets_sonnet`, cohort `dev_293`).
+- `outputs-local/v1a/<component>/` seeded from v1 tables (`seed_manifest.json`: 153 files copied, 43 raw folders
+  linked); `financials.csv` only in `08_valuation`. Mapping of every v1 file: `v1a/MIGRATION_MAP.csv`.
+- Barbara's 24 in-universe direct-peer pairs are the locked `10_final_holdout`; the 66 external pairs are not
+  seeded. Matthew's rubric v2 and Kethan's `kethan/wip` pipeline are taken in; `riya/wip` left out.
+- Pair ledger (v1 files): human review 353 unique pairs, agent loop 365, LLM judges 2,275, LLM screens 5,291.
+- v1 unchanged (204 tests pass). No model calls. Next: Michael reviews 01-03, then port 04 → 10 the same way.
+  Handoff: `conversations/2026-11-18-v1a-reorganization.md`.
+
 _2026-11-17, Barbara's direct-peer pairs (Fiona, for Kethan)._
 - 90 target-comp pairs Barbara picked (45 targets x 2). 64 comps outside the universe got Sonnet facets
   (first pass only, no saved pages); agent loop (Sonnet, --facet-scores) ran on all 90.

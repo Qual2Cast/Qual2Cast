@@ -1,0 +1,1030 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ1265495__IQ178990399",
+    "target": "IQ1265495",
+    "comp": "IQ178990399",
+    "target_ticker": "UPLD",
+    "comp_ticker": "CXM",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ1265495__IQ178990399",
+        "target": "IQ1265495",
+        "comp": "IQ178990399",
+        "target_ticker": "UPLD",
+        "comp_ticker": "CXM",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ1265495",
+          "comp": "IQ178990399",
+          "method": "B3",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "UPLD",
+          "comp_ticker": "CXM"
+        },
+        {
+          "target": "IQ1265495",
+          "comp": "IQ178990399",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "UPLD",
+          "comp_ticker": "CXM"
+        },
+        {
+          "target": "IQ1265495",
+          "comp": "IQ178990399",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "UPLD",
+          "comp_ticker": "CXM"
+        },
+        {
+          "target": "IQ1265495",
+          "comp": "IQ178990399",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "UPLD",
+          "comp_ticker": "CXM"
+        },
+        {
+          "target": "IQ1265495",
+          "comp": "IQ178990399",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "UPLD",
+          "comp_ticker": "CXM"
+        },
+        {
+          "target": "IQ1265495",
+          "comp": "IQ178990399",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "UPLD",
+          "comp_ticker": "CXM"
+        },
+        {
+          "target": "IQ1265495",
+          "comp": "IQ178990399",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 2.0,
+          "reason": "Social media and customer experience management for large consumer brands; different use case from Upland's work and content software.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "UPLD",
+          "comp_ticker": "CXM"
+        },
+        {
+          "target": "IQ1265495",
+          "comp": "IQ178990399",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Sells a subscription enterprise software platform with implementation services, but focused on customer experience and social media rather than Upland's work and records management.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "UPLD",
+          "comp_ticker": "CXM"
+        },
+        {
+          "target": "IQ1265495",
+          "comp": "IQ178990399",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Horizontal enterprise cloud subscription platform with several modules and implementation services, sold to large enterprises directly and via partners.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "UPLD",
+          "comp_ticker": "CXM"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Sells cloud-based work management software to enterprises and government agencies, delivered as subscriptions. Products cover project portfolio management, sales enablement, proposal automation, content management and records management.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "work management software; sales enablement software; proposal automation software; records management software; content management software",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "implementation services; consulting; training",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: enterprises and mid-sized companies across many industries; B2G: government agencies and public-sector bodies",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "enterprise software; financial services; healthcare; government; manufacturing",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "subscription: cloud software subscriptions for enterprise and government customers; service fees: implementation, consulting and training",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "software / platform: takes in product development and hosting costs, sells cloud software subscriptions to enterprises and government; service provider: provides implementation and consulting, sold to software customers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: North America, Europe and other international markets",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: work management, sales enablement, content and records management software sharing enterprise customers",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: enterprise sales teams selling to large accounts; partners / resellers: channel partners and resellers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: data privacy and records retention rules such as GDPR, plus government security requirements",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides cloud-based enterprise work management software for marketing, digital transformation and customer engagement, sold mainly to businesses on subscription. Products include marketing automation, content management, document workflow, knowledge management and customer communications tools. Delivered as hosted software with implementation and support services.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "marketing automation software; project and workflow management software; digital asset and content management software; customer communications software; knowledge management software",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "software implementation and professional services; managed services; customer support and training",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: Marketing, IT, customer service and operations teams in mid-sized and large enterprises; B2G: Government agencies and public sector organizations using document and engagement tools",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "marketing and advertising; financial services; healthcare; retail; public sector",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "subscription: recurring cloud software subscriptions and support; service fees: professional services, implementation and training; licensing or royalties: perpetual license sales and maintenance",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "software / platform: develops and hosts cloud applications, sold to enterprise customers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: North America, Europe, Asia-Pacific, majority of customers in the United States",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: several enterprise work management software lines sharing business customers and cloud delivery",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: in-house sales teams selling to enterprise customers; partners / resellers: channel partners and integrators",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "low: data privacy and security rules such as GDPR and CCPA apply to software hosting",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ1265495.json",
+      "data": {
+        "company_name": "Upland Software, Inc.",
+        "website": "uplandsoftware.com",
+        "scrape_status": "ok",
+        "capture_sha256": "7a2fd1024b30fa90ba1bf69afc29350abe92bdf5efbf02534b6989e866b44516",
+        "lines": {
+          "P1.1": {
+            "text": "Enterprise Intelligence Solutions | Upland Software",
+            "url": "https://uplandsoftware.com/",
+            "fetched_at": "2026-10-17T20:19:58Z"
+          },
+          "P1.2": {
+            "text": "Over 20 proven cloud software products that increase revenue, reduce costs, and deliver immediate value.",
+            "url": "https://uplandsoftware.com/",
+            "fetched_at": "2026-10-17T20:19:58Z"
+          },
+          "P1.3": {
+            "text": "Activate intelligence for AI and agentic operations",
+            "url": "https://uplandsoftware.com/",
+            "fetched_at": "2026-10-17T20:19:58Z"
+          },
+          "P1.4": {
+            "text": "Unify and contextualize your knowledge, content, and data, turning fragmented information into powerful intelligence.",
+            "url": "https://uplandsoftware.com/",
+            "fetched_at": "2026-10-17T20:19:58Z"
+          },
+          "P1.5": {
+            "text": "Unlock your knowledge, content, and data",
+            "url": "https://uplandsoftware.com/",
+            "fetched_at": "2026-10-17T20:19:58Z"
+          },
+          "P1.6": {
+            "text": "Cost savings by increasing agent efficiency and self-service, made possible by Upland RightAnswers",
+            "url": "https://uplandsoftware.com/",
+            "fetched_at": "2026-10-17T20:19:58Z"
+          },
+          "P1.7": {
+            "text": "Time saved responding to sales proposals & RFPs with AI, powered by Upland Qvidian",
+            "url": "https://uplandsoftware.com/",
+            "fetched_at": "2026-10-17T20:19:58Z"
+          },
+          "P1.8": {
+            "text": "Increase in email engagement with AI-created, personalized content, made possible by Upland Adestra",
+            "url": "https://uplandsoftware.com/",
+            "fetched_at": "2026-10-17T20:19:58Z"
+          },
+          "P1.9": {
+            "text": "Faster decisions with intelligent enterprise-wide search, made possible by Upland BA Insight",
+            "url": "https://uplandsoftware.com/",
+            "fetched_at": "2026-10-17T20:19:58Z"
+          },
+          "P1.10": {
+            "text": "Trusted by multiple enterprise customers",
+            "url": "https://uplandsoftware.com/",
+            "fetched_at": "2026-10-17T20:19:58Z"
+          },
+          "P1.11": {
+            "text": "Powerful products and proven results",
+            "url": "https://uplandsoftware.com/",
+            "fetched_at": "2026-10-17T20:19:58Z"
+          },
+          "P1.12": {
+            "text": "TxMultilisting depends on InterFAX cloud fax to connect patients with life-saving care",
+            "url": "https://uplandsoftware.com/",
+            "fetched_at": "2026-10-17T20:19:58Z"
+          },
+          "P1.13": {
+            "text": "With 58 disjointed kidney transplant lists across the country, TxMultilisting has developed and coordinated a nationwide database of waiting lists with Upland InterFAX.",
+            "url": "https://uplandsoftware.com/",
+            "fetched_at": "2026-10-17T20:19:58Z"
+          },
+          "P1.14": {
+            "text": "Travers Smith creates intuitive and interactive knowledge tools with enterprise search",
+            "url": "https://uplandsoftware.com/",
+            "fetched_at": "2026-10-17T20:19:58Z"
+          },
+          "P1.15": {
+            "text": "Travers Smith used BA Insight to locate information spread across various sites and siloes across different document libraries.",
+            "url": "https://uplandsoftware.com/",
+            "fetched_at": "2026-10-17T20:19:58Z"
+          },
+          "P1.16": {
+            "text": "Nestlé ensures employees have the technology required to effectively do their job",
+            "url": "https://uplandsoftware.com/",
+            "fetched_at": "2026-10-17T20:19:58Z"
+          },
+          "P1.17": {
+            "text": "Nestlé reduced the demand on its IT customer support teams and improved the end user experience with RightAnswers.",
+            "url": "https://uplandsoftware.com/",
+            "fetched_at": "2026-10-17T20:19:58Z"
+          },
+          "P1.18": {
+            "text": "NetApp saves days’ worth of work on proposals with Qvidian",
+            "url": "https://uplandsoftware.com/",
+            "fetched_at": "2026-10-17T20:19:58Z"
+          },
+          "P1.19": {
+            "text": "NetApp used Upland Qvidian to streamline their RFP response and presentation processes, trading in one-off approaches for a strategy that saved significant time.",
+            "url": "https://uplandsoftware.com/",
+            "fetched_at": "2026-10-17T20:19:58Z"
+          },
+          "P1.20": {
+            "text": "Incisive Media gets more email to the inbox with deliverability workshops",
+            "url": "https://uplandsoftware.com/",
+            "fetched_at": "2026-10-17T20:19:58Z"
+          },
+          "P1.21": {
+            "text": "Through Adestra Deliverability Workshops, Incisive Media was able to identify the influencing factors affecting its sender reputation and take actionable steps to improve email results.",
+            "url": "https://uplandsoftware.com/",
+            "fetched_at": "2026-10-17T20:19:58Z"
+          },
+          "P1.22": {
+            "text": "USA Today teamed up with STIHL to launch a high-impact national sweepstakes campaign that captured attention across the country.",
+            "url": "https://uplandsoftware.com/",
+            "fetched_at": "2026-10-17T20:19:58Z"
+          },
+          "P1.23": {
+            "text": "Get started with Upland today",
+            "url": "https://uplandsoftware.com/",
+            "fetched_at": "2026-10-17T20:19:58Z"
+          },
+          "P2.1": {
+            "text": "About | Upland Software",
+            "url": "https://uplandsoftware.com/about/",
+            "fetched_at": "2026-10-17T20:20:00Z"
+          },
+          "P2.2": {
+            "text": "Upland Software is a provider of cloud-based tools for digital tranformation that deliver value now.",
+            "url": "https://uplandsoftware.com/about/",
+            "fetched_at": "2026-10-17T20:20:00Z"
+          },
+          "P2.3": {
+            "text": "We deliver software to the doers, the deliverers, and the day-to-day heroes of real-life business.",
+            "url": "https://uplandsoftware.com/about/",
+            "fetched_at": "2026-10-17T20:20:00Z"
+          },
+          "P2.4": {
+            "text": "It’s not about us. It’s about our proven products.",
+            "url": "https://uplandsoftware.com/about/",
+            "fetched_at": "2026-10-17T20:20:00Z"
+          },
+          "P2.5": {
+            "text": "Every day, thousands of companies rely on upland to get the job done simply and effectively.",
+            "url": "https://uplandsoftware.com/about/",
+            "fetched_at": "2026-10-17T20:20:00Z"
+          },
+          "P2.6": {
+            "text": "Customer value is our fuel",
+            "url": "https://uplandsoftware.com/about/",
+            "fetched_at": "2026-10-17T20:20:00Z"
+          },
+          "P2.7": {
+            "text": "Value is making a difference for our customers each and every day. That's what powers our business and energizes us.",
+            "url": "https://uplandsoftware.com/about/",
+            "fetched_at": "2026-10-17T20:20:00Z"
+          },
+          "P2.8": {
+            "text": "Actions speak louder than words",
+            "url": "https://uplandsoftware.com/about/",
+            "fetched_at": "2026-10-17T20:20:00Z"
+          },
+          "P2.9": {
+            "text": "When challenges arise, we rise to the occasion. We roll up our sleeves, get to work, and get the job done.",
+            "url": "https://uplandsoftware.com/about/",
+            "fetched_at": "2026-10-17T20:20:00Z"
+          },
+          "P2.10": {
+            "text": "What you see is what you get",
+            "url": "https://uplandsoftware.com/about/",
+            "fetched_at": "2026-10-17T20:20:00Z"
+          },
+          "P2.11": {
+            "text": "We are genuine, honest, and grounded in what's possible. We're intentional in everything we choose to do.",
+            "url": "https://uplandsoftware.com/about/",
+            "fetched_at": "2026-10-17T20:20:00Z"
+          },
+          "P2.12": {
+            "text": "People are our most important asset",
+            "url": "https://uplandsoftware.com/about/",
+            "fetched_at": "2026-10-17T20:20:00Z"
+          },
+          "P2.13": {
+            "text": "We are humans helping other humans, and want everyone to feel seen, respected, and heard.",
+            "url": "https://uplandsoftware.com/about/",
+            "fetched_at": "2026-10-17T20:20:00Z"
+          },
+          "P2.14": {
+            "text": "We are a team of experts who know how to work together to tackle real challenges and create success.",
+            "url": "https://uplandsoftware.com/about/",
+            "fetched_at": "2026-10-17T20:20:00Z"
+          },
+          "P2.15": {
+            "text": "Our team is pretty great.",
+            "url": "https://uplandsoftware.com/about/",
+            "fetched_at": "2026-10-17T20:20:00Z"
+          },
+          "P2.16": {
+            "text": "We look for people who take pride in their work, have an eye for delivering customer value, and love to take great ideas and run with them. Not literally, of course—unless you’re into running. You do you.",
+            "url": "https://uplandsoftware.com/about/",
+            "fetched_at": "2026-10-17T20:20:00Z"
+          },
+          "P2.17": {
+            "text": "We can tell you how great our teams are, but don’t take our word for it.",
+            "url": "https://uplandsoftware.com/about/",
+            "fetched_at": "2026-10-17T20:20:00Z"
+          },
+          "P2.18": {
+            "text": "Hear it from Uplander's in their own words.",
+            "url": "https://uplandsoftware.com/about/",
+            "fetched_at": "2026-10-17T20:20:00Z"
+          },
+          "P2.19": {
+            "text": "Seeing my team come together is a great vibe because everybody raises their hand, and everybody jumps in. Everybody lifts each other up. Having such a connection with a remote team is very cool.",
+            "url": "https://uplandsoftware.com/about/",
+            "fetched_at": "2026-10-17T20:20:00Z"
+          },
+          "P2.20": {
+            "text": "Christina W | Lincoln, NE Security & Compliance Lead",
+            "url": "https://uplandsoftware.com/about/",
+            "fetched_at": "2026-10-17T20:20:00Z"
+          },
+          "P2.21": {
+            "text": "The environment at Upland helps us to grow personally and as a team, and I’ve just seen everybody continue to",
+            "url": "https://uplandsoftware.com/about/",
+            "fetched_at": "2026-10-17T20:20:00Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Sells a unified customer experience management software platform to large enterprises, letting them manage social media, customer care, marketing and listening data in one system. It is delivered as cloud software on a subscription basis, with implementation and support services.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "customer experience management software; social media management; customer care software; marketing software; social listening and research",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "implementation and consulting; managed services; training and support",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: large enterprises in consumer goods, financial services, healthcare, retail, telecom and travel",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "consumer goods; financial services; healthcare; retail; telecommunications",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "subscription: annual or multi-year software licenses for the cloud platform and its modules; service fees: implementation, consulting, managed services and training",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "software / platform: sells its own cloud platform to enterprise brands and marketing and service teams; service provider: implements and manages the platform for enterprise customers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: customers across North America, Europe, Asia-Pacific, Latin America and the Middle East",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: several modules on one platform: social media, customer care, marketing, research and listening",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: enterprise sales teams selling to large brands; partners / resellers: technology and agency partners and cloud marketplaces",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: data privacy and security rules such as GDPR and CCPA, plus customer requirements in regulated sectors",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Sells a unified cloud software platform for customer experience management, covering customer service, social media marketing, advertising, research and engagement. Customers are large enterprises and brands. Delivered as SaaS with AI features, plus professional services.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "customer experience management SaaS platform; social media management software; contact center and customer service software; marketing and advertising software; social listening and insights software",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "implementation and professional services; customer support and training; managed services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: large enterprises and global brands across industries; B2G: some government agencies and public sector organizations",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "consumer brands; financial services; retail; technology; telecommunications",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "subscription: recurring subscription fees for cloud platform access; service fees: professional services and implementation",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "software / platform: develops and hosts SaaS platform, sold to enterprise customers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: North America, Europe, Middle East, Asia-Pacific, Latin America",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: service, marketing, social, advertising and insights modules on one platform",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: enterprise sales teams selling to large accounts; partners / resellers: consulting firms and system integrators",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: data privacy rules such as GDPR and CCPA, plus security compliance standards",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ178990399.json",
+      "data": {
+        "company_name": "Sprinklr, Inc.",
+        "website": "www.sprinklr.com",
+        "scrape_status": "ok",
+        "capture_sha256": "51926962070a96d0d08d565b84b4e8edf072cc366aa90b9d2fc58a437f7c11bc",
+        "lines": {
+          "P1.1": {
+            "text": "Sprinklr: The Definitive AI-Native Customer Experience Platform",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.2": {
+            "text": "Unify customer journeys with Sprinklrâs AI-native platform. Connect every touchpoint, empower teams, and elevate conversations to earn lasting loyalty.",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.3": {
+            "text": "The definitive AIânative platform for extraordinary customer experiences",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.4": {
+            "text": "TRUSTED BY THE WORLDâS MOST ICONIC BRANDSÂ",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.5": {
+            "text": "Four AI-native product suites. One Unified-CXM platform.",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.6": {
+            "text": "Uncover real-time consumer, product and market insights to build great products, drive loyalty, and deliver extraordinary customer experiences.",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.7": {
+            "text": "Orchestrate on-brand global marketing campaigns across social and digital channels, and boost marketing ROI.",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.8": {
+            "text": "Reach, engage and listen to your audience across 30+ digital and social channels to maximize engagement, build trust and drive revenue.",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.9": {
+            "text": "Give your customer service teams the insights they need to connect with context and empathy, and deliver delightful experiences consistently at every touchpoint.",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.10": {
+            "text": "Over a decade of AI innovation built into every experience",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.11": {
+            "text": "Infuse every workflow, action, decision and interaction with AI purpose-built for customer experience management. Automate engagement and boost productivity with AI Agents for customers and customer-facing teams.",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.12": {
+            "text": "Extract actionable intelligence from unstructured data across millions of conversations online to power informed decisions and meaningful actions.",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.13": {
+            "text": "Simplify work with an always-on AI companion",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.14": {
+            "text": "Automate workflows, surface insights, and get real-time conversational assistance across the Sprinklr platform.",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.15": {
+            "text": "Engage with empathy at scale",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.16": {
+            "text": "Deploy intelligent AI Agents built for your industry to ensure consistent, compliant and high-quality experiences across touchpoints.",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.17": {
+            "text": "Improve efficiency with intelligent automation",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.18": {
+            "text": "Manage, route, assign, configure and govern with ease across the Sprinklr platform to scale automation and drive team efficiency.",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.19": {
+            "text": "Enable every team to create measurable CX impact",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.20": {
+            "text": "Break down silos, reimagine brand reach, power personalized campaigns, and deliver compliant, AI-powered brand experiences globally.",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.21": {
+            "text": "Make every customer feel seen, heard and valued",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.22": {
+            "text": "Capture 360-degree customer feedback to uncover business-critical insights in real time, and act with empathy and precision.",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.23": {
+            "text": "Transform your contact center into an experience center",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.24": {
+            "text": "Deliver omnichannel customer support with agentic workflows, always-on AI assistants, and intelligent human-AI collaboration.",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.25": {
+            "text": "Trusted by global brands. Chosen for real results.",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.26": {
+            "text": "Microsoft analyzed 8.6 billion mentions and turned them into actionable VoC insights",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.27": {
+            "text": "\"We can say, âHere's your score for Microsoft Teams in comparison to the competitive set.' This has been really informative for product marketing teams who are looking to understand how they're doing against a competitive set. We are able to uncover those new features that are landing well in the competitive conversation, so that they can prioritize their product road map.âÂ",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.28": {
+            "text": "Dow identified 125K more mentions to analyze global consumer trends and drive strategic decisions",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.29": {
+            "text": "\"I donât think I could provide the same results without Sprinklr. The solution saves me time, enables me to research a global customer base, and helps me deliver actionable reports to my colleagues and our clients.\"Â",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.30": {
+            "text": "Global Consumer & Market Insight",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.31": {
+            "text": "3M reduced case response time by 90% and improved CSAT with Sprinklr's scalable, AI-enhanced approach",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.32": {
+            "text": "\"Sprinklr has given us additional capacity and driven results we couldnât have achieved internally. We connect more with our customers and learn from them daily, and that makes 3M a better company.\"",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.33": {
+            "text": "Sr. Manager, Global Media Tech & Governance",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.34": {
+            "text": "Umniah reduced average handling time by 91% using Sprinklr's AI-powered chatbots",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.35": {
+            "text": "âOur Sprinklr-powered chatbot is light years ahead of what we had before. Itâs not just informative â itâs action-oriented. Customers can troubleshoot service issues, check their balances, make changes, and more. That kind of functionality has exceeded even our expectations.âÂ",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.36": {
+            "text": "Empower your customer-facing teams with a unified platform to deliver frictionless, omnichannel customer experiences â while staying on-brand every time, everywhere.",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.37": {
+            "text": "AI is seamlessly infused across the Sprinklr platform, enabling you to scale effortlessly while powering continuous innovation for your customer-facing teams.",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          },
+          "P1.38": {
+            "text": "Equip",
+            "url": "https://www.sprinklr.com/",
+            "fetched_at": "2026-10-17T22:10:58Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

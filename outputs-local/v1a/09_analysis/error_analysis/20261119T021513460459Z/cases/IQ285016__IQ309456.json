@@ -1,0 +1,913 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ285016__IQ309456",
+    "target": "IQ285016",
+    "comp": "IQ309456",
+    "target_ticker": "LNN",
+    "comp_ticker": "TRN",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ285016__IQ309456",
+        "target": "IQ285016",
+        "comp": "IQ309456",
+        "target_ticker": "LNN",
+        "comp_ticker": "TRN",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ285016",
+          "comp": "IQ309456",
+          "method": "B3",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "LNN",
+          "comp_ticker": "TRN"
+        },
+        {
+          "target": "IQ285016",
+          "comp": "IQ309456",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "LNN",
+          "comp_ticker": "TRN"
+        },
+        {
+          "target": "IQ285016",
+          "comp": "IQ309456",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "LNN",
+          "comp_ticker": "TRN"
+        },
+        {
+          "target": "IQ285016",
+          "comp": "IQ309456",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "LNN",
+          "comp_ticker": "TRN"
+        },
+        {
+          "target": "IQ285016",
+          "comp": "IQ309456",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "LNN",
+          "comp_ticker": "TRN"
+        },
+        {
+          "target": "IQ285016",
+          "comp": "IQ309456",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "LNN",
+          "comp_ticker": "TRN"
+        },
+        {
+          "target": "IQ285016",
+          "comp": "IQ309456",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 1.0,
+          "reason": "Highway guardrail and crash cushions match Lindsay's infrastructure line, but its core business is railcar manufacturing and leasing.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "LNN",
+          "comp_ticker": "TRN"
+        },
+        {
+          "target": "IQ285016",
+          "comp": "IQ309456",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Makes highway guardrail and crash cushions for transportation agencies, matching the target's road-safety products.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "LNN",
+          "comp_ticker": "TRN"
+        },
+        {
+          "target": "IQ285016",
+          "comp": "IQ309456",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Makes highway guardrail and crash cushions for transportation agencies, matching Lindsay's infrastructure segment, though railcars dominate.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "LNN",
+          "comp_ticker": "TRN"
+        },
+        {
+          "target": "IQ285016",
+          "comp": "IQ309456",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Makes railcars plus highway guardrail and crash cushions for transportation agencies, overlapping Lindsay's road safety business.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "LNN",
+          "comp_ticker": "TRN"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and manufactures center pivot and lateral move irrigation systems for farmers, and highway safety barriers and crash cushions for government road agencies. Irrigation is sold through independent dealers, and infrastructure products go directly to agencies and contractors.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "center pivot irrigation systems; lateral move irrigation systems; irrigation parts; highway guardrail and barrier systems; crash cushions",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "irrigation installation and maintenance; highway safety system installation; precision irrigation software services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: farmers and agricultural operations, plus road construction contractors; B2G: state and federal transportation agencies buying highway safety products",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "agriculture; transportation infrastructure",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: irrigation systems, irrigation parts and highway safety barriers; subscription: digital subscriptions for precision irrigation monitoring software; service fees: installation and maintenance of irrigation and road safety systems",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: builds irrigation and road safety products, sold to farmers, dealers and agencies; software / platform: precision irrigation software used by growers to manage pivot systems",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: irrigation sold in many countries worldwide, road safety products sold mainly in the United States",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "diversified: irrigation equipment for farmers and infrastructure safety products for transportation agencies",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "distributors / dealers: independent irrigation dealers selling center pivot systems to farmers; direct sales: road safety products sold directly to state and federal agencies and contractors",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: highway safety products must meet federal crash-testing and roadside safety standards set by FHWA and state agencies",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Manufactures center pivot and lateral move irrigation systems, related technology and controls for agricultural producers, plus road safety products such as crash cushions and guardrail end terminals for highway contractors and transportation agencies. Also does infrastructure project work. Products are made in company plants and sold mainly through dealers and contractors.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "center pivot irrigation systems; lateral move irrigation systems; irrigation control and water management technology; highway crash cushions and barriers; guardrail end terminals",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "infrastructure construction projects; road safety equipment installation; remote irrigation monitoring and management",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: farmers, growers, irrigation dealers, highway contractors, municipal and industrial water users; B2G: state departments of transportation and road authorities",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "agriculture; highway and road infrastructure; water management; transportation",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: irrigation systems, replacement parts and road safety products; project or contract: infrastructure projects, including road safety and water-related work; subscription: digital irrigation monitoring and control services",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: fabricates irrigation systems and road safety products from steel and components, sold to dealers, contractors and agencies",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: United States, Brazil, South Africa, Europe, Middle East, Asia, Australia and other international markets",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: irrigation equipment and technology, road safety products and infrastructure services",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "distributors / dealers: independent irrigation dealers serving farmers; direct sales: road safety products to contractors and transportation agencies, large project customers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: road safety products need crash-test approval under FHWA and state DOT standards, environmental and trade rules apply",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ285016.json",
+      "data": {
+        "company_name": "Lindsay Corporation",
+        "website": "www.lindsay.com",
+        "scrape_status": "ok",
+        "capture_sha256": "e55b4c8b0d7964efdf6311c0428dd81787151b28b586845689614af98a9155cb",
+        "lines": {
+          "P1.1": {
+            "text": "Global Partner For Irrigation & Infrastructure - Lindsay",
+            "url": "https://www.lindsay.com/usca/en/",
+            "fetched_at": "2026-10-17T22:08:22Z"
+          },
+          "P1.2": {
+            "text": "We expand the world's potential with advanced irrigation, infrastructure & industrial technology to benefit us all.",
+            "url": "https://www.lindsay.com/usca/en/",
+            "fetched_at": "2026-10-17T22:08:22Z"
+          },
+          "P1.3": {
+            "text": "Find a Dealer or Sales Rep",
+            "url": "https://www.lindsay.com/usca/en/",
+            "fetched_at": "2026-10-17T22:08:22Z"
+          },
+          "P1.4": {
+            "text": "Find a Dealer Find a Sales Rep",
+            "url": "https://www.lindsay.com/usca/en/",
+            "fetched_at": "2026-10-17T22:08:22Z"
+          },
+          "P1.5": {
+            "text": "Innovation that meets the world’s growing food, fuel, fiber and transportation needs with sustainable technology.",
+            "url": "https://www.lindsay.com/usca/en/",
+            "fetched_at": "2026-10-17T22:08:22Z"
+          },
+          "P1.6": {
+            "text": "Innovating and expanding our world's potential.",
+            "url": "https://www.lindsay.com/usca/en/",
+            "fetched_at": "2026-10-17T22:08:22Z"
+          },
+          "P1.7": {
+            "text": "Providing advanced irrigation, infrastructure, and industrial technology solutions that benefit us all.",
+            "url": "https://www.lindsay.com/usca/en/",
+            "fetched_at": "2026-10-17T22:08:22Z"
+          },
+          "P1.8": {
+            "text": "We know every drop—and every minute—matters. That’s why our irrigation solutions are built for growers who demand reliable performance. From durable Zimmatic pivots to smart, easy-to-use FieldNET water management technology, we help you increase yields, save time, and get more from every acre. With responsive support from trusted local dealers and a full lineup of innovative products, Lindsay is here to help you grow stronger—season after season.",
+            "url": "https://www.lindsay.com/usca/en/",
+            "fetched_at": "2026-10-17T22:08:22Z"
+          },
+          "P1.9": {
+            "text": "We’re shaping the future of transportation with innovative safety solutions and integrated systems that protect drivers, road workers, and entire communities. From advanced crash cushions and barrier systems to intelligent traffic management and remote asset monitoring, our infrastructure solutions are engineered to meet the evolving needs of today’s roadways. Whether you’re planning a major highway project, managing a busy work zone, or installing lifesaving hardware, we’re committed to helping you keep traffic moving—safely, efficiently, and sustainably.",
+            "url": "https://www.lindsay.com/usca/en/",
+            "fetched_at": "2026-10-17T22:08:22Z"
+          },
+          "P1.10": {
+            "text": "See how our products are transforming farms and roadways across the globe.",
+            "url": "https://www.lindsay.com/usca/en/",
+            "fetched_at": "2026-10-17T22:08:22Z"
+          },
+          "P1.11": {
+            "text": "At Lindsay, real-world results speak volumes. Lindsay’s case studies highlight real success across both irrigation and infrastructure. From boosting crop yields with precision technology to improving road safety and traffic flow, these stories show how our solutions deliver measurable results. Each case reflects our commitment to innovation, performance, and helping customers build more efficient, sustainable operations.",
+            "url": "https://www.lindsay.com/usca/en/",
+            "fetched_at": "2026-10-17T22:08:22Z"
+          },
+          "P1.12": {
+            "text": "On pipe when you re-pipe this winter.**",
+            "url": "https://www.lindsay.com/usca/en/",
+            "fetched_at": "2026-10-17T22:08:22Z"
+          },
+          "P1.13": {
+            "text": "Like TowerWatch, or Gearboxes, or more.*",
+            "url": "https://www.lindsay.com/usca/en/",
+            "fetched_at": "2026-10-17T22:08:22Z"
+          },
+          "P1.14": {
+            "text": "Find your nearest irrigation dealer or infrastructure sales rep.",
+            "url": "https://www.lindsay.com/usca/en/",
+            "fetched_at": "2026-10-17T22:08:22Z"
+          },
+          "P1.15": {
+            "text": "Use our interactive map to quickly connect with the right Lindsay dealer or sales rep in your area.",
+            "url": "https://www.lindsay.com/usca/en/",
+            "fetched_at": "2026-10-17T22:08:22Z"
+          },
+          "P1.16": {
+            "text": "Making the Most of the USDA Farmer Bridge Assistance Program",
+            "url": "https://www.lindsay.com/usca/en/",
+            "fetched_at": "2026-10-17T22:08:22Z"
+          },
+          "P2.1": {
+            "text": "About Lindsay Corporation | Our Company Vision & Values",
+            "url": "https://www.lindsay.com/usca/en/about/our-company",
+            "fetched_at": "2026-10-17T22:08:23Z"
+          },
+          "P2.2": {
+            "text": "Learn how Lindsay advances irrigation, infrastructure and tech through innovation, values and a commitment to progress.",
+            "url": "https://www.lindsay.com/usca/en/about/our-company",
+            "fetched_at": "2026-10-17T22:08:23Z"
+          },
+          "P2.3": {
+            "text": "Lindsay prides itself on innovating state-of-the-art technology, manufacturing dependable products, and cultivating genuine partnerships with our customers and each other. Our purpose is simple—to conserve natural resources, expand our world’s potential, and enhance the quality of life for people. we’ve led in the development of innovative products that save time and deliver peace of mind—because real progress isn’t just about technology; it’s about making a tangible difference in people’s lives.",
+            "url": "https://www.lindsay.com/usca/en/about/our-company",
+            "fetched_at": "2026-10-17T22:08:23Z"
+          },
+          "P2.4": {
+            "text": "Boldly powering change. Bravely creating opportunity.",
+            "url": "https://www.lindsay.com/usca/en/about/our-company",
+            "fetched_at": "2026-10-17T22:08:23Z"
+          },
+          "P2.5": {
+            "text": "Our vision is to be the innovation and market leader in our core segments, including irrigation and infrastructure equipment and technology. We are at the forefront of research and development of sustainable solutions to meet the food, fuel, fiber, and transportation needs of the world’s rapidly growing population.",
+            "url": "https://www.lindsay.com/usca/en/about/our-company",
+            "fetched_at": "2026-10-17T22:08:23Z"
+          },
+          "P2.6": {
+            "text": "A global leader with small town values.",
+            "url": "https://www.lindsay.com/usca/en/about/our-company",
+            "fetched_at": "2026-10-17T22:08:23Z"
+          },
+          "P2.7": {
+            "text": "At Lindsay, we are committed to building relationships with customers and each other. Our global footprint is driven by our commitment to fostering personal connections and maintaining reliability and trustworthiness.",
+            "url": "https://www.lindsay.com/usca/en/about/our-company",
+            "fetched_at": "2026-10-17T22:08:23Z"
+          },
+          "P2.8": {
+            "text": "Through trusted long-lasting relationships, innovative, dependable products, and truly caring support, we help make our customers’ work and lives easier, safer, and more fulfilling so the world can keep progressing. Together.",
+            "url": "https://www.lindsay.com/usca/en/about/our-company",
+            "fetched_at": "2026-10-17T22:08:23Z"
+          },
+          "P2.9": {
+            "text": "The people who make progress possible.",
+            "url": "https://www.lindsay.com/usca/en/about/our-company",
+            "fetched_at": "2026-10-17T22:08:23Z"
+          },
+          "P2.10": {
+            "text": "Lindsay is driven by a team of more than 1,300 hardworking individuals across the globe who are united by pride and passion for our work. We want to ensure every person returns home safely every night.",
+            "url": "https://www.lindsay.com/usca/en/about/our-company",
+            "fetched_at": "2026-10-17T22:08:23Z"
+          },
+          "P2.11": {
+            "text": "Are you ready to help us preserve natural resources, feed",
+            "url": "https://www.lindsay.com/usca/en/about/our-company",
+            "fetched_at": "2026-10-17T22:08:23Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Manufactures railcars and leases and maintains railcar fleets for railroads, shippers and lessors. Also makes highway guardrail and crash-protection products sold to transportation agencies and contractors.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "railcars; highway guardrail; crash cushions; railcar parts",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "railcar leasing and fleet management; railcar maintenance and repair; railcar refurbishment",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: railroads, railcar shippers, railcar lessors, industrial and energy companies; B2G: state and federal transportation departments and highway agencies",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "rail transportation; energy and chemicals; agriculture; highway infrastructure",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: railcars and highway safety products sold to customers; rental or leasing: railcars leased to shippers and railroads; service fees: railcar maintenance, repair and refurbishment",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: builds railcars and highway safety products from steel and components, sold to railroads and agencies; asset operator: owns and leases railcar fleet to shippers and railroads; service provider: maintains and refurbishes railcars for fleet owners",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "North America: United States, Canada and Mexico",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "among the largest",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "diversified: railcar manufacturing and leasing, highway safety products for transportation agencies",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: railcars sold directly to railroads, shippers and lessors; distributors / dealers: highway safety products sold through distributors to contractors",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: railcar safety standards from the Federal Railroad Administration and AAR, highway products must meet federal crash-testing standards",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Owns and leases a fleet of railcars to shippers and railroads, and manufactures new railcars and components for lease fleet and third-party customers. Also provides railcar maintenance and management services to railcar owners.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "tank railcars; freight railcars (hopper, boxcars, gondolas); railcar components; specialty railcars",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "railcar leasing; railcar fleet management; railcar maintenance and repair",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: railroads, shippers, chemical, energy and agricultural companies, leasing and financial investors",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "railroads; chemicals; energy and petroleum; agriculture; industrial and construction materials",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "rental or leasing: lease fees on railcars owned in the lease fleet; product sales: new railcars and components sold to customers and investors; service fees: fleet management and maintenance fees",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "asset operator: owns and leases railcar fleet to shippers and railroads; OEM / manufacturer: builds railcars from purchased steel and components, sold to lessors, railroads and shippers; service provider: manages and maintains railcars for owners",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "North America: United States, Mexico and Canada, with manufacturing in the US and Mexico",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "among the largest",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: railcar leasing, fleet management and railcar manufacturing",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales and lease teams selling to railroads, shippers and lessors",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: railcar safety and tank car standards from FRA, DOT/PHMSA and Association of American Railroads, environmental rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ309456.json",
+      "data": {
+        "company_name": "Trinity Industries, Inc.",
+        "website": "www.trin.net",
+        "scrape_status": "ok",
+        "capture_sha256": "e2141088f00ab574d61fa313d0b3e8dc1f4cebd7be6b5916254cbbbb0ede1ecd",
+        "lines": {
+          "P1.1": {
+            "text": "Trinity Industries, Inc. - Investor Relations",
+            "url": "https://www.trin.net/overview/default.aspx",
+            "fetched_at": "2026-10-17T20:18:28Z"
+          },
+          "P1.2": {
+            "text": "Trinity Industries, Inc. owns market-leading businesses that provide railcar products and services in North America under the trade name TrinityRail®. TrinityRail’s unique platform provides a single source for comprehensive rail transportation solutions that optimizes our customers’ ownership and usage of railcar equipment and enhances the value-proposition of the rail modal supply chain.",
+            "url": "https://www.trin.net/overview/default.aspx",
+            "fetched_at": "2026-10-17T20:18:28Z"
+          },
+          "P1.3": {
+            "text": "Our purpose is to Deliver Goods for the Good of All.",
+            "url": "https://www.trin.net/overview/default.aspx",
+            "fetched_at": "2026-10-17T20:18:28Z"
+          },
+          "P1.4": {
+            "text": "Delivering Goods for the Good of All™",
+            "url": "https://www.trin.net/overview/default.aspx",
+            "fetched_at": "2026-10-17T20:18:28Z"
+          },
+          "P1.5": {
+            "text": "It’s more than a motto — it’s our purpose. Rail transports the goods that keep our lives, our communities, and our economy thriving, and TrinityRail is proud to keep North America’s rail shippers moving forward.",
+            "url": "https://www.trin.net/overview/default.aspx",
+            "fetched_at": "2026-10-17T20:18:28Z"
+          },
+          "P1.6": {
+            "text": "TrinityRail is an industry-leading railcar leasing company, enhanced by our manufacturing and service capabilities. We are a leader in providing leasing and logistics services, and act as an integrated and strategic partner to stakeholders across the industry. We are on a mission to increase rail’s modal share and convenience by delivering more sustainable, end-to-end solutions that bridge the first and last miles for our customers.",
+            "url": "https://www.trin.net/overview/default.aspx",
+            "fetched_at": "2026-10-17T20:18:28Z"
+          },
+          "P1.7": {
+            "text": "years in business 50+ years manufacturing railcars, 40+ years leasing railcars",
+            "url": "https://www.trin.net/overview/default.aspx",
+            "fetched_at": "2026-10-17T20:18:28Z"
+          },
+          "P1.8": {
+            "text": "major commercial end markets serving 21 different commodity markets with the broadest railcar product offering in North America",
+            "url": "https://www.trin.net/overview/default.aspx",
+            "fetched_at": "2026-10-17T20:18:28Z"
+          },
+          "P1.9": {
+            "text": "invested in our lease fleet",
+            "url": "https://www.trin.net/overview/default.aspx",
+            "fetched_at": "2026-10-17T20:18:28Z"
+          },
+          "P1.10": {
+            "text": "Trinity Industries celebrating 50 years of being on the NYSE on",
+            "url": "https://www.trin.net/overview/default.aspx",
+            "fetched_at": "2026-10-17T20:18:28Z"
+          },
+          "P1.11": {
+            "text": "As a leading railcar lessor enabled by rail transportation manufacturing and services in North America, Trinity Industries is committed to supporting a more sustainable future and making meaningful contributions to address our long-term impact.",
+            "url": "https://www.trin.net/overview/default.aspx",
+            "fetched_at": "2026-10-17T20:18:28Z"
+          },
+          "P1.12": {
+            "text": "We are dedicated to integrating sustainability principles, including socially responsible and environmentally conscious corporate practices, grounded in a robust governance framework to ensure we continue operating at the industry's highest standards.",
+            "url": "https://www.trin.net/overview/default.aspx",
+            "fetched_at": "2026-10-17T20:18:28Z"
+          },
+          "P2.1": {
+            "text": "Trinity Industries, Inc. - About - About Us",
+            "url": "https://www.trin.net/about/about-us/default.aspx",
+            "fetched_at": "2026-10-17T20:18:29Z"
+          },
+          "P2.2": {
+            "text": "Trinity began providing industrial products and services to customers more than 85 years ago. We started as a small butane-tank manufacturer and evolved over time into a premier provider of railcar products and services in North America with a leading railcar lease fleet and manufacturing, maintenance and repair operations.",
+            "url": "https://www.trin.net/about/about-us/default.aspx",
+            "fetched_at": "2026-10-17T20:18:29Z"
+          },
+          "P2.3": {
+            "text": "Our rail-related products and services are marketed under the trade name TrinityRail. Our purpose is to Deliver Goods for the Good of All.",
+            "url": "https://www.trin.net/about/about-us/default.aspx",
+            "fetched_at": "2026-10-17T20:18:29Z"
+          },
+          "P2.4": {
+            "text": "The TrinityRail platform plays an important role in the North American supply chain by facilitating the transportation of bulk commodities and goods by rail. Railcar transportation is sustainable and is the most economical land-based mode of transportation. At Trinity, we strive to employ company resources in ways that make positive contributions to our stakeholders for the benefit of current and future generations.",
+            "url": "https://www.trin.net/about/about-us/default.aspx",
+            "fetched_at": "2026-10-17T20:18:29Z"
+          },
+          "P2.5": {
+            "text": "TrinityRail’s platform aims to deliver innovative solutions that optimize the life-cycle ownership and usage of railcar equipment and enhance the value-proposition of the rail modal supply chain. We differentiate our value proposition to all stakeholders by:",
+            "url": "https://www.trin.net/about/about-us/default.aspx",
+            "fetched_at": "2026-10-17T20:18:29Z"
+          },
+          "P2.6": {
+            "text": "leveraging our rail expertise across a broad market viewpoint,",
+            "url": "https://www.trin.net/about/about-us/default.aspx",
+            "fetched_at": "2026-10-17T20:18:29Z"
+          },
+          "P2.7": {
+            "text": "working collaboratively to provide an unparalleled customer experience, and",
+            "url": "https://www.trin.net/about/about-us/default.aspx",
+            "fetched_at": "2026-10-17T20:18:29Z"
+          },
+          "P2.8": {
+            "text": "delivering significant financial and commercial synergies that create a strategic advantage.",
+            "url": "https://www.trin.net/about/about-us/default.aspx",
+            "fetched_at": "2026-10-17T20:18:29Z"
+          },
+          "P2.9": {
+            "text": "Our market leadership, performance and growth through the years are attributable to:",
+            "url": "https://www.trin.net/about/about-us/default.aspx",
+            "fetched_at": "2026-10-17T20:18:29Z"
+          },
+          "P2.10": {
+            "text": "the synergies within our platform,",
+            "url": "https://www.trin.net/about/about-us/default.aspx",
+            "fetched_at": "2026-10-17T20:18:29Z"
+          },
+          "P2.11": {
+            "text": "the quality of our rail products and services,",
+            "url": "https://www.trin.net/about/about-us/default.aspx",
+            "fetched_at": "2026-10-17T20:18:29Z"
+          },
+          "P2.12": {
+            "text": "the depth of our operational capabilities, market insight and expertise, and",
+            "url": "https://www.trin.net/about/about-us/default.aspx",
+            "fetched_at": "2026-10-17T20:18:29Z"
+          },
+          "P2.13": {
+            "text": "our cultural commitment to excellence and continuous improvement.",
+            "url": "https://www.trin.net/about/about-us/default.aspx",
+            "fetched_at": "2026-10-17T20:18:29Z"
+          },
+          "P3.1": {
+            "text": "Trinity Industries, Inc. - About - Trinity Platform",
+            "url": "https://www.trin.net/about/trinity-platform/default.aspx",
+            "fetched_at": "2026-10-17T20:18:31Z"
+          },
+          "P3.2": {
+            "text": "The TrinityRail Platform and Operating Model",
+            "url": "https://www.trin.net/about/trinity-platform/default.aspx",
+            "fetched_at": "2026-10-17T20:18:31Z"
+          },
+          "P3.3": {
+            "text": "At Trinity, we are committed to Delivering Goods for the Good of All. Look around and you’ll see us. Our railcars have likely carried the materials that built them. We may have delivered it from the farm to grocer. We likely transported and fueled it. That’s us too.",
+            "url": "https://www.trin.net/about/trinity-platform/default.aspx",
+            "fetched_at": "2026-10-17T20:18:31Z"
+          },
+          "P3.4": {
+            "text": "Our",
+            "url": "https://www.trin.net/about/trinity-platform/default.aspx",
+            "fetched_at": "2026-10-17T20:18:31Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

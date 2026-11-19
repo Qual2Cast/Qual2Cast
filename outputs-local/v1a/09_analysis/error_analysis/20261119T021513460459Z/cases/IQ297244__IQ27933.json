@@ -1,0 +1,1068 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ297244__IQ27933",
+    "target": "IQ297244",
+    "comp": "IQ27933",
+    "target_ticker": "BRO",
+    "comp_ticker": "EHTH",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ297244__IQ27933",
+        "target": "IQ297244",
+        "comp": "IQ27933",
+        "target_ticker": "BRO",
+        "comp_ticker": "EHTH",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ297244",
+          "comp": "IQ27933",
+          "method": "B3",
+          "kept": true,
+          "rank": 8.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BRO",
+          "comp_ticker": "EHTH"
+        },
+        {
+          "target": "IQ297244",
+          "comp": "IQ27933",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BRO",
+          "comp_ticker": "EHTH"
+        },
+        {
+          "target": "IQ297244",
+          "comp": "IQ27933",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BRO",
+          "comp_ticker": "EHTH"
+        },
+        {
+          "target": "IQ297244",
+          "comp": "IQ27933",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 8.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BRO",
+          "comp_ticker": "EHTH"
+        },
+        {
+          "target": "IQ297244",
+          "comp": "IQ27933",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 6.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BRO",
+          "comp_ticker": "EHTH"
+        },
+        {
+          "target": "IQ297244",
+          "comp": "IQ27933",
+          "method": "screen_haiku",
+          "kept": true,
+          "rank": 8.0,
+          "reason": "Commission-earning insurance broker placing carrier policies, overlapping in health, benefits and life, though mostly individual consumers.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BRO",
+          "comp_ticker": "EHTH"
+        },
+        {
+          "target": "IQ297244",
+          "comp": "IQ27933",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Online insurance brokerage that places health, life and Medicare policies with carriers and earns carrier commissions; a narrower, consumer-focused brokerage.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BRO",
+          "comp_ticker": "EHTH"
+        },
+        {
+          "target": "IQ297244",
+          "comp": "IQ27933",
+          "method": "screen_sonnet",
+          "kept": false,
+          "rank": 8.0,
+          "reason": "Consumer health and Medicare plan marketplace; individual health focus versus commercial P&C brokerage.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BRO",
+          "comp_ticker": "EHTH"
+        },
+        {
+          "target": "IQ297244",
+          "comp": "IQ27933",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Insurance distribution intermediary earning carrier commissions on policies placed, though focused on health and Medicare.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "BRO",
+          "comp_ticker": "EHTH"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Insurance brokerage and risk management firm that places commercial property and casualty, employee benefits and personal insurance for businesses and individuals. It earns commissions and fees by arranging coverage with insurance carriers and advising clients on risk.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "commercial property and casualty insurance; employee benefits insurance; personal insurance; specialty program insurance",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "insurance brokerage; risk management consulting; claims administration; program administration",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: businesses across industries, employers buying benefits, program agencies and retail insurance agencies; B2C: individuals buying personal insurance such as auto and homeowners coverage",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "construction; healthcare; hospitality; manufacturing; real estate",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "commissions or management fees: commissions paid by insurance carriers on policies placed for clients; service fees: fees for consulting, claims handling and program administration",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "financial intermediary: places insurance policies between clients and carriers, earning commissions from carriers; service provider: provides risk advice and claims services to businesses and individuals",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: all 50 states, with smaller offices in Canada, the UK, Ireland and Bermuda",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "among the largest",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: retail brokerage, wholesale brokerage, national programs and services, all selling insurance and risk solutions",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: in-house account executives selling to commercial and personal clients; own locations: retail offices across the United States and abroad; agents / brokers: wholesale brokerage serving independent retail insurance agencies",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: insurance brokers must hold state insurance licenses, regulated by state insurance departments",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Brown & Brown is an insurance intermediary that places property and casualty, employee benefits and specialty insurance for businesses, public entities, and individuals. It also provides program administration, wholesale brokerage and related services through retail offices and specialty units.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "",
+        "primary_products_status": "not_applicable",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "retail insurance brokerage; wholesale insurance brokerage; managed programs and specialty program administration; employee benefits consulting; flood insurance claims and outsourced services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: commercial businesses, associations, and retail agents using wholesale and program services; B2C: individuals buying personal lines, flood and life/health coverage; B2G: public entities and government-related programs such as flood insurance",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "commercial insurance; employee benefits; personal insurance; construction; public sector; real estate",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "commissions or management fees: commissions from insurance carriers on policies placed, including contingent commissions; service fees: fees for consulting, claims processing, program administration and risk management",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "financial intermediary: places coverage from insurance carriers for retail clients and via wholesale to other agents; service provider: administers programs and handles claims and benefits services for clients and carriers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: Primarily the United States, with operations in the UK, Canada, Ireland, Bermuda and other countries",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "among the largest",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: retail brokerage, wholesale brokerage, programs, and services all centered on insurance distribution",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: producers in local retail offices selling to commercial and individual clients; agents / brokers: wholesale brokerage sold through independent retail agents, program business via agents; own locations: network of local branch offices",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: insurance producer licensing by state insurance departments and international regulators, also fiduciary and benefits rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "FACET:49": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:49",
+        "company_id": "IQ297244",
+        "ticker": "BRO",
+        "facet": "offering_description",
+        "human_label": "correct",
+        "labeled_text": "Sells property and casualty, employee benefits and other insurance policies to businesses and individuals. Places coverage with insurance carriers and advises clients on risk management, earning commissions and fees.",
+        "human_note": "",
+        "evidence_url": "https://us.bbrown.com/",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "Insurance brokerage and risk management firm that places commercial property and casualty, employee benefits and personal insurance for businesses and individuals. It earns commissions and fees by arranging coverage with insurance carriers and advising clients on risk.",
+        "sonnet_text": "Brown & Brown is an insurance intermediary that places property and casualty, employee benefits and specialty insurance for businesses, public entities, and individuals. It also provides program administration, wholesale brokerage and related services through retail offices and specialty units.",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:50": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:50",
+        "company_id": "IQ297244",
+        "ticker": "BRO",
+        "facet": "primary_products",
+        "human_label": "correct",
+        "labeled_text": "property and casualty insurance; employee benefits insurance; personal lines insurance; surety bonds; flood insurance",
+        "human_note": "",
+        "evidence_url": "https://us.bbrown.com/industries/healthcare/",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "commercial property and casualty insurance; employee benefits insurance; personal insurance; specialty program insurance",
+        "sonnet_text": "",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:51": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:51",
+        "company_id": "IQ297244",
+        "ticker": "BRO",
+        "facet": "primary_services",
+        "human_label": "correct",
+        "labeled_text": "insurance brokerage; risk management consulting; claims advocacy; program administration",
+        "human_note": "",
+        "evidence_url": "https://us.bbrown.com/solutions/property-risk-management/",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "insurance brokerage; risk management consulting; claims administration; program administration",
+        "sonnet_text": "retail insurance brokerage; wholesale insurance brokerage; managed programs and specialty program administration; employee benefits consulting; flood insurance claims and outsourced services",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:52": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:52",
+        "company_id": "IQ297244",
+        "ticker": "BRO",
+        "facet": "customer_segment",
+        "human_label": "correct",
+        "labeled_text": "B2B: businesses of all sizes, including contractors, manufacturers and nonprofits; B2C: individuals buying personal auto, home and life coverage; B2G: municipalities and other public entities",
+        "human_note": "",
+        "evidence_url": "https://us.bbrown.com/",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "B2B: businesses across industries, employers buying benefits, program agencies and retail insurance agencies; B2C: individuals buying personal insurance such as auto and homeowners coverage",
+        "sonnet_text": "B2B: commercial businesses, associations, and retail agents using wholesale and program services; B2C: individuals buying personal lines, flood and life/health coverage; B2G: public entities and government-related programs such as flood insurance",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:53": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:53",
+        "company_id": "IQ297244",
+        "ticker": "BRO",
+        "facet": "end_markets",
+        "human_label": "correct",
+        "labeled_text": "construction; healthcare; hospitality; manufacturing; real estate",
+        "human_note": "",
+        "evidence_url": "https://us.bbrown.com/",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "construction; healthcare; hospitality; manufacturing; real estate",
+        "sonnet_text": "commercial insurance; employee benefits; personal insurance; construction; public sector; real estate",
+        "exact_haiku_text": true,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:54": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:54",
+        "company_id": "IQ297244",
+        "ticker": "BRO",
+        "facet": "revenue_model",
+        "human_label": "correct",
+        "labeled_text": "commissions or management fees: commissions paid by insurance carriers on policies placed for clients; service fees: fees for risk consulting, claims handling and program administration",
+        "human_note": "",
+        "evidence_url": "https://finance.yahoo.com/news/brown-brown-inc-bro-bull-132326403.html",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "commissions or management fees: commissions paid by insurance carriers on policies placed for clients; service fees: fees for consulting, claims handling and program administration",
+        "sonnet_text": "commissions or management fees: commissions from insurance carriers on policies placed, including contingent commissions; service fees: fees for consulting, claims processing, program administration and risk management",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:55": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:55",
+        "company_id": "IQ297244",
+        "ticker": "BRO",
+        "facet": "value_chain_position",
+        "human_label": "correct",
+        "labeled_text": "financial intermediary: places insurance between carriers and clients, taking commissions from carriers and fees from clients; service provider: provides risk advisory and claims services to businesses and individuals",
+        "human_note": "",
+        "evidence_url": "https://us.bbrown.com/",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "financial intermediary: places insurance policies between clients and carriers, earning commissions from carriers; service provider: provides risk advice and claims services to businesses and individuals",
+        "sonnet_text": "financial intermediary: places coverage from insurance carriers for retail clients and via wholesale to other agents; service provider: administers programs and handles claims and benefits services for clients and carriers",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:56": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:56",
+        "company_id": "IQ297244",
+        "ticker": "BRO",
+        "facet": "geography_served",
+        "human_label": "partly correct",
+        "labeled_text": "US national: nearly all US states, some international operations in Canada, Europe and Bermuda",
+        "human_note": "didn't mention Asia and the Middle East",
+        "evidence_url": "",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "US national: all 50 states, with smaller offices in Canada, the UK, Ireland and Bermuda",
+        "sonnet_text": "global: Primarily the United States, with operations in the UK, Canada, Ireland, Bermuda and other countries",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:57": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:57",
+        "company_id": "IQ297244",
+        "ticker": "BRO",
+        "facet": "company_size",
+        "human_label": "correct",
+        "labeled_text": "among the largest",
+        "human_note": "",
+        "evidence_url": "https://en.wikipedia.org/wiki/Brown_%26_Brown",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "among the largest",
+        "sonnet_text": "among the largest",
+        "exact_haiku_text": true,
+        "exact_sonnet_text": true
+      }
+    },
+    "FACET:58": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:58",
+        "company_id": "IQ297244",
+        "ticker": "BRO",
+        "facet": "specialization",
+        "human_label": "partly correct",
+        "labeled_text": "related lines: retail brokerage, national programs, wholesale brokerage and binding authority services",
+        "human_note": "",
+        "evidence_url": "",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "related lines: retail brokerage, wholesale brokerage, national programs and services, all selling insurance and risk solutions",
+        "sonnet_text": "related lines: retail brokerage, wholesale brokerage, programs, and services all centered on insurance distribution",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:59": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:59",
+        "company_id": "IQ297244",
+        "ticker": "BRO",
+        "facet": "distribution_channels",
+        "human_label": "correct",
+        "labeled_text": "own locations: local retail offices across the United States; direct sales: account executives selling directly to businesses and individuals; partners / resellers: affinity groups and association partners that refer members; agents / brokers: wholesale brokers and program partners placing specialty coverage",
+        "human_note": "",
+        "evidence_url": "",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "direct sales: in-house account executives selling to commercial and personal clients; own locations: retail offices across the United States and abroad; agents / brokers: wholesale brokerage serving independent retail insurance agencies",
+        "sonnet_text": "direct sales: producers in local retail offices selling to commercial and individual clients; agents / brokers: wholesale brokerage sold through independent retail agents, program business via agents; own locations: network of local branch offices",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:60": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:60",
+        "company_id": "IQ297244",
+        "ticker": "BRO",
+        "facet": "regulatory_exposure",
+        "human_label": "can't tell",
+        "labeled_text": "high: state insurance producer licenses from state insurance departments, plus rules on premium handling and consumer protection",
+        "human_note": "Well, it's listed in the 10-K but I couldn't find it from other sources",
+        "evidence_url": "https://www.sec.gov/Archives/edgar/data/79282/000119312526046984/bro-20251231.htm",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "high: insurance brokers must hold state insurance licenses, regulated by state insurance departments",
+        "sonnet_text": "high: insurance producer licensing by state insurance departments and international regulators, also fiduciary and benefits rules",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ297244.json",
+      "data": {
+        "company_name": "Brown & Brown, Inc.",
+        "website": "www.bbrown.com",
+        "scrape_status": "ok",
+        "capture_sha256": "7194205c7a6af0021822112f11c3d8ebc0ef7b023d1f3751072a68bcac1d7985",
+        "lines": {
+          "P1.1": {
+            "text": "Insurance and Risk Management Brokerage | Brown & Brown",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.2": {
+            "text": "Explore insurance, risk management and consulting solutions from Brown & Brown. Helping you protect assets, manage exposure, and support long-term growth.",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.3": {
+            "text": "Delivering solutions for you, every step of the way",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.4": {
+            "text": "Insurance, Risk Management, and Employee Benefits Solutions",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.5": {
+            "text": "Brown & Brown brings insurance, risk management, and employee benefits together to help businesses and individuals navigate risk with confidence and clarity. No matter where you are on your growth journey – whether you are a highly complex multinational enterprise, an individual, or anything in between – our experienced teams can help find solutions at every stage.",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.6": {
+            "text": "Business doesn’t stay still, and neither do we. From day-to-day risk considerations to long-term planning, Brown & Brown offers coordinated solutions designed to adapt as needs evolve.",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.7": {
+            "text": "Insurance solutions to help organizations manage risk, protect assets, and support ongoing operations.",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.8": {
+            "text": "Programs that support employees while balancing cost considerations, compliance needs, and organizational priorities.",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.9": {
+            "text": "Coverage options for individuals and families, including protection for personal property and complex insurance needs.",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.10": {
+            "text": "Services designed to help organizations gain clarity, evaluate financial risk, and support informed decision‑making.",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.11": {
+            "text": "Explore Insurance and Risk Management Solutions by Industry",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.12": {
+            "text": "Every sector faces unique risks. Explore tailored solutions by industry or discover emerging market insights.",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.13": {
+            "text": "For Automotive, RV, Marine, and Powersports Dealerships",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.14": {
+            "text": "Insurance Programs for Businesses and Project Owners",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.15": {
+            "text": "Tailored Insurance Solutions for the Healthcare Industry",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.16": {
+            "text": "Innovative Insurance Solutions for Real Estate Portfolios",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.17": {
+            "text": "Discover how the key shifts may impact your industry",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.18": {
+            "text": "Stay informed with the latest updates, regulatory changes, and market outlooks to face the future with confidence.",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.19": {
+            "text": "Population Health & Well-Being 2 min read",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.20": {
+            "text": "The Women's Health Gap: How Employers Can Address Disparities in Care",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.21": {
+            "text": "Life Insurance 2 min read",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.22": {
+            "text": "The C-Suite Insurance Gap: How Supplemental Life Insurance Can Help",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.23": {
+            "text": "Employee Benefits 2 min read",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.24": {
+            "text": "How Benefits Communication Can Support Employee Decisions Amid Rising Healthcare Costs",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.25": {
+            "text": "Dealer Services 2 min read",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.26": {
+            "text": "FTC Price Transparency FAQs for Auto Dealers: Advertising Compliance and Insurance Implications",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P1.27": {
+            "text": "With local connections and the resources of a global leader, we take an agile, forward-thinking approach to risk.",
+            "url": "https://us.bbrown.com/",
+            "fetched_at": "2026-10-17T19:17:37Z"
+          },
+          "P2.1": {
+            "text": "Real Estate Insurance and Risk Management | Brown & Brown",
+            "url": "https://us.bbrown.com/industries/real-estate",
+            "fetched_at": "2026-10-17T19:17:38Z"
+          },
+          "P2.2": {
+            "text": "Explore Real Estate Insurance and Risk Management solutions from Brown & Brown for property, liability, and compliance exposures, with support tailored to your business.",
+            "url": "https://us.bbrown.com/industries/real-estate",
+            "fetched_at": "2026-10-17T19:17:38Z"
+          },
+          "P2.3": {
+            "text": "Real Estate Insurance and Risk Management Solutions",
+            "url": "https://us.bbrown.com/industries/real-estate",
+            "fetched_at": "2026-10-17T19:17:38Z"
+          },
+          "P2.4": {
+            "text": "Innovative and Data-Driven Insurance Solutions for Real Estate Portfolios",
+            "url": "https://us.bbrown.com/industries/real-estate",
+            "fetched_at": "2026-10-17T19:17:38Z"
+          },
+          "P2.5": {
+            "text": "Insurance and risk management issues differ by real estate asset class, often in nuanced ways. With Brown & Brown, you have specialists and resources for each asset type: office, retail, industrial, hospitality, multifamily, community associations, student housing, and others. We collaborate with you as an outsourced risk manager and insurance advisor to help safeguard your portfolio.",
+            "url": "https://us.bbrown.com/industries/real-estate",
+            "fetched_at": "2026-10-17T19:17:38Z"
+          },
+          "P2.6": {
+            "text": "Leveraging Advanced Analytics to Strengthen Real Estate Risk Management",
+            "url": "https://us.bbrown.com/industries/real-estate",
+            "fetched_at": "2026-10-17T19:17:38Z"
+          },
+          "P2.7": {
+            "text": "In an industry where each decision carries substantial financial weight, ongoing evaluation of your risk profile is crucial. We lead with data — before each renewal and real estate transaction — to help you avoid costly missteps and protect your investments:",
+            "url": "https://us.bbrown.com/industries/real-estate",
+            "fetched_at": "2026-10-17T19:17:38Z"
+          },
+          "P2.8": {
+            "text": "Exposure analysis and CAT modeling: We evaluate fire danger and other catastrophic risks, crime scores, flood mapping, and building valuation to help ascertain geographic vulnerabilities and inform your program structure and limits.",
+            "url": "https://us.bbrown.com/industries/real-estate",
+            "fetched_at": "2026-10-17T19:17:38Z"
+          },
+          "P2.9": {
+            "text": "Power BI heat mapping: Brown & Brown arrays your total insurable values on a map to identify areas with the highest concentrations of risk, so you can make strategic portfolio decisions.",
+            "url": "https://us.bbrown.com/industries/real-estate",
+            "fetched_at": "2026-10-17T19:17:38Z"
+          },
+          "P2.10": {
+            "text": "Identifying Risks in Real Estate",
+            "url": "https://us.bbrown.com/industries/real-estate",
+            "fetched_at": "2026-10-17T19:17:38Z"
+          },
+          "P2.11": {
+            "text": "Real Estate Risk Management Solutions",
+            "url": "https://us.bbrown.com/industries/real-estate",
+            "fetched_at": "2026-10-17T19:17:38Z"
+          },
+          "P2.12": {
+            "text": "Community Associations and HOA Insurance",
+            "url": "https://us.bbrown.com/industries/real-estate",
+            "fetched_at": "2026-10-17T19:17:38Z"
+          },
+          "P2.13": {
+            "text": "Strategic Risk Guidance Throughout the Real Estate Lifecycle",
+            "url": "https://us.bbrown.com/industries/real-estate",
+            "fetched_at": "2026-10-17T19:17:38Z"
+          },
+          "P2.14": {
+            "text": "Our approach extends beyond traditional, transactional insurance services. We supply consultative risk",
+            "url": "https://us.bbrown.com/industries/real-estate",
+            "fetched_at": "2026-10-17T19:17:38Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Online health insurance marketplace that helps individuals, families and Medicare beneficiaries compare and enroll in plans from insurance carriers. Licensed agents assist by phone and online, and carriers pay commissions on enrolled policies.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "Medicare plans; individual and family health plans; life insurance; dental and vision plans",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "insurance plan enrollment assistance; licensed agent advice; plan comparison",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: Medicare beneficiaries, individuals and families buying health and life insurance; B2B: insurance carriers that pay commissions on enrolled policies",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "health insurance; life insurance; senior health",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "commissions or management fees: carrier commissions paid for each enrolled insurance policy",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "financial intermediary: sells carrier policies to consumers, paid by carriers, sold to insurance carriers and consumers; software / platform: online comparison and enrollment platform for consumers and agents",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: all 50 states through carrier networks",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: Medicare, individual and family health, life, dental and vision plans sold through shared agents and platform",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "online: website for consumers to compare and enroll in plans; direct sales: licensed agents selling by phone to consumers; agents / brokers: licensed insurance agents placing policies with carriers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: insurance producer licensing by state regulators, Medicare marketing rules from CMS, HIPAA and telemarketing rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Operates an online and phone-based marketplace where individuals, families and small businesses compare and enroll in health insurance, especially Medicare Advantage, Medicare Supplement and Part D plans. It earns commissions from insurance carriers through licensed agents, a technology platform and consumer websites.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "",
+        "primary_products_status": "not_applicable",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "health insurance enrollment brokerage; Medicare plan comparison and enrollment; individual and family plan enrollment; small business health plan enrollment; marketing and technology services for carriers",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: Medicare-eligible seniors, individuals and families buying health insurance; B2B: Small businesses and insurance carriers paying for enrollment and marketing services",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "health insurance; Medicare; senior healthcare coverage",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "commissions or management fees: commissions from insurance carriers on policies sold, including renewals; service fees: marketing and technology fees from carriers and partners",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "financial intermediary: licensed insurance broker selling carrier plans to consumers and small businesses; software / platform: online marketplace and enrollment technology platform",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: Licensed to sell in all US states and DC",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: Medicare plans, individual and family plans, small business plans, and carrier technology services",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "online: consumer websites and online enrollment platform; direct sales: licensed agents enrolling customers by phone; partners / resellers: partner and affiliate websites and lead sources",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: Insurance broker licensing by state regulators, CMS Medicare marketing rules, ACA rules, HIPAA and telemarketing rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ27933.json",
+      "data": {
+        "company_name": "eHealth, Inc.",
+        "website": "www.ehealthinsurance.com",
+        "scrape_status": "thin_content",
+        "capture_sha256": "7e65b9b1b9b110d5b63454b37acdf8794e9565f3a3f53534209794cccfe09d89",
+        "lines": {
+          "P1.1": {
+            "text": "Request Unavailable",
+            "url": "https://www.ehealthinsurance.com/",
+            "fetched_at": "2026-10-17T19:28:55Z"
+          },
+          "P1.2": {
+            "text": "We’re unable to process this request at this time. Please verify the request and try again later.",
+            "url": "https://www.ehealthinsurance.com/",
+            "fetched_at": "2026-10-17T19:28:55Z"
+          },
+          "P1.3": {
+            "text": "If the issue continues, please contact support and provide the reference below.",
+            "url": "https://www.ehealthinsurance.com/",
+            "fetched_at": "2026-10-17T19:28:55Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}
