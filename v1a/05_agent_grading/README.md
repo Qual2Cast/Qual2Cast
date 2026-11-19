@@ -46,3 +46,5 @@ Commit authors of these files (git): Fiona Shao, Riya Mhatre, EFL-YL.
 
 - 2026-11-18: component created; outputs seeded from v1.
 - 2026-11-18: scripts, tests and `agent_grading.ipynb` ported; v1 numbers reproduced.
+- 2026-11-19: section 3.4 from `peer_evaluation.ipynb` 7.2 (outcome counts, fit dimensions) on the agent's verdicts,
+  0-2 rubric, plus the dimensions by Barbara's grade.

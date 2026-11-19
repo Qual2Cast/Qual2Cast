@@ -16,7 +16,9 @@ Treatment sources, each analysed separately with its own other signals as covari
   b3        each facet's 0.5 embedding + 0.5 TF-IDF similarity (above vs at/below the training median)
   agent     the agent loop's facet scores, where the agent graded the pair (75/100 vs 0/25/50; null = unknown)
   selector  only with a human outcome: the selector's keep vs drop, adjusted for the B3 signals. This is the
-            selector's lift over what the B3 facets already tell.
+            selector's lift over what the B3 facets already tell (stage ablation of 04).
+  agent_grade  only with a human outcome: the agent's overall grade (05) peer (1/2) vs non-peer (0), adjusted for
+            the B3 signals; pairs the agent did not grade are left out. Stage ablation of 05 (added 2026-11-18).
 
   uv run python v1a/09_analysis/scripts/facet_uplift.py --cohort b3_current --outcome selector
 No LLM, search or financial inputs. Writes outputs-local/v1a/09_analysis/facet_uplift/<stamp>/ (never overwrites).
@@ -49,6 +51,7 @@ OUT = v1a.out("09_analysis") / "facet_uplift"
 COHORTS = ("dev_293", "round1_36", "matthew_v2_262", "b3_current")
 OUTCOMES = {"peer": "peer", "rating": "grade", "selector": "selector_keep"}   # outcome -> column
 BINARY = {"peer", "selector"}
+STAGES = {"selector": ("selector_keep", "keep"), "agent_grade": ("agent_peer", "peer")}   # source -> column, facet
 MIN_ARM = 15
 MIN_TARGETS = 5
 
@@ -101,8 +104,8 @@ def treatment(train: np.ndarray, values: np.ndarray, source: str, rule: str):
     observed = train[np.isfinite(train)]
     if not len(observed):
         return np.full(len(values), np.nan), np.nan, np.nan
-    if source == "selector":
-        low, high = 0., 1.                     # keep (1) vs drop (0)
+    if source in STAGES:
+        low, high = 0., 1.                     # selector keep vs drop; agent peer vs non-peer
     elif source == "agent":
         low, high = (50., 75.) if rule == "primary" else (25., 75.)
     elif rule == "primary":
@@ -208,6 +211,10 @@ def build_features(cohort: str = "dev_293", outcome: str = "peer", features: str
     if agent.duplicated(["target", "comp"]).any():
         raise ValueError("Duplicate agent pair")
     columns = [c for c in agent if c.startswith("facet_") and c not in ("facet_scores", "facet_weights")]
+    if "score" in agent:   # the agent's overall 0/1/2 grade, used only as the 05 stage treatment
+        grade = agent[["target", "comp"]].assign(agent_peer=np.where(agent.status.eq("ok") & agent.score.notna(),
+                                                                     (agent.score >= 1).astype(float), np.nan))
+        pairs = pairs.merge(grade, on=["target", "comp"], how="left", validate="one_to_one")
     numeric = agent[["target", "comp", "status", *columns]].copy()
     numeric.loc[numeric.status != "ok", columns] = np.nan
     numeric = numeric.drop(columns="status").rename(columns={c: c.replace("facet_", "agent__", 1) for c in columns})
@@ -235,8 +242,10 @@ def sources(pairs: pd.DataFrame, outcome: str) -> list[tuple[str, str, list[str]
         if source == "agent" and pairs[columns].notna().sum().sum() == 0:
             continue
         out += [(source, c, [o for o in columns if o != c]) for c in columns]
-    if outcome != "selector" and "selector_keep" in pairs:
-        out.append(("selector", "selector_keep", [c for c in pairs if c.startswith("b3__")]))
+    if outcome != "selector":
+        b3 = [c for c in pairs if c.startswith("b3__")]
+        out += [(source, column, b3) for source, (column, _) in STAGES.items()
+                if column in pairs and pairs[column].notna().any()]
     return out
 
 
@@ -248,16 +257,17 @@ def analyze(pairs: pd.DataFrame, outcome="peer"):
     y = pairs[OUTCOMES[outcome]].to_numpy(float)
     if not np.isin(y, [0, 1] if outcome in BINARY else [0, 1, 2]).all():
         raise ValueError("Invalid outcome values")
-    keep = [c for c in ("target", "comp", "target_ticker", "comp_ticker", "peer", "grade", "selector_keep") if c in pairs]
+    keep = [c for c in ("target", "comp", "target_ticker", "comp_ticker", "peer", "grade", "selector_keep", "agent_peer")
+            if c in pairs]
     for source, column, covariates in sources(pairs, outcome):
         score = pairs[column].to_numpy(float)
         x = pairs[covariates].to_numpy(float)
-        for rule in (("primary",) if source == "selector" else ("primary", "extreme")):
+        for rule in (("primary",) if source in STAGES else ("primary", "extreme")):
             for fold, (train, valid) in enumerate(group_splits(groups)):
                 t, low, high = treatment(score[train], score, source, rule)
                 train = train[np.isfinite(t[train])]
                 test = valid[np.isfinite(t[valid])]
-                record = dict(source=source, facet="keep" if source == "selector" else column.split("__", 1)[1],
+                record = dict(source=source, facet=STAGES[source][1] if source in STAGES else column.split("__", 1)[1],
                               rule=rule, fold=fold, threshold_low=low, threshold_high=high,
                               train_n=len(train), test_n=len(test),
                               unknown_test=int(np.isnan(score[valid]).sum()),
@@ -405,7 +415,8 @@ def main(argv=None):
                              "min_arm": MIN_ARM, "min_arm_targets": MIN_TARGETS,
                              "logistic_C": .1, "ridge_alpha": 10, "overlap": [.1, .9],
                              "dr_propensity_clip": [.05, .95], "bootstrap": args.bootstrap,
-                             "primary": {"b3": "training median", "agent": "75/100 vs 0/25/50", "selector": "keep vs drop"},
+                             "primary": {"b3": "training median", "agent": "75/100 vs 0/25/50", "selector": "keep vs drop",
+                                         "agent_grade": "agent grade 1/2 vs 0 (ungraded omitted)"},
                              "sensitivity": {"b3": "training upper vs lower thirds", "agent": "75/100 vs 0/25"},
                              "model_weighting": "equal total weight per training target"},
                 "libraries": {name: version(name) for name in ["numpy", "pandas", "scikit-learn", "sentence-transformers", "torch"]},

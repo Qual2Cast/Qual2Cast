@@ -118,3 +118,14 @@ def test_selector_outcome_is_binary_with_probability_metrics():
     y = rng.binomial(1, .15 + .3*t)
     tau, *_ = estimate_fold(np.zeros((len(y), 2)), y, t, groups, np.zeros((5, 2)), t[:5], "selector")
     assert np.all((tau > .15) & (tau < .45))
+
+
+def test_agent_grade_is_a_stage_treatment_adjusted_for_b3_only():
+    from facet_uplift import sources
+    t, low, high = treatment(np.array([0., 1.]), np.array([0., 1., np.nan]), "agent_grade", "primary")
+    assert (low, high) == (0., 1.) and list(t[:2]) == [0, 1] and np.isnan(t[2])   # ungraded is never control
+    pairs = pd.DataFrame({"target": ["a"], "comp": ["b"], "b3__products": [.5], "b3__customers": [.4],
+                          "agent__products": [75.], "selector_keep": [1], "agent_peer": [1.]})
+    stage = {s: cov for s, c, cov in sources(pairs, "peer") if c == "agent_peer"}
+    assert stage == {"agent_grade": ["b3__products", "b3__customers"]}
+    assert not any(c == "agent_peer" for _, c, _ in sources(pairs, "selector"))

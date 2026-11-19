@@ -71,3 +71,7 @@ Commit authors of these files (git): mcschlatt, Fiona Shao, zynskibud.
 
 - 2026-11-18: component created; outputs seeded from v1.
 - 2026-11-18: scripts, tests and `profiles.ipynb` ported; v1 numbers reproduced.
+- 2026-11-19: v1 `comp_universe_and_facets.ipynb` tables ported on the Sonnet fills (facet definitions; 3.6 coverage,
+  flags, categories, review list, example profiles). Stay in v1: `facet_fill_runs.ipynb` (Haiku/Codex fill history),
+  `business_structure_eval.ipynb` and `business_split_refinement_eval.ipynb` (v0-route and holdout tests of split
+  context, not adopted 10-28).

@@ -27,7 +27,7 @@ Commit authors of these files (git): Kethan Bethamcharla, EFL-YL.
 
 | key | cohort | outcome | features |
 |---|---|---|---|
-| `human_peer` | dev_293 | Barbara grade >= 1 | current (12 B3 signals incl. sub_sector) + agent facet scores |
+| `human_peer` | dev_293 | Barbara grade >= 1 | current (12 B3 signals incl. sub_sector) + agent facet scores; stage treatments: selector keep (04), agent grade (05) |
 | `human_rating` | dev_293 | Barbara grade 0/1/2 | current |
 | `selector_all` | b3_current (2,538 pairs, 373 targets) | Sonnet selector kept | current |
 | `selector_293` | dev_293 | Sonnet selector kept | current |
@@ -38,7 +38,13 @@ Headline (B3 signals, strong vs weak match, percentage points; adjusted associat
   (+15); sub-sector (+2.5) and offering description (+4) add little once the other facets are known.
 - The selector keeps most on sub-sector (+13) and offering description (+11); it under-uses services, end markets
   and customer segment relative to people on the same 293 pairs.
-- The selector's keep still adds +4.0 pp (0.1 to 7.6) to the chance of a human peer beyond the 12 B3 signals.
+- Stage ablation (beyond the 12 B3 signals): the agent's grade (05) adds +49.9 pp (45.2 to 54.3; doubly robust
+  +48.3); the selector's keep (04) adds +4.0 pp (0.1 to 7.6), but its doubly robust check is -9.7, so it is fragile.
+
+Figures and tables live in `analysis.ipynb` section 3, which is Kethan's stakeholder notebook ported cell by cell
+(Methods A and B, sensitivity, diagnostics, agent support, comparison) plus his technical notebook's missingness
+chart, and two v1a additions drawn with his functions: Method C (selector keep) and the stage ablation. Each Run All
+also saves the 11 PNGs under the rating run's `presentation/<stamp>/`, as in v1.
 
 Run: `uv run python v1a/09_analysis/scripts/facet_uplift.py --cohort b3_current --outcome selector` (seconds, offline).
 `company_profiles_and_comp_examples.html` (v1 stakeholder page) stays in `v1/`.
@@ -104,3 +110,8 @@ Run: `uv run python v1a/09_analysis/scripts/facet_uplift.py --cohort b3_current 
 
 - 2026-11-18: component created; outputs seeded from v1.
 - 2026-11-18: scripts, tests and `analysis.ipynb` ported; v1 numbers reproduced.
+- 2026-11-19: stage ablation of 05 (`agent_grade` treatment) added; `human_peer` -> `20261119T031027158914Z`,
+  `human_rating` -> `20261119T031040215833Z` (earlier pins plus that row only, checked in the notebook).
+  Results section rebuilt from Kethan's stakeholder notebook (his plotting and table cells, adapted only for the 12th
+  B3 signal and the current runs); a separate figure script written earlier the same day was retired (its folder is
+  in `facet_uplift/history/figures_retired_2026-11-19/`).

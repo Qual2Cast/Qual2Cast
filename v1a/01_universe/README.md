@@ -39,3 +39,5 @@ Commit authors of these files (git): mcschlatt.
 
 - 2026-11-18: component created; outputs seeded from v1.
 - 2026-11-18: scripts, tests and `universe.ipynb` ported; v1 numbers reproduced.
+- 2026-11-19: v1 `comp_universe_and_facets.ipynb` sections 1-2 tables ported (SIC2 codes, the companies the 3-30
+  range drops, by reason only, SIC codes that lose companies).
