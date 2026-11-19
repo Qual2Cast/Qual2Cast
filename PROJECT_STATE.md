@@ -14,8 +14,12 @@ _2026-11-19, v1a: all components ported (Michael, for Kethan). Not committed; wa
   32.6% on the 265 targets where it kept a comp.
 - 10 is locked (`FINAL_CHECK = False`; 15 leak checks pass). v0-route holdout scripts stay in v1.
 - Judges (LaaJ) use GPT-Terra (`gpt-5.6-terra`) from 2026-11-19 (`current.toml [judges]`).
-- Next: agent grading reviewed in a separate session (Michael); 30 extra B3 pairs through the agent loop for
-  Barbara's review; point AGENTS.md/README at v1a.
+- 30 extra B3 pairs (training only, all kept by the selector, none in the 293) through the agent loop with the
+  293 run's settings: 28 graded 2, 2 graded 1. Added for Barbara's review to
+  `outputs-local/v1a/06_labels/barbara_293/sonnet_label_b3_kept_30_20261119T030414Z.xlsx` (323 rows; new
+  `extend_label_book.py`). Run: `outputs-local/v1a/05_agent_grading/b3_kept_30/`.
+- Next: Barbara grades the 30; agent grading reviewed in a separate session (Michael); point AGENTS.md/README
+  at v1a.
 
 _2026-11-18, v1a: the pipeline reorganized by component (Michael, for Kethan). Steps 1-3 (01-04)._
 - 04 selection: first selector run on the current B3 list (Sonnet 5.5 via the Claude CLI on the subscription,

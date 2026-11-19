@@ -188,3 +188,19 @@ No interval of the gain over no matching excludes 0.
 5. After review: point AGENTS.md, the root README and the data dictionary at v1a; merge Kethan's and Matthew's
    doc edits by hand.
 6. The final check (10) runs once, when the team calls the method final.
+
+## 2026-11-19: 30 more pairs for Barbara
+
+Michael asked to run 30 target-comp pairs (B3 similarity above 0.45; candidates, not confirmed peers) through the
+agent loop with facet scores, and add them to the Sonnet label workbook for Barbara.
+- All 30: both companies training, on the current B3 lists, kept by the Sonnet selector, not in the 293 (either
+  direction). Pair file with B3 rank and similarity: `outputs-local/v1a/05_agent_grading/b3_kept_30/pairs.csv`.
+- Agent loop with the 293 run's exact settings (claude-cli Sonnet, Sonnet web search, 4 steps, facet scores, prompt
+  `2026-11-05b`, current Sonnet facets). Two pairs (CARG-CARS, MCFT-MPX) failed with the CLI's "maximum number of
+  turns" in a search step; resumed runs finished them. Result: 28 graded 2, 2 graded 1 (ONL-PDM, GVA-ROAD).
+- `v1a/06_labels/scripts/extend_label_book.py` writes a new copy of `sonnet_label.xlsx` with the batch appended
+  in Fiona's direct-peer layout (reviewer columns blank; agent grade, reason and facet scores; provenance) plus a
+  JSON of inputs and hashes. Refuses holdout companies and pairs already in the book.
+  Workbook: `outputs-local/v1a/06_labels/barbara_293/sonnet_label_b3_kept_30_20261119T030414Z.xlsx` (323 rows).
+  A first copy whose JSON failed (path bug, fixed) is in `barbara_293/history/`.
+- Judges (LaaJ) use GPT-Terra (`gpt-5.6-terra`) from today.
