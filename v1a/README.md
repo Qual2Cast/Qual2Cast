@@ -7,8 +7,8 @@ unchanged as the record, as `v0/` did for v1.
 **Status: all components ported (2026-11-19).** Start with [`00_overview.ipynb`](00_overview.ipynb), then the
 component notebooks in order. Every notebook runs end to end and its checks pass; 01-07 reproduce the saved v1
 numbers, 08 values the current lists, 09 reproduces v1's X-learner runs and adds runs on the current lists and the
-selector, 10 is locked. 226 tests pass (`uv run pytest v1a/<component>/tests -q`). Not yet done: pointing
-AGENTS.md and the root README here (waits for Michael's review).
+selector, 10 is locked. 226 tests pass (`uv run pytest v1a/<component>/tests -q`). The root README now points here; AGENTS.md
+still names v1 and waits for Michael's review.
 
 ## The pipeline
 
