@@ -1,0 +1,1182 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ271329__IQ272634010",
+    "target": "IQ271329",
+    "comp": "IQ272634010",
+    "target_ticker": "FSS",
+    "comp_ticker": "BLBD",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ271329__IQ272634010",
+        "target": "IQ271329",
+        "comp": "IQ272634010",
+        "target_ticker": "FSS",
+        "comp_ticker": "BLBD",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ271329",
+          "comp": "IQ272634010",
+          "method": "B3",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "FSS",
+          "comp_ticker": "BLBD"
+        },
+        {
+          "target": "IQ271329",
+          "comp": "IQ272634010",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 7.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "FSS",
+          "comp_ticker": "BLBD"
+        },
+        {
+          "target": "IQ271329",
+          "comp": "IQ272634010",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 6.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "FSS",
+          "comp_ticker": "BLBD"
+        },
+        {
+          "target": "IQ271329",
+          "comp": "IQ272634010",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 5.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "FSS",
+          "comp_ticker": "BLBD"
+        },
+        {
+          "target": "IQ271329",
+          "comp": "IQ272634010",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 3.0,
+          "reason": "School buses are a different product, though both sell partly to public agencies through dealers.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "FSS",
+          "comp_ticker": "BLBD"
+        },
+        {
+          "target": "IQ271329",
+          "comp": "IQ272634010",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Builds specialized vehicles sold to public fleet buyers like school districts through dealers, with replacement parts. Closest model to Federal Signal's municipal vehicle business.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "FSS",
+          "comp_ticker": "BLBD"
+        },
+        {
+          "target": "IQ271329",
+          "comp": "IQ272634010",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Specialty vehicle OEM selling to public agencies (school districts) via dealers, with parts aftermarket; closest municipal vehicle peer.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "FSS",
+          "comp_ticker": "BLBD"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and manufactures specialty municipal vehicles such as street sweepers and vacuum excavators, plus sirens, warning lights and public safety communication systems. Sells mainly to municipalities, public works agencies, police and fire departments, utilities and contractors, through direct sales and dealers.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "street sweepers; vacuum excavators; sirens and warning lights; public safety communication systems; aerial platforms",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "parts and aftermarket service; equipment rental",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2G: municipalities, public works departments, police and fire agencies, school districts; B2B: contractors, utilities, airports and industrial facilities",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "municipal public works; public safety; utilities and contractors; industrial; airports",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: specialty vehicles, sirens, warning lights and communication equipment; service fees: replacement parts, aftermarket service and maintenance",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: builds vehicles and safety equipment from purchased components, sold to municipalities and contractors",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "North America: United States and Canada, with some sales in Europe, Australia and other international markets",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: environmental solutions vehicles and equipment, safety and security systems such as sirens, lights and communications, sold to shared municipal customers",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: municipal and government accounts, utilities and large contractors; distributors / dealers: independent dealers for vehicles and equipment in local markets",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: vehicle safety and emissions standards, and public safety equipment certification rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and manufactures street sweepers, sewer cleaners, hydro-excavation trucks, vacuum trucks, dump truck bodies, and safety and signaling equipment. Sells mainly to municipalities, contractors and industrial customers through dealers and direct sales, and supplies aftermarket parts and service.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "street sweepers; sewer cleaning and hydro-excavation trucks; industrial vacuum loaders; dump truck bodies and trailers; warning lights, sirens and public safety equipment",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "aftermarket parts and repair service; equipment rental; used equipment sales",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2G: municipalities, airports, police, fire and emergency agencies; B2B: contractors, industrial operators, utilities, rental firms",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "municipal infrastructure; construction; industrial cleaning; public safety; utilities",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: specialty vehicles, bodies and safety equipment; service fees: aftermarket parts, repair and maintenance; rental or leasing: equipment rentals",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: builds vehicles and equipment from chassis and purchased components, sold to governments and contractors; service provider: parts, repair and rental support for installed equipment",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: United States and Canada primarily, plus Europe and other international markets",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: environmental solutions vehicles, safety and security systems, and specialty vehicles sharing municipal customers",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "distributors / dealers: independent dealer network for sweepers, trucks and safety products; direct sales: sales to large municipal and industrial accounts; own locations: company-owned service and rental centers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: vehicle emissions and safety standards (EPA, CARB, DOT), plus public procurement rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ271329.json",
+      "data": {
+        "company_name": "Federal Signal Corporation",
+        "website": "www.federalsignal.com",
+        "scrape_status": "ok",
+        "capture_sha256": "88eb61024c9fb3980cbd4c6a375b3cda58fb23e0cc278c4ed9471f6aaa2eade9",
+        "lines": {
+          "P1.1": {
+            "text": "Home",
+            "url": "https://www.federalsignal.com/",
+            "fetched_at": "2026-10-17T19:31:55Z"
+          },
+          "P1.2": {
+            "text": "Our products move material, clean infrastructure, and protect the communities where we work and live.",
+            "url": "https://www.federalsignal.com/",
+            "fetched_at": "2026-10-17T19:31:55Z"
+          },
+          "P1.3": {
+            "text": "120 YEARS OF SUSTAINED GROWTH",
+            "url": "https://www.federalsignal.com/",
+            "fetched_at": "2026-10-17T19:31:55Z"
+          },
+          "P1.4": {
+            "text": "TOGETHER WE TRULY MAKE A DIFFERENCE",
+            "url": "https://www.federalsignal.com/",
+            "fetched_at": "2026-10-17T19:31:55Z"
+          },
+          "P1.5": {
+            "text": "A COMPANY FOCUSED ON CREATING VALUE",
+            "url": "https://www.federalsignal.com/",
+            "fetched_at": "2026-10-17T19:31:55Z"
+          },
+          "P1.6": {
+            "text": "Federal Signal manufactures a broad range of equipment engineered to improve, enhance and safeguard communities, companies and their infrastructure around the world.",
+            "url": "https://www.federalsignal.com/",
+            "fetched_at": "2026-10-17T19:31:55Z"
+          },
+          "P1.7": {
+            "text": "Metal & Mineral Extraction Support",
+            "url": "https://www.federalsignal.com/",
+            "fetched_at": "2026-10-17T19:31:55Z"
+          },
+          "P2.1": {
+            "text": "Our Story",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.2": {
+            "text": "Serving our Customers for Over 120 Years",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.3": {
+            "text": "The Federal Signal story begins at the dawn of the 20th century, when the Gilchrist brothers founded Federal Electric Company, a manufacturer of electric store signs in Chicago.",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.4": {
+            "text": "An Organization Committed to Creating a Cleaner Environment for All of Us",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.5": {
+            "text": "Federal Signal operates multiple principal manufacturing facilities around the world while directly managing over 40 service centers. Our customers are also supported through a network of thousands of distributor and dealer locations.",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.6": {
+            "text": "Corporate Headquarters Downers Grove, Illinois Fayette, Alabama Leeds, Alabama Tempe, Arizona Long Beach, California",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.7": {
+            "text": "Post Falls, Idaho Elgin, Illinois",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.8": {
+            "text": "Elmhurst, Illinois Streator, Illinois University Park, Illinois Highland, Indiana",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.9": {
+            "text": "Scranton, Iowa Gonzales, Louisiana Lake Crystal, Minnesota",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.10": {
+            "text": "Missoula, Montana New Brunswick, New Jersey",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.11": {
+            "text": "Albany, New York Rochester, New York High Point, North Carolina Monroe, North Carolina Rugby, North Dakota Williston, North Dakota Toledo, Ohio Hadley, Pennsylvania Saegertown, Pennsylvania Lexington, South Carolina",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.12": {
+            "text": "Corpus Christi, Texas Houston, Texas",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.13": {
+            "text": "Richmond, Virginia Snohomish, Washington Tacoma, Washington Calgary, Alberta, Canada Edmonton, Alberta, Canada Nisku, Alberta, Canada Winnipeg, Manitoba, Canada Halifax, Nova Scotia, Canada",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.14": {
+            "text": "Courtland, Ontario, Canada Hamilton, Ontario, Canada Innisfil, Ontario, Canada London, Ontario, Canada Ottawa, Ontario, Canada Toronto, Ontario, Canada Montreal, Quebec, Canada",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.15": {
+            "text": "Newcastle, United Kingdom Katowice, Poland Barcelona, Spain Madrid, Spain",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.16": {
+            "text": "Service Centers / Customer Support",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.17": {
+            "text": "As an organization, we are relentless in our commitment to our customers to build and deliver equipment of unmatched quality that moves material, cleans infrastructure, and protects the communities where we live and work.",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.18": {
+            "text": "Federal Signal’s equipment keeps society moving, which means we have a duty to help solve the trickiest problems of the future in a sustainable and ethical manner. With every product we manufacture and every service we provide, we remain steadfast in our commitment to always do what is right.",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.19": {
+            "text": "Beyond these basic values, we believe in:",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.20": {
+            "text": "We believe “why” is the most important question of all, and we encourage each other to ask it.",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.21": {
+            "text": "Our commitment to developing our workforce means that changing business conditions will not impede the accomplishment of our mission.",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.22": {
+            "text": "While we are free to choose different tactics along the way, we will not waver from our strategy, our value proposition, and our commitment to delighting our customers.",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.23": {
+            "text": "With candor and coherence, we are willing to speak our minds.",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.24": {
+            "text": "We care deeply about our customers, and about our fellow employees.",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.25": {
+            "text": "Without the belief that we are likely to succeed, we guarantee that we will not.",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.26": {
+            "text": "Serving the Needs of a Changing World",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.27": {
+            "text": "Our story is one of more than a century of innovation and growth.",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.28": {
+            "text": "The Federal Electric Co., a manufacturer of electric signs is incorporated in Illinois by brothers John and James Gilchrist and partner John Goehst.",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.29": {
+            "text": "The young company diversifies its growing product line by purchasing the patents for an electrically operated siren.",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.30": {
+            "text": "Federal Electric comes under the ownership of Commonwealth Edison, becoming part of the utility empire of Samuel Insull.",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.31": {
+            "text": "The company becomes independent again and sales continue to grow as new applications for its signs and signals are developed. During World War II, the company provides sirens to warn Londoners of incoming air raids, and, after the war, its signs are used to illuminate Las Vegas casinos.",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          },
+          "P2.32": {
+            "text": "The company is renamed the Federal Sign and Signal Corporation",
+            "url": "https://www.federalsignal.com/our-story",
+            "fetched_at": "2026-10-17T19:31:56Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and manufactures school buses, including diesel, propane and electric models, and sells them to school districts and fleet operators through dealers and direct sales. It also supplies replacement parts for its buses.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "school buses; electric school buses; propane school buses; replacement parts",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2G: public school districts and government transportation agencies; B2B: private school operators, shuttle and commercial fleet operators",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "student transportation; commercial passenger transportation",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: buses and replacement parts sold to school districts and fleet operators; service fees: maintenance, repair and training support for bus fleets",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: builds buses from purchased chassis and components, sold to school districts and dealers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "North America: United States and Canada, with some sales to other export markets",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "among the largest",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "niche specialist: school buses and related parts",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "distributors / dealers: independent bus dealers that sell and service buses for school districts; direct sales: direct sales to large school districts and national fleet accounts",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: vehicle safety standards for school buses (FMVSS) and emissions rules (EPA, CARB)",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and manufactures school buses and other buses, including diesel, propane, compressed natural gas and electric models. Sells mainly to school districts and contractors through a dealer network. Also sells replacement parts.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "school buses; electric school buses; propane and natural gas buses; commercial and specialty buses; replacement parts",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2G: public school districts and municipalities buying buses; B2B: private school bus contractors, fleet operators, and commercial and specialty bus buyers",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "school transportation; public transit and shuttle; commercial and specialty transportation",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: new buses sold through dealers; product sales: aftermarket replacement parts",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: assembles buses from purchased chassis components, engines and powertrains, sold to dealers, school districts and contractors",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "North America: United States, Canada and some international markets",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: school buses across diesel, propane, natural gas and electric powertrains, plus parts",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "distributors / dealers: independent school bus dealers selling to districts and contractors; direct sales: some direct sales for parts and large fleet accounts",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: vehicle safety standards from NHTSA and Transport Canada, EPA and CARB emissions rules, state school bus requirements",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "FACET:205": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:205",
+        "company_id": "IQ272634010",
+        "ticker": "BLBD",
+        "facet": "offering_description",
+        "human_label": "correct",
+        "labeled_text": "Designs and manufactures school buses and related parts for school districts and private fleet operators. Sells mainly through independent dealers and direct sales, and also offers aftermarket parts and service for its buses.",
+        "human_note": "",
+        "evidence_url": "https://www.blue-bird.com/about-us/",
+        "labeler": "Fiona ",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "Designs and manufactures school buses, including diesel, propane and electric models, and sells them to school districts and fleet operators through dealers and direct sales. It also supplies replacement parts for its buses.",
+        "sonnet_text": "Designs and manufactures school buses and other buses, including diesel, propane, compressed natural gas and electric models. Sells mainly to school districts and contractors through a dealer network. Also sells replacement parts.",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:206": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:206",
+        "company_id": "IQ272634010",
+        "ticker": "BLBD",
+        "facet": "primary_products",
+        "human_label": "correct",
+        "labeled_text": "school buses; propane buses; electric buses; replacement parts",
+        "human_note": "",
+        "evidence_url": "https://www.blue-bird.com/about-us/",
+        "labeler": "Fiona ",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "school buses; electric school buses; propane school buses; replacement parts",
+        "sonnet_text": "school buses; electric school buses; propane and natural gas buses; commercial and specialty buses; replacement parts",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:207": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:207",
+        "company_id": "IQ272634010",
+        "ticker": "BLBD",
+        "facet": "primary_services",
+        "human_label": "partly correct",
+        "labeled_text": "parts distribution; bus service and repair; fleet support",
+        "human_note": "Parts distribution is relevant, but repair and service are primarily delivered through the dealer network rather than as Blue Bird's own main services",
+        "evidence_url": "https://www.blue-bird.com/parts-service/",
+        "labeler": "Fiona ",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "",
+        "sonnet_text": "",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:208": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:208",
+        "company_id": "IQ272634010",
+        "ticker": "BLBD",
+        "facet": "customer_segment",
+        "human_label": "correct",
+        "labeled_text": "B2G: public school districts; B2B: private school operators, bus contractors, commercial fleet operators",
+        "human_note": "",
+        "evidence_url": "https://www.blue-bird.com/about-us/",
+        "labeler": "Fiona ",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "B2G: public school districts and government transportation agencies; B2B: private school operators, shuttle and commercial fleet operators",
+        "sonnet_text": "B2G: public school districts and municipalities buying buses; B2B: private school bus contractors, fleet operators, and commercial and specialty bus buyers",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:209": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:209",
+        "company_id": "IQ272634010",
+        "ticker": "BLBD",
+        "facet": "end_markets",
+        "human_label": "correct",
+        "labeled_text": "K-12 education transportation; commercial fleet transportation",
+        "human_note": "",
+        "evidence_url": "https://www.blue-bird.com/about-us/",
+        "labeler": "Fiona ",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "student transportation; commercial passenger transportation",
+        "sonnet_text": "school transportation; public transit and shuttle; commercial and specialty transportation",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:210": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:210",
+        "company_id": "IQ272634010",
+        "ticker": "BLBD",
+        "facet": "revenue_model",
+        "human_label": "partly correct",
+        "labeled_text": "product sales: school buses sold to districts and fleet operators; service fees: replacement parts, repair and aftermarket support",
+        "human_note": "Parts are product sales, not service fees; repair is done by dealers, not Blue Bird",
+        "evidence_url": "https://www.blue-bird.com/about-us/",
+        "labeler": "Fiona ",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "product sales: buses and replacement parts sold to school districts and fleet operators; service fees: maintenance, repair and training support for bus fleets",
+        "sonnet_text": "product sales: new buses sold through dealers; product sales: aftermarket replacement parts",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:211": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:211",
+        "company_id": "IQ272634010",
+        "ticker": "BLBD",
+        "facet": "value_chain_position",
+        "human_label": "correct",
+        "labeled_text": "OEM / manufacturer: builds buses from purchased chassis and components, sold to dealers and districts; distributor: sells and distributes parts through a dealer network",
+        "human_note": "",
+        "evidence_url": "https://www.blue-bird.com/about-us/",
+        "labeler": "Fiona ",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "OEM / manufacturer: builds buses from purchased chassis and components, sold to school districts and dealers",
+        "sonnet_text": "OEM / manufacturer: assembles buses from purchased chassis components, engines and powertrains, sold to dealers, school districts and contractors",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:212": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:212",
+        "company_id": "IQ272634010",
+        "ticker": "BLBD",
+        "facet": "geography_served",
+        "human_label": "partly correct",
+        "labeled_text": "North America: United States, with sales and dealers in Canada and some other international markets",
+        "human_note": "Its global presence can be seen in more than 60 countries through sales into Africa, Asia, the Caribbean, Latin America, Europe and the Middle East.",
+        "evidence_url": "https://www.blue-bird.com/about-us/",
+        "labeler": "Fiona ",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "North America: United States and Canada, with some sales to other export markets",
+        "sonnet_text": "North America: United States, Canada and some international markets",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:213": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:213",
+        "company_id": "IQ272634010",
+        "ticker": "BLBD",
+        "facet": "company_size",
+        "human_label": "correct",
+        "labeled_text": "large",
+        "human_note": "",
+        "evidence_url": "https://investors.blue-bird.com/company-overview/default.aspx",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "among the largest",
+        "sonnet_text": "large",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": true
+      }
+    },
+    "FACET:214": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:214",
+        "company_id": "IQ272634010",
+        "ticker": "BLBD",
+        "facet": "specialization",
+        "human_label": "correct",
+        "labeled_text": "niche specialist: school buses of several types, alternative-fuel buses, and related parts",
+        "human_note": "",
+        "evidence_url": "https://www.blue-bird.com/about-us/",
+        "labeler": "Fiona ",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "niche specialist: school buses and related parts",
+        "sonnet_text": "related lines: school buses across diesel, propane, natural gas and electric powertrains, plus parts",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:215": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:215",
+        "company_id": "IQ272634010",
+        "ticker": "BLBD",
+        "facet": "distribution_channels",
+        "human_label": "correct",
+        "labeled_text": "distributors / dealers: independent school bus dealers; direct sales: direct sales to large school districts and national fleet accounts",
+        "human_note": "",
+        "evidence_url": "https://www.blue-bird.com/find-a-dealer/",
+        "labeler": "Fiona ",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "distributors / dealers: independent bus dealers that sell and service buses for school districts; direct sales: direct sales to large school districts and national fleet accounts",
+        "sonnet_text": "distributors / dealers: independent school bus dealers selling to districts and contractors; direct sales: some direct sales for parts and large fleet accounts",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:216": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:216",
+        "company_id": "IQ272634010",
+        "ticker": "BLBD",
+        "facet": "regulatory_exposure",
+        "human_label": "correct",
+        "labeled_text": "medium: federal motor vehicle safety standards and EPA emissions rules for school buses",
+        "human_note": "",
+        "evidence_url": "https://www.blue-bird.com/about-us/",
+        "labeler": "Fiona ",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "medium: vehicle safety standards for school buses (FMVSS) and emissions rules (EPA, CARB)",
+        "sonnet_text": "medium: vehicle safety standards from NHTSA and Transport Canada, EPA and CARB emissions rules, state school bus requirements",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ272634010.json",
+      "data": {
+        "company_name": "Blue Bird Corporation",
+        "website": "www.blue-bird.com",
+        "scrape_status": "ok",
+        "capture_sha256": "ac380fa1ad51655c12ccd1c1bd391b1f90850be4f1dc0d8091adb73cc825b810",
+        "lines": {
+          "P1.1": {
+            "text": "Home - Blue Bird Corporation",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.2": {
+            "text": "Your Children's Safety is our Business.",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.3": {
+            "text": "250 Years of America. A Century of Blue Bird.",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.4": {
+            "text": "As we look toward the America 250 milestone, Blue Bird is reflecting on nearly 100 years of helping build an American institution of safety and reliability.",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.5": {
+            "text": "For almost a century, we have safely connected millions of students to their education every day. As the only U.S.-owned and operated school bus manufacturer, we are proud to be a featured part of the America 250 story, leading the industry into the next century with zero-emission technology and manufacturing innovation.",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.6": {
+            "text": "We aren’t just part of history; we are Driving the Future.",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.7": {
+            "text": "In low and zero-emission school buses.",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.8": {
+            "text": "By choosing our state-of-the-art buses, schools can not only reduce their carbon footprint, but also make a positive impact on student health, safety, and overall well-being. With our innovative technologies and cutting-edge designs, we are proud to be at the forefront of the green transportation movement.",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.9": {
+            "text": "The Blue Bird Vision Electric School Bus is the Coolest Thing Made in Georgia",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.10": {
+            "text": "Blue Bird is proud to announce that our Vision Electric school bus won the 2026 Coolest Thing Made in Georgia competition, hosted by the Georgia Chamber of Commerce. This honor recognizes the Vision Electric’s innovative, all-electric approach to student transportation and the expertise, craftsmanship and dedication of the Blue Bird team that designs and builds it in Georgia. By combining advanced technology with a commitment to safe, reliable and sustainable transportation, the Vision Electric represents the future of student mobility—and the strength of Georgia manufacturing.",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.11": {
+            "text": "A recognized technology leader of school buses with nearly 100 years of history and experience.",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.12": {
+            "text": "Built to Pass Trusted Safety Tests",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.13": {
+            "text": "Building the Future: Blue Bird’s Internship Program Develops Tomorrow’s Leaders",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.14": {
+            "text": "Discover how Blue Bird’s internship develops future leaders through meaningful projects, executive mentorship, professional development and hands-on experience.",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.15": {
+            "text": "The Blue Bird Experience at STN Expo West",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.16": {
+            "text": "Discover how Blue Bird helps school districts explore school bus options, powertrain choices, and customer collaboration at STN Expo West.",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.17": {
+            "text": "Summer Refresh: A School Bus Maintenance Checklist for a Seamless Start to the New School Year",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.18": {
+            "text": "Prepare your fleet for the next school year with a summer school bus maintenance checklist covering safety instructions, technician tips and essential replacement parts from Blue Bird dealers.",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.19": {
+            "text": "Blue Bird’s Vision Electric Bus Named “The Coolest Thing Made in Georgia”",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.20": {
+            "text": "The Fort Valley-built bus claimed the title at the Georgia Chamber’s annual Congressional Luncheon",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.21": {
+            "text": "Blue Bird Featured in 250th U.S. Anniversary Campaign as a Century-Old American Manufacturer",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.22": {
+            "text": "100 years of building iconic yellow school bus earns Blue Bird a place in the nation’s milestone celebration",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.23": {
+            "text": "Blue Bird School Bus Foundation Invests in Georgia’s Children with Grants for 11 Local Nonprofits",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.24": {
+            "text": "Blue Bird Appoints Senior Vice President of Engineering",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.25": {
+            "text": "Lyndon Lie to oversee engineering innovation and growth amid Micro Bird expansion",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.26": {
+            "text": "Prince William County Public Schools Unveils 62 New Propane Buses Equipped with Industry-First Driver Airbags",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.27": {
+            "text": "• District will operate the first Blue Bird Vision buses with standard driver airbags • District aims to transition 50-60% of its fleet to propane...",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.28": {
+            "text": "Blue Bird Signs Definitive Agreement to Acquire & Consolidate Micro Bird Joint Venture",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.29": {
+            "text": "• Consolidates its businesses under one brand, one team, and one approach • Enables the broadest product portfolio and powertrains in the bus market •...",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P1.30": {
+            "text": "Add this ID to the plugin's Hide Specific Tweets setting:",
+            "url": "https://www.blue-bird.com/",
+            "fetched_at": "2026-10-17T21:59:14Z"
+          },
+          "P2.1": {
+            "text": "About Us - Blue Bird Corporation",
+            "url": "https://www.blue-bird.com/about-us/",
+            "fetched_at": "2026-10-17T21:59:25Z"
+          },
+          "P2.2": {
+            "text": "Our goal is to Design Build Sell Service the world's finest school bus.",
+            "url": "https://www.blue-bird.com/about-us/",
+            "fetched_at": "2026-10-17T21:59:25Z"
+          },
+          "P2.3": {
+            "text": "We come to work every day with one common goal, to design, build, sell and service the world's finest school bus.",
+            "url": "https://www.blue-bird.com/about-us/",
+            "fetched_at": "2026-10-17T21:59:25Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

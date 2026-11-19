@@ -1,0 +1,1060 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ32052__IQ34555",
+    "target": "IQ32052",
+    "comp": "IQ34555",
+    "target_ticker": "NTAP",
+    "comp_ticker": "RBBN",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ32052__IQ34555",
+        "target": "IQ32052",
+        "comp": "IQ34555",
+        "target_ticker": "NTAP",
+        "comp_ticker": "RBBN",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ32052",
+          "comp": "IQ34555",
+          "method": "B3",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "NTAP",
+          "comp_ticker": "RBBN"
+        },
+        {
+          "target": "IQ32052",
+          "comp": "IQ34555",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "NTAP",
+          "comp_ticker": "RBBN"
+        },
+        {
+          "target": "IQ32052",
+          "comp": "IQ34555",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "NTAP",
+          "comp_ticker": "RBBN"
+        },
+        {
+          "target": "IQ32052",
+          "comp": "IQ34555",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "NTAP",
+          "comp_ticker": "RBBN"
+        },
+        {
+          "target": "IQ32052",
+          "comp": "IQ34555",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "NTAP",
+          "comp_ticker": "RBBN"
+        },
+        {
+          "target": "IQ32052",
+          "comp": "IQ34555",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "NTAP",
+          "comp_ticker": "RBBN"
+        },
+        {
+          "target": "IQ32052",
+          "comp": "IQ34555",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 1.0,
+          "reason": "Telecom session border controllers and unified communications for carriers; different products and customers from storage.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "NTAP",
+          "comp_ticker": "RBBN"
+        },
+        {
+          "target": "IQ32052",
+          "comp": "IQ34555",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Sells hardware appliances and software with support to carriers and enterprises; similar infrastructure vendor model.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "NTAP",
+          "comp_ticker": "RBBN"
+        },
+        {
+          "target": "IQ32052",
+          "comp": "IQ34555",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Sells enterprise and carrier network hardware and software with subscriptions and support, via a similar hybrid product-plus-recurring model.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "NTAP",
+          "comp_ticker": "RBBN"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and sells enterprise data storage hardware, data management software and cloud data services. Customers are enterprises, cloud providers and public agencies, served through direct sales, partners and cloud marketplaces, and the company builds its hardware with contract manufacturers.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "storage arrays; data management software; cloud storage services; hybrid cloud infrastructure systems",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "technical support; professional services; data migration services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: enterprises, cloud and managed service providers, telecom operators, technology companies; B2G: government agencies and defense organizations",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "enterprise IT; cloud services; financial services; healthcare; government",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: storage hardware systems sold to enterprises and service providers; subscription: software and cloud data services billed on subscription or consumption terms; service fees: support contracts and professional services for installed systems",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: builds storage systems from purchased components, sold to enterprises and resellers; software / platform: data management operating software licensed across on-premises and cloud deployments; service provider: cloud data services and support delivered to business customers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: Sells and supports customers across North America, Europe, Asia Pacific and other regions worldwide.",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: storage hardware, data management software, cloud data services and support",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales teams selling to large enterprise and government accounts; partners / resellers: channel partners, systems integrators and cloud resellers; distributors / dealers: distributors supplying regional resellers; online: cloud marketplaces offering the company's services to customers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: data privacy and security rules and export controls on advanced technology apply to its products and services",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Sells enterprise data storage systems, data management software and cloud storage services to businesses and government agencies. Products include all-flash and hybrid storage arrays running ONTAP software, plus native cloud storage services on major public clouds. Delivered as hardware, software, subscriptions and support.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "all-flash storage arrays; hybrid storage arrays; data management software; object storage systems; converged infrastructure",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "technical support and maintenance; professional and consulting services; cloud storage and data services; managed and subscription services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: large enterprises, cloud providers, service providers across industries; B2G: federal, state and local government agencies",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "financial services; healthcare; technology; government; manufacturing; media and entertainment",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: storage hardware systems and perpetual software licenses; subscription: cloud services and software subscriptions; service fees: support contracts, maintenance and professional services",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: designs storage systems built with contract manufacturers, sold to enterprises; software / platform: data management software and cloud storage services sold to enterprises and cloud users",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: Americas, Europe, Middle East, Africa and Asia-Pacific",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: storage hardware, data management software, cloud data services and support",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "partners / resellers: value-added resellers, system integrators and distributors, the main channel; direct sales: sales teams for large enterprise and government accounts; online: cloud marketplaces of major public cloud providers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "low: general business, export control, data privacy and government procurement rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ32052.json",
+      "data": {
+        "company_name": "NetApp, Inc.",
+        "website": "www.netapp.com",
+        "scrape_status": "ok",
+        "capture_sha256": "f0a812dbf72ce30c25b47c2744ff05a915ebdd423de5d40f889f8c947e20faab",
+        "lines": {
+          "P1.1": {
+            "text": "Enterprise data storage leader | NetApp",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.2": {
+            "text": "The only enterprise-grade storage service that's embedded into the major public cloud providers, NetApp turns disruption into opportunity with intelligent data infrastructure for any data, any workload, and any environment.",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.3": {
+            "text": "Catch up on INSIGHT highlights and explore our big announcements below.",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.4": {
+            "text": "One platform. Every AI possibility.",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.5": {
+            "text": "A unified foundation for the agentic enterprise — from hybrid multicloud to AI scale.",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.6": {
+            "text": "Scale beyond boundaries with the fastest storage on the planet.",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.7": {
+            "text": "Agents and AI outcomes are only as good as the data behind them. Start by knowing what you have.",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.8": {
+            "text": "Run intelligent operations your way with intent-based control of your entire data estate. Your rules. One console. Less work.",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.9": {
+            "text": "Intelligent data infrastructure for the AI era and beyond",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.10": {
+            "text": "Chief Product Officer Syam Nair on the pressure agentic AI puts on your data.",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.11": {
+            "text": "See how NetApp Novus delivers 100TB/s and zettabyte scale to power the largest AI factories.",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.12": {
+            "text": "NetApp AI Data Services turns all your enterprise data in AI context – with zero copies.",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.13": {
+            "text": "Explore new NetApp Console AI-driven capabilities and Keystone Sovereign.",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.14": {
+            "text": "Built for organizations that can't afford to wait",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.15": {
+            "text": "When your platform processes 8 billion data transactions every day, zero downtime isn't a goal. It's the baseline.",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.16": {
+            "text": "Unleashing imagination with data — petabytes at a time",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.17": {
+            "text": "Intelligent data with lightning-fast results",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.18": {
+            "text": "Business continuity makes all the difference",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.19": {
+            "text": "The right technology drives better healthcare",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.20": {
+            "text": "Delivering results for the world’s infrastructure",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.21": {
+            "text": "The organizations we work with aren't just managing data. They're building their next decade on it.",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.22": {
+            "text": "The AI era doesn't reward followers",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.23": {
+            "text": "Download up-to-date software and other updates for your NetApp products.",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.24": {
+            "text": "Technical product documentation for all of the NetApp offerings, from data storage to cloud.",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P1.25": {
+            "text": "Browse articles that may help your problem-solving.",
+            "url": "https://www.netapp.com/",
+            "fetched_at": "2026-10-17T22:08:53Z"
+          },
+          "P2.1": {
+            "text": "NetApp Solutions By Industry | NetApp",
+            "url": "https://www.netapp.com/industries/",
+            "fetched_at": "2026-10-17T22:08:54Z"
+          },
+          "P2.2": {
+            "text": "Our industry-specific data storage solutions, enhanced by strategic partnerships, address critical business challenges.",
+            "url": "https://www.netapp.com/industries/",
+            "fetched_at": "2026-10-17T22:08:54Z"
+          },
+          "P2.3": {
+            "text": "Digital transformation remains top-of-mind for auto companies, but the data-accessing struggle is real. From vehicle design to manufacturing, today's auto sector runs on data.",
+            "url": "https://www.netapp.com/industries/",
+            "fetched_at": "2026-10-17T22:08:54Z"
+          },
+          "P2.4": {
+            "text": "Shrinking cycle times for new chip development in the cloud.",
+            "url": "https://www.netapp.com/industries/",
+            "fetched_at": "2026-10-17T22:08:54Z"
+          },
+          "P2.5": {
+            "text": "Predicting market trends, executing trades at high speeds and high volumes, and detecting fraud.",
+            "url": "https://www.netapp.com/industries/",
+            "fetched_at": "2026-10-17T22:08:54Z"
+          },
+          "P2.6": {
+            "text": "Learn how the world’s leading game developers build games faster and reduce costs with highly efficient build farms. Level up your code and content management solutions and improve workflow efficiency.",
+            "url": "https://www.netapp.com/industries/",
+            "fetched_at": "2026-10-17T22:08:54Z"
+          },
+          "P2.7": {
+            "text": "Streamlining and speeding access to critical clinical data to help deliver better patient outcomes.",
+            "url": "https://www.netapp.com/industries/",
+            "fetched_at": "2026-10-17T22:08:54Z"
+          },
+          "P2.8": {
+            "text": "Hybrid Multi-cloud and Data foundation have the power to unlock breakthrough therapies.",
+            "url": "https://www.netapp.com/industries/",
+            "fetched_at": "2026-10-17T22:08:54Z"
+          },
+          "P2.9": {
+            "text": "Deliver digital transformations perfect for manufacturing with hybrid multicloud and adaptive data solutions, that are proven to be effective for Industry 4.0 technologies",
+            "url": "https://www.netapp.com/industries/",
+            "fetched_at": "2026-10-17T22:08:54Z"
+          },
+          "P2.10": {
+            "text": "Managing, storing, and accessing content for diverse media workflows.",
+            "url": "https://www.netapp.com/industries/",
+            "fetched_at": "2026-10-17T22:08:54Z"
+          },
+          "P2.11": {
+            "text": "Satisfying storage modernization, next-generation data center, and hybrid cloud needs.",
+            "url": "https://www.netapp.com/industries/",
+            "fetched_at": "2026-10-17T22:08:54Z"
+          },
+          "P2.12": {
+            "text": "Governments worldwide look at technology to improve their service delivery capabilities. Here is more about smart government, healthcare digitalization, remote education and data security for the public sector.",
+            "url": "https://www.netapp.com/industries/",
+            "fetched_at": "2026-10-17T22:08:54Z"
+          },
+          "P2.13": {
+            "text": "Stop scrolling! We got news.",
+            "url": "https://www.netapp.com/industries/",
+            "fetched_at": "2026-10-17T22:08:54Z"
+          },
+          "P2.14": {
+            "text": "NetApp recognized by Microsoft for transforming Industry, Automotive, Mobility, and Transportation.",
+            "url": "https://www.netapp.com/industries/",
+            "fetched_at": "2026-10-17T22:08:54Z"
+          },
+          "P3.1": {
+            "text": "Customer success stories | NetApp",
+            "url": "https://www.netapp.com/customers/",
+            "fetched_at": "2026-10-17T22:08:55Z"
+          },
+          "P3.2": {
+            "text": "Read a NetApp customer story to learn how NetApp helped enable their cloud success. Browse by publication date or adjust the list filters to find a customer story most interesting to you.",
+            "url": "https://www.netapp.com/customers/",
+            "fetched_at": "2026-10-17T22:08:55Z"
+          },
+          "P3.3": {
+            "text": "Powered by data, driven to make a difference",
+            "url": "https://www.netapp.com/customers/",
+            "fetched_at": "2026-10-17T22:08:55Z"
+          },
+          "P3.4": {
+            "text": "From startups to global enterprises, our customers transform industries worldwide. They're unleashing the power of data to spark innovation, solve big challenges, and create lasting impact.",
+            "url": "https://www.netapp.com/customers/",
+            "fetched_at": "2026-10-17T22:08:55Z"
+          },
+          "P3.5": {
+            "text": "of US films relied on NetApp for post-production",
+            "url": "https://www.netapp.com/customers/",
+            "fetched_at": "2026-10-17T22:08:55Z"
+          },
+          "P3.6": {
+            "text": "top semiconductor leaders design chips on NetApp",
+            "url": "https://www.netapp.com/customers/",
+            "fetched_at": "2026-10-17T22:08:55Z"
+          },
+          "P3.7": {
+            "text": "top global banks trust NetApp for critical data storage",
+            "url": "https://www.netapp.com/customers/",
+            "fetched_at": "2026-10-17T22:08:55Z"
+          },
+          "P3.8": {
+            "text": "of top 50 US healthcare providers use NetApp",
+            "url": "https://www.netapp.com/customers/",
+            "fetched_at": "2026-10-17T22:08:55Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Sells IP communications software and hardware for telecom carriers, cloud providers and large enterprises, including session border controllers, cloud security, unified communications and network analytics. Delivers them as on-premises appliances, virtualized software and cloud services, with maintenance and professional services.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "session border controllers; cloud security software; unified communications software; network analytics; voice gateways",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "maintenance and support; professional services; managed services; cloud hosting",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: telecom service providers, cloud communications providers, large enterprises, critical infrastructure operators; B2G: government agencies and public safety networks",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "telecommunications; cloud communications; enterprise IT; government; critical infrastructure",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: hardware appliances and perpetual software licenses sold to carriers and enterprises; subscription: recurring software and cloud service subscriptions; service fees: maintenance, support, installation and professional services",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: designs and builds its own communications hardware appliances, sold to carriers and enterprises; software / platform: develops communications and security software sold to service providers and enterprises; service provider: operates managed and cloud services for customers' communications networks",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: customers in North America, Europe, Asia-Pacific, Middle East, Latin America and Africa",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: IP communications, cloud security, unified communications and network analytics sold to shared telecom customers",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales teams selling to carriers and large enterprise accounts; partners / resellers: systems integrators and channel resellers serving enterprise customers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: lawful intercept and emergency calling rules, export controls, and data privacy rules such as GDPR",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides IP and optical networking equipment and cloud-native communications software to telecom service providers, enterprises and governments. Products include session border controllers, voice core software, routers and optical transport, plus security and analytics. Delivered as software and hardware with support and professional services.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "session border controllers; cloud voice core and call routing software; IP routing equipment; optical transport systems; network analytics and security software",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "technical support and maintenance; professional services and network deployment; managed cloud communications",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: telecom service providers, cable operators and large enterprises; B2G: government and defense agencies",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "telecommunications; enterprise communications; government and defense; utilities and critical infrastructure",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: hardware and perpetual software licenses; subscription: cloud and software-as-a-service communications offerings; service fees: support, maintenance and professional services",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: designs networking hardware built by contract manufacturers, sold to carriers and enterprises; software / platform: develops communications and security software sold to service providers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: United States, Europe, Middle East, Africa, Asia-Pacific and Latin America",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: cloud and edge communications software plus IP and optical networking",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales to large carriers and enterprises; partners / resellers: channel partners, resellers and system integrators",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "low: Normal business rules, export controls and telecom standards apply, with government security requirements for some sales",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ34555.json",
+      "data": {
+        "company_name": "Ribbon Communications Inc.",
+        "website": "www.ribboncommunications.com",
+        "scrape_status": "ok",
+        "capture_sha256": "fe973babce3d10835d330f54f0af838e793a263145aacd209827d10aa43b787a",
+        "lines": {
+          "P1.1": {
+            "text": "IP Optical Networking and Communications | Ribbon",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.2": {
+            "text": "Ribbon offers innovative IP and optical networking solutions and cloud-to-edge communications solutions. These solutions include optical and IP systems for 5G networks, mobile back-haul, metro aggregation and wholesale carriers. Our cloud-to-edge solutions include enabling Microsoft teams using the Ribbon SBC and UC.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.3": {
+            "text": "Your Path to Autonomous Networks",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.4": {
+            "text": "AIOps and Automation Platform. Ribbon Acumen™ provides a faster, smarter approach for implementing AI-driven automation to lower the cost of operating your multi-vendor network.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.5": {
+            "text": "Cloud Native SBC. Transition to a Session Border Controller in a secure, scalable cloud. No hardware.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.6": {
+            "text": "IP Routing & Optical Networking. Transport services intelligently according to their performance needs.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.7": {
+            "text": "Rockin' Autonomous Networks at the Hard Rock in Ft. Lauderdale - Register today.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.8": {
+            "text": "Ribbon’s Cloud Native Technology Partners with Agentforce Contact Center in the Public Cloud",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.9": {
+            "text": "Integrated cloud native solution, available on AWS Marketplace, delivers secure session control and centralized management",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.10": {
+            "text": "Optimum Integrates Ribbon's AIOps Platform Acumen",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.11": {
+            "text": "Verizon Selects Ribbon to Provide Advanced Voice Network Platform and Services.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.12": {
+            "text": "Brightspeed Invests in Next Generation Services with Ribbon’s Network Transformation Solution",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.13": {
+            "text": "Interview: Bruce McClelland on how operators can benefit from network modernization",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.14": {
+            "text": "AIOps & Automation for Your Network",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.15": {
+            "text": "A comprehensive solution that leverages AI for deployment automation and operational insights.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.16": {
+            "text": "“In service” Upgradable From 7.2Tbs to 14.4Tbs",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.17": {
+            "text": "Powered by Ribbon's IP rNOS and with IPoDWDM capabilities, the NPT 2714 is a 6RU modular, centralised aggregation router which combines the redundancy and I/O diversity of a modular router with the simplicity and cost efficiency of a fixed router.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.18": {
+            "text": "When you need to connect Teams to the rest of the world seamlessly - Ribbon's SBCs allow you to securely make business calls outside of your organization.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.19": {
+            "text": "Ribbon Can help you migrate off Metaswitch. We are the only vendor offering comprehensive Metaswitch replacement options.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.20": {
+            "text": "Unlock Network Value Through Automation",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.21": {
+            "text": "Unify IP/MPLS and optical layers with real-time automation—simplify, accelerate, and optimize with Muse Multilayer Automation Platform.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.22": {
+            "text": "Rural Broadband - Rural DCI",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.23": {
+            "text": "Get greater long-term value from your broadband investment and BEAD funding – a 100G middle mile isn’t enough to meet future needs, such as rural data center interconnect (DCI)",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.24": {
+            "text": "We’ve built a complete ecosystem using Ribbon data… consumed by my central quality teams as well as the larger ecosystem.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.25": {
+            "text": "Ajay Jain, EVP of Digitization, Bharti Airtel",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.26": {
+            "text": "Optimum shares Ribbon’s vision for building AIOps solutions that can dramatically transform the way networks are managed and maintained.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.27": {
+            "text": "Luciano Ramos, AIOps & Automation, Optimum",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.28": {
+            "text": "Ribbon has proven itself as a paragon of reliability, demonstrating adaptability and responsiveness in deploying SBCs and DWDM solutions across our markets",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.29": {
+            "text": "Dirk Karl, Sourcing and Supply Chain, MTN",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.30": {
+            "text": "Randeep Sekhon, CTO, Bharti Airtel",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.31": {
+            "text": "Muse was really the game-changer, ten button clicks in Muse and it’s built! It’s a game-changer for us operationally.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.32": {
+            "text": "Andrew Kalkbrenner, IT Manager, Vibrant Broadband",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.33": {
+            "text": "You Need Faster Service Delivery - Go Cloud Native",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.34": {
+            "text": "Go cloud-native to continuously deliver faster services and revenue, from public or private cloud. Give your customers a better experience with secure, carrier-grade, automated, communications services.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.35": {
+            "text": "Our heritage precedes us, but it does not define us. We leverage our experience to develop more reliable network solutions, as we continually innovate.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.36": {
+            "text": "The Ribbon family has grown over the years, bringing together the best talent in our industry. Our team’s innovative drive and deep engagement are vital to your success -- and ours.",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.37": {
+            "text": "Countries Represented by our Customers",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P1.38": {
+            "text": "Patents developed by our team",
+            "url": "https://ribboncommunications.com/",
+            "fetched_at": "2026-10-17T20:07:58Z"
+          },
+          "P2.1": {
+            "text": "Ribbon About Us | Voice, IP and Optical Networking",
+            "url": "https://ribboncommunications.com/about-us",
+            "fetched_at": "2026-10-17T20:08:00Z"
+          },
+          "P2.2": {
+            "text": "Ribbon is a global leader of voice, IP and and optical networking solutions -- switching, security, networking and professional services.",
+            "url": "https://ribboncommunications.com/about-us",
+            "fetched_at": "2026-10-17T20:08:00Z"
+          },
+          "P2.3": {
+            "text": "About Ribbon Ribbon Communications delivers, AIOps and automation, secure",
+            "url": "https://ribboncommunications.com/about-us",
+            "fetched_at": "2026-10-17T20:08:00Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

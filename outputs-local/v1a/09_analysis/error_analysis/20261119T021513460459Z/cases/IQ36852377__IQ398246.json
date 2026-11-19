@@ -1,0 +1,853 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ36852377__IQ398246",
+    "target": "IQ36852377",
+    "comp": "IQ398246",
+    "target_ticker": "ACIC",
+    "comp_ticker": "KINS",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ36852377__IQ398246",
+        "target": "IQ36852377",
+        "comp": "IQ398246",
+        "target_ticker": "ACIC",
+        "comp_ticker": "KINS",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ36852377",
+          "comp": "IQ398246",
+          "method": "B3",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "ACIC",
+          "comp_ticker": "KINS"
+        },
+        {
+          "target": "IQ36852377",
+          "comp": "IQ398246",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "ACIC",
+          "comp_ticker": "KINS"
+        },
+        {
+          "target": "IQ36852377",
+          "comp": "IQ398246",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "ACIC",
+          "comp_ticker": "KINS"
+        },
+        {
+          "target": "IQ36852377",
+          "comp": "IQ398246",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "ACIC",
+          "comp_ticker": "KINS"
+        },
+        {
+          "target": "IQ36852377",
+          "comp": "IQ398246",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "ACIC",
+          "comp_ticker": "KINS"
+        },
+        {
+          "target": "IQ36852377",
+          "comp": "IQ398246",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "ACIC",
+          "comp_ticker": "KINS"
+        },
+        {
+          "target": "IQ36852377",
+          "comp": "IQ398246",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 1.0,
+          "reason": "Multi-line, mainly commercial and auto, northeastern; homeowners is only a secondary line.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "ACIC",
+          "comp_ticker": "KINS"
+        },
+        {
+          "target": "IQ36852377",
+          "comp": "IQ398246",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Regional P&C insurer writing homeowners and property coverage sold through independent agents, though with a broader commercial mix.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "ACIC",
+          "comp_ticker": "KINS"
+        },
+        {
+          "target": "IQ36852377",
+          "comp": "IQ398246",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Regional property insurer selling homeowners policies through independent agents; state-regulated premium-based underwriter, though with more commercial and auto lines.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "ACIC",
+          "comp_ticker": "KINS"
+        },
+        {
+          "target": "IQ36852377",
+          "comp": "IQ398246",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Underwrites property and casualty insurance including homeowners via independent agents in the Northeast; closest personal property underwriter.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "ACIC",
+          "comp_ticker": "KINS"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Underwrites and sells residential property insurance, mainly homeowners and condominium unit owner policies, for coastal homes exposed to hurricanes and other weather. Policies are sold through independent agents and brokers, and the company earns premiums and manages the resulting risk.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "homeowners insurance; condominium unit owner insurance; dwelling fire insurance; commercial residential property insurance",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: homeowners and condominium unit owners in coastal areas; B2B: landlords and residential property owners insured through agents",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "residential property insurance; real estate; homeowners and condominium housing",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "interest or premiums: premiums paid by policyholders for property coverage",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "financial intermediary: underwrites and bears property risk, selling policies to homeowners through agents and brokers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US regional: coastal Florida, Texas, Louisiana, the Carolinas and Georgia",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "niche specialist: residential property insurance for coastal homes",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "agents / brokers: independent insurance agencies and brokers that sell its policies",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: insurance licensed and rate-regulated by state insurance departments, such as the Florida Office of Insurance Regulation",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides residential and commercial residential property insurance, mainly homeowners and condo association coverage in Florida, through its UPC Insurance subsidiary and other carriers. It sells through independent agents and manages risk using reinsurance. It also earns fees from managing policies and claims.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "homeowners insurance; condominium association property insurance; commercial residential property insurance; flood insurance",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "insurance underwriting; claims handling; policy administration and managing general agent services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: Florida homeowners and other individual residential policyholders; B2B: condominium associations and apartment owners buying commercial residential coverage",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "residential property insurance; commercial residential real estate; Florida coastal housing",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "interest or premiums: premiums earned on property insurance policies and investment income; commissions or management fees: policy and claims management fees and commissions",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "financial intermediary: risk-bearing insurance carrier buying reinsurance, selling property policies to homeowners and associations; service provider: managing general agent and claims administration",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "US regional: Primarily Florida, with some Gulf and Atlantic coast states",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: residential, condo and commercial residential property insurance plus related agency and claims services",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "agents / brokers: independent insurance agents placing policies",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: insurance carrier regulated by state insurance departments such as the Florida Office of Insurance Regulation, with rate and solvency rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ36852377.json",
+      "data": {
+        "company_name": "American Coastal Insurance Corporation",
+        "website": "www.amcoastal.com",
+        "scrape_status": "ok",
+        "capture_sha256": "040215f5449d70bf1448b190109d89d2a50e1c96225ec3ea480f44ae72a8586f",
+        "lines": {
+          "P1.1": {
+            "text": "Florida Commercial Residential Property Insurance | American Coastal Insurance",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.2": {
+            "text": "American Coastal Insurance Company writes commercial residential property in Florida. Condo, HOA, apartment, and assisted living through AmRisc Group and Skyway Underwriters.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.3": {
+            "text": "American Coastal Insurance Company · Florida specialty",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.4": {
+            "text": "Florida’s largest voluntary writer of commercial residential property.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.5": {
+            "text": "Writing commercial property in FL. Condo, HOA, apartment and assisted living properties.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.6": {
+            "text": "The admitted solution for catastrophe-exposed commercial property in Florida.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.7": {
+            "text": "I’m an agent or broker.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.8": {
+            "text": "Find your binding path. Retail agents and brokers place condo and HOA through AmRisc. Wholesale brokers place apartment and assisted living through Skyway.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.9": {
+            "text": "Start with the product line. Garden-style condos and HOAs flow through AmRisc.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.10": {
+            "text": "File through AmRisc for condo or HOA, Skyway for apartment and assisted living.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.11": {
+            "text": "Nearly two decades of Florida commercial residential underwriting.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.12": {
+            "text": "Based in Saint Petersburg, FL, writing through every Florida storm season since. The largest voluntary writer of commercial residential property in the state, with a catastrophe tower rebuilt every season.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.13": {
+            "text": "FL voluntary writer of commercial residential",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.14": {
+            "text": "Condo, HOA, apartment, and assisted living.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.15": {
+            "text": "Garden-style FL condos and homeowner associations.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.16": {
+            "text": "Garden-style risks built to current Florida wind standards. ISO Special Perils, Ordinance or Law, mitigation credits. The core of the Florida condo and HOA book.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.17": {
+            "text": "Submissions route through AmRisc Group. Florida condo and HOA insurance",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.18": {
+            "text": "Florida apartment communities, written through Skyway.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.19": {
+            "text": "Risk-scored intake, inspection-driven pricing, deductible flexibility. Building, contents, business income, sinkhole, wind-driven precipitation.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.20": {
+            "text": "Submissions route through Skyway Underwriters. Florida apartment insurance",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.21": {
+            "text": "Florida assisted and independent living facilities, written through Skyway.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.22": {
+            "text": "Property-only coverage. ResiQuant-enabled intake with engineering-grade wind underwriting. Targeting risks with characteristics consistent with our apartment book.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.23": {
+            "text": "Submissions route through Skyway Underwriters. Florida assisted living insurance",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.24": {
+            "text": "In Florida, the reinsurance tower is the policy.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.25": {
+            "text": "When a named storm lands, the structure behind the policy pays the claim. We rebuild that catastrophe tower every June 1, layering our own retention, the Florida Hurricane Catastrophe Fund, a panel of highly rated and collateralized reinsurers, and catastrophe bonds in the capital markets.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.26": {
+            "text": "Carrier retention at the base, the in the middle, and a panel of traditional reinsurers above it, with catastrophe bonds layered throughout. Every program is built to exceed the Florida statutory minimum.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.27": {
+            "text": "The traditional layers are placed with reinsurers rated A− or better by AM Best, or fully collateralized. A broad panel keeps concentration with any single counterparty low.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.28": {
+            "text": "Participating in the state catastrophe fund lowers our cost of capital against the surplus-lines market, and that edge flows through to how we price the risk.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.29": {
+            "text": "The catastrophe tower is rebuilt every June 1. Financial strength rated A (Exceptional) by Demotech and A (Stable) by KBRA. Current program detail is filed with the SEC and posted at investors.amcoastal.com (opens in new tab).",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.30": {
+            "text": "How the catastrophe tower is built",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.31": {
+            "text": "We don’t sell direct. Two MGAs feed every submission.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.32": {
+            "text": "Exclusive MGA for our condominium and HOA business.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.33": {
+            "text": "One of the largest MGAs in the country, specializing in hurricane-exposed properties.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.34": {
+            "text": "Exclusive MGA for our apartment and assisted living business.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.35": {
+            "text": "An MGA focused on catastrophe-exposed risk, running a proprietary risk-scored underwriting portal.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.36": {
+            "text": "WSIA member. American Coastal Insurance Company is a member of the Wholesale & Specialty Insurance Association (opens in new tab), the trade body for the wholesale, specialty, and surplus lines market. The membership reflects how we distribute: AmRisc, Skyway, and the E&S program underway through Skyway all place business in that market.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.37": {
+            "text": "The team that runs the carrier.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.38": {
+            "text": "Owns underwriting strategy, risk selection, and portfolio performance across the book.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.39": {
+            "text": "Leads finance, treasury, reinsurance, and the rating-agency relationships.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.40": {
+            "text": "Oversees compliance, enterprise risk, and internal audit, and serves on the carrier board.",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          },
+          "P1.41": {
+            "text": "Florida Statute 627.0629. Information describing the discounts",
+            "url": "https://www.amcoastal.com/",
+            "fetched_at": "2026-10-17T19:10:36Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Underwrites and sells property and casualty insurance policies for small businesses, contractors, commercial property owners and homeowners, mainly in the northeastern United States. Policies are placed through independent insurance agents and brokers, who handle the sales relationship with customers.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "commercial property and liability insurance; commercial auto insurance; homeowners insurance; personal auto insurance; workers compensation insurance",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: small businesses, contractors, commercial property owners; B2C: homeowners and individual vehicle owners",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "construction; real estate; hospitality; retail; residential property",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "interest or premiums: premiums paid by policyholders for property and casualty coverage",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "financial intermediary: takes on insurance risk from policyholders, collects premiums and pays claims, sold through agents",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US regional: New York and surrounding northeastern states, including New Jersey and Connecticut",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "small",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: commercial property and casualty, homeowners and personal auto",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "agents / brokers: independent insurance agents and brokers placing policies with the company",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: insurance carrier must hold state licenses, regulated by state insurance departments, mainly New York State Department of Financial Services",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Holding company whose subsidiary Kingstone Insurance Company writes personal lines property and casualty insurance, mainly homeowners, dwelling fire, personal umbrella and personal auto policies. Sells to individual policyholders mainly in New York through independent retail agents and brokers. Earns premiums and investment income.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "homeowners insurance; dwelling fire insurance; personal umbrella insurance; personal automobile insurance; other liability and cooperative/condo coverage",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: individual homeowners, renters and drivers in New York and other northeastern states",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "personal property and casualty insurance; residential homeowners coverage",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "interest or premiums: insurance premiums written and earned on personal lines policies, plus investment income on the portfolio; commissions or management fees: ceding commissions from reinsurers and policy fees",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "financial intermediary: underwrites and carries risk on personal lines policies, sold to individuals via independent agents, buys reinsurance",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "US regional: Primarily New York, with some other states such as New Jersey, Rhode Island, Massachusetts, Connecticut, New Hampshire, Pennsylvania",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "small",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: homeowners, dwelling fire, umbrella and personal auto, all personal lines insurance",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "agents / brokers: independent retail agents and brokerages that sell policies to consumers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: licensed insurer regulated by the New York Department of Financial Services and other state insurance regulators, rate and solvency rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ398246.json",
+      "data": {
+        "company_name": "Kingstone Companies, Inc.",
+        "website": "www.kingstonecompanies.com",
+        "scrape_status": "thin_content",
+        "capture_sha256": "393a24b53da6e923eeec63246a58fad23f4ba9c590848ca25915b55755bf6877",
+        "lines": {
+          "P1.1": {
+            "text": "Investor Relations - Kingstone Companies, Inc.",
+            "url": "https://www.kingstonecompanies.com/",
+            "fetched_at": "2026-10-17T19:48:12Z"
+          },
+          "P1.2": {
+            "text": "Kingstone Companies, Inc.",
+            "url": "https://www.kingstonecompanies.com/",
+            "fetched_at": "2026-10-17T19:48:12Z"
+          },
+          "P1.3": {
+            "text": "Kingstone Companies, Inc. (“Kingstone”) is a northeast regional property and casualty insurance holding company whose principal operating subsidiary is Kingstone Insurance Company (“KICO”). KICO is a New York domiciled carrier writing business through retail and wholesale agents and brokers. KICO is actively writing personal lines and commercial auto insurance in New York, and was the 11th largest writer of homeowners insurance in the State of New York. Kingstone is also licensed in New Jersey, Rhode Island, Massachusetts, Connecticut, Pennsylvania, New Hampshire, and Maine.",
+            "url": "https://www.kingstonecompanies.com/",
+            "fetched_at": "2026-10-17T19:48:12Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

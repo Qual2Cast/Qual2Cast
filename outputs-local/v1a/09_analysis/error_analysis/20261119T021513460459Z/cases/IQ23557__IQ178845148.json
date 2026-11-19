@@ -1,0 +1,1173 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ23557__IQ178845148",
+    "target": "IQ23557",
+    "comp": "IQ178845148",
+    "target_ticker": "WEN",
+    "comp_ticker": "STKS",
+    "human_grade": 1.0,
+    "in_b3": true,
+    "flags": "judge_disagrees_with_human; screen_haiku_removed_known_peer; screen_sonnet_removed_known_peer",
+    "priority": 3
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ23557__IQ178845148",
+        "target": "IQ23557",
+        "comp": "IQ178845148",
+        "target_ticker": "WEN",
+        "comp_ticker": "STKS",
+        "human_grade": 1.0,
+        "in_b3": true,
+        "flags": "judge_disagrees_with_human; screen_haiku_removed_known_peer; screen_sonnet_removed_known_peer",
+        "priority": 3
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {
+        "score_riya": "2",
+        "reason_if_0_riya": "",
+        "notes_riya": "",
+        "score_barbara": "1",
+        "reason_if_0_barbara": "",
+        "notes_barbara": "Overlapping customers; Different restaurant format; Different business mix\n\nBoth compete for dining spending, but ONE Group focuses on full-service and experiential restaurants rather than value-oriented quick service.",
+        "score_matthew": "1",
+        "reason_if_0_matthew": "",
+        "notes_matthew": "The ONE Group is a real restaurant operator, but the brands are STK and Benihana with average checks over $100. Their 10-K doesn't even mention quick service chains as competitors, so I'd call this adjacent at best."
+      }
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ23557",
+          "comp": "IQ178845148",
+          "method": "B3",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": 1.0,
+          "unanimous": false,
+          "target_ticker": "WEN",
+          "comp_ticker": "STKS"
+        },
+        {
+          "target": "IQ23557",
+          "comp": "IQ178845148",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": 1.0,
+          "unanimous": false,
+          "target_ticker": "WEN",
+          "comp_ticker": "STKS"
+        },
+        {
+          "target": "IQ23557",
+          "comp": "IQ178845148",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": 1.0,
+          "unanimous": false,
+          "target_ticker": "WEN",
+          "comp_ticker": "STKS"
+        },
+        {
+          "target": "IQ23557",
+          "comp": "IQ178845148",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": 1.0,
+          "unanimous": false,
+          "target_ticker": "WEN",
+          "comp_ticker": "STKS"
+        },
+        {
+          "target": "IQ23557",
+          "comp": "IQ178845148",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": 1.0,
+          "unanimous": false,
+          "target_ticker": "WEN",
+          "comp_ticker": "STKS"
+        },
+        {
+          "target": "IQ23557",
+          "comp": "IQ178845148",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": 1.0,
+          "unanimous": false,
+          "target_ticker": "WEN",
+          "comp_ticker": "STKS"
+        },
+        {
+          "target": "IQ23557",
+          "comp": "IQ178845148",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 3.0,
+          "reason": "Upscale steakhouse, Japanese and cocktail dining plus events; different cuisine and service format.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": 1.0,
+          "unanimous": false,
+          "target_ticker": "WEN",
+          "comp_ticker": "STKS"
+        },
+        {
+          "target": "IQ23557",
+          "comp": "IQ178845148",
+          "method": "screen_sonnet",
+          "kept": false,
+          "rank": 3.0,
+          "reason": "Upscale steakhouse and Japanese fine dining with events and liquor; different segment from quick-service franchising.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": 1.0,
+          "unanimous": false,
+          "target_ticker": "WEN",
+          "comp_ticker": "STKS"
+        },
+        {
+          "target": "IQ23557",
+          "comp": "IQ178845148",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Owns restaurants selling food and beverages to diners, plus licensing royalties from partner-operated restaurants.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": 1.0,
+          "unanimous": false,
+          "target_ticker": "WEN",
+          "comp_ticker": "STKS"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": [
+        {
+          "target": "IQ23557",
+          "comp": "IQ178845148",
+          "evaluator": "agent_loop/gold_sonnet",
+          "score": 1,
+          "status": "ok",
+          "reason": "Both are restaurant brand owners that sell prepared food to consumers and earn money from restaurant sales and franchise or licensing. They differ in format and customer occasion. Wendy's is a quick-service burger chain, mostly franchised, with drive-thru and delivery. The ONE Group runs upscale \"vibe dining\" steakhouse, sushi and teppanyaki restaurants (STK, Benihana, Kona Grill, RA Sushi), mostly company-operated, with some licensing. The restaurant industry and the general consumer diner overlap, but the product, dining occasion and price tier do not, so this is adjacent rather than direct.",
+          "missing_evidence": "",
+          "lookups": "0",
+          "source": "agent_loop/gold_sonnet/verdicts.csv",
+          "grade": 1.0
+        },
+        {
+          "target": "IQ23557",
+          "comp": "IQ178845148",
+          "evaluator": "one_shot_sol",
+          "score": 2,
+          "status": "ok",
+          "reason": "Both operate restaurants serving prepared meals to diners. ONE Group's cuisine and entertainment emphasis differ, but the product and restaurant customers overlap.",
+          "missing_evidence": "",
+          "lookups": "",
+          "source": "golden_set/graded_batch_check/grades.csv",
+          "grade": 1.0
+        }
+      ]
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Operates and franchises Wendy's quick-service hamburger restaurants, selling burgers, chicken and other fast food to consumers for on-premises, drive-thru and delivery orders. Most restaurants are owned and operated by franchisees who pay royalties to the parent company.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "hamburgers; chicken sandwiches; french fries; breakfast items; frozen desserts",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: individual consumers dining in, ordering at drive-thrus, or ordering delivery",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "quick-service restaurants; food service; consumer dining",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: food and beverages sold through company-operated restaurants; licensing or royalties: royalties and franchise fees paid by franchised restaurant operators; rental or leasing: rent received from franchisees for leased restaurant properties",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: owns the Wendy's brand, menu and restaurant system, licensed to franchisees; retailer: sells prepared food directly to consumers at company-operated restaurants",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "North America: restaurants across the United States, with a smaller number in Canada and some international franchised locations",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "among the largest",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "niche specialist: single quick-service hamburger restaurant brand",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "own locations: company-operated Wendy's restaurants; partners / resellers: franchised Wendy's restaurants operated by franchisees; online: mobile app and online ordering with third-party delivery services",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: food safety, health inspection, labor and employment, and consumer protection rules enforced by local health departments and the FDA",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Franchises and operates Wendy's quick-service restaurants selling hamburgers, chicken sandwiches, fries and breakfast to consumers through dine-in, drive-thru and digital ordering. Most restaurants are run by franchisees who pay royalties and fees; a small share is company-operated.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "hamburgers; chicken sandwiches; french fries; frozen desserts; breakfast items",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "restaurant franchising; quick-service food preparation and drive-thru service",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: individual consumers dining in, drive-thru, takeout and delivery; B2B: franchisees who buy franchise rights and supplies",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "quick-service restaurants; fast food",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "commissions or management fees: franchise royalties, advertising fund contributions and franchise fees; product sales: food sold at company-operated restaurants; rental or leasing: rent from franchisees leasing restaurant properties",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: franchisor licensing brand and system to independent franchisees; asset operator: operates company-owned restaurants serving consumers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: United States, Canada and international markets across Europe, Asia, Latin America and Middle East",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "niche specialist: single quick-service hamburger restaurant brand",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "own locations: franchised and company-operated restaurants with dine-in and drive-thru; online: mobile app and website ordering; third-party retail: third-party delivery platforms",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: food safety, labor and wage rules, franchise disclosure rules (FTC), nutrition labeling",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "FACET:109": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:109",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "offering_description",
+        "human_label": "correct",
+        "labeled_text": "Operates and franchises Wendy's quick-service hamburger restaurants, selling burgers, chicken, fries and drinks to consumers for takeout and dine-in. Most restaurants are owned by franchisees who pay royalties and fees to the parent company.",
+        "human_note": "",
+        "evidence_url": "https://www.wendys.com/franchising",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "Operates and franchises Wendy's quick-service hamburger restaurants, selling burgers, chicken and other fast food to consumers for on-premises, drive-thru and delivery orders. Most restaurants are owned and operated by franchisees who pay royalties to the parent company.",
+        "sonnet_text": "Franchises and operates Wendy's quick-service restaurants selling hamburgers, chicken sandwiches, fries and breakfast to consumers through dine-in, drive-thru and digital ordering. Most restaurants are run by franchisees who pay royalties and fees; a small share is company-operated.",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:110": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:110",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "primary_products",
+        "human_label": "correct",
+        "labeled_text": "hamburgers; chicken sandwiches; french fries; breakfast items; frozen desserts",
+        "human_note": "",
+        "evidence_url": "https://order.wendys.com/us/en/national/menu?site=menu&lang=en_US",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "hamburgers; chicken sandwiches; french fries; breakfast items; frozen desserts",
+        "sonnet_text": "hamburgers; chicken sandwiches; french fries; frozen desserts; breakfast items",
+        "exact_haiku_text": true,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:111": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:111",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "primary_services",
+        "human_label": "correct",
+        "labeled_text": "not_applicable",
+        "human_note": "",
+        "evidence_url": "https://www.wendys.com/who-we-are",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "",
+        "sonnet_text": "restaurant franchising; quick-service food preparation and drive-thru service",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:112": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:112",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "customer_segment",
+        "human_label": "correct",
+        "labeled_text": "B2C: individual consumers dining in, ordering takeout, drive-thru and delivery",
+        "human_note": "",
+        "evidence_url": "https://www.wendys.com/who-we-are",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "B2C: individual consumers dining in, ordering at drive-thrus, or ordering delivery",
+        "sonnet_text": "B2C: individual consumers dining in, drive-thru, takeout and delivery; B2B: franchisees who buy franchise rights and supplies",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:113": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:113",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "end_markets",
+        "human_label": "correct",
+        "labeled_text": "quick-service restaurants; food service; consumer dining",
+        "human_note": "",
+        "evidence_url": "https://www.wendys.com/who-we-are",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "quick-service restaurants; food service; consumer dining",
+        "sonnet_text": "quick-service restaurants; fast food",
+        "exact_haiku_text": true,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:114": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:114",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "revenue_model",
+        "human_label": "correct",
+        "labeled_text": "product sales: food and beverages sold at company-operated restaurants; licensing or royalties: royalties and franchise fees paid by franchised restaurant operators; rental or leasing: rent and property income from leased restaurant sites to franchisees",
+        "human_note": "",
+        "evidence_url": "https://www.wendys.com/franchising",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "product sales: food and beverages sold through company-operated restaurants; licensing or royalties: royalties and franchise fees paid by franchised restaurant operators; rental or leasing: rent received from franchisees for leased restaurant properties",
+        "sonnet_text": "commissions or management fees: franchise royalties, advertising fund contributions and franchise fees; product sales: food sold at company-operated restaurants; rental or leasing: rent from franchisees leasing restaurant properties",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:115": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:115",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "value_chain_position",
+        "human_label": "correct",
+        "labeled_text": "brand owner: owns and licenses the Wendy's brand, menu and restaurant system to franchisees; retailer: takes in food and beverage sales at company-operated restaurants and sells to consumers",
+        "human_note": "",
+        "evidence_url": "https://www.wendys.com/franchising",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "brand owner: owns the Wendy's brand, menu and restaurant system, licensed to franchisees; retailer: sells prepared food directly to consumers at company-operated restaurants",
+        "sonnet_text": "brand owner: franchisor licensing brand and system to independent franchisees; asset operator: operates company-owned restaurants serving consumers",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:116": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:116",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "geography_served",
+        "human_label": "partly correct",
+        "labeled_text": "North America: United States, Canada and other countries, with the large majority of restaurants in the US",
+        "human_note": "business has grown to more than 1,350 restaurants across more than 35 markets",
+        "evidence_url": "https://www.wendys.com/franchising/international",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "North America: restaurants across the United States, with a smaller number in Canada and some international franchised locations",
+        "sonnet_text": "global: United States, Canada and international markets across Europe, Asia, Latin America and Middle East",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:117": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:117",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "company_size",
+        "human_label": "correct",
+        "labeled_text": "large",
+        "human_note": "technically it's among the largest",
+        "evidence_url": "https://www.cnbc.com/2026/08/07/burger-king-wendys-hamburger-restaurants.html",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "among the largest",
+        "sonnet_text": "large",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": true
+      }
+    },
+    "FACET:118": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:118",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "specialization",
+        "human_label": "correct",
+        "labeled_text": "niche specialist: single quick-service hamburger restaurant brand",
+        "human_note": "",
+        "evidence_url": "https://order.wendys.com/us/en/national/menu?site=menu&lang=en_US",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "niche specialist: single quick-service hamburger restaurant brand",
+        "sonnet_text": "niche specialist: single quick-service hamburger restaurant brand",
+        "exact_haiku_text": true,
+        "exact_sonnet_text": true
+      }
+    },
+    "FACET:119": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:119",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "distribution_channels",
+        "human_label": "correct",
+        "labeled_text": "own locations: company-operated Wendy's restaurants; partners / resellers: franchised Wendy's restaurants operated by independent franchisees; online: mobile app and delivery platforms for ordering",
+        "human_note": "",
+        "evidence_url": "https://www.wendys.com/franchising",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "own locations: company-operated Wendy's restaurants; partners / resellers: franchised Wendy's restaurants operated by franchisees; online: mobile app and online ordering with third-party delivery services",
+        "sonnet_text": "own locations: franchised and company-operated restaurants with dine-in and drive-thru; online: mobile app and website ordering; third-party retail: third-party delivery platforms",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:120": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:120",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "regulatory_exposure",
+        "human_label": "correct",
+        "labeled_text": "medium: food safety, labor, health code and franchise regulations enforced by federal, state and local agencies",
+        "human_note": "",
+        "evidence_url": "https://www.wendys.com/who-we-are",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "medium: food safety, health inspection, labor and employment, and consumer protection rules enforced by local health departments and the FDA",
+        "sonnet_text": "medium: food safety, labor and wage rules, franchise disclosure rules (FTC), nutrition labeling",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ23557.json",
+      "data": {
+        "company_name": "The Wendy's Company",
+        "website": "www.wendys.com",
+        "scrape_status": "ok",
+        "capture_sha256": "00d773b25cae9b307a29ae12bbbeb0b281b885034e8550b14fac4dd6cff2a26c",
+        "lines": {
+          "P1.1": {
+            "text": "Wendy's® | Home of Fresh, Never Frozen Beef Since 1969",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.2": {
+            "text": "Order drive-thru or delivery for food that's served fresh-made - like our homepage;) See Wendy's latest deals, featured menu items & more. We Got You®",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.3": {
+            "text": "MADE TO ORDER. NO CORNERS CUT.",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.4": {
+            "text": "100% fresh, never frozen beef, hot off the grill, and stacked with melty cheese, plus your fave toppings — this is what a hamburger worth getting ASAP looks like.",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.5": {
+            "text": "Learn about Wendy's fresh beef burger options.",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.6": {
+            "text": "All-Natural Lemonade, Strawberry Lemonade and Coca-Cola",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.7": {
+            "text": "Wendy's Maple Bacon Chicken Croissant",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.8": {
+            "text": "Wendy's Sausage, Egg & Cheese Biscuit",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.9": {
+            "text": "Collect the whole NEW spooky crew",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.10": {
+            "text": "Earn a W the easy way with FOX Big Noon Kickoff and get a Dave’s Single ® for 1/2 OFF with purchase — just log into your Rewards account and enter the code below to enjoy the hot and juicy taste of victory:",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.11": {
+            "text": "Offer available at participating U.S. Wendy’s for a limited time only. App download and account registration required. See offer in the Wendy’s App for further details.",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.12": {
+            "text": "Get it delivered and save.",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.13": {
+            "text": "Whether it’s breakfast, lunch, dinner or game day, Wendy’s® delivery has every kind of hungry covered. Plus, you can also get Wendy's faves delivered through DoorDash, Grubhub, Postmates or UberEats.",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.14": {
+            "text": "Limited time only. Delivery availability and providers may vary by location at participating U.S. Wendy’s. Prices may be higher than at restaurant. Delivery fees may apply.",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.15": {
+            "text": "Allergens. Calories. Ingredients. Let’s find something that checks all your boxes.",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.16": {
+            "text": "Available for a limited time only at participating U.S. Wendy's while supplies last. Kids' meal toy may vary. Honest Kids is a registered trademark of Honest Tea, Inc. Pure Life is a registered trademark of Société Des Produits Nestlé S.A., Vevey, Switzerland.",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.17": {
+            "text": "\"Coca-Cola\" is a registered trademark of The Coca-Cola Company. FOX and Big Noon Kickoff are registered trademarks of Fox Media LLC.",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P2.1": {
+            "text": "Who We Are | Wendy's",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.2": {
+            "text": "We're all about serving up fresh food, even if it means going the extra mile. Click to see our history, news releases, franchising information and more.",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.3": {
+            "text": "WE'RE WENDY'S KIND OF PEOPLE desktop",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.4": {
+            "text": "WE'RE WENDY'S KIND OF PEOPLE mobile",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.5": {
+            "text": "WE'RE WENDY'S KIND OF PEOPLE",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.6": {
+            "text": "At Wendy's, we're all about serving up fresh food, even if it means going the extra mile. When you walk through our doors, we do what we can to make everyone feel at home because our family extends through your community.",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.7": {
+            "text": "So we heard you want to talk about us! Well, we hope you have nice things to say. Either way — for the sake of your content and our pride — we'll provide the high-quality images and other assets for your use. Click the link to download Wendy's assets.",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.8": {
+            "text": "Wendy’s has bold global growth plans. We’re continuously looking for new franchise owners to supercharge our efforts, transform markets and unlock new potential.",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.9": {
+            "text": "If you're an investor, financial analyst or find reading a 10-K thrilling, everything you need to know is right here.",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.10": {
+            "text": "We Believe in Quality. Inside and Out.",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.11": {
+            "text": "Quality food can't be made without quality leadership. Learn about the people leading The Wendy's Company.",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.12": {
+            "text": "We live by a certain set of values and we run Wendy's according to a certain set of values. You can check out The Wendy's Company Corporate Governance Guidelines right here.",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.13": {
+            "text": "We'll use this space to give you The Square Deal™ — our views on food, quality, culture, foster care adoption, and doing our best to make Dave proud.",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.14": {
+            "text": "Check Out The Square Deal™",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P3.1": {
+            "text": "Fries, Wrapped Sandwiches on Red Background Behind Text",
+            "url": "https://www.wendys.com/en-ca/who-we-are",
+            "fetched_at": "2026-10-17T20:16:04Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Owns and operates upscale steakhouse and Japanese-style restaurants, plus licensed restaurants run by partners. Serves dining guests, groups and private-event customers, and earns money from food and beverage sales and brand licensing.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "steaks and seafood; sushi and Japanese dishes; cocktails and wine",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "restaurant dining; private dining and events; hospitality management; brand licensing",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: individual diners and special-occasion guests; B2B: corporate event planners and private groups booking dining events",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "restaurants and dining; hospitality; corporate events",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: food and beverages sold to dining guests at company-operated restaurants; licensing or royalties: royalties from partner-operated licensed restaurants",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: operates restaurants and sells dining experiences directly to guests; brand owner: owns restaurant brands and licenses them to outside operators",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: US restaurants in multiple states plus licensed locations in international cities such as London, Dubai and Hong Kong",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: STK steakhouses, Kona Grill casual dining, and Benihana Japanese restaurants",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "own locations: company-owned restaurants serving guests directly; partners / resellers: licensed restaurant partners operating under company brands; online: online reservations and delivery orders",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: state and local liquor licenses, food safety and health codes, and employment and labor rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Owns, operates, manages and licenses upscale restaurants, bars and lounges, including steakhouse and casual dining brands. Serves diners and event guests, and also runs food and beverage operations in hotels and other venues under management and license agreements.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "",
+        "primary_products_status": "not_applicable",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "restaurant dining; bar and lounge service; catering and events; hotel food and beverage management",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: restaurant and bar guests, diners, and event attendees; B2B: hotel owners and licensees, corporate event and private dining clients",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "restaurants; hospitality; hotels; entertainment and events",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "service fees: food and beverage sales at owned restaurants and bars; commissions or management fees: fees for managing hotel food and beverage operations; licensing or royalties: license and royalty fees from licensed and franchised restaurants",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "asset operator: operates owned restaurants and bars, buying food and beverages for diners; brand owner: owns restaurant brands licensed or managed for hotel and venue partners",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: US restaurants plus managed and licensed venues in Europe, the Middle East and other international locations",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: upscale steakhouses, casual restaurants, and hospitality management and licensing",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "own locations: company-owned restaurants and bars; partners / resellers: licensed and managed venues in hotels and other properties; online: online reservations, takeout and delivery ordering",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: food safety and health codes, alcohol licensing, and labor rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ178845148.json",
+      "data": {
+        "company_name": "The ONE Group Hospitality, Inc.",
+        "website": "togrp.com",
+        "scrape_status": "ok",
+        "capture_sha256": "8b679cc72085c92bce62119d7209514a5e4a23ab607d94751791929a8b69a8f8",
+        "lines": {
+          "P1.1": {
+            "text": "The ONE Group - International Restaurants & Vibe Dining",
+            "url": "https://togrp.com/",
+            "fetched_at": "2026-10-17T20:15:34Z"
+          },
+          "P1.2": {
+            "text": "Discover The ONE Group, global leaders in vibe dining, operating premier international restaurant brands - STK, Benihana, Kona Grill & RA Sushi.",
+            "url": "https://togrp.com/",
+            "fetched_at": "2026-10-17T20:15:34Z"
+          },
+          "P1.3": {
+            "text": "International restaurants and leader in vibe dining",
+            "url": "https://togrp.com/",
+            "fetched_at": "2026-10-17T20:15:34Z"
+          },
+          "P1.4": {
+            "text": "America's Grill. Great Steak, Seafood & Sushi",
+            "url": "https://togrp.com/",
+            "fetched_at": "2026-10-17T20:15:34Z"
+          },
+          "P1.5": {
+            "text": "Its more fun in the RA Creative sushi & cocktails",
+            "url": "https://togrp.com/",
+            "fetched_at": "2026-10-17T20:15:34Z"
+          },
+          "P1.6": {
+            "text": "A dining experience unlike any other",
+            "url": "https://togrp.com/",
+            "fetched_at": "2026-10-17T20:15:34Z"
+          },
+          "P1.7": {
+            "text": "A whimsical twist on classic Bao",
+            "url": "https://togrp.com/",
+            "fetched_at": "2026-10-17T20:15:34Z"
+          },
+          "P1.8": {
+            "text": "11 Your Passport to the Seven Seas",
+            "url": "https://togrp.com/",
+            "fetched_at": "2026-10-17T20:15:34Z"
+          },
+          "P1.9": {
+            "text": "Skip What's Happening slider items",
+            "url": "https://togrp.com/",
+            "fetched_at": "2026-10-17T20:15:34Z"
+          },
+          "P1.10": {
+            "text": "End of What's Happening slider items",
+            "url": "https://togrp.com/",
+            "fetched_at": "2026-10-17T20:15:34Z"
+          },
+          "P1.11": {
+            "text": "The ONE Group Hospitality, Inc. to Participate in Four September Investor Conferences",
+            "url": "https://togrp.com/",
+            "fetched_at": "2026-10-17T20:15:34Z"
+          },
+          "P1.12": {
+            "text": "Explore license, management and franchising opportunities",
+            "url": "https://togrp.com/",
+            "fetched_at": "2026-10-17T20:15:34Z"
+          },
+          "P2.1": {
+            "text": "Samurai - The ONE Group - Hospitality Services",
+            "url": "https://togrp.com/samurai/",
+            "fetched_at": "2026-10-17T20:15:35Z"
+          },
+          "P2.2": {
+            "text": "Experience the bold flavors and traditional techniques of Samurai. Our menu brings a modern twist to Japanese dining in a stylish, inviting atmosphere.",
+            "url": "https://togrp.com/samurai/",
+            "fetched_at": "2026-10-17T20:15:35Z"
+          },
+          "P2.3": {
+            "text": "Close up of sushi on a plate, a roll plucked up by a chopstick; a Samurai chef smiles as he cooks various meats, seafoods, and vegetables.",
+            "url": "https://togrp.com/samurai/",
+            "fetched_at": "2026-10-17T20:15:35Z"
+          },
+          "P2.4": {
+            "text": "At Samurai, every meal is a story.",
+            "url": "https://togrp.com/samurai/",
+            "fetched_at": "2026-10-17T20:15:35Z"
+          },
+          "P2.5": {
+            "text": "For more than four decades, Samurai has provided a distinctive dining experience. Our skilled personal chefs masterfully perform the ancient art of teppanyaki right before your eyes. The air fills with the sizzle of razor-sharp blades slicing through tender steak, juicy chicken, and savory vegetables—all prepared right at your table. Our sushi chefs artfully prepare a wide variety of signature sushi and sashimi, using only hand-selected, high-quality ingredients. If you’re looking for something to quench your thirst, we feature a diverse array of handcrafted cocktails, wine, beer, and sake. Whether you’re celebrating a birthday, a promotion, or simply enjoying a meal, Samurai is the perfect restaurant for any occasion.",
+            "url": "https://togrp.com/samurai/",
+            "fetched_at": "2026-10-17T20:15:35Z"
+          },
+          "P2.6": {
+            "text": "Skip Explore Brands slider items",
+            "url": "https://togrp.com/samurai/",
+            "fetched_at": "2026-10-17T20:15:35Z"
+          },
+          "P2.7": {
+            "text": "End of Explore Brands slider items",
+            "url": "https://togrp.com/samurai/",
+            "fetched_at": "2026-10-17T20:15:35Z"
+          },
+          "P3.1": {
+            "text": "Benihana - The ONE Group - Hospitality Services",
+            "url": "https://togrp.com/benihana/",
+            "fetched_at": "2026-10-17T20:15:37Z"
+          },
+          "P3.2": {
+            "text": "Experience Benihana, where expert chefs create unforgettable teppanyaki dining moments. Discover our blend of entertainment and culinary mastery that brings people together.",
+            "url": "https://togrp.com/benihana/",
+            "fetched_at": "2026-10-17T20:15:37Z"
+          },
+          "P3.3": {
+            "text": "Benihana chef twirls spatulas while he cooks as customers sit nearby smiling, and enjoying their food and drinks. Text says: \"Benihana - memories in the making.\"",
+            "url": "https://togrp.com/benihana/",
+            "fetched_at": "2026-10-17T20:15:37Z"
+          },
+          "P3.4": {
+            "text": "At Benihana, it's not just a meal, it's an experience.",
+            "url": "https://togrp.com/benihana/",
+            "fetched_at": "2026-10-17T20:15:37Z"
+          },
+          "P3.5": {
+            "text": "A cultural icon with 77 Benihana restaurants in the United States, Caribbean, and Central and South America.",
+            "url": "https://togrp.com/benihana/",
+            "fetched_at": "2026-10-17T20:15:37Z"
+          },
+          "P3.6": {
+            "text": "At Benihana, we celebrate what each guest brings to the table. Whether it’s your family, friends, appetites, or enthusiasm, we’re here to transform every meal into a memorable experience. Our skilled teppanyaki chefs prepare your meal right before your eyes. Our USDA Choice steaks are aged to perfection, and our sauces, salad dressings, and crisp vegetables are all made from scratch. Our sushi chefs expertly craft a diverse selection of signature sushi and sashimi using hand-selected, high-quality ingredients. And if you’re thirsty, explore our variety of handcrafted cocktails, wine, beer, and of course, sake. Beyond food, we’re passionate about entertaining you.",
+            "url": "https://togrp.com/benihana/",
+            "fetched_at": "2026-10-17T20:15:37Z"
+          },
+          "P3.7": {
+            "text": "The BENIHANA name is well known throughout the world, famous for the art of teppanyaki cooking and its unrivaled guest experience. The brand has grown from one teppanyaki restaurant in New York City to 77 restaurants in the United States, Central and South America (excluding Mexico), and the Caribbean as of, with more company-owned and franchised restaurants being planned. Get in touch with us today.",
+            "url": "https://togrp.com/benihana/",
+            "fetched_at": "2026-10-17T20:15:37Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

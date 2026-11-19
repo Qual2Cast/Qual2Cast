@@ -1,0 +1,977 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ128739842__IQ277824630",
+    "target": "IQ128739842",
+    "comp": "IQ277824630",
+    "target_ticker": "PBYI",
+    "comp_ticker": "INDV",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ128739842__IQ277824630",
+        "target": "IQ128739842",
+        "comp": "IQ277824630",
+        "target_ticker": "PBYI",
+        "comp_ticker": "INDV",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ128739842",
+          "comp": "IQ277824630",
+          "method": "B3",
+          "kept": true,
+          "rank": 7.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "PBYI",
+          "comp_ticker": "INDV"
+        },
+        {
+          "target": "IQ128739842",
+          "comp": "IQ277824630",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "PBYI",
+          "comp_ticker": "INDV"
+        },
+        {
+          "target": "IQ128739842",
+          "comp": "IQ277824630",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 7.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "PBYI",
+          "comp_ticker": "INDV"
+        },
+        {
+          "target": "IQ128739842",
+          "comp": "IQ277824630",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 7.0,
+          "reason": "Opioid use disorder treatments sold to addiction clinics and wholesalers, a different therapeutic area and customer base.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "PBYI",
+          "comp_ticker": "INDV"
+        },
+        {
+          "target": "IQ128739842",
+          "comp": "IQ277824630",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Sells a specialty prescription medicine franchise through wholesalers, pharmacies and treatment providers, with few other products.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "PBYI",
+          "comp_ticker": "INDV"
+        },
+        {
+          "target": "IQ128739842",
+          "comp": "IQ277824630",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 7.0,
+          "reason": "Single-focus branded specialty drug company selling to clinics and wholesalers, outsourcing production, with global presence.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "PBYI",
+          "comp_ticker": "INDV"
+        },
+        {
+          "target": "IQ128739842",
+          "comp": "IQ277824630",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Sells branded prescription medicines to wholesalers, pharmacies and clinics; single-franchise specialty pharma.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "PBYI",
+          "comp_ticker": "INDV"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Develops and sells a targeted oral cancer drug for HER2-positive breast cancer patients. Sells it to oncology providers in the US and licenses rights to partners in other countries, which handle sales there.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "neratinib, an oral HER2-targeted breast cancer drug",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: oncology clinics, hospitals, specialty pharmacies, drug wholesalers",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "oncology; healthcare",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: drug sold to specialty distributors and pharmacies; licensing or royalties: milestone and royalty payments from partners selling the drug abroad",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: outsources manufacturing and markets the drug to oncology providers and distributors",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: US direct sales, licensed partners in Europe, Asia and other regions",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "small",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "niche specialist: single cancer drug franchise built on neratinib",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: oncology sales force calling on cancer treatment centers; distributors / dealers: specialty pharmaceutical distributors; partners / resellers: licensed partners selling the drug in other countries",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: drug approval needed to sell cancer medicine, regulated by FDA and foreign drug agencies",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Develops and commercializes targeted cancer therapies, mainly the oral HER2-targeted drug neratinib for breast cancer. Sells to specialty pharmacies and distributors that supply patients and oncology providers. Drug manufacturing is outsourced to contract manufacturers.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "oral HER2-targeted breast cancer drug; investigational oncology drugs",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: specialty pharmacies and specialty distributors serving oncology patients; B2C: breast cancer patients treated with prescribed drug",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "oncology; breast cancer treatment; healthcare",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: net sales of neratinib to specialty pharmacies and distributors; licensing or royalties: royalties and milestones from licensees for neratinib outside the US",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: develops and markets drugs made by contract manufacturers, sold to specialty pharmacies and distributors",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: US direct sales, licensed partners cover Europe, Asia, Latin America and other regions",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "small",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "niche specialist: oncology drugs centered on neratinib and a small pipeline",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "distributors / dealers: specialty distributors and specialty pharmacies; partners / resellers: licensees commercializing neratinib outside the US",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: prescription drugs requiring FDA and foreign regulator approval, clinical trial and marketing rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "FACET:193": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:193",
+        "company_id": "IQ128739842",
+        "ticker": "PBYI",
+        "facet": "offering_description",
+        "human_label": "correct",
+        "labeled_text": "Develops and sells a prescription cancer drug for HER2-positive breast cancer, marketed in the US and licensed to partners abroad. Sells tablets through specialty pharmacies and distributors to oncology practices and hospitals.",
+        "human_note": "alisertib in trials (lung and breast cancer)",
+        "evidence_url": "https://www.pumabiotechnology.com/about/overview.html ; https://www.pumabiotechnology.com/",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "Develops and sells a targeted oral cancer drug for HER2-positive breast cancer patients. Sells it to oncology providers in the US and licenses rights to partners in other countries, which handle sales there.",
+        "sonnet_text": "Develops and commercializes targeted cancer therapies, mainly the oral HER2-targeted drug neratinib for breast cancer. Sells to specialty pharmacies and distributors that supply patients and oncology providers. Drug manufacturing is outsourced to contract manufacturers.",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:194": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:194",
+        "company_id": "IQ128739842",
+        "ticker": "PBYI",
+        "facet": "primary_products",
+        "human_label": "correct",
+        "labeled_text": "oral HER2-positive breast cancer drug",
+        "human_note": "",
+        "evidence_url": "https://www.pumabiotechnology.com/about/overview.html",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "neratinib, an oral HER2-targeted breast cancer drug",
+        "sonnet_text": "oral HER2-targeted breast cancer drug; investigational oncology drugs",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:195": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:195",
+        "company_id": "IQ128739842",
+        "ticker": "PBYI",
+        "facet": "primary_services",
+        "human_label": "correct",
+        "labeled_text": "not_applicable",
+        "human_note": "",
+        "evidence_url": "https://www.pumabiotechnology.com/about/overview.html",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "",
+        "sonnet_text": "",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:196": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:196",
+        "company_id": "IQ128739842",
+        "ticker": "PBYI",
+        "facet": "customer_segment",
+        "human_label": "correct",
+        "labeled_text": "B2B: specialty pharmacies, wholesalers, hospitals and oncology practices",
+        "human_note": "",
+        "evidence_url": "https://www.pumabiotechnology.com/about/overview.html",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "B2B: oncology clinics, hospitals, specialty pharmacies, drug wholesalers",
+        "sonnet_text": "B2B: specialty pharmacies and specialty distributors serving oncology patients; B2C: breast cancer patients treated with prescribed drug",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:197": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:197",
+        "company_id": "IQ128739842",
+        "ticker": "PBYI",
+        "facet": "end_markets",
+        "human_label": "correct",
+        "labeled_text": "healthcare; oncology",
+        "human_note": "",
+        "evidence_url": "https://www.pumabiotechnology.com/about/overview.html",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "oncology; healthcare",
+        "sonnet_text": "oncology; breast cancer treatment; healthcare",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:198": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:198",
+        "company_id": "IQ128739842",
+        "ticker": "PBYI",
+        "facet": "revenue_model",
+        "human_label": "correct",
+        "labeled_text": "product sales: prescription drug sold to pharmacies and distributors; licensing or royalties: license payments and royalties from ex-US partners",
+        "human_note": "",
+        "evidence_url": "https://www.pumabiotechnology.com/about/overview.html",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "product sales: drug sold to specialty distributors and pharmacies; licensing or royalties: milestone and royalty payments from partners selling the drug abroad",
+        "sonnet_text": "product sales: net sales of neratinib to specialty pharmacies and distributors; licensing or royalties: royalties and milestones from licensees for neratinib outside the US",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:199": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:199",
+        "company_id": "IQ128739842",
+        "ticker": "PBYI",
+        "facet": "value_chain_position",
+        "human_label": "correct",
+        "labeled_text": "brand owner: owns and markets its drug, sold to specialty pharmacies and distributors",
+        "human_note": "",
+        "evidence_url": "https://www.pumabiotechnology.com/about/overview.html",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "brand owner: outsources manufacturing and markets the drug to oncology providers and distributors",
+        "sonnet_text": "brand owner: develops and markets drugs made by contract manufacturers, sold to specialty pharmacies and distributors",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:200": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:200",
+        "company_id": "IQ128739842",
+        "ticker": "PBYI",
+        "facet": "geography_served",
+        "human_label": "correct",
+        "labeled_text": "global: US direct sales, ex-US markets served through licensed partners",
+        "human_note": "",
+        "evidence_url": "https://www.pumabiotechnology.com/about/overview.html",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "global: US direct sales, licensed partners in Europe, Asia and other regions",
+        "sonnet_text": "global: US direct sales, licensed partners cover Europe, Asia, Latin America and other regions",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:201": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:201",
+        "company_id": "IQ128739842",
+        "ticker": "PBYI",
+        "facet": "company_size",
+        "human_label": "correct",
+        "labeled_text": "small",
+        "human_note": "",
+        "evidence_url": "https://simplywall.st/stocks/us/pharmaceuticals-biotech/nasdaq-pbyi/puma-biotechnology/information",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "small",
+        "sonnet_text": "small",
+        "exact_haiku_text": true,
+        "exact_sonnet_text": true
+      }
+    },
+    "FACET:202": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:202",
+        "company_id": "IQ128739842",
+        "ticker": "PBYI",
+        "facet": "specialization",
+        "human_label": "correct",
+        "labeled_text": "niche specialist: one oncology drug franchise focused on breast cancer",
+        "human_note": "",
+        "evidence_url": "https://www.pumabiotechnology.com/about/overview.html",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "niche specialist: single cancer drug franchise built on neratinib",
+        "sonnet_text": "niche specialist: oncology drugs centered on neratinib and a small pipeline",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:203": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:203",
+        "company_id": "IQ128739842",
+        "ticker": "PBYI",
+        "facet": "distribution_channels",
+        "human_label": "correct",
+        "labeled_text": "distributors / dealers: specialty pharmacies and wholesalers; partners / resellers: licensed partners selling outside the US",
+        "human_note": "",
+        "evidence_url": "https://www.pumabiotechnology.com/about/overview.html",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "direct sales: oncology sales force calling on cancer treatment centers; distributors / dealers: specialty pharmaceutical distributors; partners / resellers: licensed partners selling the drug in other countries",
+        "sonnet_text": "distributors / dealers: specialty distributors and specialty pharmacies; partners / resellers: licensees commercializing neratinib outside the US",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:204": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:204",
+        "company_id": "IQ128739842",
+        "ticker": "PBYI",
+        "facet": "regulatory_exposure",
+        "human_label": "correct",
+        "labeled_text": "high: drug approval and marketing needs FDA approval and oversight by foreign regulators",
+        "human_note": "",
+        "evidence_url": "https://www.pumabiotechnology.com/about/overview.html",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "high: drug approval needed to sell cancer medicine, regulated by FDA and foreign drug agencies",
+        "sonnet_text": "high: prescription drugs requiring FDA and foreign regulator approval, clinical trial and marketing rules",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ128739842.json",
+      "data": {
+        "company_name": "Puma Biotechnology, Inc.",
+        "website": "www.pumabiotechnology.com",
+        "scrape_status": "ok",
+        "capture_sha256": "51c7ed902fcd99ae70fe737f33b405ae20bb46995382dcf7f89d70095f26511d",
+        "lines": {
+          "P1.1": {
+            "text": "Puma Biotechnology, Inc.",
+            "url": "https://www.pumabiotechnology.com/",
+            "fetched_at": "2026-10-17T20:05:42Z"
+          },
+          "P1.2": {
+            "text": "Puma Biotechnology, Inc. is a biopharmaceutical company with a focus on the development and commercialization of innovative products to enhance cancer care. Puma in-licensed the global development and commercialization rights to PB272 (neratinib, oral), PB272 (neratinib, intravenous), and PB357. Puma in-licensed global research and development and commercial rights to alisertib, a selective, small molecule, orally administered inhibitor of aurora kinase A. Neratinib is a potent irreversible tyrosine kinase inhibitor that blocks signal transduction through the epidermal growth factor receptors, HER1, HER2 and HER4. Puma has been focused on developing the oral version of neratinib, and its most advanced drug candidates are directed at the treatment of HER2-positive breast cancer. Puma believes that neratinib has clinical applications in the treatment of several other cancers as well, including non-small cell lung cancer and other solid tumor types that over-express or have a mutation in HER2. Neratinib, oral was approved by the U.S. Food and Drug Administration for the extended adjuvant treatment of adult patients with early stage HER2-overexpressed/amplified breast cancer, following adjuvant trastuzumab-based therapy. Puma commenced commercial sales of the drug and it is marketed in the United States as NERLYNX® tablets. In, NERLYNX was also approved by the FDA in combination with capecitabine for the treatment of adult patients with advanced or metastatic HER2-positive breast cancer who have received two or more prior anti-HER2-based regimens in the metastatic setting. NERLYNX was granted marketing authorization by the European Commission for the extended adjuvant treatment of adult patients with early stage hormone receptor-positive HER2-overexpressed/amplified breast cancer and who are less than one year from completion of prior adjuvant trastuzumab-based therapy. Commercial sales commenced in the European Union. Puma has entered into additional exclusive license agreements with various parties to commercialize NERLYNX in regions outside the United States, including the European Union, Canada, Latin America, Greater China, Israel, Southeast Asia, Australia, New Zealand, South Korea, the Middle East, and parts of Africa. Puma plans to continue to pursue the commercialization of NERLYNX outside the United States. Alisertib is an adenosine triphosphateâcompetitive and reversible inhibitor of aurora kinase A and results in disruption of mitosis leading to apoptosis of rapidly proliferating tumor cells that are dependent on aurora kinase A. Alisertib has been tested in Clinical Trials in patients with metastatic cancers including breast cancer, small cell lung cancer, head and neck cancer, ovarian cancer, peripheral T cell lymphoma and acute myeloid leukemia. Puma initially intends to focus the development of alisertib on the treatment of patients with metastatic estrogen receptor-positive (ER-positive) HER2-negative breast cancer, triple-negative breast cancer and small cell lung cancer. Alan H. Auerbach has served as Chairman of the Board, CEO and President of Puma Biotechnology, Inc. since he founded the Company. Prior to Puma, Mr. From until, Mr. Auerbach served as Co-Chairman of the Integration Steering Committee at Cougar (as part of J&J), providing leadership and oversight for the development and global commercialization of Cougar's lead product candidate, abiraterone acetate. Abiraterone (Zytiga) was approved for the treatment of metastatic prostate cancer in the U.S. in and in the EU in. Prior to founding Cougar, from to Mr. Auerbach was Vice President, Senior Research Analyst at Wells Fargo Securities, where he was responsible for research coverage of small- and mid-cap biotechnology companies, with a focus on oncology. He had primary responsibility for technical, scientific and clinical due diligence, and selected biotechnology companies followed by the company. Mr. Auerbach ranked second in the NASDAQ/Starmine survey of analyst performance for stock picking in biotechnology. From to, Mr. Auerbach was Vice President, Research Analyst at the Seidler Companies, Inc., where he was",
+            "url": "https://www.pumabiotechnology.com/",
+            "fetched_at": "2026-10-17T20:05:42Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Develops and sells prescription medicines for opioid use disorder, including long-acting injectable and sublingual film forms of buprenorphine. Sells to wholesalers, pharmacies, treatment clinics and health systems, and manufactures or contracts for production of its products.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "extended-release buprenorphine injection; buprenorphine sublingual film; buprenorphine tablets",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: wholesalers, retail pharmacies, hospitals, addiction treatment clinics, health systems; B2G: government health programs and state purchasers",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "healthcare; addiction treatment; pharmaceuticals",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: prescription medicines sold to wholesalers, pharmacies and providers",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: owns and markets its branded medicines, sold to wholesalers and providers; OEM / manufacturer: manufactures or contracts production of its medicines, sold to distributors and pharmacies",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: United States, Europe and other international markets",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "niche specialist: opioid use disorder treatment products only",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "distributors / dealers: pharmaceutical wholesalers that supply pharmacies and providers; third-party retail: retail pharmacies dispensing its medicines to patients; direct sales: sales teams calling on treatment clinics and health systems",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: prescription drugs needing FDA approval and controlled-substance scheduling rules from the DEA",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Develops and sells prescription medicines for opioid use disorder and related addiction and mental health conditions. Sells mainly to wholesalers and specialty pharmacies, which supply prescribers, pharmacies and healthcare providers. Relies on contract manufacturers for production.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "buprenorphine/naloxone sublingual film; extended-release buprenorphine injection; long-acting injectable for schizophrenia",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: pharmaceutical wholesalers, specialty pharmacies and distributors supplying clinics and prescribers; B2G: government health programs and public payers such as Medicaid",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "healthcare; addiction treatment; behavioral health; mental health",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: prescription drugs sold to wholesalers and specialty pharmacies, net of rebates",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: develops and markets branded drugs made by contract manufacturers, sold to wholesalers and pharmacies",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: United States primarily, plus Europe, Canada, Australia and other international markets",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: opioid use disorder treatments and related central nervous system injectables",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "distributors / dealers: wholesalers and specialty distributors; third-party retail: retail and specialty pharmacies dispensing to patients",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: prescription drugs requiring FDA and EMA approval, DEA controlled substance rules, REMS programs",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ277824630.json",
+      "data": {
+        "company_name": "Indivior Pharmaceuticals, Inc.",
+        "website": "www.indivior.com",
+        "scrape_status": "ok",
+        "capture_sha256": "e09582315806d70f5e136f0d44eb3ecb722f9d183bde43f3dbed10aa5c4cac18",
+        "lines": {
+          "P1.1": {
+            "text": "Home | Indivior",
+            "url": "https://www.indivior.com/",
+            "fetched_at": "2026-10-17T19:44:07Z"
+          },
+          "P1.2": {
+            "text": "With science, compassion, and purpose, we are Powering Recovery, Renewing Hope.",
+            "url": "https://www.indivior.com/",
+            "fetched_at": "2026-10-17T19:44:07Z"
+          },
+          "P1.3": {
+            "text": "Weâre Supporting Long-Term Recovery for Those Affected by OUD",
+            "url": "https://www.indivior.com/",
+            "fetched_at": "2026-10-17T19:44:07Z"
+          },
+          "P1.4": {
+            "text": "Indivior is a specialty pharmaceutical company singularly focused on delivering evidence-based treatment and advancing understanding of opioid use disorder (OUD) as a chronic but treatable brain disease. For more than 25 years, we have revolutionized the science of addiction medicine â developing treatments that help people move toward long-term recovery with independence and dignity.",
+            "url": "https://www.indivior.com/",
+            "fetched_at": "2026-10-17T19:44:07Z"
+          },
+          "P1.5": {
+            "text": "Our commitment is unwavering: to expand access to effective treatment, dismantle stigma, and empower every person living with OUD to define their lives beyond the disease.",
+            "url": "https://www.indivior.com/",
+            "fetched_at": "2026-10-17T19:44:07Z"
+          },
+          "P1.6": {
+            "text": "Received Buprenorphine Medication Assisted Treatment (BMAT) 1",
+            "url": "https://www.indivior.com/",
+            "fetched_at": "2026-10-17T19:44:07Z"
+          },
+          "P1.7": {
+            "text": "People diagnosed with OUD in the U.S. 2",
+            "url": "https://www.indivior.com/",
+            "fetched_at": "2026-10-17T19:44:07Z"
+          },
+          "P1.8": {
+            "text": "People misuse opioids in the U.S. 2",
+            "url": "https://www.indivior.com/",
+            "fetched_at": "2026-10-17T19:44:07Z"
+          },
+          "P1.9": {
+            "text": "How We Make a Difference",
+            "url": "https://www.indivior.com/",
+            "fetched_at": "2026-10-17T19:44:07Z"
+          },
+          "P1.10": {
+            "text": "We partner with scientists, communities, clinicians, policymakers, people living with OUD, and caregivers to advance access to evidence-based treatment for OUD, dismantle stigma, and elevate the lived experience of individuals in recovery.Â Together, we are advancing recovery for OUD â one life, one family, and one community at a time.Â",
+            "url": "https://www.indivior.com/",
+            "fetched_at": "2026-10-17T19:44:07Z"
+          },
+          "P1.11": {
+            "text": "Explore how we are changing recovery",
+            "url": "https://www.indivior.com/",
+            "fetched_at": "2026-10-17T19:44:07Z"
+          },
+          "P1.12": {
+            "text": "Our vision is that millions of people across the globe suffering from opioid use disorder have access to evidence-based treatment to change lives.",
+            "url": "https://www.indivior.com/",
+            "fetched_at": "2026-10-17T19:44:07Z"
+          },
+          "P1.13": {
+            "text": "Our products are rooted in science, compassion and an unwavering commitment to help people with opioid use disorder (OUD) achieve long-term recovery.",
+            "url": "https://www.indivior.com/",
+            "fetched_at": "2026-10-17T19:44:07Z"
+          },
+          "P1.14": {
+            "text": "We lead the way in developing long-term treatment options for people who suffer from opioid use disorder (OUD), addressing the most urgent public health challenges of our time.",
+            "url": "https://www.indivior.com/",
+            "fetched_at": "2026-10-17T19:44:07Z"
+          },
+          "P1.15": {
+            "text": "We advocate for systemic change by working with policymakers, healthcare systems, justice institutions, and advocacy groups to eliminate stigma and barriers to OUD recovery.",
+            "url": "https://www.indivior.com/",
+            "fetched_at": "2026-10-17T19:44:07Z"
+          },
+          "P1.16": {
+            "text": "Our focus is singular and unwavering: to transform the lives of people affected by opioid use disorder (OUD) through the power of science, compassion, and advocacy.Â",
+            "url": "https://www.indivior.com/",
+            "fetched_at": "2026-10-17T19:44:07Z"
+          },
+          "P1.17": {
+            "text": "Explore the most recent insights and news from Indivior and the industry",
+            "url": "https://www.indivior.com/",
+            "fetched_at": "2026-10-17T19:44:07Z"
+          },
+          "P1.18": {
+            "text": "Explore upcoming events, news, and reports.",
+            "url": "https://www.indivior.com/",
+            "fetched_at": "2026-10-17T19:44:07Z"
+          },
+          "P1.19": {
+            "text": "1. Symphony and Indivior analytics, patient treated over the last twelve months.",
+            "url": "https://www.indivior.com/",
+            "fetched_at": "2026-10-17T19:44:07Z"
+          },
+          "P1.20": {
+            "text": "2.Â Â Key Substance Use and Mental Health Indicators in the United States: Results National Survey on Drug Use and Health",
+            "url": "https://www.indivior.com/",
+            "fetched_at": "2026-10-17T19:44:07Z"
+          },
+          "P2.1": {
+            "text": "Our Company | Indivior",
+            "url": "https://www.indivior.com/our-company",
+            "fetched_at": "2026-10-17T19:44:09Z"
+          },
+          "P2.2": {
+            "text": "For more than 25 years, Indivior has been dedicated to advancing evidence-based treatment for people living with opioid use disorder (OUD).",
+            "url": "https://www.indivior.com/our-company",
+            "fetched_at": "2026-10-17T19:44:09Z"
+          },
+          "P2.3": {
+            "text": "For more than 25 years, Indivior has been dedicated to advancing evidence-based treatment for people living with opioid use disorder (OUD). Today, we are entering a new era â one that honors our history while sharpening our purpose: to bring meaningful treatment within reach for every person living with OUD.",
+            "url": "https://www.indivior.com/our-company",
+            "fetched_at": "2026-10-17T19:44:09Z"
+          },
+          "P2.4": {
+            "text": "Guided by science, compassion, and a belief that recovery should be possible for everyone, we continue to innovate so that effective treatment becomes more accessible and stigma becomes a barrier of the past.",
+            "url": "https://www.indivior.com/our-company",
+            "fetched_at": "2026-10-17T19:44:09Z"
+          },
+          "P2.5": {
+            "text": "We are united by a profound commitment to people living with OUD and to the families and communities affected by the disease.",
+            "url": "https://www.indivior.com/our-company",
+            "fetched_at": "2026-10-17T19:44:09Z"
+          },
+          "P2.6": {
+            "text": "Every day, our teams work to challenge stigma, expand access to evidence-based treatment, and accelerate progress toward a future where long-term recovery is the expectation â not the exception.",
+            "url": "https://www.indivior.com/our-company",
+            "fetched_at": "2026-10-17T19:44:09Z"
+          },
+          "P2.7": {
+            "text": "Scientists, advocates, and innovators â each of us contributes to advancing OUD science and delivering treatments that support long-term recovery.",
+            "url": "https://www.indivior.com/our-company",
+            "fetched_at": "2026-10-17T19:44:09Z"
+          },
+          "P2.8": {
+            "text": "We value integrity and collaboration, and we have a deep sense of responsibility to the people and communities we serve.Â We are always looking for passionate, mission-driven individuals who want to help restore hope, one life at a time.Â",
+            "url": "https://www.indivior.com/our-company",
+            "fetched_at": "2026-10-17T19:44:09Z"
+          },
+          "P2.9": {
+            "text": "We believe OUD is a chronic but treatable brain disease â and that with the right combination of medication, therapy, and support,",
+            "url": "https://www.indivior.com/our-company",
+            "fetched_at": "2026-10-17T19:44:09Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

@@ -1,0 +1,870 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ5034211__IQ632289716",
+    "target": "IQ5034211",
+    "comp": "IQ632289716",
+    "target_ticker": "NAGE",
+    "comp_ticker": "BRBR",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ5034211__IQ632289716",
+        "target": "IQ5034211",
+        "comp": "IQ632289716",
+        "target_ticker": "NAGE",
+        "comp_ticker": "BRBR",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ5034211",
+          "comp": "IQ632289716",
+          "method": "B3",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "NAGE",
+          "comp_ticker": "BRBR"
+        },
+        {
+          "target": "IQ5034211",
+          "comp": "IQ632289716",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 5.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "NAGE",
+          "comp_ticker": "BRBR"
+        },
+        {
+          "target": "IQ5034211",
+          "comp": "IQ632289716",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "NAGE",
+          "comp_ticker": "BRBR"
+        },
+        {
+          "target": "IQ5034211",
+          "comp": "IQ632289716",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "NAGE",
+          "comp_ticker": "BRBR"
+        },
+        {
+          "target": "IQ5034211",
+          "comp": "IQ632289716",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "NAGE",
+          "comp_ticker": "BRBR"
+        },
+        {
+          "target": "IQ5034211",
+          "comp": "IQ632289716",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 2.0,
+          "reason": "Branded protein shakes and bars for sports nutrition; no NR supplement, ingredient supply or lab business.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "NAGE",
+          "comp_ticker": "BRBR"
+        },
+        {
+          "target": "IQ5034211",
+          "comp": "IQ632289716",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Sells branded protein and sports nutrition products to health-focused consumers through retail and online channels.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "NAGE",
+          "comp_ticker": "BRBR"
+        },
+        {
+          "target": "IQ5034211",
+          "comp": "IQ632289716",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Branded consumer nutrition supplements sold via retail and online; same brand-owner B2C model, though no ingredient or testing business.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "NAGE",
+          "comp_ticker": "BRBR"
+        },
+        {
+          "target": "IQ5034211",
+          "comp": "IQ632289716",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Branded consumer nutrition products (protein shakes, powders, bars) sold to consumers via retail and online channels, using outsourced manufacturing.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "NAGE",
+          "comp_ticker": "BRBR"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Sells Tru Niagen and other nicotinamide riboside (NR) supplements to consumers, and sells the NIAGEN NR ingredient to supplement brands and manufacturers. It also sells research reference standards and analytical testing to laboratories.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "NR dietary supplements; NR ingredient; research reference standards; NAD+ precursor products",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "analytical testing; contract laboratory services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: consumers buying NR supplements online and in retail stores; B2B: supplement brands, food and beverage makers, pharmaceutical and research laboratories",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "dietary supplements; nutrition; pharmaceuticals; life science research",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: consumer supplements and bulk NR ingredient sold to manufacturers; service fees: analytical testing and laboratory services for customers",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: markets Tru Niagen supplements sold to consumers; component supplier: supplies NIAGEN NR ingredient to supplement makers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: sales to consumers and customers in the United States and many other countries",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "niche specialist: focused on NAD+ precursor nicotinamide riboside and related reference standards",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "online: company website and major e-commerce marketplaces; third-party retail: national retail chains and warehouse clubs selling supplements; direct sales: ingredient sales teams serving supplement manufacturers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: dietary supplement rules and health claim regulation by the FDA and FTC, quality standards for ingredients",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Sells Niagen nicotinamide riboside (NR), an NAD+ boosting ingredient, as a branded consumer supplement and as an ingredient for other supplement brands. Also supplies IV NAD+ products and runs clinical research on NAD+ for healthy aging.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "nicotinamide riboside ingredient; NAD+ boosting dietary supplements; intravenous NAD+ products",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: supplement brands and manufacturers buying NR ingredient, clinics and practitioners; B2C: consumers buying NR supplements for healthy aging",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "dietary supplements; healthy aging; nutrition and wellness; clinical research",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: NR ingredient sold to supplement brands, branded supplements sold to consumers; licensing or royalties: licensing of patents and trademarks to ingredient customers",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: owns Niagen brand and patents, contract manufacturers make products sold to consumers and brands; raw materials: supplies NR ingredient to supplement and food makers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: United States primarily, plus international ingredient customers and online consumers",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "small",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "niche specialist: nicotinamide riboside and NAD+ related ingredient, supplement and IV products",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "online: direct-to-consumer website and online marketplaces; direct sales: ingredient sales to supplement brands and manufacturers; third-party retail: retail stores selling Niagen supplements; other: clinics and practitioners for IV products",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: dietary supplement and ingredient rules under FDA (DSHEA, new dietary ingredient, labeling) and FTC advertising rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ5034211.json",
+      "data": {
+        "company_name": "Niagen Bioscience, Inc.",
+        "website": "www.niagenbioscience.com",
+        "scrape_status": "ok",
+        "capture_sha256": "98bba8c75f4d9ec63be7ff9f2a3aca1c29597043d0ea0384f04b491eeca00dc8",
+        "lines": {
+          "P1.1": {
+            "text": "Niagen Bioscience, Formerly ChromaDex | The Leader in NAD+ Science – Niagen Bioscience | The Leading NAD+ Science and Research Company | There's a Better Way to Age",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.2": {
+            "text": "Niagen Bioscience (formerly ChromaDex) is the premier leader in NAD+ research, clinical science, and ingredient innovation. Our ISO-accredited labs and peer-reviewed publications establish us as the gold standard for NAD+ supplementation and NAD+ precursors, delivering breakthrough cellular health solutions.",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.3": {
+            "text": "Don't get old. Age Better®. Learn More",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.4": {
+            "text": "New Clinical Study Explores Tru Niagen's Role in Long COVID Symptom Management",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.5": {
+            "text": "ChromaDex is now Niagen Bioscience",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.6": {
+            "text": "Niagen Bioscience | The Leading NAD+ Science and Research Company | There's a Better Way to Age",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.7": {
+            "text": "A leader in NAD+ science. Trusted by Kelly Slater.",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.8": {
+            "text": "After decades in the water, Kelly knows what his body needs. Research-backed cellular support for healthy aging.",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.9": {
+            "text": "We set the standard for NAD+ science",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.10": {
+            "text": "we've built a foundation of scientific rigor—and for nearly a decade, we've led the field of NAD+ science. We're committed to following the science of NAD+ wherever it leads, and to letting new discoveries shape what comes next.",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.11": {
+            "text": "The Science of NAD+ in Aging Goes Deeper Than Blood",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.12": {
+            "text": "Blood and tissue NAD+ tell different parts of the same story. A new Niagen Bioscience white paper examines age-related NAD+ changes across the brain, skin, skeletal muscle, and liver—and the evidence for NAD+ precursors like Niagen® NR in whole-body restoration.",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.13": {
+            "text": "There's a better way to age",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.14": {
+            "text": "Uncovering the potential of NAD+ with precision science.​",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.15": {
+            "text": "We exist to improve healthspan by restoring and optimizing NAD+ levels, empowering people to live healthier and more vibrant lives as they age.",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.16": {
+            "text": "With over 25 years of innovation, Niagen Bioscience is the global leader in NAD+ research and technology. Our solutions are backed by world-class science, clinical research, and unmatched quality.",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.17": {
+            "text": "Discover our industry leadership, Nobel Prize-winning research expertise, and market-leading position in the rapidly expanding NAD+ sector.",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.18": {
+            "text": "Download Our Corporate Fact Sheet",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.19": {
+            "text": "Most dietary supplement ingredients have no independent quality standard. Niagen Bioscience spent over six years sponsoring the scientific work required to create one. The U.S. Pharmacopeia—the independent authority behind prescription drug standards—has now published an official monograph for NR Chloride. Niagen, our patented ingredient, is compliant with that standard. Tested, trusted, and recognized by global regulatory bodies. The gold standard in NAD+ science is here.",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.20": {
+            "text": "We pioneer NAD+ innovation with groundbreaking research and uncompromising quality.",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.21": {
+            "text": "Science-backed, research-driven Our discoveries are backed by clinical studies, proprietary patents, and world-class expertise.",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.22": {
+            "text": "Partners with industry leaders We collaborate with top universities and researchers to advance NAD+ science and healthy aging.",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.23": {
+            "text": "Unmatched quality and innovation Every ingredient we make is clinically researched and held to the highest standards, ensuring efficacy.",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.24": {
+            "text": "Backed by 25+ years of research & innovation",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.25": {
+            "text": "We've led the way in healthy aging science, pioneering discoveries in NAD+ with Niagen®.",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.26": {
+            "text": "Discover our innovative, quality-tested, research-backed NAD-enhancement solutions.",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.27": {
+            "text": "America's trusted NAD-boosting supplement. Our award-winning Tru Niagen products power your cells to thrive with clinically proven daily support.",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.28": {
+            "text": "For health enthusiasts seeking advanced treatments, Niagen Plus delivers pharmaceutical-grade, fast-acting NAD+ enhancement therapies.",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.29": {
+            "text": "\"In the supplement industry, where claims often outpace evidence, scientific rigor is paramount. This is why I'm particularly impressed by the work being done at Niagen Bioscience.\"",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.30": {
+            "text": "Roger Kornberg, Ph.D., Niagen Bioscience Scientific Advisory Board Chairman",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.31": {
+            "text": "Nobel Prize Winner in Chemistry (2006) and Winzer Professor in Medicine at Stanford University",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.32": {
+            "text": "\"Disturbances in NAD coenzymes can leave tissues unable to repair themselves, generate energy, and perform their normal homeostatic functions. In many conditions of metabolic stress, the genes that convert NR to NAD are up-regulated, which provides unique value over all other NAD precursors.\"",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          },
+          "P1.33": {
+            "text": "Charles Brenner,",
+            "url": "https://www.niagenbioscience.com/",
+            "fetched_at": "2026-10-17T20:00:36Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Sells branded protein shakes, protein powders, and sports nutrition bars and gels to consumers through retailers, online marketplaces and fitness channels. Makes products through outsourced manufacturers and markets them under its own brands.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "ready-to-drink protein shakes; protein powders; protein bars; energy gels",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: health-conscious consumers and athletes buying shakes, powders and bars; B2B: grocery, club and mass retailers, and online marketplaces that resell its products",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "consumer packaged foods; sports nutrition; health and wellness; fitness",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: retail and online sales of shakes, powders, bars and gels",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: designs and markets its own brands, uses outside manufacturers, and sells to retailers and consumers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: US and Canada are the main markets, sports nutrition products also sold internationally",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: protein shakes, protein powders, bars and gels sold to the same nutrition-focused customers",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "third-party retail: grocery, mass, club and drug retailers; online: e-commerce marketplaces and its own websites; direct sales: sales teams selling to large retail accounts; distributors / dealers: specialty and international distributors for sports nutrition products",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: FDA food and dietary supplement labeling rules and FTC advertising rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Develops and markets ready-to-drink protein shakes, powders and other convenient nutrition products under consumer brands. Sells to consumers through retailers and online. Products are made by contract manufacturers.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "ready-to-drink protein shakes; protein powders; nutrition bars; high-protein snacks",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: health-conscious consumers, fitness and active lifestyle buyers; B2B: club, mass, grocery, e-commerce and specialty retailers, and distributors",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "convenient nutrition; sports nutrition; weight management; packaged food and beverage",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: protein shakes and powders sold to retailers, distributors and online",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: designs and markets nutrition products made by contract manufacturers, sold to retailers and consumers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: Primarily United States, with sales in Europe and other international markets",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: ready-to-drink shakes, powders, and bars and snacks under consumer nutrition brands",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "third-party retail: club stores, mass merchants, grocery and drug stores; online: e-commerce retailers and brand direct websites; distributors / dealers: specialty and international distributors",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: food and dietary supplement labeling and safety rules from FDA and FTC",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ632289716.json",
+      "data": {
+        "company_name": "BellRing Brands, Inc.",
+        "website": "bellring.com",
+        "scrape_status": "ok",
+        "capture_sha256": "29beed50b387fa0e401083dfccc2b23b0589fe696f8a03d0cb2461ade5061613",
+        "lines": {
+          "P1.1": {
+            "text": "We are Changing Lives with Good Energy! | BellRing Brands",
+            "url": "https://bellring.com/",
+            "fetched_at": "2026-10-17T19:15:13Z"
+          },
+          "P1.2": {
+            "text": "Changing Lives with Good Energy!",
+            "url": "https://bellring.com/",
+            "fetched_at": "2026-10-17T19:15:13Z"
+          },
+          "P1.3": {
+            "text": "Premier Protein brings joy to the health journey with ready-to-drink protein shakes and powders that combine high-quality protein with amazing taste. The brand is sold in multiple countries and leads the category in flavor innovation.",
+            "url": "https://bellring.com/",
+            "fetched_at": "2026-10-17T19:15:13Z"
+          },
+          "P1.4": {
+            "text": "Dymatize is on a mission to become the global leader in performance nutrition by using science to unlock human potential. The brand offers category-leading formulas with a core focus in protein, strength and muscle recovery.",
+            "url": "https://bellring.com/",
+            "fetched_at": "2026-10-17T19:15:13Z"
+          },
+          "P1.5": {
+            "text": "A revered icon of sports nutrition, PowerBar helps athletes at all levels perform at their best. Today, the PowerBar brand is sold in over 35 international markets with a primary concentration in Europe, where it continues to be a go-to source of nutrition among elite athletes and fitness enthusiasts.",
+            "url": "https://bellring.com/",
+            "fetched_at": "2026-10-17T19:15:13Z"
+          },
+          "P1.6": {
+            "text": "Premier Protein Introduces Sparkling Protein Soda, Where Refreshing Fizz Meets 15 g of Protein",
+            "url": "https://bellring.com/",
+            "fetched_at": "2026-10-17T19:15:13Z"
+          },
+          "P1.7": {
+            "text": "New Premier Protein Ultimate Protein Shakes Pack 42 g of Protein in Every Bottle",
+            "url": "https://bellring.com/",
+            "fetched_at": "2026-10-17T19:15:13Z"
+          },
+          "P1.8": {
+            "text": "BellRing Brands Appoints Michael Axelrod as Chief Executive Officer",
+            "url": "https://bellring.com/",
+            "fetched_at": "2026-10-17T19:15:13Z"
+          },
+          "P2.1": {
+            "text": "About | BellRing Brands",
+            "url": "https://bellring.com/about",
+            "fetched_at": "2026-10-17T19:15:15Z"
+          },
+          "P2.2": {
+            "text": "BellRing is a Dynamic and Fast Growing Global Business",
+            "url": "https://bellring.com/about",
+            "fetched_at": "2026-10-17T19:15:15Z"
+          },
+          "P2.3": {
+            "text": "Our mission is to change lives with good energy.",
+            "url": "https://bellring.com/about",
+            "fetched_at": "2026-10-17T19:15:15Z"
+          },
+          "P2.4": {
+            "text": "We believe in celebrating wins, both big and small. Hanging in the center of our office is a large bell anyone can ring to announce achievements ranging from distribution gains to personal milestones. When the bell is rung, we all gather to celebrate. We believe celebrating small wins will lead to bigger ones, and individual contributions contribute to collective success.",
+            "url": "https://bellring.com/about",
+            "fetched_at": "2026-10-17T19:15:15Z"
+          },
+          "P3.1": {
+            "text": "Our Brands | BellRing Brands",
+            "url": "https://bellring.com/brands",
+            "fetched_at": "2026-10-17T19:15:17Z"
+          },
+          "P3.2": {
+            "text": "The #1 Ready-to-Drink Protein and Convenient Nutrition Brand 1, Premier Protein is focused on delivering amazing tasting nutrition that people can’t wait to have. Premier Protein’s products are available globally in Food, Drug, Mass, Convenience, Club, Specialty, E-Commerce and Foodservice channels.",
+            "url": "https://bellring.com/brands",
+            "fetched_at": "2026-10-17T19:15:17Z"
+          },
+          "P3.3": {
+            "text": "1 Circana, Total U.S. Multi Outlet + Convenience 52 and 13 weeks ending.",
+            "url": "https://bellring.com/brands",
+            "fetched_at": "2026-10-17T19:15:17Z"
+          },
+          "P3.4": {
+            "text": "The brand behind the #1 Hydrolyzed Protein Powder 2, Dymatize is a global leader in premium performance nutrition products. Dymatize’s high-quality protein products are formulated specifically to help athletes achieve their goals.",
+            "url": "https://bellring.com/brands",
+            "fetched_at": "2026-10-17T19:15:17Z"
+          },
+          "P3.5": {
+            "text": "2 Circana, Total U.S. Multi Outlet + Convenience. $ Sales Rank, 52 and 13 weeks ending.",
+            "url": "https://bellring.com/brands",
+            "fetched_at": "2026-10-17T19:15:17Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

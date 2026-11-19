@@ -1,0 +1,918 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ9938532__IQ366893563",
+    "target": "IQ9938532",
+    "comp": "IQ366893563",
+    "target_ticker": "HLF",
+    "comp_ticker": "SMPL",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ9938532__IQ366893563",
+        "target": "IQ9938532",
+        "comp": "IQ366893563",
+        "target_ticker": "HLF",
+        "comp_ticker": "SMPL",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ9938532",
+          "comp": "IQ366893563",
+          "method": "B3",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "HLF",
+          "comp_ticker": "SMPL"
+        },
+        {
+          "target": "IQ9938532",
+          "comp": "IQ366893563",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "HLF",
+          "comp_ticker": "SMPL"
+        },
+        {
+          "target": "IQ9938532",
+          "comp": "IQ366893563",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "HLF",
+          "comp_ticker": "SMPL"
+        },
+        {
+          "target": "IQ9938532",
+          "comp": "IQ366893563",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "HLF",
+          "comp_ticker": "SMPL"
+        },
+        {
+          "target": "IQ9938532",
+          "comp": "IQ366893563",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "HLF",
+          "comp_ticker": "SMPL"
+        },
+        {
+          "target": "IQ9938532",
+          "comp": "IQ366893563",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "HLF",
+          "comp_ticker": "SMPL"
+        },
+        {
+          "target": "IQ9938532",
+          "comp": "IQ366893563",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 2.0,
+          "reason": "Protein bars and shakes overlap, but sold through grocery and retail with outsourced production, not a distributor channel.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "HLF",
+          "comp_ticker": "SMPL"
+        },
+        {
+          "target": "IQ9938532",
+          "comp": "IQ366893563",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Markets branded protein and low-carb shakes, powders and snacks for weight management and nutrition, overlapping Herbalife's core shake business.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "HLF",
+          "comp_ticker": "SMPL"
+        },
+        {
+          "target": "IQ9938532",
+          "comp": "IQ366893563",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Branded protein shakes, bars and weight-management nutrition products to health-focused consumers; similar products, though retail-sold and outsourced.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "HLF",
+          "comp_ticker": "SMPL"
+        },
+        {
+          "target": "IQ9938532",
+          "comp": "IQ366893563",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Branded protein bars, shakes and snacks sold to health-conscious consumers; outsourced manufacturing but similar nutrition product category.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "HLF",
+          "comp_ticker": "SMPL"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Sells nutrition, weight management, energy and sports, and personal care products worldwide. Products are sold mainly through independent distributors who buy them for personal use and resale, and the company manufactures most of its products itself.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "nutrition shakes and meal replacements; protein and nutritional supplements; energy and sports drinks; personal care products",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "nutrition clubs; weight-management coaching; distributor training",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: individual consumers buying for personal use, including independent distributors who buy products for themselves",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "nutrition and weight management; sports and fitness; personal care",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: nutritional, weight-management and personal care products sold to distributors and consumers; other: membership and sales aid fees paid by distributors",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: makes its nutrition and personal care products in its own facilities, sold to distributors and consumers; brand owner: designs and markets its own brands, sold through its distributor network",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: sells in many countries across North America, Europe, Asia, and Latin America",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: nutrition shakes, weight management, energy and sports products, and personal care, sharing the same distributor channel",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "partners / resellers: independent distributors who buy products and resell them to customers; online: company website and app for ordering products; own locations: company-operated nutrition clubs offering products and coaching",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: dietary supplement and food labeling rules from FDA and FTC, plus multi-level marketing and advertising rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Develops and sells weight management, nutrition, energy, sports and personal care products to consumers through a network of independent distributors. Products are made in company and contract facilities and sold via direct selling.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "weight management shakes and meal replacements; protein and nutritional supplements; energy and sports nutrition drinks; teas and herbal beverages; personal care products",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: consumers buying nutrition products, including distributors using products personally; B2B: independent distributors who buy products to resell and build businesses",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "nutrition and wellness; weight management; sports nutrition; personal care",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: nutrition and personal care products sold to independent distributors and members at discounted prices",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: formulates and markets branded nutrition products, sold through independent distributors to consumers; OEM / manufacturer: operates some manufacturing plants using sourced ingredients, plus contract manufacturers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: About 90 countries across Asia Pacific, North America, Europe, Latin America, Middle East and Africa",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "among the largest",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: weight management, nutrition supplements, energy and sports products, and personal care sold through one network",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: network of independent distributors selling person to person; online: distributor and member ordering through company websites and apps",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: dietary supplement and food regulation (FDA, FTC, foreign authorities) plus direct selling and multi-level marketing rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ9938532.json",
+      "data": {
+        "company_name": "Herbalife Ltd.",
+        "website": "www.herbalife.com",
+        "scrape_status": "ok",
+        "capture_sha256": "c6f14f3b807fd346793922817ff3a2710275af348154b0a9bfee01468a0c3e6f",
+        "lines": {
+          "P1.1": {
+            "text": "Herbalife | Global leader in nutrition",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.2": {
+            "text": "Welcome to Herbalife USA - global leaders in weight management, health & nutrition, fitness & performance, skin & body care products. Join us today!",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.3": {
+            "text": "Join the world’s premier health and wellness platform on our mission of over 45 years, helping people live their best lives through rigorous scientific research, high-quality ingredients and a strong sense of community spirit.",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.4": {
+            "text": "PROVEN FORMULAS TO REACH YOUR GOALS",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.5": {
+            "text": "Bioniq GO Your Personalized Daily Supplement",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.6": {
+            "text": "We take your health personally",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.7": {
+            "text": "A daily, all-in-one super shake",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.8": {
+            "text": "A high-protein snack to help you get through your day or workout",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.9": {
+            "text": "N-R-G Nature's Raw Guarana – Tea",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.10": {
+            "text": "A refreshing, zero-calorie tea for a feeling of energy with caffeine.",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.11": {
+            "text": "Beat the afternoon energy slump with this caffeinated, effervescent supplement.*",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.12": {
+            "text": "*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.13": {
+            "text": "Refuel with a high-protein post-workout shake that supports muscle growth and recovery.*",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.14": {
+            "text": "Herbalife24 Hydrate Sugar-Free Electrolyte Drink Mix",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.15": {
+            "text": "Advanced hydration formulated to replenish fluids and replace electrolytes you may lose from moderate dehydration due to extreme heat, travel or intense exercise.",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.16": {
+            "text": "Improve strength and endurance and increase lean muscle mass*",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.17": {
+            "text": "Formula 1 Healthy Meal Nutritional Shake Mix",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.18": {
+            "text": "Delicious and Nutrient-Dense Meal Replacement shake, anytime, anywhere.",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.19": {
+            "text": "A nutrient-dense snack or protein booster.",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.20": {
+            "text": "Metabolic health and weight-loss support*†. †These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.21": {
+            "text": "An anytime, nutrient-dense protein snack.",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.22": {
+            "text": "A daily wellness supplement targeting cellular health and function.*",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.23": {
+            "text": "A daily solution for supporting mental energy, focus, promoting metabolic health and fluid balance.†",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.24": {
+            "text": "†These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.25": {
+            "text": "Support your immune system when you need it the most.",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.26": {
+            "text": "Support your digestive health with the soothing benefits of aloe vera.",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.27": {
+            "text": "Herbalife SKIN® Collagen Beauty Booster",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.28": {
+            "text": "Formulated with Verisol® collagen to promote collagen production and vitamins and minerals that support healthy skin, hair and nails.*",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.29": {
+            "text": "Herbal Aloe Hand & Body Cream",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.30": {
+            "text": "Daily care to keep your hands and body moisturized, smooth and soft.",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.31": {
+            "text": "A wellness system built for your evolving health journey",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.32": {
+            "text": "The future of supplements is personalized",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.33": {
+            "text": "Get the right nutrients selected for your body.",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.34": {
+            "text": "15 years of fueling active lifestyles",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.35": {
+            "text": "Cristiano Ronaldo demands evidence-based nutrition he can rely on, as do 120+ other top athletes worldwide, which means your health is in good hands.",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.36": {
+            "text": "You deserve the same scientific leadership trusted by world-class athletes. Our global team of 200+ scientists and researchers bring deep expertise, advanced testing, and innovation to every formula – for results you can rely on.",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.37": {
+            "text": "Quality that starts at the source",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.38": {
+            "text": "Our Seed-to-Feed program puts science into action – tracking every ingredient from cultivation through final testing to ensure safety, purity, and consistency. Backed by our 14-step quality assurance process, every product meets the highest standards before meeting you at your door.",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.39": {
+            "text": "A global community built to help you thrive",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.40": {
+            "text": "Whether you’re exploring wellness or building a business, Herbalife gives you simple tools to get started and a supportive network to enable your potential.",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.41": {
+            "text": "Welcome to Herbalife. We're so glad you're here. Let's connect you with a Distributor to get you started on your wellness journey.",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.42": {
+            "text": "If you've shopped with us before or created an account, we can help you find your Distributor. Enter your email below and select Search to get started.",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          },
+          "P1.43": {
+            "text": "If you haven't made a purchase but know a Distributor, find them by entering their name, business",
+            "url": "https://www.herbalife.com/en-us",
+            "fetched_at": "2026-10-17T19:42:42Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Markets and sells branded protein and low-carb snacks and ready-to-drink shakes to consumers through grocery, mass, club and online retailers. It outsources manufacturing to contract food producers and focuses on brand, product development and sales.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "protein bars; ready-to-drink protein shakes; protein powders; snack chips; low-carb baking mixes",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: health-conscious consumers and athletes buying through retail stores and online; B2B: grocery, mass merchandise, club, convenience and online retailers, wholesale distributors",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "packaged foods; sports and fitness nutrition; health and wellness; weight management",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: branded snacks and shakes sold to retailers, distributors and online shoppers",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: designs, markets and sells branded foods made by contract manufacturers, sold to retailers and distributors",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "North America: Primarily United States, with smaller sales in Canada and some other countries",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: protein bars, shakes, snack chips and baking products sharing nutrition-focused brands and retail channels",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: key account sales teams selling to large grocery, mass and club retailers; distributors / dealers: wholesale food distributors serving smaller grocery and convenience stores; third-party retail: grocery, mass, club, drug and convenience stores; online: retailer e-commerce sites, online marketplaces and the company's own website",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: FDA food labeling and nutrient content claim rules and FTC advertising rules govern its products and marketing",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Develops and markets branded nutrition bars, shakes, snacks and sweet treats for health-conscious consumers. Products are made by contract manufacturers and sold mainly through grocery, mass, club, e-commerce and convenience channels.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "protein bars; ready-to-drink protein shakes; snacks; cookies and sweet treats",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: grocery, mass merchants, club stores, convenience and e-commerce retailers; B2C: health-conscious consumers following low-carb, protein-focused or balanced diets",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "packaged foods; nutritional snacking; health and wellness; meal replacement",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: packaged bars, shakes and snacks sold to retailers and online",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: designs and markets branded nutrition products made by co-manufacturers, sold to retailers and consumers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "North America: United States primarily, plus Canada and some international markets",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: nutrition bars, shakes, snacks and sweet treats sharing consumers and retail channels",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "third-party retail: grocery, mass merchandise, club, convenience, drug and natural stores; online: Amazon and brand direct-to-consumer websites",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: food safety, labeling and marketing rules from FDA, USDA and FTC",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ366893563.json",
+      "data": {
+        "company_name": "The Simply Good Foods Company",
+        "website": "www.thesimplygoodfoodscompany.com",
+        "scrape_status": "ok",
+        "capture_sha256": "f24b966c22bd8f4817557fea6ba9123066f2343e65b1ce77e8c34d97c7a99714",
+        "lines": {
+          "P1.1": {
+            "text": "Home | The Simply Good Foods Company",
+            "url": "https://www.thesimplygoodfoodscompany.com/",
+            "fetched_at": "2026-10-17T22:12:33Z"
+          },
+          "P1.2": {
+            "text": "We’re raising the bar on what food can be. We say no to the status quo, and we say yes to making better food. Food that offers robust nutrition, not hollow nutrition. Energy, not depletion. Enjoyment, not regret. Simply, we’re on a mission to make food that works for you—that is radically nutritious and defyingly delicious. Better nutrition made easy so you can live well. We don’t compromise, so you never have to.",
+            "url": "https://www.thesimplygoodfoodscompany.com/",
+            "fetched_at": "2026-10-17T22:12:33Z"
+          },
+          "P1.3": {
+            "text": "It's a Pretty Big Dill! Quest Nutrition Unveils New Dill Pickle Original Style Protein Chips - the First New Flavor in Over a Decade",
+            "url": "https://www.thesimplygoodfoodscompany.com/",
+            "fetched_at": "2026-10-17T22:12:33Z"
+          },
+          "P1.4": {
+            "text": "Alongside new Salted Caramel Protein Milkshake, Quest continues to redefine athlete-worthy, high-protein snacking with bold, on-trend flavors EL SEGUNDO, Calif., /PRNewswire/ -- Quest Nutrition is expanding its lineup of high-protein chips and milkshakes with two mouthwatering new",
+            "url": "https://www.thesimplygoodfoodscompany.com/",
+            "fetched_at": "2026-10-17T22:12:33Z"
+          },
+          "P1.5": {
+            "text": "Simply Good Foods Announces Cost Savings Initiatives and Leadership Changes as Part of Ongoing Strategic Evolution",
+            "url": "https://www.thesimplygoodfoodscompany.com/",
+            "fetched_at": "2026-10-17T22:12:33Z"
+          },
+          "P1.6": {
+            "text": "DENVER, (GLOBE NEWSWIRE) -- The Simply Good Foods Company (“Simply Good Foods” or the “Company”), a leader in the Nutritional Snacking category, today announced cost savings and corporate realignment initiatives to position the business for its next phase of growth.",
+            "url": "https://www.thesimplygoodfoodscompany.com/",
+            "fetched_at": "2026-10-17T22:12:33Z"
+          },
+          "P1.7": {
+            "text": "Quest Nutrition Teams Up with Professional Basketball Player Sophie Cunningham to Debut New Stacks Protein Bar, Crispy Protein Chips and Original Social Series",
+            "url": "https://www.thesimplygoodfoodscompany.com/",
+            "fetched_at": "2026-10-17T22:12:33Z"
+          },
+          "P1.8": {
+            "text": "Cunningham hosts The Grand Try series alongside USA Rugby athletes and showcases Quest's newest additions to its portfolio including Stacks Bars and Crispy Protein Chips. EL SEGUNDO, Calif., /PRNewswire/ -- Quest Nutrition has partnered with professional basketball player Sophie",
+            "url": "https://www.thesimplygoodfoodscompany.com/",
+            "fetched_at": "2026-10-17T22:12:33Z"
+          },
+          "P1.9": {
+            "text": "The Simply Good Foods Company Reports CEO Inducement Grant Under Nasdaq Listing Rule 5635(c)(4)",
+            "url": "https://www.thesimplygoodfoodscompany.com/",
+            "fetched_at": "2026-10-17T22:12:33Z"
+          },
+          "P1.10": {
+            "text": "DENVER, (GLOBE NEWSWIRE) -- On, The Simply Good Foods Company (“Simply Good Foods” or the “Company”) announced that Joseph E. Scalzo joined the Company in the role of President and Chief Executive Officer, effective.",
+            "url": "https://www.thesimplygoodfoodscompany.com/",
+            "fetched_at": "2026-10-17T22:12:33Z"
+          },
+          "P2.1": {
+            "text": "About Us | The Simply Good Foods Company",
+            "url": "https://www.thesimplygoodfoodscompany.com/about-us",
+            "fetched_at": "2026-10-17T22:12:34Z"
+          },
+          "P2.2": {
+            "text": "At Simply Good Foods, our mission is to empower and educate consumers about how to eat right and snack smarter through our education, advocacy, products and tools. Our vision is to lead the nutritional snacking movement with trusted brands that offer a rich variety of innovative, convenient, better-for-you snacks and meals that provide optimal nutrition for everyone.",
+            "url": "https://www.thesimplygoodfoodscompany.com/about-us",
+            "fetched_at": "2026-10-17T22:12:34Z"
+          },
+          "P2.3": {
+            "text": "With our heritage of science-based nutrition, we are committed to growing our portfolio of nutritious snacking brands. We distribute our products in major retail channels including grocery, club and mass merchandise, as well as through e-commerce, convenience, specialty and other channels. Our strong platform allows us to introduce new products, expand distribution, and appeal to current and potential consumers. We are well-positioned to continue to selectively pursue acquisition opportunities in the nutritious snacking and broader health and wellness food space.",
+            "url": "https://www.thesimplygoodfoodscompany.com/about-us",
+            "fetched_at": "2026-10-17T22:12:34Z"
+          },
+          "P3.1": {
+            "text": "Our Locations | The Simply Good Foods Company",
+            "url": "https://www.thesimplygoodfoodscompany.com/our-locations",
+            "fetched_at": "2026-10-17T22:12:35Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

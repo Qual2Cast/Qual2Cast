@@ -1,0 +1,943 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ217351453__IQ339646",
+    "target": "IQ217351453",
+    "comp": "IQ339646",
+    "target_ticker": "SAMG",
+    "comp_ticker": "VRTS",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ217351453__IQ339646",
+        "target": "IQ217351453",
+        "comp": "IQ339646",
+        "target_ticker": "SAMG",
+        "comp_ticker": "VRTS",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ217351453",
+          "comp": "IQ339646",
+          "method": "B3",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SAMG",
+          "comp_ticker": "VRTS"
+        },
+        {
+          "target": "IQ217351453",
+          "comp": "IQ339646",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SAMG",
+          "comp_ticker": "VRTS"
+        },
+        {
+          "target": "IQ217351453",
+          "comp": "IQ339646",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SAMG",
+          "comp_ticker": "VRTS"
+        },
+        {
+          "target": "IQ217351453",
+          "comp": "IQ339646",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SAMG",
+          "comp_ticker": "VRTS"
+        },
+        {
+          "target": "IQ217351453",
+          "comp": "IQ339646",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SAMG",
+          "comp_ticker": "VRTS"
+        },
+        {
+          "target": "IQ217351453",
+          "comp": "IQ339646",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SAMG",
+          "comp_ticker": "VRTS"
+        },
+        {
+          "target": "IQ217351453",
+          "comp": "IQ339646",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 1.0,
+          "reason": "Multi-boutique holding of affiliated managers selling funds through broker-dealers and advisers, unlike Silvercrest's direct client relationships.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SAMG",
+          "comp_ticker": "VRTS"
+        },
+        {
+          "target": "IQ217351453",
+          "comp": "IQ339646",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Affiliated boutique investment managers selling funds and separate accounts to advisers, institutions and individuals, earning fees on assets managed.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SAMG",
+          "comp_ticker": "VRTS"
+        },
+        {
+          "target": "IQ217351453",
+          "comp": "IQ339646",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "US-focused asset manager with funds and separate accounts for advisers, individuals and foundations; fee-on-AUM model similar.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SAMG",
+          "comp_ticker": "VRTS"
+        },
+        {
+          "target": "IQ217351453",
+          "comp": "IQ339646",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Investment manager of funds and separate accounts for individuals and institutions, earning fees on assets under management.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "SAMG",
+          "comp_ticker": "VRTS"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides investment management and wealth advisory services to high-net-worth individuals, families, foundations and endowments, charged on a fee basis. Manages client portfolios across equity and fixed income strategies through separately managed accounts and pooled funds.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "separately managed accounts; pooled investment funds; model portfolios",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "investment management; wealth management; financial planning; tax and estate planning coordination",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: high-net-worth individuals and families; B2B: foundations, endowments, trusts, retirement plans",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "personal wealth management; institutional investing",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "commissions or management fees: asset-based management fees on client assets under management; service fees: financial planning and wealth advisory fees",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: provides investment and wealth advice, sold to individuals and institutions; financial intermediary: manages client investment assets under discretionary mandates",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: clients across the United States, with offices in several states",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "niche specialist: investment management and wealth advisory for affluent clients",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: client relationship teams serving individuals and institutions directly",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: registered investment adviser regulated by the SEC under the Investment Advisers Act, including fiduciary and custody rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides investment management and wealth planning services to high-net-worth individuals, families, trusts, foundations, endowments and institutions. Delivers through in-house investment strategies (equity, fixed income, balanced) plus family office and financial planning services, via advisors in US offices.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "",
+        "primary_products_status": "not_applicable",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "investment management; wealth planning; family office services; fiduciary and trust-related advisory; institutional asset management",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: high-net-worth individuals and families; B2B: foundations, endowments, trusts, retirement plans and other institutions",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "wealth management; asset management; institutional investing",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "commissions or management fees: asset-based advisory and management fees on client assets under management; service fees: family office and financial planning fees",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "financial intermediary: registered investment adviser managing client portfolios for wealthy individuals and institutions",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: Offices in New York, Boston, Virginia, Pennsylvania, Texas, California and other US locations, clients mainly in the US",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: investment management, wealth planning and family office services for the same client base",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: in-house advisors and relationship managers serving clients directly; own locations: regional advisory offices across the US",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: SEC-registered investment adviser under the Investment Advisers Act, fiduciary duties and compliance oversight",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ217351453.json",
+      "data": {
+        "company_name": "Silvercrest Asset Management Group Inc.",
+        "website": "www.silvercrestgroup.com",
+        "scrape_status": "ok",
+        "capture_sha256": "6f101ce0d066625c9d330ced54602ff87b55b206fd436333473504a451769dea",
+        "lines": {
+          "P1.1": {
+            "text": "Homepage | Silvercrest Asset Management Group",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P1.2": {
+            "text": "Fiduciary, employee-owned, 98% client retention.",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P1.3": {
+            "text": "Hello, you are using an old browser that's unsafe and no longer supported. Please consider updating your browser to a newer version, or downloading a modern browser.",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P1.4": {
+            "text": "For over twenty years, Silvercrest has proudly served Individuals and Families, Institutional Investors, and Endowments & Foundations.",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P1.5": {
+            "text": "A Firm Committed to Excellence",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P1.6": {
+            "text": "Silvercrest: A Firm Committed to Excellence",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P1.7": {
+            "text": "Our goal is to provide unparalleled advice to every client. Alongside our modern approach to portfolio construction, we offer the personalized service and open communication larger organizations can't, so clients feel confident and secure in choosing Silvercrest.",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P1.8": {
+            "text": "Since our founding we have proudly served individuals and families with significant financial assets.",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P1.9": {
+            "text": "Asset management is in our name. For over a decade, Silvercrest has partnered with select institutional clients to provide asset management, through our proprietary long-only equity management capabilities. We manage small through large cap value and growth equity, and international value strategies.",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P1.10": {
+            "text": "Silvercrest partners with endowments, foundations and family offices to provide customized, full-service investment office solutions. The firm’s outsourced chief investment officer (OCIO) team leverages decades of experience managing nonprofits and family offices in tailoring portfolios to its clients’ distinctive financial goals, risk tolerances and mission objectives.",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P1.11": {
+            "text": "In this issue of Insights, our team explores some of the most consequential forces shaping today’s markets and economy: the structure of the AI buildout, the philosophy of portfolio construction, and the geopolitical shifts reshaping how capital is deployed around the world.",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P1.12": {
+            "text": "Same Question, Different Answer: Probabilistic AI in the Enterprise",
+            "url": "https://www.silvercrestgroup.com/",
+            "fetched_at": "2026-10-17T20:09:18Z"
+          },
+          "P2.1": {
+            "text": "About Us | Silvercrest Asset Management Group",
+            "url": "https://www.silvercrestgroup.com/about/",
+            "fetched_at": "2026-10-17T20:09:20Z"
+          },
+          "P2.2": {
+            "text": "Silvercrest is a firm of talented financial service advisors who provide fresh thinking to the management needs of our clients and firm.",
+            "url": "https://www.silvercrestgroup.com/about/",
+            "fetched_at": "2026-10-17T20:09:20Z"
+          },
+          "P2.3": {
+            "text": "Silvercrest is a pioneer in the wealth management industry, setting the highest standards for independent investment advice and related family office services.",
+            "url": "https://www.silvercrestgroup.com/about/",
+            "fetched_at": "2026-10-17T20:09:20Z"
+          },
+          "P2.4": {
+            "text": "We will always place our clients' needs first.",
+            "url": "https://www.silvercrestgroup.com/about/",
+            "fetched_at": "2026-10-17T20:09:20Z"
+          },
+          "P2.5": {
+            "text": "We offer our individual and family clients robust investment capabilities trusted by sophisticated institutions.",
+            "url": "https://www.silvercrestgroup.com/about/",
+            "fetched_at": "2026-10-17T20:09:20Z"
+          },
+          "P2.6": {
+            "text": "We tailor solutions to each client's goals.",
+            "url": "https://www.silvercrestgroup.com/about/",
+            "fetched_at": "2026-10-17T20:09:20Z"
+          },
+          "P2.7": {
+            "text": "We provide a comprehensive family office solution, leveraging our deep expertise in tax, estate, philanthropic, and concierge services.",
+            "url": "https://www.silvercrestgroup.com/about/",
+            "fetched_at": "2026-10-17T20:09:20Z"
+          },
+          "P2.8": {
+            "text": "We integrate world-class proprietary portfolio risk analytics and reporting.",
+            "url": "https://www.silvercrestgroup.com/about/",
+            "fetched_at": "2026-10-17T20:09:20Z"
+          },
+          "P2.9": {
+            "text": "Clients choose Silvercrest for our integrity, consistency, and proven record of success.",
+            "url": "https://www.silvercrestgroup.com/about/",
+            "fetched_at": "2026-10-17T20:09:20Z"
+          },
+          "P2.10": {
+            "text": "At Silvercrest, we’ve built a team of talented financial advisors who provide unwavering service to our clients according to their goals. We listen, we ask questions, and once we know exactly what you want, we apply our deep financial expertise to help you meet those goals.",
+            "url": "https://www.silvercrestgroup.com/about/",
+            "fetched_at": "2026-10-17T20:09:20Z"
+          },
+          "P3.1": {
+            "text": "Endowments & Foundations | Silvercrest Asset Management Group",
+            "url": "https://www.silvercrestgroup.com/who-we-serve/endowments-foundations/",
+            "fetched_at": "2026-10-17T20:09:23Z"
+          },
+          "P3.2": {
+            "text": "We offer outsourced chief investment office solutions to foundations, endowments & institutions with long term investment time horizons.",
+            "url": "https://www.silvercrestgroup.com/who-we-serve/endowments-foundations/",
+            "fetched_at": "2026-10-17T20:09:23Z"
+          },
+          "P3.3": {
+            "text": "A Trusted Partner for Endowments & Foundations",
+            "url": "https://www.silvercrestgroup.com/who-we-serve/endowments-foundations/",
+            "fetched_at": "2026-10-17T20:09:23Z"
+          },
+          "P3.4": {
+            "text": "OCIO Solutions for Institutional Portfolios",
+            "url": "https://www.silvercrestgroup.com/who-we-serve/endowments-foundations/",
+            "fetched_at": "2026-10-17T20:09:23Z"
+          },
+          "P3.5": {
+            "text": "Silvercrest offers outsourced chief investment officer (“OCIO”) solutions to foundations, endowments and other institutions with long term investment time horizons.",
+            "url": "https://www.silvercrestgroup.com/who-we-serve/endowments-foundations/",
+            "fetched_at": "2026-10-17T20:09:23Z"
+          },
+          "P3.6": {
+            "text": "Understanding a client’s true risk tolerance is essential, as the primary risk is always a portfolio decline that leads to panicked selling and which can prevent the institution from achieving its long-term mission. Our team’s process focuses on understanding each client’s mission and long-term financial objective along with its portfolio preferences regarding risk, return, complexity, liquidity, mission-alignment and cost. The next step is to create a fully customized asset allocation and manager line-up that can achieve those goals and objectives in the most streamlined and cost-effective manner possible.",
+            "url": "https://www.silvercrestgroup.com/who-we-serve/endowments-foundations/",
+            "fetched_at": "2026-10-17T20:09:23Z"
+          },
+          "P3.7": {
+            "text": "The time tested strategy of portfolio diversification continues to be an important principle for any portfolio, whether a university endowment or a family foundation.",
+            "url": "https://www.silvercrestgroup.com/who-we-serve/endowments-foundations/",
+            "fetched_at": "2026-10-17T20:09:23Z"
+          },
+          "P3.8": {
+            "text": "How Fund Structure Shapes Outcomes: A Practical Guide",
+            "url": "https://www.silvercrestgroup.com/who-we-serve/endowments-foundations/",
+            "fetched_at": "2026-10-17T20:09:23Z"
+          },
+          "P3.9": {
+            "text": "Same",
+            "url": "https://www.silvercrestgroup.com/who-we-serve/endowments-foundations/",
+            "fetched_at": "2026-10-17T20:09:23Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Sells investment strategies through funds and separate accounts run by affiliated boutique managers. Serves individual investors through financial advisers and institutional clients such as pensions and foundations. Earns fees on assets it manages.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "mutual funds; exchange-traded funds; separately managed accounts; closed-end funds; institutional investment portfolios",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "investment management; sub-advisory services; fund distribution support",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: financial advisers, broker-dealers, institutional investors, pension plans, endowments, foundations; B2C: individual investors who hold funds through advisers and platforms",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "asset management; wealth management; retirement savings; institutional investing",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "commissions or management fees: investment management fees charged on assets under management in funds and separate accounts; service fees: fees for sub-advisory and fund administration services",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "financial intermediary: pools client money into funds and portfolios, sold to individual and institutional investors; service provider: manages investment portfolios for fund sponsors and institutional clients for a fee",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: Clients across the United States, with some international institutional clients",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: affiliated boutique managers offering equity, fixed income, alternative and multi-asset strategies to shared client channels",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "agents / brokers: independent financial advisers and broker-dealers that sell funds to individual investors; direct sales: institutional sales team serving pensions, foundations and consultants; partners / resellers: fund platforms and retirement plan providers that offer its funds to clients",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: registered investment advisers and broker-dealer subsidiaries regulated by the SEC and FINRA",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides investment management products and services through affiliated boutique managers. Serves individual investors via retail separate accounts, mutual funds and ETFs, and institutional clients via separate accounts, plus structured products such as collateralized loan obligations. Earns fees on assets managed.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "mutual funds; exchange-traded funds; closed-end funds; collateralized loan obligations; variable insurance funds",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "investment management; retail separate account management; institutional separate account management; fund administration and distribution",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: individual investors via advisors, mutual funds, ETFs and retail managed accounts; B2B: institutions, pension plans, endowments, insurers, wealth managers and financial advisors",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "asset management; wealth management; institutional investing; insurance",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "commissions or management fees: investment management fees based on assets under management; service fees: fund administration and distribution fees; other: performance fees and CLO collateral management fees",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "financial intermediary: manages client assets through affiliated managers, sold to retail and institutional investors",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: Primarily US clients, with institutional and international clients in Europe, Asia and other regions",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: multi-boutique equity, fixed income, multi-asset and alternative investment strategies",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "partners / resellers: financial advisors, broker-dealers, wirehouses and registered investment advisors; direct sales: institutional sales team to pensions, endowments and consultants",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: registered investment advisers and funds regulated by SEC under Investment Advisers Act and Investment Company Act, FINRA",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ339646.json",
+      "data": {
+        "company_name": "Virtus Investment Partners, Inc.",
+        "website": "corporate.virtus.com",
+        "scrape_status": "ok",
+        "capture_sha256": "5d2b978af141577839af9c3637f127bd56779b71e1b487e6b8f8034e277a3ce4",
+        "lines": {
+          "P1.1": {
+            "text": "Home Page | Virtus Investment Partners",
+            "url": "https://corporate.virtus.com/",
+            "fetched_at": "2026-10-17T20:21:07Z"
+          },
+          "P1.2": {
+            "text": "Welcome to Virtus Investment Partners",
+            "url": "https://corporate.virtus.com/",
+            "fetched_at": "2026-10-17T20:21:07Z"
+          },
+          "P1.3": {
+            "text": "Virtus Investment Partners is a distinctive partnership of boutique investment managers, singularly committed to the long-term success of individual and institutional investors.",
+            "url": "https://corporate.virtus.com/",
+            "fetched_at": "2026-10-17T20:21:07Z"
+          },
+          "P1.4": {
+            "text": "Please select your investor type.",
+            "url": "https://corporate.virtus.com/",
+            "fetched_at": "2026-10-17T20:21:07Z"
+          },
+          "P1.5": {
+            "text": "Individual Investor Financial Professional Institutional Investor or Consultant International Investor Non-U.S. Investor (UCITS & QIAIFs)",
+            "url": "https://corporate.virtus.com/",
+            "fetched_at": "2026-10-17T20:21:07Z"
+          },
+          "P2.1": {
+            "text": "About Us | Virtus Investment Partners",
+            "url": "https://corporate.virtus.com/our-firm/about-us",
+            "fetched_at": "2026-10-17T20:21:09Z"
+          },
+          "P2.2": {
+            "text": "A distinctive company with a multi-manager, multi-strategy model",
+            "url": "https://corporate.virtus.com/our-firm/about-us",
+            "fetched_at": "2026-10-17T20:21:09Z"
+          },
+          "P2.3": {
+            "text": "A Message from George R. Aylward President and Chief Executive Officer",
+            "url": "https://corporate.virtus.com/our-firm/about-us",
+            "fetched_at": "2026-10-17T20:21:09Z"
+          },
+          "P2.4": {
+            "text": "Welcome to Virtus Investment Partners, a company dedicated to being a distinctive and trusted provider of asset management solutions for individual and institutional investors.",
+            "url": "https://corporate.virtus.com/our-firm/about-us",
+            "fetched_at": "2026-10-17T20:21:09Z"
+          },
+          "P2.5": {
+            "text": "Our goal is to offer clients high-quality investment strategies that have generated compelling performance and meet multiple financial needs. To accomplish this, we employ a multi-manager, multi-strategy approach that delivers a broad array of solutions.",
+            "url": "https://corporate.virtus.com/our-firm/about-us",
+            "fetched_at": "2026-10-17T20:21:09Z"
+          },
+          "P2.6": {
+            "text": "Each of our investment partners has a distinct investment philosophy and style, with talent and discipline that have been tested through market cycles and validated by performance over time. Importantly, they all share an unwavering commitment to investor success.",
+            "url": "https://corporate.virtus.com/our-firm/about-us",
+            "fetched_at": "2026-10-17T20:21:09Z"
+          },
+          "P2.7": {
+            "text": "We hope you will consider joining us as a client.",
+            "url": "https://corporate.virtus.com/our-firm/about-us",
+            "fetched_at": "2026-10-17T20:21:09Z"
+          },
+          "P2.8": {
+            "text": "Our multi-manager, multi-strategy approach gives clients access to distinctive investment strategies from independent managers.",
+            "url": "https://corporate.virtus.com/our-firm/about-us",
+            "fetched_at": "2026-10-17T20:21:09Z"
+          },
+          "P2.9": {
+            "text": "We have the flexibility, agility, and responsiveness of a boutique asset management firm with the product breadth, distribution reach, and resources of larger firms.",
+            "url": "https://corporate.virtus.com/our-firm/about-us",
+            "fetched_at": "2026-10-17T20:21:09Z"
+          },
+          "P2.10": {
+            "text": "Our multi-boutique model is based on the fundamental belief that investment professionals who operate in an environment that allows for the appropriate focus and culture can generate sustainable, superior returns for our clients.",
+            "url": "https://corporate.virtus.com/our-firm/about-us",
+            "fetched_at": "2026-10-17T20:21:09Z"
+          },
+          "P3.1": {
+            "text": "AlphaSimplex Group, LLC | Virtus Investment Partners",
+            "url": "https://corporate.virtus.com/investment-partners/alphasimplex",
+            "fetched_at": "2026-10-17T20:21:10Z"
+          },
+          "P3.2": {
+            "text": "AlphaSimplex is a systematic alternatives manager focused on delivering quantitative investment strategies that are attuned to changing market dynamics.",
+            "url": "https://corporate.virtus.com/investment-partners/alphasimplex",
+            "fetched_at": "2026-10-17T20:21:10Z"
+          },
+          "P3.3": {
+            "text": "Adaptive strategies for evolving markets",
+            "url": "https://corporate.virtus.com/investment-partners/alphasimplex",
+            "fetched_at": "2026-10-17T20:21:10Z"
+          },
+          "P3.4": {
+            "text": "AlphaSimplex strives to help investors meet their long-term goals in ever-evolving markets by analyzing market behavior and risk. Our investment philosophy is based on the Adaptive Markets Hypothesis, an innovative theory of market behavior.",
+            "url": "https://corporate.virtus.com/investment-partners/alphasimplex",
+            "fetched_at": "2026-10-17T20:21:10Z"
+          },
+          "P3.5": {
+            "text": "Virtus AlphaSimplex Global Alternatives Fund",
+            "url": "https://corporate.virtus.com/investment-partners/alphasimplex",
+            "fetched_at": "2026-10-17T20:21:10Z"
+          },
+          "P3.6": {
+            "text": "Virtus AlphaSimplex Managed Futures Strategy Fund",
+            "url": "https://corporate.virtus.com/investment-partners/alphasimplex",
+            "fetched_at": "2026-10-17T20:21:10Z"
+          },
+          "P3.7": {
+            "text": "Virtus GF AlphaSimplex Managed Futures Fund",
+            "url": "https://corporate.virtus.com/investment-partners/alphasimplex",
+            "fetched_at": "2026-10-17T20:21:10Z"
+          },
+          "P3.8": {
+            "text": "Virtus AlphaSimplex Global Macro ETF",
+            "url": "https://corporate.virtus.com/investment-partners/alphasimplex",
+            "fetched_at": "2026-10-17T20:21:10Z"
+          },
+          "P3.9": {
+            "text": "Virtus AlphaSimplex Managed Futures ETF",
+            "url": "https://corporate.virtus.com/investment-partners/alphasimplex",
+            "fetched_at": "2026-10-17T20:21:10Z"
+          },
+          "P3.10": {
+            "text": "Chief Investment Officer, Portfolio Manager Industry Start Date: 2007",
+            "url": "https://corporate.virtus.com/investment-partners/alphasimplex",
+            "fetched_at": "2026-10-17T20:21:10Z"
+          },
+          "P3.11": {
+            "text": "Alexander Healy is the chief investment officer and a portfolio manager at AlphaSimplex, an affiliated manager of Virtus Investment Partners. Dr. Healy is responsible for the day-to-day supervision of the research team and the implementation of the firm’s investment strategies. He is the chair of the firm’s investment committee and a member of the operating and risk committees. Additionally, he serves as a co-portfolio manager of certain funds.",
+            "url": "https://corporate.virtus.com/investment-partners/alphasimplex",
+            "fetched_at": "2026-10-17T20:21:10Z"
+          },
+          "P3.12": {
+            "text": "Dr. Healy joined AlphaSimplex and held the roles of senior research scientist, director of strategic research, and deputy chief investment officer. He has developed various key elements of AlphaSimplex’s investment platform, including non-parametric investment models, volatility management overlays, and dynamic approaches to portfolio construction.",
+            "url": "https://corporate.virtus.com/investment-partners/alphasimplex",
+            "fetched_at": "2026-10-17T20:21:10Z"
+          },
+          "P3.13": {
+            "text": "Dr. Healy earned an A.B. in mathematics and computer science from Harvard University, where he also received a Ph.D. in theoretical computer science. His doctoral research focused on the uses of randomness in algorithms and cryptography and introduced novel approaches to generating pseudo-random numbers together with new applications of these methods. Dr.",
+            "url": "https://corporate.virtus.com/investment-partners/alphasimplex",
+            "fetched_at": "2026-10-17T20:21:10Z"
+          },
+          "P3.14": {
+            "text": "Chief Research Strategist, Portfolio Manager Industry Start Date: 2008",
+            "url": "https://corporate.virtus.com/investment-partners/alphasimplex",
+            "fetched_at": "2026-10-17T20:21:10Z"
+          },
+          "P3.15": {
+            "text": "Kathryn Kaminski is chief research strategist and a portfolio manager at AlphaSimplex, an affiliated manager of Virtus Investment Partners. Dr. Kaminski conducts applied research, leads strategic research initiatives, focuses on portfolio construction and risk management, and engages in product development. Dr. Kaminski is a member of the investment committee. Additionally, she serves as a co-portfolio manager for the AlphaSimplex Managed Futures Strategy and AlphaSimplex Global Alternatives Strategy.",
+            "url": "https://corporate.virtus.com/investment-partners/alphasimplex",
+            "fetched_at": "2026-10-17T20:21:10Z"
+          },
+          "P3.16": {
+            "text": "Prior to",
+            "url": "https://corporate.virtus.com/investment-partners/alphasimplex",
+            "fetched_at": "2026-10-17T20:21:10Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

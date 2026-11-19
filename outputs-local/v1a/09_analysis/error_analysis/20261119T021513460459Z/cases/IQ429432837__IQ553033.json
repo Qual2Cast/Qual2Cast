@@ -1,0 +1,933 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ429432837__IQ553033",
+    "target": "IQ429432837",
+    "comp": "IQ553033",
+    "target_ticker": "WHD",
+    "comp_ticker": "WFRD",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ429432837__IQ553033",
+        "target": "IQ429432837",
+        "comp": "IQ553033",
+        "target_ticker": "WHD",
+        "comp_ticker": "WFRD",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ429432837",
+          "comp": "IQ553033",
+          "method": "B3",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "WHD",
+          "comp_ticker": "WFRD"
+        },
+        {
+          "target": "IQ429432837",
+          "comp": "IQ553033",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "WHD",
+          "comp_ticker": "WFRD"
+        },
+        {
+          "target": "IQ429432837",
+          "comp": "IQ553033",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "WHD",
+          "comp_ticker": "WFRD"
+        },
+        {
+          "target": "IQ429432837",
+          "comp": "IQ553033",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "WHD",
+          "comp_ticker": "WFRD"
+        },
+        {
+          "target": "IQ429432837",
+          "comp": "IQ553033",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "WHD",
+          "comp_ticker": "WFRD"
+        },
+        {
+          "target": "IQ429432837",
+          "comp": "IQ553033",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "WHD",
+          "comp_ticker": "WFRD"
+        },
+        {
+          "target": "IQ429432837",
+          "comp": "IQ553033",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 2.0,
+          "reason": "Broad global drilling, artificial lift and intervention services; overlaps in pressure control but is a diversified services company.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "WHD",
+          "comp_ticker": "WFRD"
+        },
+        {
+          "target": "IQ429432837",
+          "comp": "IQ553033",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Sells and rents well completion, pressure control and wellsite equipment and field services to oil and gas operators.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "WHD",
+          "comp_ticker": "WFRD"
+        },
+        {
+          "target": "IQ429432837",
+          "comp": "IQ553033",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Manufactures and rents pressure control and completion equipment and delivers well-site services to operators, overlapping with Cactus.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "WHD",
+          "comp_ticker": "WFRD"
+        },
+        {
+          "target": "IQ429432837",
+          "comp": "IQ553033",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Sells and rents wellhead, pressure control and completion equipment plus well services to oil and gas operators.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "WHD",
+          "comp_ticker": "WFRD"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs, manufactures and rents wellhead and pressure control systems for oil and gas wells. Sells to exploration and production operators and provides flowback services at well sites.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "wellheads; frac trees; valves; pressure control equipment",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "flowback services; pressure control rental crews; well-site support",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: oil and gas exploration and production operators, oilfield service companies",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "oil and gas exploration and production; oilfield services",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: wellheads, frac trees and valves sold to producers; rental or leasing: pressure control equipment rented for well completions; service fees: flowback and well-site services billed per job",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: builds wellheads and valves, sold to oil and gas producers; service provider: runs pressure control and flowback crews at well sites for operators",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "North America: US oil basins such as the Permian, Eagle Ford and Bakken, plus Canada",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: wellheads, pressure control equipment, valves and flowback services",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales teams selling to exploration and production operators; own locations: manufacturing and service yards in US oil basins",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: well-control equipment safety standards and environmental rules for flowback, overseen by state oil and gas regulators and EPA",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and manufactures wellheads and well completion equipment, notably the SafeDrill wellhead and frac-related pressure control equipment, for oil and gas operators and pressure pumpers. Also rents and services spoolable pipe and surface equipment at the well site. Manufactures in company-owned facilities.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "wellheads; frac pressure control equipment; spoolable pipe; spare parts",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "equipment rental; field service and repair; wellsite installation support",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: oil and gas exploration and production operators, pressure pumping service companies",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "oil and gas exploration and production; hydraulic fracturing; well completions",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "rental or leasing: rental of wellhead and pressure control equipment per job; product sales: wellheads and spoolable pipe sold to operators; service fees: field service, installation, and repair",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: builds wellheads and pressure control equipment from purchased steel and components, sold to operators and pressure pumpers; asset operator: owns rental fleet of wellheads and spoolable pipe deployed at customer well sites",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "North America: US basins such as Permian, plus Canada and some Australia operations",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: wellheads, spoolable pipe, and related rental and service for well completions",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: direct sales and field service teams serving operators and pressure pumpers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: oilfield equipment standards such as API specifications, plus environmental and workplace safety rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ429432837.json",
+      "data": {
+        "company_name": "Cactus, Inc.",
+        "website": "www.cactuswhd.com",
+        "scrape_status": "ok",
+        "capture_sha256": "5e32be6db35abb847f6deb7a85e5297851f08dd7c908e78f78e4f7b36c57d60b",
+        "lines": {
+          "P1.1": {
+            "text": "Wellhead Equipment Manufacturers | Cactus Wellhead™",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.2": {
+            "text": "Leading manufacturer of pressure control equipment used during drilling, completion and production operations onshore and offshore. Headquartered in Houston, Tx.",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.3": {
+            "text": "Leading the Oil & Gas Industry in Execution Excellence",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.4": {
+            "text": "Cactus Wellhead™ manufactures and services pressure control equipment for onshore and offshore oil and gas drilling, completion and production. Our experience is unparalleled. Key managers have not only accumulated decades of knowledge in the industry but have also worked together as a team for an average of 25 years. As a company, our roots go back 50 years and three generations.",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.5": {
+            "text": "faster, safer and more productive solutions",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.6": {
+            "text": "Cactus™ SafeDrill ® Wellhead Systems",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.7": {
+            "text": "Cactus™ SafeDrill ® Wellhead Systems include a complete line of drill-through single piece multi-bowl wellhead systems that enhance field personnel safety and save valuable rig time. These efficient and innovative systems, with a straight bore design and lock ring technology, are safer, easier and faster to install than conventional wellhead systems and maximize the benefits of pad drilling.",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.8": {
+            "text": "Discover Cactus™ SafeDrill ® Wellhead Systems",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.9": {
+            "text": "Cactus Wellhead™ has the quality products and the experienced service technicians to assure that your frac job will be completed without surprises.",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.10": {
+            "text": "Cactus Wellhead™ manufactures and services pressure control equipment for onshore and offshore oil and gas drilling, completion and production.",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.11": {
+            "text": "Cactus Wellhead™ products and systems are designed and manufactured to the highest industry standards. We have implemented a fully documented API Spec 6A and Q1/ISO 9001:2015 quality management system that supports our state-of-the-art manufacturing facilities. Hands-on involvement and communication by branch operations, installation crews and manufacturing facilities ensure that Cactus Wellhead™ is fully committed to quality excellence and reduction of risk.",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.12": {
+            "text": "ENSURING PERSONNEL, ASSET & COMMUNITY PROTECTION",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.13": {
+            "text": "Cactus Wellhead™, through a formal and comprehensive company-wide HSE management program, fulfills its commitment for the well-being and protection of individuals at all field and company locations. We establish and adhere to our own strict safety standards as well as those of our valued customers.",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.14": {
+            "text": "Delhi Street Northern Contractors Yard Moomba South Australia",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.15": {
+            "text": "Futai Road, Taiping Industry Park Taiping Town, Xiangcheng County Suzhou, Jiangsu, China 215137",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.16": {
+            "text": "Cactus Wellhead™ Sales and Service",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.17": {
+            "text": "Factory FA2 (Factory symbols are FA2-1 and FA2-2) Lot 7, Cam Dien - Luong Dien Industrial Park, Cam Giang Commune, Hai Phong City, Vietnam.",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.18": {
+            "text": "Cactus Wellhead™ Manufacturing and Service Center",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.19": {
+            "text": "Cactus Wellhead™ Sales, Service and Rental",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P1.20": {
+            "text": "AE-Abu Dhabi-Abu Dhabi-Plot # 11D7, Industrial City Abu Dhabi (ICAD) 1 Plot # 11D7, Industrial City Abu Dhabi (ICAD) 1 Plot # 11D7",
+            "url": "https://cactuswhd.com/",
+            "fetched_at": "2026-10-17T19:18:24Z"
+          },
+          "P2.1": {
+            "text": "About Us | Cactus Wellhead™",
+            "url": "https://cactuswhd.com/company/",
+            "fetched_at": "2026-10-17T19:18:30Z"
+          },
+          "P2.2": {
+            "text": "Cactus™’ roots in the oilfield reach back three generations to 1957. We strive to gain our customers' trust, deliver reliable products and constantly promote value.",
+            "url": "https://cactuswhd.com/company/",
+            "fetched_at": "2026-10-17T19:18:30Z"
+          },
+          "P2.3": {
+            "text": "Guided by a relentless focus on customer service and the conviction that their resulting loyalty will maximize owner value, we will strive for operational excellence in all dealings with our clients, associates, and suppliers. We will consistently outperform our peers by refusing to compromise on safety, honesty, and professionalism.",
+            "url": "https://cactuswhd.com/company/",
+            "fetched_at": "2026-10-17T19:18:30Z"
+          },
+          "P2.4": {
+            "text": "Our experience is unparalleled. Key managers have not only accumulated decades of knowledge in the industry but have also worked together as a team for an average of 25 years. As a company, our roots go back 50 years and three generations. We are well known and trusted by the industry for our integrity, responsiveness and problem-solving capabilities. Customer responses to our post-job completion surveys confirm their satisfaction with and confidence in their continuing relationship with Cactus™.",
+            "url": "https://cactuswhd.com/company/",
+            "fetched_at": "2026-10-17T19:18:30Z"
+          },
+          "P2.5": {
+            "text": "In order to provide the best and most reliable results for our customers, we engage the industry’s most experienced engineers, manufacture in Cactus™ owned facilities and incorporate stringent quality and safety standards. Our strategically located",
+            "url": "https://cactuswhd.com/company/",
+            "fetched_at": "2026-10-17T19:18:30Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides drilling, well construction, well completion, production and well intervention services and equipment to oil and gas producers. Sells and rents tools and systems, and delivers most work through field crews and service centers worldwide.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "drilling tools; artificial lift systems; well completion equipment; wireline tools; pressure control equipment",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "well drilling; well completion; well intervention; production optimization; reservoir evaluation",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: oil and gas operators, including national oil companies and independent producers",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "oil and gas",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: drilling and completion equipment sold to operators; service fees: field services billed per job or per well; project or contract: multi-year well construction and production contracts; rental or leasing: rental of downhole tools and equipment",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: performs well services with field crews, sold to oil and gas operators; OEM / manufacturer: builds its own tools and artificial lift equipment, sold to operators and used in its services",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: operations across North America, Latin America, Europe, Middle East, Africa and Asia Pacific",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: drilling, evaluation, well completions, production systems and intervention services",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: direct contracts with operators and national oil companies; own locations: regional service centers and manufacturing facilities",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: environmental, safety, export control and anti-corruption rules in oilfield operations",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides equipment and services for drilling, evaluation, completion, production and intervention of oil and gas wells. Sells to national, international and independent oil and gas operators. Delivers through engineered tools, manufacturing and field service crews.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "managed pressure drilling systems; drilling tools and drill bits; artificial lift systems; completion equipment and liner hangers; wellhead and tubular running equipment",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "well construction and drilling services; wireline and formation evaluation; well completions; well intervention; production optimization",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: national oil companies, international oil majors and independent exploration and production operators",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "oil and gas exploration and production; geothermal; energy",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "service fees: field services such as drilling, evaluation, intervention and well testing; product sales: drilling, completion and artificial lift equipment; rental or leasing: rental of tools and equipment used downhole",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: performs well construction, evaluation, completion and intervention services for oil and gas operators; OEM / manufacturer: manufactures downhole tools and production equipment sold to energy operators",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: Operations in North America, Latin America, Middle East, North Africa, Europe, Asia Pacific and Russia",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: drilling, evaluation, completion, intervention and production equipment and services for oil and gas wells",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: direct contracts and tenders with national and international oil and gas operators; own locations: regional service bases, manufacturing sites and field operations",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: oilfield operations subject to environmental, health and safety rules, plus export controls and sanctions regimes",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ553033.json",
+      "data": {
+        "company_name": "Weatherford International plc",
+        "website": "www.weatherford.com",
+        "scrape_status": "ok",
+        "capture_sha256": "ea0f7c61cb599945c9ffd7545ce85b94a5c3c4ca42c6bad928db9aabdd07d9ee",
+        "lines": {
+          "P1.1": {
+            "text": "Home | Weatherford International",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.2": {
+            "text": "COMPLETE MULTISTAGE SOLUTIONS. FROM TOE TO HEEL.",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.3": {
+            "text": "A broader completion portfolio designed to help operators improve execution, increase reliability, and maximize performance throughout the completion program.",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.4": {
+            "text": "Take control of your downhole environment—stabilize the wellbore, prevent hazards, and push performance further with Managed Pressure Wells.",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.5": {
+            "text": "Elevate your production strategy—revive output, extend reservoir life, and maximize recovery with precision-engineered Production and Intervention Solutions.",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.6": {
+            "text": "From field to strategy, connect physical operations with digital execution. Industrial Intelligence is built to scale enterprise-wide and designed for every user.",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.7": {
+            "text": "Lead the energy transition—cut emissions, boost efficiency, and deliver lasting value with breakthrough New Energy Solutions.",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.8": {
+            "text": "PDO taps Weatherford for 274-well drilling program in Oman Drilling Contractor",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.9": {
+            "text": "From field to strategy, connect physical operations with digital execution.",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.10": {
+            "text": "Reliable, High-Volume Performance within Challenging Applications",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.11": {
+            "text": "MultiView ™ Multibarrier Corrosion Logging Tool",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.12": {
+            "text": "Measures average metal thickness and identifies defects for inner tubing and casing",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.13": {
+            "text": "SecureTrac ™ Compact Casing Shoe System",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.14": {
+            "text": "Maximize efficiency in unconventional completions",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.15": {
+            "text": "Magnus ® Saker Rotary Steerable System",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.16": {
+            "text": "Predictable drilling performance for even the most extreme environments",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.17": {
+            "text": "AMP ™ All-Electric Interval Control Valve",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.18": {
+            "text": "Real Results around the world",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.19": {
+            "text": "Reclaim™ Thru-Tubing P&A Solutions Prevents Gas Migration in 70-Year-Old Well, Protects Water Table, Avoids Surface Leakage",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.20": {
+            "text": "AlphaV™ Single-Trip Casing-Exit System Eliminates One Round Trip from Casing-Exit Sequence, Saving 30 Hours of Associated Rigtime",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.21": {
+            "text": "We're proud to share the milestones that shaped our year—financially and operationally. From breakthrough innovations to strengthened partnerships, our focus remains on creating long-term value for all stakeholders. Explore how we’re delivering results, driving innovation, and building a more sustainable future.",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.22": {
+            "text": "Producing energy for today and tomorrow.",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.23": {
+            "text": "We lead innovative energy services by blending proven technologies with modern digitalization. Collaborating with world-class experts, we help customers optimize resources and unlock the full potential of their assets. Our strategic solutions enhance efficiency, flexibility, and responsibility across energy operations.",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.24": {
+            "text": "We take pride in our global presence and commitment to innovation. By leveraging expertise, embracing technology, and fostering partnerships, Weatherford drives sustainable progress to meet customer needs and promote responsible practices for a better future.",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.25": {
+            "text": "Join Us in Transforming an Industry",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.26": {
+            "text": "We offer global opportunities as unlimited as your sense of adventure. Join us to make an impact on our customers, the industry, and the world.",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P1.27": {
+            "text": "Get the Latest News Alerts Straight to your inbox.",
+            "url": "https://www.weatherford.com/",
+            "fetched_at": "2026-10-17T20:21:20Z"
+          },
+          "P2.1": {
+            "text": "Who We Are | Weatherford International",
+            "url": "https://www.weatherford.com/about-us/who-we-are/",
+            "fetched_at": "2026-10-17T20:21:22Z"
+          },
+          "P2.2": {
+            "text": "As a global leader in energy services, operators trust Weatherford to drive maximum value, streamline operations, and enhance safety. In partnership with our customers, we are committed to producing innovative energy solutions that are environmentally and economically sustainable to drive our industry forward.",
+            "url": "https://www.weatherford.com/about-us/who-we-are/",
+            "fetched_at": "2026-10-17T20:21:22Z"
+          },
+          "P2.3": {
+            "text": "Individually, we are impressive. Together, we are unstoppable. We are One Weatherford. We seek out and value the unique perspectives of our world-class team and are committed to fostering a collaborative culture where everyone can grow and contribute.",
+            "url": "https://www.weatherford.com/about-us/who-we-are/",
+            "fetched_at": "2026-10-17T20:21:22Z"
+          },
+          "P2.4": {
+            "text": "We are energized by our work and inspired to make a positive impact in our industry, for our customers, across our Company, and in our communities.",
+            "url": "https://www.weatherford.com/about-us/who-we-are/",
+            "fetched_at": "2026-10-17T20:21:22Z"
+          },
+          "P2.5": {
+            "text": "We are driven to deliver advancements that propel our Company, industry, and customers forward.",
+            "url": "https://www.weatherford.com/about-us/who-we-are/",
+            "fetched_at": "2026-10-17T20:21:22Z"
+          },
+          "P2.6": {
+            "text": "We commit to achieving long-term value for all our stakeholders by providing compelling and unique benefits through technology differentiation and operational excellence.",
+            "url": "https://www.weatherford.com/about-us/who-we-are/",
+            "fetched_at": "2026-10-17T20:21:22Z"
+          },
+          "P3.1": {
+            "text": "Integrated Services | Weatherford International",
+            "url": "https://www.weatherford.com/energy-solutions/integrated-services/",
+            "fetched_at": "2026-10-17T20:21:25Z"
+          },
+          "P3.2": {
+            "text": "Weatherford Integrated Services offers solutions tailored to the needs of our customers and the challenges of their projects. Our integrated management teams work collaboratively as extensions of your taskforce and partners in your success across well construction, production, and abandonment. As a result, we streamline operations from conception to completion and execute the right services with a comprehensive portfolio of technologies. Combining the best-fit project delivery",
+            "url": "https://www.weatherford.com/energy-solutions/integrated-services/",
+            "fetched_at": "2026-10-17T20:21:25Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

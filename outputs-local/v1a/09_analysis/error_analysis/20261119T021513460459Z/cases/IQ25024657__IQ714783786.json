@@ -1,0 +1,873 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ25024657__IQ714783786",
+    "target": "IQ25024657",
+    "comp": "IQ714783786",
+    "target_ticker": "APEI",
+    "comp_ticker": "LGCY",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ25024657__IQ714783786",
+        "target": "IQ25024657",
+        "comp": "IQ714783786",
+        "target_ticker": "APEI",
+        "comp_ticker": "LGCY",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ25024657",
+          "comp": "IQ714783786",
+          "method": "B3",
+          "kept": true,
+          "rank": 5.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "APEI",
+          "comp_ticker": "LGCY"
+        },
+        {
+          "target": "IQ25024657",
+          "comp": "IQ714783786",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "APEI",
+          "comp_ticker": "LGCY"
+        },
+        {
+          "target": "IQ25024657",
+          "comp": "IQ714783786",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "APEI",
+          "comp_ticker": "LGCY"
+        },
+        {
+          "target": "IQ25024657",
+          "comp": "IQ714783786",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 5.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "APEI",
+          "comp_ticker": "LGCY"
+        },
+        {
+          "target": "IQ25024657",
+          "comp": "IQ714783786",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 5.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "APEI",
+          "comp_ticker": "LGCY"
+        },
+        {
+          "target": "IQ25024657",
+          "comp": "IQ714783786",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 5.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "APEI",
+          "comp_ticker": "LGCY"
+        },
+        {
+          "target": "IQ25024657",
+          "comp": "IQ714783786",
+          "method": "screen_haiku",
+          "kept": true,
+          "rank": 5.0,
+          "reason": "Campus-based nursing and career schools for adult students, paid by tuition, overlapping APEI's nursing education.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "APEI",
+          "comp_ticker": "LGCY"
+        },
+        {
+          "target": "IQ25024657",
+          "comp": "IQ714783786",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Operates accredited campus-based allied health and nursing colleges, charging students tuition for career-focused postsecondary training.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "APEI",
+          "comp_ticker": "LGCY"
+        },
+        {
+          "target": "IQ25024657",
+          "comp": "IQ714783786",
+          "method": "screen_sonnet",
+          "kept": false,
+          "rank": 5.0,
+          "reason": "Small California-only allied health campus school; narrow regional vocational business, lacking online adult degree and military focus.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "APEI",
+          "comp_ticker": "LGCY"
+        },
+        {
+          "target": "IQ25024657",
+          "comp": "IQ714783786",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Operates allied health and nursing colleges charging student tuition, similar to APEI's nursing and career schools.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "APEI",
+          "comp_ticker": "LGCY"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides online and campus-based postsecondary degree programs to adult learners, many of them military service members, veterans and public servants. Students enroll in courses and earn certificates and degrees, with tuition paid by students, employers or military tuition assistance programs.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "",
+        "primary_products_status": "not_applicable",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "undergraduate degree programs; graduate degree programs; professional certificates; nursing education; career training",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: adult learners pursuing degrees and certificates for career advancement; B2G: military service members and veterans using federal tuition assistance benefits",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "higher education; military and defense; public safety; healthcare",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "service fees: tuition and fees paid by students, employers or military tuition assistance programs",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: delivers degree and certificate instruction to students, sold to individuals, employers and military programs; software / platform: operates online learning platform for remote course delivery to students nationwide",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: Students enrolled from all US states, plus some campus locations in several states and international online students",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: online university programs and campus-based nursing and career schools serving adult learners",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "online: fully online courses delivered over the internet to students nationwide; own locations: campus-based nursing and career training schools in several states; direct sales: admissions advisors enrolling students directly, including military education offices",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: accreditation and state licensing required, Title IV federal student aid rules enforced by the U.S. Department of Education",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Operates for-profit postsecondary education institutions that deliver online and campus-based degree and certificate programs. Serves military service members, veterans, public safety professionals, nursing and healthcare students, and other adult learners. Revenue comes mainly from tuition paid by students, government tuition assistance and federal student aid.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "",
+        "primary_products_status": "not_applicable",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "online degree programs; certificate programs; nursing and healthcare education; career and technical training",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: adult students, military service members, veterans, nurses and healthcare students; B2G: military tuition assistance and federal student aid funding; B2B: employer and partner tuition arrangements",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "higher education; military and veteran education; healthcare and nursing education; public safety education",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "service fees: tuition and fees paid by students, funded by federal aid, military tuition assistance or self-pay",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: operates accredited universities and nursing schools, serving students",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: Online students across the US and military personnel worldwide, campuses in several states",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: military-focused online university, nursing and health sciences schools, and career education",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "online: online enrollment and course delivery platform; own locations: Rasmussen and Hondros physical campuses and training sites; direct sales: enrollment advisors and military/employer partnerships",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: Title IV federal student aid, Department of Education, accreditors, state authorization, and DoD tuition assistance rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ25024657.json",
+      "data": {
+        "company_name": "American Public Education, Inc.",
+        "website": "www.apei.com",
+        "scrape_status": "ok",
+        "capture_sha256": "3c66c16acbdcb68258333511831b748b7c170640a5fc867cd11ba4d65cc56262",
+        "lines": {
+          "P1.1": {
+            "text": "American Public Education, Inc. | Investor Relations",
+            "url": "https://www.apei.com/overview/default.aspx",
+            "fetched_at": "2026-10-17T19:10:58Z"
+          },
+          "P2.1": {
+            "text": "American Public Education, Inc. | About Us - Overview",
+            "url": "https://www.apei.com/about/overview/default.aspx",
+            "fetched_at": "2026-10-17T19:10:59Z"
+          },
+          "P2.2": {
+            "text": "APEI is the largest educator of active-duty military, veterans, and their families, and a leading provider of pre-licensure ADN and PN programs throug",
+            "url": "https://www.apei.com/about/overview/default.aspx",
+            "fetched_at": "2026-10-17T19:10:59Z"
+          },
+          "P2.3": {
+            "text": "APEI’s American Military University (AMU) was founded with a mission: to serve those who serve. AMU was created to support the unique educational needs of our nation’s military. Today, APEI is the largest educator of active-duty military and veterans, and a leading provider of pre-licensure ADN and PN programs through Rasmussen University and Hondros College of Nursing. APEI remains committed to social responsibility by providing affordable, accessible, and high-quality education in high-demand fields.",
+            "url": "https://www.apei.com/about/overview/default.aspx",
+            "fetched_at": "2026-10-17T19:10:59Z"
+          },
+          "P2.4": {
+            "text": "Today, APEI offers a portfolio of education solutions:",
+            "url": "https://www.apei.com/about/overview/default.aspx",
+            "fetched_at": "2026-10-17T19:10:59Z"
+          },
+          "P2.5": {
+            "text": "American Military University, a leading provider of fully online higher education to active duty servicemembers, veterans, and their families",
+            "url": "https://www.apei.com/about/overview/default.aspx",
+            "fetched_at": "2026-10-17T19:10:59Z"
+          },
+          "P2.6": {
+            "text": "American Public University, a top choice for working professionals seeking a higher education fully online that fits their lives",
+            "url": "https://www.apei.com/about/overview/default.aspx",
+            "fetched_at": "2026-10-17T19:10:59Z"
+          },
+          "P2.7": {
+            "text": "Hondros College of Nursing, specializing in quick pathways for practical nursing, ADN, and medical assisting, educates students online and in person at campuses in Ohio, Indiana, and Michigan",
+            "url": "https://www.apei.com/about/overview/default.aspx",
+            "fetched_at": "2026-10-17T19:10:59Z"
+          },
+          "P2.8": {
+            "text": "Rasmussen University, a national leader in nursing education and serves students across the U.S. online, and at campus locations throughout Minnesota, Illinois, North Dakota, Kansas, and Florida",
+            "url": "https://www.apei.com/about/overview/default.aspx",
+            "fetched_at": "2026-10-17T19:10:59Z"
+          },
+          "P2.9": {
+            "text": "Our mission is to power purpose, potential, and prosperity for those in service to others. We’re guided by four main pillars: Affordability, Quality, Innovation, and Outcomes-Focused Learning.",
+            "url": "https://www.apei.com/about/overview/default.aspx",
+            "fetched_at": "2026-10-17T19:10:59Z"
+          },
+          "P2.10": {
+            "text": "Degree, certificate, and diploma programs",
+            "url": "https://www.apei.com/about/overview/default.aspx",
+            "fetched_at": "2026-10-17T19:10:59Z"
+          },
+          "P2.11": {
+            "text": "Students enrolled across all education units*",
+            "url": "https://www.apei.com/about/overview/default.aspx",
+            "fetched_at": "2026-10-17T19:10:59Z"
+          },
+          "P2.12": {
+            "text": "For us, affordability promotes access. Through our commitment to keeping tuition rates low without sacrificing academic excellence, we boost access to higher education, so more students are able to realize their goals and derive true value for their investment.",
+            "url": "https://www.apei.com/about/overview/default.aspx",
+            "fetched_at": "2026-10-17T19:10:59Z"
+          },
+          "P2.13": {
+            "text": "We ensure quality by maintaining a focus on academic excellence—delivered by practitioner faculty who enrich learning with their real-world expertise from business, government, healthcare, public safety, law enforcement, and the military.",
+            "url": "https://www.apei.com/about/overview/default.aspx",
+            "fetched_at": "2026-10-17T19:10:59Z"
+          },
+          "P2.14": {
+            "text": "We believe the more than 350,000 students and alumni who have trusted us to advance their knowledge serve as proof of our commitment to quality. Accreditation by recognized and respected agencies, including institutional accreditation from the Higher Learning Commission (HLC) for American Public University System, and select programs at our Academic Units holding programmatic accreditation, further signals our quality and commitment to academic rigor.",
+            "url": "https://www.apei.com/about/overview/default.aspx",
+            "fetched_at": "2026-10-17T19:10:59Z"
+          },
+          "P2.15": {
+            "text": "APEI seeks to drive innovation in education technology. We began as American Military University, offering distance education for our nation’s servicemembers, putting us among the earliest fully online educators.",
+            "url": "https://www.apei.com/about/overview/default.aspx",
+            "fetched_at": "2026-10-17T19:10:59Z"
+          },
+          "P2.16": {
+            "text": "We continue to evolve our educational approach by integrating relevant technology and fostering innovative learning practices that prepare students with the skills that employers value most.",
+            "url": "https://www.apei.com/about/overview/default.aspx",
+            "fetched_at": "2026-10-17T19:10:59Z"
+          },
+          "P2.17": {
+            "text": "Our campus-based programs, focused primarily on nursing and healthcare education, also embrace innovation through the use high-quality simulation labs and other hands-on learning methods.",
+            "url": "https://www.apei.com/about/overview/default.aspx",
+            "fetched_at": "2026-10-17T19:10:59Z"
+          },
+          "P2.18": {
+            "text": "Through Rasmussen University and Hondros College of Nursing, APEI is one of the largest pre-licensure nursing educators (ADN + PN) in the United States, creating new nurses at our 28 campuses.",
+            "url": "https://www.apei.com/about/overview/default.aspx",
+            "fetched_at": "2026-10-17T19:10:59Z"
+          },
+          "P2.19": {
+            "text": "Our employer alliances and structured curriculum help get new licensed practical nurses (LPNs) and registered nurses (RNs) to work quickly in an effort to alleviate the ongoing nursing shortage.",
+            "url": "https://www.apei.com/about/overview/default.aspx",
+            "fetched_at": "2026-10-17T19:10:59Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Operates accredited allied health colleges that train post-secondary students for healthcare careers. Students pay for programs such as nursing, veterinary technology and medical imaging, taught on its own campuses.",
+        "offering_description_status": "filled",
+        "offering_description_source": "https://legacyed.com/about/",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "",
+        "primary_products_status": "not_applicable",
+        "primary_products_source": "",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "allied health education; nursing programs; veterinary technology training; medical imaging training",
+        "primary_services_status": "filled",
+        "primary_services_source": "https://legacyed.com/about/",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: post-secondary students seeking training for allied health careers",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "https://legacyed.com/about/",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "healthcare; veterinary medicine",
+        "end_markets_status": "filled",
+        "end_markets_source": "https://legacyed.com/; https://legacyed.com/about/",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "service fees: tuition paid by students for allied health training programs",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "https://legacyed.com/about/",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: runs colleges that train students, who are its customers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "https://legacyed.com/about/",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US regional: California campuses, including Lancaster, Central Coast and High Desert areas",
+        "geography_served_status": "filled",
+        "geography_served_source": "https://legacyed.com/about/",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "https://legacyed.com/about/",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: nursing, veterinary technology and medical imaging programs sharing students and campuses",
+        "specialization_status": "filled",
+        "specialization_source": "https://legacyed.com/about/",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "own locations: its own schools and campuses in California",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "https://legacyed.com/about/",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: schools licensed by California BPPE, nursing programs approved by BVNPT, accreditation by health education bodies",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "https://legacyed.com/about/",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Owns and operates post-secondary allied health colleges offering career training programs such as nursing, veterinary technology, and MRI and ultrasound technology. Serves students seeking healthcare careers, delivered through campus-based instruction at 4 schools on 6 campuses in California.",
+        "offering_description_status": "filled",
+        "offering_description_source": "https://legacyed.com/about/",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "",
+        "primary_products_status": "not_applicable",
+        "primary_products_source": "",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "post-secondary education; allied health training programs; vocational nursing programs; nursing degree programs; veterinary technology training",
+        "primary_services_status": "filled",
+        "primary_services_source": "https://legacyed.com/about/",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: post-secondary students pursuing healthcare careers",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "https://legacyed.com/about/",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "post-secondary education; healthcare workforce training",
+        "end_markets_status": "filled",
+        "end_markets_source": "https://legacyed.com/; https://legacyed.com/about/",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "service fees: tuition and fees for educational programs, likely supported by student financial aid",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "",
+        "revenue_model_flags": "website_without_quote"
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: owns and runs colleges delivering vocational and degree programs to students",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "https://legacyed.com/about/",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "US regional: California, headquartered in Lancaster with 6 campuses",
+        "geography_served_status": "filled",
+        "geography_served_source": "https://legacyed.com/about/",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "",
+        "company_size_flags": "website_without_quote"
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: allied health programs across nursing, veterinary technology, MRI and ultrasound at four colleges",
+        "specialization_status": "filled",
+        "specialization_source": "https://legacyed.com/about/",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "own locations: six owned college campuses in California",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "https://legacyed.com/about/",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: colleges licensed by California BPPE, nursing approved by BVNPT, accredited by ABHES, AVMA, NLN CNEA",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "https://legacyed.com/about/",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ714783786.json",
+      "data": {
+        "company_name": "Legacy Education Inc.",
+        "website": "www.legacyed.com",
+        "scrape_status": "ok",
+        "capture_sha256": "7c3d4569e965ffc8941a03ade5c3c65ee41738a6ef6d3e732122a486f1cdb7bb",
+        "lines": {
+          "P1.1": {
+            "text": "Homepage - Legacy Education",
+            "url": "https://legacyed.com/",
+            "fetched_at": "2026-10-17T19:49:02Z"
+          },
+          "P1.2": {
+            "text": "Our Students Are on Their",
+            "url": "https://legacyed.com/",
+            "fetched_at": "2026-10-17T19:49:02Z"
+          },
+          "P1.3": {
+            "text": "With multiple campuses and schools serving diverse communities, Legacy Education is shaping the future of healthcare one student at a time.",
+            "url": "https://legacyed.com/",
+            "fetched_at": "2026-10-17T19:49:02Z"
+          },
+          "P1.4": {
+            "text": "By offering a wide range of award winning educational programs, we provide students with a marketable path to achieve their professional goals and strive for a legacy of excellence.",
+            "url": "https://legacyed.com/",
+            "fetched_at": "2026-10-17T19:49:02Z"
+          },
+          "P1.5": {
+            "text": "Transforming Lives Beyond the Classroom",
+            "url": "https://legacyed.com/",
+            "fetched_at": "2026-10-17T19:49:02Z"
+          },
+          "P1.6": {
+            "text": "Discover how each of our colleges is creating positive change in their local communities.",
+            "url": "https://legacyed.com/",
+            "fetched_at": "2026-10-17T19:49:02Z"
+          },
+          "P1.7": {
+            "text": "Gain a deeper understanding of the trends shaping today’s workforce.",
+            "url": "https://legacyed.com/",
+            "fetched_at": "2026-10-17T19:49:02Z"
+          },
+          "P1.8": {
+            "text": "What if you woke up every morning looking forward to supporting someone on their Path to Purpose? Join Legacy Education and you can make an impact in the lives of students, staff and a community for a greater tomorrow.",
+            "url": "https://legacyed.com/",
+            "fetched_at": "2026-10-17T19:49:02Z"
+          },
+          "P2.1": {
+            "text": "About Legacy Education | Accredited Allied Health Colleges",
+            "url": "https://legacyed.com/about/",
+            "fetched_at": "2026-10-17T19:49:03Z"
+          },
+          "P2.2": {
+            "text": "Meet Legacy Education: nationally accredited, award-winning allied health programs at 4 schools on 6 campuses. Explore our mission, values, and approvals.",
+            "url": "https://legacyed.com/about/",
+            "fetched_at": "2026-10-17T19:49:03Z"
+          },
+          "P2.3": {
+            "text": "Headquartered in Lancaster, California, we proudly own and operate 4 schools on 6 campuses. By offering a wide range of award-winning educational programs, we provide post-secondary students with a marketable path to achieve their professional goals and strive for a legacy of excellence.",
+            "url": "https://legacyed.com/about/",
+            "fetched_at": "2026-10-17T19:49:03Z"
+          },
+          "P2.4": {
+            "text": "Through our outstanding programs and expert leadership, we are committed to growing our educational footprint through organic enrollment growth, program expansion, and acquisitions.",
+            "url": "https://legacyed.com/about/",
+            "fetched_at": "2026-10-17T19:49:03Z"
+          },
+          "P2.5": {
+            "text": "Integrity – By constantly striving for the best in education, we remain true to our mission, our vision, and our commitment to students, faculty, staff and investors.",
+            "url": "https://legacyed.com/about/",
+            "fetched_at": "2026-10-17T19:49:03Z"
+          },
+          "P2.6": {
+            "text": "These qualities nourish our venture and drive us forward in achieving our goals.",
+            "url": "https://legacyed.com/about/",
+            "fetched_at": "2026-10-17T19:49:03Z"
+          },
+          "P2.7": {
+            "text": "Creativity – Our inventive spirits and industrious imaginations fuel our efforts to consistently situate the company on the leading edge of its field, and offer the latest innovations in instructional techniques and technologies.",
+            "url": "https://legacyed.com/about/",
+            "fetched_at": "2026-10-17T19:49:03Z"
+          },
+          "P2.8": {
+            "text": "Teamwork – While we started with a close-knit, loyal group of educators, more than 30 years ago, its true legacy will be the spirit of constructive collaboration it inspires in its students, faculty and staff.",
+            "url": "https://legacyed.com/about/",
+            "fetched_at": "2026-10-17T19:49:03Z"
+          },
+          "P2.9": {
+            "text": "All Legacy Education colleges are licensed by the Bureau for Private Postsecondary Education (BPPE). Licensed to operate means the institution is in compliance with the state standards as set forth in the California Private Postsecondary Education Act of 2009, Ed. Code §94897.",
+            "url": "https://legacyed.com/about/",
+            "fetched_at": "2026-10-17T19:49:03Z"
+          },
+          "P2.10": {
+            "text": "The Licensed Vocational Nursing programs at all Legacy Education colleges are approved by the California Board of Vocational Nursing and Psychiatric Technicians (BVNPT).",
+            "url": "https://legacyed.com/about/",
+            "fetched_at": "2026-10-17T19:49:03Z"
+          },
+          "P2.11": {
+            "text": "The Veterinary Technology program at Central Coast College has been awarded full Accreditation by the Council on Veterinary Technical Education and Activities of the American Veterinary Medical Association – AVMA.",
+            "url": "https://legacyed.com/about/",
+            "fetched_at": "2026-10-17T19:49:03Z"
+          },
+          "P2.12": {
+            "text": "The MRI & Ultrasound Tech programs at High Desert Medical College are approved by the American Registry of Radiologic Technologists (ARRT).",
+            "url": "https://legacyed.com/about/",
+            "fetched_at": "2026-10-17T19:49:03Z"
+          },
+          "P2.13": {
+            "text": "Integrity College of Health maintains Institutional Accreditation with the Accrediting Bureau of Health Education Schools (ABHES).",
+            "url": "https://legacyed.com/about/",
+            "fetched_at": "2026-10-17T19:49:03Z"
+          },
+          "P2.14": {
+            "text": "The RN-BSN program at ICH is programmatically accredited by NLN Commission for Nursing Education Accreditation (NLN CNEA).",
+            "url": "https://legacyed.com/about/",
+            "fetched_at": "2026-10-17T19:49:03Z"
+          },
+          "P2.15": {
+            "text": "The Integrity College of Health Bachelor’s Degree in Nursing Program holds initial accreditation from the National League for Nursing Commission for Nursing Education Accreditation (NLN CNEA)",
+            "url": "https://legacyed.com/about/",
+            "fetched_at": "2026-10-17T19:49:03Z"
+          },
+          "P2.16": {
+            "text": "LeeAnn Rohmann founded Legacy Education to support her strong belief in higher education as the basis for building a legacy for students and their families. She is passionate about providing the best training in the strongest industries like healthcare.",
+            "url": "https://legacyed.com/about/",
+            "fetched_at": "2026-10-17T19:49:03Z"
+          },
+          "P2.17": {
+            "text": "Legacy Education wins the 2025 CECU Community Impact Award",
+            "url": "https://legacyed.com/about/",
+            "fetched_at": "2026-10-17T19:49:03Z"
+          },
+          "P2.18": {
+            "text": "Claudia Barajas of Legacy Education wins the 2025 Norma Ford Financial Aid Professional of the Year",
+            "url": "https://legacyed.com/about/",
+            "fetched_at": "2026-10-17T19:49:03Z"
+          },
+          "P2.19": {
+            "text": "Legacy Education receives the 2022 CAPPS Excellence in Community Service Award",
+            "url": "https://legacyed.com/about/",
+            "fetched_at": "2026-10-17T19:49:03Z"
+          },
+          "P2.20": {
+            "text": "Legacy Education wins 2020 CAPPS School of the Year",
+            "url": "https://legacyed.com/about/",
+            "fetched_at": "2026-10-17T19:49:03Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

@@ -1,0 +1,838 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ298441__IQ260346",
+    "target": "IQ298441",
+    "comp": "IQ260346",
+    "target_ticker": "TXNM",
+    "comp_ticker": "CPK",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ298441__IQ260346",
+        "target": "IQ298441",
+        "comp": "IQ260346",
+        "target_ticker": "TXNM",
+        "comp_ticker": "CPK",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ298441",
+          "comp": "IQ260346",
+          "method": "B3",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "TXNM",
+          "comp_ticker": "CPK"
+        },
+        {
+          "target": "IQ298441",
+          "comp": "IQ260346",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "TXNM",
+          "comp_ticker": "CPK"
+        },
+        {
+          "target": "IQ298441",
+          "comp": "IQ260346",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "TXNM",
+          "comp_ticker": "CPK"
+        },
+        {
+          "target": "IQ298441",
+          "comp": "IQ260346",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "TXNM",
+          "comp_ticker": "CPK"
+        },
+        {
+          "target": "IQ298441",
+          "comp": "IQ260346",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "TXNM",
+          "comp_ticker": "CPK"
+        },
+        {
+          "target": "IQ298441",
+          "comp": "IQ260346",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "TXNM",
+          "comp_ticker": "CPK"
+        },
+        {
+          "target": "IQ298441",
+          "comp": "IQ260346",
+          "method": "screen_haiku",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Regulated natural gas and electric distribution utility serving homes and businesses; propane is a secondary line.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "TXNM",
+          "comp_ticker": "CPK"
+        },
+        {
+          "target": "IQ298441",
+          "comp": "IQ260346",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Regulated natural gas and electric distribution utility serving homes and businesses, with energy services and regulated rates.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "TXNM",
+          "comp_ticker": "CPK"
+        },
+        {
+          "target": "IQ298441",
+          "comp": "IQ260346",
+          "method": "screen_sonnet",
+          "kept": false,
+          "rank": 2.0,
+          "reason": "Mainly gas distribution with propane, pipelines and marketing; electric is minor and no generation or transmission.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "TXNM",
+          "comp_ticker": "CPK"
+        },
+        {
+          "target": "IQ298441",
+          "comp": "IQ260346",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Regulated natural gas and electric distribution utility serving homes and businesses.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "TXNM",
+          "comp_ticker": "CPK"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Generates, transmits and distributes electricity and distributes natural gas to residential, commercial and industrial customers in New Mexico and Texas, under regulated utility rates.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "electricity; natural gas",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "electric transmission; electric distribution; natural gas distribution; power generation",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: residential electricity and natural gas households; B2B: commercial and industrial electricity and gas customers; B2G: government and public institution customers",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "residential energy; commercial buildings; manufacturing; oil and gas; government facilities",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "transaction or usage fees: electricity and natural gas sold to customers, billed by usage; service fees: transmission and distribution charges for delivering power and gas",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "asset operator: owns and runs generation plants, transmission lines and distribution networks, sells electricity and gas to end customers; service provider: delivers power and gas through regulated networks for a fee",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US regional: New Mexico and Texas",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: electric generation, electric transmission and distribution, and natural gas distribution utilities",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: utility billing and service directly to retail customers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: regulated utility operating under state public utility commissions in New Mexico and Texas and federal energy rules from FERC and NRC",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "TXNM Energy is a holding company that owns regulated electric utilities PNM in New Mexico and TNMP in Texas. It generates, buys, transmits and distributes electricity to residential, commercial, industrial and wholesale customers, delivering power over its own grid.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "electricity",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "electric transmission; electric distribution; electricity generation and supply; retail electric service",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: residential electricity customers in New Mexico and Texas; B2B: commercial, industrial and wholesale customers, retail electricity providers in Texas; B2G: public authorities and municipal customers",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "residential power; commercial and industrial power; wholesale electricity; utilities",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "service fees: regulated rates for electricity delivery and supply; transaction or usage fees: volumetric charges and transmission tariffs paid by retail providers and wholesale customers",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "asset operator: owns and runs generation plants, transmission and distribution networks, selling power and delivery to end users",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "US regional: New Mexico (PNM) and Texas (TNMP) service territories",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: vertically integrated electric utility in New Mexico plus transmission and distribution utility in Texas",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: regulated utility service delivered directly through its grid to customers; other: retail electricity providers in Texas that bill end customers using TNMP's delivery network",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: rate-regulated utilities overseen by NM Public Regulation Commission, Texas PUC, FERC, and environmental rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ298441.json",
+      "data": {
+        "company_name": "TXNM Energy, Inc.",
+        "website": "www.txnmenergy.com",
+        "scrape_status": "ok",
+        "capture_sha256": "4f54a0bcfe7aff750483f214fa796942962b492ab7bf051b9584d21292ad91ce",
+        "lines": {
+          "P1.1": {
+            "text": "TXNM Energy",
+            "url": "https://www.txnmenergy.com/",
+            "fetched_at": "2026-10-17T20:19:05Z"
+          },
+          "P1.2": {
+            "text": "Visit www.pnm.com to report/view outages, pay your bill, check for rebates & savings and more - or contact Customer Service",
+            "url": "https://www.txnmenergy.com/",
+            "fetched_at": "2026-10-17T20:19:05Z"
+          },
+          "P1.3": {
+            "text": "Visit www.tnmp.com to report/view outages, report street light issues, view safety tips and more - or contact Customer Service",
+            "url": "https://www.txnmenergy.com/",
+            "fetched_at": "2026-10-17T20:19:05Z"
+          },
+          "P1.4": {
+            "text": "Details on upcoming events are not yet available.",
+            "url": "https://www.txnmenergy.com/",
+            "fetched_at": "2026-10-17T20:19:05Z"
+          },
+          "P2.1": {
+            "text": "Our Businesses – TXNM Energy",
+            "url": "https://www.txnmenergy.com/about-us/our-businesses.aspx",
+            "fetched_at": "2026-10-17T20:19:06Z"
+          },
+          "P2.2": {
+            "text": "TXNM Energy serves electricity to approximately 800,000 homes and businesses in New Mexico and Texas through its regulated utilities, PNM and TNMP. PNM is a regulated utility in New Mexico with operations primarily engaged in the generation, transmission and distribution of electricity. It is the state's largest",
+            "url": "https://www.txnmenergy.com/about-us/our-businesses.aspx",
+            "fetched_at": "2026-10-17T20:19:06Z"
+          },
+          "P2.3": {
+            "text": "TXNM Energy serves electricity to approximately 800,000 homes and businesses in New Mexico and Texas through its regulated utilities, PNM and TNMP.",
+            "url": "https://www.txnmenergy.com/about-us/our-businesses.aspx",
+            "fetched_at": "2026-10-17T20:19:06Z"
+          },
+          "P2.4": {
+            "text": "PNM is a regulated utility in New Mexico with operations primarily engaged in the generation, transmission and distribution of electricity. It is the state's largest electricity provider. PNM serves nearly 550,000 New Mexico residential and business customers in Greater Albuquerque, Rio Rancho, Los Lunas, Belen, Santa Fe, Las Vegas, Alamogordo, Ruidoso, Silver City, Deming, Bayard, Lordsburg and Clayton. We also serve the New Mexico tribal communities of the Tesuque, Cochiti, Santo Domingo, San Felipe, Santa Ana, Sandia, Isleta and Laguna Pueblos (portions of the Eastern reservation area). PNM is regulated by the New Mexico Public Regulation Commission and the Federal Energy Regulatory Commission.",
+            "url": "https://www.txnmenergy.com/about-us/our-businesses.aspx",
+            "fetched_at": "2026-10-17T20:19:06Z"
+          },
+          "P2.5": {
+            "text": "PNM’s capacity in electric generating facilities, which are owned, leased, or under Power Purchase Agreements, in commercial service as of is:",
+            "url": "https://www.txnmenergy.com/about-us/our-businesses.aspx",
+            "fetched_at": "2026-10-17T20:19:06Z"
+          },
+          "P2.6": {
+            "text": "As of, PNM owned, jointly owned, or leased, 3,428 circuit miles of electric transmission lines (including the Eastern Interconnection Project); 5,767 miles of distribution overhead lines; 6,057 cable miles of underground distribution lines (excluding street lighting); and 250 substations.",
+            "url": "https://www.txnmenergy.com/about-us/our-businesses.aspx",
+            "fetched_at": "2026-10-17T20:19:06Z"
+          },
+          "P2.7": {
+            "text": "SAIDI is an industry acronym for “System Average Interruption Duration Index” and is a measure of outage time experienced by customers when averaged across the entire system. It is measured in “minutes” because it is meant to show how many minutes of outage a typical customer would experience during the year.",
+            "url": "https://www.txnmenergy.com/about-us/our-businesses.aspx",
+            "fetched_at": "2026-10-17T20:19:06Z"
+          },
+          "P2.8": {
+            "text": "SAIDI is used as an indicator of how your system is performing. We look at SAIDI as a measure of system performance and then formulate operating plans to minimize that number to the best of our ability given both financial and personnel constraints.",
+            "url": "https://www.txnmenergy.com/about-us/our-businesses.aspx",
+            "fetched_at": "2026-10-17T20:19:06Z"
+          },
+          "P2.9": {
+            "text": "TNMP provides transmission and distribution services in Texas under the provisions of Texas Electric Choice Act (TECA) and the Texas Public Utility Regulatory Act. TNMP’s transmission and distribution activities are solely within the Electric Reliability Council of Texas (ERCOT), which is the independent system operator responsible for maintaining reliable operations for the bulk electric power supply system in most of Texas. As of, TNMP owned 992 circuit miles of overhead electric transmission lines; 7,319 pole miles of overhead distribution lines; 1,433 circuit miles of underground distribution lines; and 128 substations.",
+            "url": "https://www.txnmenergy.com/about-us/our-businesses.aspx",
+            "fetched_at": "2026-10-17T20:19:06Z"
+          },
+          "P2.10": {
+            "text": "TNMP, along with all other entities within ERCOT who do not have their own control areas, does not calculate transmission losses. ERCOT, as the Independent System Operator and the entity who balances and manages settlement, calculates transmission losses for all transmission systems within its control area, including TNMP’s transmission systems.",
+            "url": "https://www.txnmenergy.com/about-us/our-businesses.aspx",
+            "fetched_at": "2026-10-17T20:19:06Z"
+          },
+          "P2.11": {
+            "text": "TNMP provides transmission and distribution services to Retail Electric Providers (REPs) that provide electric service to customers in TNMP’s service territories. The number of end users below represents the customers of these REPs. Under TECA, end users in Texas have the ability to choose any REP to provide energy.",
+            "url": "https://www.txnmenergy.com/about-us/our-businesses.aspx",
+            "fetched_at": "2026-10-17T20:19:06Z"
+          },
+          "P3.1": {
+            "text": "About Us – TXNM Energy",
+            "url": "https://www.txnmenergy.com/about-us.aspx",
+            "fetched_at": "2026-10-17T20:19:07Z"
+          },
+          "P3.2": {
+            "text": "TXNM Energy, Inc. Through its regulated utilities, PNM and TNMP, TXNM Energy provides electricity to more than 800,000 homes and businesses in New Mexico and Texas.",
+            "url": "https://www.txnmenergy.com/about-us.aspx",
+            "fetched_at": "2026-10-17T20:19:07Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides regulated natural gas and electric distribution, plus propane and related energy services, to homes and businesses, mainly on the Delmarva Peninsula and in Florida. It earns regulated rates on its networks and margins on propane and energy marketing.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "natural gas; electricity; propane",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "pipeline transportation; natural gas marketing; energy construction services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: commercial and industrial businesses, wholesale and transportation fuel customers; B2C: residential homes and households",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "residential energy; commercial and industrial; power generation; transportation fuel",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: natural gas, electricity and propane sold to customers; transaction or usage fees: regulated distribution and transportation rates based on usage; service fees: energy services and related field work for customers; project or contract: pipeline and infrastructure construction under contract",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "distributor: takes in natural gas and power and delivers it to end customers through its networks; retailer: sells propane to homes and businesses; asset operator: owns and runs pipelines, distribution networks and propane facilities",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US regional: Delaware, Maryland, Florida, Pennsylvania and Ohio",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: regulated natural gas, electric distribution, propane, pipeline and energy marketing",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "own locations: company-operated propane and operations facilities; direct sales: direct delivery and billing to utility customers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: utility rates set by state public service commissions and interstate pipeline rules set by FERC",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Delivers natural gas, electricity and propane to residential, commercial and industrial customers through regulated distribution utilities and pipeline transmission systems. Also sells propane and compressed/renewable natural gas and provides related energy services. Operates its own pipelines, distribution networks and delivery fleets.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "natural gas; electricity; propane; compressed natural gas; renewable natural gas",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "natural gas distribution; interstate and intrastate pipeline transmission; electric distribution; propane delivery; energy marketing and services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: residential natural gas, electric and propane customers; B2B: commercial and industrial users, power generators, local distribution companies, agricultural customers",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "residential heating and energy; commercial and industrial energy; power generation; agriculture; transportation fuel",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "transaction or usage fees: regulated tariff rates for gas and electricity delivered to customers; product sales: propane and compressed natural gas sold to customers; service fees: pipeline transportation capacity and energy services contracts",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "asset operator: owns and runs gas and electric distribution networks and pipelines, serving end customers and shippers; distributor: buys propane and natural gas and delivers to residential, commercial and industrial customers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "US regional: Delaware, Maryland, Florida, Pennsylvania, Ohio and the Delmarva Peninsula, propane in the Mid-Atlantic and Southeast",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: regulated energy distribution and transmission, propane distribution, and energy marketing and services",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: utility service to metered customers and propane delivery to homes and businesses; other: pipeline and distribution network delivery to end users and shippers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: rates and operations regulated by state public service commissions and FERC, pipeline safety rules from PHMSA",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ260346.json",
+      "data": {
+        "company_name": "Chesapeake Utilities Corporation",
+        "website": "www.chpk.com",
+        "scrape_status": "ok",
+        "capture_sha256": "4fb0fad7ac0158b25912c86f2ff39abe20258baacfe0ba90cda02780a0c11501",
+        "lines": {
+          "P1.1": {
+            "text": "Chesapeake Utilities Corporation",
+            "url": "https://www.chpk.com/",
+            "fetched_at": "2026-10-17T19:20:56Z"
+          },
+          "P1.2": {
+            "text": "Chesapeake Utilities Corporation is a diversified energy company that has been serving customers.",
+            "url": "https://www.chpk.com/",
+            "fetched_at": "2026-10-17T19:20:56Z"
+          },
+          "P1.3": {
+            "text": "Our Company is committed to investing in innovative energy solutions for our customers while lowering the carbon footprint of our system.",
+            "url": "https://www.chpk.com/",
+            "fetched_at": "2026-10-17T19:20:56Z"
+          },
+          "P1.4": {
+            "text": "Our new vendor registration portal makes it easy for vendors to potentially do business with us and aids us in our commitment to utilize diverse businesses when purchasing goods and services.",
+            "url": "https://www.chpk.com/",
+            "fetched_at": "2026-10-17T19:20:56Z"
+          },
+          "P1.5": {
+            "text": "The women of Chesapeake Utilities Corporation bring dedication, innovation and expertise to their jobs. Their stories and experiences may inspire you as they bring new energy to the workplace.",
+            "url": "https://www.chpk.com/",
+            "fetched_at": "2026-10-17T19:20:56Z"
+          },
+          "P1.6": {
+            "text": "Chesapeake Utilities, Sharp Energy Earn Stars of Delaware Honors for Seventh Consecutive Year",
+            "url": "https://www.chpk.com/",
+            "fetched_at": "2026-10-17T19:20:56Z"
+          },
+          "P1.7": {
+            "text": "DOVER, Del. – For the seventh consecutive year, Chesapeake Utilities Corporation businesses have earned Stars of Delaware honors, an annual awards program voted on by Daily State News readers. Chesapeake Utilities was named Best...",
+            "url": "https://www.chpk.com/",
+            "fetched_at": "2026-10-17T19:20:56Z"
+          },
+          "P1.8": {
+            "text": "DOVER, Del. — Chesapeake Utilities Corporation (“Chesapeake Utilities” or the “Company”) today announced that it has established an at-the-market equity offering program (the “ATM Program”) to sell shares of its common...",
+            "url": "https://www.chpk.com/",
+            "fetched_at": "2026-10-17T19:20:56Z"
+          },
+          "P1.9": {
+            "text": "Chesapeake Utilities Corporation Announces Sale of 49% Ownership Interest in Florida Energy Pathway Project",
+            "url": "https://www.chpk.com/",
+            "fetched_at": "2026-10-17T19:20:56Z"
+          },
+          "P1.10": {
+            "text": "NextEra Energy Resources to acquire a minority interest in landmark South Florida natural gas infrastructure project. DOVER, Del. – Chesapeake Utilities Corporation, through its indirect subsidiary Peninsula Pipeline Holdings,...",
+            "url": "https://www.chpk.com/",
+            "fetched_at": "2026-10-17T19:20:56Z"
+          },
+          "P1.11": {
+            "text": "Through our operating divisions and subsidiaries, we are a diversified energy delivery company engaged in the distribution of natural gas, propane gas and electricity; the transmission of natural gas; the generation of electricity and steam; mobile compressed natural gas (CNG) solutions; and other businesses.",
+            "url": "https://www.chpk.com/",
+            "fetched_at": "2026-10-17T19:20:56Z"
+          },
+          "P2.1": {
+            "text": "Marlin Gas Services - Chesapeake Utilities Corporation",
+            "url": "https://www.chpk.com/about-us/our-businesses/marlin-gas-services/",
+            "fetched_at": "2026-10-17T19:20:57Z"
+          },
+          "P2.2": {
+            "text": "Marlin Gas Services is a premier provider of virtual pipeline solutions, with nationwide mobile gas delivery of CNG, LNG and RNG.",
+            "url": "https://www.chpk.com/about-us/our-businesses/marlin-gas-services/",
+            "fetched_at": "2026-10-17T19:20:57Z"
+          },
+          "P2.3": {
+            "text": "Marlin Gas Services is a premier provider of virtual pipeline solutions, with nationwide mobile gas delivery of compressed natural gas (CNG), liquefied natural gas (LNG) and renewable natural gas (RNG). Marlin offers short- and long-term natural gas solutions when pipeline supplies are not available, traditional methods can’t meet customer requirements, or during pipeline outages. Marlin Gas Services has two permanent CNG terminals in Delaware and Florida, as well as a CNG fill terminal in Georgia, operated by our sister company, Marlin Compression. It also operates one of the largest fleets of CNG steel tube trailers to provide energy solutions for various applications nationwide. Marlin continues to expand the territories it serves, while leveraging its patented technology to serve LNG and RNG. In fact, Marlin is positioned to be a leading transporter of RNG — bridging the pipeline gaps and serving as a virtual pipeline between bio-gas producers and local distribution companies or end-use customers.",
+            "url": "https://www.chpk.com/about-us/our-businesses/marlin-gas-services/",
+            "fetched_at": "2026-10-17T19:20:57Z"
+          },
+          "P2.4": {
+            "text": "24+ years of operating without a single safety incident",
+            "url": "https://www.chpk.com/about-us/our-businesses/marlin-gas-services/",
+            "fetched_at": "2026-10-17T19:20:57Z"
+          },
+          "P2.5": {
+            "text": "7,000+ dekatherms of natural gas enabled for delivery",
+            "url": "https://www.chpk.com/about-us/our-businesses/marlin-gas-services/",
+            "fetched_at": "2026-10-17T19:20:57Z"
+          },
+          "P2.6": {
+            "text": "Read about some of our latest Renewable Natural Gas projects and initiatives. Learn More »",
+            "url": "https://www.chpk.com/about-us/our-businesses/marlin-gas-services/",
+            "fetched_at": "2026-10-17T19:20:57Z"
+          },
+          "P2.7": {
+            "text": "Marlin Gas Services Market Area",
+            "url": "https://www.chpk.com/about-us/our-businesses/marlin-gas-services/",
+            "fetched_at": "2026-10-17T19:20:57Z"
+          },
+          "P2.8": {
+            "text": "Map of the partial United States shows the market area includes the following states: New York, Kentucky, West Virginia, Virginia, Maryland, Delaware, Missouri, Tennessee, North Carolina, South Carolina, Georgia, Alabama, Mississippi, Louisiana and Florida. The headquarters office is highlighted in Spring Hill, Florida.",
+            "url": "https://www.chpk.com/about-us/our-businesses/marlin-gas-services/",
+            "fetched_at": "2026-10-17T19:20:57Z"
+          },
+          "P3.1": {
+            "text": "About Chesapeake Utilities Corporation — A Diversified Energy Company",
+            "url": "https://www.chpk.com/about-us/",
+            "fetched_at": "2026-10-17T19:20:59Z"
+          },
+          "P3.2": {
+            "text": "Chesapeake Utilities Corporation and its subsidaries have delivered safe, reliable, diversified energy solutions for over 160 years.",
+            "url": "https://www.chpk.com/about-us/",
+            "fetched_at": "2026-10-17T19:20:59Z"
+          },
+          "P3.3": {
+            "text": "We deliver energy that makes life better for the people and communities we serve.",
+            "url": "https://www.chpk.com/about-us/",
+            "fetched_at": "2026-10-17T19:20:59Z"
+          },
+          "P3.4": {
+            "text": "We will be a leader in delivering energy that contributes to a sustainable future.",
+            "url": "https://www.chpk.com/about-us/",
+            "fetched_at": "2026-10-17T19:20:59Z"
+          },
+          "P3.5": {
+            "text": "We care. We put people first. Keep them safe. Build trusting relationships. Foster a culture of equity, diversity, and inclusion. Make a",
+            "url": "https://www.chpk.com/about-us/",
+            "fetched_at": "2026-10-17T19:20:59Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

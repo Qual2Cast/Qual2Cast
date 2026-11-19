@@ -1,0 +1,897 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ293645__IQ284668",
+    "target": "IQ293645",
+    "comp": "IQ284668",
+    "target_ticker": "OLN",
+    "comp_ticker": "LXU",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ293645__IQ284668",
+        "target": "IQ293645",
+        "comp": "IQ284668",
+        "target_ticker": "OLN",
+        "comp_ticker": "LXU",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ293645",
+          "comp": "IQ284668",
+          "method": "B3",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "OLN",
+          "comp_ticker": "LXU"
+        },
+        {
+          "target": "IQ293645",
+          "comp": "IQ284668",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "OLN",
+          "comp_ticker": "LXU"
+        },
+        {
+          "target": "IQ293645",
+          "comp": "IQ284668",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "OLN",
+          "comp_ticker": "LXU"
+        },
+        {
+          "target": "IQ293645",
+          "comp": "IQ284668",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 4.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "OLN",
+          "comp_ticker": "LXU"
+        },
+        {
+          "target": "IQ293645",
+          "comp": "IQ284668",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 2.0,
+          "reason": "Nitrogen chemicals for mining and agriculture plus HVAC heat pumps differ from Olin's chlor-alkali, epoxy and ammunition.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "OLN",
+          "comp_ticker": "LXU"
+        },
+        {
+          "target": "IQ293645",
+          "comp": "IQ284668",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Makes basic inorganic chemicals such as ammonia and nitric acid in its own plants for industrial buyers; not chlor-alkali.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "OLN",
+          "comp_ticker": "LXU"
+        },
+        {
+          "target": "IQ293645",
+          "comp": "IQ284668",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Commodity inorganic chemical maker (ammonia, nitric acid) with diversified second segment, similar cyclical, plant-based, hazardous-chemical business.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "OLN",
+          "comp_ticker": "LXU"
+        },
+        {
+          "target": "IQ293645",
+          "comp": "IQ284668",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Makes ammonia, nitric acid and other commodity industrial chemicals sold to industrial customers; closest basic-chemicals producer.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "OLN",
+          "comp_ticker": "LXU"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Makes chlorine, caustic soda and epoxy materials and sells ammunition. Chemicals go to manufacturers and water utilities, while ammunition goes to retailers, consumers and government agencies, produced in its own plants.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "chlorine; caustic soda; epoxy resins; hydrochloric acid; ammunition",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: chemical manufacturers, water utilities, pulp and paper mills, construction suppliers; B2C: sport shooters and hunters buying ammunition through retailers; B2G: defense and government agencies buying ammunition",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "water treatment; pulp and paper; construction; automotive; defense; sporting and hunting",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: chemicals and ammunition sold to industrial, retail and government customers",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: makes chemicals and ammunition in its own plants, sold to industrial and retail customers; brand owner: sells ammunition under its own Winchester brand through retail channels",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: plants in the US and Europe, sales to customers in North America, Europe and other regions",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "diversified: chlor alkali and vinyls, epoxy, and Winchester ammunition as separate businesses with different customers",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: industrial chemical customers and government contracts; distributors / dealers: chemical distributors and ammunition wholesalers; third-party retail: sporting goods stores and gun shops selling ammunition",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: federal licensing to manufacture ammunition, plus EPA and OSHA rules for chlorine and chemical plants",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Manufactures chlorine, caustic soda, vinyl and related chemicals, epoxy resins and intermediates, and sporting and military ammunition. Sells to industrial manufacturers, water treatment and chemical processors, distributors, retailers, and government customers. Produces at its own plants in the US and abroad.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "caustic soda; chlorine; epoxy resins; ethylene dichloride and vinyl intermediates; sporting and military ammunition",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: chemical processors, vinyl and epoxy producers, water treatment, pulp and paper, alumina, coatings and composites makers, distributors; B2C: hunters and sport shooters buying ammunition through retailers; B2G: US military and law enforcement agencies buying ammunition",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "chemicals; water treatment; construction; pulp and paper; aerospace and coatings; sporting goods and defense",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: chemicals, epoxy materials and ammunition sold to industrial, retail and government buyers; project or contract: military and law enforcement ammunition contracts",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: turns salt, electricity, ethylene, benzene, metals and propellants into chemicals, resins and ammunition; raw materials: chlorine, caustic soda and intermediates supplied to downstream chemical producers; brand owner: Winchester ammunition sold under its own brand to retail and government buyers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: US-centered production with sales across North America, Europe, Asia and Latin America",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: chlor alkali products, epoxy and Winchester ammunition, chemicals share production processes, ammunition is separate",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: industrial chemical customers and government ammunition buyers; distributors / dealers: chemical distributors and ammunition distributors; third-party retail: sporting goods and outdoor retailers selling ammunition",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: hazardous chemicals under EPA, OSHA and DOT rules, ammunition under ATF and export controls",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ293645.json",
+      "data": {
+        "company_name": "Olin Corporation",
+        "website": "www.olin.com",
+        "scrape_status": "ok",
+        "capture_sha256": "ab90e568a5c83481fb4d1b9d9b1ff6abd9cc2b570b17c8be80108d29e8971f36",
+        "lines": {
+          "P1.1": {
+            "text": "Olin® Corporation",
+            "url": "https://www.olin.com/",
+            "fetched_at": "2026-10-17T20:01:39Z"
+          },
+          "P1.2": {
+            "text": "Olin Corporation is a global manufacturer and distributor of chemical products and a leading U.S. manufacturer of ammunition. Our worldwide commitment to continuous innovation, superior safety and exceptional service ensures customer success throughout the chemical value chain and beyond.",
+            "url": "https://www.olin.com/",
+            "fetched_at": "2026-10-17T20:01:39Z"
+          },
+          "P1.3": {
+            "text": "We deliver essential materials and solutions that enhance and protect lives.",
+            "url": "https://www.olin.com/",
+            "fetched_at": "2026-10-17T20:01:39Z"
+          },
+          "P1.4": {
+            "text": "Discover how Olin Epoxy can help you deliver extraordinary results.",
+            "url": "https://www.olin.com/",
+            "fetched_at": "2026-10-17T20:01:39Z"
+          },
+          "P1.5": {
+            "text": "Learn about the American Legend in ammunition and 150+ years of success.",
+            "url": "https://www.olin.com/",
+            "fetched_at": "2026-10-17T20:01:39Z"
+          },
+          "P1.6": {
+            "text": "We passionately focus on generating value for customers, investors, and our communities as we methodically, safely, and responsibly deliver essential materials and solutions that enhance and protect lives.",
+            "url": "https://www.olin.com/",
+            "fetched_at": "2026-10-17T20:01:39Z"
+          },
+          "P1.7": {
+            "text": "Olin offers substantial value growth through our essential solutions and strong market positions, driven by a strategic value-first approach that maximizes our unique integration capabilities.",
+            "url": "https://www.olin.com/",
+            "fetched_at": "2026-10-17T20:01:39Z"
+          },
+          "P1.8": {
+            "text": "Stay informed with corporate updates and news.",
+            "url": "https://www.olin.com/",
+            "fetched_at": "2026-10-17T20:01:39Z"
+          },
+          "P2.1": {
+            "text": "About Olin - Olin® Corporation",
+            "url": "https://olin.com/about-olin",
+            "fetched_at": "2026-10-17T20:01:42Z"
+          },
+          "P2.2": {
+            "text": "We are OLIN and this is our story.",
+            "url": "https://olin.com/about-olin",
+            "fetched_at": "2026-10-17T20:01:42Z"
+          },
+          "P2.3": {
+            "text": "From our beginnings in East Alton to the world’s No. 1 chlorine producer, we are a success story more than 130 years in the making.",
+            "url": "https://olin.com/about-olin",
+            "fetched_at": "2026-10-17T20:01:42Z"
+          },
+          "P2.4": {
+            "text": "From our beginnings in East Alton to the world’s leading producer of chlorine and small caliber ammunition, we are a success story more than 130 years in the making.",
+            "url": "https://olin.com/about-olin",
+            "fetched_at": "2026-10-17T20:01:42Z"
+          },
+          "P2.5": {
+            "text": "HUMBLE BEGINNINGS TO GLOBAL SUCCESS",
+            "url": "https://olin.com/about-olin",
+            "fetched_at": "2026-10-17T20:01:42Z"
+          },
+          "P2.6": {
+            "text": "Olin Corporation began as a small blasting powder supplier in East Alton, Illinois. Following a few decades of success, along with some fruitful acquisitions, Olin has grown and expanded to encompass three business units —Olin Chlor Alkali Products & Vinyls, Olin Epoxy, and Winchester Ammunition.",
+            "url": "https://olin.com/about-olin",
+            "fetched_at": "2026-10-17T20:01:42Z"
+          },
+          "P2.7": {
+            "text": "Largest producer of small caliber ammunition",
+            "url": "https://olin.com/about-olin",
+            "fetched_at": "2026-10-17T20:01:42Z"
+          },
+          "P2.8": {
+            "text": "Global chlor alkali producer with largest chlorine capacity",
+            "url": "https://olin.com/about-olin",
+            "fetched_at": "2026-10-17T20:01:42Z"
+          },
+          "P2.9": {
+            "text": "Global producer of membrane caustic soda and chlorinated organics",
+            "url": "https://olin.com/about-olin",
+            "fetched_at": "2026-10-17T20:01:42Z"
+          },
+          "P2.10": {
+            "text": "Global supplier of epoxy materials",
+            "url": "https://olin.com/about-olin",
+            "fetched_at": "2026-10-17T20:01:42Z"
+          },
+          "P2.11": {
+            "text": "North American seller of chlorine, bleach, and hydrochloric acid",
+            "url": "https://olin.com/about-olin",
+            "fetched_at": "2026-10-17T20:01:42Z"
+          },
+          "P2.12": {
+            "text": "in caustic, epoxy and chlorinated organics",
+            "url": "https://olin.com/about-olin",
+            "fetched_at": "2026-10-17T20:01:42Z"
+          },
+          "P2.13": {
+            "text": "chlorine envelope of any North America producer",
+            "url": "https://olin.com/about-olin",
+            "fetched_at": "2026-10-17T20:01:42Z"
+          },
+          "P2.14": {
+            "text": "Olin’s success is grounded in its commitment to operating with integrity every day.",
+            "url": "https://olin.com/about-olin",
+            "fetched_at": "2026-10-17T20:01:42Z"
+          },
+          "P2.15": {
+            "text": "We safely and reliably deliver essential materials",
+            "url": "https://olin.com/about-olin",
+            "fetched_at": "2026-10-17T20:01:42Z"
+          },
+          "P2.16": {
+            "text": "We act with integrity, always doing what is right",
+            "url": "https://olin.com/about-olin",
+            "fetched_at": "2026-10-17T20:01:42Z"
+          },
+          "P2.17": {
+            "text": "Business Partner Code of Conduct",
+            "url": "https://olin.com/about-olin",
+            "fetched_at": "2026-10-17T20:01:42Z"
+          },
+          "P2.18": {
+            "text": "Olin expects its distributors, suppliers, and business partners to uphold the same standards of integrity in their business dealings.",
+            "url": "https://olin.com/about-olin",
+            "fetched_at": "2026-10-17T20:01:42Z"
+          },
+          "P2.19": {
+            "text": "If you have any questions or concerns, please reach out to:",
+            "url": "https://olin.com/about-olin",
+            "fetched_at": "2026-10-17T20:01:42Z"
+          },
+          "P2.20": {
+            "text": "The Olin Help-Line is a confidential, 24-hour telephone and Internet reporting service to ask questions, get advice or raise a concern about potential violations of the law or our Code. If you are an Olin employee, please reach out to your supervisor.",
+            "url": "https://olin.com/about-olin",
+            "fetched_at": "2026-10-17T20:01:42Z"
+          },
+          "P3.1": {
+            "text": "Products Improving Our World - Olin® Corporation",
+            "url": "https://olin.com/about-olin/products-improving-our-world",
+            "fetched_at": "2026-10-17T20:01:43Z"
+          },
+          "P3.2": {
+            "text": "Discover how Olin products enable a healthier, safer, and more productive world.",
+            "url": "https://olin.com/about-olin/products-improving-our-world",
+            "fetched_at": "2026-10-17T20:01:43Z"
+          },
+          "P3.3": {
+            "text": "OLIN ALLYL CHLORIDE & EPICHLOROHYDRIN",
+            "url": "https://olin.com/about-olin/products-improving-our-world",
+            "fetched_at": "2026-10-17T20:01:43Z"
+          },
+          "P3.4": {
+            "text": "Manufactured in Stade & Freeport, these are critical ingredients for wastewater treatment, protecting our health and ecosystems.",
+            "url": "https://olin.com/about-olin/products-improving-our-world",
+            "fetched_at": "2026-10-17T20:01:43Z"
+          },
+          "P3.5": {
+            "text": "Manufactured in Becancour, Charleston, Freeport, McIntosh, Niagara Falls, Plaquemine, & St. Gabriel, this is a critical ingredient for safer drinking water.",
+            "url": "https://olin.com/about-olin/products-improving-our-world",
+            "fetched_at": "2026-10-17T20:01:43Z"
+          },
+          "P3.6": {
+            "text": "Produced in Baltringen, Freeport, Guarujá, Pisticci, Rheinmunster, Roberta, Stade, and Zhangjiagang, these provide reliable corrosion resistance and concrete protection for longer-lasting infrastructure.",
+            "url": "https://olin.com/about-olin/products-improving-our-world",
+            "fetched_at": "2026-10-17T20:01:43Z"
+          },
+          "P3.7": {
+            "text": "Products manufactured in our Baltringen, Freeport, Rheinmunster, Roberta, and Stade facilities are mission-critical ingredients for Composite Pressure Vessels, which safely transport and store green energy sources like hydrogen.",
+            "url": "https://olin.com/about-olin/products-improving-our-world",
+            "fetched_at": "2026-10-17T20:01:43Z"
+          },
+          "P3.8": {
+            "text": "Made in our Freeport & Stade facilities, this is used to make chemicals critical to the operation of wastewater treatment plants in most major cities.",
+            "url": "https://olin.com/about-olin/products-improving-our-world",
+            "fetched_at": "2026-10-17T20:01:43Z"
+          },
+          "P3.9": {
+            "text": "Manufactured in Plaquemine & Stade, this is used in brake degreasers to remove dust and debris from brake pads and rotors, providing safer stopping distances.",
+            "url": "https://olin.com/about-olin/products-improving-our-world",
+            "fetched_at": "2026-10-17T20:01:43Z"
+          },
+          "P3.10": {
+            "text": "Produced in Charleston, Tennessee, Olin’s KOH is used in deicing fluids to protect aircraft surfaces from ice accumulation for safer air travel.",
+            "url": "https://olin.com/about-olin/products-improving-our-world",
+            "fetched_at": "2026-10-17T20:01:43Z"
+          },
+          "P3.11": {
+            "text": "Made in our Charleston, Tennessee, facility to help create",
+            "url": "https://olin.com/about-olin/products-improving-our-world",
+            "fetched_at": "2026-10-17T20:01:43Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Manufactures nitrogen-based chemicals, including ammonia, nitric acid and ammonium nitrate, sold to mining, industrial and agricultural customers, and makes geothermal and water-source heat pumps for commercial and residential HVAC markets sold through contractors and distributors.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "ammonia; nitric acid; ammonium nitrate; nitrogen fertilizer solutions; geothermal and water-source heat pumps",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: mining operators, industrial manufacturers, fertilizer distributors and farm cooperatives, HVAC contractors and building owners",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "mining; agriculture; industrial manufacturing; commercial construction; HVAC",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: chemicals sold to industrial, mining and agricultural customers, heat pumps sold to HVAC distributors and contractors",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: takes in natural gas and raw materials to make chemicals and builds heat pumps from purchased components, sold to industrial customers and HVAC distributors",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: plants in Oklahoma, Arkansas, Alabama and Texas, customers across the United States with some sales abroad",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "diversified: chemical business serving mining and agriculture, climate control business making heat pumps for HVAC markets",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: chemical sales to large industrial and mining accounts; distributors / dealers: independent HVAC distributors and fertilizer distributors; own locations: company-operated production plants and sales offices",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: EPA and state environmental permits, OSHA process safety, DOT/PHMSA hazardous materials transport, and DHS chemical security rules for ammonium nitrate",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Manufactures and sells nitrogen-based chemicals including ammonia, fertilizers (UAN, ammonium nitrate) and industrial and mining chemicals such as nitric acid and ammonium nitrate for explosives. Customers are agricultural distributors, industrial users and mining companies. Products are made at its own chemical plants in the US Midwest and South.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "ammonia; urea ammonium nitrate fertilizer; ammonium nitrate; nitric acid; sulfuric acid",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: agricultural distributors and co-ops, mining and explosives companies, industrial manufacturers, water treatment users",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "agriculture; mining; industrial chemicals; water treatment",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: nitrogen fertilizers, ammonia and industrial and mining chemicals sold by volume",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: converts natural gas and other feedstocks into nitrogen chemicals at own plants, sold to agricultural, industrial and mining customers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: Mainly central and southern US agricultural regions and Gulf Coast, plus some exports",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: agricultural, industrial and mining nitrogen chemicals from shared nitrogen production",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: industrial and mining customers under supply contracts; distributors / dealers: agricultural distributors and fertilizer retailers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: Environmental, process safety and chemical security rules from EPA, OSHA and DHS covering ammonia and ammonium nitrate",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ284668.json",
+      "data": {
+        "company_name": "LSB Industries, Inc.",
+        "website": "www.lsbindustries.com",
+        "scrape_status": "ok",
+        "capture_sha256": "ec3dd84863ca79f0493c75182d6d3c52301f89673d904e2945bc4cc5a386f48c",
+        "lines": {
+          "P1.1": {
+            "text": "Home - LSB Industries",
+            "url": "https://lsbindustries.com/",
+            "fetched_at": "2026-10-17T19:50:12Z"
+          },
+          "P1.2": {
+            "text": "Solutions that Build, Feed, and Power the World",
+            "url": "https://lsbindustries.com/",
+            "fetched_at": "2026-10-17T19:50:12Z"
+          },
+          "P1.3": {
+            "text": "Our innovative solutions drive critical industries forward, ensuring sustainable growth and development globally.",
+            "url": "https://lsbindustries.com/",
+            "fetched_at": "2026-10-17T19:50:12Z"
+          },
+          "P1.4": {
+            "text": "Improving the quality of life for current and future generations by creating and delivering a variety of essential products across the industrial and agricultural end markets is nothing new for the people of LSB Industries, Inc. (LSB). But it doesn’t end there. We are committed to playing a leadership role in the production of low and no carbon products that not only build and feed the world, but power it, as well.",
+            "url": "https://lsbindustries.com/",
+            "fetched_at": "2026-10-17T19:50:12Z"
+          },
+          "P1.5": {
+            "text": "Whether you’re a customer, a job seeker, an investor or are simply interested in our efforts to help decarbonize our world, we’re confident you will find what you are seeking at LSB.",
+            "url": "https://lsbindustries.com/",
+            "fetched_at": "2026-10-17T19:50:12Z"
+          },
+          "P1.6": {
+            "text": "At LSB, our vision is to be a leader in the production of low and no carbon products that build, feed and power the world.",
+            "url": "https://lsbindustries.com/",
+            "fetched_at": "2026-10-17T19:50:12Z"
+          },
+          "P1.7": {
+            "text": "We believe there is a substantial need for low carbon energy sources across various business sectors, and we are committed to helping meet that demand through the production and delivery of low and no carbon products to multiple end markets.",
+            "url": "https://lsbindustries.com/",
+            "fetched_at": "2026-10-17T19:50:12Z"
+          },
+          "P1.8": {
+            "text": "LSB supplies industrial and high purity metallurgical grade ammonia and nitric acid for many specialty applications. Our knowledge, expertise, and supply position in the nitrogen products we market, when combined with our logistical advantages, provide us with the capability to offer significant value to our customers.",
+            "url": "https://lsbindustries.com/",
+            "fetched_at": "2026-10-17T19:50:12Z"
+          },
+          "P1.9": {
+            "text": "Our fertilizer products – ammonia and derivative products – are used as nitrogen fertilizers that enable farmers to grow with efficacy, effectiveness, and efficiency.",
+            "url": "https://lsbindustries.com/",
+            "fetched_at": "2026-10-17T19:50:12Z"
+          },
+          "P2.1": {
+            "text": "About - LSB Industries",
+            "url": "https://lsbindustries.com/about/",
+            "fetched_at": "2026-10-17T19:50:14Z"
+          },
+          "P2.2": {
+            "text": "and headquartered in Oklahoma City, Oklahoma, LSB manufactures ammonia and ammonia-related products at our facilities in El Dorado, Arkansas, Cherokee, Alabama, and Pryor, Oklahoma. We also operate a facility for Covestro LLC in Baytown, Texas. We are a vital supplier to the world’s leading chemical and industrial companies and to the U.S. agricultural market. The chemicals we manufacture are included in hundreds of products used by thousands of people every day.",
+            "url": "https://lsbindustries.com/about/",
+            "fetched_at": "2026-10-17T19:50:14Z"
+          },
+          "P2.3": {
+            "text": "LSB is committed to playing a leadership role in the production of low and no carbon products that build, feed and power the world. Our team is dedicated to building a culture of excellence in customer experiences as we deliver essential products across the industrial and agricultural end markets and, coming soon, the energy markets.",
+            "url": "https://lsbindustries.com/about/",
+            "fetched_at": "2026-10-17T19:50:14Z"
+          },
+          "P2.4": {
+            "text": "Our Purpose, Vision and Values",
+            "url": "https://lsbindustries.com/about/",
+            "fetched_at": "2026-10-17T19:50:14Z"
+          },
+          "P3.1": {
+            "text": "Products - LSB Industries",
+            "url": "https://lsbindustries.com/products/",
+            "fetched_at": "2026-10-17T19:50:15Z"
+          },
+          "P3.2": {
+            "text": "At LSB, we leverage multiple competitive advantages to provide our customers with the products they need, while ensuring they receive the best value for their investment. Our manufacturing facilities are strategically located in close proximity to key user end markets with multiple transportation options to ensure timely delivery to our customers. Our energetic Commercial and Sales teams are dedicated to meeting our customers’ needs with quality products, security of supply and superior customer service.",
+            "url": "https://lsbindustries.com/products/",
+            "fetched_at": "2026-10-17T19:50:15Z"
+          },
+          "P3.3": {
+            "text": "YOU MAY NOT SEE THEM, BUT YOU USE OUR PRODUCTS EVERY DAY",
+            "url": "https://lsbindustries.com/products/",
+            "fetched_at": "2026-10-17T19:50:15Z"
+          },
+          "P3.4": {
+            "text": "LSB supplies industrial and high purity metallurgical grade ammonia for many specialty applications, including water treatment, refrigeration, and power plants emission abatement. Nitric acid is also an important product in our industrial portfolio that is used to manufacture semi-conductors, nylon, and polyurethane intermediates. Our knowledge, expertise, and supply position in the nitrogen products we market, when combined with our logistical advantages, provide us with the capability to offer significant value to our customers.",
+            "url": "https://lsbindustries.com/products/",
+            "fetched_at": "2026-10-17T19:50:15Z"
+          },
+          "P3.5": {
+            "text": "MINING OPERATORS TRUST OUR PRODUCTS",
+            "url": "https://lsbindustries.com/products/",
+            "fetched_at": "2026-10-17T19:50:15Z"
+          },
+          "P3.6": {
+            "text": "Industrial grade, prilled low-density AN and AN solutions are needed by mining customers around the world as they extract coal, copper, gold, and other vital minerals. Transported in a non-explosive state to their",
+            "url": "https://lsbindustries.com/products/",
+            "fetched_at": "2026-10-17T19:50:15Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

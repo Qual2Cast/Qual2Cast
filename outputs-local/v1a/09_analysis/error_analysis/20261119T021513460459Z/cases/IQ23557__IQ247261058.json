@@ -1,0 +1,1020 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ23557__IQ247261058",
+    "target": "IQ23557",
+    "comp": "IQ247261058",
+    "target_ticker": "WEN",
+    "comp_ticker": "VNCE",
+    "human_grade": 0.0,
+    "in_b3": false,
+    "flags": "agreement_control",
+    "priority": 0
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ23557__IQ247261058",
+        "target": "IQ23557",
+        "comp": "IQ247261058",
+        "target_ticker": "WEN",
+        "comp_ticker": "VNCE",
+        "human_grade": 0.0,
+        "in_b3": false,
+        "flags": "agreement_control",
+        "priority": 0
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {
+        "score_riya": "0",
+        "reason_if_0_riya": "Different industry",
+        "notes_riya": "wendy's is food and vince is apparell",
+        "score_barbara": "0",
+        "reason_if_0_barbara": "Different business model",
+        "notes_barbara": "Different industry; Different products; Different customer needs; Different business model\n\nVince sells apparel, while Wendy’s sells restaurant meals. The products and customer purchasing needs differ.",
+        "score_matthew": "0",
+        "reason_if_0_matthew": "Different industry",
+        "notes_matthew": "Vince is a premium apparel brand doing about $300M. There is no food or restaurant angle at all."
+      }
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": []
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": [
+        {
+          "target": "IQ23557",
+          "comp": "IQ247261058",
+          "evaluator": "agent_loop/gold_sonnet",
+          "score": 0,
+          "status": "ok",
+          "reason": "Wendy's sells fast-food hamburgers via a mostly franchised restaurant system. Vince designs and sells premium apparel, footwear and accessories through its own stores, online and wholesale. The products, industries and revenue models differ. Both sell to individual consumers, but that is the only link.",
+          "missing_evidence": "",
+          "lookups": "0",
+          "source": "agent_loop/gold_sonnet/verdicts.csv",
+          "grade": 0.0
+        },
+        {
+          "target": "IQ23557",
+          "comp": "IQ247261058",
+          "evaluator": "one_shot_sol",
+          "score": 0,
+          "status": "ok",
+          "reason": "Different industry: Vince sells clothing and accessories to apparel shoppers; Wendy's serves restaurant food.",
+          "missing_evidence": "",
+          "lookups": "",
+          "source": "golden_set/graded_batch_check/grades.csv",
+          "grade": 0.0
+        }
+      ]
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Operates and franchises Wendy's quick-service hamburger restaurants, selling burgers, chicken and other fast food to consumers for on-premises, drive-thru and delivery orders. Most restaurants are owned and operated by franchisees who pay royalties to the parent company.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "hamburgers; chicken sandwiches; french fries; breakfast items; frozen desserts",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: individual consumers dining in, ordering at drive-thrus, or ordering delivery",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "quick-service restaurants; food service; consumer dining",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: food and beverages sold through company-operated restaurants; licensing or royalties: royalties and franchise fees paid by franchised restaurant operators; rental or leasing: rent received from franchisees for leased restaurant properties",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: owns the Wendy's brand, menu and restaurant system, licensed to franchisees; retailer: sells prepared food directly to consumers at company-operated restaurants",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "North America: restaurants across the United States, with a smaller number in Canada and some international franchised locations",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "among the largest",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "niche specialist: single quick-service hamburger restaurant brand",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "own locations: company-operated Wendy's restaurants; partners / resellers: franchised Wendy's restaurants operated by franchisees; online: mobile app and online ordering with third-party delivery services",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: food safety, health inspection, labor and employment, and consumer protection rules enforced by local health departments and the FDA",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Franchises and operates Wendy's quick-service restaurants selling hamburgers, chicken sandwiches, fries and breakfast to consumers through dine-in, drive-thru and digital ordering. Most restaurants are run by franchisees who pay royalties and fees; a small share is company-operated.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "hamburgers; chicken sandwiches; french fries; frozen desserts; breakfast items",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "restaurant franchising; quick-service food preparation and drive-thru service",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: individual consumers dining in, drive-thru, takeout and delivery; B2B: franchisees who buy franchise rights and supplies",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "quick-service restaurants; fast food",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "commissions or management fees: franchise royalties, advertising fund contributions and franchise fees; product sales: food sold at company-operated restaurants; rental or leasing: rent from franchisees leasing restaurant properties",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: franchisor licensing brand and system to independent franchisees; asset operator: operates company-owned restaurants serving consumers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: United States, Canada and international markets across Europe, Asia, Latin America and Middle East",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "niche specialist: single quick-service hamburger restaurant brand",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "own locations: franchised and company-operated restaurants with dine-in and drive-thru; online: mobile app and website ordering; third-party retail: third-party delivery platforms",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: food safety, labor and wage rules, franchise disclosure rules (FTC), nutrition labeling",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "FACET:109": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:109",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "offering_description",
+        "human_label": "correct",
+        "labeled_text": "Operates and franchises Wendy's quick-service hamburger restaurants, selling burgers, chicken, fries and drinks to consumers for takeout and dine-in. Most restaurants are owned by franchisees who pay royalties and fees to the parent company.",
+        "human_note": "",
+        "evidence_url": "https://www.wendys.com/franchising",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "Operates and franchises Wendy's quick-service hamburger restaurants, selling burgers, chicken and other fast food to consumers for on-premises, drive-thru and delivery orders. Most restaurants are owned and operated by franchisees who pay royalties to the parent company.",
+        "sonnet_text": "Franchises and operates Wendy's quick-service restaurants selling hamburgers, chicken sandwiches, fries and breakfast to consumers through dine-in, drive-thru and digital ordering. Most restaurants are run by franchisees who pay royalties and fees; a small share is company-operated.",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:110": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:110",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "primary_products",
+        "human_label": "correct",
+        "labeled_text": "hamburgers; chicken sandwiches; french fries; breakfast items; frozen desserts",
+        "human_note": "",
+        "evidence_url": "https://order.wendys.com/us/en/national/menu?site=menu&lang=en_US",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "hamburgers; chicken sandwiches; french fries; breakfast items; frozen desserts",
+        "sonnet_text": "hamburgers; chicken sandwiches; french fries; frozen desserts; breakfast items",
+        "exact_haiku_text": true,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:111": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:111",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "primary_services",
+        "human_label": "correct",
+        "labeled_text": "not_applicable",
+        "human_note": "",
+        "evidence_url": "https://www.wendys.com/who-we-are",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "",
+        "sonnet_text": "restaurant franchising; quick-service food preparation and drive-thru service",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:112": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:112",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "customer_segment",
+        "human_label": "correct",
+        "labeled_text": "B2C: individual consumers dining in, ordering takeout, drive-thru and delivery",
+        "human_note": "",
+        "evidence_url": "https://www.wendys.com/who-we-are",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "B2C: individual consumers dining in, ordering at drive-thrus, or ordering delivery",
+        "sonnet_text": "B2C: individual consumers dining in, drive-thru, takeout and delivery; B2B: franchisees who buy franchise rights and supplies",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:113": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:113",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "end_markets",
+        "human_label": "correct",
+        "labeled_text": "quick-service restaurants; food service; consumer dining",
+        "human_note": "",
+        "evidence_url": "https://www.wendys.com/who-we-are",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "quick-service restaurants; food service; consumer dining",
+        "sonnet_text": "quick-service restaurants; fast food",
+        "exact_haiku_text": true,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:114": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:114",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "revenue_model",
+        "human_label": "correct",
+        "labeled_text": "product sales: food and beverages sold at company-operated restaurants; licensing or royalties: royalties and franchise fees paid by franchised restaurant operators; rental or leasing: rent and property income from leased restaurant sites to franchisees",
+        "human_note": "",
+        "evidence_url": "https://www.wendys.com/franchising",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "product sales: food and beverages sold through company-operated restaurants; licensing or royalties: royalties and franchise fees paid by franchised restaurant operators; rental or leasing: rent received from franchisees for leased restaurant properties",
+        "sonnet_text": "commissions or management fees: franchise royalties, advertising fund contributions and franchise fees; product sales: food sold at company-operated restaurants; rental or leasing: rent from franchisees leasing restaurant properties",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:115": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:115",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "value_chain_position",
+        "human_label": "correct",
+        "labeled_text": "brand owner: owns and licenses the Wendy's brand, menu and restaurant system to franchisees; retailer: takes in food and beverage sales at company-operated restaurants and sells to consumers",
+        "human_note": "",
+        "evidence_url": "https://www.wendys.com/franchising",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "brand owner: owns the Wendy's brand, menu and restaurant system, licensed to franchisees; retailer: sells prepared food directly to consumers at company-operated restaurants",
+        "sonnet_text": "brand owner: franchisor licensing brand and system to independent franchisees; asset operator: operates company-owned restaurants serving consumers",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:116": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:116",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "geography_served",
+        "human_label": "partly correct",
+        "labeled_text": "North America: United States, Canada and other countries, with the large majority of restaurants in the US",
+        "human_note": "business has grown to more than 1,350 restaurants across more than 35 markets",
+        "evidence_url": "https://www.wendys.com/franchising/international",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "North America: restaurants across the United States, with a smaller number in Canada and some international franchised locations",
+        "sonnet_text": "global: United States, Canada and international markets across Europe, Asia, Latin America and Middle East",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:117": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:117",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "company_size",
+        "human_label": "correct",
+        "labeled_text": "large",
+        "human_note": "technically it's among the largest",
+        "evidence_url": "https://www.cnbc.com/2026/08/07/burger-king-wendys-hamburger-restaurants.html",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "among the largest",
+        "sonnet_text": "large",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": true
+      }
+    },
+    "FACET:118": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:118",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "specialization",
+        "human_label": "correct",
+        "labeled_text": "niche specialist: single quick-service hamburger restaurant brand",
+        "human_note": "",
+        "evidence_url": "https://order.wendys.com/us/en/national/menu?site=menu&lang=en_US",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "niche specialist: single quick-service hamburger restaurant brand",
+        "sonnet_text": "niche specialist: single quick-service hamburger restaurant brand",
+        "exact_haiku_text": true,
+        "exact_sonnet_text": true
+      }
+    },
+    "FACET:119": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:119",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "distribution_channels",
+        "human_label": "correct",
+        "labeled_text": "own locations: company-operated Wendy's restaurants; partners / resellers: franchised Wendy's restaurants operated by independent franchisees; online: mobile app and delivery platforms for ordering",
+        "human_note": "",
+        "evidence_url": "https://www.wendys.com/franchising",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "own locations: company-operated Wendy's restaurants; partners / resellers: franchised Wendy's restaurants operated by franchisees; online: mobile app and online ordering with third-party delivery services",
+        "sonnet_text": "own locations: franchised and company-operated restaurants with dine-in and drive-thru; online: mobile app and website ordering; third-party retail: third-party delivery platforms",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:120": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:120",
+        "company_id": "IQ23557",
+        "ticker": "WEN",
+        "facet": "regulatory_exposure",
+        "human_label": "correct",
+        "labeled_text": "medium: food safety, labor, health code and franchise regulations enforced by federal, state and local agencies",
+        "human_note": "",
+        "evidence_url": "https://www.wendys.com/who-we-are",
+        "labeler": "Fiona",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "medium: food safety, health inspection, labor and employment, and consumer protection rules enforced by local health departments and the FDA",
+        "sonnet_text": "medium: food safety, labor and wage rules, franchise disclosure rules (FTC), nutrition labeling",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ23557.json",
+      "data": {
+        "company_name": "The Wendy's Company",
+        "website": "www.wendys.com",
+        "scrape_status": "ok",
+        "capture_sha256": "00d773b25cae9b307a29ae12bbbeb0b281b885034e8550b14fac4dd6cff2a26c",
+        "lines": {
+          "P1.1": {
+            "text": "Wendy's® | Home of Fresh, Never Frozen Beef Since 1969",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.2": {
+            "text": "Order drive-thru or delivery for food that's served fresh-made - like our homepage;) See Wendy's latest deals, featured menu items & more. We Got You®",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.3": {
+            "text": "MADE TO ORDER. NO CORNERS CUT.",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.4": {
+            "text": "100% fresh, never frozen beef, hot off the grill, and stacked with melty cheese, plus your fave toppings — this is what a hamburger worth getting ASAP looks like.",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.5": {
+            "text": "Learn about Wendy's fresh beef burger options.",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.6": {
+            "text": "All-Natural Lemonade, Strawberry Lemonade and Coca-Cola",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.7": {
+            "text": "Wendy's Maple Bacon Chicken Croissant",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.8": {
+            "text": "Wendy's Sausage, Egg & Cheese Biscuit",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.9": {
+            "text": "Collect the whole NEW spooky crew",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.10": {
+            "text": "Earn a W the easy way with FOX Big Noon Kickoff and get a Dave’s Single ® for 1/2 OFF with purchase — just log into your Rewards account and enter the code below to enjoy the hot and juicy taste of victory:",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.11": {
+            "text": "Offer available at participating U.S. Wendy’s for a limited time only. App download and account registration required. See offer in the Wendy’s App for further details.",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.12": {
+            "text": "Get it delivered and save.",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.13": {
+            "text": "Whether it’s breakfast, lunch, dinner or game day, Wendy’s® delivery has every kind of hungry covered. Plus, you can also get Wendy's faves delivered through DoorDash, Grubhub, Postmates or UberEats.",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.14": {
+            "text": "Limited time only. Delivery availability and providers may vary by location at participating U.S. Wendy’s. Prices may be higher than at restaurant. Delivery fees may apply.",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.15": {
+            "text": "Allergens. Calories. Ingredients. Let’s find something that checks all your boxes.",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.16": {
+            "text": "Available for a limited time only at participating U.S. Wendy's while supplies last. Kids' meal toy may vary. Honest Kids is a registered trademark of Honest Tea, Inc. Pure Life is a registered trademark of Société Des Produits Nestlé S.A., Vevey, Switzerland.",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P1.17": {
+            "text": "\"Coca-Cola\" is a registered trademark of The Coca-Cola Company. FOX and Big Noon Kickoff are registered trademarks of Fox Media LLC.",
+            "url": "https://www.wendys.com/",
+            "fetched_at": "2026-10-17T20:16:02Z"
+          },
+          "P2.1": {
+            "text": "Who We Are | Wendy's",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.2": {
+            "text": "We're all about serving up fresh food, even if it means going the extra mile. Click to see our history, news releases, franchising information and more.",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.3": {
+            "text": "WE'RE WENDY'S KIND OF PEOPLE desktop",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.4": {
+            "text": "WE'RE WENDY'S KIND OF PEOPLE mobile",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.5": {
+            "text": "WE'RE WENDY'S KIND OF PEOPLE",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.6": {
+            "text": "At Wendy's, we're all about serving up fresh food, even if it means going the extra mile. When you walk through our doors, we do what we can to make everyone feel at home because our family extends through your community.",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.7": {
+            "text": "So we heard you want to talk about us! Well, we hope you have nice things to say. Either way — for the sake of your content and our pride — we'll provide the high-quality images and other assets for your use. Click the link to download Wendy's assets.",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.8": {
+            "text": "Wendy’s has bold global growth plans. We’re continuously looking for new franchise owners to supercharge our efforts, transform markets and unlock new potential.",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.9": {
+            "text": "If you're an investor, financial analyst or find reading a 10-K thrilling, everything you need to know is right here.",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.10": {
+            "text": "We Believe in Quality. Inside and Out.",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.11": {
+            "text": "Quality food can't be made without quality leadership. Learn about the people leading The Wendy's Company.",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.12": {
+            "text": "We live by a certain set of values and we run Wendy's according to a certain set of values. You can check out The Wendy's Company Corporate Governance Guidelines right here.",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.13": {
+            "text": "We'll use this space to give you The Square Deal™ — our views on food, quality, culture, foster care adoption, and doing our best to make Dave proud.",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P2.14": {
+            "text": "Check Out The Square Deal™",
+            "url": "https://www.wendys.com/who-we-are",
+            "fetched_at": "2026-10-17T20:16:03Z"
+          },
+          "P3.1": {
+            "text": "Fries, Wrapped Sandwiches on Red Background Behind Text",
+            "url": "https://www.wendys.com/en-ca/who-we-are",
+            "fetched_at": "2026-10-17T20:16:04Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and sells premium women's and men's apparel, knitwear, footwear and accessories under the Vince brand. It sells to consumers through its own stores and website and to department and specialty stores wholesale, with products made by outside manufacturers.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "apparel; knitwear; footwear; handbags and accessories",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: affluent individual consumers buying fashion apparel and accessories; B2B: department stores and specialty fashion retailers buying wholesale",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "fashion retail; luxury apparel; footwear and accessories",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: apparel, footwear and accessories sold through own stores, online and wholesale accounts; licensing or royalties: royalties from licensed product categories made by partners",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: designs and markets the Vince brand, with products made by outside manufacturers; retailer: sells directly to consumers through own stores and e-commerce site",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "North America: US and Canada stores, wholesale accounts and online sales",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: apparel, footwear and handbags and accessories sold under one brand",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "own locations: company-operated full-price stores and outlets; online: company e-commerce website; partners / resellers: department and specialty stores buying wholesale",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "low: normal consumer product rules such as textile labeling and product safety standards",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and sells contemporary luxury apparel and accessories for women and men under the Vince brand. Products are made by third-party manufacturers and sold to department and specialty stores, and directly to consumers through own stores and e-commerce.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "women's apparel; men's apparel; cashmere knitwear; handbags and accessories; footwear",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "",
+        "primary_services_status": "not_applicable",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: individual consumers buying through own stores and e-commerce; B2B: department stores and specialty retailers buying wholesale",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "premium and luxury fashion apparel; accessories",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: wholesale sales of apparel to department and specialty stores; product sales: direct-to-consumer sales via retail stores and e-commerce; licensing or royalties: brand licensing for categories such as footwear and fragrance",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "brand owner: designs and markets apparel made by third-party contract manufacturers, sold to retailers and consumers; retailer: operates own branded stores and e-commerce sites selling to consumers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: Primarily United States, with international wholesale and licensing partners in Europe and Asia",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "small",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: women's and men's apparel, knitwear and accessories under one brand",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "third-party retail: department stores and specialty retailers; own locations: company-operated branded retail stores; online: brand e-commerce website",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "low: General consumer product, textile labeling, customs and import trade rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ247261058.json",
+      "data": {
+        "company_name": "Vince Holding Corp.",
+        "website": "www.vince.com",
+        "scrape_status": "ok",
+        "capture_sha256": "e807ce57861f74c75ff83a27e4a03a923e8c34dcdb220cb4f684ed0c710eeef4",
+        "lines": {
+          "P1.1": {
+            "text": "Men's and Women's Clothing | Vince",
+            "url": "https://www.vince.com/home",
+            "fetched_at": "2026-10-17T22:14:17Z"
+          },
+          "P1.2": {
+            "text": "Understated luxury from California. Shop new arrivals featuring cashmere, knitwear, leather & shoes for women and men.",
+            "url": "https://www.vince.com/home",
+            "fetched_at": "2026-10-17T22:14:17Z"
+          },
+          "P1.3": {
+            "text": "Women’s New Arrivals Men’s New Arrivals",
+            "url": "https://www.vince.com/home",
+            "fetched_at": "2026-10-17T22:14:17Z"
+          },
+          "P1.4": {
+            "text": "New leather, suede and wool layers to take you through the season's key changes. New leather, suede and wool layers to take you through the season's key changes.",
+            "url": "https://www.vince.com/home",
+            "fetched_at": "2026-10-17T22:14:17Z"
+          },
+          "P1.5": {
+            "text": "Wool & cashmere topcoats, leather bombers, and our signature shirt jacket reimagined in Italian twill. Wool & cashmere topcoats, leather bombers, and our signature shirt jacket reimagined in Italian twill.",
+            "url": "https://www.vince.com/home",
+            "fetched_at": "2026-10-17T22:14:17Z"
+          },
+          "P1.6": {
+            "text": "The Holiday Gift Guide The Holiday Gift Guide",
+            "url": "https://www.vince.com/home",
+            "fetched_at": "2026-10-17T22:14:17Z"
+          },
+          "P1.7": {
+            "text": "Get a head start on gifting or, at the very least, some inspiration to begin making your list. Get a head start on gifting or, at the very least, some inspiration to begin making your list.",
+            "url": "https://www.vince.com/home",
+            "fetched_at": "2026-10-17T22:14:17Z"
+          },
+          "P2.1": {
+            "text": "About Us | Vince",
+            "url": "https://www.vince.com/vince-about-us/",
+            "fetched_at": "2026-10-17T22:14:18Z"
+          },
+          "P2.2": {
+            "text": "Shop the About Us's collection at Vince.",
+            "url": "https://www.vince.com/vince-about-us/",
+            "fetched_at": "2026-10-17T22:14:18Z"
+          },
+          "P2.3": {
+            "text": "Vince crafts understated luxury from California. Our design atelier was established in Los Angeles to capture the storied freedom and effortless allure of life on the coast. Lasting materials — rich, buttery leather, plush cashmere, incandescent silk and the softest wool — are rendered with exacting precision and nuanced details that make each piece feel personal.",
+            "url": "https://www.vince.com/vince-about-us/",
+            "fetched_at": "2026-10-17T22:14:18Z"
+          },
+          "P2.4": {
+            "text": "Quiet sophistication is found in our foundational heroes, which move through spaces, seasons, occasions, and phases of one’s life with ease. Spirited standouts are distinguished by texture, color, and pattern. Since our founding every addition to our women’s and men’s ready-to-wear, accessories and home collection is crafted to inspire a timeless confidence, allowing one to think more clearly and creatively — the truest luxury. This is Vince.",
+            "url": "https://www.vince.com/vince-about-us/",
+            "fetched_at": "2026-10-17T22:14:18Z"
+          },
+          "P3.1": {
+            "text": "Store Locator | Vince",
+            "url": "https://www.vince.com/storelocator",
+            "fetched_at": "2026-10-17T22:14:20Z"
+          },
+          "P3.2": {
+            "text": "Radius 15 30 50 100 300",
+            "url": "https://www.vince.com/storelocator",
+            "fetched_at": "2026-10-17T22:14:20Z"
+          },
+          "P3.3": {
+            "text": "We're sorry, we couldn't find results for your search.",
+            "url": "https://www.vince.com/storelocator",
+            "fetched_at": "2026-10-17T22:14:20Z"
+          },
+          "P3.4": {
+            "text": "Store Hours Sunday: 12:00pm-6:00pm Monday: 11:00am-7:00pm Tuesday: 11:00am-7:00pm Wednesday: 11:00am-7:00pm Thursday: 11:00am-7:00pm Friday: 11:00am-7:00pm Saturday: 11:00am-7:00pm",
+            "url": "https://www.vince.com/storelocator",
+            "fetched_at": "2026-10-17T22:14:20Z"
+          },
+          "P3.5": {
+            "text": "Store Hours Sunday: 12:00pm-6:00pm Monday: 10:00am-7:00pm Tuesday: 10:00am-7:00pm Wednesday: 10:00am-7:00pm Thursday: 10:00am-7:00pm Friday: 10:00am-7:00pm Saturday: 10:00am-7:00pm",
+            "url": "https://www.vince.com/storelocator",
+            "fetched_at": "2026-10-17T22:14:20Z"
+          },
+          "P3.6": {
+            "text": "Store Hours Sunday: 11:00am-6:00pm Monday: 11:00am-7:00pm Tuesday: 11:00am-7:00pm Wednesday: 11:00am-7:00pm Thursday: 11:00am-7:00pm Friday: 11:00am-7:00pm Saturday: 11:00am-7:00pm",
+            "url": "https://www.vince.com/storelocator",
+            "fetched_at": "2026-10-17T22:14:20Z"
+          },
+          "P3.7": {
+            "text": "Vince The Shops at Riverside",
+            "url": "https://www.vince.com/storelocator",
+            "fetched_at": "2026-10-17T22:14:20Z"
+          },
+          "P3.8": {
+            "text": "Store Hours Sunday: 12:00pm-7:00pm Monday: 11:00am-8:00pm Tuesday: 11:00am-8:00pm Wednesday: 11:00am-8:00pm Thursday: 11:00am-8:00pm Friday: 11:00am-9:00pm Saturday: 11:00am-9:00pm",
+            "url": "https://www.vince.com/storelocator",
+            "fetched_at": "2026-10-17T22:14:20Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

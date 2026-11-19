@@ -1,0 +1,1145 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ254957567__IQ27928",
+    "target": "IQ254957567",
+    "comp": "IQ27928",
+    "target_ticker": "PCTY",
+    "comp_ticker": "EGAN",
+    "human_grade": 0.0,
+    "in_b3": false,
+    "flags": "agreement_control",
+    "priority": 0
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ254957567__IQ27928",
+        "target": "IQ254957567",
+        "comp": "IQ27928",
+        "target_ticker": "PCTY",
+        "comp_ticker": "EGAN",
+        "human_grade": 0.0,
+        "in_b3": false,
+        "flags": "agreement_control",
+        "priority": 0
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {
+        "score_riya": "2",
+        "reason_if_0_riya": "",
+        "notes_riya": "",
+        "score_barbara": "0",
+        "reason_if_0_barbara": "Different customers",
+        "notes_barbara": "Different core products; Different functional buyers; Limited knowledge-management overlap\n\neGain primarily supports customer-service knowledge and customer interactions, while Paylocity focuses on payroll and employee management. Shared AI or knowledge features do not establish a direct payroll/HCM match.",
+        "score_matthew": "0",
+        "reason_if_0_matthew": "Generic wording only",
+        "notes_matthew": "eGain is customer service knowledge software for contact centers at banks and telecoms. It's also under $100M in revenue. No human resources overlap."
+      }
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": []
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": [
+        {
+          "target": "IQ254957567",
+          "comp": "IQ27928",
+          "evaluator": "agent_loop/gold_sonnet",
+          "score": 0,
+          "status": "ok",
+          "reason": "Paylocity sells HCM, payroll, HR, finance and IT software to employers, covering payroll processing, tax filing and workforce management. eGain sells AI knowledge management and customer service automation software to contact centers. The products solve different problems. Paylocity's buyer is HR and finance at mid-sized employers. eGain's buyer is customer service and CX at large enterprises and government. Both sell cloud software, but that is the only link.",
+          "missing_evidence": "",
+          "lookups": "0",
+          "source": "agent_loop/gold_sonnet/verdicts.csv",
+          "grade": 0.0
+        },
+        {
+          "target": "IQ254957567",
+          "comp": "IQ27928",
+          "evaluator": "one_shot_sol",
+          "score": 0,
+          "status": "ok",
+          "reason": "Different customers and applications: eGain automates external customer service and contact-center knowledge, while Paylocity supports internal workforce and administrative functions.",
+          "missing_evidence": "",
+          "lookups": "",
+          "source": "golden_set/graded_batch_check/grades.csv",
+          "grade": 0.0
+        }
+      ]
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Sells cloud-based payroll, human capital management and workforce software to mid-sized employers in the United States. Delivered as a subscription platform with implementation and support services.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "payroll software; HR management software; talent management software; time and labor software; benefits administration software",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "payroll processing; tax filing and compliance; implementation services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: mid-sized private employers across many industries",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "human resources; payroll; professional services; healthcare; manufacturing; retail",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "subscription: recurring fees for software modules, paid per employee per month; service fees: implementation, training and payroll tax filing services; interest or premiums: interest earned on client funds held between payroll debit and payment",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "software / platform: develops and hosts its own cloud HR and payroll platform, sold to employers; service provider: runs payroll processing and tax filings for employer clients",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: serves employers across the United States",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: payroll, HR, talent, time and benefits modules sharing one platform and customer base",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: in-house sales team selling to employers; partners / resellers: referral and integration partners such as accounting and benefits firms; online: self-service platform used by client employers and employees",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: payroll tax filing and money movement rules, plus data privacy and security requirements",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides cloud-based human capital management and payroll software to mid-sized employers. The platform covers payroll, HR, talent, benefits, time and labor, and employee engagement tools. It is delivered as software-as-a-service and sold mainly through a direct sales force.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "payroll software; human resources management software; time and labor management software; benefits administration software; employee engagement and communication tools",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "payroll tax filing; implementation and customer support; benefits administration outsourcing",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: mid-sized and small employers across industries needing payroll and HR management",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "human resources and payroll across industries; healthcare; professional services; manufacturing; nonprofits",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "subscription: recurring per-employee fees for cloud payroll and HR modules; interest or premiums: interest earned on client funds held before payroll tax and payment remittance; service fees: implementation and other fees",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "software / platform: develops and hosts cloud HCM and payroll platform sold to employers; service provider: processes payroll and tax filings on behalf of client employers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: Clients across the United States, with a small presence in Europe",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: payroll, HR, talent, time, benefits and employee engagement modules on one platform",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: in-house sales force selling to employers; partners / resellers: referral relationships with accountants, benefits brokers and financial partners",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: payroll tax filing and money movement under IRS and state tax rules, employment law, and data privacy and security rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "FACET:1": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:1",
+        "company_id": "IQ254957567",
+        "ticker": "PCTY",
+        "facet": "offering_description",
+        "human_label": "correct",
+        "labeled_text": "Sells cloud-based payroll, human capital management and workforce software to US employers, mainly mid-sized businesses. It delivers the software on a subscription basis and adds payroll processing and tax filing services.",
+        "human_note": "",
+        "evidence_url": "https://www.paylocity.com/",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "Sells cloud-based payroll, human capital management and workforce software to mid-sized employers in the United States. Delivered as a subscription platform with implementation and support services.",
+        "sonnet_text": "Provides cloud-based human capital management and payroll software to mid-sized employers. The platform covers payroll, HR, talent, benefits, time and labor, and employee engagement tools. It is delivered as software-as-a-service and sold mainly through a direct sales force.",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:2": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:2",
+        "company_id": "IQ254957567",
+        "ticker": "PCTY",
+        "facet": "primary_products",
+        "human_label": "correct",
+        "labeled_text": "payroll software; HR and benefits software; talent management software; time and labor software",
+        "human_note": "",
+        "evidence_url": "https://www.paylocity.com/",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "payroll software; HR management software; talent management software; time and labor software; benefits administration software",
+        "sonnet_text": "payroll software; human resources management software; time and labor management software; benefits administration software; employee engagement and communication tools",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:3": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:3",
+        "company_id": "IQ254957567",
+        "ticker": "PCTY",
+        "facet": "primary_services",
+        "human_label": "correct",
+        "labeled_text": "payroll processing; tax filing; implementation services",
+        "human_note": "",
+        "evidence_url": "https://www.paylocity.com/",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "payroll processing; tax filing and compliance; implementation services",
+        "sonnet_text": "payroll tax filing; implementation and customer support; benefits administration outsourcing",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:4": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:4",
+        "company_id": "IQ254957567",
+        "ticker": "PCTY",
+        "facet": "customer_segment",
+        "human_label": "correct",
+        "labeled_text": "B2B: US mid-sized employers across many industries",
+        "human_note": "",
+        "evidence_url": "https://www.paylocity.com/",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "B2B: mid-sized private employers across many industries",
+        "sonnet_text": "B2B: mid-sized and small employers across industries needing payroll and HR management",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:5": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:5",
+        "company_id": "IQ254957567",
+        "ticker": "PCTY",
+        "facet": "end_markets",
+        "human_label": "correct",
+        "labeled_text": "professional services; manufacturing; healthcare; retail; hospitality",
+        "human_note": "",
+        "evidence_url": "https://www.paylocity.com/",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "human resources; payroll; professional services; healthcare; manufacturing; retail",
+        "sonnet_text": "human resources and payroll across industries; healthcare; professional services; manufacturing; nonprofits",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:6": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:6",
+        "company_id": "IQ254957567",
+        "ticker": "PCTY",
+        "facet": "revenue_model",
+        "human_label": "correct",
+        "labeled_text": "subscription: per-employee software subscriptions for payroll and HR; service fees: payroll processing, tax filing and implementation services; interest or premiums: interest earned on client funds held between payroll and tax payments",
+        "human_note": "",
+        "evidence_url": "https://www.paylocity.com/",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "subscription: recurring fees for software modules, paid per employee per month; service fees: implementation, training and payroll tax filing services; interest or premiums: interest earned on client funds held between payroll debit and payment",
+        "sonnet_text": "subscription: recurring per-employee fees for cloud payroll and HR modules; interest or premiums: interest earned on client funds held before payroll tax and payment remittance; service fees: implementation and other fees",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:7": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:7",
+        "company_id": "IQ254957567",
+        "ticker": "PCTY",
+        "facet": "value_chain_position",
+        "human_label": "correct",
+        "labeled_text": "software / platform: sells cloud HR and payroll platform to employers; service provider: runs payroll processing and tax filings for client employers; financial intermediary: holds and remits client payroll and tax funds",
+        "human_note": "",
+        "evidence_url": "https://www.paylocity.com/",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "software / platform: develops and hosts its own cloud HR and payroll platform, sold to employers; service provider: runs payroll processing and tax filings for employer clients",
+        "sonnet_text": "software / platform: develops and hosts cloud HCM and payroll platform sold to employers; service provider: processes payroll and tax filings on behalf of client employers",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:8": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:8",
+        "company_id": "IQ254957567",
+        "ticker": "PCTY",
+        "facet": "geography_served",
+        "human_label": "correct",
+        "labeled_text": "US national: Employers across all 50 US states",
+        "human_note": "",
+        "evidence_url": "https://www.paylocity.com/",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "US national: serves employers across the United States",
+        "sonnet_text": "US national: Clients across the United States, with a small presence in Europe",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:9": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:9",
+        "company_id": "IQ254957567",
+        "ticker": "PCTY",
+        "facet": "company_size",
+        "human_label": "wrong",
+        "labeled_text": "large",
+        "human_note": "",
+        "evidence_url": "https://www.paylocity.com/company/about-us/",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "large",
+        "sonnet_text": "large",
+        "exact_haiku_text": true,
+        "exact_sonnet_text": true
+      }
+    },
+    "FACET:10": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:10",
+        "company_id": "IQ254957567",
+        "ticker": "PCTY",
+        "facet": "specialization",
+        "human_label": "correct",
+        "labeled_text": "related lines: payroll, HR, talent, time and benefits software sold to the same employers",
+        "human_note": "",
+        "evidence_url": "https://www.paylocity.com/",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "related lines: payroll, HR, talent, time and benefits modules sharing one platform and customer base",
+        "sonnet_text": "related lines: payroll, HR, talent, time, benefits and employee engagement modules on one platform",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:11": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:11",
+        "company_id": "IQ254957567",
+        "ticker": "PCTY",
+        "facet": "distribution_channels",
+        "human_label": "correct",
+        "labeled_text": "direct sales: direct sales team selling to employers; partners / resellers: referral and channel partners such as accounting firms",
+        "human_note": "",
+        "evidence_url": "https://www.paylocity.com/",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "direct sales: in-house sales team selling to employers; partners / resellers: referral and integration partners such as accounting and benefits firms; online: self-service platform used by client employers and employees",
+        "sonnet_text": "direct sales: in-house sales force selling to employers; partners / resellers: referral relationships with accountants, benefits brokers and financial partners",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "FACET:12": {
+      "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+      "data": {
+        "reference": "FACET:12",
+        "company_id": "IQ254957567",
+        "ticker": "PCTY",
+        "facet": "regulatory_exposure",
+        "human_label": "correct",
+        "labeled_text": "medium: payroll tax filing and employment, wage and data privacy rules",
+        "human_note": "",
+        "evidence_url": "https://www.paylocity.com/",
+        "labeler": "Riya",
+        "source": "gold_labels/source/facet_gold_labels - Labels.csv",
+        "haiku_text": "medium: payroll tax filing and money movement rules, plus data privacy and security requirements",
+        "sonnet_text": "medium: payroll tax filing and money movement under IRS and state tax rules, employment law, and data privacy and security rules",
+        "exact_haiku_text": false,
+        "exact_sonnet_text": false
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ254957567.json",
+      "data": {
+        "company_name": "Paylocity Holding Corporation",
+        "website": "www.paylocity.com",
+        "scrape_status": "ok",
+        "capture_sha256": "6de4e4af8619505b6219966f75118425de3d1730c680e7e639934a8e3525ab73",
+        "lines": {
+          "P1.1": {
+            "text": "Unify HR, Finance, & IT | HR & Payroll Simplified | Paylocity",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.2": {
+            "text": "Paylocity unifies HR, Finance, and IT on one HCM platform, so you can stop piecing systems together and start moving forward together.",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.3": {
+            "text": "The next evolution of work is here to automate manual processes, reduce risk, and help you move faster.",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.4": {
+            "text": "ONE experience can change everything.",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.5": {
+            "text": "Power every team with a single software",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.6": {
+            "text": "Our flexible solutions drive innovation, enable smarter decisions, transform workforces, fuel growth, and inspire confident leadership.",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.7": {
+            "text": "Simplify payroll and filing taxes with an intuitive, modern platform and expert support, knowing your payroll is accurate each time.",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.8": {
+            "text": "Transform spend management – real-time visibility, AI-powered automation, seamless integration, smarter workflows.",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.9": {
+            "text": "Centralize asset management, access control, and service support – empowering IT to enable the business, not just support it.",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.10": {
+            "text": "A Payroll bundle is any new purchase of Payroll, standalone or bundled with other products.",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.11": {
+            "text": "“It was everything we needed, all in one place. Paylocity’s solution helped modernize the entire employee experience.”",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.12": {
+            "text": "“Paylocity helps us automate manual tasks, save time, and improve our decision-making with data and reporting.”",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.13": {
+            "text": "What connects it all sets us apart",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.14": {
+            "text": "Stay informed, engaged, and productive with one mobile experience.",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.15": {
+            "text": "Automation and insight embedded in daily processes make everyone more efficient.",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.16": {
+            "text": "Seamless connections across all your tools that unify data and user experience.",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.17": {
+            "text": "Real-time dashboards and guided actions turn data into decisions.",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.18": {
+            "text": "Automated processes from end to end save time and improve accuracy.",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.19": {
+            "text": "Dedicated partnership and support you can count on.",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.20": {
+            "text": "The ultimate platform for today's workforce",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.21": {
+            "text": "Paylocity brings HR, Finance, and IT together to empower teams, simplify processes, and deliver real results. But we're more than a platform — we're the partner helping you shape the future of work.",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.22": {
+            "text": "We stand by your side to help you hit your goals. Our ideas are grounded in your real needs — not in guesswork.",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.23": {
+            "text": "Innovation is at the heart of what we do.",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.24": {
+            "text": "Clients say we deliver the best service, and we strive to keep every interaction clear, helpful, and human.",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.25": {
+            "text": "Loved by employers and employees",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.26": {
+            "text": "Dive into the latest research from industry leaders, and get the practical insights you need to automate smarter, act on real data, and make better workforce decisions.",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.27": {
+            "text": "Bring HR and Finance together to streamline operations and control company-wide expenses in one place.",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.28": {
+            "text": "The next evolution of work is here.",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.29": {
+            "text": "Connect. Learn. Get more from Paylocity. Join us November 4-5",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P1.30": {
+            "text": "Import your W-2 directly from Paylocity to one of three tax preparers at no cost and get a head start on your refund.",
+            "url": "https://www.paylocity.com/",
+            "fetched_at": "2026-10-17T20:03:30Z"
+          },
+          "P2.1": {
+            "text": "Who We Serve | Paylocity",
+            "url": "https://www.paylocity.com/who-we-serve/",
+            "fetched_at": "2026-10-17T20:03:34Z"
+          },
+          "P2.2": {
+            "text": "From the just-starting-out local boutique to the rapidly growing franchises, from brokerage firms to associations, we tailor solutions for today and the future.",
+            "url": "https://www.paylocity.com/who-we-serve/",
+            "fetched_at": "2026-10-17T20:03:34Z"
+          },
+          "P2.3": {
+            "text": "Built for teams who value connection and efficiency",
+            "url": "https://www.paylocity.com/who-we-serve/",
+            "fetched_at": "2026-10-17T20:03:34Z"
+          },
+          "P2.4": {
+            "text": "Executives and business owners steer the ship. You need a solution that keeps productivity up and turnover down.",
+            "url": "https://www.paylocity.com/who-we-serve/",
+            "fetched_at": "2026-10-17T20:03:34Z"
+          },
+          "P2.5": {
+            "text": "HR leaders are the champions of a thriving workforce, creating a culture for everyone. You need a platform that matches your passion for nurturing talent.",
+            "url": "https://www.paylocity.com/who-we-serve/",
+            "fetched_at": "2026-10-17T20:03:34Z"
+          },
+          "P2.6": {
+            "text": "Employees expect the right pay, every time, and payroll admins are there to get it right every time. You need tools to simplify the process and lighten your load.",
+            "url": "https://www.paylocity.com/who-we-serve/",
+            "fetched_at": "2026-10-17T20:03:34Z"
+          },
+          "P2.7": {
+            "text": "IT is the guardian of a company's infrastructure. You depend on systems that keep technology functioning smoothly, protect data, and scale for growth.",
+            "url": "https://www.paylocity.com/who-we-serve/",
+            "fetched_at": "2026-10-17T20:03:34Z"
+          },
+          "P2.8": {
+            "text": "Employees are at the heart of any business. You need simple, but impactful solution to stay connected to your coworkers and culture.",
+            "url": "https://www.paylocity.com/who-we-serve/",
+            "fetched_at": "2026-10-17T20:03:34Z"
+          },
+          "P2.9": {
+            "text": "For brokers, advisors, consultants, and advocates by any other name, relationships are everything. The right platform helps you deepen client relationships and grow your book",
+            "url": "https://www.paylocity.com/who-we-serve/",
+            "fetched_at": "2026-10-17T20:03:34Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Sells cloud customer engagement software, including knowledge management, virtual assistants and customer service applications, to large enterprises. Delivered mainly as subscription software and supported by implementation and maintenance services.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "customer engagement software; knowledge management software; virtual assistant software; customer service applications",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "implementation services; customer support and maintenance; training",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: large enterprises, especially customer service operations in telecom, financial services, healthcare and retail",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "customer service; telecommunications; financial services; healthcare; retail",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "subscription: cloud software subscriptions for customer engagement applications; licensing or royalties: on-premise software licenses and maintenance fees; service fees: implementation, training and support services",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "software / platform: sells cloud software platforms to enterprise customers; service provider: implements and supports software for enterprise customers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: North America, Europe, India, Asia Pacific and other international markets",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "niche specialist: customer engagement software: knowledge, virtual assistants and service applications",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: enterprise sales teams selling to large customers; partners / resellers: system integrators and channel partners",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "low: normal business rules, data privacy laws such as GDPR apply to customer data handled",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Sells cloud-based customer engagement and knowledge management software, including AI-powered knowledge, chatbot, and contact center tools, to large enterprises. Delivered as SaaS with implementation and support services.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "knowledge management software; AI agent and chatbot software; customer self-service software; digital engagement and messaging software",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "implementation and consulting; managed cloud hosting; technical support and training",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: large enterprises in banking, insurance, healthcare, telecom, utilities and retail with contact centers; B2G: government agencies using customer service software",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "financial services; healthcare; telecommunications; utilities; retail; government",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "subscription: recurring SaaS subscriptions to knowledge and engagement platforms; service fees: professional services for implementation, consulting and support",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "software / platform: develops and hosts cloud software sold to enterprise customer service organizations",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: United States, United Kingdom, Europe, India and other international markets",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "small",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: knowledge management, AI agents, and customer engagement software for customer service",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: enterprise sales teams selling to large customers; partners / resellers: system integrators and technology partners",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "low: data privacy and security rules such as GDPR and SOC 2 compliance expectations",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ27928.json",
+      "data": {
+        "company_name": "eGain Corporation",
+        "website": "www.egain.com",
+        "scrape_status": "ok",
+        "capture_sha256": "bfa7c0a5659c3d79038e20ecf8e86ec9562b3665a9f4780d3f9bb23ec8becc0b",
+        "lines": {
+          "P1.1": {
+            "text": "AI Knowledge Platform for CX and Customer Service Automation | eGain",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.2": {
+            "text": "The #1 knowledge-powered customer engagement platform for enterprise and government",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.3": {
+            "text": "A Leader in the Gartner ® Magic Quadrant ™ for Customer Service Knowledge Management Systems",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.4": {
+            "text": "Positioned highest for Ability to Execute and furthest for Completeness of Vision.",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.5": {
+            "text": "16 Magic Quadrant for Customer Service Knowledge Management Systems By: Pri Rathnayake, Jennifer MacIntosh, Patrick Quinlan, Drew Kraus",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.6": {
+            "text": "AI Knowledge Platform for CX Automation",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.7": {
+            "text": "Trusted | Governed | Compliant",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.8": {
+            "text": "eGain AI CX Automation Platform unifies trusted knowledge with GenAI to automate customer service. It delivers instant, compliant, and personalized answers across channels—helping you reduce costs, improve CSAT, and accelerate digital adoption. AI Agent AI ROI Calculator",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.9": {
+            "text": "Airlines | BPO | Financial Service | Insurance | Manufacturing | Retail | Services | Telco",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.10": {
+            "text": "Establish single source of truth",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.11": {
+            "text": "Customer service automation Successful customer service automation with GenAI requires a strong foundation of integrated knowledge management. Learn more depends on trusted answers from a single source of truth in the enterprise. The eGain suite unifies content silos and synthesizes knowledge by orchestrating GenAI and experts, delivering trusted answers Trusted answers come from unified knowledge foundation—AI cannot be reliable without accurate, consistent, and compliant content. Learn more that are correct, consistent, and compliant. These answers are contextually personalized for customers, agents, and employees and proactively delivered in the flow of work Contextual knowledge in the flow of work shortens onboarding, minimizes errors, and empowers employees to serve customers faster. Learn more.",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.12": {
+            "text": "Eliminate knowledge and content silos, and guide users to trusted answers",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.13": {
+            "text": "Conversational guidance for customers, agents, and employees",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.14": {
+            "text": "AI Agent for Customer Self-Service AI Agent for Contact Center AI Agent IVA",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.15": {
+            "text": "Deliver personalized digital engagement to customers across touchpoints",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.16": {
+            "text": "Orchestrate multiple AI agents across voice, chat, and CRM, with nothing falling through the cracks.",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.17": {
+            "text": "Modular, Full-Stack Developer Platform for AI-Knowledge Business Applications",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.18": {
+            "text": "Continuous quality assurance for AI-generated answers, so you can deploy AI with confidence.",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.19": {
+            "text": "eGain AI Knowledge Suite for Healthcare",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.20": {
+            "text": "Trusted knowledge for every member interaction, patient access workflow, and AI initiative in your contact center.",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.21": {
+            "text": "eGain AI Knowledge Suite for Retail Banking",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.22": {
+            "text": "Unify knowledge across contact centers, branches, and self-service channels to improve service, compliance, and revenue.",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.23": {
+            "text": "The KM Playbook for the Agentic AI Era",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.24": {
+            "text": "The new edition of KM for Dummies is here. Packed with agentic AI strategies, six real-world case studies, and the latest KM best practices for the enterprise.",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.25": {
+            "text": "Most organizations don’t know the answer. They’re investing millions in AI tools while sitting on a foundation of unreliable knowledge—and they won’t discover the problem until their AI is already in production, delivering poor experiences to customers.",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.26": {
+            "text": "eGain has been incredibly flexible and accommodating",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.27": {
+            "text": "Very easy to use, popular among end users",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.28": {
+            "text": "eGain has delivered elegant solutions to unique problems",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P1.29": {
+            "text": "We are trusted by leaders",
+            "url": "https://www.egain.com/",
+            "fetched_at": "2026-10-17T19:28:40Z"
+          },
+          "P2.1": {
+            "text": "Pricing - eGain",
+            "url": "https://www.egain.com/pricing/",
+            "fetched_at": "2026-10-17T19:28:42Z"
+          },
+          "P2.2": {
+            "text": "eGain Named a Leader in the First-Ever Gartner ® Magic Quadrant ™ for Customer Service Knowledge Management Systems",
+            "url": "https://www.egain.com/pricing/",
+            "fetched_at": "2026-10-17T19:28:42Z"
+          },
+          "P2.3": {
+            "text": "Pricing that scales with your AI and CX deployments, not against them.",
+            "url": "https://www.egain.com/pricing/",
+            "fetched_at": "2026-10-17T19:28:42Z"
+          },
+          "P2.4": {
+            "text": "The knowledge foundation for enterprise AI and CX automation. eGain AI Knowledge Hub provides trusted knowledge across your organization so every AI interaction is accurate, consistent, and compliant",
+            "url": "https://www.egain.com/pricing/",
+            "fetched_at": "2026-10-17T19:28:42Z"
+          },
+          "P2.5": {
+            "text": "Automate customer resolutions with AI grounded in trusted knowledge. Pay per resolution to align cost directly to AI performance, or per user for predictable monthly spend.",
+            "url": "https://www.egain.com/pricing/",
+            "fetched_at": "2026-10-17T19:28:42Z"
+          },
+          "P2.6": {
+            "text": "Trust requires verification. Evaluator continuously monitors knowledge accuracy, agent performance, and resolution quality across your deployment.",
+            "url": "https://www.egain.com/pricing/",
+            "fetched_at": "2026-10-17T19:28:42Z"
+          },
+          "P2.7": {
+            "text": "Build and test at no cost. When you move to production, pricing follows the underlying eGain products your app uses.",
+            "url": "https://www.egain.com/pricing/",
+            "fetched_at": "2026-10-17T19:28:42Z"
+          },
+          "P2.8": {
+            "text": "One knowledge platform connected everywhere. eGain Connectors integrate with contact center platforms,",
+            "url": "https://www.egain.com/pricing/",
+            "fetched_at": "2026-10-17T19:28:42Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

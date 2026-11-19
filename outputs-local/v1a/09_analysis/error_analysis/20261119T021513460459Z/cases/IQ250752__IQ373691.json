@@ -1,0 +1,887 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ250752__IQ373691",
+    "target": "IQ250752",
+    "comp": "IQ373691",
+    "target_ticker": "AMS",
+    "comp_ticker": "RDNT",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ250752__IQ373691",
+        "target": "IQ250752",
+        "comp": "IQ373691",
+        "target_ticker": "AMS",
+        "comp_ticker": "RDNT",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ250752",
+          "comp": "IQ373691",
+          "method": "B3",
+          "kept": true,
+          "rank": 8.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AMS",
+          "comp_ticker": "RDNT"
+        },
+        {
+          "target": "IQ250752",
+          "comp": "IQ373691",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 8.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AMS",
+          "comp_ticker": "RDNT"
+        },
+        {
+          "target": "IQ250752",
+          "comp": "IQ373691",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 8.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AMS",
+          "comp_ticker": "RDNT"
+        },
+        {
+          "target": "IQ250752",
+          "comp": "IQ373691",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AMS",
+          "comp_ticker": "RDNT"
+        },
+        {
+          "target": "IQ250752",
+          "comp": "IQ373691",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AMS",
+          "comp_ticker": "RDNT"
+        },
+        {
+          "target": "IQ250752",
+          "comp": "IQ373691",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 8.0,
+          "reason": "Diagnostic imaging centers and radiology software; the target treats patients with radiosurgery equipment, so the services differ.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AMS",
+          "comp_ticker": "RDNT"
+        },
+        {
+          "target": "IQ250752",
+          "comp": "IQ373691",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 8.0,
+          "reason": "Radiation/imaging-oriented outpatient services with capital-intensive equipment and Medicare reimbursement; closest equipment-based oncology/radiology service operator, though diagnostic rather than therapeutic.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AMS",
+          "comp_ticker": "RDNT"
+        },
+        {
+          "target": "IQ250752",
+          "comp": "IQ373691",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Operates outpatient diagnostic imaging centers billing for radiology procedures; closest outpatient medical-imaging and radiation-based service model on the list.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AMS",
+          "comp_ticker": "RDNT"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Leases Gamma Knife radiosurgery systems and related equipment to hospitals and cancer centers on a per-use fee basis, and operates them so hospitals can offer noninvasive brain and body treatments to patients.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "",
+        "primary_products_status": "not_applicable",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "radiosurgery treatment services; equipment operation and maintenance; proton therapy services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: hospitals and cancer treatment centers that host the equipment",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "healthcare; cancer treatment; neurosurgery",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "transaction or usage fees: per-procedure fees paid by hospitals for each radiosurgery treatment performed",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "asset operator: owns and runs radiosurgery units placed in hospitals, sold to hospitals and their patients; service provider: staffs and maintains treatment systems for host hospitals",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: hospital sites across many US states",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "mid-sized",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "niche specialist: focused on radiosurgery and related radiation therapy equipment services for hospitals",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: contracts negotiated directly with hospitals and cancer centers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: radiation-emitting treatment equipment under FDA device rules and state radiation facility licensing, plus Medicare and hospital billing rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Leases Gamma Knife and proton therapy radiosurgery systems to hospitals and cancer centers under long-term contracts. It also develops and finances equipment placements, and holds an interest in a Gamma Knife and other cancer treatment centers.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "",
+        "primary_products_status": "not_applicable",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "leasing of radiosurgery equipment; equipment financing and placement; treatment center management",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: hospitals, medical centers and cancer treatment centers",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "healthcare; oncology; neurosurgery",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "rental or leasing: per-procedure or fixed lease fees from hospitals for Gamma Knife and similar systems; service fees: management and support of treatment centers",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "asset operator: buys radiosurgery systems from manufacturers and leases them to hospitals",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: United States hospitals plus international sites in South America, Turkey and Asia",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "small",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "niche specialist: leasing of radiosurgery and radiation therapy equipment",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: direct contracts with hospitals and cancer centers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: healthcare equipment and radiation devices subject to FDA, NRC and state rules, hospital reimbursement rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ250752.json",
+      "data": {
+        "company_name": "American Shared Hospital Services",
+        "website": "ashs.com",
+        "scrape_status": "ok",
+        "capture_sha256": "cf0438ea10200117f485de1ca174e9ed3c130b4cddf28922b881610807611824",
+        "lines": {
+          "P1.1": {
+            "text": "Home - American Shared Hospital Services : American Shared Hospital Services",
+            "url": "https://www.ashs.com/",
+            "fetched_at": "2026-10-17T19:11:01Z"
+          },
+          "P1.2": {
+            "text": "Making the Best Healthcare Technology Accessible | As a leading provider of radiosurgical and radiation therapy equipment, American Shared Hospital Services (ASHS) has the talent, knowledge, and infrastructure to provide maximum benefit to our medical center partners through our innovative financing solutions. We invest the capital required to help our hospital partners obtain the tools... More",
+            "url": "https://www.ashs.com/",
+            "fetched_at": "2026-10-17T19:11:01Z"
+          },
+          "P1.3": {
+            "text": "Making the Best Healthcare Technology Accessible",
+            "url": "https://www.ashs.com/",
+            "fetched_at": "2026-10-17T19:11:01Z"
+          },
+          "P1.4": {
+            "text": "As a leading provider of radiosurgical and radiation therapy equipment, American Shared Hospital Services (ASHS) has the talent, knowledge, and infrastructure to provide maximum benefit to our medical center partners through our innovative financing solutions.",
+            "url": "https://www.ashs.com/",
+            "fetched_at": "2026-10-17T19:11:01Z"
+          },
+          "P1.5": {
+            "text": "We invest the capital required to help our hospital partners obtain the tools they need to create successful programs and outcomes.",
+            "url": "https://www.ashs.com/",
+            "fetched_at": "2026-10-17T19:11:01Z"
+          },
+          "P2.1": {
+            "text": "What We Do - American Shared Hospital Services : American Shared Hospital Services",
+            "url": "https://www.ashs.com/what-we-do/",
+            "fetched_at": "2026-10-17T19:11:02Z"
+          },
+          "P2.2": {
+            "text": "Searching for a partner with the experience and resources to help you acquire the latest in healthcare technology? Look no further. With over 100 combined years of industry experience, American Shared Hospital Services is a leader in providing innovative financing solutions for radiosurgical and radiation therapy services. Our talent, knowledge, infrastructure, flexibility and... More",
+            "url": "https://www.ashs.com/what-we-do/",
+            "fetched_at": "2026-10-17T19:11:02Z"
+          },
+          "P2.3": {
+            "text": "Searching for a partner with the experience and resources to help you acquire the latest in healthcare technology? Look no further. With over 100 combined years of industry experience, American Shared Hospital Services is a leader in providing innovative financing solutions for radiosurgical and radiation therapy services. Our talent, knowledge, infrastructure, flexibility and value-added services ensure maximum benefit to our hospital partners.",
+            "url": "https://www.ashs.com/what-we-do/",
+            "fetched_at": "2026-10-17T19:11:02Z"
+          },
+          "P2.4": {
+            "text": "Minimal Medical Center capital requirements",
+            "url": "https://www.ashs.com/what-we-do/",
+            "fetched_at": "2026-10-17T19:11:02Z"
+          },
+          "P2.5": {
+            "text": "How We Share Our Expertise With You",
+            "url": "https://www.ashs.com/what-we-do/",
+            "fetched_at": "2026-10-17T19:11:02Z"
+          },
+          "P2.6": {
+            "text": "Feasibility studies including reimbursement analysis",
+            "url": "https://www.ashs.com/what-we-do/",
+            "fetched_at": "2026-10-17T19:11:02Z"
+          },
+          "P2.7": {
+            "text": "Assisting with facilities planning and design",
+            "url": "https://www.ashs.com/what-we-do/",
+            "fetched_at": "2026-10-17T19:11:02Z"
+          },
+          "P2.8": {
+            "text": "Our philosophy is simple. We invest the capital required for the technology our hospital partners need today and provide the tools they need to create successful programs.",
+            "url": "https://www.ashs.com/what-we-do/",
+            "fetched_at": "2026-10-17T19:11:02Z"
+          },
+          "P3.1": {
+            "text": "Radiosurgery - American Shared Hospital Services : American Shared Hospital Services",
+            "url": "https://www.ashs.com/technology/radiosurgery/",
+            "fetched_at": "2026-10-17T19:11:03Z"
+          },
+          "P3.2": {
+            "text": "Radiosurgery American Shared Hospital Services has been at the forefront of providing financing solutions to hospitals and medical centers for their radiosurgical equipment needs. Radiosurgery is a therapeutic radiation technique that applies a field of radiation using multiple, focused, finely collimated radiation beams with surgical precision in a single session. This non-invasive alternative... More",
+            "url": "https://www.ashs.com/technology/radiosurgery/",
+            "fetched_at": "2026-10-17T19:11:03Z"
+          },
+          "P3.3": {
+            "text": "American Shared Hospital Services has been at the forefront of providing financing solutions to hospitals and medical centers for their radiosurgical equipment needs.",
+            "url": "https://www.ashs.com/technology/radiosurgery/",
+            "fetched_at": "2026-10-17T19:11:03Z"
+          },
+          "P3.4": {
+            "text": "Radiosurgery is a therapeutic radiation technique that applies a field of radiation using multiple, focused, finely collimated radiation beams with surgical precision in a single session. This non-invasive alternative to surgery typically improves patient quality of life both during and after treatment. It is virtually pain-free, requires little to no anesthesia, has minimal side effects and is usually performed as an outpatient procedure. Patients typically return to pre-surgery activities within several days.",
+            "url": "https://www.ashs.com/technology/radiosurgery/",
+            "fetched_at": "2026-10-17T19:11:03Z"
+          },
+          "P3.5": {
+            "text": "American Shared can finance radiosurgery solutions from a variety of manufacturers to suit your needs. You can choose the technology best suited for your specific requirements.",
+            "url": "https://www.ashs.com/technology/radiosurgery/",
+            "fetched_at": "2026-10-17T19:11:03Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Operates outpatient diagnostic imaging centers and sells AI-enabled radiology software. Imaging is performed at its own centers for patients referred by physicians and health systems, and software is licensed to hospitals and radiology practices.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "AI breast cancer detection software; radiology workflow software",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "MRI scans; CT scans; mammography; PET imaging; ultrasound",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: referring physicians, hospitals, health systems, radiology practices, insurers; B2C: patients receiving imaging exams, including self-pay patients",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "healthcare; outpatient diagnostics; radiology",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "healthcare reimbursement: payments from insurers and Medicare for imaging exams; subscription: AI software licensed to hospitals and radiology groups",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: operates imaging centers and sells exams to patients and referring physicians; software / platform: develops AI radiology software sold to healthcare providers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: imaging centers in several states including California, New York, New Jersey, Florida and Texas",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "among the largest",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: outpatient imaging services and radiology AI software",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "own locations: owned outpatient imaging centers; direct sales: software sold directly to hospitals and radiology groups; other: patient referrals from physicians and health systems",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: imaging centers need state licenses and Medicare certification, AI software needs FDA clearance",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Owns and operates outpatient diagnostic imaging centers providing MRI, CT, PET/CT, mammography, ultrasound and X-ray services to patients referred by physicians. Also develops AI software for image analysis and breast cancer detection, and offers digital health tools.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "AI-based imaging analysis software; digital health applications",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "outpatient diagnostic imaging (MRI, CT, PET/CT); breast imaging and mammography; ultrasound and X-ray; radiology reading services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: patients referred for imaging, including self-pay and screening patients; B2B: health plans, hospital systems and physician groups under contracts and joint ventures",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "healthcare; outpatient diagnostic imaging; radiology; preventive screening",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "healthcare reimbursement: fees for imaging procedures paid by commercial insurers, Medicare and Medicaid; service fees: self-pay imaging and capitated contract payments from health plans; subscription: AI software offered to clinicians and consumers",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "asset operator: owns and runs imaging centers with scanners, serving patients referred by physicians; service provider: radiologists interpret studies for patients, hospitals and health plans; software / platform: develops AI imaging software sold to providers and patients",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "US regional: Centers concentrated in California, New York, New Jersey, Maryland, Florida, Delaware and other states",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "among the largest",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: imaging centers, radiology services and AI/digital health software",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "own locations: owned and joint venture outpatient imaging centers; agents / brokers: physician referrals and health plan network contracts; online: direct patient scheduling and digital screening tools",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: healthcare services reimbursed by Medicare/Medicaid, subject to CMS, HIPAA, state licensing, Stark and anti-kickback laws",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ373691.json",
+      "data": {
+        "company_name": "RadNet, Inc.",
+        "website": "www.radnet.com",
+        "scrape_status": "ok",
+        "capture_sha256": "196b3610bf934e572f747b86b09fdfb34181be0ea91234dbb2e77fc0bc4ad0dc",
+        "lines": {
+          "P1.1": {
+            "text": "RadNet | Outpatient Radiology Centers (MRI, Ultrasound, 3D Mammography, etc.)",
+            "url": "https://www.radnet.com/",
+            "fetched_at": "2026-10-17T20:06:15Z"
+          },
+          "P1.2": {
+            "text": "RadNet has 350 outpatient imaging centers in California, New York, Maryland, Delaware, New Jersey & Florida.",
+            "url": "https://www.radnet.com/",
+            "fetched_at": "2026-10-17T20:06:15Z"
+          },
+          "P1.3": {
+            "text": "RadNet completes more than 12 m outpatient imaging procedures annually.",
+            "url": "https://www.radnet.com/",
+            "fetched_at": "2026-10-17T20:06:15Z"
+          },
+          "P1.4": {
+            "text": "Total number of our imaging centers across AZ, CA, DE, FL, ID, IN, MD, NJ, NY, TX & VA.",
+            "url": "https://www.radnet.com/",
+            "fetched_at": "2026-10-17T20:06:15Z"
+          },
+          "P1.5": {
+            "text": "Years leading the imaging industry.",
+            "url": "https://www.radnet.com/",
+            "fetched_at": "2026-10-17T20:06:15Z"
+          },
+          "P1.6": {
+            "text": "We are the largest provider of freestanding, fixed-site outpatient diagnostic imaging in the country, with 442 ctr (as of 6/30/26).",
+            "url": "https://www.radnet.com/",
+            "fetched_at": "2026-10-17T20:06:15Z"
+          },
+          "P1.7": {
+            "text": "Our IT division, eRAD, delivers integrated, web-based, cloud solutions for medical imaging workflow.",
+            "url": "https://www.radnet.com/",
+            "fetched_at": "2026-10-17T20:06:15Z"
+          },
+          "P1.8": {
+            "text": "We pioneer research, leverage radiology best practices, and align resources in our specialty centers of excellence.",
+            "url": "https://www.radnet.com/",
+            "fetched_at": "2026-10-17T20:06:15Z"
+          },
+          "P1.9": {
+            "text": "RadNet forges strategic joint ventures with hospitals, health systems, and ACOs.",
+            "url": "https://www.radnet.com/",
+            "fetched_at": "2026-10-17T20:06:15Z"
+          },
+          "P1.10": {
+            "text": "Our utilization and reimbursement models help us achieve operating efficiency and strong outcomes.",
+            "url": "https://www.radnet.com/",
+            "fetched_at": "2026-10-17T20:06:15Z"
+          },
+          "P1.11": {
+            "text": "RadNet’s stringent quality programs address federal and state regulations and promote patient and clinician safety.",
+            "url": "https://www.radnet.com/",
+            "fetched_at": "2026-10-17T20:06:15Z"
+          },
+          "P2.1": {
+            "text": "RadNet | Our Mission. Our Values. - Leading Radiology Forward",
+            "url": "https://www.radnet.com/about-radnet",
+            "fetched_at": "2026-10-17T20:06:16Z"
+          },
+          "P2.2": {
+            "text": "RadNet is leading radiology forward by working with our partners to deliver medical imaging services.",
+            "url": "https://www.radnet.com/about-radnet",
+            "fetched_at": "2026-10-17T20:06:16Z"
+          },
+          "P2.3": {
+            "text": "RadNet is the national leader in outpatient imaging. Backed by 45+ years of experience, we deliver high-quality, cost-effective solutions for all 442 ctr (as of 6/30/26) in our network—and for our strategic partners.",
+            "url": "https://www.radnet.com/about-radnet",
+            "fetched_at": "2026-10-17T20:06:16Z"
+          },
+          "P2.4": {
+            "text": "RadNet’s mission — comprehensive radiology solutions — aligns with the future of healthcare.",
+            "url": "https://www.radnet.com/about-radnet",
+            "fetched_at": "2026-10-17T20:06:16Z"
+          },
+          "P2.5": {
+            "text": "We are the only radiology provider with the resources to create greater opportunities for our strategic partners. We leverage our national profile and a broad portfolio of clinical and technical services to support best outcomes.",
+            "url": "https://www.radnet.com/about-radnet",
+            "fetched_at": "2026-10-17T20:06:16Z"
+          },
+          "P2.6": {
+            "text": "We make it easy for everyone involved in healthcare decisions — administrators, physicians, IT professionals, technologists — to work together. Above all, that includes patients. Recent findings show that patients who are actively involved in their healthcare experience better outcomes and incur lower costs.",
+            "url": "https://www.radnet.com/about-radnet",
+            "fetched_at": "2026-10-17T20:06:16Z"
+          },
+          "P2.7": {
+            "text": "Our focus is simple. We deliver high quality, conveniently accessible care in the most cost effective manner possible. Quality, access, and value are at the core of what we do — in every new imaging center we establish, every health system that we partner with, every patient we encounter. That is the RadNet difference.",
+            "url": "https://www.radnet.com/about-radnet",
+            "fetched_at": "2026-10-17T20:06:16Z"
+          },
+          "P2.8": {
+            "text": "RadNet and WIN-NextGen™ Form a Collaboration to Inspire the Next Generation of Medical Imaging Professionals",
+            "url": "https://www.radnet.com/about-radnet",
+            "fetched_at": "2026-10-17T20:06:16Z"
+          },
+          "P2.9": {
+            "text": "RadNet to Host Free Prostate Cancer Webinar on",
+            "url": "https://www.radnet.com/about-radnet",
+            "fetched_at": "2026-10-17T20:06:16Z"
+          },
+          "P2.10": {
+            "text": "RadNet's success is based on strong leadership, exemplary business acumen, and a drive to be the best.",
+            "url": "https://www.radnet.com/about-radnet",
+            "fetched_at": "2026-10-17T20:06:16Z"
+          },
+          "P2.11": {
+            "text": "– over 4 decades of experience.",
+            "url": "https://www.radnet.com/about-radnet",
+            "fetched_at": "2026-10-17T20:06:16Z"
+          },
+          "P2.12": {
+            "text": "Company has quadrupled in size.",
+            "url": "https://www.radnet.com/about-radnet",
+            "fetched_at": "2026-10-17T20:06:16Z"
+          },
+          "P2.13": {
+            "text": "Publically Traded; RadNet’s management owns over 25% of common stock.",
+            "url": "https://www.radnet.com/about-radnet",
+            "fetched_at": "2026-10-17T20:06:16Z"
+          },
+          "P2.14": {
+            "text": "Largest provider of radiology clinical AI solutions worldwide.",
+            "url": "https://www.radnet.com/about-radnet",
+            "fetched_at": "2026-10-17T20:06:16Z"
+          },
+          "P2.15": {
+            "text": "Regional networks in Arizona, California, Delaware, Idaho, Indiana, Florida, Maryland, New Jersey, New York, Texas and Virginia.",
+            "url": "https://www.radnet.com/about-radnet",
+            "fetched_at": "2026-10-17T20:06:16Z"
+          },
+          "P2.16": {
+            "text": "Emphasis placed on scale and multi-modality strategy – one stop shopping for referral sources and health plans.",
+            "url": "https://www.radnet.com/about-radnet",
+            "fetched_at": "2026-10-17T20:06:16Z"
+          },
+          "P2.17": {
+            "text": "Facilities offer state-of-the-art equipment in a modern and patient friendly setting.",
+            "url": "https://www.radnet.com/about-radnet",
+            "fetched_at": "2026-10-17T20:06:16Z"
+          },
+          "P2.18": {
+            "text": "Top 100 in InformationWeek’s 500 Most Innovative Companies.",
+            "url": "https://www.radnet.com/about-radnet",
+            "fetched_at": "2026-10-17T20:06:16Z"
+          },
+          "P2.19": {
+            "text": "Voted one of the “Most Wired” Imaging Companies by Imaging Technology News.",
+            "url": "https://www.radnet.com/about-radnet",
+            "fetched_at": "2026-10-17T20:06:16Z"
+          },
+          "P2.20": {
+            "text": "Reported as #1 Imaging Center Chain by Radiology Business Journal.",
+            "url": "https://www.radnet.com/about-radnet",
+            "fetched_at": "2026-10-17T20:06:16Z"
+          },
+          "P2.21": {
+            "text": "The leader in quality imaging, RadNet has more than",
+            "url": "https://www.radnet.com/about-radnet",
+            "fetched_at": "2026-10-17T20:06:16Z"
+          },
+          "P3.1": {
+            "text": "Radiology Outpatient Centers | RadNet",
+            "url": "https://www.radnet.com/who-we-serve",
+            "fetched_at": "2026-10-17T20:06:17Z"
+          },
+          "P3.2": {
+            "text": "RadNet serves patients, providers and payors through its network of 290+ radiology outpatient centers in California, New York, Maryland and other states.",
+            "url": "https://www.radnet.com/who-we-serve",
+            "fetched_at": "2026-10-17T20:06:17Z"
+          },
+          "P3.3": {
+            "text": "Right Image, Right Setting, Right Cost",
+            "url": "https://www.radnet.com/who-we-serve",
+            "fetched_at": "2026-10-17T20:06:17Z"
+          },
+          "P3.4": {
+            "text": "Reliable results—that’s what you count on. Our patients and referring physicians get appropriate, accurate, cost-effective procedures. Payors benefit from our flexibility and geo-access base.",
+            "url": "https://www.radnet.com/who-we-serve",
+            "fetched_at": "2026-10-17T20:06:17Z"
+          },
+          "P3.5": {
+            "text": "The top radiologists in the country, IT innovation, strategic relationships, 45+ yrs of imaging experience, research leadership— this is the expertise we leverage across all of RadNet, for every exam, in every location.",
+            "url": "https://www.radnet.com/who-we-serve",
+            "fetched_at": "2026-10-17T20:06:17Z"
+          },
+          "P3.6": {
+            "text": "As the largest provider of",
+            "url": "https://www.radnet.com/who-we-serve",
+            "fetched_at": "2026-10-17T20:06:17Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

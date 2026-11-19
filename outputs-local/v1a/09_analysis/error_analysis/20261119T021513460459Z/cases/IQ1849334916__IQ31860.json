@@ -1,0 +1,988 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ1849334916__IQ31860",
+    "target": "IQ1849334916",
+    "comp": "IQ31860",
+    "target_ticker": "VLTO",
+    "comp_ticker": "AME",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ1849334916__IQ31860",
+        "target": "IQ1849334916",
+        "comp": "IQ31860",
+        "target_ticker": "VLTO",
+        "comp_ticker": "AME",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ1849334916",
+          "comp": "IQ31860",
+          "method": "B3",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "VLTO",
+          "comp_ticker": "AME"
+        },
+        {
+          "target": "IQ1849334916",
+          "comp": "IQ31860",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "VLTO",
+          "comp_ticker": "AME"
+        },
+        {
+          "target": "IQ1849334916",
+          "comp": "IQ31860",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "VLTO",
+          "comp_ticker": "AME"
+        },
+        {
+          "target": "IQ1849334916",
+          "comp": "IQ31860",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "VLTO",
+          "comp_ticker": "AME"
+        },
+        {
+          "target": "IQ1849334916",
+          "comp": "IQ31860",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "VLTO",
+          "comp_ticker": "AME"
+        },
+        {
+          "target": "IQ1849334916",
+          "comp": "IQ31860",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "VLTO",
+          "comp_ticker": "AME"
+        },
+        {
+          "target": "IQ1849334916",
+          "comp": "IQ31860",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 1.0,
+          "reason": "Aerospace, defense and motor businesses differ from Veralto's coding printers and water quality instruments, despite some analytical instrument overlap.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "VLTO",
+          "comp_ticker": "AME"
+        },
+        {
+          "target": "IQ1849334916",
+          "comp": "IQ31860",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Makes process and analytical instruments, sensors and calibration services for process plants and utilities, overlapping Veralto's water quality instruments and service model.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "VLTO",
+          "comp_ticker": "AME"
+        },
+        {
+          "target": "IQ1849334916",
+          "comp": "IQ31860",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Diversified analytical and process instrument maker with calibration services, sold to industrial and lab customers; closest instrument business model.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "VLTO",
+          "comp_ticker": "AME"
+        },
+        {
+          "target": "IQ1849334916",
+          "comp": "IQ31860",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 3.0,
+          "reason": "Diversified maker of analytical and process instruments with calibration and repair services for industrial customers.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "VLTO",
+          "comp_ticker": "AME"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Sells product identification equipment, such as inkjet and laser coding and marking printers, to food, beverage, pharmaceutical and other manufacturers. Also sells water quality instruments, sensors and treatment systems to industrial customers and water utilities, mainly as equipment, consumables and service.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "coding and marking printers; consumable inks; water analysis instruments and sensors; UV disinfection systems; test reagents",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "installation and maintenance; service contracts; instrument calibration",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: food and beverage makers, pharmaceutical and industrial manufacturers, environmental testing labs; B2G: municipal water utilities and government water agencies",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "food and beverage; pharmaceuticals and life sciences; industrial manufacturing; water utilities; environmental testing",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: printers, instruments, UV systems and consumables sold to manufacturers and utilities; service fees: installation, maintenance and calibration for installed equipment",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: designs and builds printers, instruments and water treatment systems, sold to manufacturers and utilities; service provider: installs, maintains and calibrates equipment for existing customers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: Sells worldwide, with major operations in North America, Europe and Asia",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "diversified: two businesses: product identification (coding and marking) and water quality instruments and treatment",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales teams selling to large industrial accounts and utilities; distributors / dealers: independent distributors and dealers in many countries",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: drinking water and environmental testing standards, plus food and drug labeling and traceability rules, such as EPA and FDA requirements",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides water quality instrumentation, analytics and treatment solutions (Hach, Trojan Technologies, McCrometer, ChemTreat) and product identification equipment such as coding, marking, packaging and labeling systems (Videojet, Linx, Esko, X-Rite, Pantone). Sells to utilities, industrial plants, and consumer goods, food, beverage and pharmaceutical manufacturers, made in own factories with consumables and service.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "water testing instruments and reagents; UV disinfection systems; flow meters; industrial water treatment chemicals; industrial inkjet and laser coders and printers",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "equipment servicing and maintenance; water treatment programs and monitoring; software support; calibration and color management services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: industrial plants, food, beverage, pharma and consumer goods manufacturers, brand owners; B2G: municipal water and wastewater utilities and agencies",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "municipal water and wastewater; industrial water; food and beverage; pharmaceuticals; consumer packaged goods",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: instruments, UV systems, meters, coders and printers, plus recurring consumables like reagents, inks and chemicals; service fees: installation, maintenance, calibration and service contracts; subscription: software and cloud analytics subscriptions",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: builds instruments, treatment systems and coding equipment from purchased components, sold to utilities and manufacturers; service provider: water treatment programs and equipment servicing for industrial and municipal customers; software / platform: packaging workflow and color management software sold to brand owners and printers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: North America, Europe, Asia Pacific, Latin America, Middle East and Africa",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: water analytics and treatment, and product identification, sharing instrumentation, consumables and recurring-revenue models",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: sales teams serving utilities, large industrial and manufacturing accounts; distributors / dealers: channel partners and distributors for instruments and coding equipment; online: e-commerce for consumables and reagents",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: water quality and drinking water standards, EPA and NSF certifications, food and pharma labeling and traceability rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ1849334916.json",
+      "data": {
+        "company_name": "Veralto Corporation",
+        "website": "www.veralto.com",
+        "scrape_status": "ok",
+        "capture_sha256": "549e409523e6930619cfa126d4889ac850590e608e823697fe2cecf6941ea648",
+        "lines": {
+          "P1.1": {
+            "text": "Home | Veralto",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.2": {
+            "text": "Veralto is a global leader in essential technology solutions powered by purpose: Safeguarding the World’s Most Vital Resources™.",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.3": {
+            "text": "Safeguarding the World’s Most Vital Resources ™",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.4": {
+            "text": "Imagine a world where everyone has access to clean water, safe food, and trusted essential goods. This is the tomorrow Veralto is helping to create today.",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.5": {
+            "text": "Veralto is a global leader in essential technology solutions powered by purpose: Safeguarding the World’s Most Vital Resources™. Our operating companies share a powerful vision for a better tomorrow.",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.6": {
+            "text": "Solving the problems that matter most",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.7": {
+            "text": "Our industry-leading companies and globally-recognized brands are building on a long-established legacy of innovation and customer trust to create a safer, cleaner, more vibrant future.",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.8": {
+            "text": "Our Water Quality companies help our customers manage, treat, purify, and protect the world’s waters, from municipal and wastewater treatment facilities to lakes, rivers, watersheds, and oceans.",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.9": {
+            "text": "Safeguarding food, medicine, and essentials",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.10": {
+            "text": "Our Product Quality and Innovation companies help our customers protect food, medicine, and essential goods by enabling the traceability and authentication of billions of products that travel the global supply chain every day.",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.11": {
+            "text": "Explore Product Quality and Innovation",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.12": {
+            "text": "What we do protects, builds, and improves the systems that enable everyday life. And how we do it sets us apart.",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.13": {
+            "text": "Working for a better world",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.14": {
+            "text": "Sustainability is woven deeply into the fabric of Veralto. From helping ensure clean drinking water to reducing packaging waste, we help protect precious resources and keep our global water and food supplies safe.",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.15": {
+            "text": "Veralto Corporation, a global leader in essential water and product quality solutions dedicated to Safeguarding the World’s Most Vital Resources™, announced that it will webcast its…",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.16": {
+            "text": "Veralto Announces Climate Targets Validated by the Science Bas…",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.17": {
+            "text": "SBTi approval affirms Veralto’s climate strategy, enabling new near-term targets WALTHAM, Mass., /PRNewswire/ — Veralto Corporation, a global leader in essential water…",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.18": {
+            "text": "Veralto Signs Agreement to Acquire Cleanwater1",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.19": {
+            "text": "Strengthens Veralto’s leadership in water disinfection and contaminant removal Expands presence in high-growth chlorine disinfection and solid management applications Provides installed base of…",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.20": {
+            "text": "Veralto Reports Second Quarter 2026 Results",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.21": {
+            "text": "Veralto (the “Company”), a global leader in essential water and product quality solutions dedicated to Safeguarding the World’s Most Vital Resources™, announced results for the…",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.22": {
+            "text": "Strengthens ability to serve industrial water in high-growth markets with locally tailored UV treatment solutions WALTHAM, Mass., /PRNewswire/ — Veralto Corporation …",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.23": {
+            "text": "Veralto Announces Pricing of Senior Notes Offering",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.24": {
+            "text": "Working for a safer, cleaner, more vibrant future.",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P1.25": {
+            "text": "At Veralto, you’ll make an impact that improves lives and communities every day—while experiencing endless opportunities to learn and grow.",
+            "url": "https://www.veralto.com/",
+            "fetched_at": "2026-10-17T20:20:26Z"
+          },
+          "P2.1": {
+            "text": "Who we are | Veralto",
+            "url": "https://www.veralto.com/who-we-are/",
+            "fetched_at": "2026-10-17T20:20:27Z"
+          },
+          "P2.2": {
+            "text": "Our operating companies are building on a long-standing legacy of success, innovation, and deep customer trust as they work to create a safer, cleaner, more vibrant future.",
+            "url": "https://www.veralto.com/who-we-are/",
+            "fetched_at": "2026-10-17T20:20:27Z"
+          },
+          "P2.3": {
+            "text": "Veralto is inspired by the Latin root words veri for truth and alto for height, reflecting our commitment to the higher truth that drives us to create a better future for all. Our name inspires us to stay true to our highest ideals and to continually raise the bar as we pursue our powerful purpose: Safeguarding the World’s Most Vital Resources™.",
+            "url": "https://www.veralto.com/who-we-are/",
+            "fetched_at": "2026-10-17T20:20:27Z"
+          },
+          "P2.4": {
+            "text": "At Veralto, we hold ourselves accountable to fostering a culture of trust, support, and authenticity where every associate feels empowered to make their unique mark.",
+            "url": "https://www.veralto.com/who-we-are/",
+            "fetched_at": "2026-10-17T20:20:27Z"
+          },
+          "P2.5": {
+            "text": "Inclusion and belonging at Veralto",
+            "url": "https://www.veralto.com/who-we-are/",
+            "fetched_at": "2026-10-17T20:20:27Z"
+          },
+          "P2.6": {
+            "text": "Their diversity of perspectives and backgrounds, deep customer knowledge, and proven experience create a strong foundation for continued excellence and growth.",
+            "url": "https://www.veralto.com/who-we-are/",
+            "fetched_at": "2026-10-17T20:20:27Z"
+          },
+          "P2.7": {
+            "text": "I can’t imagine a better place to grow as a leader and as a human being.",
+            "url": "https://www.veralto.com/who-we-are/",
+            "fetched_at": "2026-10-17T20:20:27Z"
+          },
+          "P3.1": {
+            "text": "Ott | Veralto",
+            "url": "https://www.veralto.com/company/ott/",
+            "fetched_at": "2026-10-17T20:20:29Z"
+          },
+          "P3.2": {
+            "text": "Ott, a Veralto Water Quality company: Protecting the world's water resources by equipping the people who manage them with trusted,",
+            "url": "https://www.veralto.com/company/ott/",
+            "fetched_at": "2026-10-17T20:20:29Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and manufactures electronic instruments and electromechanical devices for industrial, aerospace, defense, power, medical and laboratory customers. Sells mainly directly to original equipment makers and process plant operators, and through sales representatives.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "process and analytical instruments; test and calibration equipment; motors; motion control devices; sensors; power conversion equipment",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "calibration and repair services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: aerospace and defense contractors, industrial equipment makers, process plant operators, medical device makers; B2G: defense and government agencies buying through prime contractors",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "aerospace and defense; industrial automation; power generation; medical; laboratory and test",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: instruments, motors and electronic components sold to industrial and defense customers; service fees: calibration, repair and testing services for installed equipment",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: builds instruments and electromechanical devices from purchased and in-house components, sold to OEMs and plant operators; component supplier: supplies motors, sensors and power components that other companies integrate into their equipment",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "global: sells and operates across North America, Europe, Asia and other regions worldwide",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "diversified: two groups: electronic instruments and electromechanical devices, serving different customers",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: in-house sales teams selling to OEMs, utilities and defense primes; agents / brokers: independent sales representatives and manufacturers' representative firms; distributors / dealers: industrial distributors selling standard motors and instruments",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: export controls and defense procurement rules, plus environmental and product safety regulations",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Designs and manufactures differentiated electronic instruments, sensors, analytical and test equipment, and engineered electromechanical components. Sells to industrial, aerospace, defense, medical, power and process customers worldwide, largely through direct sales, and grows by acquiring niche businesses.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "analytical and process instruments; test and measurement instruments; aerospace and defense sensors and avionics; electromechanical motors and connectors; thermal management systems",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "calibration and repair; aftermarket maintenance and support",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2B: aerospace, industrial, medical, semiconductor, power, process and research manufacturers and OEMs; B2G: defense agencies and military programs",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "aerospace and defense; industrial automation; medical; power and energy; process industries; semiconductor and electronics",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "product sales: instruments, sensors, motors and components sold to OEMs and end users; service fees: calibration, repair and aftermarket support",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "OEM / manufacturer: builds instruments and electromechanical products from purchased materials, sold to industrial and aerospace customers; component supplier: supplies motors, sensors and connectors to equipment makers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "global: North America, Europe, Asia and other regions",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: Electronic Instruments Group and Electromechanical Group, both niche instruments and components",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "direct sales: own sales force selling to OEMs and end users; distributors / dealers: independent distributors and sales representatives",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "medium: aerospace and defense export controls (ITAR), product safety and environmental rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ31860.json",
+      "data": {
+        "company_name": "AMETEK, Inc.",
+        "website": "www.ametek.com",
+        "scrape_status": "ok",
+        "capture_sha256": "22fcd4dab2fbdffe5d05cc51b925bb57a4b8679c03a36b00593552cdbb381058",
+        "lines": {
+          "P1.1": {
+            "text": "AMETEK",
+            "url": "https://www.ametek.com/",
+            "fetched_at": "2026-10-17T19:11:05Z"
+          },
+          "P1.2": {
+            "text": "Every day, our technology makes a safer, sustainable and more productive world a reality.",
+            "url": "https://www.ametek.com/",
+            "fetched_at": "2026-10-17T19:11:05Z"
+          },
+          "P1.3": {
+            "text": "We do it by bringing together and investing in passionate, talented people.",
+            "url": "https://www.ametek.com/",
+            "fetched_at": "2026-10-17T19:11:05Z"
+          },
+          "P1.4": {
+            "text": "As a leading global provider of differentiated electronic instruments and electromechanical devices, we are proud to solve some of the world’s most complex challenges. Our strength comes from four key areas.",
+            "url": "https://www.ametek.com/",
+            "fetched_at": "2026-10-17T19:11:05Z"
+          },
+          "P1.5": {
+            "text": "A combined vision for success",
+            "url": "https://www.ametek.com/",
+            "fetched_at": "2026-10-17T19:11:05Z"
+          },
+          "P1.6": {
+            "text": "We target niche markets aligned with secular growth trends that provide multiple avenues of growth.",
+            "url": "https://www.ametek.com/",
+            "fetched_at": "2026-10-17T19:11:05Z"
+          },
+          "P1.7": {
+            "text": "Proud to be out in front",
+            "url": "https://www.ametek.com/",
+            "fetched_at": "2026-10-17T19:11:05Z"
+          },
+          "P1.8": {
+            "text": "Over the past 15, 10, and 5-year periods we have substantially outperformed the S&P 500 index and the S&P Industrials.",
+            "url": "https://www.ametek.com/",
+            "fetched_at": "2026-10-17T19:11:05Z"
+          },
+          "P1.9": {
+            "text": "Life is full of complex challenges. Each one inspires us to do what we love. To make the world a better place.",
+            "url": "https://www.ametek.com/",
+            "fetched_at": "2026-10-17T19:11:05Z"
+          },
+          "P1.10": {
+            "text": "AMETEK is a worldwide leader in the design and manufacturing of advanced analytical, test and measurement instrumentation for the energy, aerospace, power, research, medical and industrial markets.",
+            "url": "https://www.ametek.com/",
+            "fetched_at": "2026-10-17T19:11:05Z"
+          },
+          "P1.11": {
+            "text": "We are world-renowned as a differentiated supplier of automation and precision motion control solutions, and highly engineered electrical interconnects, specialty metals and thermal management systems.",
+            "url": "https://www.ametek.com/",
+            "fetched_at": "2026-10-17T19:11:05Z"
+          },
+          "P1.12": {
+            "text": "Building a culture of Continuous Improvement",
+            "url": "https://www.ametek.com/",
+            "fetched_at": "2026-10-17T19:11:05Z"
+          },
+          "P1.13": {
+            "text": "AMETEK Connect | Serbia Campus",
+            "url": "https://www.ametek.com/",
+            "fetched_at": "2026-10-17T19:11:05Z"
+          },
+          "P1.14": {
+            "text": "Meet Margherita from AMETEK Italy",
+            "url": "https://www.ametek.com/",
+            "fetched_at": "2026-10-17T19:11:05Z"
+          },
+          "P1.15": {
+            "text": "Igniting innovation at Cristo Rey Philadelphia",
+            "url": "https://www.ametek.com/",
+            "fetched_at": "2026-10-17T19:11:05Z"
+          },
+          "P2.1": {
+            "text": "Who We Are",
+            "url": "https://www.ametek.com/who-we-are",
+            "fetched_at": "2026-10-17T19:11:06Z"
+          },
+          "P2.2": {
+            "text": "Solving complex challenges to make the world a better place. It’s what we do.",
+            "url": "https://www.ametek.com/who-we-are",
+            "fetched_at": "2026-10-17T19:11:06Z"
+          },
+          "P2.3": {
+            "text": "Operating locations in multiple countries",
+            "url": "https://www.ametek.com/who-we-are",
+            "fetched_at": "2026-10-17T19:11:06Z"
+          },
+          "P2.4": {
+            "text": "Explore some of our businesses.",
+            "url": "https://www.ametek.com/who-we-are",
+            "fetched_at": "2026-10-17T19:11:06Z"
+          },
+          "P2.5": {
+            "text": "We provide global solutions in six key areas to the four corners of the earth - and beyond.",
+            "url": "https://www.ametek.com/who-we-are",
+            "fetched_at": "2026-10-17T19:11:06Z"
+          },
+          "P2.6": {
+            "text": "Supporting next generation Aerospace and Defense Platforms",
+            "url": "https://www.ametek.com/who-we-are",
+            "fetched_at": "2026-10-17T19:11:06Z"
+          },
+          "P2.7": {
+            "text": "Solutions for Automation and Manufacturing",
+            "url": "https://www.ametek.com/who-we-are",
+            "fetched_at": "2026-10-17T19:11:06Z"
+          },
+          "P2.8": {
+            "text": "Extending Limits in Tests, Measurements and Detection",
+            "url": "https://www.ametek.com/who-we-are",
+            "fetched_at": "2026-10-17T19:11:06Z"
+          },
+          "P2.9": {
+            "text": "Mission-Critical Solutions for the Medical and Healthcare Fields",
+            "url": "https://www.ametek.com/who-we-are",
+            "fetched_at": "2026-10-17T19:11:06Z"
+          },
+          "P2.10": {
+            "text": "Ensuring Reliable Energy, Production and Supply",
+            "url": "https://www.ametek.com/who-we-are",
+            "fetched_at": "2026-10-17T19:11:06Z"
+          },
+          "P2.11": {
+            "text": "Advancing Cutting-Edge Research and Development",
+            "url": "https://www.ametek.com/who-we-are",
+            "fetched_at": "2026-10-17T19:11:06Z"
+          },
+          "P2.12": {
+            "text": "Take a more in-depth view",
+            "url": "https://www.ametek.com/who-we-are",
+            "fetched_at": "2026-10-17T19:11:06Z"
+          },
+          "P2.13": {
+            "text": "See the steps we have taken",
+            "url": "https://www.ametek.com/who-we-are",
+            "fetched_at": "2026-10-17T19:11:06Z"
+          },
+          "P2.14": {
+            "text": "Above all else, it is the people who dedicate their time, skill and passion to AMETEK who keep us at the top. In return, this is how we nurture and foster our most valuable asset.",
+            "url": "https://www.ametek.com/who-we-are",
+            "fetched_at": "2026-10-17T19:11:06Z"
+          },
+          "P2.15": {
+            "text": "Powering the future of battery technology",
+            "url": "https://www.ametek.com/who-we-are",
+            "fetched_at": "2026-10-17T19:11:06Z"
+          },
+          "P3.1": {
+            "text": "Business Directory",
+            "url": "https://www.ametek.com/business-directory",
+            "fetched_at": "2026-10-17T19:11:08Z"
+          },
+          "P3.2": {
+            "text": "Our businesses serve a diverse set of niche markets and applications, each with attractive growth characteristics.",
+            "url": "https://www.ametek.com/business-directory",
+            "fetched_at": "2026-10-17T19:11:08Z"
+          },
+          "P3.3": {
+            "text": "We solve our customers’ most complex challenges using our Four Growth Strategies: Operational Excellence, Strategic Acquisitions, Global & Market Expansion, and New Product Development. It’s a proven system that has supported leading niche brands.",
+            "url": "https://www.ametek.com/business-directory",
+            "fetched_at": "2026-10-17T19:11:08Z"
+          },
+          "P3.4": {
+            "text": "Behind each of our businesses is a great team achieving great things",
+            "url": "https://www.ametek.com/business-directory",
+            "fetched_at": "2026-10-17T19:11:08Z"
+          },
+          "P3.5": {
+            "text": "Atlas MTT leads with premium weathering testing solutions",
+            "url": "https://www.ametek.com/business-directory",
+            "fetched_at": "2026-10-17T19:11:08Z"
+          },
+          "P3.6": {
+            "text": "Manufacturing big-impact micro components with COINING",
+            "url": "https://www.ametek.com/business-directory",
+            "fetched_at": "2026-10-17T19:11:08Z"
+          },
+          "P3.7": {
+            "text": "AMETEK Surface Vision pioneers automated surface inspection",
+            "url": "https://www.ametek.com/business-directory",
+            "fetched_at": "2026-10-17T19:11:08Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}

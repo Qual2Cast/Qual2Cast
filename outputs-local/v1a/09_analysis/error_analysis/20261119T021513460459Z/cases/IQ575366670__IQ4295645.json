@@ -1,0 +1,858 @@
+{
+  "case": {
+    "case_id": "PAIR:IQ575366670__IQ4295645",
+    "target": "IQ575366670",
+    "comp": "IQ4295645",
+    "target_ticker": "AVAH",
+    "comp_ticker": "ENSG",
+    "human_grade": null,
+    "in_b3": true,
+    "flags": "no_human_label; selector_model_disagreement",
+    "priority": 1
+  },
+  "references": {
+    "PAIR": {
+      "source": "case_queue.csv (derived observed flags, not causal labels)",
+      "data": {
+        "case_id": "PAIR:IQ575366670__IQ4295645",
+        "target": "IQ575366670",
+        "comp": "IQ4295645",
+        "target_ticker": "AVAH",
+        "comp_ticker": "ENSG",
+        "human_grade": null,
+        "in_b3": true,
+        "flags": "no_human_label; selector_model_disagreement",
+        "priority": 1
+      }
+    },
+    "HUMAN": {
+      "source": "human_labels.csv; original reviewer scores/notes",
+      "data": {}
+    },
+    "METHODS": {
+      "source": "pair_comparison.csv",
+      "data": [
+        {
+          "target": "IQ575366670",
+          "comp": "IQ4295645",
+          "method": "B3",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Selected by B3 mutual/top-up rule",
+          "source": "candidates_method1/20261104T074915Z/candidates.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AVAH",
+          "comp_ticker": "ENSG"
+        },
+        {
+          "target": "IQ575366670",
+          "comp": "IQ4295645",
+          "method": "similarity: B0 one-way (v0)",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AVAH",
+          "comp_ticker": "ENSG"
+        },
+        {
+          "target": "IQ575366670",
+          "comp": "IQ4295645",
+          "method": "similarity: B0 mutual",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AVAH",
+          "comp_ticker": "ENSG"
+        },
+        {
+          "target": "IQ575366670",
+          "comp": "IQ4295645",
+          "method": "similarity: B1: none as missing",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AVAH",
+          "comp_ticker": "ENSG"
+        },
+        {
+          "target": "IQ575366670",
+          "comp": "IQ4295645",
+          "method": "similarity: B2: + information weights",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AVAH",
+          "comp_ticker": "ENSG"
+        },
+        {
+          "target": "IQ575366670",
+          "comp": "IQ4295645",
+          "method": "similarity: M2: gate + pieces = method 2",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Saved similarity-method selection",
+          "source": "similarity_methods/20261104T075557Z/comp_lists.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AVAH",
+          "comp_ticker": "ENSG"
+        },
+        {
+          "target": "IQ575366670",
+          "comp": "IQ4295645",
+          "method": "screen_haiku",
+          "kept": false,
+          "rank": 1.0,
+          "reason": "Mainly facility-based skilled nursing and senior living; home health is only one minor line, not its core.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_haiku/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AVAH",
+          "comp_ticker": "ENSG"
+        },
+        {
+          "target": "IQ575366670",
+          "comp": "IQ4295645",
+          "method": "direct_haiku",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Provides home health and hospice clinical care paid by Medicare and Medicaid, though its core business is facility-based skilled nursing.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_haiku/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AVAH",
+          "comp_ticker": "ENSG"
+        },
+        {
+          "target": "IQ575366670",
+          "comp": "IQ4295645",
+          "method": "screen_sonnet",
+          "kept": true,
+          "rank": 1.0,
+          "reason": "Provides home health, hospice and therapy funded by Medicare/Medicaid; closest, though mostly facility-based skilled nursing.",
+          "source": "cosine_then_llm/20261104T074915Z_2026-11-04a_sonnet/tables/judgments.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AVAH",
+          "comp_ticker": "ENSG"
+        },
+        {
+          "target": "IQ575366670",
+          "comp": "IQ4295645",
+          "method": "direct_sonnet",
+          "kept": true,
+          "rank": 2.0,
+          "reason": "Provides skilled nursing, home health, hospice and therapy services to elderly patients, paid mainly by Medicare, Medicaid and managed care.",
+          "source": "direct_llm/20261027T204930Z_2026-11-04a_sonnet/tables/suggestions.csv",
+          "grade": null,
+          "unanimous": null,
+          "target_ticker": "AVAH",
+          "comp_ticker": "ENSG"
+        }
+      ]
+    },
+    "JUDGES": {
+      "source": "judge_comparison.csv",
+      "data": []
+    },
+    "TARGET:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides in-home pediatric and adult nursing, therapy and personal care services to medically complex patients. Services are delivered by clinicians visiting patients' homes and are largely funded by government health programs.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "",
+        "primary_products_status": "not_applicable",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "pediatric private duty nursing; adult home health nursing; pediatric therapy; personal care services",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: patients and families receiving in-home care, mainly children with complex medical needs; B2G: state Medicaid programs and government-funded managed care plans paying for care",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "healthcare; home health care; pediatric care",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "healthcare reimbursement: government program and managed care payments for nursing, therapy and personal care visits",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: delivers nursing and therapy services in patients' homes, paid by payers such as Medicaid and managed care plans",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: many states across the United States",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: pediatric nursing, adult home nursing, pediatric therapy and personal care, all delivered in the home",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "own locations: regional and local branch offices that staff home care visits; other: referrals from hospitals, physicians and managed care organizations",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: home health agencies need state licensure and Medicare/Medicaid certification, with CMS and state health agencies overseeing care and billing, plus HIPAA privacy rules",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "TARGET:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Provides in-home healthcare to medically complex patients, mainly children but also adults and seniors. Services include private duty nursing, home health nursing and therapy, hospice, and medical solutions such as enteral nutrition supplies. Delivered by its own clinicians in patients' homes, paid mostly by government programs.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "enteral nutrition and medical supplies; durable medical equipment",
+        "primary_products_status": "filled",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "TARGET:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "private duty nursing; home health nursing and therapy; hospice care; pediatric therapy; care management",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "TARGET:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: medically complex children, adults and seniors receiving care at home; B2G: Medicaid and Medicare programs and state agencies funding care; B2B: commercial insurers and managed care organizations",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "TARGET:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "home healthcare; pediatric care; hospice and palliative care; medical supplies",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "TARGET:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "healthcare reimbursement: Medicaid, Medicare and commercial insurer payments for nursing, therapy, hospice and supplies",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "TARGET:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: employs nurses and therapists delivering in-home care to patients paid by government and insurers; distributor: buys enteral and medical supplies and delivers them to patients",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "TARGET:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: Operates in many US states across the country",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "TARGET:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "TARGET:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: private duty nursing, home health and hospice, and medical solutions, all in-home care",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "TARGET:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "own locations: branch offices dispatching clinicians to patient homes; other: referrals from physicians, hospitals and payers",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "TARGET:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: Medicare and Medicaid participation, state licensure and certification of home health and hospice, CMS, state health departments",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:TARGET": {
+      "source": "outputs-local/website_scrape/page_text/IQ575366670.json",
+      "data": {
+        "company_name": "Aveanna Healthcare Holdings Inc.",
+        "website": "www.aveanna.com",
+        "scrape_status": "ok",
+        "capture_sha256": "9620f80ad25ba2df44e09b33ee49cccb63495a12ea8e5b0096f2a52b96efba98",
+        "lines": {
+          "P1.1": {
+            "text": "Home Health Care and Services | Aveanna Healthcare",
+            "url": "https://www.aveanna.com/",
+            "fetched_at": "2026-10-17T21:57:34Z"
+          },
+          "P1.2": {
+            "text": "At Aveanna, we are committed to delivering the highest quality care for every patient, including Home Health Care, Hospice Care, and Private Duty Nursing.",
+            "url": "https://www.aveanna.com/",
+            "fetched_at": "2026-10-17T21:57:34Z"
+          },
+          "P1.3": {
+            "text": "Skip to Page Content (will bypass menus and search fields)",
+            "url": "https://www.aveanna.com/",
+            "fetched_at": "2026-10-17T21:57:34Z"
+          },
+          "P1.4": {
+            "text": "This is a carousel with auto-rotating slides. Activate any of the buttons, or press the Stop button to disable rotation. Use Next and Previous buttons to navigate, or jump to a slide with the numbered slide dots.",
+            "url": "https://www.aveanna.com/",
+            "fetched_at": "2026-10-17T21:57:34Z"
+          },
+          "P1.5": {
+            "text": "A better life begins with better homecare.",
+            "url": "https://www.aveanna.com/",
+            "fetched_at": "2026-10-17T21:57:34Z"
+          },
+          "P1.6": {
+            "text": "We’re not just a new homecare company. We’re a new healthcare leader.",
+            "url": "https://www.aveanna.com/",
+            "fetched_at": "2026-10-17T21:57:34Z"
+          },
+          "P1.7": {
+            "text": "Better training. Better technology. Better homecare.",
+            "url": "https://www.aveanna.com/",
+            "fetched_at": "2026-10-17T21:57:34Z"
+          },
+          "P1.8": {
+            "text": "(link will open in a new window)",
+            "url": "https://www.aveanna.com/",
+            "fetched_at": "2026-10-17T21:57:34Z"
+          },
+          "P1.9": {
+            "text": "When you choose Aveanna, you are choosing more than a company. You are choosing a true national leader in home healthcare. No care feels more like home, because no company is more dedicated to bringing exceptional and innovative care into your home, wherever that home may be.",
+            "url": "https://www.aveanna.com/",
+            "fetched_at": "2026-10-17T21:57:34Z"
+          },
+          "P1.10": {
+            "text": "At Aveanna, we are committed to delivering the highest quality home health care for every patient, including:",
+            "url": "https://www.aveanna.com/",
+            "fetched_at": "2026-10-17T21:57:34Z"
+          },
+          "P1.11": {
+            "text": "Home Health & Hospice Care",
+            "url": "https://www.aveanna.com/",
+            "fetched_at": "2026-10-17T21:57:34Z"
+          },
+          "P1.12": {
+            "text": "We consider it both a privilege and an honor when we welcome a new patient into our Aveanna family. Our home health care is always delivered from a place of heartfelt compassion and empathy, and everyone on the Aveanna team works together to make sure we exceed your expectations.",
+            "url": "https://www.aveanna.com/",
+            "fetched_at": "2026-10-17T21:57:34Z"
+          },
+          "P1.13": {
+            "text": "As a leader in caring, we are also a leader in hiring. We have opportunities in nursing, therapy, and all jobs in between. At Aveanna, you won’t just make a difference in our patients’ lives. You will make a difference in your own life.",
+            "url": "https://www.aveanna.com/",
+            "fetched_at": "2026-10-17T21:57:34Z"
+          },
+          "P1.14": {
+            "text": "This is a carousel of testimonials. It does not automatically rotate and contains no autoplay function. Use Next and Previous buttons to navigate, or jump to a slide with the slide dots.",
+            "url": "https://www.aveanna.com/",
+            "fetched_at": "2026-10-17T21:57:34Z"
+          },
+          "P1.15": {
+            "text": "“To me, Aveanna means a group of nurses who care for me,” Davis shares. “Nurse Meg is nice, caring, and loving. I love Aveanna.” Davis and Nurse Meg",
+            "url": "https://www.aveanna.com/",
+            "fetched_at": "2026-10-17T21:57:34Z"
+          },
+          "P1.16": {
+            "text": "Gracie’s nurse, Valerie, sings and dances to bring out Gracie’s giggles. Thanks to Gracie’s feeding tube, they can dance, play, and laugh wherever they are. Gracie and Nurse Valerie",
+            "url": "https://www.aveanna.com/",
+            "fetched_at": "2026-10-17T21:57:34Z"
+          },
+          "P1.17": {
+            "text": "“Halle has already taken her first steps with her new prosthetic leg,” Clay says. “I have no doubt she’ll be running around the house in no time.” Halle and PT Clay",
+            "url": "https://www.aveanna.com/",
+            "fetched_at": "2026-10-17T21:57:34Z"
+          },
+          "P1.18": {
+            "text": "“Today I can walk almost 200 steps! None of this would be possible without Sarah and absolute commitment to my physical well-being. My mind and body are much more stable because of my ability to walk, and I want to wholeheartedly thank Aveanna for their commitment to my health.” Christina and OT Sarah",
+            "url": "https://www.aveanna.com/",
+            "fetched_at": "2026-10-17T21:57:34Z"
+          },
+          "P2.1": {
+            "text": "Our Story | Aveanna Healthcare",
+            "url": "https://www.aveanna.com/our-story.html",
+            "fetched_at": "2026-10-17T21:57:37Z"
+          },
+          "P2.2": {
+            "text": "Aveanna Healthcare cares for patients and families in 36 states through our rapidly growing network of multiple branch offices",
+            "url": "https://www.aveanna.com/our-story.html",
+            "fetched_at": "2026-10-17T21:57:37Z"
+          },
+          "P2.3": {
+            "text": "It all started with a simple idea: How can we help people live better lives by providing better home healthcare? That idea became a company called Aveanna, dedicated to bringing new possibilities and new hope to those we serve.",
+            "url": "https://www.aveanna.com/our-story.html",
+            "fetched_at": "2026-10-17T21:57:37Z"
+          },
+          "P2.4": {
+            "text": "At Aveanna, we believe that the ultimate place for caring is right in the comfort of home. We are a new company that has quickly established itself as a pre-eminent, national leader in healthcare as well as homecare. We believe in clinical excellence, innovation, and compassionate care to every patient and family we are privileged to help. But what sets us apart most is our focus on the relationship between the caregiver and the patient. By surrounding our patients with superior resources, and by giving our caregivers better technology and training,",
+            "url": "https://www.aveanna.com/our-story.html",
+            "fetched_at": "2026-10-17T21:57:37Z"
+          }
+        }
+      }
+    },
+    "COMP:haiku:offering_description": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "offering_description": "Operates skilled nursing facilities, senior living communities, home health, hospice and therapy services through local operating subsidiaries. Serves elderly and post-acute patients and residents, and earns most of its revenue from government and managed care payers.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:haiku:primary_products": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_products": "",
+        "primary_products_status": "not_applicable",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:haiku:primary_services": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "primary_services": "skilled nursing care; short-term rehabilitation therapy; home health; hospice; senior living",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:haiku:customer_segment": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: elderly patients and senior living residents and their families; B2B: managed care plans and hospitals that refer patients; B2G: Medicare and Medicaid programs as payers",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:haiku:end_markets": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "end_markets": "healthcare; senior care; post-acute care",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:haiku:revenue_model": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "revenue_model": "healthcare reimbursement: Medicare, Medicaid and managed care payments for nursing, therapy and home health care; service fees: private-pay fees for senior living and private-pay care",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:haiku:value_chain_position": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "value_chain_position": "service provider: delivers nursing, rehabilitation and home care to patients, billed to government and private payers",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:haiku:geography_served": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "geography_served": "US national: many states, concentrated in the West, Southwest and Texas",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:haiku:company_size": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:haiku:specialization": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: skilled nursing, senior living, home health, hospice and therapy services sharing patients and referral sources",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:haiku:distribution_channels": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "distribution_channels": "own locations: company-operated skilled nursing, senior living and care sites; other: referrals from hospitals, physicians and discharge planners",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:haiku:regulatory_exposure": {
+      "source": "facets/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: licensure and Medicare/Medicaid certification of facilities by CMS and state health agencies",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "COMP:sonnet:offering_description": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "offering_description": "Owns and operates skilled nursing facilities, senior living communities and related healthcare businesses. Provides short-term rehabilitation, long-term nursing care and assisted living to seniors and patients. Also owns real estate leased to operators.",
+        "offering_description_status": "filled",
+        "offering_description_source": "model knowledge",
+        "offering_description_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_products": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_products": "",
+        "primary_products_status": "not_applicable",
+        "primary_products_source": "model knowledge",
+        "primary_products_flags": ""
+      }
+    },
+    "COMP:sonnet:primary_services": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "primary_services": "skilled nursing care; rehabilitation therapy; assisted and independent living; home health and hospice; urgent care",
+        "primary_services_status": "filled",
+        "primary_services_source": "model knowledge",
+        "primary_services_flags": ""
+      }
+    },
+    "COMP:sonnet:customer_segment": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "customer_segment": "B2C: seniors and patients receiving nursing, rehabilitation and assisted living care; B2G: Medicare and Medicaid programs paying for resident care; B2B: managed care and private insurers, third-party operators leasing real estate",
+        "customer_segment_status": "filled",
+        "customer_segment_source": "model knowledge",
+        "customer_segment_flags": ""
+      }
+    },
+    "COMP:sonnet:end_markets": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "end_markets": "senior care; post-acute healthcare; senior living; healthcare real estate",
+        "end_markets_status": "filled",
+        "end_markets_source": "model knowledge",
+        "end_markets_flags": ""
+      }
+    },
+    "COMP:sonnet:revenue_model": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "revenue_model": "healthcare reimbursement: Medicare, Medicaid and managed care payments for skilled nursing and rehabilitation care; service fees: private-pay residents in assisted living, home health and hospice; rental or leasing: rent from leased real estate to third-party operators",
+        "revenue_model_status": "filled",
+        "revenue_model_source": "model knowledge",
+        "revenue_model_flags": ""
+      }
+    },
+    "COMP:sonnet:value_chain_position": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "value_chain_position": "asset operator: owns and runs skilled nursing and senior living facilities serving residents and patients; service provider: delivers rehabilitation, home health and hospice services to patients",
+        "value_chain_position_status": "filled",
+        "value_chain_position_source": "model knowledge",
+        "value_chain_position_flags": ""
+      }
+    },
+    "COMP:sonnet:geography_served": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "geography_served": "US regional: Facilities in about a dozen-plus states, mainly western, southern and midwestern US, including California, Texas, Arizona and Utah",
+        "geography_served_status": "filled",
+        "geography_served_source": "model knowledge",
+        "geography_served_flags": ""
+      }
+    },
+    "COMP:sonnet:company_size": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "company_size": "large",
+        "company_size_status": "filled",
+        "company_size_source": "model knowledge",
+        "company_size_flags": ""
+      }
+    },
+    "COMP:sonnet:specialization": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "specialization": "related lines: skilled nursing, senior living, home health, hospice and healthcare real estate",
+        "specialization_status": "filled",
+        "specialization_source": "model knowledge",
+        "specialization_flags": ""
+      }
+    },
+    "COMP:sonnet:distribution_channels": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "distribution_channels": "own locations: owned and operated nursing and senior living facilities; other: referrals from hospitals and physicians",
+        "distribution_channels_status": "filled",
+        "distribution_channels_source": "model knowledge",
+        "distribution_channels_flags": ""
+      }
+    },
+    "COMP:sonnet:regulatory_exposure": {
+      "source": "facets_sonnet/tables/facets.csv",
+      "data": {
+        "regulatory_exposure": "high: Facilities need state licenses and CMS certification, Medicare and Medicaid rules, state health departments and OIG oversight",
+        "regulatory_exposure_status": "filled",
+        "regulatory_exposure_source": "model knowledge",
+        "regulatory_exposure_flags": ""
+      }
+    },
+    "EVIDENCE:COMP": {
+      "source": "outputs-local/website_scrape/page_text/IQ4295645.json",
+      "data": {
+        "company_name": "The Ensign Group, Inc.",
+        "website": "ensigngroup.net",
+        "scrape_status": "ok",
+        "capture_sha256": "099c88b86ed0ad3248b56c64f102b5fd7709770c6e44d9d484c5e55906eae936",
+        "lines": {
+          "P1.1": {
+            "text": "The Ensign Group, Inc. – Skilled Nursing, Rehabilitation Therapy, Healthcare – San Juan Capistrano, CA",
+            "url": "https://ensigngroup.net/",
+            "fetched_at": "2026-10-17T22:12:18Z"
+          },
+          "P1.2": {
+            "text": "Ensign’s independent operating affiliates provide personalized post-acute and long-term care services guided by local leadership and delivered by clinicians committed to helping residents heal, regain independence, and thrive.",
+            "url": "https://ensigngroup.net/",
+            "fetched_at": "2026-10-17T22:12:18Z"
+          },
+          "P1.3": {
+            "text": "Commitment to quality Find care near you",
+            "url": "https://ensigngroup.net/",
+            "fetched_at": "2026-10-17T22:12:18Z"
+          },
+          "P1.4": {
+            "text": "At the heart of our organization are hundreds of dedicated affiliates who enrich the lives of thousands of residents each year through exceptional care and genuine human connection.",
+            "url": "https://ensigngroup.net/",
+            "fetched_at": "2026-10-17T22:12:18Z"
+          },
+          "P1.5": {
+            "text": "Through Moments of Truth, we will dignify post-acute care in the eyes of the world.",
+            "url": "https://ensigngroup.net/",
+            "fetched_at": "2026-10-17T22:12:18Z"
+          },
+          "P1.6": {
+            "text": "Ensign Affiliates Provide Care That Counts",
+            "url": "https://ensigngroup.net/",
+            "fetched_at": "2026-10-17T22:12:18Z"
+          },
+          "P1.7": {
+            "text": "*Unique residents cared for annualized.",
+            "url": "https://ensigngroup.net/",
+            "fetched_at": "2026-10-17T22:12:18Z"
+          },
+          "P1.8": {
+            "text": "Ensign affiliates provide skilled nursing, rehabilitation, therapy, and assisted living services through a unique ONE CLINICAL approach.",
+            "url": "https://ensigngroup.net/",
+            "fetched_at": "2026-10-17T22:12:18Z"
+          },
+          "P1.9": {
+            "text": "This collaborative model brings an interdisciplinary team together at each location to deliver individualized, resident-centered care. By combining clinical excellence, exceptional service, and data-driven decision-making, the ONE CLINICAL teams help residents achieve better outcomes and live life to the fullest.",
+            "url": "https://ensigngroup.net/",
+            "fetched_at": "2026-10-17T22:12:18Z"
+          },
+          "P1.10": {
+            "text": "Of Ensign-affiliated skilled nursing operations earned a CMS Quality Measure rating of 4 or 5 stars.*",
+            "url": "https://ensigngroup.net/",
+            "fetched_at": "2026-10-17T22:12:18Z"
+          },
+          "P1.11": {
+            "text": "Better rehospitalization rates than the national average. Clinical teams work proactively to identify changes in condition early, intervene quickly, and help residents heal safely in place whenever possible.**",
+            "url": "https://ensigngroup.net/",
+            "fetched_at": "2026-10-17T22:12:18Z"
+          },
+          "P1.12": {
+            "text": "* Data from CMS Care Compare, Five-Star Quality Rating System, as of ** Percentage as compared to same facilities. CMS Care Compare Data as of",
+            "url": "https://ensigngroup.net/",
+            "fetched_at": "2026-10-17T22:12:18Z"
+          },
+          "P2.1": {
+            "text": "Care Services – The Ensign Group, Inc.",
+            "url": "https://ensigngroup.net/care-services/",
+            "fetched_at": "2026-10-17T22:12:21Z"
+          },
+          "P2.2": {
+            "text": "Ensign affiliates provide skilled nursing, rehabilitation, therapy, and assisted living services that leverage a ONE CLINICAL collaborative model of care focused on enhancing the lives of those they serve.",
+            "url": "https://ensigngroup.net/care-services/",
+            "fetched_at": "2026-10-17T22:12:21Z"
+          },
+          "P2.3": {
+            "text": "Collaboration That Makes a Difference",
+            "url": "https://ensigngroup.net/care-services/",
+            "fetched_at": "2026-10-17T22:12:21Z"
+          },
+          "P2.4": {
+            "text": "At Ensign-affiliated locations, exceptional care begins with collaboration. Through a ONE CLINICAL approach, nurses, therapists, physicians, and interdisciplinary care teams work together to provide coordinated, personalized care that supports each resident’s unique needs. This collaborative model helps each resident benefit from a seamless, individualized care experience designed to maximize that individual resident’s health and wellness.",
+            "url": "https://ensigngroup.net/care-services/",
+            "fetched_at": "2026-10-17T22:12:21Z"
+          },
+          "P2.5": {
+            "text": "Care Designed Around the Whole Person",
+            "url": "https://ensigngroup.net/care-services/",
+            "fetched_at": "2026-10-17T22:12:21Z"
+          },
+          "P2.6": {
+            "text": "Rather than treating individual conditions in isolation, Ensign-affiliated teams take a comprehensive view of residents’ health. By combining clinical expertise, compassionate caregiving, and evidence-based practices, residents obtain the support they need to recover from illness, regain function, maintain independence, and achieve their highest possible quality of life.",
+            "url": "https://ensigngroup.net/care-services/",
+            "fetched_at": "2026-10-17T22:12:21Z"
+          },
+          "P2.7": {
+            "text": "Driven by Data. Focused on Outcomes.",
+            "url": "https://ensigngroup.net/care-services/",
+            "fetched_at": "2026-10-17T22:12:21Z"
+          },
+          "P2.8": {
+            "text": "The ONE CLINICAL approach is guided by clinical data and continuous improvement principles. Care teams monitor key quality measures and resident outcomes to identify risks early, evaluate progress, and develop targeted interventions that support better health and recovery. This commitment to measurement and accountability helps drive stronger outcomes while supporting overall quality of care and promoting regulatory excellence.",
+            "url": "https://ensigngroup.net/care-services/",
+            "fetched_at": "2026-10-17T22:12:21Z"
+          },
+          "P3.1": {
+            "text": "Locations – The Ensign Group, Inc.",
+            "url": "https://ensigngroup.net/locations/",
+            "fetched_at": "2026-10-17T22:12:24Z"
+          },
+          "P3.2": {
+            "text": "Our affiliated locations are led by local teams who independently make decisions and create exceptional experiences for those they serve.",
+            "url": "https://ensigngroup.net/locations/",
+            "fetched_at": "2026-10-17T22:12:24Z"
+          },
+          "P3.3": {
+            "text": "Ensign-affiliated entities operate across 18 states, and the footprint continues with a purpose: to extend the mission of local leadership, clinical excellence, and compassionate care to more communities. This growth has enabled local leaders and their interdisciplinary care teams to innovate and invest in best-practice solutions to continuously improve the quality of care they provide. As the number of affiliates increases, more residents, patients, and families have access to this unique, locally led model of care.",
+            "url": "https://ensigngroup.net/locations/",
+            "fetched_at": "2026-10-17T22:12:24Z"
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "A human peer label does not label any facet as false.",
+    "Historical facet labels apply to current text only when exact_*_text is true.",
+    "Model disagreements are hypotheses, not factual errors.",
+    "B3 and selector runs use Haiku profiles; Sonnet profiles are a comparison only.",
+    "One-shot Sol versus agent Sonnet changes both inputs and model."
+  ]
+}
