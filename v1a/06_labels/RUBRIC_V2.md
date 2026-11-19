@@ -107,6 +107,28 @@ model gets wrong, not only that the score differs.
   the command prints the agreement table.
 - **Tests:** `uv run pytest v1/scripts/tests/test_rubric_v2.py`.
 
+## First results: Matthew's 262 round-3 pairs (2026-11-13)
+
+Matthew answered all four questions for the 262 pairs (`round3_sheet_v2.csv`; scores in
+`round3_scores_v2.csv`). Barbara's columns on this sheet are blank: her 293 old-rubric labels are in the
+team Drive Excel, not the repo, and stay as they are.
+
+- **Derived scores:** 60 twos, 124 ones, 78 zeros.
+- **Yes rate per question:** product 24%, customers 70%, revenue model 79%, chain step 77%.
+- **Against Barbara's old 0/1/2 on the same pairs** (joined on company ids): 51% exact, 65% peer vs
+  non-peer. Against the agent grader: 58% exact, 71% peer vs non-peer.
+- **Question 2 decides 120 of the 262 pairs** ("product no, customers yes", scored 1): the comp sells to
+  the same buyer type but is not a substitute (a hospice vs a neonatal physician group, both paid by
+  Medicare; a home-repair marketplace vs a stay marketplace, both consumer fee businesses). Barbara
+  gave 72 of them a 1 and 48 a 0, so one reviewer read "overlapping customers" both ways.
+- **Question 1 is solid:** 64 pairs have product yes, and Barbara gave a 0 to only one of them.
+- **Requiring product yes for a 1 does not help:** it gives 198 zeros and 42% agreement with Barbara.
+- 38 pairs were marked low confidence; the list is in the closed PR #35 discussion (the grading log
+  was scratch and is not in the repo).
+
+The second pass (Barbara or Riya on the v2 form) is what measures agreement per question; the old form
+could not.
+
 ## Still open
 
 - [ ] **Question 2 wording.** On Matthew's 262 round-3 answers, 120 pairs are "product no, customers
