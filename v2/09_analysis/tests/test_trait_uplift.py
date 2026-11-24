@@ -112,3 +112,18 @@ def test_null_data_no_findings_after_bh():
     assert len(summary) == len(tu.TRAITS) * len(tu.CELLS)
     assert not summary.finding.any()
     assert summary.bh_q.between(0, 1).all()
+
+
+def test_round_2_configuration_keeps_round_1_as_covariates():
+    import trait_uplift as tu
+    try:
+        tu.configure(2)
+        assert tu.TRAITS == tu.R2_TRAITS and tu.EXTRA == tu.R1_TRAITS
+        assert tu.PREREG.name == "PREREG_TRAITS_R2.md"
+        pairs = pd.DataFrame({"b3__x": [0.1], **{f"match__{t}": [1.0] for t in tu.R1_TRAITS + tu.R2_TRAITS}})
+        cov = tu.covariates(pairs, "serial_acquirer")
+        assert "match__serial_acquirer" not in cov
+        assert all(f"match__{t}" in cov for t in tu.R1_TRAITS) and "match__mission_critical" in cov
+    finally:
+        tu.configure(1)
+    assert tu.TRAITS == tu.R1_TRAITS and tu.EXTRA == [] and tu.PREREG.name == "PREREG_TRAITS.md"

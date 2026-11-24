@@ -16,6 +16,10 @@ Implements v2/09_analysis/PREREG_TRAITS.md exactly; read that first. In short:
 
   uv run python v2/09_analysis/scripts/trait_uplift.py --traits outputs-local/v2/02_profiles/traits_new/tables/traits.csv
 
+Round 2 (PREREG_TRAITS_R2.md): `--round 2 --traits-r2 outputs-local/v2/02_profiles/traits_r2/tables/traits.csv`
+tests the four round-2 traits (E7-E10) as their own BH family; the six round-1 traits' matches join the 12 B3
+signals as covariates, and the tags still come from the round-1 table. Round 1 (the default) is unchanged.
+
 No LLM, search or financial inputs. Writes outputs-local/v2/09_analysis/trait_uplift/<stamp>/ (never overwrites).
 """
 from __future__ import annotations
@@ -49,6 +53,22 @@ CELLS = ["all", "services_yes", "services_no", "consumers_yes", "consumers_no"]
 Q = 0.10
 PREREG = v2.V2 / "09_analysis" / "PREREG_TRAITS.md"
 PROMPT_VERSION = "2026-11-24a"
+EXTRA = []        # traits whose matches are covariates but are not tested (round 2: the six round-1 traits)
+ROUND = 1
+R1_TRAITS = list(TRAITS)
+R2_TRAITS = ["maintenance_led", "publicly_funded", "serial_acquirer", "mission_critical"]
+R2_PROMPT_VERSION = "2026-11-24b"
+
+
+def configure(round_: int) -> None:
+    """Round 1 (default, PREREG_TRAITS.md) or round 2 (PREREG_TRAITS_R2.md): which traits are tested, which only
+    adjust, and which plan the run follows."""
+    global TRAITS, EXTRA, PREREG, ROUND
+    ROUND = round_
+    if round_ == 1:
+        TRAITS, EXTRA, PREREG = list(R1_TRAITS), [], v2.V2 / "09_analysis" / "PREREG_TRAITS.md"
+    else:
+        TRAITS, EXTRA, PREREG = list(R2_TRAITS), list(R1_TRAITS), v2.V2 / "09_analysis" / "PREREG_TRAITS_R2.md"
 
 
 def digest(path: Path) -> str:
@@ -57,12 +77,12 @@ def digest(path: Path) -> str:
 
 # ------------------------------------------------------------------ inputs
 
-def load_traits(path: Path) -> pd.DataFrame:
+def load_traits(path: Path, need: list[str] | None = None) -> pd.DataFrame:
     """The trait table, one row per company, answers lower-cased yes/no/unknown ('' and NaN -> unknown)."""
     t = pd.read_csv(path, dtype=str).set_index("IQ_COMPANY_ID")
     if t.index.duplicated().any():
         raise ValueError("duplicate company in the trait table")
-    need = TRAITS + list(TAGS)
+    need = need if need is not None else TRAITS + list(TAGS)
     missing = [c for c in need if c not in t]
     if missing:
         raise ValueError(f"trait table lacks {missing}")
@@ -84,9 +104,10 @@ def match(target_answers: pd.Series, comp_answers: pd.Series) -> np.ndarray:
 
 
 def add_traits(pairs: pd.DataFrame, traits: pd.DataFrame) -> pd.DataFrame:
-    """Adds match__<trait> for the six traits and tag__<tag> (the target's tag answer) to the pairs."""
+    """Adds match__<trait> for the tested traits (and EXTRA covariate traits) and tag__<tag> (the target's tag
+    answer) to the pairs."""
     pairs = pairs.copy()
-    for trait in TRAITS:
+    for trait in TRAITS + EXTRA:
         pairs[f"match__{trait}"] = match(pairs.target.map(traits[trait]), pairs.comp.map(traits[trait]))
     for tag in TAGS:
         pairs[f"tag__{tag}"] = pairs.target.map(traits[tag]).fillna("unknown").to_numpy()
@@ -108,7 +129,7 @@ def build_pairs(traits: pd.DataFrame, cohort: str = "matthew_v2_262") -> pd.Data
 
 
 def covariates(pairs: pd.DataFrame, trait: str) -> list[str]:
-    return [c for c in pairs if c.startswith("b3__")] + [f"match__{t}" for t in TRAITS if t != trait]
+    return [c for c in pairs if c.startswith("b3__")] + [f"match__{t}" for t in TRAITS + EXTRA if t != trait]
 
 
 # ------------------------------------------------------------------ one analysis
@@ -314,7 +335,7 @@ def run_all(pairs, traits, outcomes, permutations, bootstrap, workers, seed=2026
 
 def report(summary: pd.DataFrame, meta: dict) -> str:
     lines = [f"# Trait X-learner ({meta['stamp']})", "",
-             f"Pre-registered in `v2/09_analysis/PREREG_TRAITS.md`. Cohort `{meta['cohort']}`: {meta['pairs']} pairs, "
+             f"Pre-registered in `v2/09_analysis/{PREREG.name}`. Cohort `{meta['cohort']}`: {meta['pairs']} pairs, "
              f"{meta['targets']} targets. Traits table `{meta['traits']}` (prompt {meta['trait_prompt_versions']}).",
              f"Shuffles {meta['permutations']} and refit bootstrap draws {meta['bootstrap']} per trait and outcome. "
              f"Benjamini-Hochberg across {len(summary)} tests at q = {Q}; unsupported tests count as p = 1.", "",
@@ -339,7 +360,9 @@ def report(summary: pd.DataFrame, meta: dict) -> str:
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    ap.add_argument("--traits", type=Path, required=True, help="trait table (fill_traits.py tables/traits.csv)")
+    ap.add_argument("--traits", type=Path, required=True, help="round-1 trait table (fill_traits.py tables/traits.csv)")
+    ap.add_argument("--round", type=int, choices=[1, 2], default=1, help="which pre-registered plan (default 1)")
+    ap.add_argument("--traits-r2", type=Path, help="round-2 trait table (fill_traits.py --round 2); round 2 only")
     ap.add_argument("--cohort", default="matthew_v2_262", choices=[c for c in fu.COHORTS if c != "b3_current"])
     ap.add_argument("--outcome", choices=["both", "direct", "peer"], default="both")
     ap.add_argument("--permutations", type=int, default=1000)
@@ -350,14 +373,28 @@ def main(argv=None):
     ap.add_argument("--smoke", action="store_true", help="plumbing check (e.g. on a test table); label the run so")
     args = ap.parse_args(argv)
     started = time.time()
-    traits = load_traits(args.traits)
-    versions = sorted(traits["prompt_version"].dropna().unique()) if "prompt_version" in traits else []
-    if not args.smoke and versions != [PROMPT_VERSION]:
-        ap.error(f"trait table prompt versions {versions}; the pre-registration fixes {PROMPT_VERSION}")
+    configure(args.round)
+    if args.round == 1:
+        traits = load_traits(args.traits)
+        versions = sorted(traits["prompt_version"].dropna().unique()) if "prompt_version" in traits else []
+        if not args.smoke and versions != [PROMPT_VERSION]:
+            ap.error(f"trait table prompt versions {versions}; the pre-registration fixes {PROMPT_VERSION}")
+    else:
+        if not args.traits_r2:
+            ap.error("--round 2 needs --traits-r2")
+        r1 = load_traits(args.traits, R1_TRAITS + list(TAGS))
+        r2 = load_traits(args.traits_r2, R2_TRAITS)
+        v1 = sorted(r1["prompt_version"].dropna().unique()) if "prompt_version" in r1 else []
+        v2_ = sorted(r2["prompt_version"].dropna().unique()) if "prompt_version" in r2 else []
+        if not args.smoke and (v1 != [PROMPT_VERSION] or v2_ != [R2_PROMPT_VERSION]):
+            ap.error(f"prompt versions {v1} / {v2_}; the pre-registration fixes {PROMPT_VERSION} / {R2_PROMPT_VERSION}")
+        traits = r1[R1_TRAITS + list(TAGS)].join(r2[R2_TRAITS], how="left")
+        traits[R2_TRAITS] = traits[R2_TRAITS].fillna("unknown")
+        versions = v1 + v2_
     pairs = build_pairs(traits, args.cohort)
     outcomes = ["direct", "peer"] if args.outcome == "both" else [args.outcome]
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
-    run = args.out / (stamp + ("_smoke" if args.smoke else ""))
+    run = args.out / (stamp + ("_r2" if args.round == 2 else "") + ("_smoke" if args.smoke else ""))
     run.mkdir(parents=True, exist_ok=False)
     pairs.to_csv(run / "pair_features.csv", index=False)
     summary, effects, diags, tags, shuffles, boots = run_all(
@@ -368,11 +405,13 @@ def main(argv=None):
     cur = v2.current()
     rel = lambda p: str(Path(p).resolve().relative_to(ROOT).as_posix()) if Path(p).resolve().is_relative_to(ROOT) \
         else str(p)  # noqa: E731
-    inputs = [args.traits, v2.src("06_labels", "round3", "round3_scores_v2.csv"),
+    inputs = [args.traits, *([args.traits_r2] if args.round == 2 else []), v2.src("06_labels", "round3", "round3_scores_v2.csv"),
               v2.path(cur["profiles"]["general"]), v2.path(cur["profiles"]["sector"]),
               v2.path(cur["universe"]["universe"]), PREREG]
     meta = {"stamp": stamp, "smoke": args.smoke, "cohort": args.cohort, "pairs": len(pairs),
-            "targets": int(pairs.target.nunique()), "traits": rel(args.traits), "trait_prompt_versions": versions,
+            "targets": int(pairs.target.nunique()), "round": args.round, "tested_traits": list(TRAITS),
+            "traits": rel(args.traits), "traits_r2": rel(args.traits_r2) if args.traits_r2 else None,
+            "trait_prompt_versions": versions,
             "permutations": args.permutations, "bootstrap": args.bootstrap}
     manifest = {**meta,
                 "commit": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
@@ -383,8 +422,10 @@ def main(argv=None):
                              "min_arm": fu.MIN_ARM, "min_arm_targets": fu.MIN_TARGETS, "logistic_C": .1,
                              "ridge_alpha": 10, "overlap": [.1, .9], "dr_propensity_clip": [.05, .95],
                              "match": "same yes/no answer; unknown on either side excluded for that trait",
-                             "covariates": "12 B3 signals (current variant) + other traits' match indicators, "
-                                           "median-imputed with missingness indicators",
+                             "covariates": "12 B3 signals (current variant) + other traits' match indicators"
+                                           + (" (incl. all six round-1 traits)" if EXTRA else "")
+                                           + ", median-imputed with missingness indicators",
+                             "prereg": PREREG.name,
                              "cells": CELLS, "bh_q": Q, "bh_family": len(summary),
                              "workers": args.workers},
                 "libraries": {n: version(n) for n in ["numpy", "pandas", "scikit-learn", "joblib"]},

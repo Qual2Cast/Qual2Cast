@@ -166,4 +166,4 @@ treatment). A finding only on the secondary peer outcome is weaker because of th
 
 ## Amendments
 
-_None yet._
+- 2026-11-24 (after the round-1 run): no change to this plan or its results. A second round of traits (maintenance-led, publicly funded, serial acquirer, mission-critical) is pre-registered separately in `PREREG_TRAITS_R2.md`, as its own test family, because it was designed after seeing these results.
