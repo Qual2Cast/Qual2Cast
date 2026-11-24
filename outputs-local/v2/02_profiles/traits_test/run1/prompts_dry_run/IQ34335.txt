@@ -1,0 +1,89 @@
+You describe a company for a research project that compares companies' business models. Answer ten yes/no questions about it.
+
+First, say whether you know this company: set "knows_company" to true only if you recognize this specific company from what you already know. A name and a web address alone are not knowing it; do not guess from the name, the web address or what is typical for similarly named companies. If you don't know it, use only the website text below; if that text doesn't settle a question, answer "unknown".
+
+For each question answer "yes", "no" or "unknown", and give a reason of at most twenty words that names the products, services or customers that decided it. Answer "unknown" only when you really cannot tell; do not make up facts.
+
+Describe the company as it is now. Leave out businesses it has sold, spun off or closed. If the company runs several businesses, answer for the larger part of the business and name the other part in the reason.
+
+The buyer is whoever chooses and receives the purchase, not who pays for it. Software counts as a product.
+
+Do not give financial information: no revenue, profit, market value, share price, stock ticker or employee counts.
+
+Everything you need is in this message. Do not run commands, open files or search the web. Write the JSON on one line.
+
+Questions:
+
+T1 offers_products: Are products one of the company's main offerings?
+  Yes, for example: manufactured goods, equipment, food, chemicals, homes it builds and sells, software licences or SaaS.
+  No, for example: only incidental products, such as parts used inside a repair job or a cafe inside a hospital.
+  Software counts as a product. 'Main' means named among its main offerings, not a side line.
+
+T2 offers_services: Are services, meaning work done for customers, one of the company's main offerings?
+  Yes, for example: care, repair, installation, transport, staffing, construction, engineering, insurance, banking, operating assets for others, implementation or managed IT.
+  No, for example: only warranty or support that comes with a product it sells.
+  Banks, insurers, REITs and utilities count as services.
+
+T3 sells_to_consumers: Are individual people or households among its main buyers?
+  Yes, for example: restaurants, homebuilders, hospitals and clinics (patients), schools (students), consumer brands sold through stores.
+  No, for example: sells only to businesses, institutions or government.
+  The buyer is whoever chooses and receives the purchase, not who pays. A brand sold through retailers is yes: the shopper chooses the brand.
+
+T4 sells_to_organizations: Are businesses, institutions or government agencies among its main buyers?
+  Yes, for example: contractors, manufacturers, hospitals buying devices, utilities buying equipment, retailers buying a brand's goods for resale, government agencies.
+  No, for example: sells only to individual people or households.
+  A retailer buying goods to resell counts as an organization buyer.
+
+E1 recurring_revenue: Does most of its revenue come from customers who keep buying on an ongoing basis, rather than from one-off sales or projects?
+  Yes, for example: repeat orders of consumables, food, fuel, parts or supplies; subscriptions; multi-year service contracts; insurance policies; bank accounts; leases; utility service.
+  No, for example: machinery, vehicles or homes bought once every few years; construction projects; one-time transactions or jobs.
+  Judge by the larger part of revenue. Repeat buying by the same customers counts even without a contract.
+
+E2 cyclical_demand: Can its customers easily postpone or cut these purchases when the economy turns down?
+  Yes, for example: dining out, travel, remodelling, boats, cars, machinery, new buildings, advertising, hiring-driven staffing.
+  No, for example: groceries, utilities, medical care, maintenance and repair, insurance, regulated testing, government-mandated services.
+  Think of what this company's customers would do in a recession, not the economy as a whole.
+
+E3 big_ticket: Is a typical sale large and infrequent for the buyer, rather than small and frequent?
+  Yes, for example: homes, cars, boats, furniture, machinery, building projects, enterprise systems.
+  No, for example: meals, groceries, supplies, parts, routine services, small software subscriptions.
+  Large relative to what that buyer usually spends, not in absolute dollars.
+
+E4 people_delivered: Is what customers pay for mainly the time and skill of the company's own staff, rather than goods or its technology, network or assets?
+  Yes, for example: staffing, nursing and home care, physician groups, engineering and consulting, field service, education.
+  No, for example: manufacturers, distributors and retailers of goods; software; pipelines, utilities, payment networks; trucking fleets and other asset-based services.
+  Ask what would stop the service if the staff walked out tomorrow. A product company is no.
+
+E5 large_customers: Are its main customers large enterprises or government agencies, rather than small businesses or households?
+  Yes, for example: defense contractors, enterprise software, suppliers to automakers or big utilities, government IT.
+  No, for example: consumer businesses, suppliers to small contractors or independent shops, small-business software.
+  A company selling to households is no.
+
+E6 asset_heavy: Does it need heavy, ongoing investment in plants, fleets, networks or properties to run and grow?
+  Yes, for example: utilities, pipelines, railroads, trucking fleets, airlines, hospitals, heavy manufacturing, REITs, rental fleets.
+  No, for example: software, staffing, consulting, brokers, asset-light franchisors, distributors renting their warehouses.
+  Judge from what the business physically needs to grow, not from financial figures.
+
+Also write "notes": leave it empty unless something important is uncertain; then say what in one short sentence.
+
+Company: Silgan Holdings Inc.
+Website: www.silganholdings.com
+
+Text from the company's website:
+Silgan Holdings Inc. - Silgan Holdings Inc.
+Silgan is a leading global sustainable packaging provider for consumer goods products to many of the world's best known consumer products companies. We partner with our customers to enable them to bring their essential products to the world in the most efficient, sustainable and cost-effective packaging formats.
+Silgan Holdings Inc. - About Silgan - Company Profile
+Since our founding Silgan's core mission has been simple and clear: compete and win in the markets we serve by being the best at what we do.
+In support of this mission, our founders Phil Silver and Greg Horrigan established four key principles that continue to shape our company:
+We believe that we must meet the unique needs of our customers with quality products and services, while seeking an advantage over our peers.
+Where we have or believe we can develop a sustainable competitive advantage, we will seek to grow. Where we do not have a sustainable competitive advantage, we will refocus, restructure, or withdraw.
+As we pursue our mission, we will hold ourselves to the highest standards of ethical behavior in our internal and external relationships, engendering employee pride in the conduct as well as the achievements of the organization.
+Today, our primary product lines are dispensing and specialty closures, metal containers and custom containers. We take great pride in the fact that our products protect some of the world's best known branded and private label consumer products, and that our food packaging products make it possible for our customers to feed and care for the world safely in a cost effective and sustainable packaging solution.
+We believe this winning formula will continue to drive the Company's best-in-class performance well into the future.
+*Adjusted EBIT is a non-GAAP financial metric.
+Silgan Holdings Inc. - Our Businesses
+We are a leading manufacturer of sustainable rigid packaging solutions for consumer goods products. Our products include:
+Dispensing and specialty closures for food, beverage, health care, garden, home, personal care, fragrance and beauty products;
+Steel and aluminum containers for human and pet food and general line products; and
+Custom designed containers for personal care, food, health care, pharmaceutical, household and industrial chemical, pet food and care, agricultural, automotive and marine chemical products.
+We are a leading worldwide manufacturer of dispensing and specialty closures for food, beverage, health care, garden, home, personal care, fragrance and beauty products. Additionally, we are a leading manufacturer of custom designed plastic containers in North America for a variety of markets, including the personal care, food, health care and household and industrial chemical markets.

@@ -1,0 +1,92 @@
+You describe a company for a research project that compares companies' business models. Answer ten yes/no questions about it.
+
+First, say whether you know this company: set "knows_company" to true only if you recognize this specific company from what you already know. A name and a web address alone are not knowing it; do not guess from the name, the web address or what is typical for similarly named companies. If you don't know it, use only the website text below; if that text doesn't settle a question, answer "unknown".
+
+For each question answer "yes", "no" or "unknown", and give a reason of at most twenty words that names the products, services or customers that decided it. Answer "unknown" only when you really cannot tell; do not make up facts.
+
+Describe the company as it is now. Leave out businesses it has sold, spun off or closed. If the company runs several businesses, answer for the larger part of the business and name the other part in the reason.
+
+The buyer is whoever chooses and receives the purchase, not who pays for it. Software counts as a product.
+
+Do not give financial information: no revenue, profit, market value, share price, stock ticker or employee counts.
+
+Everything you need is in this message. Do not run commands, open files or search the web. Write the JSON on one line.
+
+Questions:
+
+T1 offers_products: Are products one of the company's main offerings?
+  Yes, for example: manufactured goods, equipment, food, chemicals, homes it builds and sells, software licences or SaaS.
+  No, for example: only incidental products, such as parts used inside a repair job or a cafe inside a hospital.
+  Software counts as a product. 'Main' means named among its main offerings, not a side line.
+
+T2 offers_services: Are services, meaning work done for customers, one of the company's main offerings?
+  Yes, for example: care, repair, installation, transport, staffing, construction, engineering, insurance, banking, operating assets for others, implementation or managed IT.
+  No, for example: only warranty or support that comes with a product it sells.
+  Banks, insurers, REITs and utilities count as services.
+
+T3 sells_to_consumers: Are individual people or households among its main buyers?
+  Yes, for example: restaurants, homebuilders, hospitals and clinics (patients), schools (students), consumer brands sold through stores.
+  No, for example: sells only to businesses, institutions or government.
+  The buyer is whoever chooses and receives the purchase, not who pays. A brand sold through retailers is yes: the shopper chooses the brand.
+
+T4 sells_to_organizations: Are businesses, institutions or government agencies among its main buyers?
+  Yes, for example: contractors, manufacturers, hospitals buying devices, utilities buying equipment, retailers buying a brand's goods for resale, government agencies.
+  No, for example: sells only to individual people or households.
+  A retailer buying goods to resell counts as an organization buyer.
+
+E1 recurring_revenue: Does most of its revenue come from customers who keep buying on an ongoing basis, rather than from one-off sales or projects?
+  Yes, for example: repeat orders of consumables, food, fuel, parts or supplies; subscriptions; multi-year service contracts; insurance policies; bank accounts; leases; utility service.
+  No, for example: machinery, vehicles or homes bought once every few years; construction projects; one-time transactions or jobs.
+  Judge by the larger part of revenue. Repeat buying by the same customers counts even without a contract.
+
+E2 cyclical_demand: Can its customers easily postpone or cut these purchases when the economy turns down?
+  Yes, for example: dining out, travel, remodelling, boats, cars, machinery, new buildings, advertising, hiring-driven staffing.
+  No, for example: groceries, utilities, medical care, maintenance and repair, insurance, regulated testing, government-mandated services.
+  Think of what this company's customers would do in a recession, not the economy as a whole.
+
+E3 big_ticket: Is a typical sale large and infrequent for the buyer, rather than small and frequent?
+  Yes, for example: homes, cars, boats, furniture, machinery, building projects, enterprise systems.
+  No, for example: meals, groceries, supplies, parts, routine services, small software subscriptions.
+  Large relative to what that buyer usually spends, not in absolute dollars.
+
+E4 people_delivered: Is what customers pay for mainly the time and skill of the company's own staff, rather than goods or its technology, network or assets?
+  Yes, for example: staffing, nursing and home care, physician groups, engineering and consulting, field service, education.
+  No, for example: manufacturers, distributors and retailers of goods; software; pipelines, utilities, payment networks; trucking fleets and other asset-based services.
+  Ask what would stop the service if the staff walked out tomorrow. A product company is no.
+
+E5 large_customers: Are its main customers large enterprises or government agencies, rather than small businesses or households?
+  Yes, for example: defense contractors, enterprise software, suppliers to automakers or big utilities, government IT.
+  No, for example: consumer businesses, suppliers to small contractors or independent shops, small-business software.
+  A company selling to households is no.
+
+E6 asset_heavy: Does it need heavy, ongoing investment in plants, fleets, networks or properties to run and grow?
+  Yes, for example: utilities, pipelines, railroads, trucking fleets, airlines, hospitals, heavy manufacturing, REITs, rental fleets.
+  No, for example: software, staffing, consulting, brokers, asset-light franchisors, distributors renting their warehouses.
+  Judge from what the business physically needs to grow, not from financial figures.
+
+Also write "notes": leave it empty unless something important is uncertain; then say what in one short sentence.
+
+Company: Thermon Group Holdings, Inc.
+Website: www.thermon.com
+
+Text from the company's website:
+Thermon | Industrial Heating Solutions
+Whether you’re looking for complete flow assurance, industrial heating, temperature maintenance, freeze protection or environmental monitoring, Thermon has you covered
+This website is AudioEye enabled and is being optimized for accessibility. To open the AudioEye Toolbar, press "shift + =". Some assistive technologies may require the use of a passthrough function before this keystroke. For more information, activate the button labeled "Explore your accessibility options".
+World Leader In Industrial Process Heating
+ENGINEERED INSIGHT. LIVE AND ON-DEMAND.
+Learn from Thermon engineers and product experts. Explore live sessions, visit us at industry events, or watch on-demand.
+From electric heat tracing to explosion-proof heaters, Thermon delivers engineered thermal solutions across every industry and environment.
+Electric heat, immersion, circulation, and specialty heaters for every industrial application.
+Electrical heat tracing cables, steam trace products, controls, and monitoring systems.
+Explosion-proof and rugged heating solutions engineered for the harshest transportation environments.
+General purpose and hazardous location power distribution panels and accessories for project sites.
+Electrically heated, steam, and pre-insulated tubing bundles with complete system accessories.
+Precision thermal management solutions designed to protect critical data center infrastructure.
+Heated flat blankets and container temperature control for custom industrial heating needs.
+Steam, hot water, and electrode boilers plus ancillary equipment for precision thermal processes.
+High-performance steam, hot oil, and hot water boilers with superheaters and ancillary systems.
+Our customers rely on us to provide high quality, safe, reliable and environmentally responsible solutions for their heating needs.
+Whether you’re looking for complete flow assurance, industrial heating, temperature maintenance, freeze protection or environmental monitoring, Thermon has you covered.
+We proudly celebrate our 70th anniversary! Since our founding in by Richard Burdick, Thermon has been dedicated to innovation in heat transfer solutions.
+From introducing heat transfer cement to pioneering the first packaged tracing systems and developing high-performance heating technologies, we’ve consistently pushed the boundaries to meet our customers’ needs

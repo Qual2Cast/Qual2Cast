@@ -1,0 +1,113 @@
+You describe a company for a research project that compares companies' business models. Answer ten yes/no questions about it.
+
+First, say whether you know this company: set "knows_company" to true only if you recognize this specific company from what you already know. A name and a web address alone are not knowing it; do not guess from the name, the web address or what is typical for similarly named companies. If you don't know it, use only the website text below; if that text doesn't settle a question, answer "unknown".
+
+For each question answer "yes", "no" or "unknown", and give a reason of at most twenty words that names the products, services or customers that decided it. Answer "unknown" only when you really cannot tell; do not make up facts.
+
+Describe the company as it is now. Leave out businesses it has sold, spun off or closed. If the company runs several businesses, answer for the larger part of the business and name the other part in the reason.
+
+The buyer is whoever chooses and receives the purchase, not who pays for it. Software counts as a product.
+
+Do not give financial information: no revenue, profit, market value, share price, stock ticker or employee counts.
+
+Everything you need is in this message. Do not run commands, open files or search the web. Write the JSON on one line.
+
+Questions:
+
+T1 offers_products: Are products one of the company's main offerings?
+  Yes, for example: manufactured goods, equipment, food, chemicals, homes it builds and sells, software licences or SaaS.
+  No, for example: only incidental products, such as parts used inside a repair job or a cafe inside a hospital.
+  Software counts as a product. 'Main' means named among its main offerings, not a side line.
+
+T2 offers_services: Are services, meaning work done for customers, one of the company's main offerings?
+  Yes, for example: care, repair, installation, transport, staffing, construction, engineering, insurance, banking, operating assets for others, implementation or managed IT.
+  No, for example: only warranty or support that comes with a product it sells.
+  Banks, insurers, REITs and utilities count as services.
+
+T3 sells_to_consumers: Are individual people or households among its main buyers?
+  Yes, for example: restaurants, homebuilders, hospitals and clinics (patients), schools (students), consumer brands sold through stores.
+  No, for example: sells only to businesses, institutions or government.
+  The buyer is whoever chooses and receives the purchase, not who pays. A brand sold through retailers is yes: the shopper chooses the brand.
+
+T4 sells_to_organizations: Are businesses, institutions or government agencies among its main buyers?
+  Yes, for example: contractors, manufacturers, hospitals buying devices, utilities buying equipment, retailers buying a brand's goods for resale, government agencies.
+  No, for example: sells only to individual people or households.
+  A retailer buying goods to resell counts as an organization buyer.
+
+E1 recurring_revenue: Does most of its revenue come from customers who keep buying on an ongoing basis, rather than from one-off sales or projects?
+  Yes, for example: repeat orders of consumables, food, fuel, parts or supplies; subscriptions; multi-year service contracts; insurance policies; bank accounts; leases; utility service.
+  No, for example: machinery, vehicles or homes bought once every few years; construction projects; one-time transactions or jobs.
+  Judge by the larger part of revenue. Repeat buying by the same customers counts even without a contract.
+
+E2 cyclical_demand: Can its customers easily postpone or cut these purchases when the economy turns down?
+  Yes, for example: dining out, travel, remodelling, boats, cars, machinery, new buildings, advertising, hiring-driven staffing.
+  No, for example: groceries, utilities, medical care, maintenance and repair, insurance, regulated testing, government-mandated services.
+  Think of what this company's customers would do in a recession, not the economy as a whole.
+
+E3 big_ticket: Is a typical sale large and infrequent for the buyer, rather than small and frequent?
+  Yes, for example: homes, cars, boats, furniture, machinery, building projects, enterprise systems.
+  No, for example: meals, groceries, supplies, parts, routine services, small software subscriptions.
+  Large relative to what that buyer usually spends, not in absolute dollars.
+
+E4 people_delivered: Is what customers pay for mainly the time and skill of the company's own staff, rather than goods or its technology, network or assets?
+  Yes, for example: staffing, nursing and home care, physician groups, engineering and consulting, field service, education.
+  No, for example: manufacturers, distributors and retailers of goods; software; pipelines, utilities, payment networks; trucking fleets and other asset-based services.
+  Ask what would stop the service if the staff walked out tomorrow. A product company is no.
+
+E5 large_customers: Are its main customers large enterprises or government agencies, rather than small businesses or households?
+  Yes, for example: defense contractors, enterprise software, suppliers to automakers or big utilities, government IT.
+  No, for example: consumer businesses, suppliers to small contractors or independent shops, small-business software.
+  A company selling to households is no.
+
+E6 asset_heavy: Does it need heavy, ongoing investment in plants, fleets, networks or properties to run and grow?
+  Yes, for example: utilities, pipelines, railroads, trucking fleets, airlines, hospitals, heavy manufacturing, REITs, rental fleets.
+  No, for example: software, staffing, consulting, brokers, asset-light franchisors, distributors renting their warehouses.
+  Judge from what the business physically needs to grow, not from financial figures.
+
+Also write "notes": leave it empty unless something important is uncertain; then say what in one short sentence.
+
+Company: Olin Corporation
+Website: www.olin.com
+
+Text from the company's website:
+Olin® Corporation
+Olin Corporation is a global manufacturer and distributor of chemical products and a leading U.S. manufacturer of ammunition. Our worldwide commitment to continuous innovation, superior safety and exceptional service ensures customer success throughout the chemical value chain and beyond.
+We deliver essential materials and solutions that enhance and protect lives.
+Discover how Olin Epoxy can help you deliver extraordinary results.
+Learn about the American Legend in ammunition and 150+ years of success.
+We passionately focus on generating value for customers, investors, and our communities as we methodically, safely, and responsibly deliver essential materials and solutions that enhance and protect lives.
+Olin offers substantial value growth through our essential solutions and strong market positions, driven by a strategic value-first approach that maximizes our unique integration capabilities.
+Stay informed with corporate updates and news.
+About Olin - Olin® Corporation
+We are OLIN and this is our story.
+From our beginnings in East Alton to the world’s No. 1 chlorine producer, we are a success story more than 130 years in the making.
+From our beginnings in East Alton to the world’s leading producer of chlorine and small caliber ammunition, we are a success story more than 130 years in the making.
+HUMBLE BEGINNINGS TO GLOBAL SUCCESS
+Olin Corporation began as a small blasting powder supplier in East Alton, Illinois. Following a few decades of success, along with some fruitful acquisitions, Olin has grown and expanded to encompass three business units —Olin Chlor Alkali Products & Vinyls, Olin Epoxy, and Winchester Ammunition.
+Largest producer of small caliber ammunition
+Global chlor alkali producer with largest chlorine capacity
+Global producer of membrane caustic soda and chlorinated organics
+Global supplier of epoxy materials
+North American seller of chlorine, bleach, and hydrochloric acid
+in caustic, epoxy and chlorinated organics
+chlorine envelope of any North America producer
+Olin’s success is grounded in its commitment to operating with integrity every day.
+We safely and reliably deliver essential materials
+We act with integrity, always doing what is right
+Business Partner Code of Conduct
+Olin expects its distributors, suppliers, and business partners to uphold the same standards of integrity in their business dealings.
+If you have any questions or concerns, please reach out to:
+The Olin Help-Line is a confidential, 24-hour telephone and Internet reporting service to ask questions, get advice or raise a concern about potential violations of the law or our Code. If you are an Olin employee, please reach out to your supervisor.
+Products Improving Our World - Olin® Corporation
+Discover how Olin products enable a healthier, safer, and more productive world.
+OLIN ALLYL CHLORIDE & EPICHLOROHYDRIN
+Manufactured in Stade & Freeport, these are critical ingredients for wastewater treatment, protecting our health and ecosystems.
+Manufactured in Becancour, Charleston, Freeport, McIntosh, Niagara Falls, Plaquemine, & St. Gabriel, this is a critical ingredient for safer drinking water.
+Produced in Baltringen, Freeport, Guarujá, Pisticci, Rheinmunster, Roberta, Stade, and Zhangjiagang, these provide reliable corrosion resistance and concrete protection for longer-lasting infrastructure.
+Products manufactured in our Baltringen, Freeport, Rheinmunster, Roberta, and Stade facilities are mission-critical ingredients for Composite Pressure Vessels, which safely transport and store green energy sources like hydrogen.
+Made in our Freeport & Stade facilities, this is used to make chemicals critical to the operation of wastewater treatment plants in most major cities.
+Manufactured in Plaquemine & Stade, this is used in brake degreasers to remove dust and debris from brake pads and rotors, providing safer stopping distances.
+Produced in Charleston, Tennessee, Olin’s KOH is used in deicing fluids to protect aircraft surfaces from ice accumulation for safer air travel.
+Made in our Charleston, Tennessee, facility to help create record-setting harvests.
+Produced in Becancour, Charleston, Freeport, McIntosh, Niagara, Plaquemine, & St. Gabriel, this is used to create the liquid-absorbing gel in diapers for improved sanitation and comfort.
+A key ingredient used to make insulin for diabetes medication is produced only by Olin in our Stade, Germany facility.

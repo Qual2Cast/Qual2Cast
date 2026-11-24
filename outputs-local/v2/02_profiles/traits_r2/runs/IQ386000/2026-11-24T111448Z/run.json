@@ -1,0 +1,63 @@
+{
+ "backend": "claude-cli",
+ "model": "claude-sonnet-5-5",
+ "prompt_version": "2026-11-24b",
+ "fingerprint": "cf0aab4389dde901197854e30f9272c03cbe9ac34b1acebbf74f3994346255ef",
+ "had_pages": true,
+ "finished_at": "2026-11-24T11:15:01Z",
+ "llm_status": "ok",
+ "command": [
+  "C:\\Users\\micha\\.local\\bin\\claude.EXE",
+  "-p",
+  "--output-format",
+  "json",
+  "--json-schema",
+  "{\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"knows_company\", \"maintenance_led\", \"publicly_funded\", \"serial_acquirer\", \"mission_critical\", \"notes\"], \"properties\": {\"knows_company\": {\"type\": \"boolean\"}, \"maintenance_led\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"answer\", \"reason\"], \"properties\": {\"answer\": {\"type\": \"string\", \"enum\": [\"yes\", \"no\", \"unknown\"]}, \"reason\": {\"type\": \"string\"}}}, \"publicly_funded\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"answer\", \"reason\"], \"properties\": {\"answer\": {\"type\": \"string\", \"enum\": [\"yes\", \"no\", \"unknown\"]}, \"reason\": {\"type\": \"string\"}}}, \"serial_acquirer\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"answer\", \"reason\"], \"properties\": {\"answer\": {\"type\": \"string\", \"enum\": [\"yes\", \"no\", \"unknown\"]}, \"reason\": {\"type\": \"string\"}}}, \"mission_critical\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"answer\", \"reason\"], \"properties\": {\"answer\": {\"type\": \"string\", \"enum\": [\"yes\", \"no\", \"unknown\"]}, \"reason\": {\"type\": \"string\"}}}, \"notes\": {\"type\": \"string\"}}}",
+  "--tools",
+  "",
+  "--no-session-persistence",
+  "--strict-mcp-config",
+  "--mcp-config",
+  "{\"mcpServers\":{}}",
+  "--setting-sources",
+  "",
+  "--max-turns",
+  "3",
+  "--system-prompt-file",
+  "C:\\Users\\micha\\Qual2Cast\\outputs-local\\v2\\02_profiles\\traits_r2\\runs\\system_22733869.txt",
+  "--model",
+  "claude-sonnet-5-5"
+ ],
+ "returncode": 0,
+ "seconds": 12.33,
+ "usage": {
+  "input_tokens": 8,
+  "cache_creation_input_tokens": 4023,
+  "cache_read_input_tokens": 12815,
+  "output_tokens": 1265,
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 4023,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 303,
+    "cache_read_input_tokens": 5608,
+    "cache_creation_input_tokens": 426,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 426
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard"
+ }
+}
