@@ -41,7 +41,7 @@ peer is. Overlap only means something against labels two people agree on.
 flowchart LR
   subgraph fills["Company descriptions (Sonnet, one call per company)"]
     F12["12 general facets + sub-sector<br/>(v1a, used by B3)"]
-    TT["10 new questions (v2)<br/>tags T1-T4, traits E1-E6"]
+    TT["New questions (v2)<br/>tags T1-T4, traits E1-E10"]
   end
   subgraph pipeline["Pipeline (unchanged this round)"]
     B3["B3 retrieval<br/>mutual top 10"] --> SEL["Selector / agent grade"] --> CP["Comp profile"]
@@ -64,7 +64,8 @@ Every characteristic sits on exactly one of two lists.
 
 - **Definition list:** what *makes* a pair peers. These are the rubric questions: same product, same customers, same
   revenue model, same chain step. They decide the 0/1/2 score.
-- **Test list:** what we *test* as an explanation of peers: the economic traits E1-E6 (and the 12 general facets).
+- **Test list:** what we *test* as an explanation of peers: the economic traits E1-E10 (round 1: E1-E6; round 2:
+  E7-E10) and the 12 general facets.
 
 A characteristic is never on both. **Why:** if "same recurring revenue?" were a rubric question, the X-learner would
 "discover" that recurring revenue predicts peers, because we wrote it into the definition. That is the circularity
@@ -132,13 +133,13 @@ answers, before any tie-break. Where they disagree on a question:
 
 ## 4. Traits and tags
 
-The ten new questions per company come in two kinds. They look alike (all yes/no/unknown, all filled by Sonnet in
+The new questions per company (ten in round 1, four more in round 2) come in two kinds. They look alike (all yes/no/unknown, all filled by Sonnet in
 the same call) but do different jobs.
 
-| | **Tags** (T1-T4) | **Traits** (E1-E6) |
+| | **Tags** (T1-T4) | **Traits** (E1-E10) |
 |---|---|---|
 | Question | what kind of company is it? | what are its economics? |
-| Questions | sells products; sells services; sells to consumers; sells to organizations | recurring revenue; cyclical demand; big-ticket; people-delivered; large customers; asset-heavy |
+| Questions | sells products; sells services; sells to consumers; sells to organizations | round 1: recurring revenue; cyclical demand; big-ticket; people-delivered; large customers; asset-heavy. Round 2: maintenance-led; publicly funded; serial acquirer; mission-critical |
 | Applies to | every company; a company can be both (300 of 533 sell products and services) | every company: written to apply to any type, so "not applicable" doesn't exist |
 | Used as | a **slice**: which subgroup a *target* belongs to | a **treatment**: whether a *pair* matches (both companies give the same answer) |
 | Read on | the target only | both companies of the pair |

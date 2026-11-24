@@ -18,7 +18,7 @@ Start with [`00_overview.ipynb`](00_overview.ipynb), then the component notebook
 | # | component | what it does | new in v2 |
 |---|---|---|---|
 | 01 | [universe](01_universe/) | 533 companies; 373 training (comp pool), 160 holdout | |
-| 02 | [profiles](02_profiles/) | business-model facets per company | **tags T1-T4 and economic traits E1-E6** (Sonnet, prompt `2026-11-24a`) |
+| 02 | [profiles](02_profiles/) | business-model facets per company | **tags T1-T4 and economic traits E1-E6 (round 1) and E7-E10 (round 2)** (Sonnet, prompts `2026-11-24a`, `2026-11-24b`) |
 | 03 | [retrieval](03_retrieval/) | B3 comp lists | unchanged this round (diagnostic only) |
 | 04 | [selection](04_selection/) | LLM keeps the good comps from B3 | unchanged this round; the model-improvement group tunes it next |
 | 05 | [agent grading](05_agent_grading/) | agent grades each pair 0/1/2 with citations | unchanged this round; next: ask the rubric v3 questions |

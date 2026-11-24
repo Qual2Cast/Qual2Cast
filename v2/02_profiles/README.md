@@ -1,14 +1,16 @@
 # 02_profiles (v2): tags and economic traits
 
-v2 adds one thing to v1a's profiles: ten yes/no/unknown questions per company, filled by Sonnet 5.5 through the
+v2 adds one thing to v1a's profiles: yes/no/unknown questions per company (ten in round 1, four more in round 2),
+filled by Sonnet 5.5 through the
 Claude Code CLI (subscription, no API key). The 12 general facets, Fiona's sector facets and Barbara's industry
 facets are in this component too (copied from v1a, unchanged) and are still what B3 uses; see the v1a sections
 below.
 
-**Status (2026-11-24):** schema, fill script, stability check and tests in place; 30-company test filled twice;
-the 533 fill waits for Michael's review of the test.
+**Status (2026-11-24):** both rounds done. Round 1 (T1-T4, E1-E6) and round 2 (E7-E10, section below)
+each passed the 30-company double fill and are filled for all 533 companies; tables pinned in `v2/current.toml`
+(`[traits]`, `[traits_r2]`).
 
-## The ten questions (`scripts/traits.py`, prompt `2026-11-24a`)
+## Round 1: the ten questions (`scripts/traits.py`, prompt `2026-11-24a`)
 
 | id | column | kind | question |
 |---|---|---|---|
