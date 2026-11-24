@@ -3,7 +3,39 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
-_2026-11-19 (latest), agent grading reviewed (Michael). `v1a/05_agent_grading/GRADING_REVIEW.md`._
+_2026-11-24 (latest), v2 started: eval method, rubric v3, sub-segment traits (Michael). Start at `v2/EVAL_METHOD.md`._
+- **v2 is a full working copy of v1a** (all ten components, pipeline, notebooks); v1a frozen as the record (267
+  tests pass, unchanged). New runs write to `outputs-local/v2/`; existing runs are read in place from
+  `outputs-local/v1a/` (`paths.src()`), so v1a's 199 MB of outputs are not copied. v2: 293 tests pass, all 12
+  notebooks run with checks passing. AGENTS.md and the root README point at v2.
+- From v2 on, all of outputs-local/vN/ is committed (history, logs, caches); decided by Michael 2026-11-24; repo is public.
+- **North star**: overlap of the comp profile with labels two reviewers agree on (precision and recall, any and direct
+  peer). Kappa gates the labels; X-learner is a diagnostic; EV/EBITDA once. No new run on the 160 holdout targets.
+  B3, selector and agent unchanged this round.
+- **Rubric v3** (`v2/06_labels/RUBRIC_V3.md`): overall call ("comp set?") first, four questions with the customers
+  question tightened, 12 named anchor pairs (proposed rulings), unsure tick; score 2/1/0 as rubric v2. Replaces the
+  12-facet yes-count plan. Ties: GPT-Terra only where it earns it, else a third person. Blind sheet, one tab per reviewer, with the
+  question key on top: 323 pairs (311 scored), `outputs-local/v2/06_labels/rubric_v3/rubric_v3_sheet.xlsx`.
+- **Traits and tags** (`v2/02_profiles`): 10 yes/no/unknown questions per company, Sonnet on the subscription CLI,
+  prompt `2026-11-24a`. 30-company test filled twice: every question kept (flips ≤ 2/30, unknown ≤ 1/30).
+- **Trait fill:** 533/533 companies (Sonnet, subscription CLI), pinned in `v2/current.toml [traits]`; unknown 0%
+  except large customers 2.1%.
+- **Trait X-learner** (`v2/09_analysis`): pre-registered and committed first (`41551066`), then run on Matthew's v2
+  labels (262 pairs): `outputs-local/v2/09_analysis/trait_uplift/20261124T101142641398Z/`. 15 of 60 tests are
+  findings at BH q = 0.10. Robust: **large customers** (direct +8.6 pp, peer +19.0 pp, full support). Weaker:
+  people-delivered (direct +11.2, rare trait), big-ticket (peer +30.1 only, rare trait). Cyclical demand negative in
+  two cells, unexplained. Recurring revenue and asset-heavy: no finding. Single reviewer, v2 wording: rerun
+  unchanged on rubric v3 labels. Page: https://claude.ai/artifact/YPre3LM2i4agexKtLBH6oy (private).
+- **Trait round 2** (designed after round 1, so its own plan `PREREG_TRAITS_R2.md`, commit `b3b5e309`, and its own
+  BH family of 40): cyclical demand split into maintenance-led and publicly funded, plus serial acquirer and
+  mission-critical (prompt `2026-11-24b`, 533/533 filled, pinned `[traits_r2]`). Run
+  `outputs-local/v2/09_analysis/trait_uplift/20261124T111715563218Z_r2/`: **mission-critical** is the strongest trait
+  of either round (direct +10.6 pp, +4.3 to +18.3; peer +25.1; a finding in all 10 tests, full support). The three
+  rare traits (4-6% yes) are unsupported (too few pairs differ). Leads until the rubric v3 rerun. Notebook
+  `v2/09_analysis/analysis.ipynb` 3.1 (round 1), 3.2 (round 2), 3.3 (ledger): 27/27 checks pass.
+  Handoff: `conversations/2026-11-24-v2-eval-method.md`.
+
+_2026-11-19, agent grading reviewed (Michael). `v1a/05_agent_grading/GRADING_REVIEW.md`._
 - Agent grade ≥ 1 is the any-peer filter: vs Barbara's 293 pairs precision 91.8%, recall 83.2%, kappa 0.63;
   the selector keeps 32.7% of her peers (precision 95.7%) and behaves as a direct-peer filter (keeps all 24 of
   her 2s; kappa 0.77 vs Matthew's 2s). Barbara vs Matthew (rubric v2) agree at kappa 0.19.

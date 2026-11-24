@@ -1,0 +1,126 @@
+You describe a company for a research project that compares companies' business models. Answer ten yes/no questions about it.
+
+First, say whether you know this company: set "knows_company" to true only if you recognize this specific company from what you already know. A name and a web address alone are not knowing it; do not guess from the name, the web address or what is typical for similarly named companies. If you don't know it, use only the website text below; if that text doesn't settle a question, answer "unknown".
+
+For each question answer "yes", "no" or "unknown", and give a reason of at most twenty words that names the products, services or customers that decided it. Answer "unknown" only when you really cannot tell; do not make up facts.
+
+Describe the company as it is now. Leave out businesses it has sold, spun off or closed. If the company runs several businesses, answer for the larger part of the business and name the other part in the reason.
+
+The buyer is whoever chooses and receives the purchase, not who pays for it. Software counts as a product.
+
+Do not give financial information: no revenue, profit, market value, share price, stock ticker or employee counts.
+
+Everything you need is in this message. Do not run commands, open files or search the web. Write the JSON on one line.
+
+Questions:
+
+T1 offers_products: Are products one of the company's main offerings?
+  Yes, for example: manufactured goods, equipment, food, chemicals, homes it builds and sells, software licences or SaaS.
+  No, for example: only incidental products, such as parts used inside a repair job or a cafe inside a hospital.
+  Software counts as a product. 'Main' means named among its main offerings, not a side line.
+
+T2 offers_services: Are services, meaning work done for customers, one of the company's main offerings?
+  Yes, for example: care, repair, installation, transport, staffing, construction, engineering, insurance, banking, operating assets for others, implementation or managed IT.
+  No, for example: only warranty or support that comes with a product it sells.
+  Banks, insurers, REITs and utilities count as services.
+
+T3 sells_to_consumers: Are individual people or households among its main buyers?
+  Yes, for example: restaurants, homebuilders, hospitals and clinics (patients), schools (students), consumer brands sold through stores.
+  No, for example: sells only to businesses, institutions or government.
+  The buyer is whoever chooses and receives the purchase, not who pays. A brand sold through retailers is yes: the shopper chooses the brand.
+
+T4 sells_to_organizations: Are businesses, institutions or government agencies among its main buyers?
+  Yes, for example: contractors, manufacturers, hospitals buying devices, utilities buying equipment, retailers buying a brand's goods for resale, government agencies.
+  No, for example: sells only to individual people or households.
+  A retailer buying goods to resell counts as an organization buyer.
+
+E1 recurring_revenue: Does most of its revenue come from customers who keep buying on an ongoing basis, rather than from one-off sales or projects?
+  Yes, for example: repeat orders of consumables, food, fuel, parts or supplies; subscriptions; multi-year service contracts; insurance policies; bank accounts; leases; utility service.
+  No, for example: machinery, vehicles or homes bought once every few years; construction projects; one-time transactions or jobs.
+  Judge by the larger part of revenue. Repeat buying by the same customers counts even without a contract.
+
+E2 cyclical_demand: Can its customers easily postpone or cut these purchases when the economy turns down?
+  Yes, for example: dining out, travel, remodelling, boats, cars, machinery, new buildings, advertising, hiring-driven staffing.
+  No, for example: groceries, utilities, medical care, maintenance and repair, insurance, regulated testing, government-mandated services.
+  Think of what this company's customers would do in a recession, not the economy as a whole.
+
+E3 big_ticket: Is a typical sale large and infrequent for the buyer, rather than small and frequent?
+  Yes, for example: homes, cars, boats, furniture, machinery, building projects, enterprise systems.
+  No, for example: meals, groceries, supplies, parts, routine services, small software subscriptions.
+  Large relative to what that buyer usually spends, not in absolute dollars.
+
+E4 people_delivered: Is what customers pay for mainly the time and skill of the company's own staff, rather than goods or its technology, network or assets?
+  Yes, for example: staffing, nursing and home care, physician groups, engineering and consulting, field service, education.
+  No, for example: manufacturers, distributors and retailers of goods; software; pipelines, utilities, payment networks; trucking fleets and other asset-based services.
+  Ask what would stop the service if the staff walked out tomorrow. A product company is no.
+
+E5 large_customers: Are its main customers large enterprises or government agencies, rather than small businesses or households?
+  Yes, for example: defense contractors, enterprise software, suppliers to automakers or big utilities, government IT.
+  No, for example: consumer businesses, suppliers to small contractors or independent shops, small-business software.
+  A company selling to households is no.
+
+E6 asset_heavy: Does it need heavy, ongoing investment in plants, fleets, networks or properties to run and grow?
+  Yes, for example: utilities, pipelines, railroads, trucking fleets, airlines, hospitals, heavy manufacturing, REITs, rental fleets.
+  No, for example: software, staffing, consulting, brokers, asset-light franchisors, distributors renting their warehouses.
+  Judge from what the business physically needs to grow, not from financial figures.
+
+Also write "notes": leave it empty unless something important is uncertain; then say what in one short sentence.
+
+Company: Azenta, Inc.
+Website: www.azenta.com
+
+Text from the company's website:
+Accelerating Breakthroughs & Therapies | Azenta Life Sciences
+Azenta Life Sciences enterprise-wide sample exploration and management solutions accelerate discovery, development and delivery, with speed and precision.
+Protection without Compromise for Every Patient Journey
+High-Efficiency Cryogenic Storage for IVF
+Experience CryoArc Vita-76 in Action This October
+See What’s Possible with High-Efficiency Cryogenic Storage
+Connect to Your Cryogenic Storage from Anywhere
+Better Storage Management for Research
+Sustainable & Energy Efficient Storage Solutions
+Sample Storage & Repository Services
+Material & Lab Moving Services
+Cold Storage Systems (Ambient to -20° C)
+Ultra Cold Storage Systems (ULT -80° C)
+Cryogenic Storage Systems (-190° C)
+GENEWIZ Multiomics & Synthesis Solutions
+We Want to Hear from You
+Azenta Accelerates Global Biorepository Power with UK Biocentre Acquisition
+Tell Us Your Sample’s Story
+Explore All Promotions & Offers
+Drug Products Storage & Distribution | Azenta Life Sciences
+Trust your drug and cell therapy products to the premier name in ultra-cold storage. Azenta prioritizes flexible pharmaceutical logistics and distribution!
+Drug Products Storage & Distribution
+Maintaining Secure Cold Chain Logistics, Every Step of the Way
+Trust your manufactured drug products with the premier name in ultra-cold storage. Our capabilities range from storage and cold chain logistics management to pharmaceutical distribution of drug products in their journey from development through commercialization. Azenta Life Sciences understands the challenges that drug manufacturers like pharmaceutical companies and CDMOs face – starting with ultra-cold temperature environments. Manufactured drug products have rigorous cold storage standards, with specific needs, which are critical for the efficacy and shelf life of temperature-sensitive drugs. Adherence to these requirements can be very challenging, especially when the products need to be transported from/to various points-of-use
+Our experts specialize in cGMP (Current Good Manufacturing Practice) controlled cold chain storage as well as cold chain management to help safeguard the integrity and quality of your indispensable products. From ambient temperature to our core competency in ultra-cold storage – we maintain secure cold chain logistics, every step of the way.
+Rapid retrieval as fast as 24 hours for shipment across the globe.
+End-to-end logistics including transport in our mobile biorepositories in the US to maintain chain of custody for bulk shipments.
+Our own automated stores are available for additional layer of controlled cold chain management.
+24/7 access to material data through secure software that supports 21 CFR, part 11 compliance, providing real-time visibility to inventory and complete audit trail.
+Quality management system (QMS) built to be compliant with the stringent requirements of GxP and 150+ unwavering best practices for regulated storage and logistics.
+State-of-the-art cGMP, GDP, and GTP-compliant short- and long-term storage ranging from ambient to -196°C.
+Ambient and Controlled Room Temperature (CRT)
+Ultra-low Freezer (-40°C to -80°C)
+Liquid Nitrogen (-150°C to -196°C)
+Automated storage systems from Azenta allow flexible storage for a variety of labware and rapid access. These systems are available throughout our biorepositories to help minimize risk and support consistent and traceable handling of materials including an audit trail of all movements for an additional layer of visibility.
+All your materials stored with Azenta are managed within the Limfinity ® Sample Management System which enables our team to efficiently manage your inventory and to always have visibility. Our software supports 21 CFR, part 11 compliance and provides secure audit trail reporting, flexible tracking, and web-based retrieval and shipping.
+Gold Standard Storage & Distribution
+Accredited as a Drug Distributor by the NABP, Azenta holds licenses to distribute from our Indiana facility to all states and outlying territories of the United States
+PMDA Foreign GMP Manufacturer certified for GMP storage
+US State Board of Pharmacy
+GTP licensed by the USA FDA
+EMA inspected for GMP storage
+Multiple redundancy systems and risk mitigation strategies with full backup ensuring preservation of the highest material integrity
+Our global state-of-the-art biorepository/biobanking solution facilitates your research with country-specific or worldwide services. Our processes protect the identity, integrity, and chain-of-condition from the moment we receive the material until a retrieval is requested.
+Indianapolis, IN, USA Griesheim, Germany Milton Keynes, United Kingdom
+Boston, MA, USA Cleveland, OH, USA Fresno, CA, USA Plainfield, IN, USA Beijing, China Singapore, Singapore
+Sample Prep & Lab Services
+Sample & Biological Material Storage
+Speak to one of our experts by filling out and submitting the form.
+Azenta Life Sciences Distributors | Azenta Life Sciences
+Learn about Azenta's worldwide network of distributors! Find your local life sciences consumables and instruments today!
+Find a Distributor or Partner with Us
+We understand that every customer has a unique journey when it comes to purchasing our products. If your preferred method is to buy through a distribution partner, we’ve got you covered. We have a trusted network of distribution partners ready to assist you. Whether you’re looking for personalized advice, local support, or simply prefer this route, we’ll make sure you’re connected with the right partner to meet your needs. If you are ready to connect with one of our distributor partners, please fill out the form below and we will connect you with a partner near you.
+Alternatively, if you are interested in becoming a distributor partner for Azenta, reach out via the form below and we will discuss with you about how to become a distributor with us.

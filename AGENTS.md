@@ -4,7 +4,7 @@ How to work in this repo, for people and for agents (Codex, Claude Code).
 This file covers working habits only, not the method. The method (inputs,
 facets, how comps are picked, valuation) is decided by the team and
 recorded in PROJECT_STATE.md and the README of the current method's folder
-(v1/README.md). Where they differ from this file, they win. Nothing here
+(v2/README.md). Where they differ from this file, they win. Nothing here
 limits a new design: when the team changes the method, update those files,
 not this one.
 
@@ -13,8 +13,10 @@ of the folder you're working in, and the handoffs in conversations/ that
 relate to the task. Old transcripts and handoffs are history, not current
 instructions.
 
-The current method is in v1/ (the mentor's comps recipe; a working copy of v0/, which stays as
-the record of the 2026-10-28 deliverable). Code is in v1/scripts/, notebooks in v1/notebooks/.
+The current method is in v2/ (the mentor's comps recipe, organized by pipeline component; a working
+copy of v1a/, which stays as the record of 2026-11-19, as v1/ and v0/ do for earlier rounds). Start
+with v2/EVAL_METHOD.md and v2/00_overview.ipynb; code is in v2/<component>/scripts/, one notebook per
+component. New outputs go to outputs-local/v2/; existing runs are read in place from outputs-local/v1a/.
 Use the uv environment (`uv sync`, `uv run`); add packages with `uv add`. pre-v0/ holds
 earlier work kept for reference; build on it only when the task says so.
 
@@ -28,7 +30,10 @@ earlier work kept for reference; build on it only when the task says so.
 - Data is collected by code, never typed in by hand.
 - Write results to outputs-local/. Keep every stage's data (raw inputs, model
   prompts and responses, tables): move a replaced file to a history folder
-  instead of overwriting it.
+  instead of overwriting it. From v2 on, everything under outputs-local/v2/
+  (and later versions) is committed, history, logs and caches included, so
+  teammates never miss a file. The repository is public: never write secrets
+  or personal details into outputs.
 - EV/EBITDA is the answer the method predicts: keep financial columns in
   their own tables, and never give EV/EBITDA to the comp-finding steps.
 

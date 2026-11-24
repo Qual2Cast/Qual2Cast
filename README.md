@@ -12,7 +12,7 @@ To check that this works, we test it on 560 **public** companies, treating each 
 their real multiples are known, every estimate can be scored against the right answer. Every automated step,
 including the AI models, is scored this way rather than trusted.
 
-_Last updated 2026-11-19. The current method now lives in [`v1a/`](v1a/README.md), the same method as v1 organized by pipeline component._
+_Last updated 2026-11-24. The current method lives in [`v2/`](v2/README.md), a full working copy of v1a; start with [`v2/EVAL_METHOD.md`](v2/EVAL_METHOD.md), which explains how the rubric, the labels, the facets and the X-learner fit together._
 
 ---
 
@@ -53,6 +53,7 @@ To keep the test honest, the companies are split once into a **training set (373
 | Human review of comps | **Done for two targets** (Paylocity and Wendy's, 36 candidate pairs, three reviewers). Reviewers fully agreed on only 11 of 36. **Round 2 is ready to fill:** five more targets, 67 pairs ([`v1/GOLDEN_SET_ROUND2.md`](v1/GOLDEN_SET_ROUND2.md)). |
 | Sector-specific facets | **Done.** Small, not-yet-certain improvement for the similarity route. |
 | Weighting the facets (v1) | **Adopted as the v1 baseline ("B3")**, see [`v1/notebooks/similarity_methods.ipynb`](v1/notebooks/similarity_methods.ipynb). It finds better-fitting comps by the reviewers' and the AI judge's grades, but the estimates are no more accurate. |
+| v2 | **Started 2026-11-24.** Full working copy of v1a plus rubric v3 (an overall call and four yes/no questions per pair, question key on the sheet), the sub-segment traits and tags (02), and the pre-registered trait X-learner (09). 293 tests pass; every notebook's checks pass. See [`v2/README.md`](v2/README.md). |
 | v1a reorganization | **All ten components ported (2026-11-19).** Each notebook runs end to end and its checks pass; 01-07 reproduce the saved v1 numbers. The final holdout (10) is locked. Matthew's rubric v2 (four yes/no questions per pair, derived 0/1/2 score) and Kethan's pipeline runner are taken in. See [`v1a/README.md`](v1a/README.md). |
 | Revenue-growth forecast | **Not started** (an earlier signal collector is in `pre-v0/`). |
 
@@ -65,12 +66,13 @@ been used for many comparisons, so a final score needs a fresh set of companies.
 
 | folder or file | what it is |
 |---|---|
-| [`v1a/`](v1a/README.md) | **The current working version (2026-11-18).** v1's method and settings, reorganized into ten components (`01_universe` to `10_final_holdout`), each with one folder, one notebook, one README and its tests. Start with [`00_overview.ipynb`](v1a/00_overview.ipynb). [`current.toml`](v1a/current.toml) names the current runs; [`pipeline/`](v1a/pipeline/) is the end-to-end runner. Outputs go to `outputs-local/v1a/`. |
+| [`v2/`](v2/README.md) | **The current working version (2026-11-24).** A full working copy of v1a: the same ten components, plus rubric v3 (06), the economic traits and tags (02) and the trait X-learner (09). Start with [`EVAL_METHOD.md`](v2/EVAL_METHOD.md) and [`00_overview.ipynb`](v2/00_overview.ipynb). [`current.toml`](v2/current.toml) names the current runs. New outputs go to `outputs-local/v2/`; existing runs are read in place from `outputs-local/v1a/`. |
+| [`v1a/`](v1a/README.md) | **The record v2 was built from (2026-11-19)**, kept unchanged. v1's method and settings, reorganized into ten components (`01_universe` to `10_final_holdout`), each with one folder, one notebook, one README and its tests. Start with [`00_overview.ipynb`](v1a/00_overview.ipynb). [`current.toml`](v1a/current.toml) names the current runs; [`pipeline/`](v1a/pipeline/) is the end-to-end runner. Outputs go to `outputs-local/v1a/`. |
 | [`v1/`](v1/README.md) | **The record v1a was built from**, kept unchanged. A copy of v0 with the mentor's comps recipe; `notebooks/` are the step-by-step analyses, `scripts/` the code. [`MIGRATION_MAP.csv`](MIGRATION_MAP.csv) maps every v1 file to its v1a component. |
 | [`v0/`](v0/README.md) | **The 2026-10-28 deliverable**, kept unchanged as a record. Start with [`notebooks/comps_and_valuation.ipynb`](v0/notebooks/comps_and_valuation.ipynb) (main results) and [`notebooks/gold_and_holdout_integration.ipynb`](v0/notebooks/gold_and_holdout_integration.ipynb) (human review and holdout report). |
 | [`website_scrape/`](website_scrape/README.md) | Collects each company's website text and removes financial and stock-market language. |
 | `data-local/` | The input company list (snapshots, never edited by hand). |
-| `outputs-local/` | Results of every step: tables, AI prompts and answers. The current work is in `outputs-local/v1a/` (v1 results are kept in `outputs-local/v1/`, [map](outputs-local/v1/README.md)), shared through Git. |
+| `outputs-local/` | Results of every step: tables, AI prompts and answers. The current work writes to `outputs-local/v2/` and reads existing runs in place from `outputs-local/v1a/` (v1 results are kept in `outputs-local/v1/`, [map](outputs-local/v1/README.md)), shared through Git. |
 | `src/`, [`docs/`](docs/data_dictionary.md) | Shared code for loading data; column definitions and known data issues. |
 | [`PROJECT_STATE.md`](PROJECT_STATE.md) | Running log of decisions, status and open questions. |
 | `conversations/` | Handoff notes: what each work session changed and what's next. |
@@ -81,9 +83,9 @@ been used for many comparisons, so a final score needs a fresh set of companies.
 
 1. Install [uv](https://docs.astral.sh/uv/getting-started/installation/) (Windows or Mac).
 2. From the repository folder, run `uv sync`. This creates the same Python 3.12 environment on every machine.
-3. In VS Code or Jupyter, choose `.venv` as the notebook kernel, then open [`v1a/00_overview.ipynb`](v1a/00_overview.ipynb) or a component notebook in `v1a/`.
+3. In VS Code or Jupyter, choose `.venv` as the notebook kernel, then open [`v2/00_overview.ipynb`](v2/00_overview.ipynb) or a component notebook in `v2/`.
 
-Run a component's tests with `uv run pytest v1a/<component>/tests -q` (for example `v1a/06_labels/tests`). Add a package with `uv add <name>`. Optional extras:
+Run a component's tests with `uv run pytest v2/<component>/tests -q` (for example `v2/06_labels/tests`), or all of them with `uv run pytest v2 -q`. Add a package with `uv add <name>`. Optional extras:
 `uv sync --extra scrape` (website scraper), `uv sync --extra pre-v0` (earlier matching work).
 
 ## Project rules
@@ -110,7 +112,7 @@ Full working rules: [`AGENTS.md`](AGENTS.md).
 
 ## Next steps
 
-1. **More human reviews** of comps on the rubric v2 form: a second reviewer on the round-3 sheet, and the wording of question 2 ([`v1a/06_labels/RUBRIC_V2.md`](v1a/06_labels/RUBRIC_V2.md)). Round 2 is described in [`v1a/06_labels/GOLDEN_SET_ROUND2.md`](v1a/06_labels/GOLDEN_SET_ROUND2.md).
+1. **More human reviews** of comps on rubric v3: Barbara and Matthew fill the rubric v3 sheet (one tab each), then a tie-break ([`v2/06_labels/RUBRIC_V3.md`](v2/06_labels/RUBRIC_V3.md); rubric v2 stays as the record in [`v1a/06_labels/RUBRIC_V2.md`](v1a/06_labels/RUBRIC_V2.md)). Round 2 is described in [`v1a/06_labels/GOLDEN_SET_ROUND2.md`](v1a/06_labels/GOLDEN_SET_ROUND2.md).
 2. **A fresh test set** (e.g. a wider set of companies), with the method fixed in writing before it is scored.
 3. **Better estimates:** pulling estimates toward the overall average, using size as a secondary check, and flagging
    companies with no good match.

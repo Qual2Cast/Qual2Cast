@@ -1,0 +1,113 @@
+You describe a company for a research project that compares companies' business models. Answer ten yes/no questions about it.
+
+First, say whether you know this company: set "knows_company" to true only if you recognize this specific company from what you already know. A name and a web address alone are not knowing it; do not guess from the name, the web address or what is typical for similarly named companies. If you don't know it, use only the website text below; if that text doesn't settle a question, answer "unknown".
+
+For each question answer "yes", "no" or "unknown", and give a reason of at most twenty words that names the products, services or customers that decided it. Answer "unknown" only when you really cannot tell; do not make up facts.
+
+Describe the company as it is now. Leave out businesses it has sold, spun off or closed. If the company runs several businesses, answer for the larger part of the business and name the other part in the reason.
+
+The buyer is whoever chooses and receives the purchase, not who pays for it. Software counts as a product.
+
+Do not give financial information: no revenue, profit, market value, share price, stock ticker or employee counts.
+
+Everything you need is in this message. Do not run commands, open files or search the web. Write the JSON on one line.
+
+Questions:
+
+T1 offers_products: Are products one of the company's main offerings?
+  Yes, for example: manufactured goods, equipment, food, chemicals, homes it builds and sells, software licences or SaaS.
+  No, for example: only incidental products, such as parts used inside a repair job or a cafe inside a hospital.
+  Software counts as a product. 'Main' means named among its main offerings, not a side line.
+
+T2 offers_services: Are services, meaning work done for customers, one of the company's main offerings?
+  Yes, for example: care, repair, installation, transport, staffing, construction, engineering, insurance, banking, operating assets for others, implementation or managed IT.
+  No, for example: only warranty or support that comes with a product it sells.
+  Banks, insurers, REITs and utilities count as services.
+
+T3 sells_to_consumers: Are individual people or households among its main buyers?
+  Yes, for example: restaurants, homebuilders, hospitals and clinics (patients), schools (students), consumer brands sold through stores.
+  No, for example: sells only to businesses, institutions or government.
+  The buyer is whoever chooses and receives the purchase, not who pays. A brand sold through retailers is yes: the shopper chooses the brand.
+
+T4 sells_to_organizations: Are businesses, institutions or government agencies among its main buyers?
+  Yes, for example: contractors, manufacturers, hospitals buying devices, utilities buying equipment, retailers buying a brand's goods for resale, government agencies.
+  No, for example: sells only to individual people or households.
+  A retailer buying goods to resell counts as an organization buyer.
+
+E1 recurring_revenue: Does most of its revenue come from customers who keep buying on an ongoing basis, rather than from one-off sales or projects?
+  Yes, for example: repeat orders of consumables, food, fuel, parts or supplies; subscriptions; multi-year service contracts; insurance policies; bank accounts; leases; utility service.
+  No, for example: machinery, vehicles or homes bought once every few years; construction projects; one-time transactions or jobs.
+  Judge by the larger part of revenue. Repeat buying by the same customers counts even without a contract.
+
+E2 cyclical_demand: Can its customers easily postpone or cut these purchases when the economy turns down?
+  Yes, for example: dining out, travel, remodelling, boats, cars, machinery, new buildings, advertising, hiring-driven staffing.
+  No, for example: groceries, utilities, medical care, maintenance and repair, insurance, regulated testing, government-mandated services.
+  Think of what this company's customers would do in a recession, not the economy as a whole.
+
+E3 big_ticket: Is a typical sale large and infrequent for the buyer, rather than small and frequent?
+  Yes, for example: homes, cars, boats, furniture, machinery, building projects, enterprise systems.
+  No, for example: meals, groceries, supplies, parts, routine services, small software subscriptions.
+  Large relative to what that buyer usually spends, not in absolute dollars.
+
+E4 people_delivered: Is what customers pay for mainly the time and skill of the company's own staff, rather than goods or its technology, network or assets?
+  Yes, for example: staffing, nursing and home care, physician groups, engineering and consulting, field service, education.
+  No, for example: manufacturers, distributors and retailers of goods; software; pipelines, utilities, payment networks; trucking fleets and other asset-based services.
+  Ask what would stop the service if the staff walked out tomorrow. A product company is no.
+
+E5 large_customers: Are its main customers large enterprises or government agencies, rather than small businesses or households?
+  Yes, for example: defense contractors, enterprise software, suppliers to automakers or big utilities, government IT.
+  No, for example: consumer businesses, suppliers to small contractors or independent shops, small-business software.
+  A company selling to households is no.
+
+E6 asset_heavy: Does it need heavy, ongoing investment in plants, fleets, networks or properties to run and grow?
+  Yes, for example: utilities, pipelines, railroads, trucking fleets, airlines, hospitals, heavy manufacturing, REITs, rental fleets.
+  No, for example: software, staffing, consulting, brokers, asset-light franchisors, distributors renting their warehouses.
+  Judge from what the business physically needs to grow, not from financial figures.
+
+Also write "notes": leave it empty unless something important is uncertain; then say what in one short sentence.
+
+Company: Crawford & Company
+Website: www.crawco.com
+
+Text from the company's website:
+Home | Crawford & Company
+For over 85 years, Crawford has led the industry through a relentless focus on people and the innovative tools that empower them.
+Solving claims challenges through innovation and expertise.
+Our quality sets industry standards
+We leverage our extensive experience to go beyond the claim, solving complex challenges that drive our clients' successes and protect their brand reputations. With Crawford, you can expect consistent, quality service, delivered promptly.
+We've spent nearly a century handling every type of claim in nearly every part of the world. This extensive global expertise allows us to drive better outcomes for our clients and their customers around the globe. Here are just a few stories of the people we serve.
+At Crawford, we're not just embracing change, we're leading it. We're thinking beyond the traditional and bringing together digital solutions to meet our customers' needs today while anticipating the needs of tomorrow.
+Leading the digital revolution means not just thinking like a technology company but actually being a technology company. We're driving forward-thinking progress across all areas of claims management to support our workforce, and our clients, today and for decades to come.
+Our purpose is to restore
+At Crawford, we know that behind every claim there's a story... a person, a child, a friend. Behind every claim there are people who look to us on their worst days. And by helping to restore their lives, we are helping to restore our community — one claim at a time.
+Our Story | Crawford & Company
+Honesty and integrity above all
+Jim Crawford opened the first Crawford & Company office in Columbus, Georgia. He founded the company on three principles.
+For over 80 years, these principles have been embedded in Crawford’s culture, shaping the company’s ongoing commitment to putting people first and delivering the highest quality service for its customers.
+Restoring lives, businesses and communities.
+What started as an attempt to make milk truck deliveries more efficient has evolved into a global enterprise, solving claims-handling challenges for thousands of businesses around the world. It’s a long, proud history, and you can review many of the highlights below.
+Jim Crawford opens the first Crawford & Company office in Columbus, Georgia.
+Jim Crawford creates an employee training program that would later evolve into Crawford Educational Services and set the standard for education of claims adjustment in the insurance industry.
+Crawford establishes new company slogan — "Top quality, promptly"
+Crawford opens an office in London, beginning its international expansion.
+Crawford expands to Canada, initially with offices in Vancouver and Toronto.
+Crawford’s MAYDAY, a 24/7 claims referral service revolutionizes the industry and solidifies Crawford as the leading innovator of claims solutions.
+Rehabilitation, risk management, and catastrophe support are added to the Crawford service catalog as Crawford expands beyond property and casualty.
+Crawford debuts Risk Sciences Group (RSG), a risk management service that gives self-funded corporations the ability to better understand their risk situations and manage them more effectively.
+Crawford begins a decade of global expansion, acquiring Graham Miller Group, Brocklehurst Group and Thomas Howell Group.
+Crawford celebrates 50 years in business.
+- Broadspire, Crawford’s largest acquisition to date, adds global TPA services, medical management, and more to the Crawford portfolio. - Specialist Liability Services acquired in the UK to ensure continued growth in the Lloyd's and London market.
+Contractor Connection launches in Canada
+The Company's second largest acquisition, GAB Robins, significantly increases Crawford's claims handling business across a wide range of product lines and bolsters its global specialty claims services.
+Crawford establishes its Global Business Service Center (GBSC) in Manila, Philippines, to consolidate and scale business functions and services.
+- Crawford celebrates 75 years in business. - Crawford Innovative Ventures (CIV) begins its work researching and investing in partnerships and acquisitions to support Crawford’s strategic plan.
+Through CIV, Crawford acquires a majority interest in WeGoLook, an on-demand field services company combining technology with the gig economy to gather and validate information anytime, anywhere.
+- WeGoLook launches in the UK, pushing forward ongoing innovations in claims management and significantly enhancing claims responsiveness. - Crawford & Company (Canada), Inc.
+Crawford introduces the industry’s first smart water-detection product.
+- Rohit Verma named CEO and Joseph Blanco named president.
+- Crawford celebrates its 80th anniversary.
+W. Bruce Swain, Jr. named President & CEO of Crawford & Company.
+Industries | Crawford & Company
+Crawford serves a variety of industries through tailored solutions and dedicated expertise.
+For Digital Infrastructure & Data Centers
+For Power and Renewable Energy

@@ -53,6 +53,12 @@
 /outputs-local/v1a/**/*.log
 /outputs-local/v1a/**/cache/
 /outputs-local/v1a/**/pytest_tmp/
+# v2 and every later version (outputs-local/v2/, v3/, ...; decided 2026-11-24): EVERYTHING is shared, with no
+# local-only exceptions: history/ and *_history/ copies, logs, raw model output, dry-run prompts and caches, so
+# nobody has to ask for a file that stayed on one laptop. Only test scratch stays out (and Office lock files,
+# below). GitHub refuses any single file over 100 MB; split or compress anything that large.
+!/outputs-local/v[2-9]*/
+/outputs-local/v[2-9]*/**/pytest_tmp/
 
 /.env
 
@@ -65,6 +71,8 @@ __pycache__/
 
 .venv/
 .ipynb_checkpoints/
+# Office lock files: markers Excel and Word leave while a file is open, never data.
+~$*
 
 # Peer-evaluation CLI attempts and local analysis remain local.
 /outputs-local/comps/peer_evaluation/

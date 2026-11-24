@@ -1,0 +1,66 @@
+{
+  "stamp": "20261124T091611619336Z",
+  "smoke": true,
+  "cohort": "matthew_v2_262",
+  "pairs": 262,
+  "targets": 40,
+  "traits": "outputs-local/v2/02_profiles/traits_test/run1/tables/traits.csv",
+  "trait_prompt_versions": [
+    "2026-11-24a"
+  ],
+  "permutations": 16,
+  "bootstrap": 16,
+  "commit": "7211f895ca6d5a3b1b3f823376c9955e8df50789",
+  "script_sha256": "d3f0ee56a3af54662dda3845d053bb6d62ebe8b54aad3db0f631c5982f75da89",
+  "estimator_sha256": "987c90e7801d4fabfbfd7425efd777b37c339850419e079a26120f3b50e00d8a",
+  "sources": {
+    "outputs-local/v2/02_profiles/traits_test/run1/tables/traits.csv": "0cac8cdb1f9d513b07f29f3cc7f539d87ad8bbd53d4edeb8f2a8022f3a8596dc",
+    "outputs-local/v1a/06_labels/round3/round3_scores_v2.csv": "65b55cbcf7c8cad20666e058454549c645d62b804b2e24b4d244f8d5205bea8b",
+    "outputs-local/v1a/02_profiles/facets_sonnet/tables/facets.csv": "8619ecf21c329269464a0a1d288ae23fda29601aa52272555f91d15759128464",
+    "outputs-local/v1a/02_profiles/sector_facets_sonnet/tables/sector_facets.csv": "a7139d71efd655db4d6655a4c71d86d07c72e8123aa60f3ab4fd543f17e91ef8",
+    "outputs-local/v1a/01_universe/universe/universe.csv": "1b492b3d2181ec84a22a0fea4168eb2e2cd3017974eb54f12a6bbaf8a1523378",
+    "v2/09_analysis/PREREG_TRAITS.md": "1bd567e8e94fb04b3d47de9391a05a829df654031df39cca3a8300245a8b837d"
+  },
+  "outcomes": {
+    "direct": "Matthew derived score == 2 (primary)",
+    "peer": "score >= 1 (secondary)"
+  },
+  "settings": {
+    "outer_folds": 5,
+    "inner_folds": 3,
+    "fold_seed": 42,
+    "resample_seed": 2026,
+    "min_arm": 15,
+    "min_arm_targets": 5,
+    "logistic_C": 0.1,
+    "ridge_alpha": 10,
+    "overlap": [
+      0.1,
+      0.9
+    ],
+    "dr_propensity_clip": [
+      0.05,
+      0.95
+    ],
+    "match": "same yes/no answer; unknown on either side excluded for that trait",
+    "covariates": "12 B3 signals (current variant) + other traits' match indicators, median-imputed with missingness indicators",
+    "cells": [
+      "all",
+      "services_yes",
+      "services_no",
+      "consumers_yes",
+      "consumers_no"
+    ],
+    "bh_q": 0.1,
+    "bh_family": 60,
+    "workers": 8
+  },
+  "libraries": {
+    "numpy": "2.5.4",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0"
+  },
+  "runtime_seconds": 9.1,
+  "interpretation": "Adjusted associations within B3's lists, one reviewer; not causal, not a pipeline improvement."
+}

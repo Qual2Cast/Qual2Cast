@@ -1,0 +1,63 @@
+{
+ "backend": "claude-cli",
+ "model": "claude-sonnet-5-5",
+ "prompt_version": "2026-11-24a",
+ "fingerprint": "11740b7e8edb68264448ecefe9081eee0065313516ee0111d0294e48180518b3",
+ "had_pages": false,
+ "finished_at": "2026-11-24T10:05:05Z",
+ "llm_status": "ok",
+ "command": [
+  "C:\\Users\\micha\\.local\\bin\\claude.EXE",
+  "-p",
+  "--output-format",
+  "json",
+  "--json-schema",
+  "{\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"knows_company\", \"offers_products\", \"offers_services\", \"sells_to_consumers\", \"sells_to_organizations\", \"recurring_revenue\", \"cyclical_demand\", \"big_ticket\", \"people_delivered\", \"large_customers\", \"asset_heavy\", \"notes\"], \"properties\": {\"knows_company\": {\"type\": \"boolean\"}, \"offers_products\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"answer\", \"reason\"], \"properties\": {\"answer\": {\"type\": \"string\", \"enum\": [\"yes\", \"no\", \"unknown\"]}, \"reason\": {\"type\": \"string\"}}}, \"offers_services\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"answer\", \"reason\"], \"properties\": {\"answer\": {\"type\": \"string\", \"enum\": [\"yes\", \"no\", \"unknown\"]}, \"reason\": {\"type\": \"string\"}}}, \"sells_to_consumers\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"answer\", \"reason\"], \"properties\": {\"answer\": {\"type\": \"string\", \"enum\": [\"yes\", \"no\", \"unknown\"]}, \"reason\": {\"type\": \"string\"}}}, \"sells_to_organizations\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"answer\", \"reason\"], \"properties\": {\"answer\": {\"type\": \"string\", \"enum\": [\"yes\", \"no\", \"unknown\"]}, \"reason\": {\"type\": \"string\"}}}, \"recurring_revenue\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"answer\", \"reason\"], \"properties\": {\"answer\": {\"type\": \"string\", \"enum\": [\"yes\", \"no\", \"unknown\"]}, \"reason\": {\"type\": \"string\"}}}, \"cyclical_demand\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"answer\", \"reason\"], \"properties\": {\"answer\": {\"type\": \"string\", \"enum\": [\"yes\", \"no\", \"unknown\"]}, \"reason\": {\"type\": \"string\"}}}, \"big_ticket\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"answer\", \"reason\"], \"properties\": {\"answer\": {\"type\": \"string\", \"enum\": [\"yes\", \"no\", \"unknown\"]}, \"reason\": {\"type\": \"string\"}}}, \"people_delivered\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"answer\", \"reason\"], \"properties\": {\"answer\": {\"type\": \"string\", \"enum\": [\"yes\", \"no\", \"unknown\"]}, \"reason\": {\"type\": \"string\"}}}, \"large_customers\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"answer\", \"reason\"], \"properties\": {\"answer\": {\"type\": \"string\", \"enum\": [\"yes\", \"no\", \"unknown\"]}, \"reason\": {\"type\": \"string\"}}}, \"asset_heavy\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"answer\", \"reason\"], \"properties\": {\"answer\": {\"type\": \"string\", \"enum\": [\"yes\", \"no\", \"unknown\"]}, \"reason\": {\"type\": \"string\"}}}, \"notes\": {\"type\": \"string\"}}}",
+  "--tools",
+  "",
+  "--no-session-persistence",
+  "--strict-mcp-config",
+  "--mcp-config",
+  "{\"mcpServers\":{}}",
+  "--setting-sources",
+  "",
+  "--max-turns",
+  "3",
+  "--system-prompt-file",
+  "C:\\Users\\micha\\Qual2Cast\\outputs-local\\v2\\02_profiles\\traits_new\\runs\\system_b87aed18.txt",
+  "--model",
+  "claude-sonnet-5-5"
+ ],
+ "returncode": 0,
+ "seconds": 10.36,
+ "usage": {
+  "input_tokens": 6,
+  "cache_creation_input_tokens": 1081,
+  "cache_read_input_tokens": 6754,
+  "output_tokens": 1267,
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 1081,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 448,
+    "cache_read_input_tokens": 3495,
+    "cache_creation_input_tokens": 845,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 845
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard"
+ }
+}

@@ -1,0 +1,37 @@
+You describe a company for a research project that compares companies' business models. Answer four yes/no questions about it.
+
+First, say whether you know this company: set "knows_company" to true only if you recognize this specific company from what you already know. A name and a web address alone are not knowing it; do not guess from the name, the web address or what is typical for similarly named companies. If you don't know it, use only the website text below; if that text doesn't settle a question, answer "unknown".
+
+For each question answer "yes", "no" or "unknown", and give a reason of at most twenty words that names the products, services or customers that decided it. Answer "unknown" only when you really cannot tell; do not make up facts.
+
+Describe the company as it is now. Leave out businesses it has sold, spun off or closed. If the company runs several businesses, answer for the larger part of the business and name the other part in the reason.
+
+The buyer is whoever chooses and receives the purchase, not who pays for it. Software counts as a product.
+
+Do not give financial information: no revenue, profit, market value, share price, stock ticker or employee counts.
+
+Everything you need is in this message. Do not run commands, open files or search the web. Write the JSON on one line.
+
+Questions:
+
+E7 maintenance_led: Does most of its revenue come from repairing, servicing, maintaining or replacing things customers already have installed or own, rather than from new builds, new installations or first-time purchases?
+  Yes, for example: aftermarket parts, repair and maintenance services, inspection and testing, reroofing and other replacement work, fleet servicing, maintenance and repair supplies.
+  No, for example: new construction, new equipment sales, new installations, first-time product purchases, new software licences, consumables used up in normal operation (food, fuel, chemicals).
+  Judge by the larger part of revenue. Consumables that are simply used up are no; parts and services that keep an existing installed base running are yes.
+
+E8 publicly_funded: Is most of its revenue ultimately paid by government, even when a contractor, insurer or provider sits in between?
+  Yes, for example: public road and infrastructure work, defense contracting, care paid by Medicare or Medicaid (including Medicare Advantage and managed Medicaid), public school services, government IT.
+  No, for example: revenue paid by private businesses, consumers, employers or commercial insurers.
+  Count the final payer, not the immediate customer. A regulated utility billing households is no; a contractor building roads for a state agency is yes.
+
+E9 serial_acquirer: Does the company grow mainly by buying other companies, acquiring regularly as a roll-up or platform, rather than mainly by growing its own business?
+  Yes, for example: insurance brokerages, distribution and services roll-ups, software platforms that buy many small vendors, dental, veterinary or physician practice groups.
+  No, for example: companies that grow mainly by selling more, opening their own sites or launching products, with only occasional acquisitions.
+  One or two large deals do not make a serial acquirer; a steady stream of acquisitions as the main way it grows does.
+
+E10 mission_critical: Would customers face real cost, risk or disruption if they switched away from this company, rather than being able to change suppliers easily?
+  Yes, for example: core business software, components qualified into a customer's own product, safety- or regulation-critical services, utilities, payment processing, outsourced payroll.
+  No, for example: commodity products, restaurants and retail, staffing, freight brokerage, standard supplies bought on price, advertising.
+  Ask how hard it is for a typical customer to switch: retraining, re-qualification, regulatory approval or downtime mean yes; a call to another supplier means no.
+
+Also write "notes": leave it empty unless something important is uncertain; then say what in one short sentence.
