@@ -48,11 +48,9 @@ PINS = _load_pins()
 
 
 def sha256(path: Path) -> str:
-    h = hashlib.sha256()
-    with open(path, "rb") as fh:
-        for block in iter(lambda: fh.read(1 << 20), b""):
-            h.update(block)
-    return h.hexdigest()
+    """sha256 of the file with CRLF read as LF, so a Windows checkout (core.autocrlf) and CI's Linux checkout of the
+    same committed file give the same hash. Binary files are not converted by git, so both sides match anyway."""
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
 def pinned(name: str) -> Path:
