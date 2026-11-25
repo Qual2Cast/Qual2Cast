@@ -2,6 +2,7 @@
 
 ```{python}
 #| include: false
+from IPython.display import Markdown
 from facts import common as F
 from facts import ch3_describing as f
 ```
@@ -15,7 +16,48 @@ Results as of `{python} F.AS_OF`.
 
 Scope: the 12 business-model facets and the economic traits E1-E10, how they are filled and checked.
 
-Facts available: _none yet_
+Facts available:
 
-Figures available: _none yet_
+- `f.n_facets` = `{python} f.n_facets`: general facets per company
+- `f.facet_names` = `{python} f.facet_names`: their names, F1 to F12
+- `f.facet_share_model` = `{python} f.facet_share_model`: facet values from model knowledge (of values with a recorded source)
+- `f.n_facet_values_web` = `{python} f.n_facet_values_web`: facet values citing the website
+- `f.n_facet_web_companies` = `{python} f.n_facet_web_companies`: companies with at least one website-sourced value
+- `f.n_facet_unknown` = `{python} f.n_facet_unknown`: facet values left unknown
+- `f.n_tags` = `{python} f.n_tags`: tags (T1-T4)
+- `f.n_traits` = `{python} f.n_traits`: economic traits (E1-E10)
+- `f.n_traits_filled` = `{python} f.n_traits_filled`: companies with both trait rounds filled
+- `f.trait_unknown_max` = `{python} f.trait_unknown_max`: highest unknown share of any trait (full fill)
+- `f.n_trait_known` = `{python} f.n_trait_known`: companies the model said it knew (round 1)
+- `f.n_trait_pages` = `{python} f.n_trait_pages`: companies whose trait prompt had saved page text (a page title counts)
+- `f.trait_test_n` = `{python} f.trait_test_n`: companies in the double-fill test
+- `f.trait_flips_max` = `{python} f.trait_flips_max`: most flips of any question between the two test fills
+- `f.trait_flip_share` = `{python} f.trait_flip_share`: flips over all answers compared (tags and traits, both rounds)
+- `f.trait_test_unknown_max` = `{python} f.trait_test_unknown_max`: most unknowns of any question in a test fill
+- `f.trait_keep_flip_max` = `{python} f.trait_keep_flip_max`, `f.trait_keep_unknown_max` = `{python} f.trait_keep_unknown_max`: keep rule (a question above either is reworded or dropped)
+
+Figures available:
+
+- @tbl-facets: the twelve facets (02 notebook, section 3.1)
+- @fig-trait-rates: yes / unknown / no share per trait, full fill
+- @tbl-traits: every tag and trait, its question, answers and test flips
 :::
+
+```{python}
+#| label: tbl-facets
+#| tbl-cap: "CAPTION TODO"
+Markdown(f.facets_table().to_markdown(index=False))
+```
+
+```{python}
+#| label: fig-trait-rates
+#| fig-cap: "CAPTION TODO"
+#| fig-alt: "ALT TODO"
+fig = f.trait_rates_figure()
+```
+
+```{python}
+#| label: tbl-traits
+#| tbl-cap: "CAPTION TODO"
+Markdown(f.traits_table().to_markdown(index=False))
+```

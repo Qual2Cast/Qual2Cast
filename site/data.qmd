@@ -2,6 +2,7 @@
 
 ```{python}
 #| include: false
+from IPython.display import Markdown
 from facts import common as F
 from facts import ch2_data as f
 ```
@@ -18,7 +19,39 @@ text, and what is kept out (EV/EBITDA never enters comp finding).
 
 Facts available:
 
+- `f.n_supplied` = `{python} f.n_supplied`: companies supplied
+- `f.n_us_hq` = `{python} f.n_us_hq`: of those, headquartered in the US
+- `f.ev_ebitda_min` = `{python} f.ev_ebitda_min`, `f.ev_ebitda_max` = `{python} f.ev_ebitda_max`: ends of the EV/EBITDA range kept
+- `f.n_dropped_multiple` = `{python} f.n_dropped_multiple`: companies dropped by that range
+- `f.n_dropped_above` = `{python} f.n_dropped_above`, `f.n_dropped_below` = `{python} f.n_dropped_below`: of those, above and below the range
 - `f.n_universe` = `{python} f.n_universe`: companies in the universe after the filters
+- `f.n_sic2` = `{python} f.n_sic2`: SIC 2-digit codes in the universe
+- `f.n_training` = `{python} f.n_training`: training companies
+- `f.n_holdout` = `{python} f.n_holdout`: holdout companies
+- `f.train_share` = `{python} f.train_share`: share of each stratum put in training
+- `f.n_strata` = `{python} f.n_strata`: split strata (SIC2 codes with at least `f.min_stratum` companies, plus "other")
+- `f.min_stratum` = `{python} f.min_stratum`: smallest SIC2 code kept as its own stratum
+- `f.n_split_forced` = `{python} f.n_split_forced`: showcase targets forced into training
+- `f.n_web_text` = `{python} f.n_web_text`: universe companies with cleaned website text
+- `f.n_web_no_text` = `{python} f.n_web_no_text`: universe companies without (no page, bot check, or nothing left after cleaning)
+- `f.web_max_pages` = `{python} f.web_max_pages`: pages kept per company, at most
+- `f.web_words_median` = `{python} f.web_words_median`: median cleaned words per company (companies with text)
 
-Figures available: _none yet_
+Figures available:
+
+- @tbl-funnel: companies left after each filter (01 notebook, section 3.1)
+- @fig-divisions: universe companies per SIC division, training and holdout
 :::
+
+```{python}
+#| label: tbl-funnel
+#| tbl-cap: "CAPTION TODO"
+Markdown(f.funnel_table().to_markdown())
+```
+
+```{python}
+#| label: fig-divisions
+#| fig-cap: "CAPTION TODO"
+#| fig-alt: "ALT TODO"
+fig = f.division_figure()
+```
