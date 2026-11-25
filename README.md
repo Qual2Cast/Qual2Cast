@@ -47,7 +47,7 @@ To keep the test honest, the companies are split once into a **training set (373
 
 | part | status |
 |---|---|
-| Company list and website text | **Done.** 560 companies; 532 websites gave usable text. |
+| Company list and website text | **Done.** 560 companies; 533 websites gave usable text. |
 | Facets (company descriptions) | **Done** for all 533 firms. A hand check found problems in about 1 in 4 checkable facets; size and geography are the weakest. |
 | Finding comps (four routes) | **Done and scored** on the 160 holdout companies. |
 | Human review of comps | **Done for two targets** (Paylocity and Wendy's, 36 candidate pairs, three reviewers). Reviewers fully agreed on only 11 of 36. **Round 2 is ready to fill:** five more targets, 67 pairs ([`v1/GOLDEN_SET_ROUND2.md`](v1/GOLDEN_SET_ROUND2.md)). |
@@ -57,8 +57,9 @@ To keep the test honest, the companies are split once into a **training set (373
 | v1a reorganization | **All ten components ported (2026-11-19).** Each notebook runs end to end and its checks pass; 01-07 reproduce the saved v1 numbers. The final holdout (10) is locked. Matthew's rubric v2 (four yes/no questions per pair, derived 0/1/2 score) and Kethan's pipeline runner are taken in. See [`v1a/README.md`](v1a/README.md). |
 | Revenue-growth forecast | **Not started** (an earlier signal collector is in `pre-v0/`). |
 
-**What the results say so far.** With no matching, the median estimate is off by about 40%. The comp routes land at
-about 33-38%. That is better, but the statistical intervals overlap, so no route is a clear winner yet. Adding
+**What the results say so far.** On the 107 holdout companies that all four comp routes cover, no matching is off by
+40.1% (median) and the routes by 36.8-37.9%. That is better, but the statistical intervals overlap, so no route is a
+clear winner yet. Adding
 sector-specific facets moves the similarity route from 37.3% to 35.0%, again not yet certain. The holdout has now
 been used for many comparisons, so a final score needs a fresh set of companies.
 
