@@ -31,6 +31,20 @@ We keep `{python} f.n_universe` companies, as @sec-data says.
 """
 
 
+@pytest.fixture(autouse=True)
+def _plain_output(monkeypatch):
+    """Inside GitHub Actions check.py writes problems as annotations (::error ...); these tests read its plain lines."""
+    monkeypatch.delenv("GITHUB_ACTIONS", raising=False)
+
+
+def test_inside_actions_problems_become_annotations(tmp_path, monkeypatch):
+    monkeypatch.setenv("GITHUB_ACTIONS", "true")
+    site = make_site(tmp_path, release=True, pages={"data.qmd": PAGE_WITH_TODO})
+    status, lines = run(site, tmp_path)
+    assert status == 1
+    assert any(ln.startswith("::error file=site/data.qmd,line=3::data.qmd: 1 ") for ln in lines)
+
+
 def make_site(root: Path, *, release: bool, pages: dict[str, str], allowlist: str | None = None) -> Path:
     site = root / "site"
     site.mkdir(parents=True)

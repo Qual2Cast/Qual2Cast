@@ -44,7 +44,7 @@ CODE_FENCE = re.compile(r"^\s*(`{3,}|~{3,})")
 NOT_PROSE = [
     (re.compile(r"(`+).+?\1"), " "),  # inline code, including `{python} f.n_universe`
     (re.compile(r"\{\{<.*?>\}\}"), " "),  # shortcodes
-    (re.compile(r"<!--.*?-->"), " "),  # HTML comments
+    (re.compile(r"<!--.*?-->", re.DOTALL), " "),  # HTML comments (one line here; multi-line ones handled below)
     (re.compile(r"^\s*\[(?!\^)[^\]]+\]:\s.*$"), " "),  # reference-link definitions (not footnotes: their text is prose)
     (re.compile(r"\]\([^)]*\)"), "]"),  # link and image targets
     (re.compile(r"<?https?://[^\s>)]+>?"), " "),  # bare URLs
@@ -201,7 +201,7 @@ def prose_lines(text: str) -> Iterator[tuple[int, str]]:
             continue
         if any(divs):
             continue
-        line = re.sub(r"<!--.*?-->", " ", line)
+        line = re.sub(r"<!--.*?-->", " ", line, flags=re.DOTALL)
         if "<!--" in line:
             line, in_comment = line.split("<!--", 1)[0], True
         yield i + 1, line
