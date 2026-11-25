@@ -9,7 +9,7 @@ _2026-11-25 (latest), project website scaffold (Michael). Start at `site/README.
   About comp quality; EV/EBITDA once; no single-target walk-through; slides made separately (they copy `facts.csv`).
 - **People write every sentence**; agents built the scaffold, checks and data only. No typed numbers: 131 named facts
   from 37 sha256-pinned files, 8 figures, 4 tables; placeholders block a release build. Freeze Nov 30, refresh by Dec 5.
-- Checks: 50 site tests pass; the full CI sequence passes locally in a light env (no torch); first Linux run is the PR.
+- Checks: 51 site tests pass, locally (light env, no torch) and on GitHub Actions (PR #43: pins, tests, render all pass).
   Fact checks corrected the README (40.1% vs 36.8-37.9% on the same 107 targets) and GRADING_REVIEW (kappa 0.36).
   Handoff: `conversations/2026-11-25-website-scaffold.md`.
 

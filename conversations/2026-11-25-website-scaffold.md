@@ -35,7 +35,10 @@ Michael, with Claude Code. Branch `michael/site` (PR to `main`).
 
 - Full CI sequence run locally in a throwaway light env (`uv sync --locked --only-group site --only-group dev`,
   torch not installed): check.py OK (37 pins, 0 problems; 32 placeholders, allowed in draft), 50 site tests pass,
-  all 10 pages render, `facts.csv` has 131 facts. Not yet run on Linux / GitHub Actions (the PR is the first run).
+  all 10 pages render, `facts.csv` has 131 facts. On GitHub Actions (PR #43, Linux): pins match (the CRLF-as-LF hash
+  works), 51 tests pass, all pages render. The first run failed only because check.py writes annotations inside
+  Actions (tests now clear GITHUB_ACTIONS; a test covers the annotation form) and CodeQL flagged two comment regexes
+  (re.DOTALL added).
 - No model or API calls. Data: `company_list_v3`; runs as pinned in `v2/current.toml`.
 
 ## Doc fixes the fact checks found (committed)
@@ -57,7 +60,7 @@ Michael, with Claude Code. Branch `michael/site` (PR to `main`).
    unwanted.
 4. Rubric v3 refresh (by Dec 5): set the ledger cohort in `site/facts/ch6_results.py`, re-pin the ledger and trait
    runs, add per-question v3 kappas to chapter 5.
-5. CI pins `actions/checkout@v7`, `astral-sh/setup-uv@v10.3.3`, Quarto 1.9.37; verify on the first PR run.
+5. CI pins `actions/checkout@v7`, `astral-sh/setup-uv@v10.3.3`, uv 0.12.15, Quarto 1.9.37 (all ran on PR #43).
 
 ## Next
 
