@@ -3,7 +3,17 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
-_2026-11-24 (latest), v2 started: eval method, rubric v3, sub-segment traits (Michael). Start at `v2/EVAL_METHOD.md`._
+_2026-11-25 (latest), project website scaffold (Michael). Start at `site/README.md`._
+- **`site/`**: Quarto book (Python), built by `.github/workflows/site.yml` and served at
+  https://qual2cast.github.io/Qual2Cast/ once merged to `main`. For Aziz on **Dec 3**, class presentation **Dec 8**.
+  About comp quality; EV/EBITDA once; no single-target walk-through; slides made separately (they copy `facts.csv`).
+- **People write every sentence**; agents built the scaffold, checks and data only. No typed numbers: 131 named facts
+  from 37 sha256-pinned files, 8 figures, 4 tables; placeholders block a release build. Freeze Nov 30, refresh by Dec 5.
+- Checks: 51 site tests pass, locally (light env, no torch) and on GitHub Actions (PR #43: pins, tests, render all pass).
+  Fact checks corrected the README (40.1% vs 36.8-37.9% on the same 107 targets) and GRADING_REVIEW (kappa 0.36).
+  Handoff: `conversations/2026-11-25-website-scaffold.md`.
+
+_2026-11-24, v2 started: eval method, rubric v3, sub-segment traits (Michael). Start at `v2/EVAL_METHOD.md`._
 - **v2 is a full working copy of v1a** (all ten components, pipeline, notebooks); v1a frozen as the record (267
   tests pass, unchanged). New runs write to `outputs-local/v2/`; existing runs are read in place from
   `outputs-local/v1a/` (`paths.src()`), so v1a's 199 MB of outputs are not copied. v2: 293 tests pass, all 12

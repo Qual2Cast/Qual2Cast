@@ -1,0 +1,11 @@
+# Tokens with digits that may be typed in the site's prose: names, not quantities (site/scripts/check.py).
+# One per line, matched against a whole token (a run of text without spaces, outer punctuation removed), case
+# sensitive, with shell-style wildcards: * any text, ? one character, [0-9] one digit. A quantity is not listed
+# here: it comes from a fact (`{python} f.name`).
+
+# Method versions and the baseline: v0, v1, v1a, v2, v3 (rubric v3), B3.
+v[0-9]*
+B3
+
+# Economic traits: E1 to E10, and ranges such as E1-E10.
+E[0-9]*

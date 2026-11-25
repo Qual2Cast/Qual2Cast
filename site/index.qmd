@@ -1,0 +1,47 @@
+# Introduction {#sec-intro}
+
+```{python}
+#| include: false
+from facts import common as F
+from facts import ch1_intro as f
+```
+
+::: {.as-of}
+Results as of `{python} F.AS_OF`.
+:::
+
+::: {.prose-todo}
+**To write** · draft owner: Michael (assignments are open, see `site/README.md`)
+
+Scope: the problem (valuing a private company), what a comp is, and our answer in a paragraph. The focus is
+whether comp B matches target A; EV/EBITDA is context, reported once in @sec-results.
+
+Facts available:
+
+- `f.n_supplied` = `{python} f.n_supplied`: companies supplied
+- `f.n_universe` = `{python} f.n_universe`: companies kept (the universe)
+- `f.n_training` = `{python} f.n_training`: training companies (comp pool and development targets)
+- `f.n_holdout` = `{python} f.n_holdout`: holdout companies
+- `f.n_facets` = `{python} f.n_facets`: general facets per company
+- `f.n_traits` = `{python} f.n_traits`: economic traits per company (E1-E10)
+- `f.n_labelled_pairs` = `{python} f.n_labelled_pairs`: target-comp pairs graded by at least one reviewer (in-universe comps only)
+- `f.n_labelled_targets` = `{python} f.n_labelled_targets`: targets in those pairs
+- `f.n_labelled_twice` = `{python} f.n_labelled_twice`: of those pairs, graded by two or more reviewers
+- `f.n_reviewers` = `{python} f.n_reviewers`: reviewers
+
+Figures available:
+
+- @fig-pipeline: the pipeline's components (Mermaid; node labels are component names only)
+:::
+
+```{mermaid}
+%%| label: fig-pipeline
+%%| fig-cap: "CAPTION TODO"
+flowchart LR
+  accDescr: ALT TODO
+  universe --> profiles --> b3["B3 retrieval"]
+  b3 --> selector
+  b3 --> agent["agent grade"]
+  labels["reviewer labels"] -.-> selector
+  labels -.-> agent
+```

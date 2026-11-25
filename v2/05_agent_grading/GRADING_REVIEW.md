@@ -54,7 +54,7 @@ reviewer's peers that are kept. The 95% intervals come from 2,000 bootstrap resa
 | Agent ≥ 1 OR selector | 186 | 90.9% | 83.7% | 0.62 |
 
 **Any peer, Matthew rubric v2 (262 of the same pairs, 184 peers):** agent ≥ 1 keeps 163, precision 83.4%
-(75.8–90.5), recall 73.9% (64.6–82.8), kappa 0.37 (0.24–0.49); the selector keeps 61, precision 95.1%,
+(75.8–90.5), recall 73.9% (64.6–82.8), kappa 0.36 (0.24–0.49); the selector keeps 61, precision 95.1%,
 recall 31.5%, kappa 0.19.
 
 **Direct peers (grade 2).** The selector behaves as a direct-peer filter, not an any-peer one:
@@ -74,7 +74,7 @@ recall 31.5%, kappa 0.19.
 - The cost differs: one selector call covers a whole target; the agent needs 1 to 4 calls per pair.
 - The agent's agreement with Barbara (kappa 0.63) is higher than Barbara's with Matthew (0.19, next section),
   partly because the agent's rubric text is the one Barbara labelled with. Against Matthew, who used rubric
-  v2, it drops to 0.37.
+  v2, it drops to 0.36.
 
 ## How much the reviewers agree
 

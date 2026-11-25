@@ -1,0 +1,79 @@
+# Results {#sec-results}
+
+```{python}
+#| include: false
+from facts import common as F
+from facts import ch6_results as f
+```
+
+::: {.as-of}
+Results as of `{python} F.AS_OF`.
+:::
+
+::: {.prose-todo}
+**To write** · draft owners: Kethan and Michael (assignments are open, see `site/README.md`)
+
+Scope: the improvement ledger (precision and recall against reviewer labels), what separates peers from non-peers
+(the trait X-learner), and valuation error reported once, as context.
+
+Facts available:
+
+- `f.ledger_cohort` = `{python} f.ledger_cohort`: label set the ledger facts are scored on
+- `f.ledger_pairs` = `{python} f.ledger_pairs`: labelled pairs in that set
+- `f.ledger_targets` = `{python} f.ledger_targets`: labelled targets in that set
+- `f.ledger_b3_peer_precision` = `{python} f.ledger_b3_peer_precision`, `f.ledger_b3_peer_recall` = `{python} f.ledger_b3_peer_recall`: B3 list, any peer, precision / recall (target means)
+- `f.ledger_b3_direct_precision` = `{python} f.ledger_b3_direct_precision`, `f.ledger_b3_direct_recall` = `{python} f.ledger_b3_direct_recall`: B3 list, direct peer
+- `f.ledger_selector_peer_precision` = `{python} f.ledger_selector_peer_precision`, `f.ledger_selector_peer_recall` = `{python} f.ledger_selector_peer_recall`: selector, any peer
+- `f.ledger_selector_direct_precision` = `{python} f.ledger_selector_direct_precision`, `f.ledger_selector_direct_recall` = `{python} f.ledger_selector_direct_recall`: selector, direct peer
+- `f.ledger_agent_ge1_peer_precision` = `{python} f.ledger_agent_ge1_peer_precision`, `f.ledger_agent_ge1_peer_recall` = `{python} f.ledger_agent_ge1_peer_recall`: agent grade ≥ 1, any peer
+- `f.ledger_agent_ge1_direct_precision` = `{python} f.ledger_agent_ge1_direct_precision`, `f.ledger_agent_ge1_direct_recall` = `{python} f.ledger_agent_ge1_direct_recall`: agent grade ≥ 1, direct peer
+- `f.ledger_agent_2_peer_precision` = `{python} f.ledger_agent_2_peer_precision`, `f.ledger_agent_2_peer_recall` = `{python} f.ledger_agent_2_peer_recall`: agent grade 2, any peer
+- `f.ledger_agent_2_direct_precision` = `{python} f.ledger_agent_2_direct_precision`, `f.ledger_agent_2_direct_recall` = `{python} f.ledger_agent_2_direct_recall`: agent grade 2, direct peer
+- `f.trait_large_customers_direct` = `{python} f.trait_large_customers_direct` (`f.trait_large_customers_direct_ci` = `{python} f.trait_large_customers_direct_ci`): large customers, direct-peer lift (95% interval), round 1
+- `f.trait_large_customers_peer` = `{python} f.trait_large_customers_peer` (`f.trait_large_customers_peer_ci` = `{python} f.trait_large_customers_peer_ci`): large customers, peer lift, round 1
+- `f.trait_large_customers_findings` = `{python} f.trait_large_customers_findings`: large customers, tests that are findings (BH q ≤ 0.10)
+- `f.trait_mission_critical_direct` = `{python} f.trait_mission_critical_direct` (`f.trait_mission_critical_direct_ci` = `{python} f.trait_mission_critical_direct_ci`): mission-critical, direct-peer lift, round 2
+- `f.trait_mission_critical_peer` = `{python} f.trait_mission_critical_peer` (`f.trait_mission_critical_peer_ci` = `{python} f.trait_mission_critical_peer_ci`): mission-critical, peer lift, round 2
+- `f.trait_mission_critical_findings` = `{python} f.trait_mission_critical_findings`: mission-critical, tests that are findings
+- `f.trait_r1_findings` = `{python} f.trait_r1_findings`: round 1, findings of all tests
+- `f.trait_r2_findings` = `{python} f.trait_r2_findings`: round 2, findings of all tests
+- `f.trait_r2_unsupported` = `{python} f.trait_r2_unsupported`: round 2 traits too rare to estimate
+- `f.val_targets` = `{python} f.val_targets`: training targets where the selector kept a comp (valuation compared on these)
+- `f.val_err_no_matching` = `{python} f.val_err_no_matching`: no matching, median absolute % error of EV/EBITDA, those targets
+- `f.val_err_b3` = `{python} f.val_err_b3`: B3 list median, same targets
+- `f.val_err_selector` = `{python} f.val_err_selector`: selector-kept comps median, same targets
+- `f.val_gain_selector` = `{python} f.val_gain_selector` (`f.val_gain_selector_ci` = `{python} f.val_gain_selector_ci`): selector's gain on no matching (95% interval)
+- `f.val_training_targets` = `{python} f.val_training_targets`: all training targets
+- `f.val_err_no_matching_all` = `{python} f.val_err_no_matching_all`: no matching on all training targets
+
+Figures available: @tbl-ledger (the ledger), @fig-progress (precision and recall per ledger row), @fig-trait-lift-r1
+(round 1 trait lift), @fig-trait-lift-r2 (round 2 trait lift)
+:::
+
+```{python}
+#| label: tbl-ledger
+#| tbl-cap: "CAPTION TODO"
+from IPython.display import Markdown
+Markdown(f.tbl_ledger().to_markdown(index=False))
+```
+
+```{python}
+#| label: fig-progress
+#| fig-cap: "CAPTION TODO"
+#| fig-alt: "ALT TODO"
+f.img_progress()
+```
+
+```{python}
+#| label: fig-trait-lift-r1
+#| fig-cap: "CAPTION TODO"
+#| fig-alt: "ALT TODO"
+f.img_trait_lift_r1()
+```
+
+```{python}
+#| label: fig-trait-lift-r2
+#| fig-cap: "CAPTION TODO"
+#| fig-alt: "ALT TODO"
+f.img_trait_lift_r2()
+```
