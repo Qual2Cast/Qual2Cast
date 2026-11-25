@@ -1,6 +1,9 @@
 project:
   type: book
   output-dir: _site
+  # After every render: _site/facts.csv, every named fact in one file for the slide makers (site/README.md).
+  post-render:
+    - scripts/write_facts.py
 
 book:
   title: "Qual2Cast"
