@@ -71,6 +71,7 @@ been used for many comparisons, so a final score needs a fresh set of companies.
 | [`v1/`](v1/README.md) | **The record v1a was built from**, kept unchanged. A copy of v0 with the mentor's comps recipe; `notebooks/` are the step-by-step analyses, `scripts/` the code. [`MIGRATION_MAP.csv`](MIGRATION_MAP.csv) maps every v1 file to its v1a component. |
 | [`v0/`](v0/README.md) | **The 2026-10-28 deliverable**, kept unchanged as a record. Start with [`notebooks/comps_and_valuation.ipynb`](v0/notebooks/comps_and_valuation.ipynb) (main results) and [`notebooks/gold_and_holdout_integration.ipynb`](v0/notebooks/gold_and_holdout_integration.ipynb) (human review and holdout report). |
 | [`website_scrape/`](website_scrape/README.md) | Collects each company's website text and removes financial and stock-market language. |
+| [`site/`](site/README.md) | The project website: a Quarto book that CI builds and publishes on GitHub Pages. Its numbers are computed from result files pinned by hash. |
 | `data-local/` | The input company list (snapshots, never edited by hand). |
 | `outputs-local/` | Results of every step: tables, AI prompts and answers. The current work writes to `outputs-local/v2/` and reads existing runs in place from `outputs-local/v1a/` (v1 results are kept in `outputs-local/v1/`, [map](outputs-local/v1/README.md)), shared through Git. |
 | `src/`, [`docs/`](docs/data_dictionary.md) | Shared code for loading data; column definitions and known data issues. |

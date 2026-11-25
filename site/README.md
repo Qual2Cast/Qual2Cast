@@ -44,4 +44,41 @@ Pin a new source file: `uv run python site/scripts/pin.py add <chapter> <name> <
 
 ## Build and deploy
 
-_To be filled in with the CI workflow._
+**CI** ([`.github/workflows/site.yml`](../.github/workflows/site.yml)) runs on every push to `main` that touches
+`site/`, `outputs-local/`, `v2/current.toml`, `pyproject.toml`, `uv.lock` or the workflow: it installs the light
+`site` dependency group (`uv sync --locked --only-group site`: pandas, matplotlib, Jupyter, no torch), runs
+`scripts/check.py`, renders with Quarto 1.9.37 and deploys `_site/` to GitHub Pages. A pull request touching the same
+paths is checked and rendered but not deployed. Built HTML is never committed.
+
+**Checks** (`scripts/check.py`, before the render; one line per problem, then a summary):
+
+- *pins*: every file in `pins/*.toml` exists, is tracked by git and matches its hash. A problem always fails.
+- *placeholders*: `.prose-todo` divs, `CAPTION TODO` and `ALT TODO`, counted per page. Listed always; they fail only
+  in release mode.
+- *typed numbers*: digits in the prose (not code, facts, attributes, cross-references or placeholder boxes), listed
+  as warnings, never failing; on a pull request they show on the changed lines. A token that is a name, not a
+  quantity (`v3`, `E1-E10`), goes in `scripts/number_allowlist.txt`.
+
+Run them locally (the main environment is fine):
+
+    uv run python site/scripts/check.py              # draft or release, as release.toml says
+    uv run python site/scripts/check.py --release    # what would block a release build now
+    uv run pytest site/tests -q                      # tests of the checks and of facts/common.py
+
+**Release mode:** set `release = true` in `release.toml` for the Dec 3 and Dec 8 builds. CI then fails, and nothing
+deploys, while any placeholder remains.
+
+**facts.csv:** after every render (full, single page or preview), `scripts/write_facts.py`, a Quarto post-render
+script, writes every named fact (name, printed text, value, source pins and files, as-of date) to `_site/facts.csv`,
+published with the site at `/facts.csv`. It loads all chapter modules together, so a fact name defined in two chapters
+fails there.
+
+**Render as CI does**, in the light environment (to make sure no chapter needs a heavy package). From the repository
+root, in Git Bash or a Mac terminal:
+
+    UV_PROJECT_ENVIRONMENT=.venv-site uv sync --locked --only-group site
+    UV_PROJECT_ENVIRONMENT=.venv-site uv run --no-sync quarto render site
+    rm -rf .venv-site                                # a throwaway environment; git ignores it
+
+**Once, by a repository admin:** enable Pages under Settings > Pages > Build and deployment > Source: GitHub Actions.
+Until then the deploy job fails; the checks and the render still run.

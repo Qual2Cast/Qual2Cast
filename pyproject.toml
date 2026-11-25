@@ -8,6 +8,7 @@ requires-python = ">=3.12"
 #   uv sync                      # core + dev (pytest)
 #   uv sync --extra scrape       # + the website scraper's browser tools
 #   uv sync --extra pre-v0       # + the earlier matching experiments (UMAP, HDBSCAN)
+#   uv sync --only-group site    # only what the website build needs, no torch (CI; see site/README.md)
 dependencies = [
     "pandas>=2.2,<3",
     "numpy>=2",
@@ -44,6 +45,22 @@ pre-v0 = [
 
 [dependency-groups]
 dev = ["pytest>=8"]
+# The website build (site/): the light libraries the chapter fact modules may import, plus what Quarto needs to
+# run Python cells. Same locked versions as the main environment.
+site = [
+    "ipykernel>=6",
+    "ipython>=8",
+    "jupyter-client>=8",
+    "jupyter-core>=5",
+    "matplotlib>=3.9",
+    "nbclient>=0.10",
+    "nbformat>=5",
+    "numpy>=2",
+    "openpyxl>=3.1",
+    "pandas>=2.2,<3",
+    "pyyaml>=6",
+    "tabulate>=0.10.0",
+]
 
 [tool.uv]
 package = false
