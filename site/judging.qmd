@@ -15,7 +15,37 @@ Results as of `{python} F.AS_OF`.
 
 Scope: rubric v3, two reviewers, Cohen's kappa, and why reviewer agreement comes before everything else.
 
-Facts available: _none yet_
+Facts available:
 
-Figures available: _none yet_
+- `f.rubric_questions` = `{python} f.rubric_questions`: questions per pair on the rubric v3 sheet (overall call + the score questions)
+- `f.rubric_score_questions` = `{python} f.rubric_score_questions`: questions the 0/1/2 score is derived from
+- `f.rubric_pairs` = `{python} f.rubric_pairs`: pairs on the rubric v3 sheet
+- `f.rubric_targets` = `{python} f.rubric_targets`: targets on the sheet
+- `f.rubric_anchors` = `{python} f.rubric_anchors`: anchor (worked-example) pairs, not scored
+- `f.rubric_scored_pairs` = `{python} f.rubric_scored_pairs`: pairs scored
+- `f.rubric_reviewer_sets` = `{python} f.rubric_reviewer_sets`: reviewer column sets on the sheet (two reviewers + tie-break)
+- `f.bm_pairs` = `{python} f.bm_pairs`: pairs both Barbara (old 0/1/2 form) and Matthew (rubric v2) labelled
+- `f.bm_peer_agreement` = `{python} f.bm_peer_agreement`: Barbara vs Matthew, peer yes/no raw agreement
+- `f.bm_kappa_peer` = `{python} f.bm_kappa_peer`: Barbara vs Matthew, Cohen's kappa on peer yes/no
+- `f.bm_kappa_grade` = `{python} f.bm_kappa_grade`: Barbara vs Matthew, Cohen's kappa on the 0/1/2 grade
+- `f.matthew_yes_product` = `{python} f.matthew_yes_product`: Matthew's yes rate, same product (rubric v2)
+- `f.matthew_yes_customers` = `{python} f.matthew_yes_customers`: Matthew's yes rate, same customers (rubric v2 wording)
+- `f.matthew_prodno_custyes` = `{python} f.matthew_prodno_custyes`: Matthew pairs with product no, customers yes
+- `f.bm_prodno_custyes_barbara1` = `{python} f.bm_prodno_custyes_barbara1`: of those, Barbara grade 1
+- `f.bm_prodno_custyes_barbara0` = `{python} f.bm_prodno_custyes_barbara0`: of those, Barbara grade 0
+- `f.agent_vs_barbara_precision` = `{python} f.agent_vs_barbara_precision`: agent grade ≥ 1 as peer filter vs Barbara, precision (pooled)
+- `f.agent_vs_barbara_recall` = `{python} f.agent_vs_barbara_recall`: same, recall
+- `f.agent_vs_barbara_kappa` = `{python} f.agent_vs_barbara_kappa`: same, Cohen's kappa
+- `f.agent_vs_matthew_precision` = `{python} f.agent_vs_matthew_precision`: agent grade ≥ 1 vs Matthew, precision (pooled)
+- `f.agent_vs_matthew_recall` = `{python} f.agent_vs_matthew_recall`: same, recall
+- `f.agent_vs_matthew_kappa` = `{python} f.agent_vs_matthew_kappa`: same, Cohen's kappa
+
+Figures available: @tbl-bm-crosstab (Matthew's answers vs Barbara's grades)
 :::
+
+```{python}
+#| label: tbl-bm-crosstab
+#| tbl-cap: "CAPTION TODO"
+from IPython.display import Markdown
+Markdown(f.tbl_bm_crosstab().to_markdown(index=False))
+```

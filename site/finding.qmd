@@ -15,10 +15,46 @@ Results as of `{python} F.AS_OF`.
 
 Scope: the B3 list, the selector and the agent grade, described directly (no single-target walk-through).
 
-Facts available: _none yet_
+Facts available:
 
-Figures available: _none yet_
+- `f.b3_targets` = `{python} f.b3_targets`: training targets with a B3 list
+- `f.b3_pairs` = `{python} f.b3_pairs`: B3 pairs (target, comp), all training targets
+- `f.b3_k` = `{python} f.b3_k`: k of the list rule (mutual top k)
+- `f.b3_min_comps` = `{python} f.b3_min_comps`: smallest list (lists topped up to this)
+- `f.b3_median_comps` = `{python} f.b3_median_comps`: median comps per target on the B3 list
+- `f.b3_pairs_topped_up` = `{python} f.b3_pairs_topped_up`: B3 pairs added by the top-up (not mutual)
+- `f.sel_kept_pairs` = `{python} f.sel_kept_pairs`: B3 pairs the selector keeps, all training targets
+- `f.sel_keep_rate` = `{python} f.sel_keep_rate`: share of B3 pairs the selector keeps
+- `f.sel_targets_kept` = `{python} f.sel_targets_kept`: targets with at least one comp kept by the selector
+- `f.sel_targets_no_comp` = `{python} f.sel_targets_no_comp`: targets the selector leaves with no comp
+- `f.agent_targets` = `{python} f.agent_targets`: targets the agent graded (the reviewed targets)
+- `f.agent_pairs` = `{python} f.agent_pairs`: pairs the agent graded (their full B3 lists)
+- `f.agent_grade2` = `{python} f.agent_grade2`: agent grade 2 (direct peer)
+- `f.agent_grade1` = `{python} f.agent_grade1`: agent grade 1 (adjacent)
+- `f.agent_grade0` = `{python} f.agent_grade0`: agent grade 0 (not a peer)
+- `f.agent_insufficient` = `{python} f.agent_insufficient`: agent found too little evidence (no grade)
+- `f.agent_ge1` = `{python} f.agent_ge1`: agent grade 1 or 2
+- `f.agent_max_steps` = `{python} f.agent_max_steps`: most steps the agent may take per pair
+- `f.agent_pairs_lookup` = `{python} f.agent_pairs_lookup`: pairs where the agent looked something up (site or web search)
+- `f.agent_share_lookup` = `{python} f.agent_share_lookup`: share of pairs with a look-up
+- `f.sel_kept_on_agent_pairs` = `{python} f.sel_kept_on_agent_pairs`: selector keeps on the same pairs the agent graded
+
+Figures available: @fig-filter-keeps (pairs kept by each filter, same pairs), @fig-agent-outcomes (agent grade counts)
 :::
+
+```{python}
+#| label: fig-filter-keeps
+#| fig-cap: "CAPTION TODO"
+#| fig-alt: "ALT TODO"
+_ = f.fig_filter_keeps()
+```
+
+```{python}
+#| label: fig-agent-outcomes
+#| fig-cap: "CAPTION TODO"
+#| fig-alt: "ALT TODO"
+_ = f.fig_agent_outcomes()
+```
 
 ::: {.callout-note}
 ::: {.prose-todo}
@@ -27,6 +63,14 @@ Figures available: _none yet_
 Scope: v0 compared four ways of choosing comps by valuation error and none clearly won, so the project switched to
 scoring comp quality against reviewers. A few sentences, not a history chapter.
 
-Facts available: _none yet_
+Facts available:
+
+- `f.v0_routes` = `{python} f.v0_routes`: comp-choosing routes compared in v0
+- `f.v0_holdout_targets` = `{python} f.v0_holdout_targets`: v0 holdout targets scored
+- `f.v0_common_targets` = `{python} f.v0_common_targets`: holdout targets every route gave an estimate for
+- `f.v0_err_no_matching` = `{python} f.v0_err_no_matching`: no matching, median absolute % error of EV/EBITDA (same targets)
+- `f.v0_err_routes_range` = `{python} f.v0_err_routes_range`: the four routes, median absolute % error (same targets)
+- `f.v0_routes_differing` = `{python} f.v0_routes_differing`: routes whose paired 95% interval vs cosine excludes 0
+- `f.v0_paired_change_range` = `{python} f.v0_paired_change_range`: span of those paired intervals (route minus cosine)
 :::
 :::
