@@ -53,8 +53,8 @@ jobs:
           version: "0.12.15"
           enable-cache: true
 
-      - name: Install the site environment (the light `site` group, no torch)
-        run: uv sync --locked --only-group site
+      - name: Install the site environment (the light `site` group plus pytest, no torch)
+        run: uv sync --locked --only-group site --only-group dev
 
       - uses: quarto-dev/quarto-actions/setup@v2
         with:
@@ -62,6 +62,9 @@ jobs:
 
       - name: Check pins, placeholders and typed numbers
         run: uv run --no-sync python site/scripts/check.py
+
+      - name: Test the checks and every chapter's facts
+        run: uv run --no-sync pytest site/tests -q
 
       - name: Render the site
         run: uv run --no-sync quarto render site
