@@ -8,7 +8,8 @@
 2. Placeholders: `.prose-todo` divs, CAPTION TODO and ALT TODO in site/*.qmd, counted per file. Always listed; they
    fail the check only in release mode (release = true in site/release.toml, or --release).
 3. Typed numbers, a warning only: digits in the prose, outside code (cells and inline code such as `{python} f.x`),
-   YAML front matter, attributes ({#sec-x}, {.class}), links, cross-references (@sec-x) and the placeholder divs.
+   YAML front matter, attributes ({#sec-x}, {.class}), links, cross-references (@sec-x), the placeholder divs and
+   `.excerpt` divs (a dated team document quoted word for word, such as the 10/28 note, numbers included).
    Each one should come from a fact; a token that is a name rather than a quantity (v3, E1-E10) goes on a line of
    site/scripts/number_allowlist.txt. Never fails.
 
@@ -37,6 +38,8 @@ PLACEHOLDER_KINDS = ("prose-todo", "CAPTION TODO", "ALT TODO")
 
 # A fenced div opener with the prose-todo class: `::: {.prose-todo}`, `:::: {.prose-todo #id}`, `::: prose-todo`.
 PROSE_TODO = re.compile(r"^\s*:{3,}\s*(?:\{[^}]*\.prose-todo(?![\w-])[^}]*\}|prose-todo(?![\w-]))")
+# A fenced div opener with the excerpt class: a dated team document quoted word for word, its numbers included.
+EXCERPT = re.compile(r"^\s*:{3,}\s*(?:\{[^}]*\.excerpt(?![\w-])[^}]*\}|excerpt(?![\w-]))")
 DIV_FENCE = re.compile(r"^\s*:{3,}(.*)$")
 CODE_FENCE = re.compile(r"^\s*(`{3,}|~{3,})")
 
@@ -168,7 +171,8 @@ def describe_placeholders(found: dict[str, list[int]]) -> str:
 
 
 def prose_lines(text: str) -> Iterator[tuple[int, str]]:
-    """(line number, line) for every line of prose: not YAML front matter, code, div fences or placeholder divs."""
+    """(line number, line) for every line of prose: not YAML front matter, code, div fences, placeholder or excerpt
+    divs."""
     lines = text.splitlines()
     start = 0
     if lines and lines[0].strip() == "---":
@@ -177,7 +181,7 @@ def prose_lines(text: str) -> Iterator[tuple[int, str]]:
                 start = j + 1
                 break
     fence = ""  # the open code fence, e.g. "```"
-    divs: list[bool] = []  # the open fenced divs, True for a prose-todo div
+    divs: list[bool] = []  # the open fenced divs, True for a prose-todo or excerpt div
     in_comment = False
     for i in range(start, len(lines)):
         line = lines[i]
@@ -195,7 +199,7 @@ def prose_lines(text: str) -> Iterator[tuple[int, str]]:
             in_comment, line = False, line.split("-->", 1)[1]
         if m := DIV_FENCE.match(line):
             if m.group(1).strip():
-                divs.append(bool(PROSE_TODO.match(line)))
+                divs.append(bool(PROSE_TODO.match(line) or EXCERPT.match(line)))
             elif divs:
                 divs.pop()
             continue

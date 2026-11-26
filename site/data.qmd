@@ -55,3 +55,26 @@ Markdown(f.funnel_table().to_markdown())
 #| fig-alt: "ALT TODO"
 fig = f.division_figure()
 ```
+
+<!-- Word for word from the team's 10/28 note to Aziz ("10/28 Note: Qual2Cast v0", its PDF export), section 1. Not
+     edited: the wording and numbers are the note's own, so check.py does not look for typed numbers in an .excerpt. -->
+::: {.excerpt}
+[10/28 Note: Qual2Cast v0]{.excerpt-source}
+
+## 1. Data Prep {#v0-1 .unnumbered .unlisted}
+
+We started out v0 by doing some basic data prep on the provided company list:
+
+- Converted select SIC-codes into a 4-digit format for all companies
+- Dropped firms where the evx is outside 3-30
+- Separated out the categorical features from numeric data, leaving us with about 533 companies to examine.
+
+From this pool of public companies:
+
+- selected 10 targets (Table 1.1)
+- treated targets  as if they were private; withheld financial information to simulate the process of identifying comparable companies
+- numeric data will be used as our ground truth at the end to compare the “error” between the target's actual multiple with a weighted average of its comps' multiples
+- categorical features → a python script (built pre-v0) to scrape the website descriptions + first few pages of each company link. The web scrape would help supplement information gaps that LLMs (Codex CLI or Claude Code CLI) may have when trying to populate certain facets like company description, thus improving the overall fill rate to >99%.
+
+**Table 1.1: Targets** - Beyond accounting for the diversity of companies operating multiple businesses, our selection of the targets above focuses on established businesses (i.e. landscaping or employee-management software) where the primary consideration is management’s ability to operate and grow the company. This aligns with the buyout investment approach you described in our very first meeting. See the full list: [11/1 Deliverable Tables](https://docs.google.com/spreadsheets/d/1V-Jkh3kZOTWEpwIP6TSeisFrxs8DyZZP5qWwL1VRE0Q/edit?usp=sharing)
+:::

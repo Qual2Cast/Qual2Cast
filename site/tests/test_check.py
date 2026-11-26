@@ -110,7 +110,7 @@ def test_number_lint_finds_a_typed_number_and_respects_the_allowlist(tmp_path):
     assert len(warnings) == 1 and "results.qmd:3: typed number '533'" in warnings[0]
 
 
-def test_number_lint_skips_code_facts_attributes_references_and_placeholders():
+def test_number_lint_skips_code_facts_attributes_references_placeholders_and_excerpts():
     page = """---
 title: "Results 2026"
 ---
@@ -133,6 +133,14 @@ Scope: Aziz's 560 companies.
 ::: {.inner}
 nested 99
 :::
+:::
+
+::: {.excerpt}
+Quoted word for word from the 10/28 note: about 533 companies, 37.32% → 33.29%.
+
+| Variant | Accuracy |
+|---|---|
+| + SIC4 sub-sector | 0.911 |
 :::
 
 1. a list item
