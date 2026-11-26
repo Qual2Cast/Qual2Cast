@@ -49,3 +49,37 @@ Figures available: @tbl-bm-crosstab (Matthew's answers vs Barbara's grades)
 from IPython.display import Markdown
 Markdown(f.tbl_bm_crosstab().to_markdown(index=False))
 ```
+
+<!-- Word for word from the team's 10/28 note to Aziz ("10/28 Note: Qual2Cast v0", its PDF export), sections 6 and 7.
+     Not edited: the wording and numbers are the note's own, so check.py does not look for typed numbers in an
+     .excerpt. -->
+::: {.excerpt}
+[10/28 Note: Qual2Cast v0]{.excerpt-source}
+
+## 6. Human: Comp Golden Set {#v0-6 .unnumbered .unlisted}
+
+Next, Riya, Barbara, and Matthew chose Paylocity and Wendy’s as the targets to examine and manually graded whether the output comps made sense. This was done blindly, without looking at the scores of the other reviewers. The cosine similarity filter described in [#4c. Constructing Company Profiles](finding.qmd#v0-4) produced 36 target-comp pairs for the two targets– 20 for Wendy’s and 16 for Paylocity.
+
+Scoring technique:
+
+- 2 if it sells the same type of product/service to the same type of customer as the target
+- 1 if only one of those two conditions holds, and a 0 if neither does. Each 0 required a written reason.
+- We used the majority score as the final label.
+
+|   |   |
+|---|---|
+| For Paylocity only ADP, Paycom and Asure were labeled direct peers. Seven of the 16 Paylocity comps were software companies with no payroll or human resources product, including Sprinklr, eGain, SS&C, DHI, Upland, Thryv and RingCentral. Matthew scored all seven as 0. Riya and Barbara scored DHI, Upland and Thryv as 1 on the basis that they sell software to small business owners, which is Paylocity’s customer base. Those three carry a final label of 1, and RingCentral is the unresolved pair. | For Wendy’s, Texas Roadhouse was the only comp labeled a direct peer. Its 10-K names quick service chains among its competitors. Flanigan’s Enterprises, The ONE Group Hospitality and Dutch Bros were labeled adjacent. Nine of the 20 Wendy’s comps were packaged food companies, which supply restaurants rather than compete with them (including Lamb Weston, Hormel, McCormick and Coca-Cola Consolidated). Lamb Weston reports that about 15% of its sales come from McDonald’s, and roughly a third of Hormel’s sales go to foodservice customers. All nine received a final label of 0. |
+
+: Table 6.1: Results of Manual Review
+
+Our labels indicate two things regarding our algorithm:
+
+a. The first is a trade-off between how many comps a method returns and how many of them are real peers. The cosine similarity method always returns a fixed # of comps per target. Under our labels, 3 of its 10 for Wendy's and 6 of its 10 for Paylocity are peers, so about half of what it returns are not peers. The three methods that involve the LLM return fewer comps, 3 to 5 per target, but they are labeled 1 or 2. Thus the LLM methods are precise but short, and the cosine method is long but half correct. The scores for each grader and each method are in the repository [here](https://github.com/Qual2Cast/Qual2Cast/tree/main/outputs-local/comps_pilot_targets/golden_set/reviewer_evaluation) and is outlined in the tables for [#7. LaaJ: Comp Golden Set](#v0-7).
+b. The second is the algorithm picks companies that share an industry category with the target but sell to a completely different customer. For Wendy's, the wrong picks were packaged food companies that supply restaurants. For Paylocity, they were business software companies with no payroll or human resources product.
+
+## 7. LaaJ: Comp Golden Set {#v0-7 .unnumbered .unlisted}
+
+In addition to the manually-reviewed comp golden set, Kethan also built out a LaaJ (LLM-as-a-Judge) model to separately evaluate the 36 pairs. It uses gpt-6.1-sol, called through the Codex CLI. This is intentionally selected so that we can see how another model outside of the Anthropic family evaluates the comps.
+
+**7.1 / 7.2: PCTY & WEN Breakdown** - LaaJ mostly agrees with the comps selected by Matt and Barbara, which reaffirms the finding in #6a. One thing to note here is that the inference power that a model like Sol provides for evals would invariably eclipse that of Haiku’s in selecting comps after the cosine similarity filter– so we would need to use a better model from Anthropic in the future when reconstructing the baseline. Scores can be found in the [judge_comparison_0_2_exact folder](https://github.com/Qual2Cast/Qual2Cast/tree/07cd28b98ff0c807eab075c3653680d05a2b3f7d/outputs-local/comps_pilot_targets/golden_set/judge_comparison_0_2_exact). See scoring breakdowns in the second and third tabs here: [11/1 Deliverable Tables](https://docs.google.com/spreadsheets/d/1V-Jkh3kZOTWEpwIP6TSeisFrxs8DyZZP5qWwL1VRE0Q/edit?usp=sharing).
+:::

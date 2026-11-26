@@ -14,3 +14,32 @@ Results as of `{python} F.AS_OF`.
 
 Scope: what the results do not show, and what the team would do next.
 :::
+
+<!-- Word for word from the team's 10/28 note to Aziz ("10/28 Note: Qual2Cast v0", its PDF export), sections 10 and 11
+     (the questions the team put to Aziz then). Not edited: the wording and numbers are the note's own, so check.py
+     does not look for typed numbers in an .excerpt. -->
+::: {.excerpt}
+[10/28 Note: Qual2Cast v0]{.excerpt-source}
+
+## 10. Assumptions and Limitations {#v0-10 .unnumbered .unlisted}
+
+1. In [#4. Company Profiles](finding.qmd#v0-4), we assumed that “descriptions, qualitative features, facets” were all one and the same. More on that shortly under [OQ #1](#v0-oq-1).
+2. We’ve only tested predictions using public firms, though results may become more consistent once we incorporate private firms (Barbara’s research)  Our limited company universe also means that some firms lack suitable competitors within the pool. See [OQ #2](#v0-oq-2).
+3. []{#v0-10-3}Point-in-time data → we just want to know if our facets are actually measuring apples to apples. The evx error could be a more reliable metric of model success if we can measure peers that we know are headed in the same direction financially– something that our current .csv or even the time-series data may not capture. Any feedback on the overall topic of data provenance is welcome. See [OQ #2.2](#v0-oq-2-2).
+4. Lastly, when using cosine similarity to score facets, we naively assumed that each facet held an equal weight. In the future, we plan on incorporating TF-IDF / BM25 to refine our similarity scoring mechanisms.
+
+## 11. Next Steps / Considerations {#v0-11 .unnumbered .unlisted}
+
+- []{#v0-oq-1}Open Question (OQ) #1: If it’s true that facets are for screening, and features are for training– should facets continue to be encoded as features as we’ve done so far, or do we make more effort to delineate between facets and features with other supplementary data?
+- []{#v0-oq-2}OQ #2: Regarding the direction of this project, are you wanting to cater this tool to companies that are more backward-looking (e.g. companies that are already very mature and close to exit) or forward-looking (e.g. a small garage based bookseller that will become a hyperscaler with hundreds of thousands of employees in the future) ?
+
+Supposing you wanted the latter from OQ #2…
+
+- []{#v0-oq-2-1}OQ #2.1: Supplementary data: How would you feel about expanding the universe by including press releases / Reg D filings for public companies (to imply evx from sale of unreg. shares / public comments from CEOs in the news) and Section 12(g) filings for private companies (to imply evx from registering a class of equity securities)?
+- []{#v0-oq-2-2}OQ #2.2: We feel that one way to solve [limitation #3](#v0-10-3) is to obviously inject time-series data into the project, but this may be an incomplete answer since this may not really capture companies in transition. For example, consider the case of Kodak where digital cameras became the primary business in lieu of photography. Or how newer defense technology companies like Palantir contrast with older, larger contractors such as Northrop Grumman, whose investments in emerging technologies may not yet be reflected in their revenue composition. A company that’s 90% stuck in an antiquated domain, and 10% invested in some other proliferating business venture may be undervalued by our model in the long-run despite having time-series info.
+    - Question: Given this context, we believe a more comprehensive approach may be to use NLP/LLMs to analyze companies’ 10-Q filings, particularly the risk assessment sections. This would help identify statements that could signal changes in their industry classifications or underlying business operations. Would this be a worthwhile direction to explore?
+- []{#v0-oq-2-3}OQ #2.3: Regarding capital intensity / company size from [#3. LLM-Based Population](describing.qmd#v0-3). We feel that these facets become more difficult to assess when considering companies undergoing business transitions. For instance, a company that secures financing to expand into a new industry may see significant changes in both its size and capital intensity. However, whether the company can secure that financing in the first place introduces another layer of uncertainty. This raises the need to distinguish between a company's current characteristics and its potential future state.
+    - Question: Should these still be included as facets to be estimated and then, subsequently turned into categorical bands? If so, the greater issue is where that estimation should be performed (on dynamic companies vs. companies that may be disrupted)
+- []{#v0-oq-3}OQ #3: When we consider the case of companies without an industry classification that are exposed to industry in a significant way (i.e. Amazon being exposed to tech, but it itself is a retail distributor), we don’t know how much weight our current approach of using facets to derive a reliable, numeric outcome actually holds.
+    - Question: Out of curiosity, how much of the advice that you’ve provided so far for our recommended methodology reflects what people are actually doing at hedge funds?
+:::

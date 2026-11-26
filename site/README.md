@@ -14,9 +14,15 @@ The Qual2Cast website: a Quarto book, built by CI and served on GitHub Pages. De
    caption still to be written is `CAPTION TODO`, alt text `ALT TODO`.
 2. **No number is typed.** Text prints numbers from named facts: `{python} f.n_universe`. Each chapter's facts are
    in `facts/ch*.py`, computed from files pinned (with their sha256) in `pins/ch*.toml`. A pinned file that
-   changes stops the build until someone re-pins it on purpose.
+   changes stops the build until someone re-pins it on purpose. The one exception is an excerpt (below).
 3. **Freeze:** numbers freeze Nov 30 for Dec 3; one refresh by Dec 5 for Dec 8; after Dec 5, wording only.
    `release.toml` holds the as-of date and the release switch.
+4. **Excerpts are quoted, never edited.** The team's 10/28 note to Aziz ("10/28 Note: Qual2Cast v0") is quoted word
+   for word, numbers and typos included, in `::: {.excerpt}` blocks at the end of the chapter each section belongs
+   to: 1 in Data; 2, 3, 5, 8 in Describing a company; 4, 4.1, 9 in Finding comps; 6, 7 in Judging comps; 10, 11 in
+   Limits and next steps. Its figure and screenshots are in `excerpts/2026-10-28-note/` (taken from the note's PDF),
+   alt text still `ALT TODO`. The note's header (team list, repo link) and its part headings ("Basic Model",
+   "Evaluations", "(Important) Review") are left out. `check.py` does not look for typed numbers inside an excerpt.
 
 ## Draft owners
 
@@ -27,10 +33,11 @@ Nothing here is settled: change it freely.
 | 1 Introduction | Michael | |
 | 2 Data | Richard | Fiona |
 | 3 Describing a company | Richard | Fiona |
-| 4 Finding comps (incl. the "how we got here" box) | Kethan | |
+| 4 Finding comps (incl. the "how we got here" box: v0 to v2) | Kethan | |
 | 5 Judging comps | Michael | Barbara, Matthew |
 | 6 Results | Kethan, Michael | |
 | 7 Limits and next steps | Eric | |
+| Acknowledgements (thanks to Aziz, unnumbered page after chapter 7) | Eric | |
 | Appendix (glossary, team, how to reproduce) | Eric | |
 
 ## Working on it
@@ -41,6 +48,18 @@ Nothing here is settled: change it freely.
 
 Pin a new source file: `uv run python site/scripts/pin.py add <chapter> <name> <path>`; check all pins:
 `uv run python site/scripts/pin.py verify`.
+
+## Look
+
+Rational AI's palette and type (rationalai.co: Source Serif 4, IBM Plex Sans, navy ink on cool paper, one blue accent)
+in a field-guide book frame: a tab index on the sidebar's edge, a large chapter numeral, ruled plates for figures and
+tables. Light by default, with a dark-mode toggle in the sidebar. Not their logo or layout. Set on 2026-11-25.
+
+- `theme.scss`: every colour (a token), font and rule; `theme-dark.scss`: the dark-mode tokens.
+- `_plates.html`: adds styling hooks only (the "Figure 6.1:" label, one-line short table cells).
+- `fonts/`: the self-hosted faces and their licences (SIL OFL 1.1).
+- `PRODUCT.md`: who the site is for and what it must and must not be; `DESIGN.md`: the design system as built.
+- Chapter `.qmd` files carry no styling; the theme adds no words.
 
 ## Build and deploy
 
@@ -55,7 +74,7 @@ paths is checked and rendered but not deployed. Built HTML is never committed.
 - *pins*: every file in `pins/*.toml` exists, is tracked by git and matches its hash. A problem always fails.
 - *placeholders*: `.prose-todo` divs, `CAPTION TODO` and `ALT TODO`, counted per page. Listed always; they fail only
   in release mode.
-- *typed numbers*: digits in the prose (not code, facts, attributes, cross-references or placeholder boxes), listed
+- *typed numbers*: digits in the prose (not code, facts, attributes, cross-references, placeholder boxes or excerpts), listed
   as warnings, never failing; on a pull request they show on the changed lines. A token that is a name, not a
   quantity (`v3`, `E1-E10`), goes in `scripts/number_allowlist.txt`.
 

@@ -3,7 +3,17 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
-_2026-11-25 (latest), project website scaffold (Michael). Start at `site/README.md`._
+_2026-11-25 (latest), website look, the 10/28 v0 note quoted, acknowledgements (Michael). `site/README.md`._
+- **Look:** Rational AI's palette and type in a field-guide book frame (`site/theme.scss`, `site/DESIGN.md`); one
+  accent; dark mode by toggle (light default); real names with GitHub links on the first page.
+- **v0:** the team's 10/28 note to Aziz is quoted word for word in the chapter each section belongs to (`.excerpt`
+  blocks, README rule 4). **v1:** Michael's note closing the Introduction says why the book covers v0 and v2 only.
+  New unnumbered Acknowledgements page (thanks to Aziz, owner Eric).
+- 51 site tests pass; check OK (0 typed numbers; 36 placeholders while drafting). Open: the note's Google Sheet link
+  goes public with the site; ask Aziz about the Rational AI resemblance.
+  Handoff: `conversations/2026-11-25-website-look-and-v0-note.md`.
+
+_2026-11-25, project website scaffold (Michael). Start at `site/README.md`._
 - **`site/`**: Quarto book (Python), built by `.github/workflows/site.yml` and served at
   https://qual2cast.github.io/Qual2Cast/ once merged to `main`. For Aziz on **Dec 3**, class presentation **Dec 8**.
   About comp quality; EV/EBITDA once; no single-target walk-through; slides made separately (they copy `facts.csv`).

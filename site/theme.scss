@@ -1,0 +1,775 @@
+/*-- scss:defaults --*/
+
+// Qual2Cast site theme. Palette and type follow Rational AI's public site (rationalai.co): Source Serif 4 headings,
+// IBM Plex Sans text, navy-slate ink on cool paper, one blue accent. Structure is a field guide's: a thumb index on
+// the rail's edge, an oversized chapter numeral, ruled plates for figures and tables.
+// One accent marks where you are: the current chapter's tab, chapter numerals, plate rules, link underlines.
+// Every colour is a token; theme-dark.scss overrides them for dark mode (sidebar toggle, light by default).
+// The design record is site/DESIGN.md; product facts are in site/PRODUCT.md.
+
+$q2c-dark: false !default;
+
+// Ink and paper (Rational AI's ink and paper scales)
+$q2c-ink: #0e1b26 !default; // ink-900
+$q2c-ink-2: #5c6b76 !default; // ink-500
+$q2c-paper: #f7f9fb !default; // paper
+$q2c-rail: #eff3f7 !default; // paper-deep
+$q2c-rule: #e4e9ec !default; // ink-100
+$q2c-rule-strong: #c7d0d6 !default; // ink-200
+$q2c-code-bg: #f1f4f6 !default; // ink-50
+
+// The accent (their blue-600; blue-500 is under 4.5:1 for small text), and the quiet tabs of other chapters
+$q2c-accent: #24628f !default;
+$q2c-tab: #c7d0d6 !default;
+
+$q2c-head: "Source Serif 4", Georgia, "Times New Roman", serif;
+$q2c-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+$q2c-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+// Bootstrap and Quarto
+$primary: $q2c-accent;
+$body-bg: $q2c-paper;
+$body-color: $q2c-ink;
+$link-color: $q2c-ink;
+$border-color: $q2c-rule;
+$table-border-color: $q2c-rule;
+$font-family-base: $q2c-sans;
+$font-family-sans-serif: $q2c-sans;
+$font-family-monospace: $q2c-mono;
+$headings-font-family: $q2c-head;
+$headings-font-weight: 600;
+$headings-color: $q2c-ink;
+$font-size-base: 1.0625rem;
+$line-height-base: 1.65;
+$code-bg: $q2c-code-bg;
+$code-color: $q2c-ink;
+$input-bg: $q2c-paper;
+$input-border-color: $q2c-rule-strong;
+$sidebar-bg: $q2c-rail;
+$sidebar-fg: $q2c-ink;
+$sidebar-border: true;
+$callout-color-note: $q2c-accent;
+$toc-color: $q2c-ink-2;
+$toc-active-border: $q2c-accent;
+$toc-inactive-border: $q2c-rule;
+$grid-sidebar-width: 280px;
+$grid-body-width: 720px;
+$grid-margin-width: 230px;
+
+// Mermaid diagrams take the same ink and paper
+$mermaid-font-family: $q2c-sans;
+$mermaid-bg-color: $q2c-paper;
+$mermaid-node-bg-color: $q2c-paper;
+$mermaid-node-fg-color: $q2c-ink;
+$mermaid-fg-color: $q2c-ink;
+$mermaid-fg-color--lighter: $q2c-ink-2;
+$mermaid-fg-color--lightest: $q2c-rule;
+$mermaid-edge-color: $q2c-ink-2;
+$mermaid-label-bg-color: $q2c-paper;
+$mermaid-label-fg-color: $q2c-ink;
+
+/*-- scss:rules --*/
+
+// Self-hosted faces (SIL OFL 1.1, licences in site/fonts/). Paths are relative to site/; Quarto copies the files.
+$q2c-latin: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+  U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url("fonts/sourceserif4-latin.woff2") format("woff2");
+  unicode-range: $q2c-latin;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: italic;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url("fonts/sourceserif4-italic-latin.woff2") format("woff2");
+  unicode-range: $q2c-latin;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 100 700;
+  font-stretch: 85% 100%;
+  font-display: swap;
+  src: url("fonts/ibmplexsans-latin.woff2") format("woff2");
+  unicode-range: $q2c-latin;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: italic;
+  font-weight: 100 700;
+  font-stretch: 85% 100%;
+  font-display: swap;
+  src: url("fonts/ibmplexsans-italic-latin.woff2") format("woff2");
+  unicode-range: $q2c-latin;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/ibmplexmono-400-latin.woff2") format("woff2");
+  unicode-range: $q2c-latin;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/ibmplexmono-500-latin.woff2") format("woff2");
+  unicode-range: $q2c-latin;
+}
+
+// ---- Tokens as custom properties ------------------------------------------------------------------------------
+
+:root {
+  --q2c-accent: #{$q2c-accent};
+  // text keeps a reading measure (about 75 characters); figures and tables, the plates, take the full width
+  --q2c-measure: 38rem;
+}
+
+// ---- Browser surfaces --------------------------------------------------------------------------------------
+
+body {
+  font-variant-numeric: lining-nums;
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
+  caret-color: var(--q2c-accent);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--q2c-accent) 24%, #{$q2c-paper});
+  color: $q2c-ink;
+}
+
+:focus-visible {
+  outline: 2px solid var(--q2c-accent);
+  outline-offset: 2px;
+}
+
+html {
+  scrollbar-color: #{$q2c-tab} transparent;
+}
+
+// ---- Reading column ----------------------------------------------------------------------------------------
+
+main.content {
+  p,
+  li {
+    hyphens: manual;
+  }
+
+  :is(p, ul, ol, dl, blockquote, h2, h3, h4):not(figure *, .cell-output-display *, .prose-todo *) {
+    max-width: var(--q2c-measure);
+  }
+}
+
+a {
+  color: $q2c-ink;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--q2c-accent) 60%, transparent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.18em;
+  transition: color 120ms ease-out, text-decoration-color 120ms ease-out;
+
+  &:hover {
+    color: var(--q2c-accent);
+    text-decoration-color: var(--q2c-accent);
+  }
+}
+
+main.content :not(pre) > code {
+  font-size: 0.82em;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  background: $q2c-code-bg;
+  color: $q2c-ink;
+}
+
+h2,
+h3,
+h4 {
+  font-family: $q2c-head;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+main.content {
+  h2 {
+    font-size: 1.65rem;
+    font-weight: 600;
+    margin-top: 2.75rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid $q2c-rule;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h2 .header-section-number,
+  h3 .header-section-number {
+    color: var(--q2c-accent);
+    font-variant-numeric: tabular-nums;
+    margin-right: 0.35em;
+  }
+}
+
+// ---- Chapter opener: an oversized numeral in the accent ----------------------------------------------------
+
+#title-block-header {
+  margin-block-end: 0;
+}
+
+#title-block-header h1.title,
+main.content section.level1 > h1 {
+  font-family: $q2c-head;
+  font-weight: 600;
+  font-size: clamp(2.25rem, 1.6rem + 2vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: $q2c-ink;
+  margin: 0;
+  border: 0;
+  text-wrap: balance;
+}
+
+#title-block-header h1.title .quarto-section-identifier,
+main.content section.level1 > h1 {
+  display: flex;
+  align-items: baseline;
+  column-gap: 0.18em;
+}
+
+#title-block-header h1.title .chapter-number,
+main.content section.level1 > h1 > .header-section-number {
+  flex: none;
+  font-weight: 400;
+  font-size: 2.6em;
+  line-height: 0.8;
+  letter-spacing: -0.02em;
+  color: var(--q2c-accent);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+// The book's own title on the first page (the one with the author list) sits above Chapter 1 as a running title, not
+// a second opener. An unnumbered page (Acknowledgements) keeps the full opener size.
+#title-block-header:not(:has(.chapter-number)):has(.quarto-title-meta-contents) h1.title {
+  font-size: 1.5rem;
+  letter-spacing: 0;
+}
+
+#title-block-header .quarto-title-meta {
+  font-size: 0.8125rem;
+  color: $q2c-ink-2;
+  margin: 0;
+
+  &:has(.quarto-title-meta-contents) {
+    margin: 0.9rem 0 3rem;
+    max-width: var(--q2c-measure);
+  }
+
+  // Quarto lays the title meta out as a two-column grid; the author list spans it
+  > div {
+    grid-column: 1 / -1;
+  }
+
+  // the team: Quarto's own "Authors" label over an even grid of names, each linked to GitHub (icon only, no words)
+  .quarto-title-meta-heading {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $q2c-ink-2;
+    margin: 0 0 0.6rem;
+  }
+
+  .quarto-title-meta-contents {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    gap: 0.55rem 2rem;
+  }
+
+  .quarto-title-meta-contents p {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.4;
+  }
+
+  .quarto-title-meta-contents a {
+    color: $q2c-ink;
+    text-decoration: none;
+
+    &::after {
+      content: "\f3ed"; // bootstrap-icons github
+      font-family: "bootstrap-icons";
+      font-size: 0.8em;
+      margin-left: 0.4em;
+      color: $q2c-ink-2;
+      vertical-align: 0.05em;
+    }
+
+    &:hover {
+      color: var(--q2c-accent);
+
+      &::after {
+        color: var(--q2c-accent);
+      }
+    }
+  }
+}
+
+// "Results as of" closes the opener with a hairline.
+.as-of {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $q2c-ink-2;
+  margin: 0.9rem 0 2.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid $q2c-rule-strong;
+
+  p {
+    margin: 0;
+  }
+}
+
+// ---- Unwritten slots: a plain dashed outline, nothing more (they are temporary) -----------------------------
+
+.prose-todo {
+  max-width: calc(var(--q2c-measure) + 2.8rem);
+  margin: 2rem 0;
+  padding: 1rem 1.4rem 0.9rem;
+  border: 1px dashed $q2c-rule-strong;
+  border-radius: 4px;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+
+  p {
+    margin-bottom: 0.6rem;
+  }
+
+  ul {
+    font-stretch: 92%;
+    font-size: 0.875rem;
+    line-height: 1.45;
+    font-variant-numeric: tabular-nums;
+    padding-left: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  li {
+    margin: 0.2rem 0;
+  }
+}
+
+// ---- Excerpts: a dated team document quoted word for word (the 10/28 note), on a hairline -----------------------
+// The document's own title heads it; its own numbered headings sit a step below the chapter's. No words added here.
+
+.excerpt {
+  margin: 3.5rem 0 2.5rem;
+  padding: 0.1rem 0 0.1rem 1.4rem;
+  border-left: 1px solid $q2c-rule-strong;
+
+  > p:first-child {
+    margin-bottom: 0;
+  }
+
+  .excerpt-source {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: $q2c-ink-2;
+  }
+
+  img {
+    border: 1px solid $q2c-rule;
+  }
+}
+
+// The excerpt's own headings ("1. Data Prep", "4.1. Results"), a step below the chapter's and without its rule.
+main.content .excerpt {
+  h2 {
+    font-size: 1.3rem;
+    margin-top: 2.25rem;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    margin-top: 1.75rem;
+  }
+
+  .excerpt-source + h2,
+  p:has(> .excerpt-source:only-child) + section > h2:first-child,
+  p:has(> .excerpt-source:only-child) + h2 {
+    margin-top: 0.9rem;
+  }
+}
+
+// An excerpt's table is as wide as its content (like a plate); its long cells wrap on every screen (short ones stay
+// on one line, see Tables).
+main.content .excerpt table.table {
+  width: auto;
+  min-width: min(100%, 24rem);
+  max-width: 100%;
+  margin-block: 1.75rem 2rem;
+
+  td {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .excerpt {
+    padding-left: 0.9rem;
+  }
+
+  // a quoted table wider than a phone scrolls sideways on its own, not the page
+  main.content .excerpt table.table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+// ---- Plates: figure and table captions under a ruled label ------------------------------------------------
+
+figure figcaption,
+.quarto-float-caption,
+main.content table > caption {
+  position: relative;
+  text-align: left !important;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: $q2c-ink-2;
+  padding-top: 0.45rem;
+  border-top: 1px solid $q2c-ink;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 3rem;
+    height: 3px;
+    background: var(--q2c-accent);
+  }
+}
+
+// "Figure 6.1:" / "Table 6.1:", the number a reader points to (wrapped by _plates.html)
+.q2c-plate-no {
+  font-weight: 600;
+  color: $q2c-ink;
+  font-variant-numeric: tabular-nums;
+}
+
+.quarto-float-caption-top {
+  margin-bottom: 0.5rem;
+}
+
+.quarto-float-caption-bottom,
+figure > figcaption:not(.quarto-float-caption-top) {
+  margin-top: 0.6rem;
+}
+
+.quarto-figure,
+.quarto-float {
+  margin-block: 2rem;
+}
+
+// A table plate is as wide as its table (the caption wraps to it), up to the full width.
+figure.quarto-float-tbl {
+  width: fit-content;
+  min-width: min(100%, 24rem);
+  max-width: 100%;
+
+  > figcaption {
+    contain: inline-size;
+  }
+}
+
+// ---- Tables: tabular figures, ruled, no zebra ------------------------------------------------------------
+
+main.content table.table {
+  font-stretch: 85%;
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums lining-nums;
+  color: $q2c-ink;
+  --bs-table-striped-bg: transparent;
+  --bs-table-accent-bg: transparent;
+  --bs-table-bg: transparent;
+  --bs-table-color: #{$q2c-ink};
+  --bs-table-striped-color: #{$q2c-ink};
+  border-top: 0;
+  table-layout: auto;
+
+  // pandoc fixes column widths from the Markdown source; let the content size them instead
+  col {
+    width: auto !important;
+  }
+
+  > :not(caption) > * > * {
+    box-shadow: none;
+    padding: 0.5rem 0.5rem;
+    border-bottom: 1px solid $q2c-rule;
+  }
+
+  thead th {
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $q2c-ink-2;
+    vertical-align: bottom;
+    border-bottom: 1.5px solid $q2c-ink;
+  }
+
+  tbody tr:hover > * {
+    background: color-mix(in srgb, var(--q2c-accent) 7%, #{$q2c-paper});
+  }
+}
+
+// Short cells never wrap (tagged by _plates.html); a dated row reads "2026-11-24", not "2026-11-" over "24".
+main.content table.table td.q2c-short {
+  white-space: nowrap;
+}
+
+// On phones a wide table keeps one line per row and scrolls sideways inside its plate.
+@media (max-width: 767.98px) {
+  main.content table.table td {
+    white-space: nowrap;
+  }
+}
+
+// ---- Index rail: chapter list with thumb-index tabs on its right edge ---------------------------------------
+
+#quarto-sidebar {
+  // the site name and its tools (GitHub, light/dark toggle) on one row
+  .sidebar-title {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+  }
+
+  .sidebar-title,
+  .sidebar-title a {
+    font-family: $q2c-head;
+    font-weight: 600;
+    font-size: 1.35rem;
+    letter-spacing: -0.005em;
+    text-decoration: none;
+    color: $q2c-ink;
+  }
+
+  .sidebar-tools-main {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+    margin: 0 0 0 auto;
+  }
+
+  .sidebar-tools-main a,
+  .quarto-color-scheme-toggle {
+    text-decoration: none;
+    color: $q2c-ink-2;
+
+    &:hover {
+      color: var(--q2c-accent);
+    }
+  }
+
+  // the chapter list runs to the rail's edge, so tabs sit on it
+  .sidebar-menu-container {
+    padding-right: 0;
+  }
+
+  .sidebar-section {
+    padding-left: 0;
+  }
+
+  .sidebar-menu-container > ul > li.sidebar-item > .sidebar-item-container,
+  .sidebar-section .sidebar-item-container {
+    position: relative;
+  }
+
+  a.sidebar-link {
+    display: block;
+    width: 100%;
+    font-size: 0.9375rem;
+    line-height: 1.3;
+    color: $q2c-ink;
+    text-decoration: none;
+    padding: 0.45rem 1.75rem 0.45rem 0;
+
+    // number and title side by side, so a long title wraps under itself
+    .menu-text {
+      display: flex;
+      align-items: baseline;
+    }
+
+    .chapter-number {
+      flex: none;
+      min-width: 1.3em;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      color: $q2c-ink-2;
+    }
+
+    &:hover {
+      color: var(--q2c-accent);
+    }
+
+    &.active {
+      font-weight: 600;
+      color: $q2c-ink;
+
+      .chapter-number {
+        color: var(--q2c-accent);
+      }
+    }
+  }
+
+  // the tab itself: a quiet band at the rail's edge; the page you are on gets a wide tab in the accent
+  li.sidebar-item:not(.sidebar-item-section) > .sidebar-item-container > a.sidebar-link::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    right: calc(-1 * var(--q2c-rail-pad, 1rem));
+    width: 6px;
+    background: $q2c-tab;
+    transition: width 160ms cubic-bezier(0.22, 1, 0.36, 1), background-color 160ms ease-out;
+  }
+
+  li.sidebar-item:not(.sidebar-item-section) > .sidebar-item-container > a.sidebar-link:hover::after {
+    width: 12px;
+    background: $q2c-ink-2;
+  }
+
+  li.sidebar-item:not(.sidebar-item-section) > .sidebar-item-container > a.sidebar-link.active::after {
+    width: 22px;
+    background: var(--q2c-accent);
+  }
+
+  // "Appendices": a group label, no tab
+  .sidebar-item-section > .sidebar-item-container {
+    align-items: center;
+    margin-top: 0.9rem;
+    padding-right: 1.25rem;
+  }
+
+  .sidebar-item-section > .sidebar-item-container a.sidebar-link {
+    width: auto;
+    flex: 1;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $q2c-ink-2;
+  }
+
+  .sidebar-item-toggle {
+    color: $q2c-ink-2;
+  }
+}
+
+// The rail's right padding, so tabs sit on its edge
+#quarto-sidebar.sidebar {
+  --q2c-rail-pad: 1rem;
+  padding-right: var(--q2c-rail-pad);
+}
+
+// Search field in the rail
+#quarto-sidebar .aa-DetachedSearchButton,
+#quarto-sidebar .aa-Form {
+  border-radius: 4px;
+  border-color: $q2c-rule-strong;
+  background: $q2c-paper;
+}
+
+// ---- On this page (right margin) and prev/next ------------------------------------------------------------
+
+#TOC,
+#quarto-margin-sidebar {
+  .nav-link.active,
+  a.active {
+    color: $q2c-ink;
+    border-left-color: var(--q2c-accent) !important;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+#toc-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $q2c-ink-2;
+}
+
+.page-navigation {
+  border-top: 1px solid $q2c-rule-strong;
+  padding-top: 1rem;
+  margin-top: 3rem;
+
+  a.pagination-link {
+    text-decoration: none;
+    color: $q2c-ink;
+
+    .chapter-number {
+      font-family: $q2c-head;
+      color: var(--q2c-accent);
+      font-weight: 600;
+      font-size: 1.3em;
+      font-variant-numeric: lining-nums tabular-nums;
+      vertical-align: -0.06em;
+    }
+
+    &:hover .chapter-title {
+      text-decoration: underline;
+      text-decoration-color: var(--q2c-accent);
+      text-underline-offset: 0.18em;
+    }
+  }
+}
+
+// Narrow-screen header bar (breadcrumbs, menu toggle)
+#quarto-header .quarto-secondary-nav {
+  background: $q2c-rail;
+  border-bottom: 1px solid $q2c-rule;
+}
+
+// ---- Dark mode: figures stay on white plates (the charts and PNGs are drawn on white) -----------------------
+
+@if $q2c-dark {
+  main.content figure img,
+  main.content .cell-output-display img {
+    background: #ffffff;
+    padding: 0.6rem;
+    border-radius: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a,
+  #quarto-sidebar a.sidebar-link::after {
+    transition: none;
+  }
+}

@@ -7,10 +7,31 @@ project:
 
 book:
   title: "Qual2Cast"
-  author: "Qual2Cast team"
+  # The team, by surname, each linked to their GitHub (names and accounts confirmed by Michael, 2026-11-25).
+  author:
+    - name: "Barbara Bai"
+      url: https://github.com/Barbara069
+    - name: "Kethan Bethamcharla"
+      url: https://github.com/Kethan02
+    - name: "Michael Chen"
+      url: https://github.com/mwc2150
+    - name: "Richard (Yifan) Chen"
+      url: https://github.com/RichardChenYifan
+    - name: "Eric (Yikai) Li"
+      url: https://github.com/Yikai-Li
+    - name: "Riya Mhatre"
+      url: https://github.com/riyamhatre
+    - name: "Matthew Pisinski"
+      url: https://github.com/zynskibud
+    - name: "Fiona (Xiaozhe) Shao"
+      url: https://github.com/xs2588-prog
+    - name: "Yiming Zhu"
+      url: https://github.com/stezhu7
   repo-url: https://github.com/Qual2Cast/Qual2Cast
   repo-subdir: site
   repo-branch: main
+  sidebar:
+    style: docked
   chapters:
     - index.qmd
     - data.qmd
@@ -19,6 +40,8 @@ book:
     - judging.qmd
     - results.qmd
     - limits.qmd
+    # Thanks to the mentor: its own page, unnumbered, after the last chapter (Michael, 2026-11-25).
+    - acknowledgements.qmd
   appendices:
     - glossary.qmd
     - team.qmd
@@ -31,5 +54,11 @@ execute:
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    # The look (Rational AI's palette and type in a field-guide book frame): theme.scss, with theme-dark.scss for
+    # dark mode (a toggle in the sidebar; light by default). Recorded in DESIGN.md.
+    theme:
+      light: [default, theme.scss]
+      dark: [default, theme.scss, theme-dark.scss]
+    # Styling hooks: sets each caption's "Figure 6.1:" label apart, keeps short table cells on one line (spans and
+    # classes only, no words).
+    include-after-body: _plates.html

@@ -56,12 +56,59 @@ _ = f.fig_filter_keeps()
 _ = f.fig_agent_outcomes()
 ```
 
+<!-- Word for word from the team's 10/28 note to Aziz ("10/28 Note: Qual2Cast v0", its PDF export), sections 4, 4.1
+     and 9; the two screenshots are the note's own images. Not edited: the wording and numbers are the note's own, so
+     check.py does not look for typed numbers in an .excerpt. -->
+::: {.excerpt}
+[10/28 Note: Qual2Cast v0]{.excerpt-source}
+
+## 4. Company Profiles {#v0-4 .unnumbered .unlisted}
+
+From here, we [readapted our original methods](https://github.com/Qual2Cast/Qual2Cast/blob/main/v0/notebooks/comps_and_valuation.ipynb) to construct a company profile. We initially started with a 70/30 train-test split stratified on the ‘company size’ facet, but later revised the holdout stratification to use SIC2 codes instead. Despite needing some extra reruns, most of our pre-v0 work remained the same:
+
+I.  Turn the descriptions / qualitative features / facets into an embedding space. See point 1 in [#10. Assumptions and Limitations](limits.qmd#v0-10).
+II.  Find the cosine similarity scores of those embeddings to get companies that ‘sound alike’ to the target. Scored between 0 and 1
+III.  Filter our highest-scoring target-comp pairs: find those that have a z-score > t, where t is some arbitrary threshold (in our case, z = 2, 2.5)
+IV.  From that basic pair-set, use a base LLM to infer the best comps and finalize the profile
+
+### 4.1. Results {#v0-4-1 .unnumbered .unlisted}
+
+We experimented with different combinations of the above flow to form the final list of good comps using purely cosine similarity, only LLMs, both in different orders, and even without any matching method. In early results, we found that regardless of the selected approach, each baseline maintained \~30% error between the target company’s evx and the weighted average evx of the comps. Even with these results, our primary focus is on developing and analyzing meaningful facets, so baseline performance on the training data is currently a secondary consideration .
+
+At the end, we performed the SIC2-holdout evaluation for all 160 companies and compared the four existing comp-selection routes on the 107 targets they all covered. We also evaluated the peer ratings ([#6. Human: Comp Golden Set](judging.qmd#v0-6)), tested removing the primary-services facet (F3), and checked 40 companies for multiple businesses under one company ID. The facet change improved peer ranking but had no robust holdout gain (cosine error: 37.32% → 33.29%, paired-change interval: −2.04 to +0.08 points). Using the business groupings described in [#5. Facet Golden Set](describing.qmd#v0-5) did not improve matching: median error went from 19.26% to 39.41% on ten development targets, and 31.02% to 40.21% on six holdout targets.
+
+## 9. Separate Branch - Barbara {#v0-9 .unnumbered .unlisted}
+
+Developed a parallel research pipeline to explore alternative approaches to comparable-company selection, data coverage, and methods.
+
+**Interactive Website:** [https://barbara069.github.io/private-company-comparables-research](https://barbara069.github.io/private-company-comparables-research/?company=IQ23557&view=comps)
+
+(1) Expanded the universe beyond the original 560 firms to \~30,000 global public companies candidates
+(2) Used Codex to retrieve and compile a company database (a large CSV file) using Capital IQ, WRDS API, LSEG API, SEC API, company websites, google search. Try to fill out for all company universe:
+    - \(1) General Facets
+    - \(2) Industry-specific facets
+    - \(3) Business Segment of each Company
+(3) With every text data filled, the agent must provide sources and link, cross-validation across different sources, and flagged discrepancies.
+(4) Treat each 560 target as pseudo private (only source allowed is website, revenue, EBITDA, and debt) to implement preliminary facet-based similarity scoring. Find its top 10 public comps from the 30,000 universe.
+
+The goal is to evaluate this method independently and see if the results could be improved compared to the group’s pipeline.
+
+**Next Step:** Cross-source validation, continue to fill out industry & segment-specific facets, try out different similarity scoring methods, then fetch financial data to do revenue & growth prediction. Split 75% Training + 25% Unseen Testing data for better scoring.
+
+**Challenge:** The data fetching process could be a lot easier if we have access to Bloomberg API or Capital IQ API. Now it heavily relies on the current database providers listed above. But the SEC source is deemed more reliable when a discrepancy is identified.
+
+![](excerpts/2026-10-28-note/barbara-site-1.png){fig-alt="ALT TODO"}
+
+![](excerpts/2026-10-28-note/barbara-site-2.png){fig-alt="ALT TODO"}
+:::
+
 ::: {.callout-note}
 ::: {.prose-todo}
 **To write: the "how we got here" box** · draft owner: Kethan
 
-Scope: v0 compared four ways of choosing comps by valuation error and none clearly won, so the project switched to
-scoring comp quality against reviewers. A few sentences, not a history chapter.
+Scope: v0 compared four ways of choosing comps by valuation error and none clearly won (the 10/28 note, quoted
+above), so the project switched to scoring comp quality against reviewers. A few sentences, not a history chapter.
+Why v1 gets little space is already said at the end of @sec-intro.
 
 Facts available:
 

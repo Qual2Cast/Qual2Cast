@@ -1,0 +1,36 @@
+<script>
+// Styling hooks for theme.scss. Changes no words; only adds spans and classes.
+// Plates: set a caption's "Figure 6.1:" / "Table 6.1:" label apart from its text (Quarto's own captions and the
+// captions quoted in an .excerpt, which use a plain space).
+document.querySelectorAll("main.content figcaption, main.content table > caption").forEach(function (cap) {
+  var walker = document.createTreeWalker(cap, NodeFilter.SHOW_TEXT);
+  var first = true;
+  var nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(function (node) {
+    var text = node.nodeValue;
+    var parts = [];
+    if (first && text.trim()) {
+      var m = text.match(/^(\s*)((?:Figure|Table)[  ][A-Z0-9.]+:)/);
+      if (m) {
+        parts.push(document.createTextNode(m[1]));
+        var no = document.createElement("span");
+        no.className = "q2c-plate-no";
+        no.textContent = m[2];
+        parts.push(no);
+        text = text.slice(m[0].length);
+      }
+      first = false;
+    }
+    if (!parts.length) return;
+    parts.push(document.createTextNode(text));
+    parts.forEach(function (p) { node.parentNode.insertBefore(p, node); });
+    node.parentNode.removeChild(node);
+  });
+});
+
+// Tables: short cells (numbers, dates, short labels) stay on one line; only long text wraps.
+document.querySelectorAll("main.content table.table td").forEach(function (td) {
+  if (td.textContent.trim().length <= 24) td.classList.add("q2c-short");
+});
+</script>
