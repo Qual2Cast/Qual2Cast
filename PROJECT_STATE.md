@@ -23,8 +23,17 @@ _2026-11-28 (latest), rubric v3 tie-break, headline labels `v3_final`, traits re
   mission-critical do not hold (direct -2.1, +3.4, nulls). Findings: big-ticket peer +17.2 (q 0.094; direct null),
   recurring revenue direct +11 in non-services and non-consumer cells, asset-heavy negative peer cells. Round 2 0/40;
   overall-call cross-check 1/30 (`trait_uplift.py --outcome overall`, new).
-- Tests: v2 318 pass; labels notebook 13/13. Next: selector with trait data lines one at a time (recurring revenue
-  first), peer mix by industry (direct vs adjacent), then site facts.
+- **Selector trait lines** (all ten traits, one data line each, prompt versions `2026-11-28a`-`28k`; 67 targets;
+  two reruns of the unchanged prompt as the noise band): none moves the selector beyond rerun noise (rerunning alone
+  spans direct recall 82.7-89.2%). `v2/04_selection/README.md`.
+- **Peer mix by sector** (`peer_mix.py`): adjacent per direct 0.17-0.35 in healthcare, business services,
+  construction/real estate vs 1.27-1.77 in consumer and manufacturing; adjacent = "product no, customers yes" (66/78).
+  Selector keeps 0 comps for 13 of 67 targets, 1 for 22.
+- **Profile shape (team, experimental):** every direct peer, filled up to k = 3 with flagged adjacents when short.
+- **EXPERIMENTAL recall audit** (`recall_audit.py`, GPT-Terra on 150 comps below B3's lists for 10 targets): 0 new
+  direct peers; 21 new adjacents for the 7 thin targets. Thin profiles look like a small pool, not a retrieval miss.
+- Notebooks: `labels.ipynb` 3.8 (13/13 checks), `analysis.ipynb` 3.5-3.10 (83/83). Tests: v2 pass (see handoff).
+  Next: build the tier-2 fill (adjacents up to k = 3) as an experiment; site facts after PR #45 merges.
   Handoff: `conversations/2026-11-28-rubric-v3-tiebreak-and-traits.md`.
 
 _2026-11-27, rubric v3 labels in: Matthew and Barbara, 323/323 (Michael). `v2/06_labels/README.md`._

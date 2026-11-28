@@ -58,6 +58,26 @@ manufacturing targets have no direct peer but an adjacent one). 66 of 78 adjacen
 yes" in the judge's answers. Adjacent pairs sit where non-peers do in B3's ranking (mean rank 4.85 vs 5.35; direct
 2.53) and reviewers would put 13% of them in the comp set (direct 99%).
 
+**Profile size.** The selector has no minimum: over all 443 B3 pairs of the 67 `v3_final` targets it keeps 0 comps
+for 13 targets, 1 for 22, 2 for 9, 3 for 10 and 4+ for 13 (`analysis.ipynb` 3.7). Of the 13 with none, 2 have a
+labelled direct peer it dropped (DECK, SVV), 7 have only adjacents, 4 have neither. Team direction (2026-11-28,
+**experimental**): a profile is every direct peer, filled up to k = 3 with the best adjacents (flagged) when short.
+
+**EXPERIMENTAL recall audit** (`scripts/recall_audit.py`, 2026-11-28; `analysis.ipynb` 3.10): are thin profiles a
+small pool or a retrieval miss? 10 `v3_final` targets (seed 2026: 7 with no labelled direct peer, 3 controls with two
+or more); for each, the 15 comps next in B3's ranking that were never labelled (unselected top 10, then ranks beyond
+10 in B3's 373-company pool), judged by the rubric v3 judge (GPT-Terra, prompt `2026-11-27a`; 150 Codex calls, 31
+minutes). Run `outputs-local/v2/09_analysis/recall_audit/20261128T055935Z_EXPERIMENTAL/`.
+- New direct peers: **0 of 150** (thin 0 of 105, controls 0 of 45). New adjacents: 21 of 105 for the thin targets
+  (DGII 8, SND 5, ACH 4), 2 of 45 for the controls; all "product no, customers yes".
+- Peer rate by B3 rank band: unselected top 10 30%, ranks 11-15 14%, 16-20 7%, 21+ 0%.
+- Judge-only labels from one run; the judge is stricter than `v3_final` (on the controls it confirms 5 of the 8
+  labelled direct peers), so it may undercount.
+
+**Trait lines in the selector** (2026-11-28; `v2/04_selection/README.md`, `analysis.ipynb` 3.8-3.9): all ten traits
+as one data line each, against three runs of the unchanged prompt. None moves direct precision or recall beyond the
+range of the unchanged runs (direct recall 82.7-89.2% from rerunning alone).
+
 ## Rubric v3 rerun (2026-11-28, `v3_final`, pre-registered, unchanged plan)
 
 Cohort fixed by the dated amendment in `PREREG_TRAITS.md` before the run. Runs:

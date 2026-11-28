@@ -1,0 +1,63 @@
+{
+ "backend": "claude-cli",
+ "model": "claude-sonnet-5-5",
+ "effort": "",
+ "prompt_version": "2026-11-28b",
+ "fingerprint": "f9adabef9671235b",
+ "finished_at": "2026-11-28T05:53:25Z",
+ "llm_status": "ok",
+ "command": [
+  "C:\\Users\\micha\\.local\\bin\\claude.EXE",
+  "-p",
+  "--output-format",
+  "json",
+  "--json-schema",
+  "{\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"comps\"], \"properties\": {\"comps\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"label\", \"good\", \"reason\"], \"properties\": {\"label\": {\"type\": \"string\", \"enum\": [\"C1\", \"C2\", \"C3\"]}, \"good\": {\"type\": \"boolean\"}, \"reason\": {\"type\": \"string\"}}}}}}",
+  "--tools",
+  "",
+  "--no-session-persistence",
+  "--strict-mcp-config",
+  "--mcp-config",
+  "{\"mcpServers\":{}}",
+  "--setting-sources",
+  "",
+  "--max-turns",
+  "3",
+  "--system-prompt-file",
+  "C:\\Users\\micha\\Qual2Cast\\outputs-local\\v2\\04_selection\\b3_selector_candidates_2026-11-28b_claude-cli_claude-sonnet-5-5\\runs\\system_d4824a12.txt",
+  "--model",
+  "claude-sonnet-5-5"
+ ],
+ "returncode": 0,
+ "seconds": 6.62,
+ "usage": {
+  "input_tokens": 6,
+  "cache_creation_input_tokens": 2932,
+  "cache_read_input_tokens": 4225,
+  "output_tokens": 450,
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 2932,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 216,
+    "cache_read_input_tokens": 3451,
+    "cache_creation_input_tokens": 255,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 255
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard"
+ }
+}

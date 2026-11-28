@@ -66,3 +66,46 @@ Tests: v2 318 pass. Data: `company_list_v3`. Model calls: 323 GPT-Terra calls (C
 2. Peer mix by industry: direct vs adjacent per target, what separates an adjacent from a direct peer; then decide
    whether to optimize a direct profile and a direct + adjacent profile separately.
 3. Site: refresh chapter 5 facts from `v3_final` once this branch is merged.
+
+## Added later (2026-11-28): peer mix, profile size, selector trait lines, recall audit
+
+Decisions (Michael): test traits in the selector as data lines, one at a time, then all remaining traits (the
+two-trait combination skipped); a comp profile should hold at least k = 3 comps: every direct peer, filled with the
+best adjacents (flagged) when short, adjacents otherwise not shown; an experimental recall audit. All three are
+**experiments**, not the method, until the team confirms (ask Aziz about k).
+
+| file | what |
+|---|---|
+| `v2/09_analysis/scripts/peer_mix.py` (+ test) | direct / adjacent / not by sector group, adjacent patterns, B3 rank, overall call, keep rates; run `peer_mix/20261128T051409Z/` |
+| `v2/04_selection/scripts/cosine_then_llm.py` (+ tests) | prompt versions `2026-11-28a`-`28k` (one trait line each; `28c` both, not run); `--traits`, `--traits-r2`, `--targets-file`; run manifest |
+| `v2/04_selection/scripts/trait_line_experiments.py` | summary and flips of the trait runs against three unchanged runs; `trait_line_experiments_20261128/` |
+| `outputs-local/v2/04_selection/b3_selector_candidates_*` | 10 trait runs and 2 reruns of `2026-11-04a` (67 targets, 443 B3 pairs each); a run on the wrong list (missing `--b3`) is in `history/` |
+| `outputs-local/v2/09_analysis/progress/ledger.csv` | one row per run (12 selector rows on `v3_final`) |
+| `v2/09_analysis/scripts/recall_audit.py` (+ test) | EXPERIMENTAL: GPT-Terra on 150 unlabelled comps below B3's lists for 10 targets; `recall_audit/20261128T055935Z_EXPERIMENTAL/` |
+| `v2/09_analysis/analysis.ipynb` | sections 3.5-3.10 (headline sets, traits rerun, peer mix and profile size, selector experiments, trait lines vs noise, recall audit); 83/83 checks |
+| READMEs | `v2/04_selection/README.md`, `PROMPT_VERSIONS.md`, `v2/09_analysis/README.md` |
+
+Model calls: ~740 Claude CLI calls (Sonnet 5.5: 12 selector runs of 67 targets, plus one wrong-list run) and 150
+Codex calls (GPT-Terra). No API spend. Tests: v2 345 pass.
+
+Results:
+- Selector trait lines: none beyond noise. The three unchanged runs span direct recall 82.7-89.2% and flip 10 pairs
+  against each other; trait versions flip 8-16, about as often against the trait as with it.
+- Profile size: the selector keeps 0 comps for 13 of 67 targets and 1 for 22 (over all B3 pairs). Of the 13, 2 are
+  selector misses (DECK, SVV), 7 have only adjacents, 4 have nothing in B3's list.
+- Recall audit: 0 new direct peers in 150; 21 new adjacents for the 7 thin targets, concentrated in B3's unselected
+  top 10 and ranks 11-15. Thin profiles look like a small pool (B3 ranks within 373 training companies).
+
+Open issues added:
+- `PREREG_TRAITS.md` has mixed line endings since the 11-27 amendment; the v3 trait runs recorded the hash of that
+  working-tree file, so a fresh checkout may hash differently (the notebook check compares ignoring line endings).
+- `v2/common/cli_models.py` claude-cli: two workers can collide on the shared system-prompt file on Windows
+  (PermissionError on rename); use `--workers 1` or make the write tolerate an existing file.
+- Run driver for the trait runs lived in the session scratchpad (not kept); the commands are in each run's manifest.
+
+Next:
+1. Build the tier-2 fill as an experiment: for targets with fewer than 3 kept comps, a step that picks the best
+   adjacents ("same buyers, different product") from B3's list and the next ranks; score tier-1 precision, tier-2
+   "at least adjacent" precision, and the share of targets reaching 3.
+2. Ask Aziz whether 3 is the right minimum.
+3. Site chapter 5 facts after PR #45 merges.
