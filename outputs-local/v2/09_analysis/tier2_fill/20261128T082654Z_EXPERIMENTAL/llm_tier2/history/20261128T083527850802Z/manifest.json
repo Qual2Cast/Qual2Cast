@@ -1,0 +1,91 @@
+{
+ "label": "EXPERIMENTAL",
+ "status": "EXPERIMENTAL llm_tier2 (Michael approved 2026-11-28); not a pipeline input",
+ "created_at": "2026-11-28T08:26:59Z",
+ "prompt_version": "tier2-2026-11-28a",
+ "backend": "claude-cli",
+ "model": "claude-sonnet-5-5",
+ "effort": null,
+ "selector_prompt_version_for_descriptions": "2026-11-04a",
+ "instructions_sha256": "278deda56bfbcb6c7bdef251be5bf8734311365ee41cc59c34d8e1f450dfe450",
+ "schema": "answer_schema(labels): comps [{label, reason}], note",
+ "max_picks": 5,
+ "targets": "v3_final targets with < 5 baseline tier-1 comps",
+ "pool": "tier2_fill b3_list_r11_15 minus tier 1 (B3 list + B3 ranks 11-15)",
+ "n_targets": 59,
+ "n_candidates": 580,
+ "inputs": {
+  "current_toml": {
+   "path": "v2/current.toml",
+   "sha256": "7130155405162ae8d3fca7124648c20c3b726462b53f161436ccabc215eb2e62"
+  },
+  "b3_candidates": {
+   "path": "outputs-local/v1a/03_retrieval/selector_candidates/candidates.csv",
+   "sha256": "1544b96bfc27615bec5d3298d3b5ed3395e777ea1aa4a428280be3fb7663104c"
+  },
+  "b3_ranking": {
+   "path": "outputs-local/v1a/03_retrieval/selector_candidates/ranking.csv.gz",
+   "sha256": "54aab1c701d6a980b415a42af496c15c3cf55f8cf95110061e3a05649d61dbe7"
+  },
+  "b3_run": {
+   "path": "outputs-local/v1a/03_retrieval/selector_candidates/run.json",
+   "sha256": "e8ed551c8f28084aafe3b52daef7c133dfadd2edae5ad7f93d1720eb053ad65b"
+  },
+  "universe": {
+   "path": "outputs-local/v1a/01_universe/universe/universe.csv",
+   "sha256": "1b492b3d2181ec84a22a0fea4168eb2e2cd3017974eb54f12a6bbaf8a1523378"
+  },
+  "general_facets": {
+   "path": "outputs-local/v1a/02_profiles/facets_sonnet/tables/facets.csv",
+   "sha256": "8619ecf21c329269464a0a1d288ae23fda29601aa52272555f91d15759128464"
+  },
+  "sector_facets": {
+   "path": "outputs-local/v1a/02_profiles/sector_facets_sonnet/tables/sector_facets.csv",
+   "sha256": "a7139d71efd655db4d6655a4c71d86d07c72e8123aa60f3ab4fd543f17e91ef8"
+  },
+  "selector_judgments": {
+   "path": "outputs-local/v1a/04_selection/b3_selector_candidates_2026-11-04a_claude-cli_claude-sonnet-5-5/tables/judgments.csv",
+   "sha256": "dec35ac48af2f9063723e9b2581fdbb94186d1f2436b5bdb23b40a9f67a73081"
+  },
+  "v3_final": {
+   "path": "outputs-local/v2/06_labels/rubric_v3/final/terra_20261128T030942Z/final.csv",
+   "sha256": "31470247eb6925740cd5f470ba753333667486533c2ec5c5c879a7f4e1d076c5"
+  },
+  "cosine_then_llm.py": {
+   "path": "v2/04_selection/scripts/cosine_then_llm.py",
+   "sha256": "b98e458b2e75ba6d0aed25b9bd0161c6ca186b8b5cf6ab4880035b7fae4e2176"
+  },
+  "tier2_fill.py": {
+   "path": "v2/09_analysis/scripts/tier2_fill.py",
+   "sha256": "0045fe7ad79b22a6ebd424104001bbb1666af8b70a8bf3700afe8033624f146e"
+  },
+  "tier2_llm.py": {
+   "path": "v2/09_analysis/scripts/tier2_llm.py",
+   "sha256": "e9d47aad6217809b830ad73c4f792bed995e1c7718209d449d8d1483675aa316"
+  },
+  "cli_models.py": {
+   "path": "v2/common/cli_models.py",
+   "sha256": "691aa8a155fd548989c830d1a1ec3fbc4955c8da053ae0afe7f83e57e40a3215"
+  }
+ },
+ "inputs_sha256": {
+  "candidates.csv": "b50ef560380bb98825e51e27cd489e9bf3303742918fe426348bf4a2abdd8e8e"
+ },
+ "leak_pattern_hits": 4,
+ "sessions": [
+  {
+   "command": "uv run python v2/09_analysis/scripts/tier2_llm.py run outputs-local/v2/09_analysis/tier2_fill/20261128T082654Z_EXPERIMENTAL --limit 1",
+   "started_at": "2026-11-28T08:27:20Z",
+   "counts": {
+    "selected": 1,
+    "skipped_done": 0,
+    "ok": 1,
+    "failed": 0,
+    "not_run": 0
+   },
+   "stopped": "",
+   "ended_at": "2026-11-28T08:27:29Z",
+   "seconds": 9.1
+  }
+ ]
+}

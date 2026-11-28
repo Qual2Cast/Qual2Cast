@@ -37,6 +37,22 @@ Prompt versions (details and the checks: v1/PROMPT_VERSIONS.md):
   2026-11-04a  PROMPT_VERSION, the default for new runs. Company size is
                left out of the facet lines (team decision 2026-11-03: too
                generic, hurt the comps). Nothing else in the prompt changed.
+  2026-11-28a  2026-11-04a plus one trait line per company (target and every
+               candidate): "- Recurring revenue: yes/no/unknown", from the
+               02_profiles trait table (E1, v2/02_profiles/scripts/traits.py).
+               Data only: the instructions are unchanged (team, 2026-11-28).
+  2026-11-28b  the same with "- Big-ticket sales: ..." (E3) instead.
+  2026-11-28c  both lines (E1 then E3).
+  2026-11-28d  to 2026-11-28k: one trait line each, the same way (data only):
+               d cyclical demand (E2), e people-delivered (E4), f large
+               customers (E5), g asset-heavy (E6), h maintenance-led (E7),
+               i publicly funded (E8), j serial acquirer (E9), k mission-
+               critical (E10).
+               The round-1 trait table (E1-E6) is current.toml
+               [analysis.trait_uplift] traits, or --traits; the round-2 table
+               (E7-E10) is current.toml [traits_r2] table, or --traits-r2.
+               The path and sha256 of each table a version reads go into
+               <out>/manifest.json.
 Choose with --prompt-version. A new run writes, by default, to
 outputs-local/v2/04_selection/<candidates run>_<prompt version>_<backend>_<model>/.
 
@@ -51,6 +67,8 @@ refused; run it again after fixing that.
   python v2/04_selection/scripts/cosine_then_llm.py --dry-run             # write the prompts only
   python v2/04_selection/scripts/cosine_then_llm.py --b3 --backend claude-cli --workers 2   # the current list, Sonnet
   python v2/04_selection/scripts/cosine_then_llm.py --tables-only --out <run>               # rebuild judgments.csv
+  python v2/04_selection/scripts/cosine_then_llm.py --b3 --backend claude-cli --prompt-version 2026-11-28a \
+      --targets-file <ids.txt>                                                              # trait line, some targets
 """
 
 from __future__ import annotations
@@ -82,7 +100,38 @@ SAVED_PROMPT_VERSION = "2026-10-25a"      # every saved verdict and holdout answ
 PROMPT_EXCLUDES = {                       # facets left out of the prompt, per version
     "2026-10-25a": (),
     "2026-11-04a": ("company_size",),
+    "2026-11-28a": ("company_size",),
+    "2026-11-28b": ("company_size",),
+    "2026-11-28c": ("company_size",),
+    **{f"2026-11-28{v}": ("company_size",) for v in "defghijk"},
 }
+PROMPT_TRAITS = {                         # 02_profiles traits added as data lines, per version (none before 11-28)
+    "2026-11-28a": ("recurring_revenue",),
+    "2026-11-28b": ("big_ticket",),
+    "2026-11-28c": ("recurring_revenue", "big_ticket"),
+    "2026-11-28d": ("cyclical_demand",),
+    "2026-11-28e": ("people_delivered",),
+    "2026-11-28f": ("large_customers",),
+    "2026-11-28g": ("asset_heavy",),
+    "2026-11-28h": ("maintenance_led",),
+    "2026-11-28i": ("publicly_funded",),
+    "2026-11-28j": ("serial_acquirer",),
+    "2026-11-28k": ("mission_critical",),
+}
+TRAIT_LABELS = {                          # the traits' names in v2/02_profiles/scripts/traits.py (E1-E10)
+    "recurring_revenue": "Recurring revenue",
+    "big_ticket": "Big-ticket sales",
+    "cyclical_demand": "Cyclical demand",
+    "people_delivered": "People-delivered",
+    "large_customers": "Large customers",
+    "asset_heavy": "Asset-heavy",
+    "maintenance_led": "Maintenance-led",
+    "publicly_funded": "Publicly funded",
+    "serial_acquirer": "Serial acquirer",
+    "mission_critical": "Mission-critical",
+}
+ROUND_2_TRAITS = ("maintenance_led", "publicly_funded", "serial_acquirer", "mission_critical")   # E7-E10: --traits-r2
+TRAIT_ANSWERS = ("yes", "no", "unknown")
 CUR = v2.current()
 SAVED_OUT = OUTPUTS_LOCAL / "v1" / "judge"                # v1 record: the saved 2026-10-25a verdicts (read only)
 DEFAULT_OUT_ROOT = v2.out("04_selection")                # new runs: <root>/<candidates run>_<prompt version>_<backend>_<model>/
@@ -90,6 +139,8 @@ DEFAULT_OUT = SAVED_OUT                   # kept for older imports; new runs use
 CANDIDATES_ROOT = OUTPUTS_LOCAL / "v1" / "candidates"     # v1 record: v0's z >= 2 lists
 METHOD1_ROOT = v2.out("03_retrieval") / "candidates"     # new B3 runs (method1_candidates.py)
 CURRENT_B3 = v2.path(CUR["retrieval"]["candidates"])     # the current list (current.toml); --b3 default
+CURRENT_TRAITS = v2.path(CUR["analysis"]["trait_uplift"]["traits"])   # round-1 trait table (E1-E6); --traits
+CURRENT_TRAITS_R2 = v2.path(CUR["traits_r2"]["table"])                 # round-2 trait table (E7-E10); --traits-r2
 FACETS_OUT = OUTPUTS_LOCAL / "v1" / "facets"              # v1 record: the Haiku fills (facet_source "haiku")
 DEFAULT_Z = 2.0
 
@@ -151,19 +202,57 @@ def describe(row: pd.Series, exclude: tuple[str, ...] = PROMPT_EXCLUDES[PROMPT_V
     return "\n".join(lines)
 
 
+def trait_lines(traits: pd.DataFrame, iq_id: str, names: tuple[str, ...]) -> str:
+    """A company's trait answers as lines ("- Recurring revenue: yes"); a
+    company or answer missing from the table, or not yes/no, shows unknown."""
+    lines = []
+    for name in names:
+        value = traits.at[iq_id, name] if iq_id in traits.index else "unknown"
+        value = value.strip().lower() if isinstance(value, str) else "unknown"
+        lines.append(f"- {TRAIT_LABELS[name]}: {value if value in TRAIT_ANSWERS else 'unknown'}")
+    return "\n".join(lines)
+
+
+def load_traits(path: Path) -> pd.DataFrame:
+    """A 02_profiles trait table (yes/no/unknown per company), indexed by
+    IQ_COMPANY_ID: the trait columns it holds among TRAIT_LABELS. Rows whose
+    fill failed (llm_status not ok) answer unknown. Only the trait answers
+    are read, never the reasons."""
+    t = pd.read_csv(path, dtype=str).fillna("")
+    names = [n for n in TRAIT_LABELS if n in t.columns]
+    t.loc[t["llm_status"] != "ok", names] = "unknown"
+    return t.set_index("IQ_COMPANY_ID")[names]
+
+
+def version_traits(prompt_version: str) -> tuple[tuple[str, ...], tuple[str, ...]]:
+    """A prompt version's trait lines from the round-1 table (E1-E6) and from
+    the round-2 table (E7-E10)."""
+    names = PROMPT_TRAITS.get(prompt_version, ())
+    return (tuple(n for n in names if n not in ROUND_2_TRAITS), tuple(n for n in names if n in ROUND_2_TRAITS))
+
+
 def build_prompt(target: str, comps: list[str], info: pd.DataFrame, facet_rows: pd.DataFrame,
-                 prompt_version: str = PROMPT_VERSION) -> tuple[str, dict[str, str]]:
+                 prompt_version: str = PROMPT_VERSION,
+                 traits: pd.DataFrame | None = None) -> tuple[str, dict[str, str]]:
     """The prompt for one target, and the label of each candidate (C1, ...).
     Candidates are listed alphabetically by name, so their order carries no
     similarity rank. `prompt_version` sets which facets are listed (see
-    PROMPT_EXCLUDES); replays of saved answers pass SAVED_PROMPT_VERSION."""
+    PROMPT_EXCLUDES) and which trait lines follow them (PROMPT_TRAITS; those
+    versions need `traits`, from load_traits); replays of saved answers pass
+    SAVED_PROMPT_VERSION."""
     order = sorted(comps, key=lambda c: (info.loc[c, "target_company_name"].lower(), c))
     labels = {f"C{i}": c for i, c in enumerate(order, 1)}
     exclude = PROMPT_EXCLUDES[prompt_version]
+    trait_names = PROMPT_TRAITS.get(prompt_version, ())
+    if trait_names and traits is None:
+        raise ValueError(f"prompt {prompt_version} lists traits {trait_names}: pass the trait table (load_traits)")
 
     def block(iq_id: str) -> str:
         r = info.loc[iq_id]
-        return f"{r['target_company_name']} ({r['target_ciq_website']})\n{describe(facet_rows.loc[iq_id], exclude)}"
+        text = f"{r['target_company_name']} ({r['target_ciq_website']})\n{describe(facet_rows.loc[iq_id], exclude)}"
+        if trait_names:
+            text += "\n" + trait_lines(traits, iq_id, trait_names)
+        return text
 
     parts = [INSTRUCTIONS, "", f"Target: {block(target)}", "", "Candidates:"]
     parts += [f"\n{label}: {block(c)}" for label, c in labels.items()]
@@ -260,7 +349,7 @@ def move_to_history(path: Path, history: Path) -> None:
 
 
 def judge_one(target: str, comps: list[str], info, facets, out: SimpleNamespace, args) -> dict:
-    prompt, labels = build_prompt(target, comps, info, facets, args.prompt_version)
+    prompt, labels = build_prompt(target, comps, info, facets, args.prompt_version, args.traits_table)
     fp = fingerprint(prompt, json.dumps([args.backend, args.model, args.effort]))
     path = out.judgments / f"{target}.json"
     if path.exists() and not args.refresh:
@@ -286,6 +375,10 @@ def judge_one(target: str, comps: list[str], info, facets, out: SimpleNamespace,
                 "prompt_version": args.prompt_version, "model": args.model, "fingerprint": fp,
                 "run_dir": str(run_dir.relative_to(out.runs.parent)), "llm_status": result["llm_status"],
                 "judged_at": now_iso(), "labels": labels, "comps": [], "issues": []}
+    if args.traits_table is not None and args.traits_sha256:
+        judgment["traits_sha256"] = args.traits_sha256
+    if getattr(args, "traits_r2_sha256", None):
+        judgment["traits_r2_sha256"] = args.traits_r2_sha256
     if result["llm_status"] == "ok":
         try:
             judgment["comps"], judgment["issues"] = check_answer(json.loads(result["text"]), labels)
@@ -334,6 +427,53 @@ def write_tables(out: SimpleNamespace, pairs: pd.DataFrame, info: pd.DataFrame,
     return dest
 
 
+def read_target_ids(path: Path) -> list[str]:
+    """IQ ids, one per line ('#' starts a comment), or a CSV with a target_id column."""
+    text = path.read_text(encoding="utf-8-sig")
+    first = text.splitlines()[0] if text.strip() else ""
+    if "target_id" in first.split(","):
+        return sorted(set(pd.read_csv(path, dtype=str, encoding="utf-8-sig")["target_id"].dropna()))
+    return sorted({line.split("#")[0].strip() for line in text.splitlines()} - {""})
+
+
+def file_sha256(path: Path) -> str:
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def repo_relative(path) -> str:
+    p = Path(path).resolve()
+    return p.relative_to(v2.ROOT.resolve()).as_posix() if p.is_relative_to(v2.ROOT.resolve()) else p.name
+
+
+def write_manifest(out: SimpleNamespace, args, groups: pd.Series) -> Path:
+    """<out>/manifest.json: what this run read (candidates, the trait table
+    with its sha256, the target filter) and its settings. A changed manifest
+    moves the old one to manifest_history/."""
+    m = {"prompt_version": args.prompt_version, "model": args.model, "backend": args.backend,
+         "effort": args.effort or "", "candidates": repo_relative(args.candidates),
+         "list_rule": "b3_selected" if args.b3 else f"z >= {args.z:g}",
+         "traits": None, "targets": None, "n_targets": int(len(groups)), "n_pairs": int(groups.str.len().sum()),
+         "script_sha256": file_sha256(Path(__file__))}
+    r1, r2 = version_traits(args.prompt_version)
+    if args.traits_table is not None and args.traits_sha256:
+        m["traits"] = {"path": repo_relative(args.traits), "sha256": args.traits_sha256,
+                       "lines": [TRAIT_LABELS[n] for n in r1]}
+    if args.traits_table is not None and getattr(args, "traits_r2_sha256", None):
+        m["traits_r2"] = {"path": repo_relative(args.traits_r2), "sha256": args.traits_r2_sha256,
+                          "lines": [TRAIT_LABELS[n] for n in r2]}
+    if args.targets_file:
+        m["targets"] = {"path": repo_relative(args.targets_file), "sha256": file_sha256(Path(args.targets_file)),
+                        "ids": sorted(groups.index)}
+    dest = out.runs.parent / "manifest.json"
+    if dest.exists():
+        old = json.loads(dest.read_text(encoding="utf-8"))
+        if {k: v for k, v in old.items() if k != "written_at"} == m:
+            return dest
+        move_to_history(dest, out.runs.parent / "manifest_history")
+    dest.write_text(json.dumps({**m, "written_at": now_iso()}, indent=1), encoding="utf-8")
+    return dest
+
+
 def main() -> None:
     p = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     p.add_argument("--out", help="output folder (default: outputs-local/v2/04_selection/<candidates run>_<prompt "
@@ -346,6 +486,11 @@ def main() -> None:
                    help="screen the v1 baseline's lists (B3, mutual top 10) from the latest method1_candidates.py run "
                         "instead of v0's z >= 2 shortlist")
     p.add_argument("--tickers", nargs="*", help="only these targets")
+    p.add_argument("--targets-file", help="only these targets: IQ ids, one per line, or a CSV with target_id")
+    p.add_argument("--traits", help="round-1 trait table (E1-E6) for the 2026-11-28 versions (default: current.toml "
+                                    "[analysis.trait_uplift] traits)")
+    p.add_argument("--traits-r2", default=str(CURRENT_TRAITS_R2),
+                   help="round-2 trait table (E7-E10) for 2026-11-28h to k (default: current.toml [traits_r2] table)")
     p.add_argument("--limit", type=int, help="stop after N targets")
     p.add_argument("--refresh", action="store_true", help="judge current targets again")
     p.add_argument("--backend", choices=["claude", "claude-cli", "codex"], default="claude",
@@ -369,21 +514,48 @@ def main() -> None:
     if args.tickers:
         wanted = set(args.tickers)
         groups = groups[groups.index.map(info["target_ciq_ticker"]).isin(wanted)]
+    if args.targets_file:
+        ids = read_target_ids(Path(args.targets_file))
+        unknown = sorted(set(ids) - set(groups.index))
+        if unknown:
+            raise SystemExit(f"{len(unknown)} ids in {args.targets_file} have no candidate list, e.g. {unknown[:3]}")
+        groups = groups[groups.index.isin(ids)]
     if args.limit:
         groups = groups.iloc[:args.limit]
     missing = sorted((set(pairs["target"]) | set(pairs["comp"])) - set(facets.index))
     if missing:
         raise SystemExit(f"{len(missing)} companies have no current facets, e.g. {missing[:3]}")
+    args.traits_table, args.traits_sha256, args.traits_r2_sha256 = None, None, None
+    r1, r2 = version_traits(args.prompt_version)
+    tables = []
+    if r1:
+        args.traits = Path(args.traits) if args.traits else CURRENT_TRAITS
+        args.traits_sha256 = file_sha256(args.traits)
+        tables.append((args.traits, r1, load_traits(args.traits)))
+    if r2:
+        args.traits_r2 = Path(args.traits_r2)
+        args.traits_r2_sha256 = file_sha256(args.traits_r2)
+        tables.append((args.traits_r2, r2, load_traits(args.traits_r2)))
+    for path, names, table in tables:
+        if set(names) - set(table.columns):
+            raise SystemExit(f"the trait table {path} has no column {sorted(set(names) - set(table.columns))}")
+        no_traits = sorted((set(pairs["target"]) | set(pairs["comp"])) - set(table.index))
+        if no_traits:
+            raise SystemExit(f"{len(no_traits)} companies are not in the trait table {path}, e.g. {no_traits[:3]}")
+    if tables:
+        args.traits_table = pd.concat([t[list(names)] for _, names, t in tables], axis=1)
 
     if args.dry_run:
         out.prompts_dry_run.mkdir(parents=True, exist_ok=True)
         for target, comps in groups.items():
             (out.prompts_dry_run / f"{target}.txt").write_text(
-                build_prompt(target, comps, info, facets, args.prompt_version)[0], encoding="utf-8")
+                build_prompt(target, comps, info, facets, args.prompt_version, args.traits_table)[0],
+                encoding="utf-8")
         print(f"wrote {len(groups)} prompts to {out.prompts_dry_run}")
         return
 
     if not args.tables_only:
+        write_manifest(out, args, groups)
         log = out.logs / f"judge_{stamp()}.log"
         rule = "v1 baseline lists (B3)" if args.b3 else f"z >= {args.z:g}"
         print(f"candidates {args.candidates.name}, {rule}: {len(groups)} targets, "

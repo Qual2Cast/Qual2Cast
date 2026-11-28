@@ -19,6 +19,17 @@ def test_round1_majority_and_matthew_v2():
     assert len(m) == 262 and m["grade"].value_counts().to_dict() == {1: 124, 0: 78, 2: 60}
 
 
+def test_rubric_v3_cohorts():
+    m, b, a = (cohorts.load(n) for n in ("matthew_v3_311", "barbara_v3_311", "v3_agreed"))
+    assert len(m) == len(b) == len(a) == 311 and m["target_id"].nunique() == 67
+    assert m["grade"].value_counts().to_dict() == {0: 140, 2: 102, 1: 69}
+    assert b["grade"].value_counts().to_dict() == {0: 123, 2: 135, 1: 53}
+    assert a["grade"].value_counts().to_dict() == {2: 101, 0: 71, 1: 8} and a["grade"].isna().sum() == 131
+    agreed = a["grade"].notna()
+    assert (a.loc[agreed, "grade"].to_numpy() == m.loc[agreed, "grade"].to_numpy()).all()   # agreed = both reviewers' score
+    assert (a.loc[agreed, "grade"].to_numpy() == b.loc[agreed, "grade"].to_numpy()).all()
+
+
 def test_final_holdout_is_locked():
     with pytest.raises(cohorts.LockedCohort):
         cohorts.load("final_holdout_24")

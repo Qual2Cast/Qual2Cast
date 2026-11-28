@@ -1,0 +1,156 @@
+{
+ "label": "EXPERIMENTAL",
+ "status": "EXPERIMENTAL recall audit (Michael approved 2026-11-28); judge-only labels on the new pairs, not reviewer labels; not a pipeline input",
+ "question": "thin comp profiles: few true peers in the universe, or peers missed by B3's retrieval list?",
+ "created_at": "2026-11-28T05:59:35Z",
+ "seed": 2026,
+ "design": {
+  "thin_targets": 7,
+  "control_targets": 3,
+  "thin_pool": "v3_final targets, whole B3 selected list on the rubric v3 sheet, no grade-2 pair in v3_final and no anchor pair scored 2 in the pinned final labels",
+  "control_pool": "v3_final targets, whole B3 selected list on the sheet, >= 2 grade-2 pairs in v3_final",
+  "draw": "numpy default_rng(seed); thin pool (sorted ids) first, then control pool",
+  "candidates": "pinned B3 ranking (training pool), comps not on the rubric v3 sheet for the target, target excluded, rank order, up to 15 per target",
+  "bands": [
+   "selected top-10, not on sheet",
+   "unselected top-10",
+   "11-15",
+   "16-20",
+   "21+"
+  ],
+  "cap_pairs": 150,
+  "cap_calls": 160,
+  "descriptions": "extend_label_book.rows_for (direct_peer_pairs.shown_companies + scope notes); pair_pool facet gap fill checked to be a no-op",
+  "judge": {
+   "backend": "codex",
+   "model": "gpt-5.6-terra",
+   "name": "terra",
+   "effort": null,
+   "prompt": "judge_v3_prompt.py (version recorded in judge/manifest.json)"
+  }
+ },
+ "inputs": {
+  "current_toml": {
+   "path": "v2/current.toml",
+   "sha256": "7130155405162ae8d3fca7124648c20c3b726462b53f161436ccabc215eb2e62"
+  },
+  "b3_candidates": {
+   "path": "outputs-local/v1a/03_retrieval/selector_candidates/candidates.csv",
+   "sha256": "1544b96bfc27615bec5d3298d3b5ed3395e777ea1aa4a428280be3fb7663104c"
+  },
+  "b3_ranking": {
+   "path": "outputs-local/v1a/03_retrieval/selector_candidates/ranking.csv.gz",
+   "sha256": "54aab1c701d6a980b415a42af496c15c3cf55f8cf95110061e3a05649d61dbe7"
+  },
+  "b3_run": {
+   "path": "outputs-local/v1a/03_retrieval/selector_candidates/run.json",
+   "sha256": "e8ed551c8f28084aafe3b52daef7c133dfadd2edae5ad7f93d1720eb053ad65b"
+  },
+  "rubric_v3_sheet": {
+   "path": "outputs-local/v2/06_labels/rubric_v3/rubric_v3_sheet.csv",
+   "sha256": "7563f98004048f0560091fee439d9f5a3a2a21e19d9d4a99edf1f5cece1970bf"
+  },
+  "v3_final": {
+   "path": "outputs-local/v2/06_labels/rubric_v3/final/terra_20261128T030942Z/final.csv",
+   "sha256": "31470247eb6925740cd5f470ba753333667486533c2ec5c5c879a7f4e1d076c5"
+  },
+  "judge_scores": {
+   "path": "outputs-local/v2/06_labels/rubric_v3/judge/terra_20261128T030942Z/scores/scores.csv",
+   "sha256": "b5429c74d9a9ed7b132dd2cbfc488504a75cb0cae7a2f494d3420dd4c38d1375"
+  },
+  "universe": {
+   "path": "outputs-local/v1a/01_universe/universe/universe.csv",
+   "sha256": "1b492b3d2181ec84a22a0fea4168eb2e2cd3017974eb54f12a6bbaf8a1523378"
+  },
+  "split": {
+   "path": "outputs-local/v1a/01_universe/split/split.csv",
+   "sha256": "0de7aa335563ec984bc035e25934d22b7210ffa211333bf10d16c1a06d48d724"
+  },
+  "general_facets": {
+   "path": "outputs-local/v1a/02_profiles/facets_sonnet/tables/facets.csv",
+   "sha256": "8619ecf21c329269464a0a1d288ae23fda29601aa52272555f91d15759128464"
+  },
+  "business_scopes": {
+   "path": "outputs-local/v1/business_structure_refinement/split_classification/refined_scopes.json",
+   "sha256": "3d89d5ced18b7535a0a8e515b50628160b11a3f86305158b65497ec113d4238e"
+  },
+  "judge_v3.py": {
+   "path": "v2/06_labels/scripts/judge_v3.py",
+   "sha256": "e41298c8687bc8ee830bab1b76e1f6c67182adaea4d49e7735f06a6cb81e9daa"
+  },
+  "judge_v3_prompt.py": {
+   "path": "v2/06_labels/scripts/judge_v3_prompt.py",
+   "sha256": "e01471b8af11ec47c4639f7821a0313953277a41dd57ffee929694767fb27592"
+  },
+  "rubric_v3.py": {
+   "path": "v2/06_labels/scripts/rubric_v3.py",
+   "sha256": "5abdf225db0fd79d8313ba8b3f12c9da2cef8eee4d670a07ca427c746065eabe"
+  },
+  "extend_label_book.py": {
+   "path": "v2/06_labels/scripts/extend_label_book.py",
+   "sha256": "490668e315896837e1eb5d2bf636da0c7e48b45e852357d0214eb78a58a06ab0"
+  },
+  "direct_peer_pairs.py": {
+   "path": "v2/05_agent_grading/scripts/direct_peer_pairs.py",
+   "sha256": "e63688909be03fedd4e13c366c03f63951dac62b8df654d7301abf7bde1f7db7"
+  },
+  "recall_audit.py": {
+   "path": "v2/09_analysis/scripts/recall_audit.py",
+   "sha256": "bad518a49e3612558698bd7077b4a1b5389aa200574e141d05c7273780e1bb3e"
+  }
+ },
+ "counts": {
+  "eligible_thin": 16,
+  "eligible_control": 21,
+  "targets": 10,
+  "pairs": 150,
+  "pairs_by_band": {
+   "selected top-10, not on sheet": 0,
+   "unselected top-10": 43,
+   "11-15": 50,
+   "16-20": 45,
+   "21+": 12
+  }
+ },
+ "repro_check": {
+  "sheet_pairs": 323,
+  "all_identical": true
+ },
+ "commands": [
+  {
+   "step": "build",
+   "command": "uv run python v2/09_analysis/scripts/recall_audit.py build",
+   "at": "2026-11-28T05:59:35Z"
+  },
+  {
+   "step": "dry-run",
+   "command": "uv run python v2/09_analysis/scripts/recall_audit.py dry-run outputs-local/v2/09_analysis/recall_audit/20261128T055935Z_EXPERIMENTAL",
+   "at": "2026-11-28T05:59:55Z",
+   "calls_to_make": 150
+  },
+  {
+   "step": "run",
+   "command": "uv run python v2/09_analysis/scripts/recall_audit.py run outputs-local/v2/09_analysis/recall_audit/20261128T055935Z_EXPERIMENTAL",
+   "at": "2026-11-28T06:32:06Z",
+   "counts": {
+    "selected": 150,
+    "skipped_done": 0,
+    "ok": 150,
+    "failed": 0,
+    "not_run": 0
+   }
+  },
+  {
+   "step": "collect",
+   "command": "uv run python v2/09_analysis/scripts/recall_audit.py collect outputs-local/v2/09_analysis/recall_audit/20261128T055935Z_EXPERIMENTAL",
+   "at": "2026-11-28T06:32:52Z",
+   "judged_ok": 150
+  },
+  {
+   "step": "collect",
+   "command": "uv run python v2/09_analysis/scripts/recall_audit.py collect outputs-local/v2/09_analysis/recall_audit/20261128T055935Z_EXPERIMENTAL",
+   "at": "2026-11-28T06:33:05Z",
+   "judged_ok": 150
+  }
+ ]
+}

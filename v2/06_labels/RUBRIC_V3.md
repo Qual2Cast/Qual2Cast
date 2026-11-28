@@ -51,14 +51,23 @@ Two different things were both called "blind" in earlier drafts, so the question
 
 | # | column | question | how to decide |
 |---|---|---|---|
-| 1 | `same_product` | Can a customer of the target buy the same kind of product or service from the comp instead? | Think of one actual buyer of the target. If that buyer can place the same order with the comp, yes. The same broad category is not enough. |
-| 2 | `same_customers` | Would the target's own customers consider buying this kind of thing from the comp? | "This kind of thing" is what the comp sells. Yes when the same buyers, in the same buying role, buy from both (the plant engineers who buy the target's heaters also buy the comp's pumps). **The same industry or the same payer alone is not yes** (Medicare paying both a NICU physician group and a hospice). For consumer businesses, "both sell to households" is not enough: the same customer segment must buy for the same kind of need. |
+| 1 | `same_product` | Can a customer of the target buy the same kind of product or service from the comp instead? | Think of one actual buyer of the target. If that buyer can place the same order with the comp's **main business**, yes. The main business is the one the comp's description leads with. A smaller line of the comp is no, and so is the same broad category. |
+| 2 | `same_customers` | Do the same buyers, in the same role, also buy from the comp, even if they buy something different from it? | Yes when the same buyers, in the same buying role, buy from both (the plant engineers who buy the target's heaters also buy the comp's pumps). **The same industry or the same payer alone is not yes** (Medicare paying both a NICU physician group and a hospice). For consumer businesses, "both sell to households" is not enough: the same customer segment must buy for the same kind of need. |
 | 3 | `same_revenue_model` | Does the comp earn money the same way? | The ways: sells goods, sells a service, subscription, commission or fees, insurance premiums, interest. Judge the comp by how most of its revenue is earned. |
 | 4 | `same_chain_step` | Does the comp sit at the same step of the chain? | The steps: makes it, distributes it, sells it to the end user, services it. A brand owner that outsources production still "makes it". A marketplace that arranges the sale is not at the same step as the owner that sells it. |
 
-Questions 1 and 2 can be met by any material business of the comp. Questions 3 and 4 describe the comp as
-a whole company (its larger part). So a comp whose only matching unit is a minority of its business
-comes out adjacent at most. This is a proposed rule; see the Boston Omaha anchor.
+Question 1 is judged against the comp's main business: the business its description leads with
+(team ruling 2026-11-27; the descriptions give no revenue split, so "largest segment" cannot be checked).
+A narrow line of the comp (Stride's adult-learning line for APEI, Ingles's fuel stations for Par Pacific) or
+the same broad category (new vs thrift clothing, different kidney-disease drugs) is no. Questions 3 and 4
+also describe the comp by its larger part; see the Boston Omaha anchor. Question 2 can be met by any
+business of the comp (team ruling 2026-11-27): a comp whose only overlap is a smaller line gets product no
+and customers yes, so it is adjacent at most.
+
+Matthew and Barbara filled the sheet (2026-11-27) under the earlier wording: question 2 read "Would the
+target's own customers consider buying this kind of thing from the comp?", and questions 1 and 2 could be
+met by "any material business of the comp". The rulings above came after; the LLM judge answers this
+wording, and on split outcomes it decides (see "Two reviewers per pair, then a tie-break").
 
 ## The score comes from the answers
 
@@ -115,7 +124,7 @@ branded-drug companies with different patients, "both sell drugs to the same dis
 |---|---|---|---|---|---|---|---|
 | clear yes | P211 | ED (Consolidated Edison) | AVA (Avista) | yes | 2 | Both are regulated utilities billing customers at regulator-set tariffs. | yes |
 | clear no | P181 | IMKT.A (Ingles Markets) | BROS (Dutch Bros) | no | 0 | A grocer sells goods; a drive-thru coffee chain sells made-to-order drinks, a food service (as in v2's food-maker vs restaurant example). | no |
-| borderline | P117 | SHEN (Shenandoah Telecommunications) | BOC (Boston Omaha) | no | 1 | Boston Omaha's broadband unit sells the same subscriptions as Shentel, but most of the company's revenue is billboard advertising and insurance premiums. | no: judge the comp by its larger part; product and customers stay yes (score 1) |
+| borderline | P117 | SHEN (Shenandoah Telecommunications) | BOC (Boston Omaha) | no | 1 | Boston Omaha's broadband unit sells the same subscriptions as Shentel, but most of the company's revenue is billboard advertising and insurance premiums. | no: judge the comp by its larger part. Product is no too (broadband is a smaller line, not the main business); customers yes (the same households buy broadband from it); score 1 |
 
 ### Question 4: same chain step
 
@@ -139,13 +148,15 @@ capped at 1 is a rule in the code, not a judgment in the sheet.
   agreement).
 - Where the two agree, that answer stands. Where they split on a question, the question is listed as
   disputed (`rubric_v3.py consensus`).
-- **Tie-break:** a GPT-Terra LLM judge (`gpt-5.6-terra`) answers the same overall call and four questions
-  on **all** pairs, not only the disputed ones. It breaks ties only on the questions where it has earned it:
-  its kappa against the humans is at least the humans' kappa with each other (`--earned-only`). On the
-  others, Riya breaks the tie.
-- Tie-broken pairs are flagged (`tie_broken`). The headline numbers use pairs the humans agreed on; the
-  tie-broken pairs are a sensitivity row. Single-reviewer pairs stay usable for tuning but are marked
-  (`single_reviewer`).
+- **Tie-break (team ruling 2026-11-27, replaces the per-question "earned" rule):** an LLM judge answers the
+  same overall call and four questions on **all** pairs, blind to the reviewers' answers, under this guide
+  with the rulings above. Agreement is decided per **outcome**, not per question: direct (score 2) and peer
+  (score 1 or 2). Where the two reviewers reach the same outcome, it stands, even if they differ on a
+  question. Where they split on an outcome, the judge's derived outcome is the third vote (2 of 3). The
+  judge's agreement with the reviewers on the pairs they agree on is reported next to it; it is not a gate.
+- The headline labels are every pair's tie-broken outcomes (`rubric_v3.py final`). Pairs the reviewers
+  agreed on are a sensitivity row; tie-broken pairs are flagged (`tie_broken_direct`, `tie_broken_peer`).
+  Riya is not asked this round, and the reviewers do not re-answer.
 
 The judge reads websites, not our facet fills, so it adds no circularity with the facet tests. Running it
 (about 323 Codex calls on the subscription) needs Michael's approval and comes after the first human round.
@@ -224,7 +235,7 @@ overall call is, and what blind means" above).
 | Pairs | 262 (round 3) | 323: round 3 + round 2 (31) + 30 extra B3 pairs |
 | Pair ids and order | `THR-R3-01`..., following B3's rank | `P001`...`P323`; targets in random order, each target's comps together and shuffled |
 | Reviewer column sets | matthew, barbara | matthew, barbara, riya (tie-break) |
-| Comp with several businesses | not defined | product and customers: any material business; revenue model and chain step: the comp's larger part (proposed) |
+| Comp with several businesses | not defined | product and customers: any material business; revenue model and chain step: the comp's larger part (proposed; question 1 changed to the main business by the 2026-11-27 ruling, after the sheet was filled) |
 | Unchanged | descriptions, `business_graded`, `notes`, score rule, no typed score | same |
 
 ## Commands
@@ -239,8 +250,12 @@ without the key rows. Tests: `uv run pytest v2/06_labels/tests -q`.
 
 ## Still open
 
-- [ ] Team confirms the twelve proposed rulings, especially the three borderlines and the "comp judged by
-      its larger part" rule for questions 3 and 4.
-- [ ] Which two reviewers cover which pairs (all three columns are on the sheet).
-- [ ] The GPT-Terra judge prompt with these five questions; run after the first human round (approval).
+- [x] Customers means who buys, not whether they would switch; P318 THR/FLS stays a clear yes; new question 2
+      wording (team, 2026-11-27).
+- [x] Question 1 judged against the comp's main business, read from its description (team, 2026-11-27).
+- [x] Headline set: same outcome, tie-broken 2 of 3 by the LLM judge (team, 2026-11-27).
+- [x] Reviewers: Matthew and Barbara on all 323 pairs; Riya not this round.
+- [ ] The judge prompt (approval before any run); pilot on the 12 anchors and 20 split pairs, then all 323
+      pairs (fallback: the 83 outcome-split pairs if usage runs out).
+- [ ] Team confirms the other anchor rulings ("comp judged by its larger part" for questions 3 and 4).
 - [ ] Whether the minor-business cap stays at 1 or becomes 0 (carried from v2).

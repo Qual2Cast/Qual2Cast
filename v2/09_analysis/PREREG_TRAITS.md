@@ -167,3 +167,9 @@ treatment). A finding only on the secondary peer outcome is weaker because of th
 ## Amendments
 
 - 2026-11-24 (after the round-1 run): no change to this plan or its results. A second round of traits (maintenance-led, publicly funded, serial acquirer, mission-critical) is pre-registered separately in `PREREG_TRAITS_R2.md`, as its own test family, because it was designed after seeing these results.
+- 2026-11-27 (before any run on rubric v3 labels; no v3 trait result seen): "the v3 cohort" is `v3_final`
+  (`cohorts.py`): the 311 scored pairs of the rubric v3 sheet, Matthew and Barbara, agreement per outcome; where
+  they split on direct or peer, the GPT-Terra judge's outcome decides (2 of 3; `rubric_v3.py final`, team ruling
+  of the same day). Nothing else changes. The overall-call cross-check family is the same estimator with
+  `--outcome overall` (the final overall call, tie-broken the same way), run on its own so its 30 tests form their
+  own Benjamini-Hochberg family. Round 2 (`PREREG_TRAITS_R2.md`) reruns on the same cohort.

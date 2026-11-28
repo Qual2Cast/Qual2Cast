@@ -1,0 +1,209 @@
+{
+ "settings": {
+  "backend": "codex",
+  "model": "gpt-5.6-terra",
+  "effort": null,
+  "name": "terra",
+  "prompt_version": "2026-11-27a",
+  "instructions_sha256": "8a12e687b3faf8caf8de6a007f22297101fb119153d5df032e264df62e488903",
+  "schema": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "overall_call",
+    "same_product",
+    "same_customers",
+    "same_revenue_model",
+    "same_chain_step",
+    "business_graded",
+    "unsure",
+    "reason"
+   ],
+   "properties": {
+    "overall_call": {
+     "type": "string",
+     "enum": [
+      "yes",
+      "no"
+     ]
+    },
+    "same_product": {
+     "type": "string",
+     "enum": [
+      "yes",
+      "no"
+     ]
+    },
+    "same_customers": {
+     "type": "string",
+     "enum": [
+      "yes",
+      "no"
+     ]
+    },
+    "same_revenue_model": {
+     "type": "string",
+     "enum": [
+      "yes",
+      "no"
+     ]
+    },
+    "same_chain_step": {
+     "type": "string",
+     "enum": [
+      "yes",
+      "no"
+     ]
+    },
+    "business_graded": {
+     "type": "string"
+    },
+    "unsure": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "enum": [
+       "product",
+       "customers",
+       "revenue_model",
+       "chain_step",
+       "overall"
+      ]
+     }
+    },
+    "reason": {
+     "type": "string"
+    }
+   }
+  }
+ },
+ "backend": "codex",
+ "model": "gpt-5.6-terra",
+ "effort": null,
+ "name": "terra",
+ "prompt_version": "2026-11-27a",
+ "created_at": "2026-11-28T08:35:46Z",
+ "sha256": {
+  "guide": "a9b80bac91d44382e2dca5bd21a94551d8c32a0af086988f1a3a4ee27838222c",
+  "prompt_template": "e01471b8af11ec47c4639f7821a0313953277a41dd57ffee929694767fb27592",
+  "instructions_text": "8a12e687b3faf8caf8de6a007f22297101fb119153d5df032e264df62e488903",
+  "sheet": "7563f98004048f0560091fee439d9f5a3a2a21e19d9d4a99edf1f5cece1970bf",
+  "scores": "c6d0bc5afb8d49a99484df52b19c2f04366d37e377ec725befa920ed71617519"
+ },
+ "files": {
+  "guide": "v2/06_labels/RUBRIC_V3.md",
+  "prompt_template": "v2/06_labels/scripts/judge_v3_prompt.py",
+  "sheet": "outputs-local/v2/06_labels/rubric_v3/rubric_v3_sheet.csv",
+  "scores": "outputs-local/v2/06_labels/rubric_v3/scores/20261128T001954Z"
+ },
+ "sessions": [
+  {
+   "selection": "tier2_unlabelled_picks",
+   "command": "uv run python v2/09_analysis/scripts/tier2_llm.py judge-run outputs-local/v2/09_analysis/tier2_fill/20261128T082654Z_EXPERIMENTAL",
+   "started_at": "2026-11-28T08:35:46Z",
+   "ended_at": null,
+   "pairs": [
+    "F001",
+    "F002",
+    "F003",
+    "F004",
+    "F005",
+    "F006",
+    "F007",
+    "F008",
+    "F009",
+    "F010",
+    "F011",
+    "F012",
+    "F013",
+    "F014",
+    "F015",
+    "F016",
+    "F017",
+    "F018",
+    "F019",
+    "F020",
+    "F021",
+    "F022",
+    "F023",
+    "F024",
+    "F025",
+    "F026",
+    "F027",
+    "F028",
+    "F029",
+    "F030",
+    "F031",
+    "F032",
+    "F033",
+    "F034",
+    "F035",
+    "F036",
+    "F037",
+    "F038",
+    "F039",
+    "F040",
+    "F041",
+    "F042",
+    "F043",
+    "F044",
+    "F045",
+    "F046",
+    "F047",
+    "F048",
+    "F049",
+    "F050",
+    "F051",
+    "F052",
+    "F053",
+    "F054",
+    "F055",
+    "F056",
+    "F057",
+    "F058",
+    "F059",
+    "F060",
+    "F061",
+    "F062",
+    "F063",
+    "F064",
+    "F065",
+    "F066",
+    "F067",
+    "F068",
+    "F069",
+    "F070",
+    "F071",
+    "F072",
+    "F073",
+    "F074",
+    "F075",
+    "F076",
+    "F077",
+    "F078",
+    "F079",
+    "F080",
+    "F081",
+    "F082",
+    "F083",
+    "F084",
+    "F085",
+    "F086",
+    "F087",
+    "F088",
+    "F089",
+    "F090",
+    "F091",
+    "F092"
+   ],
+   "counts": {
+    "selected": 92,
+    "skipped_done": 0,
+    "ok": 0,
+    "failed": 0,
+    "not_run": 0
+   },
+   "stopped": ""
+  }
+ ]
+}

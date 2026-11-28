@@ -3,7 +3,60 @@
 Short, current summary. Detailed history is in conversations/; methodology
 for the scrape is in website_scrape/README.md.
 
-_2026-11-25 (latest), website look, the 10/28 v0 note quoted, acknowledgements (Michael). `site/README.md`._
+_2026-11-28 (latest), rubric v3 tie-break, headline labels `v3_final`, traits rerun (Michael). Branch
+`michael/rubric-v3-labels`._
+- **Rulings (team, 11-27; `v2/06_labels/RUBRIC_V3.md`):** question 1 judged on the comp's main business (the one its
+  description leads with); question 2 = "the same buyers, in the same role", any business of the comp (P318 stays a
+  yes); Boston Omaha anchor fixed to match. Headline = same outcome; a split outcome takes the LLM judge's (2 of 3).
+  No Riya, no re-answer this round.
+- **GPT-Terra judge** (`judge_v3.py`, Codex CLI, `gpt-5.6-terra`, prompt 2026-11-27a): all 323 pairs, 0 failures,
+  ~13 s and ~15k input tokens a call. Matches the reviewers where they agree: direct 95% (kappa 0.88), peer 88%
+  (0.74), overall call 91% (0.80). Kappa with Matthew >= Matthew-Barbara on every question; sides with Matthew on
+  29 of 35 direct splits. Anchors 12/12.
+- **`v3_final`** (`rubric_v3.py final`, pinned `[rubric_v3] judge`, `final`): 311 pairs, 67 targets; 106 direct, 78
+  adjacent, 127 not; none open.
+- **Baseline on `v3_final`** (ledger; cohort switched in `current.toml`): selector direct precision/recall 87%/87%,
+  peer 96%/61% (it is asked for the same business, so it drops adjacents by design: keeps 86/106 direct, 6/78
+  adjacent, 4/127 not); agent 2 97%/59% direct; B3 top 7 51%/99% direct. Agent profiles now stack the 30 extra B3
+  pairs (`[agent_grading] extra_verdicts`), so all profiles cover 311 pairs.
+- **Traits, pre-registered rerun on `v3_final`** (amendment fixing the cohort before the run): large customers and
+  mission-critical do not hold (direct -2.1, +3.4, nulls). Findings: big-ticket peer +17.2 (q 0.094; direct null),
+  recurring revenue direct +11 in non-services and non-consumer cells, asset-heavy negative peer cells. Round 2 0/40;
+  overall-call cross-check 1/30 (`trait_uplift.py --outcome overall`, new).
+- **Selector trait lines** (all ten traits, one data line each, prompt versions `2026-11-28a`-`28k`; 67 targets;
+  two reruns of the unchanged prompt as the noise band): none moves the selector beyond rerun noise (rerunning alone
+  spans direct recall 82.7-89.2%). `v2/04_selection/README.md`.
+- **Peer mix by sector** (`peer_mix.py`): adjacent per direct 0.17-0.35 in healthcare, business services,
+  construction/real estate vs 1.27-1.77 in consumer and manufacturing; adjacent = "product no, customers yes" (66/78).
+  Selector keeps 0 comps for 13 of 67 targets, 1 for 22.
+- **Profile shape (team, experimental):** every direct peer, filled up to k = 3 with flagged adjacents when short.
+- **EXPERIMENTAL recall audit** (`recall_audit.py`, GPT-Terra on 150 comps below B3's lists for 10 targets): 0 new
+  direct peers; 21 new adjacents for the 7 thin targets. Thin profiles look like a small pool, not a retrieval miss.
+- **EXPERIMENTAL tier-2 fill** (`tier2_fill.py`, `tier2_llm.py`): filling to k = 3 reaches 62-67 of 67 targets, but
+  only 48-60% of the added comps are at least adjacent (no rule clearly best; `llm_tier2` 59% [44-73]); whole-profile
+  direct precision falls from 87% to 61-66%.
+- **Round 4 sheet (final reviewer round)** ready: `outputs-local/v2/06_labels/rubric_v3/round4/round4_sheet.xlsx`,
+  118 pairs (32 unlabelled selector keeps, 56 tier-2 picks, 30 tie-break re-checks), 11-27 wording in the key.
+- Notebooks: `labels.ipynb` 3.8 (13/13 checks), `analysis.ipynb` 3.5-3.12 (83/83). Tests: v2 pass (see handoff).
+  Next: send round 4 to Matthew and Barbara; score it into the labels; decide on tier 2 with those labels; site facts.
+  Handoff: `conversations/2026-11-28-rubric-v3-tiebreak-and-traits.md`.
+
+_2026-11-27, rubric v3 labels in: Matthew and Barbara, 323/323 (Michael). `v2/06_labels/README.md`._
+- Filled sheet moved to `outputs-local/v2/06_labels/rubric_v3/filled/rubric_v3_filled_matthew_barbara_20261127.csv`
+  (bytes unchanged, manifest); scores + consensus run `rubric_v3/scores/20261128T001954Z/` pinned in
+  `current.toml [rubric_v3]`; cohorts `matthew_v3_311`, `barbara_v3_311`, `v3_agreed`; `labels.ipynb` 3.7.
+- 311 scored pairs: kappa overall call 0.76, product 0.61, customers 0.57, revenue model 0.86, chain step 0.63;
+  direct 0.76, peer 0.56 (old form vs v2: 0.19). All four answers agree on 180 pairs (101 direct, 8 adjacent, 71
+  not); 131 need a tie-break. Product splits one way (Barbara yes / Matthew no 62, reverse 1). Overall call tracks
+  the direct score. Anchors 11/12 as proposed (Barbara: no on P318 customers).
+- Headline set scored both ways (`v2/09_analysis/scripts/headline_sets.py`, run `headline_sets/20261128T004855Z/`,
+  45 dev targets common to all profiles): same 72 direct peers; "same outcome" keeps 96 more agreed non-direct
+  pairs (agent ≥ 1 direct precision 69% → 42%, selector 91% → 87%) and 116 vs 80 peers; ties to break 83 vs 131.
+- Tests: v2 307 pass; labels notebook 10/10 checks. No model calls. Next: rule on question 1, P318 and the headline
+  agreement set, tie-break, rescore the baseline and rerun the X-learner on v3.
+  Handoff: `conversations/2026-11-27-rubric-v3-labels-in.md`.
+
+_2026-11-25, website look, the 10/28 v0 note quoted, acknowledgements (Michael). `site/README.md`._
 - **Look:** Rational AI's palette and type in a field-guide book frame (`site/theme.scss`, `site/DESIGN.md`); one
   accent; dark mode by toggle (light default); real names with GitHub links on the first page.
 - **v0:** the team's 10/28 note to Aziz is quoted word for word in the chapter each section belongs to (`.excerpt`

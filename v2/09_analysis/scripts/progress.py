@@ -63,6 +63,7 @@ BOOT = 1000
 SEED = 2026
 COHORT_NOTES = {
     "matthew_v2_262": "Matthew, rubric v2, single reviewer, loose customers wording",
+    "v3_final": "rubric v3, Matthew + Barbara; split outcomes tie-broken 2 of 3 by GPT-Terra (rubric_v3.py final)",
 }
 OUTCOMES = {"peer": 1, "direct": 2}       # outcome -> minimum score
 LEDGER_COLUMNS = [
@@ -152,12 +153,16 @@ def built_in(profile: str, cur: dict | None = None) -> dict:
                 "prompt_version": cur["selection"]["prompt_version"], "model": cur["selection"]["model"]}
     if profile in ("agent_ge1", "agent_2"):
         path = _agent_ranking(cur)
-        a = pd.read_csv(path, dtype={"target": str, "comp": str}).rename(columns={"target": "target_id",
-                                                                                 "comp": "comp_id"})
+        extra = [v2.path(p) for p in cur["agent_grading"].get("extra_verdicts", [])]
+        a = pd.concat([pd.read_csv(p, dtype={"target": str, "comp": str}) for p in [path, *extra]],
+                      ignore_index=True).rename(columns={"target": "target_id", "comp": "comp_id"})
+        if a.duplicated(KEY).any():
+            raise ValueError("agent runs overlap: extra_verdicts must not repeat pairs of the main run")
         g = pd.to_numeric(a["score"], errors="coerce")
         keep = g.ge(1) if profile == "agent_ge1" else g.eq(2)
-        return {"keeps": a[KEY].assign(keep=keep.fillna(False)), "run": str(path.relative_to(v2.ROOT).as_posix()),
-                "run_file": path, "component": "05 agent grading",
+        run = " + ".join(str(p.relative_to(v2.ROOT).as_posix()) for p in [path, *extra])
+        return {"keeps": a[KEY].assign(keep=keep.fillna(False)), "run": run,
+                "run_file": path, "run_files": [path, *extra], "component": "05 agent grading",
                 "prompt_version": cur["agent_grading"]["prompt_version"], "model": cur["agent_grading"]["model"]}
     raise ValueError(f"unknown profile {profile!r}; built-in: {BUILT_IN}")
 
@@ -378,7 +383,8 @@ def build_rows(args, cur: dict) -> list[dict]:
         m = evaluate(cohort, spec["keeps"], targets, args.boot)
         rows.append({"entry_utc": stamp, "who": args.who or "", "component": spec["component"], "profile": name,
                      "change": args.change or "", "prompt_version": args.prompt_version or spec["prompt_version"],
-                     "model": args.model or spec["model"], "run": spec["run"], "run_sha256": sha256(spec["run_file"]),
+                     "model": args.model or spec["model"], "run": spec["run"],
+                     "run_sha256": " + ".join(sha256(f) for f in spec.get("run_files", [spec["run_file"]])),
                      "cohort": cohort_name, "cohort_note": note, "split": split, "split_sha256": split_sha,
                      **m, "script_sha256": script})
     return rows

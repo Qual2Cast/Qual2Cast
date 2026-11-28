@@ -1,0 +1,56 @@
+{
+ "created_at": "20261128T051409Z",
+ "script": "v2/09_analysis/scripts/peer_mix.py",
+ "script_sha256": "ec091ee54f801ebc50fab5e0cf515a90e68e4cda88c8d0cd1d5ddc1ef6418975",
+ "cohort": "v3_final",
+ "industry_group": "sector of the target's SIC4 (sectors.py, via FF49), small sectors merged: {'financials': 'financials', 'manufacturing': 'manufacturing', 'construction_real_estate': 'construction_real_estate', 'consumer_products': 'consumer', 'consumer_venues': 'consumer', 'business_services': 'business_services', 'software': 'software', 'healthcare': 'healthcare', 'energy_resources': 'energy_transport_telecom', 'distribution_transport': 'energy_transport_telecom', 'media_telecom': 'energy_transport_telecom', 'other': 'other'}",
+ "min_targets_flag": 5,
+ "profiles": {
+  "selector": "outputs-local/v1a/04_selection/b3_selector_candidates_2026-11-04a_claude-cli_claude-sonnet-5-5/tables/judgments.csv",
+  "agent_ge1": "outputs-local/v1a/05_agent_grading/ranking_45targets_sonnet/ranking/20261113T060740Z/ranking.csv + outputs-local/v1a/05_agent_grading/b3_kept_30/agent/verdicts.csv",
+  "agent_2": "outputs-local/v1a/05_agent_grading/ranking_45targets_sonnet/ranking/20261113T060740Z/ranking.csv + outputs-local/v1a/05_agent_grading/b3_kept_30/agent/verdicts.csv"
+ },
+ "inputs": {
+  "v3_final": {
+   "path": "outputs-local/v2/06_labels/rubric_v3/final/terra_20261128T030942Z/final.csv",
+   "sha256": "31470247eb6925740cd5f470ba753333667486533c2ec5c5c879a7f4e1d076c5"
+  },
+  "judge_answers": {
+   "path": "outputs-local/v2/06_labels/rubric_v3/judge/terra_20261128T030942Z/filled_with_terra.csv",
+   "sha256": "0316664b3f62b570c9642b28902a9b1881613bb059e21f0655f2b3a141111cd1"
+  },
+  "universe": {
+   "path": "outputs-local/v1a/01_universe/universe/universe.csv",
+   "sha256": "1b492b3d2181ec84a22a0fea4168eb2e2cd3017974eb54f12a6bbaf8a1523378"
+  },
+  "b3_candidates": {
+   "path": "outputs-local/v1a/03_retrieval/selector_candidates/candidates.csv",
+   "sha256": "1544b96bfc27615bec5d3298d3b5ed3395e777ea1aa4a428280be3fb7663104c"
+  },
+  "selector": {
+   "path": "outputs-local/v1a/04_selection/b3_selector_candidates_2026-11-04a_claude-cli_claude-sonnet-5-5/tables/judgments.csv",
+   "sha256": "dec35ac48af2f9063723e9b2581fdbb94186d1f2436b5bdb23b40a9f67a73081"
+  },
+  "agent_0": {
+   "path": "outputs-local/v1a/05_agent_grading/ranking_45targets_sonnet/ranking/20261113T060740Z/ranking.csv",
+   "sha256": "b3456cb5b1df38ff1ec97e38cc514e945bc4ce15c1e348ac83eed4f11eaf845c"
+  },
+  "agent_1": {
+   "path": "outputs-local/v1a/05_agent_grading/b3_kept_30/agent/verdicts.csv",
+   "sha256": "b68033732f98908546590c5c2aaa84f65484a3456879ce95bca303b24b25f8b7"
+  }
+ },
+ "outputs": [
+  "pairs.csv",
+  "t1_mix_by_group.csv",
+  "t1_mix_by_sector.csv",
+  "t1_mix_by_sic_division.csv",
+  "t2_adjacent_patterns.csv",
+  "t2_question_no_rates.csv",
+  "t2_same_industry.csv",
+  "t3_b3_rank.csv",
+  "t4_overall_call.csv",
+  "t5_keep_rates.csv",
+  "targets.csv"
+ ]
+}

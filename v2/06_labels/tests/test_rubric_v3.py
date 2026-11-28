@@ -132,6 +132,38 @@ def test_consensus_agreed_single_disputed_tiebreak():
     assert e.loc["P001", "same_customers_source"] == "disputed"
 
 
+def test_final_labels_per_outcome_tiebreak():
+    Y = ("yes",) * 5 + ("",)
+    rows = [
+        # same outcome (direct) everywhere: agreed
+        {"a": Y, "b": Y, "t": ("no", "no", "no", "no", "no", "")},
+        # both adjacent but on different questions: peer and direct agreed, no tie-break needed
+        {"a": ("no", "yes", "no", "yes", "yes", ""), "b": ("no", "no", "yes", "yes", "yes", ""), "t": Y},
+        # a direct, b not a peer: split on both outcomes; the judge (adjacent) decides
+        {"a": Y, "b": ("no", "no", "no", "yes", "yes", ""), "t": ("yes", "yes", "no", "yes", "yes", "")},
+        # a direct, b adjacent: split on direct only; the judge has no answer, so direct stays open
+        {"a": Y, "b": ("yes", "yes", "yes", "no", "yes", ""), "t": ("",) * 6},
+        # anchor
+        {"anchor": 1, "a": Y, "b": Y, "t": Y},
+    ]
+    sc = r3.scores(sheet(rows, ("a", "b", "t")))
+    f = r3.final_labels(sc, ["a", "b"], "t").set_index("pair")
+    assert f.loc["P000", "score"] == 2 and f.loc["P000", "direct_source"] == "agreed"
+    assert f.loc["P001", "score"] == 1 and not f.loc["P001", "tie_broken_peer"]
+    assert f.loc["P002", "direct_source"] == f.loc["P002", "peer_source"] == "tiebreak:t"
+    assert f.loc["P002", "score"] == 1 and f.loc["P002", "overall_call_source"] == "tiebreak:t"
+    assert f.loc["P002", "overall_call"] is True and f.loc["P001", "overall_call_source"] == "agreed"
+    assert f.loc["P003", "direct_source"] == "disputed" and f.loc["P003", "peer_source"] == "agreed"
+    assert np.isnan(f.loc["P003", "score"])
+    j = r3.judge_vs_agreed(sc, f.reset_index(), "t").set_index("outcome")
+    # agreed direct (non-anchor): P000 (yes; judge no), P001 (no; judge yes) -> 0 of 2
+    assert j.loc["direct", "agreed_pairs"] == 2 and j.loc["direct", "agreement"] == 0
+    assert j.loc["direct", "tie_broken"] == 1 and j.loc["direct", "still_open"] == 1   # P003, judge blank
+    # no judge: splits stay open
+    n = r3.final_labels(sc, ["a", "b"], None).set_index("pair")
+    assert n.loc["P002", "peer_source"] == "disputed"
+
+
 def test_earned_questions():
     # humans agree half the time on customers; the model matches human a exactly and b as a does
     rows = []

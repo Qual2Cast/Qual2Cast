@@ -17,6 +17,7 @@ prompt version.
 |---|---|---|---|
 | `2026-10-25a` | `SAVED_PROMPT_VERSION` | all twelve facets, company size included | every **saved** answer: the 373 training verdicts in `outputs-local/v1/judge/`, the 373 direct picks in `outputs-local/v1/suggest/`, all fixed-holdout runs (`holdout_completion/`, `sector_facets/holdout_llm/`, the split test) |
 | `2026-11-04a` | `PROMPT_VERSION` | the same, without the `- Company size: …` line | every **new** run (the default) |
+| `2026-11-28a`-`28k` | `PROMPT_TRAITS` | `2026-11-04a` plus one trait line per company (`28a` recurring revenue, `28b` big-ticket, `28c` both, `28d` cyclical demand, `28e` people-delivered, `28f` large customers, `28g` asset-heavy, `28h` maintenance-led, `28i` publicly funded, `28j` serial acquirer, `28k` mission-critical); instructions unchanged | experiments only (2026-11-28, `README.md`); not the default |
 
 Nothing else differs: the instructions, the order of companies and every other facet line are byte-identical. In
 `direct_llm.py` only the target's description changes, because the pool lines never listed company size. The

@@ -11,6 +11,17 @@ Cohorts
   round1_36        PCTY and WEN, 36 pairs pooled from v0's four routes; Riya, Barbara and Matthew under the
                    round-1 rubric. grade = the grade at least two of the three gave (32 pairs); NaN otherwise.
   matthew_v2_262   Matthew, rubric v2 (four yes/no questions, score derived): the same 262 round-3 pairs.
+  matthew_v3_311   Matthew, rubric v3 (overall call, then the four questions; score derived): the 311 scored pairs of
+                   the v3 sheet (dev_293 + 30 extra B3 pairs, less the 12 anchors), 67 targets.
+  barbara_v3_311   Barbara, rubric v3, the same 311 pairs.
+  v3_agreed        Matthew and Barbara, rubric v3, the same 311 pairs. grade = the score derived from the answers
+                   both gave, only where they gave the same answer to all four questions (rubric_v3.py consensus);
+                   NaN where any question is disputed (to be tie-broken). overall_call is NaN where they split.
+                   Read from the run pinned in current.toml [rubric_v3] scores.
+  v3_final         The headline rubric v3 labels (team ruling 2026-11-27): per outcome, the two reviewers' outcome
+                   where they reach the same one (direct, peer, overall call), else the LLM judge's (2 of 3;
+                   rubric_v3.py final). grade = 2 direct, 1 peer not direct, 0 not a peer. The same 311 pairs.
+                   Read from current.toml [rubric_v3] final.
   final_holdout_24 LOCKED. Barbara's direct-peer Yes/No on the 24 pairs whose comp is in the universe (all holdout
                    companies). Yes -> grade 2; No -> NaN (she picked these as candidates; No is not a 0). Loads
                    only with final_check=True, which only 10_final_holdout passes.
@@ -36,6 +47,10 @@ COHORTS = {
     "dev_293": ("Barbara", "rounds 2-3 old 0/1/2 form"),
     "round1_36": ("Riya, Barbara, Matthew (majority of 3)", "round 1: 0/1/2, blank = 0 with one of five reasons"),
     "matthew_v2_262": ("Matthew", "rubric v2: four yes/no questions, score derived"),
+    "matthew_v3_311": ("Matthew", "rubric v3: overall call + four yes/no questions, score derived"),
+    "barbara_v3_311": ("Barbara", "rubric v3: overall call + four yes/no questions, score derived"),
+    "v3_agreed": ("Matthew and Barbara (agreed)", "rubric v3: grade only where both answer all four questions alike"),
+    "v3_final": ("Matthew and Barbara, LLM judge on split outcomes", "rubric v3: same outcome, split outcomes tie-broken 2 of 3"),
     "final_holdout_24": ("Barbara", "direct-peer Yes/No (Yes = 2; No is not a 0) [locked]"),
 }
 LOCKED = {"final_holdout_24"}
@@ -65,6 +80,13 @@ def _finish(d: pd.DataFrame) -> pd.DataFrame:
     return d.reset_index(drop=True)
 
 
+def _v3(file: str) -> pd.DataFrame:
+    """One table of the pinned rubric v3 run (current.toml [rubric_v3] scores), anchors left out."""
+    d = pd.read_csv(v2.path(v2.current()["rubric_v3"]["scores"]) / file, dtype={"target_id": str, "comp_id": str},
+                    encoding="utf-8-sig")
+    return d[~d["is_anchor"].astype(bool)]
+
+
 def load(name: str, final_check: bool = False) -> pd.DataFrame:
     if name not in COHORTS:
         raise KeyError(f"unknown cohort {name!r}; known: {list(COHORTS)}")
@@ -90,6 +112,21 @@ def load(name: str, final_check: bool = False) -> pd.DataFrame:
         d = pd.read_csv(v2.src("06_labels", "round3", "round3_scores_v2.csv"), dtype=str, encoding="utf-8-sig")
         keep = [c for c in d.columns if c.endswith("_matthew")]
         d = d[["target_id", "comp_id", *keep]].rename(columns={"score_matthew": "grade"})
+        return _finish(d)
+    if name in ("matthew_v3_311", "barbara_v3_311"):
+        r = name.split("_")[0]
+        s = _v3("scores.csv")
+        keep = [c for c in s.columns if c.endswith(f"_{r}") and c != f"score_{r}"]
+        d = s[["target_id", "comp_id", f"score_{r}", "pair", *keep]].rename(columns={f"score_{r}": "grade"})
+        return _finish(d)
+    if name == "v3_agreed":
+        c = _v3("consensus.csv")
+        d = c.drop(columns=["is_anchor"]).rename(columns={"score": "grade"})
+        return _finish(d)
+    if name == "v3_final":
+        f = pd.read_csv(v2.path(v2.current()["rubric_v3"]["final"]) / "final.csv",
+                        dtype={"target_id": str, "comp_id": str}, encoding="utf-8-sig")
+        d = f[~f["is_anchor"].astype(bool)].drop(columns=["is_anchor"]).rename(columns={"score": "grade"})
         return _finish(d)
     m = pd.read_csv(v2.src("10_final_holdout", "direct_peers_24", "manifest.csv"), dtype=str)
     d = pd.DataFrame({"target_id": m["target_id"], "comp_id": m["comp_id"],

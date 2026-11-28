@@ -1,0 +1,40 @@
+{
+ "label": "EXPERIMENTAL",
+ "created_at": "2026-11-28T08:27:00Z",
+ "status": "EXPERIMENTAL llm_tier2 (Michael approved 2026-11-28); not a pipeline input",
+ "parts": {
+  "llm_tier2": "llm_tier2/manifest.json",
+  "judge": "judge/manifest.json"
+ },
+ "commands": [
+  {
+   "step": "build",
+   "command": "uv run python v2/09_analysis/scripts/tier2_llm.py build",
+   "at": "2026-11-28T08:27:00Z"
+  },
+  {
+   "step": "run",
+   "command": "uv run python v2/09_analysis/scripts/tier2_llm.py run outputs-local/v2/09_analysis/tier2_fill/20261128T082654Z_EXPERIMENTAL --limit 1",
+   "at": "2026-11-28T08:27:29Z",
+   "counts": {
+    "selected": 1,
+    "skipped_done": 0,
+    "ok": 1,
+    "failed": 0,
+    "not_run": 0
+   }
+  },
+  {
+   "step": "run",
+   "command": "uv run python v2/09_analysis/scripts/tier2_llm.py run outputs-local/v2/09_analysis/tier2_fill/20261128T082654Z_EXPERIMENTAL",
+   "at": "2026-11-28T08:35:28Z",
+   "counts": {
+    "selected": 59,
+    "skipped_done": 1,
+    "ok": 58,
+    "failed": 0,
+    "not_run": 0
+   }
+  }
+ ]
+}

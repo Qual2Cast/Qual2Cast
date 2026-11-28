@@ -42,6 +42,9 @@ run = "outputs-local/v1a/05_agent_grading/ranking_45targets_sonnet"
 model = "sonnet"
 prompt_version = "2026-11-05b"
 facet_scores = true
+# the 30 extra B3 pairs on the rubric v3 sheet (22 targets), graded separately with the same prompt, model and
+# settings; no pair overlaps `run`. progress.py's agent profiles stack them (team, 2026-11-27).
+extra_verdicts = ["outputs-local/v1a/05_agent_grading/b3_kept_30/agent/verdicts.csv"]
 
 [judges]
 # LLM-as-judge (evaluation only; never chooses comps). GPT family, so the model line is clear: Claude selects, GPT judges.
@@ -50,7 +53,7 @@ backend = "codex"
 
 [labels]
 default_cohort = "dev_293"
-cohorts = ["dev_293", "round1_36", "matthew_v2_262"]
+cohorts = ["dev_293", "round1_36", "matthew_v2_262", "matthew_v3_311", "barbara_v3_311", "v3_agreed", "v3_final"]
 locked_cohorts = ["final_holdout_24"]            # load only from 10_final_holdout
 
 [valuation]
@@ -103,7 +106,11 @@ run = "outputs-local/v2/09_analysis/trait_uplift/20261124T111715563218Z_r2"   # 
 # 06_labels: rubric v3 (v2/06_labels/RUBRIC_V3.md); blind sheet written once by rubric_v3.py build-sheet
 sheet = "outputs-local/v2/06_labels/rubric_v3/rubric_v3_sheet.csv"   # 323 pairs (12 anchors, 311 scored)
 reviewers = ["matthew", "barbara", "riya"]
-tiebreak = "gpt-5.6-terra on earned questions only (kappa vs reviewers >= reviewer-reviewer kappa); else a third person"
+tiebreak = "LLM judge on all 323 pairs; per outcome (direct, peer, overall call), its outcome breaks a split (2 of 3): rubric_v3.py final (team ruling 2026-11-27; replaces the per-question earned rule)"
+filled = "outputs-local/v2/06_labels/rubric_v3/filled/rubric_v3_filled_matthew_barbara_20261127.csv"   # Matthew + Barbara, 323/323, received 2026-11-27
+scores = "outputs-local/v2/06_labels/rubric_v3/scores/20261128T001954Z"   # rubric_v3.py scores + consensus on `filled`, no tie-break yet
+judge = "outputs-local/v2/06_labels/rubric_v3/judge/terra_20261128T030942Z"   # GPT-Terra (codex, gpt-5.6-terra), all 323 pairs, prompt 2026-11-27a
+final = "outputs-local/v2/06_labels/rubric_v3/final/terra_20261128T030942Z"   # headline labels: rubric_v3.py final --judge terra (cohort v3_final)
 
 [analysis.trait_uplift]
 # 09_analysis: trait X-learner (v2/09_analysis/scripts/trait_uplift.py), pre-registered before any real run
@@ -111,8 +118,12 @@ prereg = "v2/09_analysis/PREREG_TRAITS.md"
 cohort = "matthew_v2_262"                        # direct peer primary, peer secondary; rerun unchanged on rubric v3 labels
 traits = "outputs-local/v2/02_profiles/traits_new/tables/traits.csv"
 run = "outputs-local/v2/09_analysis/trait_uplift/20261124T101142641398Z"   # first pre-registered run, Matthew v2 labels, 2026-11-24
+v3_cohort = "v3_final"                           # the pre-registered rerun (PREREG_TRAITS.md amendment 2026-11-27)
+v3_run = "outputs-local/v2/09_analysis/trait_uplift/20261128T042306693074Z"   # round 1 on v3_final
+v3_run_r2 = "outputs-local/v2/09_analysis/trait_uplift/20261128T043127850920Z_r2"   # round 2 on v3_final
+v3_run_overall = "outputs-local/v2/09_analysis/trait_uplift/20261128T043638119157Z_overall"   # overall-call cross-check family
 
 [analysis.progress]
 # 09: improvement ledger (v2/09_analysis/scripts/progress.py, PROGRESS.md); append-only, one row per pipeline change
 ledger = "outputs-local/v2/09_analysis/progress/ledger.csv"
-cohort = "matthew_v2_262"                        # switch to the rubric v3 consensus file when it exists
+cohort = "v3_final"                              # from 2026-11-27 (rubric v3 headline labels); earlier rows: matthew_v2_262

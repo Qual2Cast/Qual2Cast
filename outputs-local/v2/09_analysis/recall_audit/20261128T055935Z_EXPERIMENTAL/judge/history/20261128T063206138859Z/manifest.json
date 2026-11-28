@@ -1,0 +1,268 @@
+{
+ "settings": {
+  "backend": "codex",
+  "model": "gpt-5.6-terra",
+  "effort": null,
+  "name": "terra",
+  "prompt_version": "2026-11-27a",
+  "instructions_sha256": "8a12e687b3faf8caf8de6a007f22297101fb119153d5df032e264df62e488903",
+  "schema": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "overall_call",
+    "same_product",
+    "same_customers",
+    "same_revenue_model",
+    "same_chain_step",
+    "business_graded",
+    "unsure",
+    "reason"
+   ],
+   "properties": {
+    "overall_call": {
+     "type": "string",
+     "enum": [
+      "yes",
+      "no"
+     ]
+    },
+    "same_product": {
+     "type": "string",
+     "enum": [
+      "yes",
+      "no"
+     ]
+    },
+    "same_customers": {
+     "type": "string",
+     "enum": [
+      "yes",
+      "no"
+     ]
+    },
+    "same_revenue_model": {
+     "type": "string",
+     "enum": [
+      "yes",
+      "no"
+     ]
+    },
+    "same_chain_step": {
+     "type": "string",
+     "enum": [
+      "yes",
+      "no"
+     ]
+    },
+    "business_graded": {
+     "type": "string"
+    },
+    "unsure": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "enum": [
+       "product",
+       "customers",
+       "revenue_model",
+       "chain_step",
+       "overall"
+      ]
+     }
+    },
+    "reason": {
+     "type": "string"
+    }
+   }
+  }
+ },
+ "backend": "codex",
+ "model": "gpt-5.6-terra",
+ "effort": null,
+ "name": "terra",
+ "prompt_version": "2026-11-27a",
+ "created_at": "2026-11-28T06:01:00Z",
+ "sha256": {
+  "guide": "a9b80bac91d44382e2dca5bd21a94551d8c32a0af086988f1a3a4ee27838222c",
+  "prompt_template": "e01471b8af11ec47c4639f7821a0313953277a41dd57ffee929694767fb27592",
+  "instructions_text": "8a12e687b3faf8caf8de6a007f22297101fb119153d5df032e264df62e488903",
+  "sheet": "7563f98004048f0560091fee439d9f5a3a2a21e19d9d4a99edf1f5cece1970bf",
+  "scores": "c6d0bc5afb8d49a99484df52b19c2f04366d37e377ec725befa920ed71617519"
+ },
+ "files": {
+  "guide": "v2/06_labels/RUBRIC_V3.md",
+  "prompt_template": "v2/06_labels/scripts/judge_v3_prompt.py",
+  "sheet": "outputs-local/v2/06_labels/rubric_v3/rubric_v3_sheet.csv",
+  "scores": "outputs-local/v2/06_labels/rubric_v3/scores/20261128T001954Z"
+ },
+ "sessions": [
+  {
+   "selection": "recall_audit",
+   "command": "uv run python v2/09_analysis/scripts/recall_audit.py run outputs-local/v2/09_analysis/recall_audit/20261128T055935Z_EXPERIMENTAL",
+   "started_at": "2026-11-28T06:01:00Z",
+   "ended_at": "2026-11-28T06:32:05Z",
+   "pairs": [
+    "A001",
+    "A002",
+    "A003",
+    "A004",
+    "A005",
+    "A006",
+    "A007",
+    "A008",
+    "A009",
+    "A010",
+    "A011",
+    "A012",
+    "A013",
+    "A014",
+    "A015",
+    "A016",
+    "A017",
+    "A018",
+    "A019",
+    "A020",
+    "A021",
+    "A022",
+    "A023",
+    "A024",
+    "A025",
+    "A026",
+    "A027",
+    "A028",
+    "A029",
+    "A030",
+    "A031",
+    "A032",
+    "A033",
+    "A034",
+    "A035",
+    "A036",
+    "A037",
+    "A038",
+    "A039",
+    "A040",
+    "A041",
+    "A042",
+    "A043",
+    "A044",
+    "A045",
+    "A046",
+    "A047",
+    "A048",
+    "A049",
+    "A050",
+    "A051",
+    "A052",
+    "A053",
+    "A054",
+    "A055",
+    "A056",
+    "A057",
+    "A058",
+    "A059",
+    "A060",
+    "A061",
+    "A062",
+    "A063",
+    "A064",
+    "A065",
+    "A066",
+    "A067",
+    "A068",
+    "A069",
+    "A070",
+    "A071",
+    "A072",
+    "A073",
+    "A074",
+    "A075",
+    "A076",
+    "A077",
+    "A078",
+    "A079",
+    "A080",
+    "A081",
+    "A082",
+    "A083",
+    "A084",
+    "A085",
+    "A086",
+    "A087",
+    "A088",
+    "A089",
+    "A090",
+    "A091",
+    "A092",
+    "A093",
+    "A094",
+    "A095",
+    "A096",
+    "A097",
+    "A098",
+    "A099",
+    "A100",
+    "A101",
+    "A102",
+    "A103",
+    "A104",
+    "A105",
+    "A106",
+    "A107",
+    "A108",
+    "A109",
+    "A110",
+    "A111",
+    "A112",
+    "A113",
+    "A114",
+    "A115",
+    "A116",
+    "A117",
+    "A118",
+    "A119",
+    "A120",
+    "A121",
+    "A122",
+    "A123",
+    "A124",
+    "A125",
+    "A126",
+    "A127",
+    "A128",
+    "A129",
+    "A130",
+    "A131",
+    "A132",
+    "A133",
+    "A134",
+    "A135",
+    "A136",
+    "A137",
+    "A138",
+    "A139",
+    "A140",
+    "A141",
+    "A142",
+    "A143",
+    "A144",
+    "A145",
+    "A146",
+    "A147",
+    "A148",
+    "A149",
+    "A150"
+   ],
+   "counts": {
+    "selected": 150,
+    "skipped_done": 0,
+    "ok": 150,
+    "failed": 0,
+    "not_run": 0
+   },
+   "stopped": ""
+  }
+ ],
+ "answered_ok": 150
+}

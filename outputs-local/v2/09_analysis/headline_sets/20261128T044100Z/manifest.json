@@ -1,0 +1,121 @@
+{
+ "created_at": "20261128T044100Z",
+ "script": "v2/09_analysis/scripts/headline_sets.py",
+ "script_sha256": "8cb3cd21f452fe5d783ff8d00a358fd0d25f28ae4fa293cd48fcecdc390da087",
+ "rubric_v3_scores": "outputs-local/v2/06_labels/rubric_v3/scores/20261128T001954Z",
+ "rubric_v3_files_sha256": {
+  "scores.csv": "c6d0bc5afb8d49a99484df52b19c2f04366d37e377ec725befa920ed71617519",
+  "consensus.csv": "f80eb7c29f68a6b586a57f09960b76852bb61d70538ac17980882b712362f0d0"
+ },
+ "rubric_v3_final": "outputs-local/v2/06_labels/rubric_v3/final/terra_20261128T030942Z",
+ "rubric_v3_final_sha256": "31470247eb6925740cd5f470ba753333667486533c2ec5c5c879a7f4e1d076c5",
+ "profiles": {
+  "b3_all": "outputs-local/v1a/03_retrieval/selector_candidates",
+  "b3_top7": "outputs-local/v1a/03_retrieval/selector_candidates",
+  "selector": "outputs-local/v1a/04_selection/b3_selector_candidates_2026-11-04a_claude-cli_claude-sonnet-5-5/tables/judgments.csv",
+  "agent_ge1": "outputs-local/v1a/05_agent_grading/ranking_45targets_sonnet/ranking/20261113T060740Z/ranking.csv + outputs-local/v1a/05_agent_grading/b3_kept_30/agent/verdicts.csv",
+  "agent_2": "outputs-local/v1a/05_agent_grading/ranking_45targets_sonnet/ranking/20261113T060740Z/ranking.csv + outputs-local/v1a/05_agent_grading/b3_kept_30/agent/verdicts.csv"
+ },
+ "boot": 1000,
+ "seed": 2026,
+ "sets_before_common_cut": {
+  "v3_final": {
+   "peer": {
+    "pairs": 311,
+    "targets": 67,
+    "positives": 184
+   },
+   "direct": {
+    "pairs": 311,
+    "targets": 67,
+    "positives": 106
+   }
+  },
+  "all_four": {
+   "peer": {
+    "pairs": 180,
+    "targets": 62,
+    "positives": 109
+   },
+   "direct": {
+    "pairs": 180,
+    "targets": 62,
+    "positives": 101
+   }
+  },
+  "same_outcome": {
+   "peer": {
+    "pairs": 244,
+    "targets": 66,
+    "positives": 146
+   },
+   "direct": {
+    "pairs": 276,
+    "targets": 66,
+    "positives": 101
+   }
+  },
+  "matthew_v3_alone": {
+   "peer": {
+    "pairs": 311,
+    "targets": 67,
+    "positives": 171
+   },
+   "direct": {
+    "pairs": 311,
+    "targets": 67,
+    "positives": 102
+   }
+  },
+  "barbara_v3_alone": {
+   "peer": {
+    "pairs": 311,
+    "targets": 67,
+    "positives": 188
+   },
+   "direct": {
+    "pairs": 311,
+    "targets": 67,
+    "positives": 135
+   }
+  },
+  "matthew_v2_baseline": {
+   "peer": {
+    "pairs": 262,
+    "targets": 40,
+    "positives": 184
+   },
+   "direct": {
+    "pairs": 262,
+    "targets": 40,
+    "positives": 60
+   }
+  }
+ },
+ "dropped_not_covered_by_every_profile": {
+  "v3_final": {
+   "peer": 0,
+   "direct": 0
+  },
+  "all_four": {
+   "peer": 0,
+   "direct": 0
+  },
+  "same_outcome": {
+   "peer": 0,
+   "direct": 0
+  },
+  "matthew_v3_alone": {
+   "peer": 0,
+   "direct": 0
+  },
+  "barbara_v3_alone": {
+   "peer": 0,
+   "direct": 0
+  },
+  "matthew_v2_baseline": {
+   "peer": 0,
+   "direct": 0
+  }
+ }
+}

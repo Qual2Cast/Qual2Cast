@@ -48,7 +48,8 @@ ROOT = v2.ROOT
 OUT = v2.out("09_analysis") / "trait_uplift"
 TRAITS = ["recurring_revenue", "cyclical_demand", "big_ticket", "people_delivered", "large_customers", "asset_heavy"]
 TAGS = {"offers_services": "services", "sells_to_consumers": "consumers"}      # target tags used for cells
-OUTCOMES = {"direct": "direct", "peer": "peer"}        # outcome -> column in pairs; direct is primary
+OUTCOMES = {"direct": "direct", "peer": "peer", "overall": "overall"}   # outcome -> column in pairs; direct is primary;
+# overall (the reviewers' overall call, rubric v3 only) is the separate cross-check family (PREREG_TRAITS.md), run alone
 CELLS = ["all", "services_yes", "services_no", "consumers_yes", "consumers_no"]
 Q = 0.10
 PREREG = v2.V2 / "09_analysis" / "PREREG_TRAITS.md"
@@ -114,10 +115,23 @@ def add_traits(pairs: pd.DataFrame, traits: pd.DataFrame) -> pd.DataFrame:
     return pairs
 
 
+def _label_file(cohort: str) -> Path:
+    """The file a cohort's grades come from, for the manifest."""
+    if cohort == "v3_final":
+        return v2.path(v2.current()["rubric_v3"]["final"]) / "final.csv"
+    return v2.src("06_labels", "round3", "round3_scores_v2.csv")   # as before for the earlier cohorts
+
+
 def build_pairs(traits: pd.DataFrame, cohort: str = "matthew_v2_262") -> pd.DataFrame:
     pairs = fu.load_pairs(cohort)
     pairs["direct"] = (pairs.grade == 2).astype(float)
     pairs["peer"] = (pairs.grade >= 1).astype(float)
+    import cohorts
+    full = cohorts.load(cohort) if cohort in cohorts.COHORTS else None
+    if full is not None and "overall_call" in full:
+        call = full.set_index(["target_id", "comp_id"])["overall_call"]
+        call = call.map(lambda v: np.nan if pd.isna(v) else float(str(v).strip().casefold() in ("true", "1", "1.0")))
+        pairs["overall"] = [call.get((a, b), np.nan) for a, b in zip(pairs.target, pairs.comp)]
     ids = pd.read_csv(v2.path(v2.current()["universe"]["universe"]), dtype=str)["IQ_COMPANY_ID"].tolist()
     pos = {k: i for i, k in enumerate(ids)}
     if not (set(pairs.target) | set(pairs.comp)).issubset(pos):
@@ -344,7 +358,8 @@ def report(summary: pd.DataFrame, meta: dict) -> str:
              "association within B3's lists, not a cause and not a pipeline improvement.", ""]
     for outcome in summary.outcome.unique():
         part = summary[summary.outcome == outcome]
-        lines += [f"## {'Primary' if outcome == 'direct' else 'Secondary'}: {outcome}", "",
+        kind = {"direct": "Primary", "peer": "Secondary", "overall": "Cross-check (own family)"}[outcome]
+        lines += [f"## {kind}: {outcome}", "",
                   "| trait | cell | status | pairs | targets | lift (pp) | 95% interval | shuffle p | BH q | finding |",
                   "|---|---|---|---:|---:|---:|---|---:|---:|---|"]
         for r in part.itertuples():
@@ -364,7 +379,8 @@ def main(argv=None):
     ap.add_argument("--round", type=int, choices=[1, 2], default=1, help="which pre-registered plan (default 1)")
     ap.add_argument("--traits-r2", type=Path, help="round-2 trait table (fill_traits.py --round 2); round 2 only")
     ap.add_argument("--cohort", default="matthew_v2_262", choices=[c for c in fu.COHORTS if c != "b3_current"])
-    ap.add_argument("--outcome", choices=["both", "direct", "peer"], default="both")
+    ap.add_argument("--outcome", choices=["both", "direct", "peer", "overall"], default="both",
+                    help="both: the pre-registered 60-test family; overall: the overall-call cross-check, its own family")
     ap.add_argument("--permutations", type=int, default=1000)
     ap.add_argument("--bootstrap", type=int, default=200)
     ap.add_argument("--workers", type=int, default=max(1, (os.cpu_count() or 2) - 1))
@@ -393,8 +409,11 @@ def main(argv=None):
         versions = v1 + v2_
     pairs = build_pairs(traits, args.cohort)
     outcomes = ["direct", "peer"] if args.outcome == "both" else [args.outcome]
+    if "overall" in outcomes and ("overall" not in pairs or pairs["overall"].isna().any()):
+        ap.error(f"cohort {args.cohort} has no complete overall call (rubric v3 cohorts only)")
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
-    run = args.out / (stamp + ("_r2" if args.round == 2 else "") + ("_smoke" if args.smoke else ""))
+    run = args.out / (stamp + ("_r2" if args.round == 2 else "") + ("_overall" if args.outcome == "overall" else "")
+                      + ("_smoke" if args.smoke else ""))
     run.mkdir(parents=True, exist_ok=False)
     pairs.to_csv(run / "pair_features.csv", index=False)
     summary, effects, diags, tags, shuffles, boots = run_all(
@@ -405,7 +424,7 @@ def main(argv=None):
     cur = v2.current()
     rel = lambda p: str(Path(p).resolve().relative_to(ROOT).as_posix()) if Path(p).resolve().is_relative_to(ROOT) \
         else str(p)  # noqa: E731
-    inputs = [args.traits, *([args.traits_r2] if args.round == 2 else []), v2.src("06_labels", "round3", "round3_scores_v2.csv"),
+    inputs = [args.traits, *([args.traits_r2] if args.round == 2 else []), _label_file(args.cohort),
               v2.path(cur["profiles"]["general"]), v2.path(cur["profiles"]["sector"]),
               v2.path(cur["universe"]["universe"]), PREREG]
     meta = {"stamp": stamp, "smoke": args.smoke, "cohort": args.cohort, "pairs": len(pairs),
@@ -417,7 +436,8 @@ def main(argv=None):
                 "commit": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
                 "script_sha256": digest(Path(__file__)), "estimator_sha256": digest(Path(fu.__file__)),
                 "sources": {rel(p): digest(p) for p in inputs if Path(p).exists()},
-                "outcomes": {"direct": "Matthew derived score == 2 (primary)", "peer": "score >= 1 (secondary)"},
+                "outcomes": {"direct": f"{args.cohort} grade == 2 (primary)", "peer": "grade >= 1 (secondary)",
+                             "overall": "overall call yes (cross-check family, run alone)"},
                 "settings": {"outer_folds": 5, "inner_folds": 3, "fold_seed": 42, "resample_seed": args.seed,
                              "min_arm": fu.MIN_ARM, "min_arm_targets": fu.MIN_TARGETS, "logistic_C": .1,
                              "ridge_alpha": 10, "overlap": [.1, .9], "dr_propensity_clip": [.05, .95],

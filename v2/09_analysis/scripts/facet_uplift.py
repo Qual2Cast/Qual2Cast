@@ -48,7 +48,7 @@ from sklearn.preprocessing import StandardScaler  # noqa: E402
 
 ROOT = v2.ROOT
 OUT = v2.out("09_analysis") / "facet_uplift"
-COHORTS = ("dev_293", "round1_36", "matthew_v2_262", "b3_current")
+COHORTS = ("dev_293", "round1_36", "matthew_v2_262", "v3_final", "b3_current")
 OUTCOMES = {"peer": "peer", "rating": "grade", "selector": "selector_keep"}   # outcome -> column
 BINARY = {"peer", "selector"}
 STAGES = {"selector": ("selector_keep", "keep"), "agent_grade": ("agent_peer", "peer")}   # source -> column, facet

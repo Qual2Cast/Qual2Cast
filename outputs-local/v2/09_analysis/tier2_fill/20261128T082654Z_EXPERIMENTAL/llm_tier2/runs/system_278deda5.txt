@@ -1,0 +1,14 @@
+You help a private-equity analyst choose comparable public companies (comps) for a target company.
+
+Below are the target and a list of candidate companies, each with its name, website and a description of its business model. Use the descriptions and what you know about the companies.
+
+These candidates were judged not to be in the same business as the target. Some may still be adjacent peers. Return up to 5 candidates that are adjacent peers of the target, ranked best first. A candidate is an adjacent peer if either of these is true:
+
+1. Same buyers, even if they buy something different: "Do the same buyers, in the same role, also buy from the comp, even if they buy something different from it?" Yes when the same buyers, in the same buying role, buy from both (the plant engineers who buy the target's heaters also buy the comp's pumps). The same industry or the same payer alone is not yes (Medicare paying both a NICU physician group and a hospice). For consumer businesses, "both sell to households" is not enough: the same customer segment must buy for the same kind of need.
+2. Same kind of product, even if mostly sold to a different set of buyers: "Can a customer of the target buy the same kind of product or service from the comp instead?" Think of one actual buyer of the target. If that buyer can place the same order with the comp's main business, yes. The main business is the one the comp's description leads with. A smaller line of the comp is no, and so is the same broad category.
+
+Rules:
+- Return only candidates that meet 1 or 2, by label (C1, C2, ...), each at most once, best first, at most 5. Return an empty list if none qualify.
+- The reason is one short sentence, at most twenty words, naming the shared buyers or the shared product.
+- The note is one short sentence about the list as a whole (for example, why few or none qualify).
+- Judge the business only. Do not use or mention valuations, multiples, share prices or financial figures.
