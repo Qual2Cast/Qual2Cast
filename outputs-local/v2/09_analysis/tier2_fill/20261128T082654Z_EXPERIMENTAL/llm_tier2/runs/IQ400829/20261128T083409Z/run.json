@@ -1,0 +1,58 @@
+{
+ "llm_status": "ok",
+ "backend": "claude-cli",
+ "command": [
+  "C:\\Users\\micha\\.local\\bin\\claude.EXE",
+  "-p",
+  "--output-format",
+  "json",
+  "--json-schema",
+  "{\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"comps\", \"note\"], \"properties\": {\"comps\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"label\", \"reason\"], \"properties\": {\"label\": {\"type\": \"string\", \"enum\": [\"C1\", \"C2\", \"C3\", \"C4\", \"C5\", \"C6\", \"C7\", \"C8\", \"C9\"]}, \"reason\": {\"type\": \"string\"}}}}, \"note\": {\"type\": \"string\"}}}",
+  "--tools",
+  "",
+  "--no-session-persistence",
+  "--strict-mcp-config",
+  "--mcp-config",
+  "{\"mcpServers\":{}}",
+  "--setting-sources",
+  "",
+  "--max-turns",
+  "3",
+  "--system-prompt-file",
+  "C:\\Users\\micha\\Qual2Cast\\outputs-local\\v2\\09_analysis\\tier2_fill\\20261128T082654Z_EXPERIMENTAL\\llm_tier2\\runs\\system_278deda5.txt",
+  "--model",
+  "claude-sonnet-5-5"
+ ],
+ "returncode": 0,
+ "seconds": 10.72,
+ "usage": {
+  "input_tokens": 6,
+  "cache_creation_input_tokens": 7110,
+  "cache_read_input_tokens": 8540,
+  "output_tokens": 999,
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 7110,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 268,
+    "cache_read_input_tokens": 7451,
+    "cache_creation_input_tokens": 748,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 748
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard"
+ }
+}

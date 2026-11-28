@@ -435,7 +435,8 @@ def anchor_keys(pool: pd.DataFrame) -> dict[tuple[str, str], tuple[str, str, str
     return out
 
 
-def build_sheet(pool: pd.DataFrame, reviewers: Sequence[str] = REVIEWERS, seed: int = SEED) -> pd.DataFrame:
+def build_sheet(pool: pd.DataFrame, reviewers: Sequence[str] = REVIEWERS, seed: int = SEED,
+                anchors: dict | None = None) -> pd.DataFrame:
     """The blind sheet: targets in a random order and, within a target, its comps in a random order (so the old
     pair labels' rank order is gone but a reviewer reads one target at a time); new pair ids P001...; is_anchor;
     the description columns; blank column sets per reviewer; target_id and comp_id last."""
@@ -444,7 +445,7 @@ def build_sheet(pool: pd.DataFrame, reviewers: Sequence[str] = REVIEWERS, seed: 
     rng.shuffle(targets)
     order = {t: i for i, t in enumerate(targets)}
     p = pool.assign(_t=pool["target_id"].map(order), _c=rng.random(len(pool))).sort_values(["_t", "_c"])
-    anchors = anchor_keys(pool)
+    anchors = anchor_keys(pool) if anchors is None else anchors   # a later sheet without anchors passes {}
     sheet = pd.DataFrame({"pair": [f"P{i:03d}" for i in range(1, len(p) + 1)],
                           "target_company": p["target_company"].to_numpy(), "comp_company": p["comp_company"].to_numpy(),
                           "is_anchor": [1 if k in anchors else 0 for k in zip(p["target_id"], p["comp_id"])]})
@@ -509,12 +510,26 @@ KEY_ROWS = [
     ["business_graded_<you>", "Which target business you judged", "e.g. whole company, or concrete pumping", ""],
     ["notes_<you>", "Anything else", "e.g. which product line matches", ""],
 ]
+# Key for sheets built after the 2026-11-27 rulings (RUBRIC_V3.md): question 1 on the comp's main business, question
+# 2 reworded. The first sheet (Matthew and Barbara, 11-27) keeps KEY_ROWS, the wording its reviewers saw.
+KEY_ROWS_1127 = [
+    KEY_ROWS[0],
+    ["same_product_<you>", QUESTIONS["same_product"],
+     "one actual buyer of the target could place the same order with the comp's MAIN business (the one its "
+     "description leads with)",
+     "a smaller line of the comp: no. Same broad category but not the same order: no"],
+    ["same_customers_<you>", "Do the same buyers, in the same role, also buy from the comp, even if they buy something "
+     "different from it?",
+     "the same buyers, in the same buying role, buy from both (any business of the comp)",
+     "same industry or same payer alone is not yes (hospice vs neonatal physician group: no)"],
+    *KEY_ROWS[3:],
+]
 KEY_SCORE = ("Score (computed by the notebook, don't type it): 2 = yes to all four questions; 1 = yes to product or "
              "customers but not all four; 0 = no to both product and customers. is_anchor = 1 marks a worked "
              "example from the guide; it is not scored.")
 
 
-def key_block(width: int) -> list[list[str]]:
+def key_block(width: int, key_rows: list | None = None) -> list[list[str]]:
     """The key rows printed above the sheet's header, each padded to `width` cells, then one blank row. Each key
     row is ["", column name, one line: question | YES ... | NO ...]; the line is left unwrapped so it runs across
     the empty cells to its right, which keeps the frozen pair-label columns narrow."""
@@ -522,7 +537,7 @@ def key_block(width: int) -> list[list[str]]:
         if name.startswith(("unsure_", "business_graded_", "notes_")):     # free-text columns: no yes/no
             return f"{q}: {yes}" + (f" ({no})" if no else "")
         return f"{q}   |   YES: {yes}   |   NO: {no}"
-    lines = [["", name, line(name, q, yes, no)] for name, q, yes, no in KEY_ROWS]
+    lines = [["", name, line(name, q, yes, no)] for name, q, yes, no in (key_rows or KEY_ROWS)]
     rows = [[KEY_TITLE], [KEY_NOTE], [], ["", "your column", " | ".join(KEY_HEADER[1:])], *lines, [], [KEY_SCORE], []]
     return [r + [""] * (width - len(r)) for r in rows]
 
@@ -530,7 +545,7 @@ def key_block(width: int) -> list[list[str]]:
 ANSWER_COLUMNS = (OVERALL, *QUESTIONS)
 
 
-def save_sheet(sheet: pd.DataFrame, csv_path: Path, xlsx_path: Path) -> None:
+def save_sheet(sheet: pd.DataFrame, csv_path: Path, xlsx_path: Path, key_rows: list | None = None) -> None:
     """Write the sheet twice, each with the key block above the header row.
 
     - The .xlsx is what reviewers use (upload it as one Google Sheet): one tab per reviewer, holding the pair label,
@@ -546,7 +561,7 @@ def save_sheet(sheet: pd.DataFrame, csv_path: Path, xlsx_path: Path) -> None:
     from openpyxl.worksheet.datavalidation import DataValidation
 
     cols = list(sheet.columns)
-    key = key_block(len(cols))
+    key = key_block(len(cols), key_rows)
     with open(csv_path, "w", newline="", encoding="utf-8-sig") as fh:
         w = csv.writer(fh)
         w.writerows(key)
@@ -563,7 +578,7 @@ def save_sheet(sheet: pd.DataFrame, csv_path: Path, xlsx_path: Path) -> None:
         tab_cols = tab_columns(sheet, reviewer) if reviewer else cols
         ws = wb.create_sheet(reviewer or "rubric_v3")
         tab_key = [[cell.replace("<you>", reviewer) if reviewer else cell for cell in row]
-                   for row in key_block(len(tab_cols))]
+                   for row in key_block(len(tab_cols), key_rows)]
         for row in tab_key:
             ws.append(row)
         header_row = len(tab_key) + 1
@@ -573,10 +588,10 @@ def save_sheet(sheet: pd.DataFrame, csv_path: Path, xlsx_path: Path) -> None:
         last = header_row + len(sheet)
         ws.cell(1, 1).font = Font(bold=True, size=12)
         key_header_row = 4
-        for r in range(key_header_row, key_header_row + len(KEY_ROWS) + 1):
+        for r in range(key_header_row, key_header_row + len(key_rows or KEY_ROWS) + 1):
             ws.cell(r, 2).font = bold
         ws.cell(key_header_row, 3).font = bold
-        ws.cell(key_header_row + len(KEY_ROWS) + 2, 1).font = bold
+        ws.cell(key_header_row + len(key_rows or KEY_ROWS) + 2, 1).font = bold
         dv = DataValidation(type="list", formula1='"yes,no"', allow_blank=True, showErrorMessage=True,
                             errorTitle="yes or no", error="Type yes or no (or leave blank).")
         ws.add_data_validation(dv)

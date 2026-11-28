@@ -74,6 +74,25 @@ minutes). Run `outputs-local/v2/09_analysis/recall_audit/20261128T055935Z_EXPERI
 - Judge-only labels from one run; the judge is stricter than `v3_final` (on the controls it confirms 5 of the 8
   labelled direct peers), so it may undercount.
 
+**EXPERIMENTAL tier-2 fill** (`scripts/tier2_fill.py`, `scripts/tier2_llm.py`, 2026-11-28; `analysis.ipynb` 3.11):
+thin profiles filled up to k comps with flagged adjacents. Tier 1 = the pinned selector's keeps; pool = B3's list
+plus ranks 11-15. Rules: `b3_rank`, `agent`, `agent_then_rank`, and `llm_tier2` (59 Sonnet calls: up to 5 adjacent
+peers per target, best first, or none). GPT-Terra labelled the 92 picks without a reviewer label (judge-only). Run
+`outputs-local/v2/09_analysis/tier2_fill/20261128T082654Z_EXPERIMENTAL/` (the k = 3 no-model run before it:
+`20261128T075724Z_EXPERIMENTAL/`). At k = 3 (targets with 3+ comps: 23 of 67 without a fill):
+
+| rule | targets reaching 3 | added comps at least adjacent (v3_final labels, 95% CI) | whole profile at least adjacent / direct |
+|---|---|---|---|
+| b3_rank | 67 | 48% [33-62] | 78% / 61% |
+| agent | 41 | 60% [42-75] | 85% / 66% |
+| agent_then_rank | 67 | 60% [42-75] | 85% / 66% |
+| llm_tier2 | 62 | 59% [44-73] | 83% / 64% |
+
+Tier 1 alone: 96% / 87%. Across k = 2-5 the rules overlap (b3_rank 46-50%, the others 58-67%); 11-20% of added comps
+are direct peers. With judge-only labels pooled, `llm_tier2` holds at 60% while `agent_then_rank` falls to 50% (17 of
+its 19 unlabelled picks judged not a peer). Healthcare and business services stay near 0% under every rule. Filling to
+k makes every profile bigger at the cost of about 2 in 5 added comps not being peers.
+
 **Trait lines in the selector** (2026-11-28; `v2/04_selection/README.md`, `analysis.ipynb` 3.8-3.9): all ten traits
 as one data line each, against three runs of the unchanged prompt. None moves direct precision or recall beyond the
 range of the unchanged runs (direct recall 82.7-89.2% from rerunning alone).

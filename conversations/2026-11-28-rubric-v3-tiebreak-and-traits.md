@@ -109,3 +109,19 @@ Next:
    "at least adjacent" precision, and the share of targets reaching 3.
 2. Ask Aziz whether 3 is the right minimum.
 3. Site chapter 5 facts after PR #45 merges.
+
+## Added later (2026-11-28): tier-2 fill experiment and the round 4 sheet
+
+- Michael: start the tier-2 experiment; test k = 2-5; a final reviewer round (Matthew, Barbara) of about 120-150
+  pairs: profile pairs without a label plus a check of the judge's tie-breaks; merge PR #45 when done.
+- `v2/09_analysis/scripts/tier2_fill.py` (rules b3_rank, agent, agent_then_rank, llm_tier2; k sweep) and
+  `tier2_llm.py` (59 Sonnet calls, prompt `tier2-2026-11-28a`; 92 GPT-Terra labels for unlabelled picks). Runs
+  `tier2_fill/20261128T075724Z_EXPERIMENTAL/` (k = 3, no model) and `20261128T082654Z_EXPERIMENTAL/` (k = 2-5 + LLM).
+  Result: filling reaches most targets, but 40-50% of added comps are not peers under every rule; table in
+  `v2/09_analysis/README.md`; notebook `analysis.ipynb` 3.11.
+- `v2/06_labels/scripts/round4_sheet.py` (+ test): sheet `outputs-local/v2/06_labels/rubric_v3/round4/` (118 pairs,
+  48 targets; part per pair in `round4_key.csv`). `rubric_v3.py`: `KEY_ROWS_1127`, `save_sheet(key_rows=)`,
+  `build_sheet(anchors=)`; the first sheet's code path unchanged. Notebook `analysis.ipynb` 3.12.
+- Model calls added: 59 Claude CLI, 92 Codex. Tests: v2 pass (count in the commit).
+- Next: send the round 4 sheet; when it comes back, `rubric_v3.py check/scores`, then `final` with the judge for any
+  split, and fold the labels into a new cohort; rescore tier 2 on human labels and decide k.

@@ -1,0 +1,85 @@
+{
+ "label": "EXPERIMENTAL",
+ "status": "EXPERIMENTAL tier-2 fill (team decision 2026-11-28, Michael); not a pipeline input; no model calls",
+ "created_at": "20261128T075724Z",
+ "script": "v2/09_analysis/scripts/tier2_fill.py",
+ "script_sha256": "628449f345bb5b544f4068f5598e064eac6741a066db05bb301b19aa397f0bfc",
+ "design": {
+  "k": 3,
+  "targets": "v3_final cohort (67 targets)",
+  "tier1": {
+   "baseline": "progress.built_in('selector'), prompt 2026-11-04a",
+   "repeat1": "outputs-local/v2/04_selection/b3_selector_candidates_2026-11-04a_claude-cli_claude-sonnet-5-5_repeat1/tables/keeps.csv",
+   "repeat2": "outputs-local/v2/04_selection/b3_selector_candidates_2026-11-04a_claude-cli_claude-sonnet-5-5_repeat2/tables/keeps.csv"
+  },
+  "pools": {
+   "b3_list": "progress._b3 (B3 selected lists)",
+   "b3_list_r11_15": "B3 list + ranks 11-15 of B3's ranking"
+  },
+  "rules": {
+   "b3_rank": "B3 rank order",
+   "agent": "agent score 2 then 1, ties by B3 rank; agent 0 and ungraded skipped",
+   "agent_then_rank": "agent rule, then ungraded pairs in B3 rank order; agent 0 skipped"
+  },
+  "label_sources": {
+   "v3_final": "headline labels (metrics)",
+   "anchor": "rubric v3 anchor pairs, pinned final.csv score, outside v3_final",
+   "judge_only": "GPT-Terra, outputs-local/v2/09_analysis/recall_audit/20261128T055935Z_EXPERIMENTAL (not reviewer labels)",
+   "unlabelled": "no label"
+  },
+  "bootstrap": "targets, 1,000 draws, seed 2026 (progress.bootstrap_means)",
+  "groups": "peer_mix.GROUPS (sector of the target's SIC4)"
+ },
+ "inputs": {
+  "current_toml": {
+   "path": "v2/current.toml",
+   "sha256": "7130155405162ae8d3fca7124648c20c3b726462b53f161436ccabc215eb2e62"
+  },
+  "b3_candidates": {
+   "path": "outputs-local/v1a/03_retrieval/selector_candidates/candidates.csv",
+   "sha256": "1544b96bfc27615bec5d3298d3b5ed3395e777ea1aa4a428280be3fb7663104c"
+  },
+  "b3_ranking": {
+   "path": "outputs-local/v1a/03_retrieval/selector_candidates/ranking.csv.gz",
+   "sha256": "54aab1c701d6a980b415a42af496c15c3cf55f8cf95110061e3a05649d61dbe7"
+  },
+  "universe": {
+   "path": "outputs-local/v1a/01_universe/universe/universe.csv",
+   "sha256": "1b492b3d2181ec84a22a0fea4168eb2e2cd3017974eb54f12a6bbaf8a1523378"
+  },
+  "tier1_baseline": {
+   "path": "outputs-local/v1a/04_selection/b3_selector_candidates_2026-11-04a_claude-cli_claude-sonnet-5-5/tables/judgments.csv",
+   "sha256": "dec35ac48af2f9063723e9b2581fdbb94186d1f2436b5bdb23b40a9f67a73081"
+  },
+  "tier1_repeat1": {
+   "path": "outputs-local/v2/04_selection/b3_selector_candidates_2026-11-04a_claude-cli_claude-sonnet-5-5_repeat1/tables/keeps.csv",
+   "sha256": "f4f71a438c24fb741cc25ded24014c3a3eb9cc904eef3fe617319a7c676c1acb"
+  },
+  "tier1_repeat2": {
+   "path": "outputs-local/v2/04_selection/b3_selector_candidates_2026-11-04a_claude-cli_claude-sonnet-5-5_repeat2/tables/keeps.csv",
+   "sha256": "ced186585bf7b4f3b212cdf9fb6f487cbc90fcfb90ea511c84a63b428a8a2452"
+  },
+  "agent_0": {
+   "path": "outputs-local/v1a/05_agent_grading/ranking_45targets_sonnet/ranking/20261113T060740Z/ranking.csv",
+   "sha256": "b3456cb5b1df38ff1ec97e38cc514e945bc4ce15c1e348ac83eed4f11eaf845c"
+  },
+  "agent_1": {
+   "path": "outputs-local/v1a/05_agent_grading/b3_kept_30/agent/verdicts.csv",
+   "sha256": "b68033732f98908546590c5c2aaa84f65484a3456879ce95bca303b24b25f8b7"
+  },
+  "v3_final": {
+   "path": "outputs-local/v2/06_labels/rubric_v3/final/terra_20261128T030942Z/final.csv",
+   "sha256": "31470247eb6925740cd5f470ba753333667486533c2ec5c5c879a7f4e1d076c5"
+  },
+  "recall_audit_pairs": {
+   "path": "outputs-local/v2/09_analysis/recall_audit/20261128T055935Z_EXPERIMENTAL/pairs.csv",
+   "sha256": "1358d278a043e32dad45bed59c1b93cfca6cb19e3c40b54f0dd29faf1d1705c0"
+  }
+ },
+ "outputs": [
+  "by_group.csv",
+  "picks.csv",
+  "summary.csv",
+  "targets.csv"
+ ]
+}

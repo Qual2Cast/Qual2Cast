@@ -32,8 +32,13 @@ _2026-11-28 (latest), rubric v3 tie-break, headline labels `v3_final`, traits re
 - **Profile shape (team, experimental):** every direct peer, filled up to k = 3 with flagged adjacents when short.
 - **EXPERIMENTAL recall audit** (`recall_audit.py`, GPT-Terra on 150 comps below B3's lists for 10 targets): 0 new
   direct peers; 21 new adjacents for the 7 thin targets. Thin profiles look like a small pool, not a retrieval miss.
-- Notebooks: `labels.ipynb` 3.8 (13/13 checks), `analysis.ipynb` 3.5-3.10 (83/83). Tests: v2 pass (see handoff).
-  Next: build the tier-2 fill (adjacents up to k = 3) as an experiment; site facts after PR #45 merges.
+- **EXPERIMENTAL tier-2 fill** (`tier2_fill.py`, `tier2_llm.py`): filling to k = 3 reaches 62-67 of 67 targets, but
+  only 48-60% of the added comps are at least adjacent (no rule clearly best; `llm_tier2` 59% [44-73]); whole-profile
+  direct precision falls from 87% to 61-66%.
+- **Round 4 sheet (final reviewer round)** ready: `outputs-local/v2/06_labels/rubric_v3/round4/round4_sheet.xlsx`,
+  118 pairs (32 unlabelled selector keeps, 56 tier-2 picks, 30 tie-break re-checks), 11-27 wording in the key.
+- Notebooks: `labels.ipynb` 3.8 (13/13 checks), `analysis.ipynb` 3.5-3.12 (83/83). Tests: v2 pass (see handoff).
+  Next: send round 4 to Matthew and Barbara; score it into the labels; decide on tier 2 with those labels; site facts.
   Handoff: `conversations/2026-11-28-rubric-v3-tiebreak-and-traits.md`.
 
 _2026-11-27, rubric v3 labels in: Matthew and Barbara, 323/323 (Michael). `v2/06_labels/README.md`._

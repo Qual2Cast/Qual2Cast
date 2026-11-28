@@ -55,6 +55,15 @@ blind, under the guide with the 11-27 rulings; ~13 s and ~15k input tokens a cal
 - Partial overlaps: of the 62 pairs where Barbara said same product and Matthew did not, the judge says yes on 6
   (the main-business ruling).
 
+**Round 4, the final reviewer round (sheet ready 2026-11-28, Matthew and Barbara):**
+`outputs-local/v2/06_labels/rubric_v3/round4/round4_sheet.xlsx` (upload as one Google Sheet; one tab per reviewer;
+`.csv` beside it). 118 pairs, 48 targets, no anchors; the key above the header carries the 11-27 wording
+(`rubric_v3.KEY_ROWS_1127`: product on the comp's main business; "the same buyers, in the same role"). Contents, by
+`round4_key.csv` (never on the sheet): 32 selector keeps without a label, 56 EXPERIMENTAL tier-2 picks (`llm_tier2`,
+up to k = 5) without a label, 30 GPT-Terra tie-breaks to re-check (seeded; 17 peer-only, 7 both, 6 direct-only
+splits). Built by `scripts/round4_sheet.py` (+ test); scored like the first sheet (`rubric_v3.py check`, `scores`,
+`final` with the judge for any split).
+
 ## Current setting
 
 - Rubric: v3 (`RUBRIC_V3.md`); score 2 = all four yes, 1 = product or customers yes, 0 = neither.
@@ -190,3 +199,4 @@ Commit authors of these files (git): Fiona Shao, EFL-YL, mcschlatt.
 - 2026-11-28: rulings of 11-27 in `RUBRIC_V3.md` (main business; question 2 wording and scope; Boston Omaha anchor;
   per-outcome tie-break). `judge_v3.py` + prompt; GPT-Terra on all 323 pairs; `rubric_v3.py final`; cohort
   `v3_final`; `labels.ipynb` section 3.8 and three checks (13/13).
+- 2026-11-28: round 4 sheet (`round4_sheet.py`); `rubric_v3.KEY_ROWS_1127`, `save_sheet(key_rows=)`, `build_sheet(anchors=)` (the first sheet rebuilds unchanged). Tests: 52 pass.

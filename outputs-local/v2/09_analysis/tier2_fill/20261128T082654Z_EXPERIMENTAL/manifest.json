@@ -1,0 +1,152 @@
+{
+ "label": "EXPERIMENTAL",
+ "created_at": "2026-11-28T08:27:00Z",
+ "status": "EXPERIMENTAL llm_tier2 (Michael approved 2026-11-28); not a pipeline input",
+ "parts": {
+  "llm_tier2": "llm_tier2/manifest.json",
+  "judge": "judge/manifest.json"
+ },
+ "commands": [
+  {
+   "step": "build",
+   "command": "uv run python v2/09_analysis/scripts/tier2_llm.py build",
+   "at": "2026-11-28T08:27:00Z"
+  },
+  {
+   "step": "run",
+   "command": "uv run python v2/09_analysis/scripts/tier2_llm.py run outputs-local/v2/09_analysis/tier2_fill/20261128T082654Z_EXPERIMENTAL --limit 1",
+   "at": "2026-11-28T08:27:29Z",
+   "counts": {
+    "selected": 1,
+    "skipped_done": 0,
+    "ok": 1,
+    "failed": 0,
+    "not_run": 0
+   }
+  },
+  {
+   "step": "run",
+   "command": "uv run python v2/09_analysis/scripts/tier2_llm.py run outputs-local/v2/09_analysis/tier2_fill/20261128T082654Z_EXPERIMENTAL",
+   "at": "2026-11-28T08:35:28Z",
+   "counts": {
+    "selected": 59,
+    "skipped_done": 1,
+    "ok": 58,
+    "failed": 0,
+    "not_run": 0
+   }
+  },
+  {
+   "step": "judge-build",
+   "command": "uv run python v2/09_analysis/scripts/tier2_llm.py judge-build outputs-local/v2/09_analysis/tier2_fill/20261128T082654Z_EXPERIMENTAL",
+   "at": "2026-11-28T08:35:38Z",
+   "counts": {
+    "unlabelled_llm_top5": 73,
+    "unlabelled_other_k3": 19,
+    "selected": 92,
+    "selected_by_source": {
+     "llm_tier2": 73,
+     "agent_then_rank": 19
+    },
+    "cap": 100
+   }
+  },
+  {
+   "step": "judge-run",
+   "command": "uv run python v2/09_analysis/scripts/tier2_llm.py judge-run outputs-local/v2/09_analysis/tier2_fill/20261128T082654Z_EXPERIMENTAL",
+   "at": "2026-11-28T08:56:16Z",
+   "counts": {
+    "selected": 92,
+    "skipped_done": 0,
+    "ok": 92,
+    "failed": 0,
+    "not_run": 0
+   },
+   "calls_before": 0
+  },
+  {
+   "step": "score",
+   "command": "uv run python v2/09_analysis/scripts/tier2_llm.py score outputs-local/v2/09_analysis/tier2_fill/20261128T082654Z_EXPERIMENTAL",
+   "at": "2026-11-28T08:56:43Z"
+  }
+ ],
+ "score": {
+  "at": "2026-11-28T08:56:43Z",
+  "ks": [
+   2,
+   3,
+   4,
+   5
+  ],
+  "tier1": "baseline (progress.built_in('selector'))",
+  "rules": {
+   "b3_rank": "tier2_fill rules, pools b3_list and b3_list_r11_15",
+   "agent": "tier2_fill rules, pools b3_list and b3_list_r11_15",
+   "agent_then_rank": "tier2_fill rules, pools b3_list and b3_list_r11_15",
+   "llm_tier2": "model rank, pool b3_list_r11_15"
+  },
+  "label_views": {
+   "v3_final": "headline (tier2_ge1_prec_*, profile_*_prec_*)",
+   "all_sources": "v3_final + anchors + judge-only (recall audit and judge_pairs.csv) (*_all_sources_*)"
+  },
+  "bootstrap": "targets, 1,000 draws, seed 2026 (progress.bootstrap_means)",
+  "inputs": {
+   "current_toml": {
+    "path": "v2/current.toml",
+    "sha256": "7130155405162ae8d3fca7124648c20c3b726462b53f161436ccabc215eb2e62"
+   },
+   "b3_candidates": {
+    "path": "outputs-local/v1a/03_retrieval/selector_candidates/candidates.csv",
+    "sha256": "1544b96bfc27615bec5d3298d3b5ed3395e777ea1aa4a428280be3fb7663104c"
+   },
+   "b3_ranking": {
+    "path": "outputs-local/v1a/03_retrieval/selector_candidates/ranking.csv.gz",
+    "sha256": "54aab1c701d6a980b415a42af496c15c3cf55f8cf95110061e3a05649d61dbe7"
+   },
+   "universe": {
+    "path": "outputs-local/v1a/01_universe/universe/universe.csv",
+    "sha256": "1b492b3d2181ec84a22a0fea4168eb2e2cd3017974eb54f12a6bbaf8a1523378"
+   },
+   "tier1_baseline": {
+    "path": "outputs-local/v1a/04_selection/b3_selector_candidates_2026-11-04a_claude-cli_claude-sonnet-5-5/tables/judgments.csv",
+    "sha256": "dec35ac48af2f9063723e9b2581fdbb94186d1f2436b5bdb23b40a9f67a73081"
+   },
+   "agent_0": {
+    "path": "outputs-local/v1a/05_agent_grading/ranking_45targets_sonnet/ranking/20261113T060740Z/ranking.csv",
+    "sha256": "b3456cb5b1df38ff1ec97e38cc514e945bc4ce15c1e348ac83eed4f11eaf845c"
+   },
+   "agent_1": {
+    "path": "outputs-local/v1a/05_agent_grading/b3_kept_30/agent/verdicts.csv",
+    "sha256": "b68033732f98908546590c5c2aaa84f65484a3456879ce95bca303b24b25f8b7"
+   },
+   "v3_final": {
+    "path": "outputs-local/v2/06_labels/rubric_v3/final/terra_20261128T030942Z/final.csv",
+    "sha256": "31470247eb6925740cd5f470ba753333667486533c2ec5c5c879a7f4e1d076c5"
+   },
+   "recall_audit_pairs": {
+    "path": "outputs-local/v2/09_analysis/recall_audit/20261128T055935Z_EXPERIMENTAL/pairs.csv",
+    "sha256": "1358d278a043e32dad45bed59c1b93cfca6cb19e3c40b54f0dd29faf1d1705c0"
+   },
+   "extra_judge_0": {
+    "path": "outputs-local/v2/09_analysis/tier2_fill/20261128T082654Z_EXPERIMENTAL/judge_pairs.csv",
+    "sha256": "e357babd05b701780db384ee7779144693fd8d3c1a28e3dea7d84a36c948a743"
+   },
+   "llm_picks": {
+    "path": "outputs-local/v2/09_analysis/tier2_fill/20261128T082654Z_EXPERIMENTAL/llm_tier2/picks.csv",
+    "sha256": "505b2066515fefc6781b3ed2580da1b1d47c57555d8ac29294f919bcc912676d"
+   },
+   "tier2_llm.py": {
+    "path": "v2/09_analysis/scripts/tier2_llm.py",
+    "sha256": "e9d47aad6217809b830ad73c4f792bed995e1c7718209d449d8d1483675aa316"
+   }
+  },
+  "outputs": [
+   "by_group.csv",
+   "llm_shortfall.csv",
+   "picks.csv",
+   "summary.csv",
+   "targets.csv",
+   "zero_keep_k3.csv"
+  ]
+ }
+}

@@ -1,0 +1,70 @@
+{
+ "target_id": "IQ30409",
+ "prompt_version": "tier2-2026-11-28a",
+ "backend": "claude-cli",
+ "model": "claude-sonnet-5-5",
+ "fingerprint": "f7ba1137c4fe7bc1deb430a0e521b3a63c5f3573dc55480411ba7de06ff9c4b0",
+ "prompt_sha256": "7b6e57e777e14b987512b80a65f4f7d636d5d0b9e18ac1c475e836efbaa34c1e",
+ "labels": {
+  "C1": "IQ266112",
+  "C2": "IQ271329",
+  "C3": "IQ274466",
+  "C4": "IQ277383",
+  "C5": "IQ280322",
+  "C6": "IQ278576",
+  "C7": "IQ130863",
+  "C8": "IQ297711",
+  "C9": "IQ1877854736",
+  "C10": "IQ3181355"
+ },
+ "run_dir": "outputs-local/v2/09_analysis/tier2_fill/20261128T082654Z_EXPERIMENTAL/llm_tier2/runs/IQ30409/20261128T083232Z",
+ "finished_at": "2026-11-28T08:32:38Z",
+ "status": "ok",
+ "seconds": 5.72,
+ "usage": {
+  "input_tokens": 6,
+  "cache_creation_input_tokens": 7023,
+  "cache_read_input_tokens": 8979,
+  "output_tokens": 478,
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 7023,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 267,
+    "cache_read_input_tokens": 7886,
+    "cache_creation_input_tokens": 230,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 230
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard"
+ },
+ "picks": [
+  {
+   "label": "C7",
+   "comp_id": "IQ130863",
+   "llm_rank": 1,
+   "llm_reason": "Sells rail products to the same railroads and freight rail buyers, though track components rather than railcars."
+  },
+  {
+   "label": "C5",
+   "comp_id": "IQ280322",
+   "llm_rank": 2,
+   "llm_reason": "Supplies brake and shock-absorbing components to rail OEMs, which are buyers of railcar parts and components."
+  }
+ ],
+ "issues": [],
+ "note": "Only two candidates are adjacent; the rest are trucking carriers or unrelated equipment makers without shared railcar buyers or products."
+}

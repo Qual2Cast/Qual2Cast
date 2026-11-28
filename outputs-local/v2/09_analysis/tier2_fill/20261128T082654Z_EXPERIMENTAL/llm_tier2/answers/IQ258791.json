@@ -1,0 +1,89 @@
+{
+ "target_id": "IQ258791",
+ "prompt_version": "tier2-2026-11-28a",
+ "backend": "claude-cli",
+ "model": "claude-sonnet-5-5",
+ "fingerprint": "5ad62a9a651474f3bbc4d9e0ce455e87b4f6e41a9446524e06ceaf8b2cf53a81",
+ "prompt_sha256": "a10935322aa9d6940310067293fc0dfc55d37223a9721060470b69a4d77aa64c",
+ "labels": {
+  "C1": "IQ22512843",
+  "C2": "IQ100935",
+  "C3": "IQ278895334",
+  "C4": "IQ109103",
+  "C5": "IQ269960",
+  "C6": "IQ377023",
+  "C7": "IQ288097",
+  "C8": "IQ294639",
+  "C9": "IQ334277",
+  "C10": "IQ274818",
+  "C11": "IQ46888354"
+ },
+ "run_dir": "outputs-local/v2/09_analysis/tier2_fill/20261128T082654Z_EXPERIMENTAL/llm_tier2/runs/IQ258791/20261128T083018Z",
+ "finished_at": "2026-11-28T08:30:26Z",
+ "status": "ok",
+ "seconds": 8.22,
+ "usage": {
+  "input_tokens": 6,
+  "cache_creation_input_tokens": 8465,
+  "cache_read_input_tokens": 10279,
+  "output_tokens": 800,
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 8465,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 445,
+    "cache_read_input_tokens": 9182,
+    "cache_creation_input_tokens": 380,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 380
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard"
+ },
+ "picks": [
+  {
+   "label": "C3",
+   "comp_id": "IQ278895334",
+   "llm_rank": 1,
+   "llm_reason": "Sells building products (rooftop supports, sealants, fire-stopping) through distributors to the same contractors and building owners."
+  },
+  {
+   "label": "C9",
+   "comp_id": "IQ334277",
+   "llm_rank": 2,
+   "llm_reason": "Building envelope and structural products sold through the same building materials distributors to contractors, architects and engineers."
+  },
+  {
+   "label": "C8",
+   "comp_id": "IQ294639",
+   "llm_rank": 3,
+   "llm_reason": "Coatings and sealants; a roofing coatings buyer can order protective and architectural coatings from PPG instead."
+  },
+  {
+   "label": "C10",
+   "comp_id": "IQ274818",
+   "llm_rank": 4,
+   "llm_reason": "HVAC and building products sold to commercial building owners and contractors, the same buyers as roofing systems."
+  },
+  {
+   "label": "C7",
+   "comp_id": "IQ288097",
+   "llm_rank": 5,
+   "llm_reason": "Pre-insulated piping and insulation products sold to contractors and project owners, close to insulation and coatings buyers."
+  }
+ ],
+ "issues": [],
+ "note": "Matches are loose: most candidates share contractor or distributor buyers in building products, and none is a direct roofing peer."
+}
