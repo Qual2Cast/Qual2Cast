@@ -17,6 +17,10 @@ Revenue model and chain step can only demote a direct peer to adjacent.
   uv run python v2/06_labels/scripts/rubric_v3.py check <filled sheet>.csv
   uv run python v2/06_labels/scripts/rubric_v3.py scores <filled sheet>.csv <out dir>
   uv run python v2/06_labels/scripts/rubric_v3.py consensus <filled sheet>.csv <out>.csv [--tiebreak terra]
+  uv run python v2/06_labels/scripts/rubric_v3.py final <filled sheet with judge>.csv <out dir> --judge terra
+
+`final` is the headline (team ruling 2026-11-27): agreement per outcome (direct, peer, overall call), the judge's
+outcome breaks a split (2 of 3). `consensus` (agreement per question) stays as a diagnostic.
 
 Reviewer names are read from the sheet's columns (same_product_<reviewer>).
 """
@@ -310,6 +314,71 @@ def consensus(scored: pd.DataFrame, reviewers: Sequence[str] | None = None, tieb
     out["tie_broken"] = tie_broken
     out["single_reviewer"] = out["n_reviewers"].eq(1)
     return out
+
+
+OUTCOMES = ("direct", "peer", OVERALL)
+
+
+def _outcomes(scored: pd.DataFrame, r: str) -> dict[str, pd.Series]:
+    """A reviewer's three outcomes as True/False, NaN where not answered: direct (score 2), peer (score >= 1) and
+    the overall call."""
+    s = scored[f"score_{r}"]
+    call = scored[f"{OVERALL}_{r}"] if f"{OVERALL}_{r}" in scored else pd.Series(None, index=scored.index)
+    return {"direct": s.eq(2).where(s.notna()), "peer": s.ge(1).where(s.notna()),
+            OVERALL: call.map(lambda v: np.nan if v is None or (isinstance(v, float) and np.isnan(v)) else bool(v))}
+
+
+def final_labels(scored: pd.DataFrame, humans: Sequence[str], judge: str | None) -> pd.DataFrame:
+    """The headline labels (team ruling 2026-11-27, RUBRIC_V3.md): agreement is per outcome, not per question.
+    For direct, peer and the overall call: where every human who answered gives the same outcome (at least two
+    answered), it stands ("agreed"), even if they differ on a question; where they split, the judge's outcome is
+    the third vote ("tiebreak:<judge>"; with two humans this is 2 of 3); with no judge answer it stays open
+    ("disputed"). score = 2 if direct, 1 if peer but not direct, 0 if not peer (NaN while either is open)."""
+    out = scored[["pair", *KEY, "is_anchor"]].copy()
+    hum = [_outcomes(scored, h) for h in humans]
+    jud = _outcomes(scored, judge) if judge else None
+    for o in OUTCOMES:
+        h = pd.DataFrame({i: x[o] for i, x in enumerate(hum)})
+        n = h.notna().sum(axis=1)
+        same = h.nunique(axis=1).eq(1)
+        value = pd.Series(np.nan, index=scored.index, dtype=object)
+        source = pd.Series("", index=scored.index, dtype=object)
+        agreed = same & n.ge(2)
+        value[agreed] = h[agreed].bfill(axis=1).iloc[:, 0].astype(bool)
+        source[agreed] = "agreed"
+        source[same & n.eq(1)] = "single"
+        value[same & n.eq(1)] = h[same & n.eq(1)].bfill(axis=1).iloc[:, 0].astype(bool)
+        split = h.nunique(axis=1).gt(1)
+        if jud is not None:
+            has = split & jud[o].notna()
+            value[has] = jud[o][has].astype(bool)
+            source[has] = f"tiebreak:{judge}"
+            split = split & ~has
+        source[split] = "disputed"
+        out[o], out[f"{o}_source"] = value, source
+        out[f"tie_broken_{o}"] = source.str.startswith("tiebreak:")
+    known = out["direct"].notna() & out["peer"].notna()
+    out["score"] = np.nan
+    out.loc[known, "score"] = [2.0 if out.at[i, "direct"] else (1.0 if out.at[i, "peer"] else 0.0)
+                               for i in out.index[known]]
+    return out
+
+
+def judge_vs_agreed(scored: pd.DataFrame, final: pd.DataFrame, judge: str,
+                    include_anchors: bool = False) -> pd.DataFrame:
+    """How often the judge matches the humans where they agree (source "agreed"): per outcome, pairs, agreement
+    and kappa. Reported next to the tie-breaks; not a gate."""
+    keep = final["is_anchor"].astype(bool).eq(False) | include_anchors
+    jud = _outcomes(scored, judge)
+    rows = []
+    for o in OUTCOMES:
+        m = keep & final[f"{o}_source"].eq("agreed") & jud[o].notna()
+        x, y = final.loc[m, o].astype(bool), jud[o][m].astype(bool)
+        rows.append({"outcome": o, "agreed_pairs": int(m.sum()),
+                     "agreement": float((x == y).mean()) if m.any() else np.nan, "kappa": _kappa(x, y),
+                     "tie_broken": int((final.loc[keep, f"tie_broken_{o}"]).sum()),
+                     "still_open": int(final.loc[keep, f"{o}_source"].eq("disputed").sum())})
+    return pd.DataFrame(rows)
 
 
 # ---------------------------------------------------------------- the blind sheet
@@ -617,6 +686,10 @@ def main(argv: list[str] | None = None) -> None:
     c.add_argument("--tiebreak", help="reviewer name of the tie-break column set (e.g. terra or riya)")
     c.add_argument("--earned-only", action="store_true",
                    help="use the tie-break only on questions where it has earned it (earned_questions)")
+    f = sub.add_parser("final", help="headline labels: per-outcome agreement, judge breaks split outcomes")
+    f.add_argument("sheet", type=Path)
+    f.add_argument("out", type=Path, help="out dir: final.csv, judge_vs_agreed.csv")
+    f.add_argument("--judge", help="reviewer name of the judge's column set (e.g. terra)")
     args = ap.parse_args(argv)
 
     if args.cmd == "build-sheet":
@@ -642,6 +715,20 @@ def main(argv: list[str] | None = None) -> None:
         bvd.to_csv(args.out / "overall_vs_derived.csv", index=False)
         print(agree.to_string(index=False))
         print(bvd.to_string(index=False))
+        return
+    if args.cmd == "final":
+        humans = [r for r in reviewers_in(sheet) if r != args.judge]
+        fin = final_labels(scored, humans, args.judge)
+        args.out.mkdir(parents=True, exist_ok=True)
+        fin.to_csv(args.out / "final.csv", index=False, encoding="utf-8-sig")
+        scored_rows = fin[~fin["is_anchor"].astype(bool)]
+        for o in OUTCOMES:
+            print(o, scored_rows[f"{o}_source"].value_counts().to_dict())
+        print("score", scored_rows["score"].value_counts(dropna=False).to_dict())
+        if args.judge:
+            jva = judge_vs_agreed(scored, fin, args.judge)
+            jva.to_csv(args.out / "judge_vs_agreed.csv", index=False)
+            print(jva.to_string(index=False))
         return
     humans = [r for r in reviewers_in(sheet) if r != args.tiebreak]
     items = None
